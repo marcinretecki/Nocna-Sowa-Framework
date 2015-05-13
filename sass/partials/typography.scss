@@ -1,0 +1,178 @@
+//
+// Typography
+//
+
+@font-face {
+font-family:'bariol_lightlight';
+src:url('f/bariol_light-webfont.eot');
+src:url('f/bariol_light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('f/bariol_light-webfont.woff') format('woff'),
+    url('f/bariol_light-webfont.ttf') format('truetype'),
+    url('f/bariol_light-webfont.svg#bariol_lightlight') format('svg');
+font-weight:200;
+font-style:normal;
+}
+
+
+
+small{font-weight:400;font-size:1rem;font-variant:small-caps}
+.small{font-size:$size-0}
+b,strong{font-weight:700}
+abbr{border:none;text-decoration:none;font-variant:small-caps;text-transform:uppercase/*???*/}
+q,i,em{font-style:italic}
+cite{}
+.note{display:block;margin-bottom:$space;font-size:$size-mini;font-style:italic}
+.normal{font-style:normal}
+
+
+
+
+ul{margin:0 0 $space-2 $space;padding:0;font-size:$size-1;line-height:1.5;list-style-position:outside}
+ol{margin:0 0 $space-2;padding:0;font-size:$size-1;line-height:1.5;list-style-position:outside}
+ol > li {
+  @media #{$m770} {
+    margin-left:2.5rem
+  }
+}
+li{margin:0 0 $space-half;padding:0}
+ul > li{position:relative;margin-left:(-$space);padding:0 0 0 $space;list-style:none;
+  @media #{$m770} {
+    margin-left:1.25rem
+  }
+}
+ul > li:before{content:"";position:absolute;left:0;top:0.6em;width:$space-half / 2;height:$space-half / 2;border-radius:1px;background:$dark;}
+.light-dots > li:before{background:$white;}
+ol ol{margin-left:$space;}
+.nodots li:before{display:none}
+.no-margin+ul li{margin-bottom:0}
+
+
+
+dt{font-weight:700}
+dd{margin:0 0 $space}
+
+p,dl{margin:0 0 $space;padding:0;font-size:$size-1;line-height:$line-1}
+.post dd{margin:0 0 $space-half $space}
+
+
+.intro{font-size:$size-2;line-height:1.333;}
+.capital:first-letter{display:block;float:left;margin-top:0.35rem;margin-right:0.5rem;font-size:4.5rem;line-height:0.8}
+.plan{margin:0 0 $space-half;font-weight:700}
+.plan+ul{margin-bottom:$space-2}
+.no-margin{margin-bottom:0}
+
+.double-margin{margin-bottom:$space-2} // TO DELETE - check where used
+.p-short{line-height:1.333}
+.p-quote{text-indent:-0.55rem}
+
+
+
+// DO POPRAWY
+.note a{color:$white;text-decoration:underline}
+
+.book{margin:0 0 $space}
+.book p{margin:0;text-indent:$space}
+.book .capital{text-indent:0;margin-top:$space}
+
+.centered{text-align:center}
+.rightened{text-align:right}
+
+.err{color:$red;}
+
+
+figure{margin:0 auto $space-2}
+
+
+
+//.quote{position:relative;border-left:$space-half solid $dark-btn;margin:$space-4 auto}
+
+.figure-quote{position:relative;margin-top:$space-4;margin-bottom:$space-4;border-left:3px solid $green;}
+.category-ucze-sie .figure-quote{border-left-color:$orange;}
+.category-rozwijam .figure-quote{border-left-color:$red;}
+.category-metody .figure-quote{border-left-color:$dark-btn;}
+.figure-quote blockquote{margin-left:-3px}
+
+// Tu chyba nie powinno być small caps – przetestuj na stronie
+.figure-quote figcaption{margin:$space-half 0 0 -3px;font-size:$size-0;font-variant:small-caps;font-weight:400}
+
+
+.figure-quote .share{position:absolute;top:100%;right:0}
+.figure-quote figcaption + .share{top:auto;bottom:0}
+
+.figure-quote p:before{content:no-open-quote}
+.figure-quote p:after{content:no-close-quote}
+
+h2 + .figure-quote,h3 + .figure-quote,.figure-quote:first-child{margin-top:$space-2}
+
+blockquote{position:relative;z-index:2;margin:0;background:transparent;font-size:$size-0}
+blockquote p,blockquote ul,blockquote ol{font-style:italic;font-size:$size-2;line-height:1.333}
+blockquote p:last-child,blockquote p:last-of-type,blockquote ul:last-child{margin-bottom:0}
+
+.long{}
+.long p,.long ul,.long ol{font-size:$size-1}
+
+
+.bigquote,.quote-big{margin-top:$space-2}
+.bigquote p,.quote-big p{font-size:$size-3;line-height:1.25}
+
+.quote-white{text-shadow:1px 1px 5px rgba(0,0,0,0.25)}
+.quote-white:before{color:$white}
+
+
+
+hr{position:relative;height:0;margin:$space-2 0;padding:0;border:1px solid $gray;border-width:0 0 1px}
+.section-green hr{border-color:$green-light}
+.section-orange hr{border-color:$orange-light}
+.section-red hr{border-color:$red-light}
+.section-dark hr{border-color:$dark-light}
+
+.hr-short{width:$space-8;margin:$space-4 auto;border:1px solid $gray;border-width:1px 0 0}
+.hr-short:last-child{margin-bottom:0}
+.hr-shorter{margin:$space-2 auto}
+
+.divider{display:block;width:$space-4;height:1rem;border:0;margin:$space-4 auto;
+text-align:center;
+background:linear-gradient(left,$green 0%,$green 20%,transparent 20%,transparent 40%,$orange 40%,$orange 60%,transparent 60%,transparent 80%,$red 80%,$red);
+background-repeat:no-repeat;
+background-position:center center;
+background-size:cover;
+}
+.divider+h2{margin-top:0}
+
+
+
+
+/* headers */
+h1,h2,h3,h4,h5,h6{padding:0;text-decoration:none;}
+h1,.h1,.index-h,.section-h-thin,.section-h-thin.btn{margin:0 0 $space;font:normal normal 200 #{$size-5}/1.1 $bariol}
+.section-h-thin{margin:0 0 $space-half;}
+.index-h,.section-h-thin{
+  @media #{$m770} {
+    font-size:$size-4;
+  }
+}
+.entry-title{font-size:$size-6;margin-bottom:$space-4;
+  @media #{$m770} {
+    font-size:$size-5;
+  }
+}
+h2,.h2,.recommends-h,h3,.h3{margin:$space-4 0 $space;font:normal normal 400 #{$size-4}/1.15 $body-font;}
+h2,.h2{
+  @media #{$m400} {
+    font-size:$size-3;
+  }
+}
+h3,.h3{font-size:$size-2;font-weight:700}
+h4,.h4{margin:0 0 $space-half;font:normal normal 700 #{$size-0}/1.15 $helvetica;}
+h5,.h5{margin:0 0 $space;font:normal normal 700 #{$size-1}/1.15 $body-font;}
+.h2{margin:0}
+
+h2 + h3{margin-top:$space-2}
+
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a,h1 a:visited,h2 a:visited,h3 a:visited,h4 a:visited,h5 a:visited,h6 a:visited{text-decoration:none;color:#000;}
+
+h2:first-child,h3:first-child,.h2:first-child,.h3:first-child,.recommends-h{margin-top:0;}
+.index-h a:hover,.index-h a:focus{text-decoration:underline}
+.index-h-white a,.index-h-white a:visited,.index-h-white a:hover{color:$white}
+
+.section-h{margin:0;font:normal normal 700 #{$size-5}/1.15 $helvetica;}

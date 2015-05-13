@@ -1,0 +1,52 @@
+//
+// Scaffolding
+//
+
+*,*:before,*:after{box-sizing:border-box;}
+
+
+// Body
+html{background:$white url('') center center no-repeat scroll;
+-webkit-tap-highlight-color:rgba(0,0,0,0);
+-webkit-text-size-adjust:100%;
+-ms-text-size-adjust:100%;
+font:normal normal normal 1em/1.25 $body-font;color:$font-dark;
+}
+
+html,body{height:100%;width:auto;margin:0;padding:0}
+
+body{
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/headers/hIEfix.png,sizingMethod=crop) /* IE fonts fix */;
+zoom:1;
+// Kerning options of the future
+text-rendering:optimizelegibility;
+font-feature-settings:"kern";
+-webkit-font-feature-settings:"kern";
+-moz-font-feature-settings:"kern";
+-moz-font-feature-settings:"kern=1";
+font-feature-settings:"kern" 1;
+font-kerning:normal;
+-webkit-font-smoothing:subpixel-antialiased;
+}
+
+
+// Links
+a,a:before{color:$blue;background:transparent}
+a,a:before,a:after,.ex i,.ex img,input,div,.btn,.nav,.dropdown-nav,button,a span{ transition:all 0.4s ease; }
+a:link{}
+a:visited{color:$blue-border}
+a:hover,a:focus{color:$dark;}
+a:active{color:#000;outline:0;}
+.no-underline{text-decoration:none}
+
+
+
+// Block elements
+object{margin:0.75rem 0 0;padding:0}
+iframe,object{max-width:100%}
+.video-container{position:relative;padding-bottom:56.25%;padding-top:30px;height:0;margin-bottom:$space;overflow:hidden;}
+.video-container iframe,.video-container object,.video-container embed{position:absolute;top:0;left:0;width:100%;height:100%;}
+
+.video-21-9{padding:0 0 42.85%}
+
+
