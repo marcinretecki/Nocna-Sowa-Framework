@@ -14,7 +14,7 @@ nav a:hover,nav a:active,nav a:focus{}
 .nav-tabs{border-top:1px solid $dark-border;}
 .nav-tabs-list{margin-top:-1px;text-align:left;}
 .nav-tabs-list li{display:inline-block;margin-right:$space;}
-.nav-tabs-list li a{padding:$space-half 0;color:$gray-on-dark;font-family:$bariol}
+.nav-tabs-list li a{padding:$space-half 0;color:$gray-on-dark;font-family:$bariol-reg}
 .nav-tabs-list li a:hover{color:$white}
 .nav-tabs-list .active{border:1px solid $blue;border-width:1px 0 0;}
 .nav-tabs-list .active a{color:$white}
@@ -27,25 +27,33 @@ nav a:hover,nav a:active,nav a:focus{}
 .posts-nav{padding:$space-2 0;}
 .prev,.next{}
 
-.btn,.posts-nav a,input.btn{position:relative;display:inline;display:inline-block;padding:0.25rem $space;margin-right:$space-half;border:1px solid transparent;border-radius:3px;
-background-color:$green;
-font:normal normal 400 #{$size-0}/1.1875 $body-font;color:$white;text-shadow:0 1px rgba(0, 0, 0, 0.1);text-decoration:none;text-transform:none;text-align:center;white-space:nowrap;}
+.btn,.posts-nav a,input.btn{position:relative;display:inline;display:inline-block;padding:0.25rem $space;border:1px solid transparent;border-radius:3px;background-color:$green;font:normal normal 400 #{$size-0}/1.1875 $body-font;color:$white;text-shadow:0 1px rgba(0, 0, 0, 0.1);text-decoration:none;text-transform:none;text-align:center;white-space:nowrap;}
 .btn:link,.btn:visited{color:$white}
 
-.btn:hover,.btn:focus{background-color:$green-hover;color:$white !important;text-decoration:none;outline:none}
+.btn:hover,.btn:focus{background-color:$green-hover;color:$white;text-decoration:none;outline:none}
 .btn:focus{border-color:$green-border;}
 
-.btn:link:active{position:relative;transform:translate(1px,1px);}
+.btn:link:active{//transform:translate(0,1px);
+  background:$dark;
+}
 
 p .btn,.posts-nav a{vertical-align:top;margin-right:0.05rem}
-.centered > .btn{margin-right:0}
+.centered > .btn{margin-right:0;
+  @media #{$m400}{
+    display:block;
+  }
+}
+
+// NEw code
+//.btn ~ .btn,.btn ~ .btn-secondary,.btn-secondary ~ .btn{margin-top:$space;}
+
 
 .btn-c,.btn-c:link,.posts-nav a,.btn-footer{width:auto;vertical-align:middle}
 .posts-nav a,.btn-footer{padding:0.25rem 0.75rem;}
 .btn-c,.btn-c:link,.posts-nav a{background-color:$beige;color:$font-semi-dark !important;background-image:none;}
 .btn-c:hover,.btn-c:focus,.posts-nav a:hover,.posts-nav a:focus{background-color:$beige-hover;background-image:none;color:$font-dark !important;}
 .btn-c:focus,.posts-nav a:focus{border-color:$beige-border;}
-.btn-footer{margin-top:-3px}
+.btn-footer{margin-top:-3px;margin-right:$space-half;}
 
 .btn-2{background-color:$orange}
 .btn-2:hover,.btn-2:focus{background-color:$orange-hover}
@@ -66,17 +74,23 @@ p .btn,.posts-nav a{vertical-align:top;margin-right:0.05rem}
 .btn-blue:hover,.btn-blue:focus,input.btn-blue:hover,input.btn-blue:focus{background-color:$blue-hover}
 .btn-blue:focus,input.btn-blue:focus{border-color:$blue-border;}
 
-.btn-second{margin-left:$space;
-  @media #{$m770}{
+.btn-fb{background-color:#3b5998;}
+.btn-fb:hover,.btn-fb:focus{background-color:#3b5998;border-color:$dark;}
+
+.btn-white{background-color:$white;border-color:transparent;color:$font-dark;}
+.btn-white:hover,.btn-white:focus{background-color:$white;border-color:$dark;color:$font-dark;}
+
+
+.btn-secondary{display:inline;
+  @media #{$m400}{
     margin-left:0;margin-top:$space;
   }
 }
-.btn-secondary{display:inline-block;margin-left:$space;margin-bottom:$space-half}
-.btn-secondary-left{display:inline-block;margin-right:$space;margin-bottom:$space-half}
+.btn-secondary-left{display:inline-block;margin-right:$space;margin-bottom:$space-half;}
 // Rephrase to use modifiers
 .btn-secondary-alone{display:inline-block;margin-bottom:$space-half}
 
-
+.posts-nav a{padding:$space-half $space-2;}
 .btn-s-2,.btn-huge,input.btn-huge{padding:$space-half $space-2;font-size:$size-1;white-space:normal}
 .btn-s-4{padding:$space-half $space-4;font-size:$size-1;white-space:normal}
 
@@ -95,10 +109,16 @@ p .btn,.posts-nav a{vertical-align:top;margin-right:0.05rem}
 
 
 .check{width:auto;margin-bottom:$space-half;margin-top:$space}
-
+.check + .check{margin-left:$space-half;padding-left:$space;padding-right:$space;}
 
 /* Icons */
-.icon{position:relative;width:20px;height:20px;background:url('i/icons.png') no-repeat 0 0;}
+.icon{position:relative;width:20px;height:20px;background:url('i/icons.png') no-repeat 0 0;
+  @media #{$m400}{
+    //background-size:75%;
+    // TU CHCEMY ZROBIĆ RESPONSIVE
+  }
+
+}
 .i-film{}
 .i-ark{background-position:-20px 0}
 .i-ex{background-position:-40px 0}
@@ -112,6 +132,7 @@ p .btn,.posts-nav a{vertical-align:top;margin-right:0.05rem}
 .btn-c .icon{background-color:$beige}
 .btn-c:hover .icon{background-color:$beige-hover}
 
+.i-fb{padding-left:30px;background:url('i/icon_fb.png') no-repeat 0 center;}
 
 
 
@@ -120,17 +141,11 @@ a.m{margin:0 0 $space}
 .top{color:$font-light;padding-left:$space-half;float:right;}
 .top:hover,.top:focus{color:#000;}
 
-a[href$=".pdf"]:before{display:block;position:absolute;top:$space-half;left:$space-half;width:17px;height:21px;background:url('/c/i/file.png') no-repeat;content:'';
+.btn-file:before{display:block;position:absolute;top:$space-half;left:$space-half;width:17px;height:22px;background:url('/c/i/file.png') no-repeat scroll 0 1px;content:'';
 transition:transform 0.5s, -moz-transform 0.5s, -webkit-transform 0.5s, -o-transform 0.5s;
 -webkit-transition:-webkit-transform 0.5s;
 -moz-transition:      -moz-transform 0.5s;
 -o-transition:          -o-transform 0.5s;
 }
-a[href$=".pdf"]{position:relative;border:1px solid $beige;border-radius:10px;padding:$space-half $space $space-half 2.25rem;}
-a[href$=".pdf"]:hover{padding-left:$space-2;}
-a[href$=".pdf"]:hover:before{
-transform:rotateY(180deg);
-}
-
-aside a[href$=".pdf"]:before{display:none;}
-aside a[href$=".pdf"],aside a[href$=".pdf"]:hover{border:0;padding:0;}
+.btn-file{position:relative;border:1px solid $beige;border-radius:10px;padding:$space-half $space $space-half 2.25rem;}
+.btn-file:hover{border-color:$beige-border;}

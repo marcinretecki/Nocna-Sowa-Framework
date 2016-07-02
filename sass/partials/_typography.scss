@@ -3,32 +3,45 @@
 //
 
 @font-face {
-font-family:'bariol_lightlight';
-src:url('f/bariol_light-webfont.eot');
-src:url('f/bariol_light-webfont.eot?#iefix') format('embedded-opentype'),
-    url('f/bariol_light-webfont.woff') format('woff'),
-    url('f/bariol_light-webfont.ttf') format('truetype'),
-    url('f/bariol_light-webfont.svg#bariol_lightlight') format('svg');
-font-weight:200;
-font-style:normal;
+  font-family: 'bariol_lightlight';
+  src: url('http://nocnasowa.pl/c/f/bariol_light-webfont.eot');
+  src: url('http://nocnasowa.pl/c/f/bariol_light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('http://nocnasowa.pl/c/f/bariol_light-webfont.woff2') format('woff2'),
+       url('http://nocnasowa.pl/c/f/bariol_light-webfont.woff') format('woff'),
+       url('http://nocnasowa.pl/c/f/bariol_light-webfont.ttf') format('truetype'),
+       url('http://nocnasowa.pl/c/f/bariol_light-webfont.svg#bariol_lightlight') format('svg');
+  font-weight:200;
+  font-style:normal;
+}
+
+@font-face {
+  font-family: 'bariol_regularregular';
+  src: url('http://nocnasowa.pl/c/f/bariol_regula-webfont.eot');
+  src: url('http://nocnasowa.pl/c/f/bariol_regula-webfont.eot?#iefix') format('embedded-opentype'),
+       url('http://nocnasowa.pl/c/f/bariol_regula-webfont.woff2') format('woff2'),
+       url('http://nocnasowa.pl/c/f/bariol_regula-webfont.woff') format('woff'),
+       url('http://nocnasowa.pl/c/f/bariol_regula-webfont.ttf') format('truetype'),
+       url('http://nocnasowa.pl/c/f/bariol_regula-webfont.svg#bariol_regularregular') format('svg');
+  font-weight: 400;
+  font-style: normal;
 }
 
 
 
-small{font-weight:400;font-size:1rem;font-variant:small-caps}
-.small{font-size:$size-0}
+small{font-weight:400;font-size:$size-0;font-variant:small-caps}
+.small{font-size:$size-0;}
 b,strong{font-weight:700}
 abbr{border:none;text-decoration:none;font-variant:small-caps;text-transform:uppercase/*???*/}
 q,i,em{font-style:italic}
 cite{}
 .note{display:block;margin-bottom:$space;font-size:$size-mini;font-style:italic}
-.normal{font-style:normal}
+.normal{font-style:normal;font-variant:normal;}
 
 
+ul,ol,p,dl{padding:0;font-size:$size-1;line-height:$line-1;}
 
-
-ul{margin:0 0 $space-2 $space;padding:0;font-size:$size-1;line-height:1.5;list-style-position:outside}
-ol{margin:0 0 $space-2;padding:0;font-size:$size-1;line-height:1.5;list-style-position:outside}
+ul{margin:0 0 $space-2 $space;list-style-position:outside}
+ol{margin:0 0 $space-2;list-style-position:outside}
 ol > li {
   @media #{$m770} {
     margin-left:2.5rem
@@ -40,18 +53,15 @@ ul > li{position:relative;margin-left:(-$space);padding:0 0 0 $space;list-style:
     margin-left:1.25rem
   }
 }
-ul > li:before{content:"";position:absolute;left:0;top:0.6em;width:$space-half / 2;height:$space-half / 2;border-radius:1px;background:$dark;}
+ul > li:before{content:"";position:absolute;left:0;top:0.6875em;width:$space-half / 2;height:$space-half / 2;border-radius:1px;background:$dark;}
 .light-dots > li:before{background:$white;}
-ol ol{margin-left:$space;}
+ol ol{margin-left:$space;margin-bottom:$space;list-style:lower-alpha;}
 .nodots li:before{display:none}
 .no-margin+ul li{margin-bottom:0}
 
-
-
 dt{font-weight:700}
-dd{margin:0 0 $space}
 
-p,dl{margin:0 0 $space;padding:0;font-size:$size-1;line-height:$line-1}
+p,dl,dd{margin:0 0 $space;}
 .post dd{margin:0 0 $space-half $space}
 
 
@@ -61,10 +71,19 @@ p,dl{margin:0 0 $space;padding:0;font-size:$size-1;line-height:$line-1}
 .plan+ul{margin-bottom:$space-2}
 .no-margin{margin-bottom:0}
 
-.double-margin{margin-bottom:$space-2} // TO DELETE - check where used
 .p-short{line-height:1.333}
 .p-quote{text-indent:-0.55rem}
 
+
+
+
+// 201604
+// New example format
+.post .dl-eg{padding-left:$space-2;}
+.dl-eg dt{font-weight:400;font-style:italic;}
+.dl-eg dd{margin:0 0 0 1.25rem;font-size:$size-0;line-height:$line-0;color:$dark-gray;}
+.dl-eg dd + dt{margin-top:$space-half;}
+.tr{color:$dark-gray;}
 
 
 // DO POPRAWY
@@ -76,6 +95,7 @@ p,dl{margin:0 0 $space;padding:0;font-size:$size-1;line-height:$line-1}
 
 .centered{text-align:center}
 .rightened{text-align:right}
+.leftened{text-align:left !important}
 
 .err{color:$red;}
 
@@ -132,7 +152,7 @@ hr{position:relative;height:0;margin:$space-2 0;padding:0;border:1px solid $gray
 
 .divider{display:block;width:$space-4;height:1rem;border:0;margin:$space-4 auto;
 text-align:center;
-background:linear-gradient(left,$green 0%,$green 20%,transparent 20%,transparent 40%,$orange 40%,$orange 60%,transparent 60%,transparent 80%,$red 80%,$red);
+background-image:linear-gradient(to right,$green 0%,$green 20%,transparent 20%,transparent 40%,$orange 40%,$orange 60%,transparent 60%,transparent 80%,$red 80%,$red);
 background-repeat:no-repeat;
 background-position:center center;
 background-size:cover;
@@ -140,11 +160,11 @@ background-size:cover;
 .divider+h2{margin-top:0}
 
 
-
+// Trzeba przeliczyć jeszcze raz naszą skalę
 
 /* headers */
-h1,h2,h3,h4,h5,h6{padding:0;text-decoration:none;}
-h1,.h1,.index-h,.section-h-thin,.section-h-thin.btn{margin:0 0 $space;font:normal normal 200 #{$size-5}/1.1 $bariol}
+h1,h2,h3,h4{padding:0;text-decoration:none;}
+h1,.h1,.index-h,.section-h-thin,.section-h-thin.btn{margin:0 0 $space;font-weight:200;font-variant:normal;font-style:normal;font-size:$size-5;line-height:1.1;font-family:$bariol;}
 .section-h-thin{margin:0 0 $space-half;}
 .index-h,.section-h-thin{
   @media #{$m770} {
@@ -156,23 +176,28 @@ h1,.h1,.index-h,.section-h-thin,.section-h-thin.btn{margin:0 0 $space;font:norma
     font-size:$size-5;
   }
 }
-h2,.h2,.recommends-h,h3,.h3{margin:$space-4 0 $space;font:normal normal 400 #{$size-4}/1.15 $body-font;}
+h2,.h2,h3,.h3,.recommends-h{margin:$space-4 0 $space;font-weight:400;font-variant:normal;font-style:normal;font-size:$size-4;line-height:1.15;font-family:$body-font;}
 h2,.h2{
   @media #{$m400} {
     font-size:$size-3;
   }
 }
 h3,.h3{font-size:$size-2;font-weight:700}
-h4,.h4{margin:0 0 $space-half;font:normal normal 700 #{$size-0}/1.15 $helvetica;}
-h5,.h5{margin:0 0 $space;font:normal normal 700 #{$size-1}/1.15 $body-font;}
-.h2{margin:0}
+h4,.h4{margin:0 0 $space-half;font-weight:700;font-variant:normal;font-style:normal;font-size:$size-0;line-height:1.15;font-family:$body-font;}
+.h2{margin:0} // ???????????
 
 h2 + h3{margin-top:$space-2}
 
-h1 a,h2 a,h3 a,h4 a,h5 a,h6 a,h1 a:visited,h2 a:visited,h3 a:visited,h4 a:visited,h5 a:visited,h6 a:visited{text-decoration:none;color:#000;}
+h1 a,h2 a,h3 a,h4 a,h1 a:visited,h2 a:visited,h3 a:visited,h4 a:visited{text-decoration:none;color:#000;}
 
 h2:first-child,h3:first-child,.h2:first-child,.h3:first-child,.recommends-h{margin-top:0;}
 .index-h a:hover,.index-h a:focus{text-decoration:underline}
 .index-h-white a,.index-h-white a:visited,.index-h-white a:hover{color:$white}
 
-.section-h{margin:0;font:normal normal 700 #{$size-5}/1.15 $helvetica;}
+
+/* Table in position: static; */
+.con-table{width:100%;margin:0 0 $space-2;overflow:hidden;text-align:left;}
+.con-table td,.con-table th{padding:$space-half $space;margin:0;vertical-align:top}
+.con-table tr{margin:0;}
+.con-table tr + tr{border-top:1px solid $beige;}
+.con-table thead tr{border-bottom:1px solid $beige-border;}

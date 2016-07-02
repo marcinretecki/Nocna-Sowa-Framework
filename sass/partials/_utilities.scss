@@ -11,7 +11,7 @@
 * html .group{zoom:1}/*IE6*/
 *:first-child+html .group{zoom:1}/*IE7*/
 
-
+.velocity-animating{transition:none}
 
 .alignleft{float:left}
 .alignright{float:right}
@@ -19,10 +19,10 @@
 .col-pad-top{padding-top:$space;}
 .col-pad-bottom{padding-bottom:$space;}
 
+.no-break{white-space:nowrap;}
 
-
-.relative{position:relative}
-.block{display:block}
+.relative{position:relative;}
+.block{display:block;}
 
 .size-0{font-size:$size-0}
 .size-1{font-size:$size-1;line-height:$line-1}
@@ -32,6 +32,7 @@
 .size-5{font-size:$size-5}
 .size-6{font-size:$size-6}
 
+.space-0{margin-bottom:0;}
 .space-half{margin-bottom:$space-half}
 .space{margin-bottom:$space;}
 .space-x2{margin-bottom:$space-2;}
