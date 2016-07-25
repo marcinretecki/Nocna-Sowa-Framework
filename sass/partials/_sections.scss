@@ -26,7 +26,7 @@
     float:none;
   }
 }
-.header-content a{padding:0.4375rem $space;z-index:100;font-style:normal;font-variant:normal;font-weight:200;font-size:$size-1;line-height:1.3;font-family:$bariol-reg;color:$gray;text-decoration:none;
+.header-content a{padding:$space-half $space;z-index:100;font-style:normal;font-variant:normal;font-weight:400;font-size:$size-1;line-height:1;font-family:$bariol-reg;color:$gray;text-decoration:none;
 }
 
 .logo span{color:$blue;}
@@ -41,7 +41,7 @@
 .header-content .dropdown-active,.dropdown-active a{background-color:$dark;color:$white;opacity:1}
 
 .nav-button{display:none;}
-.nav-button,.search-button{width:$space-4;height:1.3 * $size-1 + 2*0.4375rem;background:url('i/menu.png') center center no-repeat;opacity:0.5;cursor:pointer;
+.nav-button,.search-button{width:$space-4;height:$size-1 + $space-half + $space-half;background:url('i/menu.png') center center no-repeat;opacity:0.5;cursor:pointer;
   @media #{$m770}{
     display:block;position:absolute;left:0;top:0;height:100%;
   }
@@ -82,37 +82,43 @@ a.active{color:$white;opacity:1}
 
 .dropdown-pushed{transform:translate3d(0,100%,0);bottom:0;}
 
-/* SECTIONS */
-/* front, footer */
-.section-trans {position:relative;color:$white;background:transparent center center no-repeat;background-attachment:fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;zoom:1;}
+
+//
+// NAVS
+//
+.nav-top{position:fixed;top:0;left:0;right:0;z-index:99;box-shadow:0 0 $space rgba(0, 0, 0, 0.25);}
+.nav-top-hidden{transform:translate(0,-100%);box-shadow:0 0 0 rgba(0,0,0,0);}
+
+
+//
+// SECTIONS
+//
+
+.section-trans {position:relative;background:transparent center center no-repeat;background-attachment:fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;zoom:1;}
 .touch .section-trans{background-attachment:scroll}
-.section-black {background-color:$outer-space;}
-.section-white {background-color:$white}
-.section-beige {background-color:$beige}
-.section-blue  {background-color:$blue;}
-.section-green {background-color:$green;}
-.section-orange{background-color:$orange;}
-.section-red   {background-color:$red;}
-.section-dark  {background-color:$dark-btn;}
+.section-black ,.black {background-color:$outer-space;}
+.section-white ,.white {background-color:$white}
+.section-beige ,.beige {background-color:$beige}
+.section-blue  ,.blue  {background-color:$blue;}
+.section-green ,.green {background-color:$green;}
+.section-orange,.orange{background-color:$orange;}
+.section-red   ,.red   {background-color:$red;}
+.section-dark  ,.dark  {background-color:$dark-btn;}
 .section-footer{}
 .section-footer p{padding:0 $space;font-size:$size-0}
 .section-footer a:hover{color:$white}
-.below-trans{border-top:0}
 
-.black {background:$outer-space;color:$white}
-.white {background:$white}
-.beige {background:$beige}
-.blue  {background:$blue;color:$white}
-.blue:hover{background:$blue-hover}
-.green {background:$green;color:$white}
-//.green:hover{background:$green-hover}
-.orange{background:$orange;color:$white}
-.orange:hover{background:$orange-hover}
-.red   {background:$red;color:$white}
-.red:hover{background:#C53727}
-.dark  {background:$dark-btn;color:$white}
+.section-trans,
+.section-black , .black ,
+.section-blue  , .blue  ,
+.section-green , .green ,
+.section-orange, .orange,
+.section-red   , .red   ,
+.section-dark  , .dark  {color:$white;}
 
-/* Over. Are hovers needed in those? How to style sections with it? */
+.section-white , .white ,
+.section-beige , .beige {color:$font-dark;}
+
 
 .top-green{border-top:0.625rem solid $green;}
 .top-orange{border-top:0.625rem solid $orange;}
@@ -120,26 +126,10 @@ a.active{color:$white;opacity:1}
 
 .rounded{border-radius:3px;overflow:hidden;}
 
-.section-dark a,.section-black a,.section-trans a{color:$blue-light;}
-.section-dark, .section-blue, .section-green, .section-orange, .section-red, .section-dark,.section-dark .btn,.section-trans .btn,
-.section-dark .index-h a,
-.section-dark a:hover,.section-dark a:focus,
-.section-black, .section-black a:hover,.section-black a:focus,
-.section-trans a:hover,.section-trans a:focus,
-.section-blue a,.section-blue a:visited,
-.section-green a,.section-green a:visited,
-.section-orange a,.section-orange a:visited,
-.section-red a,.section-red a:visited,
-.section-trans blockquote:before,
-.section-dark .section-beige .btn:hover,
-.section-dark .beige .btn:hover,
-.section-dark .beige .btn:focus{color:$white}
 
-
-.level-button{margin-top:0;margin-bottom:0.75rem;font-size:$size-0;text-align:center;}
-.level-button a{margin-right:0;}
-
+// To jest najważniejszy element gridu....
 .section-content{position:relative;padding:$space-4 $space $space-4}
+.section-content,.section-nav{width:1064px;max-width:100%;margin:0 auto;}
 
 //
 // Zrobić nazwy sekcji bardziej logiczne
@@ -173,13 +163,22 @@ a.active{color:$white;opacity:1}
 }
 .section-8-2{padding-top:$space-8;padding-bottom:$space-2}
 .section-8-4{padding-top:$space-8;padding-bottom:$space-4}
-.section-8-6{padding-top:$space-8;padding-bottom:$space-6}
-.section-8-8{padding-top:$space-8;padding-bottom:$space-8}
+.section-8-6{padding-top:$space-8;padding-bottom:$space-6;
+  @media #{$m400}{
+    padding-top:$space-6;padding-bottom:$space-4;
+  }
+}
+.section-8-8{padding-top:$space-8;padding-bottom:$space-8;
+  @media #{$m400}{
+    padding-top:$space-6;padding-bottom:$space-6;
+  }
+}
 .section-shorter{padding-bottom:0}
 
 .hidden{height:0}
 
 .section-100{min-height:100%;}
+.height-100{height:100%;}
 .wrapper{height:100%;position:relative;overflow:auto;-webkit-overflow-scrolling: touch}
 
 
@@ -221,40 +220,23 @@ a.active{color:$white;opacity:1}
 }
 
 
-/* Warsztaty */
+//
+// Warsztaty
+//
+
 .warsztaty{height:100%}
-.hero{position:relative;text-align:center;
-  @media #{$m400}{
-    height:auto;
-  }
-}
-.hero .section-8-6{
-  @media #{$m400}{
-    padding-top:$space-6;padding-bottom:$space-4;
-  }
-}
 
 .hero-arrow{display:block;width:$space-4;height:$space-4;margin:0 auto;background:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB2aWV3Qm94PSIwIDAgODUgNTAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PHRpdGxlPmFycm93X2Rvd25fMzwvdGl0bGU+PGRlZnM+PC9kZWZzPjxnIGlkPSJQYWdlIDEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGcgaWQ9ImFycm93X2Rvd25fMyIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjUiPjxwYXRoIGQ9Ik03Ljk4Nzc5Mjk3LDguOTgyNzA0MTYgTDQyLjUsNDEuMDE3Mjk1OCBMNzcuMDEyMjA3LDguOTgyNzA0MiIgaWQ9IlBhdGggNiBjb3B5Ij48L3BhdGg+PC9nPjwvZz48L3N2Zz4=') no-repeat center center;background-size:contain;cursor:pointer}
 
-.hero h1{
-  @media #{$m400}{
-    font-size:$size-5;
-  }
-}
-.hero span,.hero-arrow,.section-opened,.section-closed{ transition:all 0.5s ease; }
-.hero span+span{ transition-delay:0.4s; }
-.hero-arrow{ transition-delay:0.7s; }
 
-.heromatic span,.heromatic span+span,.heromatic .hero-arrow{opacity:0;
-  transform:translate3d(0,-30px,0);
-}
-.heromatic span{ transform:translate3d(0,-50px,0);}
 
-.hero-bg{min-height:85%;background-image:url('/c/i/kurs_norweskiego_oslo.jpg');background-color:$blue}
+.warsztaty-h1-animation{} //to think
+
+
 
 .like-warsztaty{margin-top:(-$space-2);margin-bottom:$space}
 
-.learn{margin-left:(-$space-2);padding-left:$space-2;background:transparent url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgdmlld0JveD0iMCAwIDIyIDIyIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgo8dGl0bGU+dGljazwvdGl0bGU+CjxnIGlkPSJQYWdlIDEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgo8ZyBpZD0idGljayIgc3Ryb2tlPSIjMzA4QzhDIj4KPHBhdGggZD0iTTExLDIxIEMxNi41MjI4NDc4LDIxIDIxLDE2LjUyMjg0NzggMjEsMTEgQzIxLDUuNDc3MTUyMjMgMTYuNTIyODQ3OCwxIDExLDEgQzUuNDc3MTUyMjMsMSAxLDUuNDc3MTUyMjMgMSwxMSBDMSwxNi41MjI4NDc4IDUuNDc3MTUyMjMsMjEgMTEsMjEgWiBNMTEsMjEiIGlkPSJPdmFsIDYiIHN0cm9rZS13aWR0aD0iMS41Ij48L3BhdGg+CjxwYXRoIGQ9Ik03LDExLjUgTDkuNSwxNCBMMTUsOCIgaWQ9IlBhdGggMjQiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD4KPC9nPgo8L2c+Cjwvc3ZnPg==') no-repeat left 0.35rem;background-size:1.75rem;
+.learn{margin-left:(-$space-2);padding-left:$space-2;background:transparent url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgdmlld0JveD0iMCAwIDIyIDIyIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgo8dGl0bGU+dGljazwvdGl0bGU+CjxnIGlkPSJQYWdlIDEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgo8ZyBpZD0idGljayIgc3Ryb2tlPSIjMzA4QzhDIj4KPHBhdGggZD0iTTExLDIxIEMxNi41MjI4NDc4LDIxIDIxLDE2LjUyMjg0NzggMjEsMTEgQzIxLDUuNDc3MTUyMjMgMTYuNTIyODQ3OCwxIDExLDEgQzUuNDc3MTUyMjMsMSAxLDUuNDc3MTUyMjMgMSwxMSBDMSwxNi41MjI4NDc4IDUuNDc3MTUyMjMsMjEgMTEsMjEgWiBNMTEsMjEiIGlkPSJPdmFsIDYiIHN0cm9rZS13aWR0aD0iMS41Ij48L3BhdGg+CjxwYXRoIGQ9Ik03LDExLjUgTDkuNSwxNCBMMTUsOCIgaWQ9IlBhdGggMjQiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD4KPC9nPgo8L2c+Cjwvc3ZnPg==') no-repeat left 0.25rem;background-size:$size-2;
   @media #{$m905}{
     margin:0 0 $space;
   }
@@ -266,15 +248,10 @@ a.active{color:$white;opacity:1}
   }
 }
 
-.water{background-image:url('/c/i/kurs_norweskiego_oslo_water.jpg');background-color:$blue}
 
-.map{position:relative;padding:2.5rem 0;background-image:url('/c/i/mapa_valkyriegata_min.png');
-  @media #{$m770}{
-    padding:0;
-  }
-}
-.map-abs{display:block;position:absolute;left:0;top:0;right:0;bottom:0;z-index:1;}
-.map-back{background-color:$beige;z-index:-1;}
+
+
+
 .map-box{position:relative;z-index:1;padding:$space $space-2;border-radius:3px;background:rgba(255,255,255,0.9);color:$font-dark;}
 .map .col-8{
   @media #{$m770}{
@@ -285,6 +262,23 @@ a.active{color:$white;opacity:1}
   }
   @media #{$m400}{
     width:auto;
+  }
+}
+
+
+//
+// Background images
+//
+.img-oslo{min-height:85%;background-image:url('/c/i/kurs_norweskiego_oslo_2016.jpg');background-color:$blue;
+  @media #{$m400}{
+    height:auto;
+  }
+}
+.img-water{background-image:url('/c/i/kurs_norweskiego_oslo_water.jpg');background-color:$blue;}
+.img-mountains{background-image:url('/c/i/kurs_norweskiego_oslo_marta_marcin.jpg');background-color:$green;}
+.img-map{position:relative;padding:$space-2 0;background-image:url('/c/i/mapa_valkyriegata_min.png');
+  @media #{$m770}{
+    padding:0;
   }
 }
 
@@ -315,10 +309,6 @@ a.active{color:$white;opacity:1}
   }
 }
 
-.section-dark .beige,.section-dark .section-beige{color:$font-dark}
-.section-dark .beige a,.section-dark .section-beige a{color:$blue}
-.section-dark .beige a:hover,.section-dark .beige a:focus,.section-dark .section-beige a:hover,.section-dark .beige a:focus{color:$dark}
-.section-dark .beige .btn,.section-dark .section-beige .btn{color:$white}
 .section-dark .section-beige hr{border-color:$gray}
 
 .grupy-img{margin:0 auto;display:block}
@@ -505,7 +495,7 @@ backface-visibility:hidden;
 .ex .tick{display:none;position:absolute;left:(-$space-2);top:2px;width:20px;height:20px;vertical-align:text-top;}
 .ex br+i{margin:0;}
 .ex li{position:relative;overflow:visible;}
-.ex .btn-4,.ex .btn-ex-fb{display:none;}
+.ex .btn-dark,.ex .btn-ex-fb{display:none;}
 .ex .btn-ex-fb{padding-top:$space;opacity:0.5}
 .ex .btn-ex-fb:hover{opacity:1}
 .ex .btn-ex-fb iframe{margin:0}
@@ -513,7 +503,7 @@ backface-visibility:hidden;
 .ex .fixed, .ex ins{display:none;color:$red;text-decoration:none;}
 .ex figure img + p{padding-top:$space;}
 .ex:target i{color:#000;}
-.ex:target .btn-4{display:inline-block;}
+.ex:target .btn-dark{display:inline-block;}
 .ex:target .btn-ex-fb{display:block}
 .ex:target .tick{display:block;}
 .ex:target .bug,.ex:target del{text-decoration:line-through;}

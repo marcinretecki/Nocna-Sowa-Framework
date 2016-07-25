@@ -24,74 +24,91 @@ nav a:hover,nav a:active,nav a:focus{}
   }
 }
 
-.posts-nav{padding:$space-2 0;}
+.pagination{padding:$space-2 0;}
 .prev,.next{}
 
-.btn,.posts-nav a,input.btn{position:relative;display:inline;display:inline-block;padding:0.25rem $space;border:1px solid transparent;border-radius:3px;background-color:$green;font:normal normal 400 #{$size-0}/1.1875 $body-font;color:$white;text-shadow:0 1px rgba(0, 0, 0, 0.1);text-decoration:none;text-transform:none;text-align:center;white-space:nowrap;}
-.btn:link,.btn:visited{color:$white}
+.btn,
+.pagination a,
+input.btn{
+  position:relative;display:inline-block;padding:$space-half $space-2;border-radius:3px;border:1px solid transparent;margin:$space-quarter $space-quarter $space-quarter 0;
+  font:normal normal 400 #{$size-1}/1 $body-font;text-decoration:none;text-transform:none;text-align:center;white-space:nowrap;}
 
-.btn:hover,.btn:focus{background-color:$green-hover;color:$white;text-decoration:none;outline:none}
-.btn:focus{border-color:$green-border;}
-
-.btn:link:active{//transform:translate(0,1px);
-  background:$dark;
-}
-
-p .btn,.posts-nav a{vertical-align:top;margin-right:0.05rem}
-.centered > .btn{margin-right:0;
-  @media #{$m400}{
-    display:block;
-  }
-}
-
-// NEw code
-//.btn ~ .btn,.btn ~ .btn-secondary,.btn-secondary ~ .btn{margin-top:$space;}
+.btn-link:hover{text-decoration:underline;}
 
 
-.btn-c,.btn-c:link,.posts-nav a,.btn-footer{width:auto;vertical-align:middle}
-.posts-nav a,.btn-footer{padding:0.25rem 0.75rem;}
-.btn-c,.btn-c:link,.posts-nav a{background-color:$beige;color:$font-semi-dark !important;background-image:none;}
-.btn-c:hover,.btn-c:focus,.posts-nav a:hover,.posts-nav a:focus{background-color:$beige-hover;background-image:none;color:$font-dark !important;}
-.btn-c:focus,.posts-nav a:focus{border-color:$beige-border;}
-.btn-footer{margin-top:-3px;margin-right:$space-half;}
+//
+// Button Colors
+//
 
-.btn-2{background-color:$orange}
-.btn-2:hover,.btn-2:focus{background-color:$orange-hover}
-.btn-2:focus{border-color:$orange-border;}
+// Beige and post pagination
+.btn-beige,.btn-beige:visited,
+.pagination a,.pagination a:visited{background-color:$beige;color:$font-dark;}
 
-.btn-3{background-color:$red}
-.btn-3:hover,.btn-3:focus{background-color:#C53727}
-.btn-3:focus{border-color:$red-border;}
+.btn-beige-outline,.btn-beige-outline:visited{border-color:$beige;color:$beige;}
 
-.btn-4,input.btn-4{background-color:$dark-btn;}
-.btn-4:hover,.btn-4:focus,input.btn-4:hover,input.btn-4:focus{background-color:$dark-btn-hover}
-.btn-4:focus,input.btn-4:focus{border-color:$dark-btn-border;}
+.btn-beige:focus,.btn-beige:hover,.btn-beige-outline:focus,.btn-beige-outline:hover,
+.pagination a:focus,.pagination a:hover{background-color:$beige-hover;color:$font-dark;}
 
-.btn-trans{background:transparent;border-color:$gray-on-dark}
-.btn-trans:hover,.btn-trans:focus{border-color:$white;background:rgba(0,0,0,0.1);}
+// Green
+.btn-green, .btn-green:visited{background-color:$green;color:$white;}
 
-.btn-blue,input.btn-blue{background-color:$blue;}
-.btn-blue:hover,.btn-blue:focus,input.btn-blue:hover,input.btn-blue:focus{background-color:$blue-hover}
-.btn-blue:focus,input.btn-blue:focus{border-color:$blue-border;}
+.btn-green-outline, .btn-green-outline:visited{border-color:$green;color:$green;}
 
-.btn-fb{background-color:#3b5998;}
-.btn-fb:hover,.btn-fb:focus{background-color:#3b5998;border-color:$dark;}
+.btn-green:focus,.btn-green:hover,.btn-green-outline:focus,.btn-green-outline:hover{background-color:$green-hover;color:$white;}
 
-.btn-white{background-color:$white;border-color:transparent;color:$font-dark;}
-.btn-white:hover,.btn-white:focus{background-color:$white;border-color:$dark;color:$font-dark;}
+// Orange
+.btn-orange, .btn-orange:visited{background-color:$orange;color:$white;}
+
+.btn-orange-outline, .btn-orange-outline:visited{border-color:$orange;color:$orange;}
+
+.btn-orange:focus,.btn-orange:hover,.btn-orange-outline:focus,.btn-orange-outline:hover{background-color:$orange-hover;color:$white;}
+
+// Red
+.btn-red, .btn-red:visited{background-color:$red;color:$white;}
+
+.btn-red-outline, .btn-red-outline:visited{border-color:$red;color:$red;}
+
+.btn-red:focus,.btn-red:hover,.btn-red-outline:focus,.btn-red-outline:hover{background-color:$red-hover;color:$white;}
+
+// Dark
+.btn-dark,.btn-dark:visited,
+input.btn-dark{background-color:$dark-btn;color:$white;} // to do
+
+.btn-dark-outline,.btn-dark-outline:visited{border-color:$dark-btn;color:$dark-btn;}
+
+.btn-dark:focus,.btn-dark:hover,.btn-dark-outline:focus,.btn-dark-outline:hover,.btn-dark-outline-active,.btn-dark-outline-active:visited,
+input.btn-dark:focus,input.btn-dark:hover{background-color:$dark-btn-hover;color:$white;} // to do
+
+// Blue
+.btn-blue,.btn-blue:visited,
+input.btn-blue{background-color:$blue;color:$white;} // to do
+
+.btn-blue-outline,.btn-blue-outline:visited{border-color:$blue;color:$blue;}
+
+.btn-blue:focus,.btn-blue:hover,.btn-blue-outline:focus,.btn-blue-outline:hover,
+input.btn-blue:focus,input.btn-blue:hover{background-color:$blue-hover;color:$white;} // to do
+
+// White
+.btn-white, .btn-white:visited{background-color:$white;color:$font-dark;}
+
+.btn-white-outline, .btn-white-outline:visited{border-color:$white;color:$white;}
+
+.btn-white:focus,.btn-white:hover,.btn-white-outline:focus,.btn-white-outline:hover{border-color:$font-dark;background-color:$white;color:$font-dark;}
+
+// Facebook
+.btn-fb, .btn-fb:visited{background-color:$color-fb;color:$white;}
+
+.btn-fb:focus,.btn-fb:hover{background-color:$color-fb;color:$white;}
 
 
-.btn-secondary{display:inline;
-  @media #{$m400}{
-    margin-left:0;margin-top:$space;
-  }
-}
-.btn-secondary-left{display:inline-block;margin-right:$space;margin-bottom:$space-half;}
-// Rephrase to use modifiers
-.btn-secondary-alone{display:inline-block;margin-bottom:$space-half}
+//
+// Button options
+//
 
-.posts-nav a{padding:$space-half $space-2;}
-.btn-s-2,.btn-huge,input.btn-huge{padding:$space-half $space-2;font-size:$size-1;white-space:normal}
+// Button Nav
+.btn-nav{padding-left:$space;padding-right:$space;margin:0;border:0;border-radius:0;font-family:$bariol_reg;}
+
+// Size
 .btn-s-4{padding:$space-half $space-4;font-size:$size-1;white-space:normal}
 
 .btn-zapisy{padding:$space $space-2;font-size:$size-1;white-space:normal;vertical-align:top}
@@ -102,16 +119,24 @@ p .btn,.posts-nav a{vertical-align:top;margin-right:0.05rem}
 }
 .btn-zapisy-off{opacity:0.75}
 
+
 .btn-block{display:block;padding:$space-half $space;width:auto;}
-.btn-auto{width:auto;}
-.btn-center{margin-left:auto;margin-right:auto;}
-.btn-search{padding:0.625rem $space;border:0;margin:0;font-size:1.25rem;line-height:normal;}
+.btn-search{padding:$space-half $space;margin:0;font-size:$size-1;line-height:normal;}
 
 
 .check{width:auto;margin-bottom:$space-half;margin-top:$space}
 .check + .check{margin-left:$space-half;padding-left:$space;padding-right:$space;}
 
-/* Icons */
+
+//
+// Icons
+//
+
+.btn-icon{width:auto;vertical-align:middle;padding:$space-quarter $space-half;border-color:rgba(255,255,255,0.5);margin-top:0;margin-bottom:0;}
+.btn-icon:hover,.btn-icon:focus{background:rgba(0,0,0,0.1);}
+
+.btn-icon.btn-beige{border-color:transparent;} // to jest hack, pomyśl w przyszłości jak to poprawić
+
 .icon{position:relative;width:20px;height:20px;background:url('i/icons.png') no-repeat 0 0;
   @media #{$m400}{
     //background-size:75%;
@@ -129,23 +154,20 @@ p .btn,.posts-nav a{vertical-align:top;margin-right:0.05rem}
 .i-w-ex{background-position:-40px -20px}
 .i-w-talk{background-position:-60px -20px}
 
-.btn-c .icon{background-color:$beige}
-.btn-c:hover .icon{background-color:$beige-hover}
+.btn-beige .icon{background-color:$beige}
+.btn-beige:hover .icon{background-color:$beige-hover}
 
 .i-fb{padding-left:30px;background:url('i/icon_fb.png') no-repeat 0 center;}
 
 
+//
+// ????
+//
 
-a.m{margin:0 0 $space}
+a.m{margin:0 0 $space} // ?????
 
 .top{color:$font-light;padding-left:$space-half;float:right;}
 .top:hover,.top:focus{color:#000;}
 
-.btn-file:before{display:block;position:absolute;top:$space-half;left:$space-half;width:17px;height:22px;background:url('/c/i/file.png') no-repeat scroll 0 1px;content:'';
-transition:transform 0.5s, -moz-transform 0.5s, -webkit-transform 0.5s, -o-transform 0.5s;
--webkit-transition:-webkit-transform 0.5s;
--moz-transition:      -moz-transform 0.5s;
--o-transition:          -o-transform 0.5s;
-}
-.btn-file{position:relative;border:1px solid $beige;border-radius:10px;padding:$space-half $space $space-half 2.25rem;}
-.btn-file:hover{border-color:$beige-border;}
+// btn file może przerobić na tą samą ideę, jaką ma i-fb
+.btn-file:before{display:inline-block;width:17px;height:22px;margin-right:$space-half;vertical-align:top;background:url('/c/i/file.png') no-repeat scroll 0 0;content:'';}

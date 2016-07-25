@@ -1,5 +1,5 @@
 //
-// Base
+// Variables
 //
 
 //
@@ -73,12 +73,13 @@ $dark-btn:        #3c454c;
 $dark-btn-border: #1A2226;
 $dark-btn-hover:  #252C33;
 
+$color-fb:        #3b5998;
+
 $outer-space:     #252C33;
 
-$font-dark:       #110f0c;
-$font-light:      #666057;
-$font-semi-dark:  #33302b;
-
+$font-dark:       #171F26;
+$font-light:      #505559;
+$font-semi-dark:  #171F26;
 
 //
 // Typography and spacing
@@ -87,24 +88,27 @@ $bariol: 'bariol_lightlight','Gill Sans','Gill Sans MT',Helvetica,Arial,'Nimbus 
 $bariol-reg: 'bariol_regularregular','Gill Sans','Gill Sans MT',Helvetica,Arial,'Nimbus Sans L',Roboto,sans-serif;
 $body-font: 'Iowan Old Style','Book Antiqua','Palatino Linotype','Palatino','URW Palladio L','Droid Serif',serif;
 
-$size-mini: 0.8125rem;
-$size-0: 1rem;
-$size-1: 1.25rem;
-$size-2: 1.667rem;
-$size-3: 2.221rem;
-$size-4: 2.961rem;
-$size-5: 3.947rem;
-$size-6: 5.26rem;
+// Scale 1.333 rounded
+$size-mini: 0.6rem;
+$size-0: 0.75rem;
+$size-1: 1rem;
+$size-2: 1.3rem;
+$size-3: 1.8rem;
+$size-4: 2.4rem;
+$size-5: 3.2rem;
+$size-6: 4.2rem;
 
-$line-0: 1.25em;
-$line-1: 1.6em;
+$line-0: 1.25;
+$line-1: 1.6;
 
 //
 // Spacing
 //
+$space: 1rem;
 
-$space-half: 0.625rem;
-$space: 1.25rem;
+$space-quarter: 0.25 * $space;
+$space-half: 0.5 * $space;
+
 $space-2: 2 * $space;
 $space-4: 4 * $space;
 $space-6: 6 * $space;

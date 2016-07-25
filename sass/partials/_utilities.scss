@@ -16,41 +16,42 @@
 .alignleft{float:left}
 .alignright{float:right}
 .center{display:block;float:none;margin-left:auto;margin-right:auto;}
-.col-pad-top{padding-top:$space;}
-.col-pad-bottom{padding-bottom:$space;}
 
-.no-break{white-space:nowrap;}
+
 
 .relative{position:relative;}
 .block{display:block;}
 
-.size-0{font-size:$size-0}
-.size-1{font-size:$size-1;line-height:$line-1}
-.size-2{font-size:$size-2}
-.size-3{font-size:$size-3}
-.size-4{font-size:$size-4}
-.size-5{font-size:$size-5}
-.size-6{font-size:$size-6}
+
 
 .space-0{margin-bottom:0;}
 .space-half{margin-bottom:$space-half}
 .space{margin-bottom:$space;}
-.space-x2{margin-bottom:$space-2;}
-.space-x4{margin-bottom:$space-4;}
-.space-x6{margin-bottom:$space-6;}
-.space-x8{margin-bottom:$space-8;}
+.space-x2,.space-2{margin-bottom:$space-2;}
+.space-x4,.space-4{margin-bottom:$space-4;}
+.space-x6,.space-6{margin-bottom:$space-6;}
+.space-x8,.space-8{margin-bottom:$space-8;}
 
 .pad{padding:$space}
-.pad-x2{padding:$space-2;
+.pad-x2,.pad-2{padding:$space-2;
   @media #{$m400}{
     padding:$space;
   }
 }
-.pad-x4{padding:$space-4;
+.pad-x4, .pad-4{padding:$space-4;
   @media #{$m770}{
     padding:$space-2;
   }
 }
+.pad-1-0{}
+.pad-2-4{padding:$space-2 $space-4;
+  @media #{$m905}{
+    padding:$space $space-2;
+  }
+}
+
+.col-pad-top{padding-top:$space;}
+.col-pad-bottom{padding-bottom:$space;}
 
 
 
@@ -67,3 +68,22 @@ transform:translate3d(-30px,0,0);
 .cloud-show{opacity:1;
 transform:translate3d(0,0,0);
 }
+
+
+/*
+ * Spinner
+ * When .btn-spinner is clicked, it's direct child receives a new class "ball-pulse-sync"
+ */
+
+@keyframes ball-pulse-sync {
+  33% { transform: translateY(5px); }
+  66% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+.ball-pulse-sync{position:relative;display:inline-block;top:-3px;margin-left:3px;}
+.ball-pulse-sync > div:nth-child(0) {animation: ball-pulse-sync 0.6s -0.21s infinite ease-in-out; }
+.ball-pulse-sync > div:nth-child(1) {animation: ball-pulse-sync 0.6s -0.14s infinite ease-in-out; }
+.ball-pulse-sync > div:nth-child(2) {animation: ball-pulse-sync 0.6s -0.07s infinite ease-in-out; }
+.ball-pulse-sync > div:nth-child(3) {animation: ball-pulse-sync 0.6s 0s infinite ease-in-out; }
+.ball-pulse-sync > div {display: inline-block;width:5px;height:5px;border-radius:100%;margin:0 2px;vertical-align:middle;background-color:#fff;animation-fill-mode: both;}
+.ball-pulse-sync-dark > div{background-color:$font-dark;}
