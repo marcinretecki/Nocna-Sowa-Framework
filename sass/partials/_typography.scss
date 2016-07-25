@@ -150,7 +150,7 @@ hr{position:relative;height:0;margin:$space-2 0;padding:0;border:1px solid $gray
 .hr-short:last-child{margin-bottom:0}
 .hr-shorter{margin:$space-2 auto}
 
-.divider{display:block;width:$space-4;height:1rem;border:0;margin:$space-4 auto;
+.divider{display:block;width:$space-4;height:0.8rem;border:0;margin:$space-4 auto;
 text-align:center;
 background-image:linear-gradient(to right,$green 0%,$green 20%,transparent 20%,transparent 40%,$orange 40%,$orange 60%,transparent 60%,transparent 80%,$red 80%,$red);
 background-repeat:no-repeat;

@@ -343,8 +343,19 @@ backface-visibility:hidden;
 
 /* Opinie */
 .recommends{}
-.recommends-single{padding:$space-2;margin-left:27.5rem;margin-bottom:$space-4;border-radius:3px;background:$white}
+.recommends-single{padding:$space-2;margin-left:22rem;margin-bottom:$space-4;border-radius:3px;background:$white;
+  @media #{$m770}{
+    margin-left:0;
+  }
+}
 .recommends-single .divider{margin-bottom:$space-2}
+.recommends-single-img{display:block;margin-bottom:$space-2;border-radius:3px;}
+
+.recommends .alignleft{
+  @media #{$m770}{
+    float:none;
+  }
+}
 
 .recommends h1{}
 .recommends-img{float:left;display:block;width:$space-8;height:$space-8;border-radius:3px;margin-bottom:$space-4;
@@ -355,42 +366,39 @@ backface-visibility:hidden;
     width:$space-4;height:$space-4;
   }
 }
-.recommends-single-img{display:block;margin-bottom:$space-2;border-radius:3px}
 .recommends-quote{}
 .recommends-quote p{font-size:$size-1;}
 .recommends-quote p{}
 .recommends-text{font-size:$size-1;text-indent:-0.5em;}
-.recommends-block{position:relative;padding:$space $space-2;margin:0 0 $space-4 12.5rem;border-radius:3px;background:$white;color:$font-dark;
+.recommends-block{position:relative;padding:$space $space-2;margin:0 0 $space-4 ($space-8 + $space);border-radius:3px;background:$white;color:$font-dark;
   @media #{$m770}{
-    margin-left:8.5rem;
+    margin-left:8.5rem; // ???
   }
   @media #{$m400}{
-    padding:$space-half $space;margin-left:6rem;
+    padding:$space-half $space;margin-left:6rem; // ????
   }
 }
-.recommends-block:before{display:block;position:absolute;top:3rem;right:100%;border:0.75rem solid transparent;border-right-color:$white;content:"";
-  @media #{$m770}{
-    border-width:0.5rem;
-  }
+.recommends-block:before{display:block;position:absolute;top:$space-2;right:100%;border:$space-half solid transparent;border-right-color:$white;content:"";
+
   @media #{$m400}{
-    top:2rem;
+    top:$space;
   }
 }
 .recommends-block p:last-child{margin:0}
 .recommends-block h3{margin:0}
 
 .recommends-mini{}
-.recommends-mini .recommends-img{width:8rem;height:8rem;margin-bottom:2.5rem;
+.recommends-mini .recommends-img{width:$space-6;height:$space-6;margin-bottom:$space-2;
   @media #{$m400}{
     width:$space-4;height:$space-4;
   }
 }
-.recommends-mini .recommends-block:before{border-width:0.5rem}
-.recommends-mini .recommends-block{margin:0 0 2.5rem 9.5rem;
+.recommends-mini .recommends-block{margin:0 0 $space-2 ($space-6 + $space);
   @media #{$m400}{
     margin-left:6rem;
   }
 }
+
 
 
 /*
@@ -408,16 +416,6 @@ backface-visibility:hidden;
 // Warsztaty pisania
 .wp-hero{background-image:url('/c/i/wp/warsztaty_pisania.jpg');background-size:cover;background-position:center center}
 .btn-wp-hero{display:block;padding:0;margin:0 auto;width:60px;height:60px;background-image:url(/c/i/arrow_down_5.png);background-position:center center;border-radius:3px 3px 0 0}
-
-//.hr-circles:before{display:block;width:2.625rem;height:3.75rem;margin:0 auto;background:url("/c/i/wp/wp_circles.png") no-repeat 0 center;//position:relative;text-align:center;content:"";background-size:700%;
-//  @media #{$m400} {
-//    background-size:700% * 0.75;
-//  }
-//}
-//.hr-circles{width:10rem;height:3.75rem;border-bottom:1px solid #282e33;margin:0 auto 0.625rem}
-//.hr-circles-error:before{background-position:33.33% center}
-//.hr-circles-how:before{background-position:66.66% center}
-//.hr-circles-me:before{background-position:100% center}
 
 .wp-recommends{background:url('/c/i/wp/wp_faces.jpg') repeat center 0;}
 

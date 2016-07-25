@@ -27,13 +27,6 @@ img{height:auto !important;}
 .like-warsztaty{margin-top:(-$space)}
 
 .hero-arrow{width:4rem}
-
-.recommends .alignleft{float:none;overflow:auto}
-.recommends-single-img{width:49%;float:left}
-.recommends-single-img:first-child{margin-right:1%;}
-.recommends-single-img:last-child{margin-left:1%;}
-.recommends-single-img:only-child{width:auto;float:none;margin-left:auto;margin-right:auto}
-.recommends-single{margin-left:0}
 }
 
 @media #{$m770}{
