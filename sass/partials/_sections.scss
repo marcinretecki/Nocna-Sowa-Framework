@@ -269,14 +269,14 @@ a.active{color:$white;opacity:1}
 //
 // Background images
 //
-.img-oslo{min-height:85%;background-image:url('/c/i/kurs_norweskiego_oslo_2016.jpg');background-color:$blue;
+.img-oslo{min-height:85%;background-image:url('/c/i/warsztaty/kurs_norweskiego_oslo_2016.jpg');background-color:$blue;
   @media #{$m400}{
     height:auto;
   }
 }
-.img-water{background-image:url('/c/i/kurs_norweskiego_oslo_water_2016.jpg');background-color:$blue;}
-.img-mountains{background-image:url('/c/i/kurs_norweskiego_oslo_marta_marcin.jpg');background-color:$green;}
-.img-map{position:relative;padding:$space-2 0;background-image:url('/c/i/mapa_valkyriegata_min.png');
+.img-water{background-image:url('/c/i/warsztaty/kurs_norweskiego_oslo_water_2016.jpg');background-color:$blue;}
+.img-mountains{background-image:url('/c/i/warsztaty/kurs_norweskiego_oslo_marta_marcin.jpg');background-color:$green;}
+.img-map{position:relative;padding:$space-2 0;background-image:url('/c/i/warsztaty/mapa_valkyriegata_min.png');
   @media #{$m770}{
     padding:0;
   }
@@ -405,7 +405,7 @@ backface-visibility:hidden;
  * TODO: optimize images for use in recommends sections
  */
 .recommends-warsztaty{padding:0;background:url('/c/i/wp/warsztaty_pisania.jpg') left center no-repeat;background-size:cover;text-decoration:none}
-.recommends-oslo{background-image:url('/c/i/kurs_norweskiego_oslo.jpg');}
+.recommends-oslo{background-image:url('/c/i/warsztaty/kurs_norweskiego_oslo.jpg');}
 .recommends-warsztaty-p-left{padding:5rem 5rem 5rem 0;color:#fff;background:rgba(0,0,0,0.5);}
 .recommends-warsztaty-p-left:hover{background:rgba(0,0,0,0.25);}
 .recommends-warsztaty-p-left p{text-align:right}
