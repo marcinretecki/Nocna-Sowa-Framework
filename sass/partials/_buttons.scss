@@ -106,7 +106,7 @@ input.btn-blue:focus,input.btn-blue:hover{background-color:$blue-hover;color:$wh
 .btn-black,.btn-black:visited{background-color:$outer-space;color:$gray-on-dark;}
 
 .btn-black:focus,.btn-black:hover{background-color:$blue;color:$white;}
-.btn-black--active{}
+.btn-black--active{color:$white;}
 
 
 // Facebook

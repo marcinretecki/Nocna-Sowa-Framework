@@ -1,0 +1,41 @@
+//
+// New main nav/header
+//
+
+// gdzie to???
+.caret{display:inline-block;margin:$space-quarter 0;border:5px solid transparent;border-top-color:$gray-on-dark;border-bottom:0;}
+a:hover .caret,.caret:hover{border-top-color:$white;}
+
+.header-top{left:0;top:0;z-index:100;width:100%;}
+.header-top--fixed{position:fixed;}
+.header-top--absolute{position:absolute;}
+
+.section-nav{}
+.section-nav__toggle{display:none;
+  @media #{$m770}{
+    display: inline-block;
+  }
+
+}
+
+.section-nav__search{
+  opacity:0.66;
+  height:$space-2;width:$space-4;
+  background:transparent url("i/search.png") center center no-repeat;
+}
+.section-nav__search:hover{
+  opacity:1;
+}
+
+.section-nav__search--x{
+  background-image:url('i/x.png');
+}
+
+.navbar{display:inline-block;}
+/*ul*/.navbar__list{padding:0;margin:0;}
+/*ul*/.navbar__list > li{}
+
+
+.navbar-logo{}
+.navbar-logo__blue{color:$blue;}
+.navbar-logo:hover .navbar-logo__blue, .navbar-logo__blue:hover, .navbar-logo:active .navbar-logo__blue, .navbar-logo:focus .navbar-logo__blue{color:$white;}

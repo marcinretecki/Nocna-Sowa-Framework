@@ -1,0 +1,49 @@
+//
+// Footer Nav Links
+//
+
+.footer-warsztaty-nav{
+  display:block;
+  height:15rem;
+  padding:0;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  text-decoration:none;
+
+  @media #{$m770}{
+    height:auto;
+  }
+}
+.footer-warsztaty-nav:hover,.footer-warsztaty-nav:active,.footer-warsztaty-nav:focus{color:#fff;}
+.footer-warsztaty-nav--oslo   {background-image:url('/c/i/footer_oslo.jpg');}
+.footer-warsztaty-nav--pisanie{background-image:url('/c/i/footer_pisanie.jpg');}
+.footer-warsztaty-nav--treningi{background-image:url('/c/i/footer_treningi.jpg');}
+
+.footer-warsztaty-nav__title{
+  @include transition;
+  position:relative;
+  width:100%;
+  height:100%;
+  padding:($space-2 + $space) $space $space-2;
+  background-image:linear-gradient( to top, transparent, rgba(0,0,0,0.5) );
+
+  @media #{$m905}{
+    padding-top:$space-2;
+  }
+}
+.footer-warsztaty-nav__title:hover{
+  background-color:rgba(0,0,0,0.5);
+}
+.footer-warsztaty-nav__arrow{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:$space-2;
+  @include font-bariol-thin;
+  font-size:$size-4;
+  @media #{$m770}{
+    position:static;
+  }
+}
