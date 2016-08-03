@@ -12,7 +12,7 @@ form p,label{margin:0 0 $space-half}
 button,input,select,textarea,label{margin:0;font-family:inherit;font-size:100%;font-size:$size-0;vertical-align:baseline;*vertical-align:middle;
   //-webkit-appearance:none;
   box-shadow:none;}
-input,textarea,button{display:block;padding:$space-half $space;border:1px solid $dark;border-radius:3px;line-height:1.1875;background:$white;}
+input,textarea,button{display:block;padding:$space-half $space;border:1px solid $beige-border;border-radius:3px;line-height:1.1875;background:$white;}
 input{width:70%;}
 input[type="submit"],.btn-input{width:auto;border:1px solid transparent;background-color:$blue;color:$white !important;font-size:1rem;}
 input[type="submit"]:hover,input[type="submit"]:focus,.btn-input:hover,.btn-input:focus{background-color:$blue-hover;outline:none}
@@ -49,7 +49,6 @@ input:focus,textarea:focus{border-color:$dark}
 
 .comment-form{}
 .comment-form label{display:inline-block;}
-.comment-form * + label,.comment-form input[type="submit"]{margin-top:$space-half;}
 .comment-form textarea{}
 .comment-form input{width:50%;}
 .comment-form textarea,.comment-form input{

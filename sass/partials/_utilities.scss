@@ -32,6 +32,7 @@
 .space-x6,.space-6{margin-bottom:$space-6;}
 .space-x8,.space-8{margin-bottom:$space-8;}
 
+.no-pad{padding:0;}
 .pad{padding:$space}
 .pad-x2,.pad-2{padding:$space-2;
   @media #{$m400}{
@@ -43,7 +44,8 @@
     padding:$space-2;
   }
 }
-.pad-1-0{}
+.pad-1-0{padding:$space 0;}
+.pad-0-1{padding:0 $space;}
 .pad-2-4{padding:$space-2 $space-4;
   @media #{$m905}{
     padding:$space $space-2;

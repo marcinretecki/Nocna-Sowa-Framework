@@ -52,7 +52,7 @@
 .warsztaty-calendar-day-red{background:$red;}
 
 
-.warsztaty-calendar-month{position:absolute;bottom:100%;margin-bottom:-1.25rem;font-style:italic;font-size:$size-0;
+.warsztaty-calendar-month{position:absolute;bottom:100%;margin-bottom:-#{$space};font-style:italic;font-size:$size-0;
   @media #{$m905}{
     position:static;display:block;border-bottom:1px solid $gray-on-dark;margin-bottom:3px;
   }
@@ -97,3 +97,66 @@ backface-visibility:hidden;
 
 // Warsztaty 2016
 .section-box{background:rgba(255, 255, 255, 0.9) none repeat scroll 0 0;color:$font-dark;}
+
+
+
+//
+// Footer Nav Links
+//
+
+.footer-warsztaty-nav{display:block;height:15rem;padding:0;background-repeat:no-repeat;background-size:cover;background-position:center;color:#fff;text-decoration:none;}
+.footer-warsztaty-nav:hover,.footer-warsztaty-nav:active,.footer-warsztaty-nav:focus{color:#fff;}
+.footer-warsztaty-nav--oslo   {background-image:url('/c/i/footer_oslo.jpg');}
+.footer-warsztaty-nav--pisanie{background-image:url('/c/i/footer_pisanie.jpg');}
+.footer-warsztaty-nav--treningi{background-image:url('/c/i/footer_treningi.jpg');}
+
+.footer-warsztaty-nav__title{
+  @include transition;
+  width:100%;height:100%;padding:2rem 1rem;
+  background-image:linear-gradient( to top, transparent, rgba(0,0,0,0.5) );
+}
+.footer-warsztaty-nav__title:hover{
+  background-color:rgba(0,0,0,0.5);
+}
+
+
+//
+// New main nav/header
+//
+
+.caret{display:inline-block;margin:$space-quarter 0;border:5px solid transparent;border-top-color:$gray-on-dark;border-bottom:0;}
+a:hover .caret,.caret:hover{border-top-color:$white;}
+
+.header-top{left:0;top:0;z-index:100;width:100%;}
+.header-top--fixed{position:fixed;}
+.header-top--absolute{position:absolute;}
+
+.section-nav{}
+.section-nav__toggle{display:none;
+  @media #{$m770}{
+    display: inline-block;
+  }
+
+}
+
+.section-nav__search{
+  opacity:0.66;
+  height:$space-2;width:$space-4;
+  background:transparent url("i/search.png") center center no-repeat;
+}
+.section-nav__search:hover{
+  opacity:1;
+}
+
+.section-nav__search--x{
+  background-image:url('i/x.png');
+}
+
+.navbar{display:inline-block;}
+.navbar__list{padding:0;margin:0;}
+
+
+
+.logo{}
+.logo__blue{color:$blue;}
+.logo:hover .logo__blue, .logo__blue:hover{color:$white;}

@@ -29,7 +29,7 @@ font-kerning:normal;
 
 // Links
 a,a:before{color:$blue;background:transparent}
-a,a:before,a:after,.ex i,.ex img,input,div,.btn,.nav,.dropdown-nav,button,a span,.search-icon,.form-treningi-label{transition:all 0.4s ease;}
+a,a:before,a:after,.ex i,.ex img,input,div,.btn,.nav,.dropdown-nav,button,a span,.search-icon,.form-treningi-label{@include transition;}
 a:link{}
 a:visited{/* color:$blue-border */}
 a:focus,a:hover{color:$dark;}

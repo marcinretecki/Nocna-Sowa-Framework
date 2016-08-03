@@ -1,0 +1,10 @@
+//
+// Mixins
+//
+// Ex:
+// @include transition;
+
+
+@mixin transition {
+  transition:all 0.4s ease;
+}
