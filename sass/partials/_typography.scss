@@ -164,7 +164,12 @@ background-size:cover;
 
 /* headers */
 h1,h2,h3,h4{padding:0;text-decoration:none;}
-h1,.h1,.index-h,.section-h-thin,.section-h-thin.btn{margin:0 0 $space;font-weight:200;font-variant:normal;font-style:normal;font-size:$size-5;line-height:1.1;font-family:$bariol;}
+h1,.h1,
+.index-h,
+.section-h-thin,
+.section-h-thin.btn{
+  @include font-bariol-thin;
+  margin:0 0 $space;font-variant:normal;font-style:normal;font-size:$size-5;line-height:1.1;}
 .section-h-thin{margin:0 0 $space-half;}
 .index-h,.section-h-thin{
   @media #{$m770} {

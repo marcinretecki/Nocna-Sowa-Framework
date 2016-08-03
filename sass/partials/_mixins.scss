@@ -8,3 +8,16 @@
 @mixin transition {
   transition:all 0.4s ease;
 }
+
+@mixin font-bariol-thin {
+  font-weight:200;
+  font-family:$bariol;
+}
+
+@mixin font-bariol-reg {
+  font-weight:400;
+  font-family:$bariol-reg;
+}
+
+
+// trzeba też zrobić mixiny dla wielkości fontów i dodać line-height, żeby był consistent
