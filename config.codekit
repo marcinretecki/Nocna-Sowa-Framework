@@ -2,6 +2,50 @@
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
 "creatorBuild": "19127",
 "files": {
+	"\/j-zmien-bieg-wydarzen-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/j-zmien-bieg-wydarzen-min.js",
+		"outputAbbreviatedPath": "\/j-zmien-bieg-wydarzen-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/javascript\/j-pisanie.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/javascript\/j-pisanie.js",
+		"outputAbbreviatedPath": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-pisanie-min.js",
+		"outputPathIsOutsideProject": 1,
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/javascript\/j-zmien-bieg-wydarzen.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/javascript\/j-zmien-bieg-wydarzen.js",
+		"outputAbbreviatedPath": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-zmien-bieg-wydarzen-min.js",
+		"outputPathIsOutsideProject": 1,
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/javascript\/j.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/javascript\/j.js",
+		"outputAbbreviatedPath": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-min.js",
+		"outputPathIsOutsideProject": 1,
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/media.css": {
 		"fileType": 16,
 		"ignore": 1,
