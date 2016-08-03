@@ -79,3 +79,11 @@ input + .note{margin-top:$space-half;}
 
 .form-treningi-email{border:1px solid $beige;}
 .form-treningi-email:focus{border-color:$dark;}
+
+
+//
+// Main search form
+//
+.search-form{margin-bottom:$space-4}
+.search-form .s{display:inline-block;width:72.5%;margin:0 2.5% 0 0;font:normal normal normal $size-1/normal $body-font;}
+.search-form .btn-search{width:25%;}
