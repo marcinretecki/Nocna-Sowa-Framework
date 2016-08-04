@@ -3,49 +3,8 @@
 //
 
 
-
-//
-// Open sections from the right
-//
-function sectionOpen(s, bool){
-  var section = document.getElementById(s);
-  var style = section.style;
-  style.visibility = 'visible';
-
-  if (section.classList) {
-    section.classList.add('section-inside');
-  } else {
-    section.className += ' ' + 'section-inside';
-  }
-
-  var overflow = window.setTimeout(function() {
-      var bodyStyle = document.body.style;
-      bodyStyle.overflow = 'hidden';
-  }, 500);
-}
-
-
-function sectionClose(s, bool){
-  var section = document.getElementById(s);
-
-  if (section.classList) {
-    section.classList.remove('section-inside');
-  } else {
-    section.className = section.className.replace(new RegExp('(^|\\b)' + 'section-inside'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-  }
-
-  var overflow = window.setTimeout(function() {
-      var bodyStyle = document.body.style;
-      bodyStyle.overflow = 'auto';
-      var style = section.style;
-      style.visibility = 'hidden';
-  }, 500);
-}
-
-
 //
 // Section Toggle
-// - to jest chyba funkcja, której używamy, powyższe są legacy
 //
 function sectionToggle(s, addClassName, overflow){
   var section = document.getElementById(s),
@@ -126,39 +85,65 @@ function sectionToggle(s, addClassName, overflow){
 //
 // Open Nav when on small screen
 //
-function navOpen() {
-  var navMain = document.querySelector('#nav-main');
-  var navShow = document.querySelector('.nav-show');
-  var nav = navMain.querySelector('.nav');
+function menuHandler(event) {
+  var eventTarget = event.target;
 
-  var className = 'dropdown-pushed';
-  var active = 'dropdown-active';
-  var contains = false;
-
-  if (nav.classList) {
-    if (nav.classList.contains(className)) {contains = true;}
-  } else {
-    if ( new RegExp('(^| )' + className + '( |$)', 'gi').test(nav.className) ) {contains = true;}
+  // jeśli to nie jest naszy przycisk, to koniec funkcji
+  if (eventTarget.id !== 'buttonOpenNav') {
+    return;
   }
 
-  if (contains) {
-    if (nav.classList) {
+  function closeHandler(event) {
+    console.log('closeHandler');
+    closeMenu();
+  }
+
+  var nav = document.getElementById('nav-main'),
+      isOpen = false,
+      className = 'js-navbar--open';
+
+  // check if the menu is open
+  if ( nav.classList ) {
+    if ( nav.classList.contains(className) ) { isOpen = true; }
+    else { openMenu(); }
+  }
+  else {
+    if ( new RegExp('(^| )' + className + '( |$)', 'gi').test(nav.className) ) { isOpen = true; }
+    else { openMenu(); }
+  }
+
+  function closeMenu() {
+    // usuń event, który zamyka menu
+    document.removeEventListener("click", closeHandler, false);
+
+    if ( nav.classList ) {
       nav.classList.remove(className);
-      navShow.classList.remove(active);
-    } else {
+    }
+    else {
       nav.className = nav.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-      navShow.className = navShow.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
     }
-  } else {
-    if (nav.classList) {
+    // Animate
+    Velocity(nav, "reverse", { display: "none" } );
+  }
+
+  function openMenu() {
+    // Dodaj event, który zamyka menu
+    document.addEventListener("click", closeHandler, false);
+
+    if ( nav.classList ) {
       nav.classList.add(className);
-      navShow.classList.add(active);
-    } else {
-      nav.className += ' ' + className;
-      navShow.className += ' ' + active;
     }
+    else {
+      nav.className += ' ' + className;
+    }
+    // Animate
+    Velocity(nav, { translateY: [0, "-150%"] }, { duration: 400, easing: 'ease', display: 'block' } );
+
   }
 }
+document.addEventListener("click", menuHandler, false);
+
+
 
 
 //

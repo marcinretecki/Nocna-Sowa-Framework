@@ -61,11 +61,29 @@ ol ol{margin-left:$space;margin-bottom:$space;list-style:lower-alpha;}
 
 dt{font-weight:700}
 
-p,dl,dd{margin:0 0 $space;}
+p,
+dl,
+dd {
+  margin:0 0 $space;
+  @media #{$m770} {
+    line-height: 1.5;
+  }
+}
+
+
 .post dd{margin:0 0 $space-half $space}
 
 
 .intro{font-size:$size-2;line-height:1.333;}
+
+// to do
+.post-index .index-h{font-size:$size-4}
+.post-index .intro{font-size:$size-1;line-height:$line-1;
+  @media #{$m770} {
+    line-height: 1.5;
+  }
+}
+
 .capital:first-letter{display:block;float:left;margin-top:0.35rem;margin-right:0.5rem;font-size:4.5rem;line-height:0.8}
 .plan{margin:0 0 $space-half;font-weight:700}
 .plan+ul{margin-bottom:$space-2}
@@ -179,14 +197,14 @@ h1,.h1,
 }
 .section-h-thin{margin:0 0 $space-half;}
 
-// index-h to nagłówki artykułów na liście artykułów na blogu, kategoriach i search
+// to są nagłówki artykułów na liście na blogu, kategoriach i search
 .index-h,.section-h-thin{
   @media #{$m770} {
     font-size:$size-4;
   }
 }
 
-// ???? nikt nie wie
+// to jest główny tytuł artykułów
 .entry-title{font-size:$size-6;margin-bottom:$space-4;
   @media #{$m770} {
     font-size:$size-5;
@@ -194,21 +212,33 @@ h1,.h1,
 }
 h2,.h2,
 h3,.h3,
-.recommends-h{margin:$space-4 0 $space;font-weight:400;font-variant:normal;font-style:normal;font-size:$size-4;line-height:1.15;font-family:$body-font;}
-h2,.h2{
+.recommends-h {
+  margin:$space-4 0 $space;font-weight:400;font-variant:normal;font-style:normal;font-size:$size-4;line-height:1.15;font-family:$body-font;
+}
+h2,.h2 {
   @media #{$m400} {
     font-size:$size-3;
   }
 }
 h3,.h3{font-size:$size-2;font-weight:700}
-h4,.h4{margin:0 0 $space-half;font-weight:700;font-variant:normal;font-style:normal;font-size:$size-0;line-height:1.15;font-family:$body-font;}
+h2:first-child,.h2:first-child,
+h3:first-child,.h3:first-child,
+.recommends-h {
+  margin-top:0;
+}
 .h2{margin:0} // ???????????
 
 h2 + h3{margin-top:$space-2}
 
-h1 a,h2 a,h3 a,h4 a,h1 a:visited,h2 a:visited,h3 a:visited,h4 a:visited{text-decoration:none;color:#000;}
+h4,.h4{margin:0 0 $space-half;font-weight:700;font-variant:normal;font-style:normal;font-size:$size-0;line-height:1.15;font-family:$body-font;}
 
-h2:first-child,h3:first-child,.h2:first-child,.h3:first-child,.recommends-h{margin-top:0;}
+h1 a,h1 a:visited,
+h2 a,h2 a:visited,
+h3 a,h3 a:visited,
+h4 a,h4 a:visited {
+  text-decoration:none;color:#000;
+}
+
 .index-h a:hover,.index-h a:focus{text-decoration:underline}
 .index-h-white a,.index-h-white a:visited,.index-h-white a:hover{color:$white}
 

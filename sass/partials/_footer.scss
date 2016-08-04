@@ -15,6 +15,11 @@
   @media #{$m770}{
     height:auto;
   }
+
+  @media #{$m640}{
+    margin-left: $space;
+    margin-right: $space;
+  }
 }
 .footer-warsztaty-nav:hover,.footer-warsztaty-nav:active,.footer-warsztaty-nav:focus{color:#fff;}
 .footer-warsztaty-nav--oslo   {background-image:url('/c/i/footer_oslo.jpg');}
