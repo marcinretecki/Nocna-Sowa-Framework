@@ -179,7 +179,8 @@ function animation(effectFrame, duration, from, to, easing, framespacing) {
 }
 
 window.smoothScrollTo = function (t, duration) {
-  var elm = document.getElementById(t);
+  var el = document.getElementById(t);
+  /*
   var target = elm.offsetTop;
   var node = elm;
   while (node.offsetParent && node.offsetParent !== document.body) {
@@ -192,7 +193,9 @@ window.smoothScrollTo = function (t, duration) {
   if (document.documentElement && document.documentElement.scrollTop) { start = document.documentElement.scrollTop; }
   if (document.body.scrollTop) { start = document.body.scrollTop; }
   duration = duration || 600;
-  animation(function (position) { window.scroll(0,position-40); }, duration, start, target);
+  animation(function (position) { window.scroll(0,position-40); }, duration, start, target);*/
+
+  Velocity(el, "scroll", { duration: 600, offset: -10, easing: "easeInOutQuart", queue: false });
 };
 
 

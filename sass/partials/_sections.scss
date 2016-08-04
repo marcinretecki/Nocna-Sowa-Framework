@@ -1,13 +1,20 @@
-/* ARTICLES & SECTIONS */
-
-[class*=content]{width:1064px;max-width:100%;margin:0 auto;}
-
-
-
 //
 // SECTIONS
 //
 
+// To jest najważniejszy element gridu....
+.section-content{position:relative;width:1064px;max-width:100%;padding:$space-4 $space $space-4;margin:0 auto;}
+.section-nav{width:1064px;max-width:100%;margin:0 auto;}
+
+.section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+//
+// Colors
+//
 .section-black ,.black {background-color:$outer-space;}
 .section-white ,.white {background-color:$white}
 .section-beige ,.beige {background-color:$beige}
@@ -39,14 +46,10 @@
 .rounded{border-radius:3px;overflow:hidden;}
 
 
-// To jest najważniejszy element gridu....
-.section-content{position:relative;width:1064px;max-width:100%;padding:$space-4 $space $space-4;margin:0 auto;}
-.section-nav{width:1064px;max-width:100%;margin:0 auto;}
 
-//
-// Zrobić nazwy sekcji bardziej logiczne
-//
 
+
+// ???
 .section-blog-header{padding-top:$space-8;padding-bottom:0;}
 .section-article-header{padding-top:$space-8;padding-bottom:$space;}
 
@@ -103,11 +106,6 @@
 
 .wrapper{height:100%;position:relative;overflow:auto;-webkit-overflow-scrolling: touch}
 
-
-// Old sections to remove?
-.section-closed{border:0;max-height:0;margin:0;padding:0;z-index:-1;opacity:0;overflow:hidden;}
-.section-opened{margin-bottom:$space-2;border-bottom:0;max-height:1000rem;z-index:1000;opacity:1;overflow:hidden;}
-.section-opened .section-content{padding-top:$space-2}
 
 
 
@@ -197,12 +195,11 @@
   background-size: cover;
   zoom: 1;
 }
-
-//
-.section-trans, .section-beige, .section-dark{
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
+.section-trans--fixed{
+  background-attachment: fixed;
+  @media all and (-webkit-min-device-pixel-ratio: 1) {
+    background-attachment: scroll;
+  }
 }
 
 .section-trans__fixed {
@@ -213,10 +210,10 @@
   height:100%;
 }
 .section-trans__bg {
-  position:fixed;
+  position:relative;
   left:0;
   top:0;
-  height:100vh;
+  height:100%;
   width:100%;
   background-size:cover;
   background-position:center center;
