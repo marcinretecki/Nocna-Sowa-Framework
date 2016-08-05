@@ -111,26 +111,27 @@
 // Boxes
 // Warsztaty 2016
 //
-.section-box{
-  @media #{$m400}{
-    padding-top: $space;
-    padding-bottom: $space;
+/*.col-*/.section-box {
+  @media #{$m770}{
+    width:66%;
+    padding: $space-half $space;
   }
 }
 
 .section-box__box {
   position:relative;z-index:1;padding:$space $space-2;border-radius:3px;background:rgba(255,255,255,0.9);color:$font-dark;
+
+  @media #{$m770}{
+    padding: $space-half $space;
+  }
+
 }
 
-.section-box__col {
+.section-box__box--kto {
+  margin: 0 #{- $space-4};
+
   @media #{$m770}{
-    width:50%;
-  }
-  @media #{$m640}{
-    width:75%;
-  }
-  @media #{$m400}{
-    width:auto;
+    margin: 0;
   }
 }
 

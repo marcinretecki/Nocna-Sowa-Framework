@@ -36,7 +36,8 @@ a:hover .caret,.caret:hover{border-top-color:$white;}
 .section-nav__like{
   @media #{$m400}{
     transform: scale(0.75);
-    padding-bottom:0;
+    transform-origin: right center;
+    padding-bottom: 0;
   }
 }
 
