@@ -82,60 +82,70 @@ function sectionToggle(s, addClassName, overflow){
 }
 
 
+function hasClass(el, className) {
+  if ( el.classList ) {
+    if ( el.classList.contains(className) ) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    if ( new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className) ) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+}
+
+
 //
 // Open Nav when on small screen
 //
 function menuHandler(event) {
   var eventTarget = event.target;
 
+
   // jeśli to nie jest naszy przycisk, to koniec funkcji
-  if (eventTarget.id !== 'buttonOpenNav') {
+  if ( !hasClass( eventTarget, 'js-open-nav' ) ) {
     return;
   }
 
-  function closeHandler(event) {
-    console.log('closeHandler');
-    closeMenu();
-  }
 
-  var nav = document.getElementById('nav-main'),
-      isOpen = false,
-      className = 'js-navbar--open';
+  var openTarget = eventTarget.getAttribute('data-open-target'),
+      nav = document.getElementById(openTarget),
+      state = eventTarget.getAttribute('data-open-state');
+
+
+  if ( !state ) {
+    eventTarget.setAttribute('data-open-state', 'closed');
+    state = 'closed';
+  }
 
   // check if the menu is open
-  if ( nav.classList ) {
-    if ( nav.classList.contains(className) ) { isOpen = true; }
-    else { openMenu(); }
-  }
-  else {
-    if ( new RegExp('(^| )' + className + '( |$)', 'gi').test(nav.className) ) { isOpen = true; }
-    else { openMenu(); }
+  if ( state === 'closed' ) {
+    openMenu();
   }
 
   function closeMenu() {
     // usuń event, który zamyka menu
-    document.removeEventListener("click", closeHandler, false);
+    document.removeEventListener("click", closeMenu, false);
 
-    if ( nav.classList ) {
-      nav.classList.remove(className);
-    }
-    else {
-      nav.className = nav.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-    }
+    eventTarget.setAttribute('data-open-state', 'closed');
+
     // Animate
-    Velocity(nav, "reverse", { display: "none" } );
+    Velocity( nav, "reverse", { display: "none" } );
   }
 
   function openMenu() {
     // Dodaj event, który zamyka menu
-    document.addEventListener("click", closeHandler, false);
+    document.addEventListener("click", closeMenu, false);
 
-    if ( nav.classList ) {
-      nav.classList.add(className);
-    }
-    else {
-      nav.className += ' ' + className;
-    }
+    eventTarget.setAttribute('data-open-state', 'open');
+
     // Animate
     Velocity(nav, { translateY: [0, "-150%"] }, { duration: 400, easing: 'ease', display: 'block' } );
 
@@ -147,56 +157,14 @@ document.addEventListener("click", menuHandler, false);
 
 
 //
-// Scroll
-// to trzeba zawrzeć chyba w singleton
+// Smooth Scroll
 //
-function animation(effectFrame, duration, from, to, easing, framespacing) {
-  var start = Date.now(), change;
-
-  if (animation.existing) { window.clearTimeout(animation.existing); }
-
-  duration = duration || 500;
-  if (typeof from === 'function') {
-    easing = from;
-    from = 0;
-  }
-  easing = easing || function (x, t, b, c, d) {
-    if ( (t/=d/2) < 1 ) { return c/2*t*t + b };
-    return -c/2 * ((--t)*(t-2) - 1) + b;
-  };
-  from = from || 0;
-  to = to || 1;
-  framespacing = framespacing || 1;
-  change = to - from;
-
-  (function interval() {
-    var time = Date.now() - start;
-    if (time < duration) {
-      effectFrame(easing(100, time, from, change, duration));
-      animation.existing = window.setTimeout(interval, framespacing);
-    } else { effectFrame(to); }
-  }());
-}
-
 window.smoothScrollTo = function (t, duration) {
   var el = document.getElementById(t);
-  /*
-  var target = elm.offsetTop;
-  var node = elm;
-  while (node.offsetParent && node.offsetParent !== document.body) {
-    node = node.offsetParent;
-    target += node.offsetTop;
-    target += 0;
-  }
-  var start;
-  if (self.pageYOffset) { start = self.pageYOffset; }
-  if (document.documentElement && document.documentElement.scrollTop) { start = document.documentElement.scrollTop; }
-  if (document.body.scrollTop) { start = document.body.scrollTop; }
-  duration = duration || 600;
-  animation(function (position) { window.scroll(0,position-40); }, duration, start, target);*/
 
-  Velocity(el, "scroll", { duration: 600, offset: -10, easing: "easeInOutQuart", queue: false });
+  Velocity(el, "scroll", { duration: 600, easing: "easeInOutQuart", queue: false });
 };
+
 
 
 //
@@ -264,4 +232,7 @@ q="milliseconds seconds minutes hours days weeks months years decades centuries 
 
 
 /*! gumshoe v3.1.2 | (c) 2016 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/gumshoe */
-!function(e,t){"function"==typeof define&&define.amd?define([],t(e)):"object"==typeof exports?module.exports=t(e):e.gumshoe=t(e)}("undefined"!=typeof global?global:this.window||this.global,function(e){"use strict";var t,n,o,r,a,c,i={},s="querySelector"in document&&"addEventListener"in e&&"classList"in document.createElement("_"),l=[],u={selector:"[data-gumshoe] a",selectorHeader:"[data-gumshoe-header]",offset:0,activeClass:"active",callback:function(){}},f=function(e,t,n){if("[object Object]"===Object.prototype.toString.call(e))for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&t.call(n,e[o],o,e);else for(var r=0,a=e.length;a>r;r++)t.call(n,e[r],r,e)},d=function(){var e={},t=!1,n=0,o=arguments.length;"[object Boolean]"===Object.prototype.toString.call(arguments[0])&&(t=arguments[0],n++);for(var r=function(n){for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(t&&"[object Object]"===Object.prototype.toString.call(n[o])?e[o]=d(!0,e[o],n[o]):e[o]=n[o])};o>n;n++){var a=arguments[n];r(a)}return e},v=function(e){return Math.max(e.scrollHeight,e.offsetHeight,e.clientHeight)},m=function(){return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight)},g=function(e){var n=0;if(e.offsetParent){do n+=e.offsetTop,e=e.offsetParent;while(e)}else n=e.offsetTop;return n=n-a-t.offset,n>=0?n:0},h=function(e){var t=e.getBoundingClientRect();return t.top>=0&&t.left>=0&&t.bottom<=(window.innerHeight||document.documentElement.clientHeight)&&t.right<=(window.innerWidth||document.documentElement.clientWidth)},p=function(){l.sort(function(e,t){return e.distance>t.distance?-1:e.distance<t.distance?1:0})};i.setDistances=function(){o=m(),a=r?v(r)+g(r):0,f(l,function(e){e.distance=g(e.target)}),p()};var b=function(){var e=document.querySelectorAll(t.selector);f(e,function(e){if(e.hash){var t=document.querySelector(e.hash);t&&l.push({nav:e,target:t,parent:"li"===e.parentNode.tagName.toLowerCase()?e.parentNode:null,distance:0})}})},y=function(){c&&(c.nav.classList.remove(t.activeClass),c.parent&&c.parent.classList.remove(t.activeClass))},H=function(e){y(),e.nav.classList.add(t.activeClass),e.parent&&e.parent.classList.add(t.activeClass),t.callback(e),c={nav:e.nav,parent:e.parent}};i.getCurrentNav=function(){var n=e.pageYOffset;if(e.innerHeight+n>=o&&h(l[0].target))return H(l[0]),l[0];for(var r=0,a=l.length;a>r;r++){var c=l[r];if(c.distance<=n)return H(c),c}y(),t.callback()};var C=function(){f(l,function(e){e.nav.classList.contains(t.activeClass)&&(c={nav:e.nav,parent:e.parent})})};i.destroy=function(){t&&(e.removeEventListener("resize",L,!1),e.removeEventListener("scroll",L,!1),l=[],t=null,n=null,o=null,r=null,a=null,c=null)};var L=function(e){n||(n=setTimeout(function(){n=null,"scroll"===e.type&&i.getCurrentNav(),"resize"===e.type&&(i.setDistances(),i.getCurrentNav())},200))};return i.init=function(n){s&&(i.destroy(),t=d(u,n||{}),r=document.querySelector(t.selectorHeader),b(),0!==l.length&&(C(),i.setDistances(),i.getCurrentNav(),e.addEventListener("resize",L,!1),e.addEventListener("scroll",L,!1)))},i});
+// edited in two places
+// 1. changed the eventThrottler from 66 to 200
+// 2. stopped "li" tag from getting new classes
+!function(e,t){"function"==typeof define&&define.amd?define([],t(e)):"object"==typeof exports?module.exports=t(e):e.gumshoe=t(e)}("undefined"!=typeof global?global:this.window||this.global,function(e){"use strict";var t,n,o,r,a,c,i={},s="querySelector"in document&&"addEventListener"in e&&"classList"in document.createElement("_"),l=[],u={selector:"[data-gumshoe] a",selectorHeader:"[data-gumshoe-header]",offset:0,activeClass:"active",callback:function(){}},f=function(e,t,n){if("[object Object]"===Object.prototype.toString.call(e))for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&t.call(n,e[o],o,e);else for(var r=0,a=e.length;a>r;r++)t.call(n,e[r],r,e)},d=function(){var e={},t=!1,n=0,o=arguments.length;"[object Boolean]"===Object.prototype.toString.call(arguments[0])&&(t=arguments[0],n++);for(var r=function(n){for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(t&&"[object Object]"===Object.prototype.toString.call(n[o])?e[o]=d(!0,e[o],n[o]):e[o]=n[o])};o>n;n++){var a=arguments[n];r(a)}return e},v=function(e){return Math.max(e.scrollHeight,e.offsetHeight,e.clientHeight)},m=function(){return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight)},g=function(e){var n=0;if(e.offsetParent){do n+=e.offsetTop,e=e.offsetParent;while(e)}else n=e.offsetTop;return n=n-a-t.offset,n>=0?n:0},h=function(e){var t=e.getBoundingClientRect();return t.top>=0&&t.left>=0&&t.bottom<=(window.innerHeight||document.documentElement.clientHeight)&&t.right<=(window.innerWidth||document.documentElement.clientWidth)},p=function(){l.sort(function(e,t){return e.distance>t.distance?-1:e.distance<t.distance?1:0})};i.setDistances=function(){o=m(),a=r?v(r)+g(r):0,f(l,function(e){e.distance=g(e.target)}),p()};var b=function(){var e=document.querySelectorAll(t.selector);f(e,function(e){if(e.hash){var t=document.querySelector(e.hash);t&&l.push({nav:e,target:t,distance:0})}})},y=function(){c&&(c.nav.classList.remove(t.activeClass))},H=function(e){y(),e.nav.classList.add(t.activeClass),t.callback(e),c={nav:e.nav}};i.getCurrentNav=function(){var n=e.pageYOffset;if(e.innerHeight+n>=o&&h(l[0].target))return H(l[0]),l[0];for(var r=0,a=l.length;a>r;r++){var c=l[r];if(c.distance<=n)return H(c),c}y(),t.callback()};var C=function(){f(l,function(e){e.nav.classList.contains(t.activeClass)&&(c={nav:e.nav})})};i.destroy=function(){t&&(e.removeEventListener("resize",L,!1),e.removeEventListener("scroll",L,!1),l=[],t=null,n=null,o=null,r=null,a=null,c=null)};var L=function(e){n||(n=setTimeout(function(){n=null,"scroll"===e.type&&i.getCurrentNav(),"resize"===e.type&&(i.setDistances(),i.getCurrentNav())},200))};return i.init=function(n){s&&(i.destroy(),t=d(u,n||{}),r=document.querySelector(t.selectorHeader),b(),0!==l.length&&(C(),i.setDistances(),i.getCurrentNav(),e.addEventListener("resize",L,!1),e.addEventListener("scroll",L,!1)))},i});

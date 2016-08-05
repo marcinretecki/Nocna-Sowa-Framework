@@ -2,21 +2,28 @@
 // New main nav/header
 //
 
-//
-.nav-top{position:fixed;top:0;left:0;right:0;z-index:99;box-shadow:0 0 $space rgba(0, 0, 0, 0.25);}
-.nav-top-hidden{transform:translate(0,-100%);box-shadow:0 0 0 rgba(0,0,0,0);}
+
+
 
 // gdzie to???
 .caret{display:inline-block;margin:$space-quarter 0;border:5px solid transparent;border-top-color:$gray-on-dark;border-bottom:0;}
 a:hover .caret,.caret:hover{border-top-color:$white;}
 
-.header-top{left:0;top:0;z-index:100;width:100%;
+.header-top{
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  backface-visibility: hidden;
+  transform: translate3d(0,0,0);
   @media #{$m770}{
     text-align: center;
   }
 }
 .header-top--fixed{position:fixed;}
 .header-top--absolute{position:absolute;}
+.header-top--shadowed{box-shadow:0 0 $space rgba(0, 0, 0, 0.25);}
+.header-top--hidden{transform:translate3d(0,-100%,0);box-shadow:0 0 0 rgba(0,0,0,0);}
 
 .section-nav{}
 .section-nav__toggle{display:none;
@@ -24,7 +31,13 @@ a:hover .caret,.caret:hover{border-top-color:$white;}
     display: inline-block;
     float:left;
   }
+}
 
+.section-nav__like{
+  @media #{$m400}{
+    transform: scale(0.75);
+    padding-bottom:0;
+  }
 }
 
 .section-nav__search{
@@ -48,8 +61,8 @@ a:hover .caret,.caret:hover{border-top-color:$white;}
 .navbar{
   display:inline-block;
   @media #{$m770}{
-    display:none;
-    z-index:-1;
+    display: none;
+    z-index: -1;
     position: absolute;
     left: 0;
     right: 0;
