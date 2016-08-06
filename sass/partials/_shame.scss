@@ -14,16 +14,24 @@
 }
 .warsztaty-list li:hover{border-color:$beige-border;}
 .warsztaty-list li + li{margin-top:$space;}
-.warsztaty-list h3,.warsztaty-list p{margin:0;}
 
-.btn-warsztaty-list,.btn-warsztaty-list-alt{position:absolute;right:$space;bottom:$space;margin:0;
+.warsztaty-list h3,
+.warsztaty-list p {
+  margin-bottom:0;
   @media #{$m770}{
-    position:static;margin-top:$space;
+    margin-bottom:$space-half;
+  }
+}
+
+.btn-warsztaty-list,
+.btn-warsztaty-list-alt{position:absolute;right:$space;bottom:$space;margin:0;
+  @media #{$m770}{
+    position:static;
   }
 }
 .btn-warsztaty-list-alt{right:$space-2;bottom:$space-2;
   @media #{$m770}{
-    margin-top:0;
+    margin-top:$space;
   }
 }
 

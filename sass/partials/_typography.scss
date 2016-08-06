@@ -44,16 +44,16 @@ ul{margin:0 0 $space-2 $space;list-style-position:outside}
 ol{margin:0 0 $space-2;list-style-position:outside}
 ol > li {
   @media #{$m770} {
-    margin-left:2.5rem
+    margin-left:$space-2
   }
 }
 li{margin:0 0 $space-half;padding:0}
 ul > li{position:relative;margin-left:(-$space);padding:0 0 0 $space;list-style:none;
   @media #{$m770} {
-    margin-left:1.25rem
+    margin-left:$space;
   }
 }
-ul > li:before{content:"";position:absolute;left:0;top:0.6875em;width:$space-half / 2;height:$space-half / 2;border-radius:1px;background:$dark;}
+ul > li:before{content:"";position:absolute;left:0;top:0.6875em;width:$space-quarter;height:$space-quarter;border-radius:1px;background:$dark;}
 .light-dots > li:before{background:$white;}
 ol ol{margin-left:$space;margin-bottom:$space;list-style:lower-alpha;}
 .nodots li:before{display:none}

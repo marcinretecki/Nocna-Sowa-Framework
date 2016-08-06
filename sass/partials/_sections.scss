@@ -288,24 +288,23 @@
 
 .section-dark .section-beige hr{border-color:$gray}
 
+// nie widzę, żeby to było gdzieś używane
 .grupy-img{margin:0 auto;display:block}
 .group-green{border-top:1px solid $green}
 .group-orange{border-top:1px solid $orange}
 .group-red{border-top:1px solid $red}
 .group-summary{margin-top:$space}
 
-// old sections code
-.arrow-up{display:block;position:absolute;top:$space;right:0;width:30px;height:28px;opacity:0.5;background:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjMwcHgiIGhlaWdodD0iMjhweCIgdmlld0JveD0iMCAwIDMwIDI4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4KICAgIDx0aXRsZT5hcnJvd191cDwvdGl0bGU+CiAgICA8ZGVzY3JpcHRpb24+Q3JlYXRlZCB3aXRoIFNrZXRjaCAoaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoKTwvZGVzY3JpcHRpb24+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iUGFnZSAxIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgICAgIDxnIGlkPSJhcnJvd191cCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjMiPgogICAgICAgICAgICA8ZyBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEuMDAwMDAwLCAyLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuOTg3NzkyOTY5LDAuOTgyNzA0MTYzIEwxMy45ODc3OTMsMTIuOTgyNzA0MiBMMjYuOTg3NzkzLDAuOTgyNzA0MTc2IiBpZD0iUGF0aCA2IGNvcHkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzLjk4Nzc5MywgNi45ODI3MDQpIHNjYWxlKDEsIC0xKSB0cmFuc2xhdGUoLTEzLjk4Nzc5MywgLTYuOTgyNzA0KSAiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0wLjk4Nzc5Mjk2OSw5Ljk4MjcwNCBMMTMuOTg3NzkzLDIxLjk4MjcwNCBMMjYuOTg3NzkzLDkuOTgyNzA0MDEiIGlkPSJQYXRoIDYgY29weSAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMy45ODc3OTMsIDE1Ljk4MjcwNCkgc2NhbGUoMSwgLTEpIHRyYW5zbGF0ZSgtMTMuOTg3NzkzLCAtMTUuOTgyNzA0KSAiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+') no-repeat 0 0;}
-.arrow-up:hover{opacity:1;}
 
-.arrow-down{display:inline-block;width:16px;height:14px;background:url('/c/i/arrow_down_mini.png') no-repeat center center;}
 
 
 // Redesigned Oslo
 .btn-close{position:absolute;right:$space;top:$space-2;width:$space-2;height:$space-2;border-radius:50%;opacity:0.5;background:#000 url('i/x.png') no-repeat center center;}
 .btn-close:hover{opacity:1;}
 
+//
 // Section Moving
+//
 .section-moving{opacity:0;position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow-y:scroll;visibility:hidden;
 transition:all 0.4s cubic-bezier(.645,.045,.355,1);
 transform:translate3d(100%,0,0);
@@ -318,7 +317,9 @@ backface-visibility:hidden;
 #faq .divider{margin-top:$space-2}
 
 
-/* Opinie */
+//
+// Opinie
+//
 .recommends{}
 .recommends-single{padding:$space-2;margin-left:22rem;margin-bottom:$space-4;border-radius:3px;background:$white;
   @media #{$m770}{

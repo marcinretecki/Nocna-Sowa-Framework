@@ -4,6 +4,7 @@
 
 // Variables
 @import "partials/variables";
+@import "partials/mixins";
 
 .chat-wrapper{min-height:100%;}
 .chat-wrapper *{transition:none;}

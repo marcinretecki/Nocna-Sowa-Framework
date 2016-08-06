@@ -86,6 +86,9 @@ input.btn-dark{background-color:$dark-btn;color:$white;} // to do
 .btn-dark-outline--active,.btn-dark-outline--active:visited,
 input.btn-dark:focus,input.btn-dark:hover{background-color:$dark-btn-hover;color:$white;} // to do
 
+.btn-dark-outline:hover .i-menu::before,
+.btn-dark-outline:hover .i-menu::after,
+.btn-dark-outline:hover .i-menu {background-color: $white;}
 
 // Blue
 .btn-blue,.btn-blue:visited,
@@ -177,7 +180,8 @@ input.btn-blue:focus,input.btn-blue:hover{background-color:$blue-hover;color:$wh
 .i-fb{padding-left:30px;background:url('i/icon_fb.png') no-repeat 0 center;}
 .i-fb--small{padding-left:20px;background-size:$size-0 $size-0;}
 
-.i-menu{
+.i-menu {
+  @include transition;
   display: inline-block;
   position: relative;
   width: 12px;
@@ -187,7 +191,8 @@ input.btn-blue:focus,input.btn-blue:hover{background-color:$blue-hover;color:$wh
   vertical-align: middle;
   background-color: $dark-btn-hover;
 }
-.i-menu::before{
+.i-menu::before {
+  @include transition;
   display: block;
   position: absolute;
   bottom: -4px;
@@ -197,7 +202,8 @@ input.btn-blue:focus,input.btn-blue:hover{background-color:$blue-hover;color:$wh
   background-color: $dark-btn-hover;
   content: "";
 }
-.i-menu::after{
+.i-menu::after {
+  @include transition;
   display: block;
   position: absolute;
   top: -4px;
