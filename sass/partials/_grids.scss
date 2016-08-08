@@ -34,6 +34,7 @@
 .p-10 > blockquote p:last-of-type:after{content:close-quote}
 .p-10 > blockquote .author{left:$space;bottom:0;top:auto}
 .p-10 > blockquote .share{left:auto;right:$space;top:auto;bottom:0}
+.p-10 > iframe,.p-10 > object{margin-bottom:$space;}
 
 .col-9,.p-9 > p{width:$col-9}
 .col-8,.p-8 > p{width:$col-8;

@@ -259,6 +259,8 @@
 
 .img-natt{background-image:url('/c/i/natt_1.jpg');background-color:$dark;}
 
+.img-opinie{background-image:url('/c/i/opinie/opinie_kamil.jpg');background-position:center 15%;background-color:$dark;}
+
 
 /*
  * Trzeba ujednolicić letters. l-stamped ma chyba lepsze podejście – bardziej uniwersalne (patrz markup)
@@ -438,7 +440,7 @@ backface-visibility:hidden;
 
 // Do oczyszczenia wszystkie <aside> w artykułach – trzeba dodać .aside-entry
 .aside-entry,
-.section-entry aside{padding:$space;margin-bottom:$space-2;border-radius:3px;background:$beige;}
+.section-entry aside{clear:both;padding:$space;margin-bottom:$space-2;border-radius:3px;background:$beige;}
 .aside-entry p,
 .aside-entry ol,
 .aside-entry ul,

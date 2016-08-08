@@ -42,14 +42,6 @@ Properties:
 
 
 
-
-
-
-
-
-
-
-
 .share{display:inline-block;padding:0 5px 0 24px;border-radius:3px;background:$beige url('/c/i/f_logo_29.png') 4px 4px no-repeat;background-size:16px;text-decoration:none;font:12px/24px $body-font;opacity:0.5;}
 .share:hover,.share:focus{text-decoration:underline;opacity:1;}
 blockquote .share{display:block;position:absolute;top:100%;right:0;margin-top:5px;}
@@ -66,7 +58,7 @@ blockquote .share{display:block;position:absolute;top:100%;right:0;margin-top:5p
 
 
 /* IMG */
-img{max-width:100%;margin:0 auto;padding:0;border:0;-ms-interpolation-mode:bicubic;}
+img{display:block;max-width:100%;margin:0 auto;padding:0;border:0;-ms-interpolation-mode:bicubic;}
 .section-entry img{display:block;margin-bottom:$space;}
 figure img{margin-bottom:$space-half;}
 img + figcaption{margin:0;padding:0;font-size:$size-0;text-align:center;font-style:italic;}

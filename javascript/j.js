@@ -4,6 +4,174 @@
 
 
 //
+// Get closest parent
+//
+/**
+ * Get the closest matching element up the DOM tree.
+ * @param  {Element} elem     Starting element
+ * @param  {String}  selector Selector to match against (class, ID, data attribute, or tag)
+ * @return {Boolean|Element}  Returns null if not match found
+ */
+function getClosest( elem, selector ) {
+
+    // Variables
+    var firstChar = selector.charAt(0);
+    var supports = 'classList' in document.documentElement;
+    var attribute, value;
+
+    // If selector is a data attribute, split attribute from value
+    if ( firstChar === '[' ) {
+        selector = selector.substr( 1, selector.length - 2 );
+        attribute = selector.split( '=' );
+
+        if ( attribute.length > 1 ) {
+            value = true;
+            attribute[1] = attribute[1].replace( /"/g, '' ).replace( /'/g, '' );
+        }
+    }
+
+    // Get closest match
+    for ( ; elem && elem !== document && elem.nodeType === 1; elem = elem.parentNode ) {
+
+        // If selector is a class
+        if ( firstChar === '.' ) {
+            if ( supports ) {
+                if ( elem.classList.contains( selector.substr(1) ) ) {
+                    return elem;
+                }
+            } else {
+                if ( new RegExp('(^|\\s)' + selector.substr(1) + '(\\s|$)').test( elem.className ) ) {
+                    return elem;
+                }
+            }
+        }
+
+        // If selector is an ID
+        if ( firstChar === '#' ) {
+            if ( elem.id === selector.substr(1) ) {
+                return elem;
+            }
+        }
+
+        // If selector is a data attribute
+        if ( firstChar === '[' ) {
+            if ( elem.hasAttribute( attribute[0] ) ) {
+                if ( value ) {
+                    if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
+                        return elem;
+                    }
+                } else {
+                    return elem;
+                }
+            }
+        }
+
+        // If selector is a tag
+        if ( elem.tagName.toLowerCase() === selector ) {
+            return elem;
+        }
+
+    }
+
+    return null;
+
+}
+
+
+//
+// Track events on links and buttons
+//
+function trackLinksHandler(event) {
+
+  var target = event.target;
+
+  if ( target.href === undefined ) {
+      target = getClosest(target, 'a');
+  }
+
+  if ( (target === null) || (target.href === undefined) ) {
+    // not a link, so ignore
+    return;
+  }
+
+  var currentUrlSplit = window.location.href.split('#'),
+      targetSplit = target.href.split('#'),
+      category,
+      action,
+      label = document.title.split(' | Nocna Sowa')[0];
+
+  // Action
+  if ( ( target.getAttribute('data-ga-action') !== null ) && ( target.getAttribute('data-ga-action') !== '' ) ) {
+    // Jeśli link ma opis, to dodaj będzie w Action
+    action = target.getAttribute('data-ga-action');
+  }
+  else if ( targetSplit.length > 1 ) {
+    // Jeśli jest anchor, to dajemy sam hash
+    action = targetSplit[1];
+  }
+  else {
+    // Jeśli nie ma opisu ani hasha, to dajemy href
+    action = target.href;
+  }
+
+  // Category
+  if ( ( target.getAttribute('data-ga-category') !== null ) && ( target.getAttribute('data-ga-category') !== '' ) ) {
+    // Link has a special category
+    category = target.getAttribute('data-ga-category');
+    console.log(category);
+  }
+  else {
+    // We need to figure out the category
+    if ( target.className.indexOf('check') != '-1' ) {
+      // This is an anchor
+      console.log('Ćwiczenie');
+      category = 'Ćwiczenie';
+    }
+    else if ( ( currentUrlSplit[0] === targetSplit[0] ) && ( targetSplit.length > 1 ) ) {
+      // This is an anchor
+      console.log('Anchors');
+      category = 'Anchors';
+    }
+    else if ( ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) && ( targetSplit[0].indexOf('?replytocom=') != '-1' ) ) {
+      // This is a comment reply
+      console.log('Comment');
+      category = 'Comment';
+      action = 'Odpowiedz';
+    }
+    else if ( targetSplit[0].indexOf('facebook.com/sharer/') != '-1' ) {
+      // This is a share
+      console.log('Share');
+      category = 'Share';
+    }
+    else if ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) {
+      // This is internal link
+      console.log('Internal Link');
+      category = 'Internal Link';
+    }
+    else if ( targetSplit[0].indexOf('nocnasowa.pl/') == '-1' ) {
+      // This should be an outgoing link
+      console.log('Outgoing');
+      category = 'Outgoing';
+    }
+    else {
+      category = 'Other';
+    }
+  }
+
+  console.log(action);
+
+  try { ga('send', 'event', category, action, label); }
+  catch(err) {};
+
+}
+window.addEventListener('click', trackLinksHandler, false);
+
+
+
+
+
+
+//
 // Section Toggle
 //
 function sectionToggle(s, addClassName, overflow){
@@ -114,7 +282,6 @@ function menuHandler(event) {
     return;
   }
 
-
   var openTarget = eventTarget.getAttribute('data-open-target'),
       nav = document.getElementById(openTarget),
       state = eventTarget.getAttribute('data-open-state');
@@ -125,10 +292,6 @@ function menuHandler(event) {
     state = 'closed';
   }
 
-  // check if the menu is open
-  if ( state === 'closed' ) {
-    openMenu();
-  }
 
   function closeMenu() {
     // usuń event, który zamyka menu
@@ -149,6 +312,11 @@ function menuHandler(event) {
     // Animate
     Velocity(nav, { translateY: [0, "-150%"] }, { duration: 400, easing: 'ease', display: 'block' } );
 
+  }
+
+  // check if the menu is open
+  if ( state === 'closed' ) {
+    openMenu();
   }
 }
 document.addEventListener("click", menuHandler, false);
@@ -188,6 +356,16 @@ function isScrolledIntoView(el) {
 // Spinner on buttons
 //
 function spinHandler(event) {
+
+  function spin(target) {
+    var spans = target.getElementsByClassName('raquo');
+
+    if (spans[0]) {
+      spans[0].innerHTML = '<div></div><div></div><div></div>';
+      spans[0].className = 'ball-pulse-sync';
+    }
+  }
+
   var eventTarget = event.target,
       dataTarget = eventTarget.getAttribute('data-target');
 
@@ -200,14 +378,7 @@ function spinHandler(event) {
     spin(eventTarget.parentNode);
   }
 }
-function spin(target) {
-  var spans = target.getElementsByClassName('raquo');
 
-  if (spans[0]) {
-    spans[0].innerHTML = '<div></div><div></div><div></div>';
-    spans[0].className = 'ball-pulse-sync';
-  }
-}
 document.addEventListener("click", spinHandler, false);
 
 
