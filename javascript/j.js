@@ -118,47 +118,39 @@ function trackLinksHandler(event) {
   if ( ( target.getAttribute('data-ga-category') !== null ) && ( target.getAttribute('data-ga-category') !== '' ) ) {
     // Link has a special category
     category = target.getAttribute('data-ga-category');
-    console.log(category);
   }
   else {
     // We need to figure out the category
+
     if ( target.className.indexOf('check') != '-1' ) {
       // This is an anchor
-      console.log('Ćwiczenie');
       category = 'Ćwiczenie';
     }
     else if ( ( currentUrlSplit[0] === targetSplit[0] ) && ( targetSplit.length > 1 ) ) {
       // This is an anchor
-      console.log('Anchors');
       category = 'Anchors';
     }
     else if ( ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) && ( targetSplit[0].indexOf('?replytocom=') != '-1' ) ) {
       // This is a comment reply
-      console.log('Comment');
       category = 'Comment';
       action = 'Odpowiedz';
     }
     else if ( targetSplit[0].indexOf('facebook.com/sharer/') != '-1' ) {
       // This is a share
-      console.log('Share');
       category = 'Share';
     }
     else if ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) {
       // This is internal link
-      console.log('Internal Link');
       category = 'Internal Link';
     }
     else if ( targetSplit[0].indexOf('nocnasowa.pl/') == '-1' ) {
       // This should be an outgoing link
-      console.log('Outgoing');
       category = 'Outgoing';
     }
     else {
       category = 'Other';
     }
   }
-
-  console.log(action);
 
   try { ga('send', 'event', category, action, label); }
   catch(err) {};
