@@ -322,7 +322,7 @@ document.addEventListener("click", menuHandler, false);
 window.smoothScrollTo = function (t, duration) {
   var el = document.getElementById(t);
 
-  Velocity(el, "scroll", { duration: 600, easing: "easeInOutQuart", queue: false });
+  Velocity(el, "scroll", { duration: 600, easing: "easeInOutQuart", queue: false, offset: -40 });
 };
 
 
