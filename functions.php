@@ -3,13 +3,12 @@
   Functions
 */
 
-
 //
 // Change css and js source for development
 //
 function las_admin_dev_mode() {
   if ( current_user_can( 'delete_users' ) )  {
-    return false;
+    return true;
   }
   else {
     return false;
@@ -29,9 +28,7 @@ function las_autover_livecopy($url){
 }
 
 function autoVer($url) {
-  $dev_mode = las_admin_dev_mode();
-
-  if ( $dev_mode ) {
+  if ( las_admin_dev_mode() ) {
     return las_autover_livecopy($url);
   }
   else {
@@ -45,7 +42,7 @@ function autoVer($url) {
 // Get source url for development
 //
 function las_get_source_url() {
-  if ( $dev_mode ) {
+  if ( las_admin_dev_mode() ) {
     return '/nocnasowa/livecopy/wp-content/themes/nocnasowa_theme/';
   }
   else {
@@ -53,3 +50,22 @@ function las_get_source_url() {
   }
 }
 $source_url = las_get_source_url();
+
+
+
+
+//
+// Dev redirect
+//
+if ( ( $_SERVER['REQUEST_URI'] !== '/' ) && !las_admin_dev_mode() ) {
+  header('Location: http://las.nocnasowa.pl/');
+  exit;
+}
+
+//
+// Add categories to pages
+//
+function las_add_taxonomies_to_pages() {
+ register_taxonomy_for_object_type( 'category', 'page' );
+ }
+add_action( 'init', 'las_add_taxonomies_to_pages' );
