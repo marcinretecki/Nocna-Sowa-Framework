@@ -63,13 +63,13 @@ function las_dev_redirect() {
     exit;
   }
 }
-add_action('init', 'las_dev_redirect');
+add_action('template_redirect', 'las_dev_redirect');
 
 
 //
 // Redirect non-editors or non-admins from admin area
 //
-function las_login_redirect(){
+function las_login_redirect() {
   if ( !current_user_can( 'edit_posts' ) ) {
     wp_redirect( 'http://las.nocnasowa.pl/' );
     exit;

@@ -10,50 +10,97 @@ $id = $post->ID;
 include( 'includes/head.php' );
 ?>
 
-
-<section class="section-content">
+<div class="section-content">
 
   <h2 class="h1 size-4">Kursy</h2>
 
   <?php
-      $current_user = wp_get_current_user();
+    $current_user = wp_get_current_user();
 
-      echo '<pre style="display:none">';
-      print_r( $current_user );
-      echo '</pre>';
+    echo '<pre style="display:none">';
+    print_r( $current_user );
+    echo '</pre>';
 
+    function las_courses_loop($courses) {
+      global $post; // needed for setup_postdata
+
+      foreach ( $courses as $post ) {
+        // the Loop
+
+        setup_postdata( $post );
+
+        //print_r($post);
+
+        if ( substr($post->post_name, -1) === '1' ) {
+          $post_category = get_the_category( $post->ID )[0]->name;
+
+          echo '<h3>'
+             . $post_category
+             . '</h3>';
+        }
+
+        echo '<p><a href="';
+        the_permalink();
+        echo '">';
+        the_title();
+        echo '</a></p>';
+
+
+
+      }
+      wp_reset_postdata();
+    }
 
     function las_show_courses() {
 
-      if ( current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
-        // if it is an editor or advanced user, we can show him advanced course
-        // later it would be wise to add other courses here as well
-        $post_parent__in = array(20, 24);
-      }
-      else if ( current_user_can( 'basic_user' ) ) {
-        // if it is a basic user, show just basic course
-        $post_parent__in = array(20);
-      }
+      // Kursy IDs
+      $basic_courses_parent = 20;
+      $advanced_courses_parent = 24;
 
-      $course_args = array(
+      $courses_args = array(
         'post_type'       => 'page',
-        'post_parent__in' => $post_parent__in,
+        'post_parent'     => $basic_courses_parent,
         'posts_per_page'  => -1,
-        'orderby'         => 'menu_order',
+        'orderby'         => 'name',
         'nopaging'        => true,
         'order'           => 'ASC'
       );
 
-      $courses = get_posts( $course_args );
+      $basic_courses = get_posts( $courses_args );
 
-      $current_level = 'basic';
+      if ( current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
+        // if it is an editor or advanced user, we can show him advanced course
 
-      foreach ( $courses as $post ) : setup_postdata( $post );
+        $courses_args['post_parent'] = $advanced_courses_parent;
 
-        print_r( get_the_category() );
+        $advanced_courses = get_posts( $courses_args );
 
-      endforeach;
-      wp_reset_postdata();
+      }
+      elseif ( current_user_can( 'basic_user' ) ) {
+        // if it is a basic user, don't show advanced
+        $advanced_courses = false;
+      }
+
+
+      echo '<h2>Podstawowy</h2>';
+      if ( $basic_courses ) {
+        // if there are any courses to display
+        las_courses_loop( $basic_courses );
+      }
+      else {
+        echo 'Wystąpił błąd i nie możemy wyświetlić kursów.';
+      }
+
+
+      echo '<h2>Rozszerzony</h2>';
+      if ( $advanced_courses ) {
+        // if there are any advanced courses to display
+        las_courses_loop( $advanced_courses );
+      }
+      else {
+        echo 'napisz coś tu...';
+      }
+
 
     }
     las_show_courses();
@@ -61,6 +108,6 @@ include( 'includes/head.php' );
 
   ?>
 
-</section>
+</div>
 
 <?php include( 'includes/footer.php' ); ?>
