@@ -11,12 +11,19 @@ $id = $post->ID;
 include( 'includes/head.php' );
 
 
+
+
+
+echo '<h1>' . the_title() . '</h1>';
+
+
 //
 // Function routing different course parts
 //
 
+function las_course_router() {
 
-echo '<h1>' . the_title() . '</h1>';
+}
 
 
 include( 'includes/footer.php' );

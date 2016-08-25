@@ -90,6 +90,29 @@ function las_rewrite_init() {
 add_action('init', 'las_rewrite_init');
 
 
+
+//
+// Add rewrite rules for courses
+//
+function las_courses_rewrite_rule() {
+  add_rewrite_endpoint( 'przewodnik', EP_PAGES );
+  add_rewrite_endpoint( 'wyzwanie', EP_PAGES );
+}
+add_action('init', 'las_courses_rewrite_rule', 10, 0);
+
+function las_courses_rewrite_filter_request( $vars ) {
+ if ( isset( $vars['przewodnik'] ) ) {
+   $vars['przewodnik'] = true;
+ }
+ if ( isset( $vars['wyzwanie'] ) ) {
+   $vars['wyzwanie'] = true;
+ }
+ return $vars;
+}
+add_filter( 'request', 'las_courses_rewrite_filter_request' );
+
+
+
 //
 // Add categories to pages
 //
@@ -162,3 +185,24 @@ function las_add_roles() {
   );
 }
 //las_add_roles(); // we do it only once!
+
+
+
+//
+// Get user progress
+//
+function las_get_user_progress() {
+
+  $current_user = wp_get_current_user();
+
+  $user_meta = get_user_meta( $current_user->ID );
+
+  update_user_meta( $current_user->ID, 'las_progress', 'test2' );
+
+  if ( $user_meta ) {
+    return $user_meta['las_progress'][0];
+  }
+
+
+}
+las_get_user_progress();

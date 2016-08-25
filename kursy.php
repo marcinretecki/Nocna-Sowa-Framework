@@ -15,11 +15,11 @@ include( 'includes/head.php' );
   <h2 class="h1 size-4">Kursy</h2>
 
   <?php
-    $current_user = wp_get_current_user();
-
-    echo '<pre style="display:none">';
-    print_r( $current_user );
+    $user_progress = las_get_user_progress();
+    echo '<pre>';
+    print_r( $user_progress );
     echo '</pre>';
+
 
     function las_courses_loop($courses) {
       global $post; // needed for setup_postdata
@@ -39,12 +39,20 @@ include( 'includes/head.php' );
              . '</h3>';
         }
 
-        echo '<p><a href="';
-        the_permalink();
-        echo '">';
-        the_title();
-        echo '</a></p>';
+        $link = get_permalink();
+        $title = get_the_title();
 
+        echo '<p>'
+           . $title
+           . '<br />'
+           . '<a href="' . $link . '/przewodnik/">Przewodnik</a> | '
+           . '<a href="' . $link . '/wyzwanie/">Wyzwanie</a> | '
+           . '<a href="' . $link . '/">Dyskusja</a>'
+           . '</p>';
+
+        //
+        // Has user done this part?
+        //
 
 
       }
