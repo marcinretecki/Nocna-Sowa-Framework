@@ -1,7 +1,7 @@
 <?php
-/*
-  Functions
-*/
+//
+// Functions
+//
 
 //
 // Change css and js source for development
@@ -142,7 +142,6 @@ add_filter('show_admin_bar', '__return_false');
 //
 // Remove archive pages
 //
-add_action('template_redirect', 'remove_archives');
 function remove_archives() {
   global $wp_query, $post;
 
@@ -161,11 +160,12 @@ function remove_archives() {
     }
   }
 }
+add_action('template_redirect', 'remove_archives');
 
 
 
 //
-// Add new roles
+//  Add new roles
 //
 function las_add_roles() {
   add_role(
@@ -184,25 +184,127 @@ function las_add_roles() {
       )
   );
 }
-//las_add_roles(); // we do it only once!
+//  las_add_roles(); // we do it only once!
 
 
 
 //
-// Get user progress
+//  Get user progress
+//
+//  User progress array example
+//
+//  array(        |przewodnik  |wyzwanie
+//    'p-0-1' => [1,           0],
+//    'p-1-1' => [1,           10],
+//    'p-1-2' => [1,           0],
+//    'p-1-3' => [0,           0],
+//    ...
+//  );
+//  przewodnik może mieć wartość 0 (jeszcze nie czytał) lub 1 (już czytał)
+//  wyzwanie ma wartość 0 (gdy jeszcze nie wchodził) lub większe za każdy przykład, który zrobił w ćwiczeniu s
 //
 function las_get_user_progress() {
 
   $current_user = wp_get_current_user();
 
-  $user_meta = get_user_meta( $current_user->ID );
+  $user_meta = get_user_meta( $current_user->ID, 'las_progress' );
 
-  update_user_meta( $current_user->ID, 'las_progress', 'test2' );
+  //$las_progress_array = array(
+  //  'p-0-1' => [1],
+  //  'p-1-1' => [1, 10],
+  //  'p-1-2' => [1, 0],
+  //  'p-1-3' => [0, 0]
+  //);
+
+  //update_user_meta( $current_user->ID, 'las_progress', $las_progress_array );
 
   if ( $user_meta ) {
-    return $user_meta['las_progress'][0];
+    return $user_meta[0];
   }
 
 
 }
-las_get_user_progress();
+
+
+
+//
+// Check if user visits course's "przewodnik"
+// if yes, then update his meta
+//
+function las_update_user_meta_przewodnik() {
+  if ( get_query_var( 'przewodnik' ) ) {
+
+    global $post;
+
+    $current_user = wp_get_current_user();
+
+    $user_progress = las_get_user_progress();
+
+    if ( $user_progress[$post->post_name][0] !== 1 ) {
+      $user_progress[$post->post_name][0] = 1;
+      update_user_meta( $current_user->ID, 'las_progress', $user_progress);
+    }
+
+  }
+}
+
+
+
+//
+// Comments and questions in courses
+//
+function las_comment($comment, $args, $depth) {
+  $GLOBALS['comment'] = $comment;
+
+  $url    = get_comment_author_url( $comment );
+  $author = get_comment_author( $comment );
+
+  if ( empty( $url ) || 'http://' == $url ) {
+    $author = $author;
+  } else {
+    $author = "<a href='$url' rel='external nofollow' target='_blank' class='url'>$author</a>";
+  }
+
+  ?>
+
+  <?php if ( 1 == $depth ) {
+    echo '<div class="comment-group">';
+  } ?>
+
+
+  <article <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>" itemscope itemtype="http://schema.org/Comment">
+    <footer>
+      <?php echo get_avatar($comment,'32','http://nocnasowa.pl/c/i/avatar_v2.png' ); ?><span class="comment-author" itemprop="author"><?php echo $author; ?></span><time pubdate datetime="<?php comment_time('Y-m-d'); echo 'T'; comment_time('H:i:s'); ?>"><?php comment_time('j.m.Y, G:i'); ?></time>
+
+       | <?php comment_reply_link( array( 'reply_text' => 'Odpowiedz', 'depth' => 1, 'max_depth' => 2 ) ); ?>
+
+       <?php //edit_comment_link(__('(Edytuj)'),'  ','') ?>
+    </footer>
+
+    <?php if ($comment->comment_approved == '0') : ?>
+      <em class="note">Jeszcze tylko Sowa rzuci okiem i gotowe.</em>
+    <?php
+      endif;
+
+      $comment_text = apply_filters( 'comment_text', $comment->comment_content, $comment );
+
+      if ( ( 'Marcin' != $comment->comment_author ) && ( 'Marta' != $comment->comment_author ) ) {
+        $search_href = 'href';
+        $target = 'target="_blank" href';
+        $comment_text = str_replace( $search_href, $target, $comment_text);
+      } else {
+        $search_rel = 'rel="nofollow"';
+        $null = '';
+        $comment_text = str_replace( $search_rel, $null, $comment_text);
+      }
+
+    echo '<div itemprop="text">';
+    echo $comment_text;
+    echo '</div>';
+    ?>
+
+  </article>
+
+<?php
+};
+// end comment custom style

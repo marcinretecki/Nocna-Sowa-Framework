@@ -1,7 +1,7 @@
 <?php
-/*
-  Index
-*/
+//
+// Index
+//
 
 echo '<pre>Index';
 

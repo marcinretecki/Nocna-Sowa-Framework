@@ -34,12 +34,6 @@ function ChatData() {
 
 
   this.data = {
-    resume: {
-      bubbles: ["<i>Velkommen tilbake!</i> <span class='emojione emojione-1f44b-1f3fc'></span>", " Czy chcesz kontynuować poprzedni chat?"],
-      answerLeft: {answer: "tak"},
-      answerRight: {answer: "zacznijmy od nowa..."}
-    },
-
     intro1: {
       bubbles: ["Hej, tu Sowa.", "Co powiesz na " + poraDnia + " z norweskim rzeczownikiem?"],
       answerLeft: {answer: 'jasne!', next: 'intro2'},

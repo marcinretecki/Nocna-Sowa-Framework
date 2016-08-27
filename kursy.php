@@ -1,7 +1,7 @@
 <?php
-/*
-  Template Name: Kursy
-*/
+//
+// Template Name: Kursy
+//
 
 global $post;
 $id = $post->ID;
@@ -15,17 +15,25 @@ include( 'includes/head.php' );
   <h2 class="h1 size-4">Kursy</h2>
 
   <?php
-    $user_progress = las_get_user_progress();
-    echo '<pre>';
-    print_r( $user_progress );
-    echo '</pre>';
 
-
+    //
+    // Custom Loop
+    // it prints courses list
+    //
+    // @courses (object) comes from get_posts()
+    //
     function las_courses_loop($courses) {
       global $post; // needed for setup_postdata
 
+      $user_progress = las_get_user_progress();
+
+      $first_section = true;
+
+      echo '<p class="size-0">User meta data: ';
+      var_dump( $user_progress );
+      echo '</p>';
+
       foreach ( $courses as $post ) {
-        // the Loop
 
         setup_postdata( $post );
 
@@ -34,32 +42,46 @@ include( 'includes/head.php' );
         if ( substr($post->post_name, -1) === '1' ) {
           $post_category = get_the_category( $post->ID )[0]->name;
 
-          echo '<h3>'
-             . $post_category
-             . '</h3>';
+          if ( $first_section ) {
+            $first_section = false;
+          }
+          else {
+            echo '</section>';
+          }
+          echo '<section class="section-white space pad">';
+          echo '<h3>';
+          echo $post_category;
+          echo '</h3>';
         }
 
         $link = get_permalink();
         $title = get_the_title();
+        $slug = $post->post_name;
 
-        echo '<p>'
-           . $title
-           . '<br />'
-           . '<a href="' . $link . '/przewodnik/">Przewodnik</a> | '
-           . '<a href="' . $link . '/wyzwanie/">Wyzwanie</a> | '
-           . '<a href="' . $link . '/">Dyskusja</a>'
-           . '</p>';
+        echo '<p>';
 
-        //
-        // Has user done this part?
-        //
+        echo '<a href="' . $link . 'przewodnik/">' . $title . '</a>';
+
+        if ( is_array($user_progress) && ( $user_progress[$slug][0] === 1 ) ) {
+
+          echo ' <a class="size-0" href="' . $link . 'wyzwanie/">Wyzwanie</a> ';
+
+        }
+
+        echo '</p>';
 
 
       }
       wp_reset_postdata();
+
+      echo '</section>';
     }
 
-    function las_show_courses() {
+    //
+    // Show all courses
+    // Gets all courses lists, and loop through them
+    //
+    function las_show_all_courses() {
 
       // Kursy IDs
       $basic_courses_parent = 20;
@@ -111,7 +133,7 @@ include( 'includes/head.php' );
 
 
     }
-    las_show_courses();
+    las_show_all_courses();
 
 
   ?>
