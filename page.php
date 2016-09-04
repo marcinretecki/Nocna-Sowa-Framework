@@ -4,57 +4,125 @@
 // used as a general wrapper for course pages
 //
 
+
+
 global $post;
 $id = $post->ID;
 
 
-include( 'includes/head.php' ); ?>
 
-<div class="section-content">
-
-  <?php
-  if ( get_query_var( 'przewodnik' ) ) {
-    echo 'przewodnik';
-  }
-  elseif ( get_query_var( 'wyzwanie' ) ) {
-    echo 'wyzwanie';
-  }
-  else {
-    comments_template('', true);
-  }
-
-
-
-  if ( have_posts() ) : while ( have_posts() ) : the_post();
-
-    echo '<h1>';
-    the_title();
-    echo '</h1>';
-
-    the_content();
-
-    echo '<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>';
-
-    echo '<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>';
-
-    echo '<p>Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla.</p>';
-
-    echo '<p>Donec sed odio dui. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.</p>';
-
-
-  endwhile; endif;
-  ?>
-
-</div>
-
-<?php
 //
-// Function routing different course parts
+//  Ścieżki
 //
+//  /
+//    - komentarze
+//  /przewodnik/
+//    - nagranie-text
+//    - chat
+//  /wyzwanie/
+//    - chat
+//    - liczby
+//    - inne rodzaje ćwiczeń
 
+
+
+//
+//  Function routing different course parts
+//
 function las_course_router() {
 
+  if ( get_query_var( 'przewodnik' ) ) {
+    //  Route przewodnik pages
+
+    if ( has_tag('przewodnik-chat') ) {
+      //  Chat
+      include( 'includes/chat.php' );
+
+    }
+    else {
+      //  Normal przewodnik
+      echo 'przewodnik normal';
+      las_normal_page();
+    }
+
+  }
+  elseif ( get_query_var( 'wyzwanie' ) ) {
+    //  Route wyzwanie pages
+
+    if ( has_tag('wyzwanie-chat') ) {
+      //  Chat
+      include( 'includes/chat.php' );
+
+    }
+    else {
+      //  Normal wyzwanie page
+      echo 'wyzwanie normal';
+      las_normal_page();
+    }
+
+  }
+  else {
+    //  Show comment section
+
+    las_show_comment_section();
+
+  }
+
 }
+
+
+
+//
+//  Display normal page
+//
+function las_normal_page() {
+  echo '<div class="section-content">';
+  echo '<h1>';
+  the_title();
+  echo '</h1>';
+
+  the_content();
+
+  echo '<a href="';
+  the_permalink();
+  echo '">Pytania i odpowiedzi</a>';
+  echo '</div>';
+}
+
+
+
+//
+//  Show comment section
+//
+function las_show_comment_section() {
+  echo '<div class="section-content">';
+  echo '<h1>';
+    the_title();
+  echo '</h1>';
+
+  echo '<h2>Pytania i odpowiedzi</h2>';
+
+  comments_template('', true);
+
+  echo '</div>';
+}
+
+
+
+//
+// Begin HTML
+//
+
+include( 'includes/head.php' );
+
+//
+// Loop
+//
+if ( have_posts() ) : while ( have_posts() ) : the_post();
+
+  las_course_router();
+
+endwhile; endif;
 
 
 include( 'includes/footer.php' );

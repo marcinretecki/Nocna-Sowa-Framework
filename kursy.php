@@ -39,6 +39,9 @@ include( 'includes/head.php' );
 
         //print_r($post);
 
+        //$tags = get_the_tags();
+        //print_r($tags[0]);
+
         if ( substr($post->post_name, -1) === '1' ) {
           $post_category = get_the_category( $post->ID )[0]->name;
 
@@ -62,7 +65,7 @@ include( 'includes/head.php' );
 
         echo '<a href="' . $link . 'przewodnik/">' . $title . '</a>';
 
-        if ( is_array($user_progress) && ( $user_progress[$slug][0] === 1 ) ) {
+        if ( $user_progress && ( $user_progress[$slug][0] === 1 ) && has_tag('wyzwanie') ) {
 
           echo ' <a class="size-0" href="' . $link . 'wyzwanie/">Wyzwanie</a> ';
 

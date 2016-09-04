@@ -118,8 +118,10 @@ add_filter( 'request', 'las_courses_rewrite_filter_request' );
 //
 function las_add_taxonomies_to_pages() {
  register_taxonomy_for_object_type( 'category', 'page' );
+ register_taxonomy_for_object_type( 'post_tag', 'page' );
  }
 add_action( 'init', 'las_add_taxonomies_to_pages' );
+
 
 
 //
@@ -130,6 +132,7 @@ function remove_title_attributes( $input ) {
 };
 add_filter( 'wp_list_pages', 'remove_title_attributes' );
 add_filter( 'wp_list_categories', 'remove_title_attributes' );
+
 
 
 //
@@ -203,6 +206,8 @@ function las_add_roles() {
 //  przewodnik może mieć wartość 0 (jeszcze nie czytał) lub 1 (już czytał)
 //  wyzwanie ma wartość 0 (gdy jeszcze nie wchodził) lub większe za każdy przykład, który zrobił w ćwiczeniu s
 //
+//  @return array or false
+//
 function las_get_user_progress() {
 
   $current_user = wp_get_current_user();
@@ -218,8 +223,11 @@ function las_get_user_progress() {
 
   //update_user_meta( $current_user->ID, 'las_progress', $las_progress_array );
 
-  if ( $user_meta ) {
+  if ( $user_meta && is_array($user_meta[0]) ) {
     return $user_meta[0];
+  }
+  else {
+    return false;
   }
 
 
@@ -240,7 +248,14 @@ function las_update_user_meta_przewodnik() {
 
     $user_progress = las_get_user_progress();
 
-    if ( $user_progress[$post->post_name][0] !== 1 ) {
+    if ( $user_progress && ( $user_progress[$post->post_name][0] !== 1 ) ) {
+      // user had progress so only update
+      $user_progress[$post->post_name][0] = 1;
+      update_user_meta( $current_user->ID, 'las_progress', $user_progress);
+    }
+    else {
+      // user had no progress
+      $user_progress = array();
       $user_progress[$post->post_name][0] = 1;
       update_user_meta( $current_user->ID, 'las_progress', $user_progress);
     }

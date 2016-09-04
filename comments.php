@@ -8,17 +8,16 @@
   </div>
 <?php }
 
-if ( comments_open() && ($chars_left > 0) && $workshop_open ) : ?>
+if ( comments_open() && is_user_logged_in() ) { ?>
 
   <form class="comment-form space-x4" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post">
-    <?php if ( is_user_logged_in() ) : ?>
-      <textarea class="textarea-big col-10 center" name="comment" id="form-comment" placeholder="Skriv her..."></textarea>
-    <?php endif; ?>
+    <textarea class="textarea-big col-10 center" name="comment" id="form-comment" placeholder="Skriv her..."></textarea>
 
-    <input name="submit" type="submit" id="submit" class="center" value="Dodaj pytanie" />
+    <button name="submit" type="submit" id="submit" class="btn btn-blue center btn-s-4">Dodaj pytanie</button>
     <span class="note centered">Notatka pod przyciskiem.</span>
+
     <input type="hidden" name="comment_post_ID" value="<?php echo $post->ID; ?>" />
     <?php do_action('comment_form', $post->ID); ?>
   </form>
 
-<?php endif; ?>
+<?php }; ?>

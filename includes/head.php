@@ -5,7 +5,7 @@
 
 
 //
-//  Check if user visits "przewodnik" and act accordingly
+//  Check if user visits "przewodnik" and update user meta
 //
 las_update_user_meta_przewodnik();
 
