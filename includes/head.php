@@ -5,9 +5,9 @@
 
 
 //
-//  Check if user visits "przewodnik" and update user meta
+//  Update user meta
 //
-las_update_user_meta_przewodnik();
+las_update_user_meta();
 
 ?>
 

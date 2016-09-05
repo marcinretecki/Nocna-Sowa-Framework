@@ -117,7 +117,7 @@ add_filter( 'request', 'las_courses_rewrite_filter_request' );
 // Add categories to pages
 //
 function las_add_taxonomies_to_pages() {
- register_taxonomy_for_object_type( 'category', 'page' );
+ //register_taxonomy_for_object_type( 'category', 'page' );
  register_taxonomy_for_object_type( 'post_tag', 'page' );
  }
 add_action( 'init', 'las_add_taxonomies_to_pages' );
@@ -225,6 +225,7 @@ function las_get_user_progress() {
 
   if ( $user_meta && is_array($user_meta[0]) ) {
     return $user_meta[0];
+
   }
   else {
     return false;
@@ -239,28 +240,41 @@ function las_get_user_progress() {
 // Check if user visits course's "przewodnik"
 // if yes, then update his meta
 //
-function las_update_user_meta_przewodnik() {
+function las_update_user_meta() {
+  global $post;
+  $current_user = wp_get_current_user();
+  $user_progress = las_get_user_progress();
+
+  // which page is it?
   if ( get_query_var( 'przewodnik' ) ) {
+    $progress_type = 'przewodnik';
+  }
+  elseif ( get_query_var( 'wyzwanie' ) ) {
+    $progress_type = 'wyzwanie';
+  }
 
-    global $post;
-
-    $current_user = wp_get_current_user();
-
-    $user_progress = las_get_user_progress();
-
-    if ( $user_progress && ( $user_progress[$post->post_name][0] !== 1 ) ) {
-      // user had progress so only update
-      $user_progress[$post->post_name][0] = 1;
-      update_user_meta( $current_user->ID, 'las_progress', $user_progress);
-    }
-    else {
-      // user had no progress
-      $user_progress = array();
-      $user_progress[$post->post_name][0] = 1;
-      update_user_meta( $current_user->ID, 'las_progress', $user_progress);
-    }
+  // update meta
+  if ( $user_progress && ( $user_progress[$post->post_name][$progress_type] > 0 ) ) {
+    // user had progress on this chapter
+    $user_progress[$post->post_name][$progress_type] += 1;
+    update_user_meta( $current_user->ID, 'las_progress', $user_progress);
 
   }
+  elseif ( $user_progress && ( ( $user_progress[$post->post_name][$progress_type] === 0 ) || ( !$user_progress[$post->post_name][$progress_type] ) ) ) {
+    // user had no progress on this chapter
+    $user_progress[$post->post_name][$progress_type] = 1;
+    update_user_meta( $current_user->ID, 'las_progress', $user_progress);
+
+  }
+  else {
+    // user had no progress at all
+    $user_progress = array();
+    $user_progress[$post->post_name][$progress_type] = 1;
+    update_user_meta( $current_user->ID, 'las_progress', $user_progress);
+
+  }
+
+
 }
 
 

@@ -20,65 +20,80 @@ include( 'includes/head.php' );
     // Custom Loop
     // it prints courses list
     //
-    // @courses (object) comes from get_posts()
+    // @courses (object) comes from get_posts() in las_show_all_courses()
     //
-    function las_courses_loop($courses) {
-      global $post; // needed for setup_postdata
+    function las_courses_loop($courses, $level) {
+      global $post; //  needed for setup_postdata
 
       $user_progress = las_get_user_progress();
 
       $first_section = true;
 
-      echo '<p class="size-0">User meta data: ';
+      echo '<p class="size-0">User progress for testing: ';
       var_dump( $user_progress );
       echo '</p>';
 
       foreach ( $courses as $post ) {
 
-        setup_postdata( $post );
-
         //print_r($post);
 
-        //$tags = get_the_tags();
-        //print_r($tags[0]);
+        //  Begin section
+        echo '<section class="section-white space pad">';
+        echo '<h3>' . $post->post_title . '</h3>';
 
-        if ( substr($post->post_name, -1) === '1' ) {
-          $post_category = get_the_category( $post->ID )[0]->name;
 
-          if ( $first_section ) {
-            $first_section = false;
+        $children_args = array(
+          'post_type'       => 'page',
+          'post_parent'     => $post->ID,
+          'posts_per_page'  => -1,
+          'orderby'         => 'menu_order',
+          'nopaging'        => true,
+          'order'           => 'ASC'
+        );
+
+        $children = get_posts( $children_args );
+
+
+        foreach ( $children as $post ) {
+          setup_postdata( $post );
+
+          $link = get_permalink();
+          $title = $post->post_title;
+          $slug = $post->post_name;
+
+          echo '<p>';
+
+          if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
+            //  if it is an editor or advanced user, we can give him a link to advanced courses
+
+            echo '<a href="' . $link . 'przewodnik/">' . $title . '</a>';
+
+            if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_tag('bez-wyzwania') ) {
+
+              echo ' <a class="" href="' . $link . 'wyzwanie/"><i>Wyzwanie</i></a> ';
+
+            }
+
           }
           else {
-            echo '</section>';
+            //  user sees only names of chapters
+            echo $title;
+
           }
-          echo '<section class="section-white space pad">';
-          echo '<h3>';
-          echo $post_category;
-          echo '</h3>';
+
+          echo '</p>';
         }
 
-        $link = get_permalink();
-        $title = get_the_title();
-        $slug = $post->post_name;
-
-        echo '<p>';
-
-        echo '<a href="' . $link . 'przewodnik/">' . $title . '</a>';
-
-        if ( $user_progress && ( $user_progress[$slug][0] === 1 ) && has_tag('wyzwanie') ) {
-
-          echo ' <a class="size-0" href="' . $link . 'wyzwanie/">Wyzwanie</a> ';
-
-        }
-
-        echo '</p>';
-
+        echo '</section>';
 
       }
       wp_reset_postdata();
 
       echo '</section>';
     }
+
+
+
 
     //
     // Show all courses
@@ -94,31 +109,22 @@ include( 'includes/head.php' );
         'post_type'       => 'page',
         'post_parent'     => $basic_courses_parent,
         'posts_per_page'  => -1,
-        'orderby'         => 'name',
+        'orderby'         => 'menu_order',
         'nopaging'        => true,
         'order'           => 'ASC'
       );
 
       $basic_courses = get_posts( $courses_args );
 
-      if ( current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
-        // if it is an editor or advanced user, we can show him advanced course
+      $courses_args['post_parent'] = $advanced_courses_parent;
 
-        $courses_args['post_parent'] = $advanced_courses_parent;
-
-        $advanced_courses = get_posts( $courses_args );
-
-      }
-      elseif ( current_user_can( 'basic_user' ) ) {
-        // if it is a basic user, don't show advanced
-        $advanced_courses = false;
-      }
+      $advanced_courses = get_posts( $courses_args );
 
 
       echo '<h2>Podstawowy</h2>';
       if ( $basic_courses ) {
         // if there are any courses to display
-        las_courses_loop( $basic_courses );
+        las_courses_loop( $basic_courses, 'basic' );
       }
       else {
         echo 'Wystąpił błąd i nie możemy wyświetlić kursów.';
@@ -128,10 +134,10 @@ include( 'includes/head.php' );
       echo '<h2>Rozszerzony</h2>';
       if ( $advanced_courses ) {
         // if there are any advanced courses to display
-        las_courses_loop( $advanced_courses );
+        las_courses_loop( $advanced_courses, 'advanced' );
       }
       else {
-        echo 'napisz coś tu...';
+        echo 'Wystąpił błąd i nie możemy wyświetlić kursów.';
       }
 
 

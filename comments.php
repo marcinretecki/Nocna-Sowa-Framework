@@ -20,4 +20,6 @@ if ( comments_open() && is_user_logged_in() ) { ?>
     <?php do_action('comment_form', $post->ID); ?>
   </form>
 
+<?php } else { ?>
+<p>Pytania zamknięte.</p>
 <?php }; ?>
