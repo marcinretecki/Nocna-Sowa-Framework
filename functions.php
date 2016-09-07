@@ -117,8 +117,8 @@ add_filter( 'request', 'las_courses_rewrite_filter_request' );
 // Add categories to pages
 //
 function las_add_taxonomies_to_pages() {
- //register_taxonomy_for_object_type( 'category', 'page' );
- register_taxonomy_for_object_type( 'post_tag', 'page' );
+ register_taxonomy_for_object_type( 'category', 'page' );
+ //register_taxonomy_for_object_type( 'post_tag', 'page' );
  }
 add_action( 'init', 'las_add_taxonomies_to_pages' );
 

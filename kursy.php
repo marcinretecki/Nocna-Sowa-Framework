@@ -68,8 +68,8 @@ include( 'includes/head.php' );
 
             echo '<a href="' . $link . 'przewodnik/">' . $title . '</a>';
 
-            if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_tag('bez-wyzwania') ) {
-
+            if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_category('bez-wyzwania') ) {
+              //  if there is a wyzwanie and user has done przewodnik, show him the link
               echo ' <a class="" href="' . $link . 'wyzwanie/"><i>Wyzwanie</i></a> ';
 
             }
@@ -82,14 +82,17 @@ include( 'includes/head.php' );
           }
 
           echo '</p>';
-        }
 
+        }
+        //  Reset children loop data
+        wp_reset_postdata();
+
+        // End section
         echo '</section>';
 
       }
       wp_reset_postdata();
 
-      echo '</section>';
     }
 
 

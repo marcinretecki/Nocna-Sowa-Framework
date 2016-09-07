@@ -59,9 +59,9 @@ function las_show_comment_section() {
 //  /
 //    - komentarze
 //  /przewodnik/
-//    - -przewodnik-audio
-//    - -przewodnik-chat
-//    - -przewodnik-video
+//    - przewodnik-audio
+//    - przewodnik-chat
+//    - przewodnik-video
 //  /wyzwanie/
 //    - wyzwanie-audio
 //    - wyzwanie-chat
@@ -77,8 +77,8 @@ function las_show_comment_section() {
 //
 function las_course_router() {
 
-  if ( ( get_query_var( 'przewodnik' ) || get_query_var( 'wyzwanie' ) ) && !has_tag() ) {
-    //  Has no tags, normal page then
+  if ( ( get_query_var( 'przewodnik' ) || get_query_var( 'wyzwanie' ) ) && !has_category() ) {
+    //  Has no categories, normal page then
     //  cokolwiek by to nie było....
 
     las_show_normal_page();
@@ -118,31 +118,31 @@ function las_course_router() {
     //
     //  Route page types
     //
-    if ( has_tag( $type . '-audio' ) ) {
+    if ( has_category( $type . '-audio' ) ) {
       //  Audio
 
       include( 'includes/audio.php' );
 
     }
-    elseif ( has_tag( $type . '-chat' ) ) {
+    elseif ( has_category( $type . '-chat' ) ) {
       //  Chat
 
       include( 'includes/chat.php' );
 
     }
-    elseif ( has_tag( $type . '-liczby' ) ) {
+    elseif ( has_category( $type . '-liczby' ) ) {
       //  Liczby
 
       include( 'includes/liczby.php' );
 
     }
-    elseif ( has_tag( $type . '-quiz' ) ) {
+    elseif ( has_category( $type . '-quiz' ) ) {
       //  Quiz
 
       include( 'includes/quiz.php' );
 
     }
-    elseif ( has_tag( $type . '-setninger') ) {
+    elseif ( has_category( $type . '-setninger') ) {
       //  Setninger
 
       include( 'includes/setninger.php' );
