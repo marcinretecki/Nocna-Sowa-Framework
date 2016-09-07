@@ -35,6 +35,7 @@ function LasChat() {
   //  State
   //
   this.answersWaiting = false;
+  this.currentState = '';
   this.scrollFn = function(){};
 
   //
@@ -44,14 +45,56 @@ function LasChat() {
       speed = 200,
       answersTranformValue = "300%";
 
-
+  //
+  //  Initiate
+  //
   this.init = function() {
+
+    //  Random chat arrays
+    this.randomIntroArray = this.createRandomChatArray( this.chatData.intro );
+    this.randomChatArray = this.createRandomChatArray( this.chatData.chat );
+    this.randomEndArray = this.createRandomChatArray( this.chatData.end );
 
     this.createChat();
     this.addListener();
     this.resetAnswers();
-    this.getNextBubble('intro1');
+    this.getNextBubble( 'INTRO' );
     this.createBubble();
+  };
+
+
+  //  This makes an array of first items (a1, b1 etc) fom chat, intro or end data
+  this.createRandomChatArray = function( chatData ) {
+    var property,
+        propArray = [];
+
+    //  Push first items
+    for (property in chatData) {
+      if (chatData.hasOwnProperty(property) && ( property.slice(-1) === '1' ) ) {
+
+        propArray.push(property);
+
+      }
+    }
+
+    //  Fisher-Yates Shuffle
+    let counter = propArray.length;
+
+    //  While there are elements in the propArray
+    while (counter > 0) {
+      //  Pick a random index
+      let index = Math.floor(Math.random() * counter);
+
+      //  Decrease counter by 1
+      counter--;
+
+      //  And swap the last element with it
+      let temp = propArray[counter];
+      propArray[counter] = propArray[index];
+      propArray[index] = temp;
+    }
+
+    return propArray;
   };
 
 
@@ -100,11 +143,95 @@ function LasChat() {
     this.answers = answers;
     this.answerLeft = answerLeft;
     this.answerRight = answerRight;
-  }
+  };
+
+
+  this.getRandomBubble = function() {
+    console.log( 'getRandomBubble');
+    console.log( this.chatData.chat[ this.randomChatArray.pop() ] );
+
+    if (this.randomChatArray.length > 0 ) {
+      // if there are still chat items to show
+      return this.chatData.chat[ this.randomChatArray.pop() ];
+
+    }
+    else {
+      //  Set state
+      this.currentState = 'END';
+
+      return this.getEndBubble();
+    }
+
+  };
+
+
+  this.getIntroBubble = function() {
+    console.log( 'getIntroBubble');
+    console.log( this.chatData.intro[ this.randomIntroArray.pop() ] );
+    //  Set state
+    this.currentState = 'INTRO';
+
+    //  Return bubble
+    return this.chatData.intro[ this.randomIntroArray.pop() ];
+
+  };
+
+
+  this.getEndBubble = function() {
+    console.log( 'getEndBubble' );
+    console.log( this.chatData.end[ this.randomEndArray.pop() ] );
+    //  Return bubble
+    return this.chatData.end[ this.randomEndArray.pop() ];
+
+  };
+
 
 
   this.getNextBubble = function(no) {
-    var data = this.chatData.getBubble(no);
+
+    var data;
+
+    if ( ( no === 'INTRO' ) ) {
+      //  if it is intro and we need next bubble
+
+      data = this.getIntroBubble();
+
+    }
+    else if ( no === 'ENDINTRO' ) {
+      //  if it is the end of intro,  move one to chat
+
+      //  Set state
+      this.currentState = 'CHAT';
+      data = this.getRandomBubble();
+
+    }
+    else if ( ( this.currentState === 'INTRO' ) && ( no !== '' ) ) {
+      //  if it is intro and we need next bubble
+
+      data = this.chatData.intro[ no ];
+
+    }
+    else if ( ( this.currentState === 'CHAT' ) && ( no === 'RANDOM' ) ) {
+      //  if we are at the chat, move one
+
+      data = this.getRandomBubble();
+
+    }
+    else if ( ( this.currentState === 'CHAT' ) && ( no !== '' ) ) {
+      //  if we are at chat, but need exact bubble
+
+      data = this.chatData.chat[ no ]
+
+    }
+    else if ( this.currentState === 'END' ) {
+      //  if we got to the end and need an exact bubble
+
+      data = this.chatData.end[ no ];
+    }
+
+    console.log("No: " + no);
+    console.log("Data: " + data);
+
 
     // Assign
     this.currentBubble = no;
@@ -154,24 +281,31 @@ function LasChat() {
     this.scrollFn = function() { that.chatFlow.insertBefore(bubble, that.chatFlow.lastChild) };
     this.scrollAfterChange();
 
+
     if ( this.bubbleArray.length > 0 ) {
+      // if there are more bubbles in the array
 
       nextFunction = function() { that.createBubble() };
 
-    } else if (this.bubbleAutoNext === "END") {
+    }
+    else if (this.bubbleAutoNext === "END") {
+      // if it is the end of chat
 
       nextFunction = function() {
         that.finish();
       };
 
-    } else if (this.bubbleAutoNext !== "") {
+    }
+    else if (this.bubbleAutoNext !== "") {
+      // if there is a autoNext bubble
 
       nextFunction = function() {
         that.getNextBubble( that.bubbleAutoNext );
         that.createBubble();
       };
 
-    } else {
+    }
+    else {
 
       nextFunction = function() { that.showAnswers(); };
     }
@@ -297,19 +431,7 @@ function LasChat() {
   this.resetAnswers = function() {
     this.answersWaiting = false;
 
-  //Velocity(this.answerLeft,
-  //  { translateY: answersTranformValue },
-  //  { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerLeft.style.visibility = "visible"; } }
-  //);
-
-  //if (this.answerRightText !== "") {
-  //  Velocity(this.answerRight,
-  //    { translateY: answersTranformValue },
-  //    { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerRight.style.visibility = "visible"; } }
-  //  );
-  //}
-
-  // testing whole answers animation
+    // testing whole answers animation
     Velocity(this.answers,
       { translateY: "100%" },
       { duration: speed*2, easing: [ 300, 20 ], queue: false }
@@ -318,6 +440,7 @@ function LasChat() {
       { translateY: "0" },
       { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerLeft.style.visibility = "visible"; } }
     );
+
     //if (this.answerRightText !== "") {
       Velocity(this.answerRight,
         { translateY: "100%" },
@@ -400,7 +523,7 @@ function LasChat() {
 
   this.test = function() {
     var property,
-        data = this.chatData.data,
+        data = this.chatData.chat,
         bubble,
         content,
         answerLeft,
@@ -460,6 +583,6 @@ window.addEventListener('load', function() {
 
   lasChat.init();
 
-  //chat.test();
+  //lasChat.test();
 
 }, false);
