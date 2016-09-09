@@ -3,7 +3,7 @@ function ChatData() {
 
   this.intro = {
     a1: {
-      bubbles: ['<i>Hallo, er det noen der?</i> (Czy ktoś tu jest?)', '<img src="http://giphy.com/gifs/owl-HetvlijUZmKic" />'],
+      bubbles: ['<i>Hallo, er det noen der?</i> (Czy ktoś tu jest?)', '<img src="/i/p-1-7/HetvlijUZmKic.gif" />'],
       answerLeft: {answer: 'jestem, jestem', next: 'a2'}
     },
     a2: {
@@ -17,9 +17,9 @@ function ChatData() {
       answerRight: {answer: 'skąd znasz najpopularniejsze???', next: 'a4'},
     },
     a4: {
-      bubbles: ['Z norweskich filmów. Proste. Przecież chcesz używać słów z życia, a nie nudnych czytanek?', '<img src="http://giphy.com/gifs/filmlinc-classic-film-nyff-2015-heaven-can-wait-l41lUYJGipkMD3NPa" />'],
+      bubbles: ['Z norweskich filmów. Proste. Przecież chcesz używać słów z życia, a nie nudnych czytanek?', '<img src="/i/p-1-7/l41lUYJGipkMD3NPa.gif" />'],
       answerLeft: {answer: 'no raczej', next: 'ENDINTRO'}
-    },
+    }
 
   };
 
@@ -27,12 +27,12 @@ function ChatData() {
   this.chat = {
 
     bil1: {
-      bubbles: ['Jak powiedzieć samochody, kiedy masz na myśli jakieś dowolne, nieokreślone?', '<img src="http://giphy.com/gifs/bridge-cars-gif-city-AkKtWEPSyS9Pi" />'],
+      bubbles: ['Jak powiedzieć samochody, kiedy masz na myśli jakieś dowolne, nieokreślone?', '<img src="/i/p-1-7/AkKtWEPSyS9Pi.gif" />'],
       answerLeft: {answer: '<i>bilen</i>', next: 'bil2'},
       answerRight: {answer: '<i>biler</i>', next: 'bil1b'}
     },
     bil1b: {
-      bubbles: ['<i>Bilen</i> to jeden określony samochód. Skąd wiedzieć, że dodajemy końcówkę <i>-en</i>?', '<i>en bil -> bilen</i>', 'W liczbie mnogiej dodajemy końcówkę <i>-er</i> lub <i>-ene</i>', 'Dlatego <i>biler</i> (nieokreślone samochody), <i>bilene</i> (określone).'],
+      bubbles: ['<i>Bilen</i> to jeden określony samochód. Skąd wiedzieć, że dodajemy końcówkę <i>-en</i>?', '<i>en bil – bilen</i>', 'W liczbie mnogiej dodajemy końcówkę <i>-er</i> lub <i>-ene</i>', 'Dlatego <i>biler</i> (nieokreślone samochody), <i>bilene</i> (określone).'],
       answerLeft: {answer: 'OK, <i>biler</i>', next: 'bil2'},
     },
     bil2: {
@@ -51,7 +51,7 @@ function ChatData() {
       answerLeft: {answer: 'zapamiętam', next: 'blikk2'},
     },
     blikk2: {
-      bubbles: ['Dobrze!', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2013/08/tumblr_mpnbbcgkRO1rb324eo1_500.gif" />'],
+      bubbles: ['Dobrze!', '<img src="/i/p-1-7/tumblr_mpnbbcgkRO1rb324eo1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -66,7 +66,7 @@ function ChatData() {
       answerLeft: {answer: '<i>øyene</i>', next: 'oye2'},
     },
     oye2: {
-      bubbles: ['Znowu dobrze!', '<img src="https://media.giphy.com/media/3ornk3noLGE88V6xFK/giphy.gif" />'],
+      bubbles: ['Znowu dobrze!', '<img src="/i/p-1-7/3ornk3noLGE88V6xFK.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -81,7 +81,7 @@ function ChatData() {
       answerLeft: {answer: 'OK', next: 'moro2'},
     },
     moro2: {
-      bubbles: ['Yeah!', '<img src="https://media1.giphy.com/media/yoJC2GnSClbPOkV0eA/giphy.gif" />'],
+      bubbles: ['Yeah!', '<img src="/i/p-1-7/yoJC2GnSClbPOkV0eA.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -102,7 +102,7 @@ function ChatData() {
 
 
     idiot1: {
-      bubbles: ['Jakie słowo przychodzi Ci do głowy, kiedy widzisz takiego gościa na Preikestolen?', '<img src="http://giphy.com/gifs/free-hanging-pulpit-NdbmK4ndXLTs4" />'],
+      bubbles: ['Jakie słowo przychodzi Ci do głowy, kiedy widzisz takiego gościa na Preikestolen?', '<img src="/i/p-1-7/NdbmK4ndXLTs4-2.gif" />'],
       answerLeft: {answer: '<i>Idioten!</i>', next: 'idiot2'},
       answerRight: {answer: '<i>Jeg vil gifte ham!</i>', next: 'idiot1b'},
     },
@@ -116,7 +116,7 @@ function ChatData() {
       answerRight: {answer: 'nieokreślonej pojedynczej', next: 'idiot2b'}
     },
     idiot2b: {
-      bubbles: ['en idiot (jakiś idiota) -> idioten (określony idiota)'],
+      bubbles: ['en idiot (jakiś idiota) – idioten (określony idiota)'],
       answerLeft: {answer: 'OK', next: 'RANDOM'},
     },
     idiot3: {
@@ -131,7 +131,7 @@ function ChatData() {
       answerRight: {answer: '<i>paret</i>', next: 'par1b'}
     },
     par1b: {
-      bubbles: ['<i>Paret</i> to określona para.', '<i>et par -> paret</i>', 'A w liczbie mnogiej?', '<i>par -> parene</i>'],
+      bubbles: ['<i>Paret</i> to określona para.', '<i>et par – paret</i>', 'A w liczbie mnogiej?', '<i>par – parene</i>'],
       answerLeft: {answer: 'OK, <i>et par</i>', next: 'par2'}
     },
     par2:{
@@ -139,7 +139,7 @@ function ChatData() {
       answerLeft: {answer: '<i>paret</i>', next: 'par3'},
     },
     par3: {
-      bubbles: ['<i>Godt! Et par hamstere til deg!</i>', '<img src="http://funniest.1000notes.com/post/146598646254" />'],
+      bubbles: ['<i>Godt! Et par hamstere til deg!</i>', '<img src="/i/p-1-7/tumblr_n5zo6bBwT71s96utdo1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -154,7 +154,7 @@ function ChatData() {
       answerLeft: {answer: '<i>fyren</i>', next: 'fyr2'},
     },
     fyr2: {
-      bubbles: ['Kjempebra! [emot ogien]', '<img src="http://cdn.sptndigital.com/sites/pl.axn/files/axn-cinemagraphs-11.gif" />'],
+      bubbles: ['Kjempebra! [emot ogien]', '<img src="/i/p-1-7/axn-cinemagraphs-11.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -184,7 +184,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>dører, dørene</i>', next: 'dor2'},
     },
     dor2: {
-      bubbles: ['Dørene åpnes! [emot czarodziejska różdżka]', '<img src="http://funniest.1000notes.com/post/146460079239" />'],
+      bubbles: ['Dørene åpnes! [emot czarodziejska różdżka]', '<img src="/i/p-1-7/tumblr_me7xtozqYx1rjcfxro1_250.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -199,7 +199,7 @@ function ChatData() {
       answerLeft: {answer: '<i>hunden</i>', next: 'hund2'},
     },
     hund2: {
-      bubbles: ['<i>Fint!</i>', '<img src="http://wifflegif.com/gifs/506544-sacha-baron-cohen-misunderstanding-gif" />'],
+      bubbles: ['<i>Fint!</i>', '<img src="/i/p-1-7/tumblr_m5h30bSsH91qelkf9o1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -214,7 +214,7 @@ function ChatData() {
       answerLeft: {answer: 'Aha, <i>vannet</i>', next: 'vann2'},
     },
     vann2: {
-      bubbles: ['Dobrze Ci idzie!', '<img src="http://funniest.1000notes.com/post/146174266444/ashmaniacc-dear-taeyeon" />'],
+      bubbles: ['Dobrze Ci idzie!', '<img src="/i/p-1-7/tumblr_n7n52ysAZ61r3gb3zo1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -229,7 +229,7 @@ function ChatData() {
       answerLeft: {answer: '<i>barn</i>', next: 'barn2'},
     },
     barn2: {
-      bubbles: ['W nagrodę mały Azjata:', '<img src="https://media.giphy.com/media/3oEjHKtwp6WjUaJ0kM/giphy.gif" />'],
+      bubbles: ['W nagrodę mały Azjata:', '<img src="/i/p-1-7/3oEjHKtwp6WjUaJ0kM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -253,7 +253,7 @@ function ChatData() {
       answerLeft: {answer: '<i>døtre</i>', next: 'syn3'},
     },
     syn3: {
-      bubbles: ['Zgadza się. <i>Han har søte døtre.</i>', '<img src="https://66.media.tumblr.com/e93dd21b5ef0fdc8fc45ea1c7ab5cf88/tumblr_mzwj71IIl51r6b6qeo1_500.gif" />'],
+      bubbles: ['Zgadza się. <i>Han har søte døtre.</i>', '<img src="/i/p-1-7/tumblr_mzwj71IIl51r6b6qeo1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -268,7 +268,7 @@ function ChatData() {
       answerLeft: {answer: '', next: 'mat2'},
     },
     mat2: {
-      bubbles: ['<i>Takk for maten!</i>', '<img src="http://giphy.com/gifs/1IejF9MZ0ivG8" />'],
+      bubbles: ['<i>Takk for maten!</i>', '<img src="/i/p-1-7/1IejF9MZ0ivG8.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -283,7 +283,7 @@ function ChatData() {
       answerLeft: {answer: '<i>beinet</i>', next: 'ben2'},
     },
     ben2: {
-      bubbles: ['Dobra decyzja. Ćwiczymy dalej.', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2015/01/20.gif" />'],
+      bubbles: ['Dobra decyzja. Ćwiczymy dalej.', '<img src="/i/p-1-7/20bein.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -298,7 +298,7 @@ function ChatData() {
       answerLeft: {answer: '<i>hender</i>', next: 'hand2'},
     },
     hand2: {
-      bubbles: ['Jak Ty to robisz?', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2015/01/35.gif" />'],
+      bubbles: ['Jak Ty to robisz?', '<img src="/i/p-1-7/35hand.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -328,7 +328,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>bøker</i>', next: 'bok2'},
     },
     bok2: {
-      bubbles: ['<i>Fint!</i>', '<img src="http://bestanimations.com/Books/girl-reading-book-animation-16.gif" />'],
+      bubbles: ['<i>Fint!</i>', '<img src="/i/p-1-7/girl-reading-book-animation-16.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -343,7 +343,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et spor</i>', next: 'spor2'},
     },
     spor2: {
-      bubbles: ['<i>Greit</i>.', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2015/01/27.gif" />'],
+      bubbles: ['<i>Greit</i>.', '<img src="/i/p-1-7/27stasjon.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -354,11 +354,11 @@ function ChatData() {
       answerRight: {answer: '<i>ei kvinne</i>', next: 'kvinne2'}
     },
     kvinne1b: {
-      bubbles: ['“Kvinna” to określona kobieta.', '<i>ei kvinne -> kvinna</i>', 'Co proponujesz?'],
+      bubbles: ['“Kvinna” to określona kobieta.', '<i>ei kvinne – kvinna</i>', 'Co proponujesz?'],
       answerLeft: {answer: '<i>ei kvinne</i>', next: 'kvinne2'},
     },
     kvinne2: {
-      bubbles: ['OK', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2015/01/7.gif" />'],
+      bubbles: ['OK', '<img src="/i/p-1-7/7blow.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -373,7 +373,7 @@ function ChatData() {
       answerLeft: {answer: '<i>vennen</i>', next: 'venn2'},
     },
     venn2: {
-      bubbles: ['<i>Ja!</i>', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2015/01/19.gif" />'],
+      bubbles: ['<i>Ja!</i>', '<img src="/i/p-1-7/19skate.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -388,7 +388,7 @@ function ChatData() {
       answerLeft: {answer: '<i>fly</i>', next: 'fly2'},
     },
     fly2: {
-      bubbles: ['<i>Kjempebra!</i>', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2015/01/32.gif" />'],
+      bubbles: ['<i>Kjempebra!</i>', '<img src="/i/p-1-7/32bird.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -403,7 +403,7 @@ function ChatData() {
       answerLeft: {answer: '<i>telefonene</i>', next: 'tele2'},
     },
     tele2: {
-      bubbles: ['<i>Bra!</i>', '<img src="http://66.media.tumblr.com/310def1617f49a405c43c98e02369057/tumblr_n3a7zcxaaY1qef46ho1_500.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/i/p-1-7/tumblr_n3a7zcxaaY1qef46ho1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -418,7 +418,7 @@ function ChatData() {
       answerLeft: {answer: '<i>broren</i>', next: 'bror2'},
     },
     bror2: {
-      bubbles: ['<img src="http://www.robmydobrze.pl/wp-content/uploads/2014/12/17125c33392f0d050fe621fe04774793.gif" />'],
+      bubbles: ['<img src="/i/p-1-7/17125c33392f0d050fe621fe04774793.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -433,7 +433,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>lys</i>', next: 'lys2'},
     },
     lys2: {
-      bubbles: ['<i>Bra!</i>', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2014/12/6b02617e5bdff55d16e8bb9775d4da68.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/i/p-1-7/6b02617e5bdff55d16e8bb9775d4da68.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -448,7 +448,7 @@ function ChatData() {
       answerLeft: {answer: '<i>onkelen</i>', next: 'onkel2'},
     },
     onkel2: {
-      bubbles: ['Super. Nie każdy ma takiego wujka.', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2015/01/5.gif" />'],
+      bubbles: ['Super. Nie każdy ma takiego wujka.', '<img src="/i/p-1-7/5sheet.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -463,7 +463,7 @@ function ChatData() {
       answerLeft: {answer: '<i>kona</i>', next: 'kone2'},
     },
     kone2: {
-      bubbles: ['Tak jest!', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2014/11/magda.gif" />'],
+      bubbles: ['Tak jest!', '<img src="/i/p-1-7/magda.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -478,7 +478,7 @@ function ChatData() {
       answerLeft: {answer: '<i>kampene</i>', next: 'kamp2'},
     },
     kamp2: {
-      bubbles: ['O tak!', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2014/11/magda.gif" />'],
+      bubbles: ['O tak!', '<img src="/i/p-1-7/X60jpxh.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -493,7 +493,7 @@ function ChatData() {
       answerLeft: {answer: '<i>kvinnene</i>', next: 'dame2'},
     },
     dame2: {
-      bubbles: ['Świetnie!', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2013/12/6288960204_23fcc5a01a_o.gif" />'],
+      bubbles: ['Świetnie!', '<img src="/i/p-1-7/6288960204_23fcc5a01a_o.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -508,7 +508,7 @@ function ChatData() {
       answerLeft: {answer: 'no dobra, <i>en by</i>', next: 'by2'},
     },
     by2: {
-      bubbles: ['<i>Veldig bra</i>', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2013/12/newspaper-man-429.gif" />'],
+      bubbles: ['<i>Veldig bra</i>', '<img src="/i/p-1-7/newspaper-man-429.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -523,7 +523,7 @@ function ChatData() {
       answerLeft: {answer: '<i>livet</i>', next: 'liv2'},
     },
     liv2: {
-      bubbles: ['<img src="http://www.robmydobrze.pl/wp-content/uploads/2013/12/7177997572_fdeaeb4463_o.gif" />'],
+      bubbles: ['<img src="/i/p-1-7/7177997572_fdeaeb4463_o.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -538,7 +538,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en film</i>', next: 'film2'},
     },
     film2: {
-      bubbles: ['<i>Flott!</i>', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2013/12/coco-projector-429.gif" />'],
+      bubbles: ['<i>Flott!</i>', '<img src="/i/p-1-7/coco-projector-429.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -549,11 +549,11 @@ function ChatData() {
       answerRight: {answer: '<i>toget</i>', next: 'tog2'}
     },
     tog1b: {
-      bubbles: ['<i>et tog -> toget</i> i już. Trzeba tylko znać rodzajnik. ;-)'],
+      bubbles: ['<i>et tog – toget</i> i już. Trzeba tylko znać rodzajnik. ;-)'],
       answerLeft: {answer: '<i>toget</i>', next: 'tog2'},
     },
     tog2: {
-      bubbles: ['<img src="http://www.robmydobrze.pl/wp-content/uploads/2013/12/train-repeat-429.gif" />'],
+      bubbles: ['<img src="/i/p-1-7/train-repeat-429.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -568,7 +568,7 @@ function ChatData() {
       answerLeft: {answer: '<i>vinduet</i>', next: 'vindu2'},
     },
     vindu2: {
-      bubbles: ['<i>Jøss!</i>', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2013/12/cab-window-429.gif" />'],
+      bubbles: ['<i>Jøss!</i>', '<img src="/i/p-1-7/cab-window-429.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -583,7 +583,7 @@ function ChatData() {
       answerLeft: {answer: '<i>venner</i>', next: 'venn2'},
     },
     venn2: {
-      bubbles: ['<i>Ja!</i>', '<img src="http://giphy.com/gifs/excited-seinfeld-12UlfHpF05ielO" />'],
+      bubbles: ['<i>Ja!</i>', '<img src="/i/p-1-7/12UlfHpF05ielO.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -598,7 +598,7 @@ function ChatData() {
       answerLeft: {answer: '<i>stoler</i>', next: 'stol2'},
     },
     stol2: {
-      bubbles: ['<i>Bra!</i>', '<img src="http://67.media.tumblr.com/dbbda86b9499bc783a14eb4366b98b72/tumblr_nt2vth7sTX1qef46ho1_500.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/i/p-1-7/tumblr_nt2vth7sTX1qef46ho1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -613,7 +613,7 @@ function ChatData() {
       answerLeft: {answer: '<i>turene</i>', next: 'tur2'},
     },
     tur2: {
-      bubbles: ['Dobrze!', '<img src="http://giphy.com/gifs/car-drive-travel-rUlu713yOz2wM" />'],
+      bubbles: ['Dobrze!', '<img src="/i/p-1-7/rUlu713yOz2wM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -628,7 +628,7 @@ function ChatData() {
       answerLeft: {answer: '<i>babyen</i>', next: 'baby2'},
     },
     baby2: {
-      bubbles: ['<img src="http://www.robmydobrze.pl/wp-content/uploads/2013/08/57624.gif" />'],
+      bubbles: ['<img src="/i/p-1-7/57624.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -639,11 +639,11 @@ function ChatData() {
       answerRight: {answer: '<i>ei jente</i>', next: 'jente2'}
     },
     jente1b: {
-      bubbles: ['Mała podpowiedź: <i>ei jente -> jenta</i>, więc będzie...'],
+      bubbles: ['Mała podpowiedź: <i>ei jente – jenta</i>, więc będzie...'],
       answerLeft: {answer: '<i>ei jente</i>', next: 'jente2'},
     },
     jente2: {
-      bubbles: ['<i>Lurt!</i>', '<img src="http://www.robmydobrze.pl/wp-content/uploads/2015/01/12.gif" />'],
+      bubbles: ['<i>Lurt!</i>', '<img src="/i/p-1-7/12hair.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -654,15 +654,15 @@ function ChatData() {
       answerRight: {answer: '<i>en kontrol</i>', next: 'kontroll1b'}
     },
     kontroll1b: {
-      bubbles: ['<img src="http://giphy.com/gifs/bkKvvzE9PEcTK" />', 'Jednak przez dwa ll:', '<i>en kontroll – kontrollen – kontroller – kontrollene</i>'],
+      bubbles: ['<img src="/i/p-1-7/bkKvvzE9PEcTK.gif" />', 'Jednak przez dwa ll:', '<i>en kontroll – kontrollen – kontroller – kontrollene</i>'],
       answerLeft: {answer: 'OK, <i>en kontroll</i>', next: 'kontroll2'},
     },
     kontroll2: {
       bubbles: ['Dobrze.', 'Masz siłę na dalszą walkę?'],
-      answerLeft: {answer: 'pewnie [emot]', next: 'kontroll3'},
+      answerLeft: {answer: 'pewnie <span class="emojione emojione-1f4aa-1f3fc"></span>', next: 'kontroll3'},
     },
     kontroll3: {
-      bubbles: ['<img src="http://giphy.com/gifs/gameofthrones-game-of-thrones-hbo-26BRJ42FrwYMrKXV6" />'],
+      bubbles: ['<img src="/i/p-1-7/26BRJ42FrwYMrKXV6.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -677,7 +677,7 @@ function ChatData() {
       answerLeft: {answer: 'no tak, <i>en gutt</i>', next: 'gutt2'},
     },
     gutt2: {
-      bubbles: ['<img src="http://funniest.1000notes.com/post/146457500444/sizvideos-cat-high-fives-kid-on-bike-video" />'],
+      bubbles: ['<img src="/i/p-1-7/tumblr_n6nl9svyjs1rc7zl1o1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -692,7 +692,7 @@ function ChatData() {
       answerLeft: {answer: '<i>båten</i>', next: 'baat2'},
     },
     baat2: {
-      bubbles: ['<i>Yeah!</i>', '<img src="http://funniest.1000notes.com/post/146707300894" />'],
+      bubbles: ['<i>Yeah!</i>', '<img src="/i/p-1-7/tumblr_m9nbokxIgu1r6g7k5o1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -707,7 +707,7 @@ function ChatData() {
       answerLeft: {answer: '<i>familien</i>', next: 'famielien2'},
     },
     famielien2: {
-      bubbles: ['Jesteś niesamowity!', '<img src="http://giphy.com/gifs/tennis-clapping-wimbledon-YGJBp5EgyVP9K" />'],
+      bubbles: ['Jesteś niesamowity!', '<img src="/i/p-1-7/YGJBp5EgyVP9K.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -722,7 +722,7 @@ function ChatData() {
       answerLeft: {answer: '<i>netter</i>', next: 'netter2'},
     },
     netter2: {
-      bubbles: ['Uff. Dobrze.', '<img src="http://66.media.tumblr.com/f7840d1ff1b583084d3381a98168c137/tumblr_nhqepgKJqs1qef46ho1_500.gif" />'],
+      bubbles: ['Uff. Dobrze.', '<img src="/i/p-1-7/tumblr_nhqepgKJqs1qef46ho1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -737,7 +737,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en kompis</i>', next: 'kompis2'},
     },
     kompis2: {
-      bubbles: ['Świetnie!', 'Bawimy się dalej.', '<img src="http://66.media.tumblr.com/50ecce445efd6b8260e1443a87449b2e/tumblr_myw0w7EBOA1t361sto1_400.gif" />'],
+      bubbles: ['Świetnie!', 'Bawimy się dalej.', '<img src="/i/p-1-7/tumblr_myw0w7EBOA1t361sto1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -752,7 +752,7 @@ function ChatData() {
       answerLeft: {answer: '<i>læreren</i>', next: 'laerer2'},
     },
     laerer2: {
-      bubbles: ['Nauczyciel wszystko widzi.', '<img src="http://66.media.tumblr.com/dcb8b4c771cc57640859edd2822d8f5c/tumblr_mw9satSCOw1qef46ho1_500.gif" />'],
+      bubbles: ['Nauczyciel wszystko widzi.', '<img src="/i/p-1-7/tumblr_mw9satSCOw1qef46ho1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -767,7 +767,7 @@ function ChatData() {
       answerLeft: {answer: '<i>politiet</i>', next: 'politi2'},
     },
     politi2: {
-      bubbles: ['<img src="https://external.fsvg1-1.fna.fbcdn.net/safe_image.php?d=AQD9_NJXDSvnpx21&url=http%3A%2F%2Fi.imgur.com%2FBMcur.gif%3Fnoredirect&ext=gif" />'],
+      bubbles: ['<img src="/i/p-1-7/NJXDSvnpx21.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -782,7 +782,7 @@ function ChatData() {
       answerLeft: {answer: '', next: 'historie2'},
     },
     historie2: {
-      bubbles: ['Może tak być.', '<img src="/i/p-1-7/EF4UWro.gif" />'],
+      bubbles: ['Może tak być.', '<img src="/i/p-1-7//i/p-1-7/EF4UWro.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -797,17 +797,17 @@ function ChatData() {
       answerLeft: {answer: '<i>vinneren</i>', next: 'vinner2'},
     },
     vinner2: {
-      bubbles: ['<img src="https://media.giphy.com/media/26ght2GFICFOl41Ak/giphy.gif" />'],
+      bubbles: ['<img src="/i/p-1-7/26ght2GFICFOl41Ak.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     finalen1: {
-      bubbles: ['Jesteś tu jeszcze?', '<img src="http://giphy.com/gifs/reaction-jack-sparrow-stuff-and-things-GxRJqOTR2vv0Y" />'],
+      bubbles: ['Jesteś tu jeszcze?', '<img src="/i/p-1-7/GxRJqOTR2vv0Y.gif" />'],
       answerLeft: {answer: 'jestem', next: 'finalen2'},
     },
     finalen2: {
-      bubbles: ['To dobrze, bo teraz kolejny etap. Zbliżamy się do finału.', '<img src="https://67.media.tumblr.com/340fe3d3e1b80a11a5035c4ea405ea21/tumblr_o08353uHDA1sblcs4o1_500.gif" />'],
+      bubbles: ['To dobrze, bo teraz kolejny etap. Zbliżamy się do finału.'],
       autoNext: 'RANDOM'
     },
 
@@ -822,7 +822,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en gang</i>', next: 'gang2'},
     },
     gang2: {
-      bubbles: ['<i>Veldig godt!</i> Tylko w którą stronę pójdziesz?', '<img src="https://media.giphy.com/media/KnXkh8WI2WCJO/giphy.gif" />'],
+      bubbles: ['<i>Veldig godt!</i> Tylko w którą stronę pójdziesz?', '<img src="/i/p-1-7/KnXkh8WI2WCJO.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -938,7 +938,7 @@ function ChatData() {
       answerRight: {answer: '<i>noen feils</i>', next: 'feil1b'}
     },
     feil1b: {
-      bubbles: ['<i>-s</i> dodajemy po angielsku, jak w...', '<img src="http://img2.tvtome.com/i/u/abf918a8d7e74da0cd8280037171f277.gif" />', 'A norweskie <i>feil</i> jest wyjątkiem:', '<i>en feil – feilen – feil – feilene</i>'],
+      bubbles: ['<i>-s</i> dodajemy po angielsku, jak w...', '<img src="/i/p-1-7/abf918a8d7e74da0cd8280037171f277.gif" />', 'A norweskie <i>feil</i> jest wyjątkiem:', '<i>en feil – feilen – feil – feilene</i>'],
       answerLeft: {answer: '<i>noen feil</i>', next: 'feil2'},
     },
     feil2: {
@@ -1028,7 +1028,7 @@ function ChatData() {
       answerRight: {answer: '<i>dealer</i>', next: 'del1b'}
     },
     del1b: {
-      bubbles: ['<img src="http://giphy.com/gifs/pulp-fiction-art-estrellamarilla-11uPwtlLq91Rni" />', 'Oj, nie tędy droga. Miało być o częściach:', '<i>en del – delen – deler – delene</i>', 'Więc, nieokreślone części to...'],
+      bubbles: ['<img src="/i/p-1-7/11uPwtlLq91Rni.gif" />', 'Oj, nie tędy droga. Miało być o częściach:', '<i>en del – delen – deler – delene</i>', 'Więc, nieokreślone części to...'],
       answerLeft: {answer: '<i>deler</i>', next: 'del2'},
     },
     del2: {
@@ -1044,10 +1044,10 @@ function ChatData() {
     },
     ord1b: {
       bubbles: ['Jednak <i>et</i>. I na dodatek jednosylabowy.', '<i>et ord – ordet – ord – ordene</i>'],
-      answerLeft: {answer: '<i>ei ord</i>', next: 'ord2'},
+      answerLeft: {answer: '<i>et ord</i>', next: 'ord2'},
     },
     ord2: {
-      bubbles: ['<i>Utrolig!</i> [emot podziw]'],
+      bubbles: ['<i>Utrolig!</i> <span class="emojione emojione-1f638"></span>'],
       autoNext: 'RANDOM'
     },
 
@@ -1077,7 +1077,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et møte</i>', next: 'moete2'},
     },
     moete2: {
-      bubbles: ['<i>Kjempefint!</i>', '<img src="http://media3.giphy.com/media/YC6ZedMDgR1Fm/giphy.gif" />'],
+      bubbles: ['<i>Kjempefint!</i>', '<img src="/i/p-1-7/YC6ZedMDgR1Fm.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1313,7 +1313,7 @@ function ChatData() {
       answerRight: {answer: '<i>en chief</i>', next: 'sjef1b'}
     },
     sjef1b: {
-      bubbles: ['[emot lapka na czoło]'],
+      bubbles: ['<span class="emojione emojione-1f926-1f3fb"></span>'],
       answerLeft: {answer: '<i>en sjef</i>', next: 'sjef2'},
     },
     sjef2: {
@@ -1388,7 +1388,7 @@ function ChatData() {
       answerRight: {answer: '<i>King Kong</i>', next: 'konge1b'}
     },
     konge1b: {
-      bubbles: ['<img src="http://giphy.com/gifs/warnerarchive-classic-film-son-of-kong-3oEdv9Xaqm76AzUsvu" />'],
+      bubbles: ['<img src="/i/p-1-7/3oEdv9Xaqm76AzUsvu.gif" />'],
       answerLeft: {answer: '', next: 'konge2'},
     },
     konge2: {
@@ -1407,7 +1407,7 @@ function ChatData() {
       answerLeft: {answer: '<i>eierne</i>', next: 'eier2'},
     },
     eier2: {
-      bubbles: ['<i>Yes!</i> [emot ludziki]'],
+      bubbles: ['<i>Yes!</i> <span class="emojione emojione-1f474-1f3fb"></span><span class="emojione emojione-1f475-1f3fb"></span>'],
       autoNext: 'RANDOM'
     },
 
@@ -1452,7 +1452,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et svin</i>', next: 'svin2'}
     },
     svin2: {
-      bubbles: ['Dobrze. A <i>et pinnsvin</i>? To oczywiście: [emot jeż]'],
+      bubbles: ['Dobrze. A <i>et pinnsvin</i>? To oczywiście:', '<img src="/i/p-1-7/hedgehog476r-2.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1508,7 +1508,7 @@ function ChatData() {
       answerRight: {answer: '<i>kroppen</i>', next: 'kropp2'}
     },
     kropp1b: {
-      bubbles: ['Wybrałeś [emot filiżanka]', 'Ciało to <i>en kropp</i>, a w formie określonej...'],
+      bubbles: ['Wybrałeś <span class="emojione emojione-2615"></span>', 'Ciało to <i>en kropp</i>, a w formie określonej...'],
       answerLeft: {answer: '<i>kroppen</i>', next: 'kropp2'},
     },
     kropp2: {
@@ -1542,7 +1542,7 @@ function ChatData() {
       answerLeft: {answer: '<i>sjansen</i>', next: 'sjanse2'},
     },
     sjanse2: {
-      bubbles: ['<i>Det var en god jobb!</i>', '<img src="http://giphy.com/gifs/applause-house-of-cards-robin-wright-3osxY8yHdijYBl6p2w" />'],
+      bubbles: ['<i>Det var en god jobb!</i>', '<img src="/i/p-1-7/3osxY8yHdijYBl6p2w.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1557,7 +1557,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en forelder</i>', next: 'forelder2'},
     },
     forelder2: {
-      bubbles: ['<i>Det var bra!</i>', '<img src="http://i1.wp.com/aftonnegrea.com/wp-content/uploads/2013/06/original-2.gif?fit=500%2C272" />'],
+      bubbles: ['<i>Det var bra!</i>', '<img src="/i/p-1-7/original-2-roundround.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1568,11 +1568,11 @@ function ChatData() {
       answerRight: {answer: '<i>legen</i>', next: 'lege2'}
     },
     lege1b: {
-      bubbles: ['<img src="http://giphy.com/gifs/hugh-laurie-house-md-gregory-UzHxxqF1WO6UE" />', 'Określony z rodzajnikiem? Coś nie tak...'],
+      bubbles: ['<img src="/i/p-1-7/http://giphy.com/gifs/hugh-laurie-house-md-gregory-UzHxxqF1WO6UE" />', 'Określony z rodzajnikiem? Coś nie tak...'],
       answerLeft: {answer: '<i>legen</i>', next: 'lege2'},
     },
     lege2: {
-      bubbles: ['Mhmm', '<img src="http://67.media.tumblr.com/tumblr_m3viuiMFVr1ru06ato1_500.gif" />'],
+      bubbles: ['Mhmm', '<img src="/i/p-1-7/http://67.media.tumblr.com/tumblr_m3viuiMFVr1ru06ato1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1587,7 +1587,7 @@ function ChatData() {
       answerLeft: {answer: '<i>saker</i>', next: 'saker2'},
     },
     saker2: {
-      bubbles: ['Zgadza się. (Męskie sprawy)', '<img src="https://media.giphy.com/media/n6M6H9R0474ty/giphy.gif" />'],
+      bubbles: ['Zgadza się. (Męskie sprawy)', '<img src="/i/p-1-7/https://media.giphy.com/media/n6M6H9R0474ty/giphy.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1602,7 +1602,7 @@ function ChatData() {
       answerLeft: {answer: '<i>skadene</i>', next: 'skade2'},
     },
     skade2: {
-      bubbles: ['<img src="http://giphy.com/gifs/reactiongifs-13ZHjidRzoi7n2" />'],
+      bubbles: ['<img src="/i/p-1-7/http://giphy.com/gifs/reactiongifs-13ZHjidRzoi7n2" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1617,7 +1617,7 @@ function ChatData() {
       answerLeft: {answer: '<i>pølser</i>', next: 'peolse2'},
     },
     peolse2: {
-      bubbles: ['<img src="http://giphy.com/gifs/funny-games-xNk979fe8QFck" />'],
+      bubbles: ['<img src="/i/p-1-7/http://giphy.com/gifs/funny-games-xNk979fe8QFck" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1632,7 +1632,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et fengsel</i>', next: 'fengsel2'},
     },
     fengsel2: {
-      bubbles: ['<img src="http://giphy.com/gifs/dog-escape-yoink-l0OWistc2HUjf6PKM" />'],
+      bubbles: ['<img src="/i/p-1-7/http://giphy.com/gifs/dog-escape-yoink-l0OWistc2HUjf6PKM" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1640,7 +1640,7 @@ function ChatData() {
     zzzz1: {
       bubbles: ['Nie zasypiasz?'],
       answerLeft: {answer: 'trochę', next: 'zzzz2'},
-      answerRight: {answer: 'daję radę (emot dzilnego)', next: 'RANDOM'}
+      answerRight: {answer: 'daję radę <span class="emojione emojione-1f4aa-1f3ff"></span>', next: 'RANDOM'}
     },
     zzzz2: {
       bubbles: ['(gif na rozweselenie)'],
@@ -1667,15 +1667,15 @@ function ChatData() {
 
   this.end = {
     a1: {
-      bubbles: ['Gładko Ci poszło!', '<img src="http://media1.popsugar-assets.com/files/thumbor/hpwcM43YoPta6y9Sw286KFJKsmM/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/07/02/996/n/1922283/91eb4125c5aa920d_Dancing/i/When-Gang-Does-Group-Dance-Too.gif" />', ''],
+      bubbles: ['Gładko Ci poszło!', '<img src="/i/p-1-7/http://media1.popsugar-assets.com/files/thumbor/hpwcM43YoPta6y9Sw286KFJKsmM/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/07/02/996/n/1922283/91eb4125c5aa920d_Dancing/i/When-Gang-Does-Group-Dance-Too.gif" />', ''],
       autoNext: 'END'
     },
     b1: {
-      bubbles: ['To były najczęściej używane rzeczowniki w potocznym języku. Jeśli opanowałeś zasady tworzenia wszystkich czterech form, to na tej zasadzie będziesz już tworzyć kolejne!', '<img src="https://media.giphy.com/media/Bi6FcO7UoutWM/giphy.gif" />'],
+      bubbles: ['To były najczęściej używane rzeczowniki w potocznym języku. Jeśli opanowałeś zasady tworzenia wszystkich czterech form, to na tej zasadzie będziesz już tworzyć kolejne!', '<img src="/i/p-1-7/https://media.giphy.com/media/Bi6FcO7UoutWM/giphy.gif" />'],
       autoNext: 'END'
     },
     c1: {
-      bubbles: ['Muszę już jechać.', '<img src="http://giphy.com/gifs/lol-owl-vjnLzg78di4wM" />', 'Trzymaj się!'],
+      bubbles: ['Muszę już jechać.', '<img src="/i/p-1-7/http://giphy.com/gifs/lol-owl-vjnLzg78di4wM" />', 'Trzymaj się!'],
       autoNext: 'END'
     }
   };

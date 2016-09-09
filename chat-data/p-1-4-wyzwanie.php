@@ -33,12 +33,12 @@ function ChatData() {
       answerRight: {answer: '<i>hytten</i>', next: 'hytte1b'}
     },
     hytte1b: {
-      bubbles: ['Końcówkę <i>-en</i> dodajemy w formie określonej liczby pojedynczej. Pamiętasz?', 'Np. <i>en bygning -> bygningen</i>'],
+      bubbles: ['Końcówkę <i>-en</i> dodajemy w formie określonej liczby pojedynczej. Pamiętasz?', 'Np. <i>en bygning – bygningen</i>'],
       answerLeft: {answer: 'OK, już wiem: <i>hytter</i>', next: 'hytte2'},
     },
 
     hytte2: {
-      bubbles: ['<i>Veldig bra!</i>', '<img src="/i/p-1-4/3b3d047d7f7b5a9eb3b656d548e81570fa6e1aa1-m.gif" />'],
+      bubbles: ['Joł men, ziom!', '<img src="/i/p-1-4/3b3d047d7f7b5a9eb3b656d548e81570fa6e1aa1-m.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -83,7 +83,7 @@ function ChatData() {
       answerLeft: {answer: 'no tak, <i>gulv</i>', next: 'gulv2'}
     },
     gulv2: {
-      bubbles: ['<i>Fantastisk!</i>', '<img src="/i/p-1-4/tumblr-m3j9b02nnt1qedb29o1-500.gif" />'],
+      bubbles: ['Na błysk!', '<img src="/i/p-1-4/tumblr-m3j9b02nnt1qedb29o1-500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -143,7 +143,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en</i>, dlatego: <i>stoler</i>', next: 'stol2'},
     },
     stol2: {
-      bubbles: ['<i>Flott!</i>'],
+      bubbles: ['Brawo! <span class="emojione emojione-1f44f-1f3fb"></span> <span class="emojione emojione-1f36b"></span>'],
       autoNext: 'RANDOM'
     },
 
@@ -158,7 +158,7 @@ function ChatData() {
       answerLeft: {answer: '<i>lamper</i>', next: 'lampe2'},
     },
     lampe2: {
-      bubbles: ['Brawo!'],
+      bubbles: ['Brawo!', '<img src="/i/p-1-4/tumblr-mlnzx84ur21qzw1qyo1-500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -173,7 +173,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, zapamiętam', next: 'mobil2b'},
     },
     mobil2: {
-      bubbles: ['Gratuluję! Możemy świętować.', '<img src="/i/p-1-4/the-blues-brothers-whisky-though-DpxPL8FXbccM0.gif" />'],
+      bubbles: ['Gratuluję! Możemy świętować?', '<img src="/i/p-1-4/the-blues-brothers-whisky-though-DpxPL8FXbccM0.gif" />'],
       autoNext: 'RANDOM'
     },
     mobil2b: {
@@ -222,7 +222,7 @@ function ChatData() {
       answerLeft: {answer: '<i>busser</i>', next: 'buss2'},
     },
     buss2: {
-      bubbles: ['<i>Bra!</i>'],
+      bubbles: ['<i>Bra!</i>', '<img src="/i/p-1-4/hard-trying-catch-bus-sometimes.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -237,7 +237,7 @@ function ChatData() {
       answerLeft: {answer: '<i>tog</i>', next: 'tog2'},
     },
     tog2: {
-      bubbles: ['<i>Fint!</i>', 'A określone?'],
+      bubbles: ['<i>Fint!</i> <span class="emojione emojione-1f682"></span>', 'A określone?'],
       answerLeft: {answer: '<i>tog</i>', next: 'tog2b'},
       answerRight: {answer: '<i>togene</i>', next: 'tog3'}
     },
@@ -246,7 +246,7 @@ function ChatData() {
       answerLeft: {answer: '<i>togene</i>', next: 'tog2'},
     },
     tog3: {
-      bubbles: ['<i>Supert!</i>'],
+      bubbles: ['<i>Supert!</i> <span class="emojione emojione-1f36c"></span>'],
       autoNext: 'RANDOM'
     },
 
@@ -261,7 +261,7 @@ function ChatData() {
       answerLeft: {answer: '<i>blomstene</i>', next: 'blomst2'},
     },
     blomst2: {
-      bubbles: ['<i>Pent!</i> Pięknie!'],
+      bubbles: ['<i>Pent!</i> <span class="emojione emojione-1f33b"></span><span class="emojione emojione-1f33b"></span><span class="emojione emojione-1f33b"></span>'],
       autoNext: 'RANDOM'
     },
 
@@ -291,7 +291,7 @@ function ChatData() {
       answerLeft: {answer: '<i>senger</i>', next: 'seng2'},
     },
     seng2: {
-      bubbles: ['Ba dum tss!', '<img src="/i/p-1-4/tumblr-n89kkc8dkc1qcd94wo1-500.gif" />'],
+      bubbles: ['Ta daaam!', '<img src="/i/p-1-4/tumblr-n89kkc8dkc1qcd94wo1-500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -312,7 +312,7 @@ function ChatData() {
 
 
     kontakt1: {
-      bubbles: ['Jak powiesz: On ma wiele kontaktów. <i>Han har mange...</i>'],
+      bubbles: ['Jak powiesz: "On ma wiele kontaktów"?', '<i>Han har mange...</i>'],
       answerLeft: {answer: 'kontakter', next: 'kontakt2'},
       answerRight: {answer: 'kontaktene', next: 'kontakt1b'}
     },
@@ -321,7 +321,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>kontakter</i>', next: 'kontakt2'},
     },
     kontakt2: {
-      bubbles: ['Dobrze. To Ci się opłaci.', '<img src="/i/p-1-4/tumblr-m618g4opwx1qdlbneo1-500.gif" />'],
+      bubbles: ['Tak jest. <span class="emojione emojione-260e"></span><span class="emojione emojione-1f4de"></span><span class="emojione emojione-1f4e0"></span><span class="emojione emojione-1f50c"></span>'],
       autoNext: 'RANDOM'
     },
 
@@ -342,7 +342,7 @@ function ChatData() {
 
 
     skip1: {
-      bubbles: ['Kilka nieokreślonych statków na fjordzie, to...'],
+      bubbles: ['Kilka nieokreślonych statków na fiordzie, to...'],
       answerLeft: {answer: '<i>skip</i>', next: 'skip2'},
       answerRight: {answer: '<i>skiper</i>', next: 'skip1b'}
     },
@@ -351,7 +351,7 @@ function ChatData() {
       answerLeft: {answer: 'jasne, <i>skip</i>', next: 'skip2'},
     },
     skip2: {
-      bubbles: ['<i>Bra!</i>'],
+      bubbles: ['<i>Bra!</i> <span class="emojione emojione-1f6f3"></span>'],
       autoNext: 'RANDOM'
     },
 
@@ -366,7 +366,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>dyrene</i>', next: 'dyr2'},
     },
     dyr2: {
-      bubbles: ['Yes! A przy pizzy wyglądają tak:', '<img src="/i/p-1-4/c2OEMfj.gif" />'],
+      bubbles: ['<i>Yes</i>! A teraz uwaga! <i>Dyrene</i>:', '<img src="/i/p-1-4/c2OEMfj.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -387,7 +387,7 @@ function ChatData() {
 
 
     topp1: {
-      bubbles: ['Nieokreślone szczyty?'],
+      bubbles: ['Nieokreślone szczyty? <span class="emojione emojione-1f3d4"></span>'],
       answerLeft: {answer: 'topp', next: 'topp1b'},
       answerRight: {answer: 'topper', next: 'topp2'}
     },
@@ -411,7 +411,7 @@ function ChatData() {
       answerLeft: {answer: '<i>øyene</i>', next: 'oy2'},
     },
     oy2: {
-      bubbles: ['<i>Veldig bra!</i>', '<img src="/i/p-1-4/tumblr_nt3kawqCC61s2wio8o4_500.gif" />'],
+      bubbles: ['Najlepiej takie, na których się bawisz.', '<img src="/i/p-1-4/tumblr_nt3kawqCC61s2wio8o4_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -426,7 +426,7 @@ function ChatData() {
       answerLeft: {answer: '<i>dekk</i>', next: 'dekk2'},
     },
     dekk2: {
-      bubbles: ['OK'],
+      bubbles: ['OK, jedziemy. <span class="emojione emojione-1f69c"></span>'],
       autoNext: 'RANDOM'
     },
 
@@ -447,7 +447,7 @@ function ChatData() {
 
 
     by1: {
-      bubbles: ['Miasta określone to:'],
+      bubbles: ['Miasta <span class="emojione emojione-1f3d9"></span> określone to:'],
       answerLeft: {answer: '<i>byen</i>', next: 'by1b'},
       answerRight: {answer: '<i>byene</i>', next: 'by2'}
     },
@@ -456,7 +456,7 @@ function ChatData() {
       answerLeft: {answer: '<i>byene</i>', next: 'by2'},
     },
     by2: {
-      bubbles: ['<i>Fint!</i>', '<img src="/i/p-1-4/demolizione_palazzo.gif" />'],
+      bubbles: ['<i>Fint!</i>'],
       autoNext: 'RANDOM'
     },
 
@@ -471,11 +471,7 @@ function ChatData() {
       answerLeft: {answer: '<i>vitser</i>', next: 'vits2'},
     },
     vits2: {
-      bubbles: ['Jesteś perfekcyjny! To nie żart.'],
-      answerLeft: {answer: 'dzięki', next: 'vits3'},
-    },
-    vits2: {
-      bubbles: ['<img src="/i/p-1-4/vr47d.gif" />'],
+      bubbles: ['To nie żart.', '<img src="/i/p-1-4/CN9OTYkCHlb2g.gif" />', 'Prawdziwa histora.'],
       autoNext: 'RANDOM'
     }
 

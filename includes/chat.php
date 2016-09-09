@@ -28,7 +28,9 @@ function las_get_chat_data() {
   if ( $file ) {
     include( $file );
     echo '<div id="chat-bot" class="wrapper"></div>';
-    echo '<script src="http://livecopy.nocnasowa.pl/c/j-las-chat-min.js"></script>';
+    echo '<script src="';
+    autoVer('/c/j-las-chat-min.js');
+    echo '"></script>';
   }
   else {
     echo '<p>Nie znaleźliśmy pliku z chatem.</p>';
