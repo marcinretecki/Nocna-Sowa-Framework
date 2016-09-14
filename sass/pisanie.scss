@@ -13,34 +13,13 @@ font-weight:normal;
 font-style:normal;
 }
 
-.logo{float:none;
-  @media screen and (max-width: 440px) {
-    margin-left:-#{$space};
-  }
-}
-.header-content{text-align:center;font-size:0;
-  @media screen and (max-width: 440px) {
-    text-align:left;
-  }
-}
-.header-content a{display:inline-block;border:0;color:#000}
-.header-content .logo{color:$blue;}
-.header-content a:hover,.header-content a:active,.header-content a:focus{background:$blue;color:$white}
-.header-content .logo + a{position:absolute;right:0}
-.header-content .active{background:$dark;color:$white}
 
-.header-trans{opacity:0.95;border-bottom:1px solid $beige-border;background:$white;}
-.header-trans:after{display:none}
-
-.header-content [class*="col-"]{
-  margin-bottom:0;
-}
 
 .section-100{min-height:100%}
 
 #loginform .input{width:100%}
 
-.bottom{background:$beige-hover;border-top:1px solid $beige-border;}
+.bottom{background:$beige-hover;}
 .bottom .section-content{padding-top:$space-half;padding-bottom:0}
 .bottom p{font-size:12px;margin-bottom:$space-half}
 .logout{float:right;
@@ -51,10 +30,13 @@ font-style:normal;
 
 
 /* Wordpress login */
-.login{background:$beige;height:auto;min-height:100%}
-.login label{display:inline}
-.login h1 a{width:auto;height:auto;background:none;text-indent:0;font-size:$size-2;font-family:$body-font;color:#000}
-.login form .forgetmenot{margin-bottom:$space-half !important}
+html .login {background:$beige;height:auto;min-height:100%}
+.login #login label{display:inline}
+.login #login h1 a{width:auto;height:auto;background:none;text-indent:0;font-size:$size-2;font-family:$body-font;color:#000}
+.login #login form .forgetmenot{margin-bottom:$space-half !important}
+
+.login .button-primary{position:relative;display:inline-block;padding:$space-half $space-2;border-radius:3px;border:1px solid transparent;margin:$space-quarter $space-quarter $space-quarter 0;
+  font:normal normal 400 #{$size-1}/1 $body-font;text-decoration:none;text-transform:none;text-align:center;white-space:nowrap;background-color:$blue;color:$white;}
 
 
 /* Panel Sterowania */
@@ -249,7 +231,6 @@ font:normal normal 400 #{$size-0}/1.1875 $body-font;color:$white;text-shadow:0 1
 
   .section-beige{background:transparent;border:0}
   .section-content{max-width:100%;width:100%;padding-left:$space-2;padding-right:$space-2}
-  .section-top{padding-top:$space-8}
 
   .f-time{font-size:$size-2}
 

@@ -71,6 +71,7 @@ function LasChat() {
     //  Push first items
     for (property in chatData) {
       if (chatData.hasOwnProperty(property) && ( property.slice(-1) === '1' ) ) {
+        // if it is own property and last letter is "1"
 
         propArray.push(property);
 
@@ -148,11 +149,12 @@ function LasChat() {
 
   this.getRandomBubble = function() {
     console.log( 'getRandomBubble');
-    console.log( this.chatData.chat[ this.randomChatArray.pop() ] );
+    console.log( this.randomChatArray.length );
 
     if (this.randomChatArray.length > 0 ) {
       // if there are still chat items to show
-      return this.chatData.chat[ this.randomChatArray.pop() ];
+      var pop = this.chatData.chat[ this.randomChatArray.pop() ];
+      return pop;
 
     }
     else {
@@ -167,21 +169,22 @@ function LasChat() {
 
   this.getIntroBubble = function() {
     console.log( 'getIntroBubble');
-    console.log( this.chatData.intro[ this.randomIntroArray.pop() ] );
+    var pop = this.chatData.intro[ this.randomIntroArray.pop() ];
+
     //  Set state
     this.currentState = 'INTRO';
 
     //  Return bubble
-    return this.chatData.intro[ this.randomIntroArray.pop() ];
+    return pop;
 
   };
 
 
   this.getEndBubble = function() {
     console.log( 'getEndBubble' );
-    console.log( this.chatData.end[ this.randomEndArray.pop() ] );
+    var pop = this.chatData.end[ this.randomEndArray.pop() ];
     //  Return bubble
-    return this.chatData.end[ this.randomEndArray.pop() ];
+    return pop;
 
   };
 

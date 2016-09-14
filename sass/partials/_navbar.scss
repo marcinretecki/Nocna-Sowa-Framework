@@ -83,5 +83,6 @@ a:hover .caret,.caret:hover{border-top-color:$white;}
 
 
 .navbar-logo{}
+.navbar-logo--centered{position:absolute;left:0;right:0;top:0;}
 .navbar-logo__blue{color:$blue;}
 .navbar-logo:hover .navbar-logo__blue, .navbar-logo__blue:hover, .navbar-logo:active .navbar-logo__blue, .navbar-logo:focus .navbar-logo__blue{color:$white;}
