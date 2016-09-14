@@ -12,7 +12,7 @@ function ChatData() {
       answerRight: {answer: 'mogę zaryzykować', next: 'a3'}
     },
     a3: {
-      bubbles: ['Zaczniemy od odmiany 50 najpopularniejszych rzeczowników w języku norweskim.'],
+      bubbles: ['Zaczniemy od odmiany 100 najpopularniejszych rzeczowników w języku norweskim.'],
       answerLeft: {answer: 'brzmi super, robimy!', next: 'ENDINTRO'},
       answerRight: {answer: 'skąd znasz najpopularniejsze???', next: 'a4'},
     },
@@ -135,7 +135,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>et par</i>', next: 'par2'}
     },
     par2:{
-      bubbles: ['To jak będzie nieokreślona “para”?'],
+      bubbles: ['To jak będzie określona “para”?'],
       answerLeft: {answer: '<i>paret</i>', next: 'par3'},
     },
     par3: {
@@ -779,10 +779,10 @@ function ChatData() {
     },
     historie1b: {
       bubbles: ['<i>Historia</i> to jedna, określona. W nieokreślonej będzie...'],
-      answerLeft: {answer: '', next: 'historie2'},
+      answerLeft: {answer: '<i>ei historie</i>', next: 'historie2'},
     },
     historie2: {
-      bubbles: ['Może tak być.', '<img src="/i/p-1-7//i/p-1-7/EF4UWro.gif" />'],
+      bubbles: ['Może tak być.', '<img src="/i/p-1-7/EF4UWro.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -867,7 +867,7 @@ function ChatData() {
       answerLeft: {answer: '<i>mødre</i>', next: 'modre2'},
     },
     modre2: {
-      bubbles: ['Flott!'],
+      bubbles: ['<i>Flott!</i>'],
       autoNext: 'RANDOM'
     },
 
@@ -969,7 +969,7 @@ function ChatData() {
     },
     navn1b: {
       bubbles: ['Jednosylabowy <i>et</i>:', '<i>et navn – navnet – navn – navnene</i>'],
-      answerLeft: {answer: '', next: 'navn2'},
+      answerLeft: {answer: 'OK, <i>et navn</i>', next: 'navn2'},
     },
     navn2: {
       bubbles: ['<i>Riktig!</i>'],
@@ -1194,7 +1194,7 @@ function ChatData() {
     },
     blod1b: {
       bubbles: ['Krew po norwesku jest niepoliczalna. Nie powiesz jedna krew, dwie krwie... czy coś podobnego. Czy możesz więc zrobić liczbę mnogą? Nie.'],
-      answerLeft: {answer: '', next: 'blod2'},
+      answerLeft: {answer: 'OK', next: 'blod2'},
     },
     blod2: {
       bubbles: ['Słusznie.'],
@@ -1374,7 +1374,7 @@ function ChatData() {
     },
     kontakt1b: {
       bubbles: ['Jeśli <i>mange</i>, to z pewnością rzeczownik w liczbie mnogiej (z końcówką <i>-er</i>).'],
-      answerLeft: {answer: '', next: 'kontakt2'},
+      answerLeft: {answer: '<i>kontakter</i', next: 'kontakt2'},
     },
     kontakt2: {
       bubbles: ['<i>Så flott!</i>'],
@@ -1389,7 +1389,7 @@ function ChatData() {
     },
     konge1b: {
       bubbles: ['<img src="/i/p-1-7/3oEdv9Xaqm76AzUsvu.gif" />'],
-      answerLeft: {answer: '', next: 'konge2'},
+      answerLeft: {answer: '<i>kongen</i>', next: 'konge2'},
     },
     konge2: {
       bubbles: ['<i>Det er helt konge!</i>'],
@@ -1568,11 +1568,11 @@ function ChatData() {
       answerRight: {answer: '<i>legen</i>', next: 'lege2'}
     },
     lege1b: {
-      bubbles: ['<img src="/i/p-1-7/http://giphy.com/gifs/hugh-laurie-house-md-gregory-UzHxxqF1WO6UE" />', 'Określony z rodzajnikiem? Coś nie tak...'],
+      bubbles: ['<img src="/i/p-1-7/UzHxxqF1WO6UE.gif" />', 'Określony z rodzajnikiem? Coś nie tak...'],
       answerLeft: {answer: '<i>legen</i>', next: 'lege2'},
     },
     lege2: {
-      bubbles: ['Mhmm', '<img src="/i/p-1-7/http://67.media.tumblr.com/tumblr_m3viuiMFVr1ru06ato1_500.gif" />'],
+      bubbles: ['Mhmm', '<img src="/i/p-1-7/tumblr_m3viuiMFVr1ru06ato1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1587,7 +1587,7 @@ function ChatData() {
       answerLeft: {answer: '<i>saker</i>', next: 'saker2'},
     },
     saker2: {
-      bubbles: ['Zgadza się. (Męskie sprawy)', '<img src="/i/p-1-7/https://media.giphy.com/media/n6M6H9R0474ty/giphy.gif" />'],
+      bubbles: ['Zgadza się. (Męskie sprawy)', '<img src="/i/p-1-7/n6M6H9R0474ty.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1602,7 +1602,7 @@ function ChatData() {
       answerLeft: {answer: '<i>skadene</i>', next: 'skade2'},
     },
     skade2: {
-      bubbles: ['<img src="/i/p-1-7/http://giphy.com/gifs/reactiongifs-13ZHjidRzoi7n2" />'],
+      bubbles: ['<img src="/i/p-1-7/13ZHjidRzoi7n2.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1617,7 +1617,7 @@ function ChatData() {
       answerLeft: {answer: '<i>pølser</i>', next: 'peolse2'},
     },
     peolse2: {
-      bubbles: ['<img src="/i/p-1-7/http://giphy.com/gifs/funny-games-xNk979fe8QFck" />'],
+      bubbles: ['<img src="/i/p-1-7/xNk979fe8QFck.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1632,7 +1632,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et fengsel</i>', next: 'fengsel2'},
     },
     fengsel2: {
-      bubbles: ['<img src="/i/p-1-7/http://giphy.com/gifs/dog-escape-yoink-l0OWistc2HUjf6PKM" />'],
+      bubbles: ['<img src="/i/p-1-7/l0OWistc2HUjf6PKM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1667,15 +1667,15 @@ function ChatData() {
 
   this.end = {
     a1: {
-      bubbles: ['Gładko Ci poszło!', '<img src="/i/p-1-7/http://media1.popsugar-assets.com/files/thumbor/hpwcM43YoPta6y9Sw286KFJKsmM/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/07/02/996/n/1922283/91eb4125c5aa920d_Dancing/i/When-Gang-Does-Group-Dance-Too.gif" />', ''],
+      bubbles: ['Gładko Ci poszło!', '<img src="/i/p-1-7/When-Gang-Does-Group-Dance-Too.gif" />', ''],
       autoNext: 'END'
     },
     b1: {
-      bubbles: ['To były najczęściej używane rzeczowniki w potocznym języku. Jeśli opanowałeś zasady tworzenia wszystkich czterech form, to na tej zasadzie będziesz już tworzyć kolejne!', '<img src="/i/p-1-7/https://media.giphy.com/media/Bi6FcO7UoutWM/giphy.gif" />'],
+      bubbles: ['To były najczęściej używane rzeczowniki w potocznym języku. Jeśli opanowałeś zasady tworzenia wszystkich czterech form, to na tej zasadzie będziesz już tworzyć kolejne!', '<img src="/i/p-1-7/Bi6FcO7UoutWM.gif" />'],
       autoNext: 'END'
     },
     c1: {
-      bubbles: ['Muszę już jechać.', '<img src="/i/p-1-7/http://giphy.com/gifs/lol-owl-vjnLzg78di4wM" />', 'Trzymaj się!'],
+      bubbles: ['Muszę już jechać.', '<img src="/i/p-1-7/vjnLzg78di4wM.gif" />', 'Trzymaj się!'],
       autoNext: 'END'
     }
   };
