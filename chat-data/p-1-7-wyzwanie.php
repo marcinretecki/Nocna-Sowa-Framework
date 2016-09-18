@@ -46,7 +46,7 @@ function ChatData() {
 
 
     blikk1: {
-      bubbles: ['Jak powiedzieć “murugnięcie okiem” albo “chwila”?'],
+      bubbles: ['Jak powiedzieć <q>murugnięcie okiem</q> albo <q>chwila</q>?'],
       answerLeft: {answer: '<i>et øyeblikk</i>',  next: 'blikk2'},
       answerRight: {answer: '<i>ei øyeblikk</i>',  next: 'blikk1b'}
     },
@@ -61,7 +61,7 @@ function ChatData() {
 
 
     oye1: {
-      bubbles: ['“Oczy” <span class="emojione emojione-1f441"></span><span class="emojione emojione-1f441"></span> w formie określonej?'],
+      bubbles: ['<q>Oczy</q> <span class="emojione emojione-1f441"></span><span class="emojione emojione-1f441"></span> w formie określonej?'],
       answerLeft: {answer: '<i>øyene</i>',  next: 'oye2'},
       answerRight: {answer: '<i>øyet</i>',  next: 'oye2'}
     },
@@ -76,7 +76,7 @@ function ChatData() {
 
 
     moro1: {
-      bubbles: ['Jak jest “zabawa, rozrywka, przyjemność”?', 'Przypominam, że jest to słowo niepoliczalne.'],
+      bubbles: ['Jak jest <q>zabawa, rozrywka, przyjemność</q>?', 'Przypominam, że jest to słowo niepoliczalne.'],
       answerLeft: {answer: '<i>(ei) moro</i>', next: 'moro2'},
       answerRight: {answer: '<i>moroer</i>', next: 'moro1b'}
     },
@@ -91,7 +91,7 @@ function ChatData() {
 
 
     gave1: {
-      bubbles: ['A “prezenty”? Określone?'],
+      bubbles: ['A <q>prezenty</q>? Określone?'],
       answerLeft: {answer: '<i>gavene</i>', next: 'gave2'},
       answerRight: {answer: '<i>gaver</i>', next: 'gave1b'}
     },
@@ -115,7 +115,7 @@ function ChatData() {
       autoNext: 'idiot2'
     },
     idiot2: {
-      bubbles: ['W jakiej formie jest słowo “idioten”?'],
+      bubbles: ['W jakiej formie jest słowo <q>idioten</q>?'],
       answerLeft: {answer: 'określonej pojedynczej', next: 'idiot3'},
       answerRight: {answer: 'nieokreślonej pojedynczej', next: 'idiot2b'}
     },
@@ -130,7 +130,7 @@ function ChatData() {
 
 
     par1: {
-      bubbles: ['Jak powiedzieć “para”? No wiesz, para butów <span class="no-break"><span class="emojione emojione-1f45e"></span><span class="emojione emojione-1f45e"></span></span> albo ludzi <span class="emojione emojione-1f46b"></span>. Najprościej, <span class="no-break">w nieokreślonej</span> formie.'],
+      bubbles: ['Jak powiedzieć <q>para</q>? No wiesz, para butów <span class="no-break"><span class="emojione emojione-1f45e"></span><span class="emojione emojione-1f45e"></span></span> albo ludzi <span class="emojione emojione-1f46b"></span>. Najprościej, <span class="no-break">w nieokreślonej</span> formie.'],
       answerLeft: {answer: '<i>et par</i>', next: 'par2'},
       answerRight: {answer: '<i>pæra</i>', next: 'par1b'}
     },
@@ -139,13 +139,13 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>et par</i>', next: 'par2'}
     },
     par2:{
-      bubbles: ['To jak będzie określona “para”?'],
+      bubbles: ['To jak będzie określona <q>para</q>?'],
       answerLeft: {answer: '<i>paret</i>', next: 'par3'},
-      answerLeft: {answer: '<i>para</i>', next: 'par2b'},
+      answerRight: {answer: '<i>para</i>', next: 'par2b'}
     },
     par2b: {
       bubbles: ['Zobacz:', '<i>et par – paret</i>', 'Która to określona?'],
-      answerLeft: {answer: 'Ah, <i>paret</i>', next: 'par2'}
+      answerLeft: {answer: 'Ah, <i>paret</i>', next: 'par3'}
     },
     par3: {
       bubbles: ['<i>Godt! Et par hamstere til deg!</i>', '<img src="/i/p-1-7/tumblr_n5zo6bBwT71s96utdo1_400.gif" />'],
@@ -154,7 +154,7 @@ function ChatData() {
 
 
     fyr1: {
-      bubbles: ['Określony “ogień” <span class="emojione emojione-1f525"></span> to:'],
+      bubbles: ['Określony <q>ogień</q> <span class="emojione emojione-1f525"></span> to:'],
       answerLeft: {answer: '<i>fyr</i>', next: 'fyr1b'},
       answerRight: {answer: '<i>fyren</i>', next: 'fyr2'}
     },
@@ -169,7 +169,7 @@ function ChatData() {
 
 
     enfyr1: {
-      bubbles: ['Jak jest “facet”? Nie znasz gościa, dopiero wchodzi.'],
+      bubbles: ['Jak jest <q>facet</q>? Nie znasz gościa, dopiero wchodzi.'],
       answerLeft: {answer: '<i>en fyr</i>', next: 'enfyr2'},
       answerRight: {answer: '<i>karen</i>', next: 'enfyr1b'}
     },
@@ -199,7 +199,7 @@ function ChatData() {
 
 
     hund1: {
-      bubbles: ['“Pies” <span class="emojione emojione-1f429"></span> określony?'],
+      bubbles: ['<q>Pies</q> <span class="emojione emojione-1f429"></span> określony?'],
       answerLeft: {answer: '<i>hunden</i>', next: 'hund2'},
       answerRight: {answer: '<i>hunder</i>', next: 'hund1b'}
     },
@@ -214,7 +214,7 @@ function ChatData() {
 
 
     vann1: {
-      bubbles: ['“Woda” okeślona, np. taka w basenie?'],
+      bubbles: ['<q>Woda</q> okeślona, np. taka w basenie?'],
       answerLeft: {answer: '<i>vannet</i>', next: 'vann2'},
       answerRight: {answer: '<i>vannene</i>', next: 'vann1b'}
     },
@@ -229,7 +229,7 @@ function ChatData() {
 
 
     barn1: {
-      bubbles: ['Jak są “dzieci” w liczbie mnogiej nieokreślonej?'],
+      bubbles: ['Jak są <q>dzieci</q> w liczbie mnogiej nieokreślonej?'],
       answerLeft: {answer: '<i>barn</i>', next: 'barn2'},
       answerRight: {answer: '<i>barna</i>', next: 'barn1b'}
     },
@@ -244,7 +244,7 @@ function ChatData() {
 
 
     syn1: {
-      bubbles: ['Jak byś powiedział: “On ma syna.”?', '<i>Han har...</i>'],
+      bubbles: ['Jak byś powiedział: <q>On ma syna.</q>?', '<i>Han har...</i>'],
       answerLeft: {answer: '<i>en sønn</i>', next: 'syn2'},
       answerRight: {answer: '<i>sønner</i>', next: 'syn1b'}
     },
@@ -253,7 +253,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en sønn</i>', next: 'syn2'},
     },
     syn2: {
-      bubbles: ['Wspaniale.', '<img src="/i/p-1-7/tumblr-m25p9yiv4y1qgn0dyo1-250.gif" />', 'A “córki”?'],
+      bubbles: ['Wspaniale.', '<img src="/i/p-1-7/tumblr-m25p9yiv4y1qgn0dyo1-250.gif" />', 'A <q>córki</q>?'],
       answerLeft: {answer: '<i>datter</i>', next: 'syn2b'},
       answerRight: {answer: '<i>døtre</i>', next: 'syn3'}
     },
@@ -268,7 +268,7 @@ function ChatData() {
 
 
     mat1: {
-      bubbles: ['“Jedzenie” określone? <span class="emojione emojione-1f373"></span><span class="emojione emojione-1f953"></span>'],
+      bubbles: ['<q>Jedzenie</q> określone? <span class="emojione emojione-1f373"></span><span class="emojione emojione-1f953"></span>'],
       answerLeft: {answer: '<i>mat</i>', next: 'mat1b'},
       answerRight: {answer: '<i>maten</i>', next: 'mat2'}
     },
@@ -283,7 +283,7 @@ function ChatData() {
 
 
     ben1: {
-      bubbles: ['“Noga” określona?'],
+      bubbles: ['<q>Noga</q> określona?'],
       answerLeft: {answer: '<i>bein</i>', next: 'ben1b'},
       answerRight: {answer: '<i>beinet</i>', next: 'ben2'}
     },
@@ -298,7 +298,7 @@ function ChatData() {
 
 
     hand1: {
-      bubbles: ['“Dłonie” nieokreślone?'],
+      bubbles: ['<q>Dłonie</q> nieokreślone?'],
       answerLeft: {answer: '<i>hender</i>', next: 'hand2'},
       answerRight: {answer: '<i>hendene</i>', next: 'hand1b'}
     },
@@ -313,7 +313,7 @@ function ChatData() {
 
 
     kaffe1: {
-      bubbles: ['Jedna “kawa” nieokreślona? W domyśle jako kubek kawy.'],
+      bubbles: ['Jedna <q>kawa</q> nieokreślona? W domyśle jako kubek kawy.'],
       answerLeft: {answer: '<i>en kaffe</i>', next: 'kaffe2'},
       answerRight: {answer: '<i>en kafé</i>', next: 'kaffe1b'}
     },
@@ -328,7 +328,7 @@ function ChatData() {
 
 
     bok1: {
-      bubbles: ['“Książki” nieokreślone?'],
+      bubbles: ['<q>Książki</q> nieokreślone?'],
       answerLeft: {answer: '<i>boker</i>', next: 'bok1b'},
       answerRight: {answer: '<i>bøker</i>', next: 'bok2'}
     },
@@ -343,7 +343,7 @@ function ChatData() {
 
 
     spor1: {
-      bubbles: ['“Tor” albo “ślad” nieokreślony to:'],
+      bubbles: ['<q>Tor</q> albo <q>ślad</q> nieokreślony to:'],
       answerLeft: {answer: '<i>et spor</i>', next: 'spor2'},
       answerRight: {answer: '<i>ei spor</i>', next: 'spor1b'}
     },
@@ -358,7 +358,7 @@ function ChatData() {
 
 
     kvinne1: {
-      bubbles: ['“Kobieta”? Jakaś na ulicy, której nie znasz.'],
+      bubbles: ['<q>Kobieta</q>? Jakaś na ulicy, której nie znasz.'],
       answerLeft: {answer: '<i>kvinna</i>', next: 'kvinne1b'},
       answerRight: {answer: '<i>ei kvinne</i>', next: 'kvinne2'}
     },
@@ -373,7 +373,7 @@ function ChatData() {
 
 
     venn1: {
-      bubbles: ['“Przyjaciel” określony?'],
+      bubbles: ['<q>Przyjaciel</q> określony?'],
       answerLeft: {answer: '<i>venner</i>', next: 'venn1b'},
       answerRight: {answer: '<i>vennen</i>', next: 'venn2'}
     },
@@ -388,7 +388,7 @@ function ChatData() {
 
 
     fly1: {
-      bubbles: ['“Samoloty” nieokreślone? <span class="emojione emojione-1f6eb"></span> <span class="emojione emojione-1f6ec"></span>'],
+      bubbles: ['<q>Samoloty</q> nieokreślone? <span class="emojione emojione-1f6eb"></span> <span class="emojione emojione-1f6ec"></span>'],
       answerLeft: {answer: '<i>fly</i>', next: 'fly2'},
       answerRight: {answer: '<i>flyer</i>', next: 'fly1b'}
     },
@@ -403,7 +403,7 @@ function ChatData() {
 
 
     tele1: {
-      bubbles: ['“Telefony” określone? <span class="emojione emojione-1f4f1"></span><span class="emojione emojione-1f4f1"></span><span class="emojione emojione-1f4f1"></span>'],
+      bubbles: ['<q>Telefony</q> określone? <span class="emojione emojione-1f4f1"></span><span class="emojione emojione-1f4f1"></span><span class="emojione emojione-1f4f1"></span>'],
       answerLeft: {answer: '<i>mobiler</i>', next: 'tele1b'},
       answerRight: {answer: '<i>telefonene</i>', next: 'tele2'}
     },
@@ -418,7 +418,7 @@ function ChatData() {
 
 
     bror1: {
-      bubbles: ['“Brat” <span class="emojione emojione-1f938"></span> określony?'],
+      bubbles: ['<q>Brat</q> <span class="emojione emojione-1f938"></span> określony?'],
       answerLeft: {answer: '<i>en bror</i>', next: 'bror1b'},
       answerRight: {answer: '<i>broren</i>', next: 'bror2'}
     },
@@ -433,7 +433,7 @@ function ChatData() {
 
 
     lys1: {
-      bubbles: ['“Światła” nieokreślone?'],
+      bubbles: ['<q>Światła</q> nieokreślone?'],
       answerLeft: {answer: '<i>lys</i>', next: 'lys2'},
       answerRight: {answer: '<i>lyset</i>', next: 'lys1b'}
     },
@@ -448,7 +448,7 @@ function ChatData() {
 
 
     onkel1: {
-      bubbles: ['“Wujek” określony?'],
+      bubbles: ['<q>Wujek</q> określony?'],
       answerLeft: {answer: '<i>onkel</i>', next: 'onkel1b'},
       answerRight: {answer: '<i>onkelen</i>', next: 'onkel2'}
     },
@@ -463,7 +463,7 @@ function ChatData() {
 
 
     kone1: {
-      bubbles: ['“Żona” określona?'],
+      bubbles: ['<q>Żona</q> określona?'],
       answerLeft: {answer: '<i>kone</i>', next: 'kone1b'},
       answerRight: {answer: '<i>kona</i>', next: 'kone2'}
     },
@@ -478,7 +478,7 @@ function ChatData() {
 
 
     kamp1: {
-      bubbles: ['Określone “walki”, “bitwy” <span class="emojione emojione-2694"></span> lub “mecze”?'],
+      bubbles: ['Określone <q>walki</q>, <q>bitwy</q> <span class="emojione emojione-2694"></span> lub <q>mecze</q>?'],
       answerLeft: {answer: '<i>kamp</i>', next: 'kamp1b'},
       answerRight: {answer: '<i>kampene</i>', next: 'kamp2'}
     },
@@ -493,7 +493,7 @@ function ChatData() {
 
 
     dame1: {
-      bubbles: ['Określone “kobiety”?'],
+      bubbles: ['Określone <q>kobiety</q>?'],
       answerLeft: {answer: '<i>damer</i>', next: 'dame1b'},
       answerRight: {answer: '<i>kvinnene</i>', next: 'dame2'}
     },
@@ -508,7 +508,7 @@ function ChatData() {
 
 
     by1: {
-      bubbles: ['“Miasto” nieokreślone?'],
+      bubbles: ['<q>Miasto</q> nieokreślone?'],
       answerLeft: {answer: '<i>et by</i>', next: 'by1b'},
       answerRight: {answer: '<i>en by</i>', next: 'by2'}
     },
@@ -517,13 +517,13 @@ function ChatData() {
       answerLeft: {answer: 'no dobra, <i>en by</i>', next: 'by2'},
     },
     by2: {
-      bubbles: ['<i>Veldig bra</i>', '<img src="/i/p-1-7/newspaper-man-429.gif" />'],
+      bubbles: ['<i>Veldig bra!</i>', '<img src="/i/p-1-7/newspaper-man-429.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     liv1: {
-      bubbles: ['“Życie” określone?'],
+      bubbles: ['<q>Życie</q> określone?'],
       answerLeft: {answer: '<i>livet</i>', next: 'liv2'},
       answerRight: {answer: '<i>liva</i>', next: 'liv1b'}
     },
@@ -538,7 +538,7 @@ function ChatData() {
 
 
     film1: {
-      bubbles: ['Jakiś “film” to:'],
+      bubbles: ['Jakiś <q>film</q> to:'],
       answerLeft: {answer: '<i>en film</i>', next: 'film2'},
       answerRight: {answer: '<i>en movie</i>', next: 'film1b'}
     },
@@ -553,7 +553,7 @@ function ChatData() {
 
 
     vindu1: {
-      bubbles: ['Jakieś “okno”?'],
+      bubbles: ['Jakieś <q>okno</q>?'],
       answerLeft: {answer: '<i>et vindu</i>', next: 'vindu2'},
       answerRight: {answer: '<i>en vindu</i>', next: 'vindu1b'}
     },
@@ -568,7 +568,7 @@ function ChatData() {
 
 
     venn1: {
-      bubbles: ['“Przyjaciele”?'],
+      bubbles: ['<q>Przyjaciele</q>?'],
       answerLeft: {answer: '<i>friends</i>', next: 'venn1b'},
       answerRight: {answer: '<i>venner</i>', next: 'venn2'}
     },
@@ -583,7 +583,7 @@ function ChatData() {
 
 
     stol1: {
-      bubbles: ['Nieokreślone “krzesła”?'],
+      bubbles: ['Nieokreślone <q>krzesła</q>?'],
       answerLeft: {answer: '<i>bord</i>', next: 'stol1b'},
       answerRight: {answer: '<i>stoler</i>', next: 'stol2'}
     },
@@ -598,7 +598,7 @@ function ChatData() {
 
 
     tur1: {
-      bubbles: ['Określone “wycieczki”?'],
+      bubbles: ['Określone <q>wycieczki</q>?'],
       answerLeft: {answer: '<i>tur</i>', next: 'tur1b'},
       answerRight: {answer: '<i>turene</i>', next: 'tur2'}
     },
@@ -613,7 +613,7 @@ function ChatData() {
 
 
     baby1: {
-      bubbles: ['Określone “niemowlę”?'],
+      bubbles: ['Określone <q>niemowlę</q>?'],
       answerLeft: {answer: '<i>babyen</i>', next: 'baby2'},
       answerRight: {answer: '<i>baby</i>', next: 'baby1b'}
     },
@@ -628,7 +628,7 @@ function ChatData() {
 
 
     jente1: {
-      bubbles: ['Jak będzie “dziewczyna” w formie nieokreślonej?'],
+      bubbles: ['Jak będzie <q>dziewczyna</q> w formie nieokreślonej?'],
       answerLeft: {answer: '<i>ei jenta</i>', next: 'jente1b'},
       answerRight: {answer: '<i>ei jente</i>', next: 'jente2'}
     },
@@ -643,12 +643,12 @@ function ChatData() {
 
 
     kontroll1: {
-      bubbles: ['“Kontrola”, “sprawdzenie” <span class="emojione emojione-1f575"></span> w nieokreślonej formie?'],
+      bubbles: ['<q>Kontrola</q>, <q>sprawdzenie</q> <span class="emojione emojione-1f575"></span> w nieokreślonej formie?'],
       answerLeft: {answer: '<i>en kontroll</i>', next: 'kontroll2'},
       answerRight: {answer: '<i>en kontrol</i>', next: 'kontroll1b'}
     },
     kontroll1b: {
-      bubbles: ['<img src="/i/p-1-7/bkKvvzE9PEcTK.gif" />', 'Jednak przez dwa “ll”:', '<i>en kontroll – kontrollen – kontroller – kontrollene</i>'],
+      bubbles: ['<img src="/i/p-1-7/bkKvvzE9PEcTK.gif" />', 'Jednak przez dwa <q>ll</q>:', '<i>en kontroll – kontrollen – kontroller – kontrollene</i>'],
       answerLeft: {answer: 'OK, <i>en kontroll</i>', next: 'kontroll2'},
     },
     kontroll2: {
@@ -662,7 +662,7 @@ function ChatData() {
 
 
     gutt1: {
-      bubbles: ['“Chłopiec” <span class="emojione emojione-1f466-1f3fc"></span> nieokreślony?'],
+      bubbles: ['<q>Chłopiec</q> <span class="emojione emojione-1f466-1f3fc"></span> nieokreślony?'],
       answerLeft: {answer: '<i>gutten</i>', next: 'gutt1b'},
       answerRight: {answer: '<i>en gutt</i>', next: 'gutt2'}
     },
@@ -671,13 +671,13 @@ function ChatData() {
       answerLeft: {answer: 'no tak, <i>en gutt</i>', next: 'gutt2'},
     },
     gutt2: {
-      bubbles: ['<i>High five!</i> <span class="emojione emojione-1f645-1f3fb"></span>', '<img src="/i/p-1-7/tumblr_n6nl9svyjs1rc7zl1o1_400.gif" />'],
+      bubbles: ['<i>High five!</i>', '<img src="/i/p-1-7/tumblr_n6nl9svyjs1rc7zl1o1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     baat1: {
-      bubbles: ['“Łódka” <span class="emojione emojione-1f6a4"></span> określona?'],
+      bubbles: ['<q>Łódka</q> <span class="emojione emojione-1f6a4"></span> określona?'],
       answerLeft: {answer: '<i>båten</i>', next: 'baat2'},
       answerRight: {answer: '<i>båter</i>', next: 'baat1b'}
     },
@@ -692,7 +692,7 @@ function ChatData() {
 
 
     famielien1: {
-      bubbles: ['Określona “rodzina”?'],
+      bubbles: ['Określona <q>rodzina</q>?'],
       answerLeft: {answer: '<i>familien</i>', next: 'famielien2'},
       answerRight: {answer: '<i>familia</i>', next: 'famielien1b'}
     },
@@ -707,7 +707,7 @@ function ChatData() {
 
 
     netter1: {
-      bubbles: ['“Noce” nieokreślone?'],
+      bubbles: ['<q>Noce</q> nieokreślone?'],
       answerLeft: {answer: '<i>netter</i>', next: 'netter2'},
       answerRight: {answer: '<i>nøtter</i>', next: 'netter1b'}
     },
@@ -722,7 +722,7 @@ function ChatData() {
 
 
     kompis1: {
-      bubbles: ['“Kumpel”, “kolega” nieokreślony?'],
+      bubbles: ['<q>Kumpel</q>, <q>kolega</q> nieokreślony?'],
       answerLeft: {answer: '<i>en kompis</i>', next: 'kompis2'},
       answerRight: {answer: '<i>kameraten</i>', next: 'kompis1b'}
     },
@@ -737,7 +737,7 @@ function ChatData() {
 
 
     laerer1: {
-      bubbles: ['“Nauczyciel” określony?'],
+      bubbles: ['<q>Nauczyciel</q> określony?'],
       answerLeft: {answer: '<i>læreren</i>', next: 'laerer2'},
       answerRight: {answer: '<i>lærer</i>', next: 'laerer1b'}
     },
@@ -752,7 +752,7 @@ function ChatData() {
 
 
     politi1: {
-      bubbles: ['“Policja” <span class="emojione emojione-1f694"></span> <span class="emojione emojione-1f52b"></span> określona to:'],
+      bubbles: ['<q>Policja</q> <span class="emojione emojione-1f694"></span> <span class="emojione emojione-1f52b"></span> określona to:'],
       answerLeft: {answer: '<i>politi</i>', next: 'politi1b'},
       answerRight: {answer: '<i>politiet</i>', next: 'politi2'}
     },
@@ -767,7 +767,7 @@ function ChatData() {
 
 
     historie1: {
-      bubbles: ['“Historia” nieokreślona?'],
+      bubbles: ['<q>Historia</q> nieokreślona?'],
       answerLeft: {answer: '<i>ei historie</i>', next: 'historie2'},
       answerRight: {answer: '<i>ei historia</i>', next: 'historie1b'}
     },
@@ -782,7 +782,7 @@ function ChatData() {
 
 
     vinner1: {
-      bubbles: ['“Zwycięzca” <span class="emojione emojione-1f3c5"></span> określony?'],
+      bubbles: ['<q>Zwycięzca</q> <span class="emojione emojione-1f3c5"></span> określony?'],
       answerLeft: {answer: '<i>vinner</i>', next: 'vinner1b'},
       answerRight: {answer: '<i>vinneren</i>', next: 'vinner2'}
     },
@@ -807,7 +807,7 @@ function ChatData() {
 
 
     gang1: {
-      bubbles: ['Jeden “korytarz” albo “raz”?'],
+      bubbles: ['Jeden <q>korytarz</q> albo <q>raz</q>?'],
       answerLeft: {answer: '<i>en gang</i>', next: 'gang2'},
       answerRight: {answer: '<i>ei gang</i>', next: 'gang1b'}
     },
@@ -822,7 +822,7 @@ function ChatData() {
 
 
     tid1: {
-      bubbles: ['“Czas” <span class="emojione emojione-23f1"></span> określony?'],
+      bubbles: ['<q>Czas</q> <span class="emojione emojione-23f1"></span> określony?'],
       answerLeft: {answer: '<i>tid</i>', next: 'tid1b'},
       answerRight: {answer: '<i>tida</i>', next: 'tid2'}
     },
@@ -837,7 +837,7 @@ function ChatData() {
 
 
     morgen1: {
-      bubbles: ['Jak będą określone “poranki”?'],
+      bubbles: ['Jak będą określone <q>poranki</q>?'],
       answerLeft: {answer: '<i>morgenene</i>', next: 'morgen2'},
       answerRight: {answer: '<i>morgene</i>', next: 'morgen1b'}
     },
@@ -852,7 +852,7 @@ function ChatData() {
 
 
     modre1: {
-      bubbles: ['“Matki” nieokreślone? <span class="emojione emojione-1f469-1f469-1f467-1f466"></span>'],
+      bubbles: ['<q>Matki</q> nieokreślone? <span class="emojione emojione-1f469-1f469-1f467-1f466"></span>'],
       answerLeft: {answer: '<i>mødre</i>', next: 'modre2'},
       answerRight: {answer: '<i>mødrene</i>', next: 'modre1b'}
     },
@@ -867,7 +867,7 @@ function ChatData() {
 
 
     fedrene1: {
-      bubbles: ['“Ojcowie” <span class="emojione emojione-1f468-2764-1f468"></span> określeni?'],
+      bubbles: ['<q>Ojcowie</q> <span class="emojione emojione-1f468-2764-1f468"></span> określeni?'],
       answerLeft: {answer: '<i>fedre</i>', next: 'fedrene1b'},
       answerRight: {answer: '<i>fedrene</i>', next: 'fedrene2'}
     },
@@ -882,7 +882,7 @@ function ChatData() {
 
 
     kvelder1: {
-      bubbles: ['Nieokreślone “wieczory”?'],
+      bubbles: ['Nieokreślone <q>wieczory</q>?'],
       answerLeft: {answer: '<i>kvelder</i>', next: 'kvelder2'},
       answerRight: {answer: '<i>kveld</i>', next: 'kvelder1b'}
     },
@@ -897,7 +897,7 @@ function ChatData() {
 
 
     steder1: {
-      bubbles: ['“Wiele miejsc” <span class="emojione emojione-1f5fa"></span> to:'],
+      bubbles: ['<q>Wiele miejsc</q> <span class="emojione emojione-1f5fa"></span> to:'],
       answerLeft: {answer: '<i>mange steder</i>', next: 'steder2'},
       answerRight: {answer: '<i>mye steder</i>', next: 'steder1b'}
     },
@@ -912,7 +912,7 @@ function ChatData() {
 
 
     guder1: {
-      bubbles: ['Nieokreśleni “bogowie”?'],
+      bubbles: ['Nieokreśleni <q>bogowie</q>?'],
       answerLeft: {answer: '<i>guder</i>', next: 'guder2'},
       answerRight: {answer: '<i>Gud</i>', next: 'guder1b'}
     },
@@ -927,7 +927,7 @@ function ChatData() {
 
 
     feil1: {
-      bubbles: ['Jak powiedzieć “kilka błędów”?'],
+      bubbles: ['Jak powiedzieć <q>kilka błędów</q>?'],
       answerLeft: {answer: '<i>noen feil</i>', next: 'feil2'},
       answerRight: {answer: '<i>noen feils</i>', next: 'feil1b'}
     },
@@ -942,7 +942,7 @@ function ChatData() {
 
 
     veier1: {
-      bubbles: ['Nieokreślone <span class="emojione emojione-1f6e3"></span> “drogi”?'],
+      bubbles: ['Nieokreślone <span class="emojione emojione-1f6e3"></span> <q>drogi</q>?'],
       answerLeft: {answer: '<i>vei</i>', next: 'veier1b'},
       answerRight: {answer: '<i>veier</i>', next: 'veier2'}
     },
@@ -957,7 +957,7 @@ function ChatData() {
 
 
     navn1: {
-      bubbles: ['“Nazwa” lub “imię”?'],
+      bubbles: ['<q>Nazwa</q> lub <q>imię</q>?'],
       answerLeft: {answer: '<i>en navn</i>', next: 'navn1b'},
       answerRight: {answer: '<i>et navn</i>', next: 'navn2'}
     },
@@ -972,7 +972,7 @@ function ChatData() {
 
 
     hav1: {
-      bubbles: ['Określone “morze” albo “ocean”?'],
+      bubbles: ['Określone <q>morze</q> albo <q>ocean</q>?'],
       answerLeft: {answer: '<i>havet</i>', next: 'hav2'},
       answerRight: {answer: '<i>hava</i>', next: 'hav1b'}
     },
@@ -987,7 +987,7 @@ function ChatData() {
 
 
     jobb1: {
-      bubbles: ['Określona “praca”?'],
+      bubbles: ['Określona <q>praca</q>?'],
       answerLeft: {answer: '<i>jobben</i>', next: 'jobb2'},
       answerRight: {answer: '<i>et arbeid</i>', next: 'jobb1b'}
     },
@@ -1002,7 +1002,7 @@ function ChatData() {
 
 
     del1: {
-      bubbles: ['Nieokreślone “części”?'],
+      bubbles: ['Nieokreślone <q>części</q>?'],
       answerLeft: {answer: '<i>deler</i>', next: 'del2'},
       answerRight: {answer: '<i>dealer</i>', next: 'del1b'}
     },
@@ -1017,7 +1017,7 @@ function ChatData() {
 
 
     ord1: {
-      bubbles: ['Nieokreślone “słowo”?'],
+      bubbles: ['Nieokreślone <q>słowo</q>?'],
       answerLeft: {answer: '<i>et ord</i>', next: 'ord2'},
       answerRight: {answer: '<i>ei ord</i>', next: 'ord1b'}
     },
@@ -1032,7 +1032,7 @@ function ChatData() {
 
 
     time1: {
-      bubbles: ['Jedna “godzina” <span class="emojione emojione-1f570"></span> to:'],
+      bubbles: ['Jedna <q>godzina</q> <span class="emojione emojione-1f570"></span> to:'],
       answerLeft: {answer: '<i>en time</i>', next: 'time2'},
       answerRight: {answer: '<i>ei tid</i>', next: 'time1b'}
     },
@@ -1047,7 +1047,7 @@ function ChatData() {
 
 
     moete1: {
-      bubbles: ['Nieokreślone “spotkanie”, “zebranie”?'],
+      bubbles: ['Nieokreślone <q>spotkanie</q>, <q>zebranie</q>?'],
       answerLeft: {answer: '<i>et møte</i>', next: 'moete2'},
       answerRight: {answer: '<i>en måte</i>', next: 'moete1b'}
     },
@@ -1062,7 +1062,7 @@ function ChatData() {
 
 
     problem1: {
-      bubbles: ['“Problem”, jakiś dowolny? <span class="emojione emojione-1f415"></span><span class="emojione emojione-1f4a9"></span>'],
+      bubbles: ['<q>Problem</q>, jakiś dowolny? <span class="emojione emojione-1f415"></span><span class="emojione emojione-1f4a9"></span>'],
       answerLeft: {answer: '<i>et problem</i>', next: 'problem2'},
       answerRight: {answer: '<i>ei problem</i>', next: 'problem1b'}
     },
@@ -1071,13 +1071,13 @@ function ChatData() {
       answerLeft: {answer: '<i>et problem</i>', next: 'problem2'},
     },
     problem2: {
-      bubbles: ['<i>Kjempebra!</i>', '<img src="/i/p-1-7/fmVbF5EpioNPy.gif" />'],
+      bubbles: ['<i>Kjempegodt!</i>', '<img src="/i/p-1-7/fmVbF5EpioNPy.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     rom1: {
-      bubbles: ['Określony “pokój” <span class="emojione emojione-1f6cb"></span> lub “przestrzeń”? <span class="emojione emojione-1f6f0"></span>'],
+      bubbles: ['Określony <q>pokój</q> <span class="emojione emojione-1f6cb"></span> lub <q>przestrzeń</q>? <span class="emojione emojione-1f6f0"></span>'],
       answerLeft: {answer: '<i>romet</i>', next: 'rom1b'},
       answerRight: {answer: '<i>rommet</i>', next: 'rom2'}
     },
@@ -1092,7 +1092,7 @@ function ChatData() {
 
 
     uke1: {
-      bubbles: ['Określone “tygodnie”?'],
+      bubbles: ['Określone <q>tygodnie</q>?'],
       answerLeft: {answer: '<i>ukene</i>', next: 'uke2'},
       answerRight: {answer: '<i>veker</i>', next: 'uke1b'}
     },
@@ -1109,7 +1109,7 @@ function ChatData() {
 
 
     skole1: {
-      bubbles: ['Jakaś dowolna “szkoła”?'],
+      bubbles: ['Jakaś dowolna <q>szkoła</q>?'],
       answerLeft: {answer: '<i>en skole</i>', next: 'skole2'},
       answerRight: {answer: '<i>en skolen</i>', next: 'skole1b'}
     },
@@ -1124,7 +1124,7 @@ function ChatData() {
 
 
     maaned1: {
-      bubbles: ['Określony “miesiąc”? <span class="emojione emojione-1f315"></span>'],
+      bubbles: ['Określony <q>miesiąc</q>? <span class="emojione emojione-1f315"></span>'],
       answerLeft: {answer: '<i>månen</i>', next: 'maaned1b'},
       answerRight: {answer: '<i>måneden</i>', next: 'maaned2'}
     },
@@ -1139,7 +1139,7 @@ function ChatData() {
 
 
     vaapen1: {
-      bubbles: ['“Broń” <span class="emojione emojione-1f52b"></span><span class="emojione emojione-1f5e1"></span><span class="emojione emojione-26cf"></span> w liczbie mnogiej nieokreślonej?'],
+      bubbles: ['<q>Broń</q> <span class="emojione emojione-1f52b"></span><span class="emojione emojione-1f5e1"></span><span class="emojione emojione-26cf"></span> w liczbie mnogiej nieokreślonej?'],
       answerLeft: {answer: '<i>våpen</i>', next: 'vaapen2'},
       answerRight: {answer: '<i>våpnene</i>', next: 'vaapen1b'}
     },
@@ -1154,7 +1154,7 @@ function ChatData() {
 
 
     tale1: {
-      bubbles: ['Norwegowie lubią długie przemowy na uroczystościach. Jak są określone “przemowy”?'],
+      bubbles: ['Norwegowie lubią długie przemowy na uroczystościach. Jak są określone <q>przemowy</q>?'],
       answerLeft: {answer: '<i>taler</i>', next: 'tale1b'},
       answerRight: {answer: '<i>talene</i>', next: 'tale2'}
     },
@@ -1169,7 +1169,7 @@ function ChatData() {
 
 
     blod1: {
-      bubbles: ['Czy możemy zrobić liczbę mnogą od słowa “krew”, czyli <i>blod</i>? <span class="emojione emojione-1f489"></span>'],
+      bubbles: ['Czy możemy zrobić liczbę mnogą od słowa <q>krew</q>, czyli <i>blod</i>? <span class="emojione emojione-1f489"></span>'],
       answerLeft: {answer: 'tak', next: 'blod1b'},
       answerRight: {answer: 'nie', next: 'blod2'}
     },
@@ -1184,7 +1184,7 @@ function ChatData() {
 
 
     land1: {
-      bubbles: ['Jak są po norwesku “kraje”, nieokreślone?'],
+      bubbles: ['Jak są po norwesku <q>kraje</q>, nieokreślone?'],
       answerLeft: {answer: '<i>land</i>', next: 'land2'},
       answerRight: {answer: '<i>lander</i>', next: 'land1b'}
     },
@@ -1193,13 +1193,22 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>land</i>', next: 'land2'},
     },
     land2: {
-      bubbles: ['Dobrze. <span class="emojione emojione-1f1e7-1f1fb"></span><span class="emojione emojione-1f1f5-1f1f1"></span><span class="emojione emojione-1f1e9-1f1f0"></span><span class="emojione emojione-1f1ee-1f1f8"></span><span class="emojione emojione-1f1f8-1f1ea"></span>'],
+      bubbles: ['Dobrze.','<q>Kraje nordyckie</q> to po norwesku <i>Norden</i>:
+               <span class="emojione emojione-1f1e7-1f1fb">
+        </span><span class="emojione emojione-1f1e9-1f1f0">
+        </span><span class="emojione emojione-1f1f8-1f1ea">
+        </span><span class="emojione emojione-1f1e9-1f1f0">
+        </span><span class="emojione emojione-1f1eb-1f1ee">
+        </span><span class="emojione emojione-1f1eb-1f1f4">
+        </span><span class="emojione emojione-1f1ee-1f1f8">
+        </span><span class="emojione emojione-1f1e6-1f1fd">
+        </span><span class="emojione emojione-1f1ec-1f1f1"></span>'],
       autoNext: 'RANDOM'
     },
 
 
     bord1: {
-      bubbles: ['Jak jest nieokreślony “stół”?'],
+      bubbles: ['Jak jest nieokreślony <q>stół</q>?'],
       answerLeft: {answer: '<i>et bord</i>', next: 'bord2'},
       answerRight: {answer: '<i>en stol</i>', next: 'bord1b'}
     },
@@ -1214,7 +1223,7 @@ function ChatData() {
 
 
     krig1: {
-      bubbles: ['Na świecie jest teraz wiele wojen. Jak są “wojny”, nieokreślone?'],
+      bubbles: ['Na świecie jest teraz wiele wojen. Jak są <q>wojny</q>, nieokreślone?'],
       answerLeft: {answer: '<i>kriger</i>', next: 'krig2'},
       answerRight: {answer: '<i>krigene</i>', next: 'krig1b'}
     },
@@ -1244,7 +1253,7 @@ function ChatData() {
 
 
     hjerte1: {
-      bubbles: ['Jak jest “serce”? Określone.'],
+      bubbles: ['Jak jest <q>serce</q>? Określone.'],
       answerLeft: {answer: '<i>hjertet</i>', next: 'hjerte2'},
       answerRight: {answer: '<i>hjernen</i>', next: 'hjerte1b'}
     },
@@ -1259,7 +1268,7 @@ function ChatData() {
 
 
     klokke1: {
-      bubbles: ['“Zegar”, “zegarek” <span class="emojione emojione-231a"></span> nieokreślony to:'],
+      bubbles: ['<q>Zegar</q>, <q>zegarek</q> <span class="emojione emojione-231a"></span> nieokreślony to:'],
       answerLeft: {answer: '<i>ei klokka</i>', next: 'klokke1b'},
       answerRight: {answer: '<i>ei klokke</i>', next: 'klokke2'}
     },
@@ -1274,7 +1283,7 @@ function ChatData() {
 
 
     person1: {
-      bubbles: ['Określona “osoba”? <span class="emojione emojione-1f470-1f3fb"></span> <span class="emojione emojione-1f448-1f3fc"></span>'],
+      bubbles: ['Określona <q>osoba</q>? <span class="emojione emojione-1f470-1f3fb"></span> <span class="emojione emojione-1f448-1f3fc"></span>'],
       answerLeft: {answer: '<i>personer</i>', next: 'person1b'},
       answerRight: {answer: '<i>personen</i>', next: 'person2'}
     },
@@ -1289,7 +1298,7 @@ function ChatData() {
 
 
     oel1: {
-      bubbles: ['Kiedy zamawiasz jedno “piwo”, to mówisz:'],
+      bubbles: ['Kiedy zamawiasz jedno <q>piwo</q>, to mówisz:'],
       answerLeft: {answer: '<i>en øl</i>', next: 'oel2'},
       answerRight: {answer: '<i>øl</i>', next: 'oel2'}
     },
@@ -1304,12 +1313,12 @@ function ChatData() {
 
 
     ting1: {
-      bubbles: ['“Rzeczy” bliżej nieokreślone <span class="emojione emojione-1f459"></span><span class="emojione emojione-1f452"></span><span class="emojione emojione-1f48d"></span> to:'],
+      bubbles: ['<q>Rzeczy</q> bliżej nieokreślone <span class="emojione emojione-1f459"></span><span class="emojione emojione-1f452"></span><span class="emojione emojione-1f48d"></span> to:'],
       answerLeft: {answer: '<i>ting</i>', next: 'ting2'},
       answerRight: {answer: '<i>tinger</i>', next: 'ting1b'}
     },
     ting1b: {
-      bubbles: ['Zobacz, to wyjątek:', '<i>en ting – tingen – ting – tingene</i>', 'To jak są jakieś “rzeczy”?'],
+      bubbles: ['Zobacz, to wyjątek:', '<i>en ting – tingen – ting – tingene</i>', 'To jak są jakieś <q>rzeczy</q>?'],
       answerLeft: {answer: '<i>ting</i>', next: 'ting2'},
     },
     ting2: {
@@ -1319,7 +1328,7 @@ function ChatData() {
 
 
     konge1: {
-      bubbles: ['“Król” <span class="emojione emojione-1f451"></span> określony?'],
+      bubbles: ['<q>Król</q> <span class="emojione emojione-1f451"></span> określony?'],
       answerLeft: {answer: '<i>kongen</i>', next: 'konge2'},
       answerRight: {answer: '<i>King Kong</i>', next: 'konge1b'}
     },
@@ -1334,7 +1343,7 @@ function ChatData() {
 
 
     eier1: {
-      bubbles: ['“Właściciele” określeni?'],
+      bubbles: ['<q>Właściciele</q> określeni?'],
       answerLeft: {answer: '<i>eiere</i>', next: 'eier1b'},
       answerRight: {answer: '<i>eierne</i>', next: 'eier2'}
     },
@@ -1349,7 +1358,7 @@ function ChatData() {
 
 
     hjerne1: {
-      bubbles: ['“Mózg” nieokreślony?'],
+      bubbles: ['<q>Mózg</q> nieokreślony?'],
       answerLeft: {answer: '<i>en hjerne</i>', next: 'hjerne2'},
       answerRight: {answer: '<i>en hjern</i>', next: 'hjerne1b'}
     },
@@ -1364,7 +1373,7 @@ function ChatData() {
 
 
     tegn1: {
-      bubbles: ['“Znak” <span class="emojione emojione-2622"></span> nieokreślony? '],
+      bubbles: ['<q>Znak</q> <span class="emojione emojione-2622"></span> nieokreślony? '],
       answerLeft: {answer: '<i>et tegn</i>', next: 'tegn2'},
       answerRight: {answer: '<i>et tegne</i>', next: 'tegn1b'}
     },
@@ -1379,7 +1388,7 @@ function ChatData() {
 
 
     svin1: {
-      bubbles: ['“Świnia” <span class="emojione emojione-1f43d"></span> nieokreślona? No co, też popularne słowo.'],
+      bubbles: ['<q>Świnia</q> <span class="emojione emojione-1f43d"></span> nieokreślona? No co, też popularne słowo.'],
       answerLeft: {answer: '<i>et svin</i>', next: 'svin2'},
       answerRight: {answer: '<i>et svina</i>', next: 'svin1b'}
     },
@@ -1394,7 +1403,7 @@ function ChatData() {
 
 
     tak1: {
-      bubbles: ['Jak będą “dachy” lub “sufity” w formie nieokreślonej?'],
+      bubbles: ['Jak będą <q>dachy</q> lub <q>sufity</q> w formie nieokreślonej?'],
       answerLeft: {answer: '<i>takk</i>', next: 'tak1b'},
       answerRight: {answer: '<i>tak</i>', next: 'tak2'}
     },
@@ -1409,7 +1418,7 @@ function ChatData() {
 
 
     bad1: {
-      bubbles: ['“Łazienka” lub “kąpiel” określona? <span class="emojione emojione-1f6c1"></span>'],
+      bubbles: ['<q>Łazienka</q> lub <q>kąpiel</q> określona? <span class="emojione emojione-1f6c1"></span>'],
       answerLeft: {answer: '<i>et bad</i>', next: 'bad1b'},
       answerRight: {answer: '<i>badet</i>', next: 'bad2'}
     },
@@ -1424,7 +1433,7 @@ function ChatData() {
 
 
     sykehus1: {
-      bubbles: ['Nieokreślone “szpitale”?'],
+      bubbles: ['Nieokreślone <q>szpitale</q>?'],
       answerLeft: {answer: '<i>sykehuser</i>', next: 'sykehus1b'},
       answerRight: {answer: '<i>sykehus</i>', next: 'sykehus2'}
     },
@@ -1439,7 +1448,7 @@ function ChatData() {
 
 
     kropp1: {
-      bubbles: ['“Ciało” w formie określonej?'],
+      bubbles: ['<q>Ciało</q> w formie określonej?'],
       answerLeft: {answer: '<i>koppen</i>', next: 'kropp1b'},
       answerRight: {answer: '<i>kroppen</i>', next: 'kropp2'}
     },
@@ -1454,7 +1463,7 @@ function ChatData() {
 
 
     jorda1: {
-      bubbles: ['“Ziemia” <span class="emojione emojione-1f30d"></span>, “gleba” określona?'],
+      bubbles: ['<q>Ziemia</q> <span class="emojione emojione-1f30d"></span>, <q>gleba</q> określona?'],
       answerLeft: {answer: '<i>jorda</i>', next: 'jorda2'},
       answerRight: {answer: '<i>jord</i>', next: 'jorda1b'}
     },
@@ -1463,13 +1472,13 @@ function ChatData() {
       answerLeft: {answer: '<i>jorda</i>', next: 'jorda2'},
     },
     jorda2: {
-      bubbles: ['Pędzimy dalej!', '<img src="/i/p-1-7/toaC2uZnfTiWk.gif" />'],
+      bubbles: ['Tak! Pędzimy dalej!', '<img src="/i/p-1-7/toaC2uZnfTiWk.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     sjanse1: {
-      bubbles: ['“Szansa” określona?'],
+      bubbles: ['<q>Szansa</q> określona?'],
       answerLeft: {answer: '<i>sjansen</i>', next: 'sjanse2'},
       answerRight: {answer: '<i>sjansa</i>', next: 'sjanse1b'}
     },
@@ -1484,12 +1493,12 @@ function ChatData() {
 
 
     forelder1: {
-      bubbles: ['“Rodzic” nieokreślony?'],
+      bubbles: ['<q>Rodzic</q> nieokreślony?'],
       answerLeft: {answer: '<i>en forelder</i>', next: 'forelder2'},
       answerRight: {answer: '<i>fordeler</i>', next: 'forelder1b'}
     },
     forelder1b: {
-      bubbles: ['<i>Fordeler</i> to “zalety”. A rodzic?'],
+      bubbles: ['<i>Fordeler</i> to <q>zalety</q>. A rodzic?'],
       answerLeft: {answer: '<i>en forelder</i>', next: 'forelder2'},
     },
     forelder2: {
@@ -1499,7 +1508,7 @@ function ChatData() {
 
 
     lege1: {
-      bubbles: ['“Lekarz” określony?'],
+      bubbles: ['<q>Lekarz</q> określony?'],
       answerLeft: {answer: '<i>en lege</i>', next: 'lege1b'},
       answerRight: {answer: '<i>legen</i>', next: 'lege2'}
     },
@@ -1514,7 +1523,7 @@ function ChatData() {
 
 
     saker1: {
-      bubbles: ['“Sprawy” nieokreślone?'],
+      bubbles: ['<q>Sprawy</q> nieokreślone?'],
       answerLeft: {answer: '<i>saken</i>', next: 'saker1b'},
       answerRight: {answer: '<i>saker</i>', next: 'saker2'}
     },
@@ -1523,13 +1532,13 @@ function ChatData() {
       answerLeft: {answer: '<i>saker</i>', next: 'saker2'},
     },
     saker2: {
-      bubbles: ['Zgadza się. (Męskie sprawy)', '<img src="/i/p-1-7/n6M6H9R0474ty.gif" />'],
+      bubbles: ['Zgadza się.', '<img src="/i/p-1-7/n6M6H9R0474ty.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     skade1: {
-      bubbles: ['“Krzywdy”, “rany”, “szkody” określone?'],
+      bubbles: ['<q>Krzywdy</q>, <q>rany</q>, <q>szkody</q> określone?'],
       answerLeft: {answer: '<i>skadene</i>', next: 'skade2'},
       answerRight: {answer: '<i>skader</i>', next: 'skade1b'}
     },
@@ -1544,7 +1553,7 @@ function ChatData() {
 
 
     peolse1: {
-      bubbles: ['“Kiełbasy”, “parówki” nieokreślone?'],
+      bubbles: ['<q>Kiełbasy</q>, <q>parówki</q> nieokreślone?'],
       answerLeft: {answer: '<i>pølsa</i>', next: 'peolse1b'},
       answerRight: {answer: '<i>pølser</i>', next: 'peolse2'}
     },
@@ -1559,12 +1568,12 @@ function ChatData() {
 
 
     fengsel1: {
-      bubbles: ['“Więzienie” nieokreślone"'],
+      bubbles: ['<q>Więzienie</q> nieokreślone?'],
       answerLeft: {answer: '<i>et fengsel</i>', next: 'fengsel2'},
       answerRight: {answer: '<i>fengsler</i>', next: 'fengsel1b'}
     },
     fengsel1b: {
-      bubbles: ['<i>et fengsel – fengselet – fengsler – fengslene</i>', 'Czyli?'],
+      bubbles: ['To było w liczbie mnogiej.', '<i>et fengsel – fengselet – fengsler – fengslene</i>', 'Jak będzie jedno?'],
       answerLeft: {answer: '<i>et fengsel</i>', next: 'fengsel2'},
     },
     fengsel2: {
