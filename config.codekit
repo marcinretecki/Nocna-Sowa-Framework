@@ -24,6 +24,17 @@
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
+	"\/javascript\/j-las.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/javascript\/j-las.js",
+		"outputAbbreviatedPath": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-las-min.js",
+		"outputPathIsOutsideProject": 1,
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 0,
+		"syntaxCheckerStyle": 1
+		},
 	"\/javascript\/j-pisanie.js": {
 		"fileType": 64,
 		"ignore": 0,
