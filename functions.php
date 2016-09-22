@@ -245,6 +245,8 @@ function las_update_user_meta() {
   $current_user = wp_get_current_user();
   $user_progress = las_get_user_progress();
 
+  $cookieProgress = json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true );
+
   // which page is it?
   if ( get_query_var( 'przewodnik' ) ) {
     $progress_type = 'przewodnik';
@@ -252,30 +254,53 @@ function las_update_user_meta() {
   elseif ( get_query_var( 'wyzwanie' ) ) {
     $progress_type = 'wyzwanie';
   }
+  else {
+    $progress_type = "page";
+  }
+
 
   // update meta
   if ( $user_progress && ( $user_progress[$post->post_name][$progress_type] > 0 ) ) {
     // user had progress on this chapter
     $user_progress[$post->post_name][$progress_type] += 1;
-    update_user_meta( $current_user->ID, 'las_progress', $user_progress);
-
   }
   elseif ( $user_progress && ( ( $user_progress[$post->post_name][$progress_type] === 0 ) || ( !$user_progress[$post->post_name][$progress_type] ) ) ) {
     // user had no progress on this chapter
     $user_progress[$post->post_name][$progress_type] = 1;
-    update_user_meta( $current_user->ID, 'las_progress', $user_progress);
-
   }
   else {
     // user had no progress at all
     $user_progress = array();
     $user_progress[$post->post_name][$progress_type] = 1;
-    update_user_meta( $current_user->ID, 'las_progress', $user_progress);
+  }
+
+
+  //  update user meta according to cookies
+  if ( $cookieProgress && ( $cookieProgress !== NULL ) && ( is_array($cookieProgress) ) ) {
+
+    //  Loop all items in the cookie array and save them
+    //  At any given time there should only be one item in the array, so there should't be any performance overhead here
+    //
+    foreach ($cookieProgress as $key => $value) {
+      $user_progress[$key]["wyzwanie-punkty"] += $value;
+    }
+
+    //  destroy variables from the loop
+    unset($key);
+    unset($value);
+
+    //  reset cookie
+    setcookie("lasChallangeProgress", "{}", 1, "/");
 
   }
 
 
+  update_user_meta( $current_user->ID, 'las_progress', $user_progress);
+
+
 }
+add_action('template_redirect', 'las_update_user_meta');
+
 
 
 

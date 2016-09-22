@@ -947,7 +947,7 @@ function ChatData() {
       answerRight: {answer: '<i>veier</i>', next: 'veier2'}
     },
     veier1b: {
-      bubbles: ['Tu się nic dziwnego nie dzieje:', '<i>en vei – veien – veier – veiene</i>'],
+      bubbles: ['Tu się nic dziwnego nie dzieje:', '<i>en vei – veien – veier – veiene</i>', 'Więc w liczbie mnogiej nieokreślonej będzie:'],
       answerLeft: {answer: '<i>veier</i>', next: 'veier2'},
     },
     veier2: {

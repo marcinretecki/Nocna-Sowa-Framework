@@ -16,6 +16,10 @@ include( 'includes/head.php' );
 
   <?php
 
+    $test =  json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true );
+
+    var_dump($test);
+
     //
     // Custom Loop
     // it prints courses list
@@ -66,12 +70,19 @@ include( 'includes/head.php' );
           if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
             //  if it is an editor or advanced user, we can give him a link to advanced courses
 
-            echo '<a href="' . $link . 'przewodnik/">' . $title . '</a>';
-
             if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_category('bez-wyzwania') ) {
+
+              echo '&#10003; <a href="' . $link . 'przewodnik/">' . $title . '</a>';
+
               //  if there is a wyzwanie and user has done przewodnik, show him the link
               echo ' <a class="" href="' . $link . 'wyzwanie/"><i>Wyzwanie</i></a> ';
 
+              //  show number of points
+              echo $user_progress[$slug]['wyzwanie-punkty'];
+
+            }
+            else {
+              echo '<a href="' . $link . 'przewodnik/">' . $title . '</a>';
             }
 
           }

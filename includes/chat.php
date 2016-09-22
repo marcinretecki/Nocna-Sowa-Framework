@@ -10,7 +10,7 @@ echo '<h1>Chat!</h1>';
 echo '</div>';
 
 //
-// Get the chat data
+//  Get the chat data
 //
 function las_get_chat_data() {
   global $post;
