@@ -37,6 +37,7 @@ function LasChat() {
   this.answersWaiting = false;
   this.currentState = '';
   this.scrollFn = function(){};
+  this.challangeProgress = new LasSaveChallangeProgress();
 
   //
   //  Helper
@@ -152,7 +153,12 @@ function LasChat() {
     console.log( this.randomChatArray.length );
 
     if (this.randomChatArray.length > 0 ) {
-      // if there are still chat items to show
+      //  if there are still chat items to show
+
+      //  add one to progress progress
+      this.challangeProgress.plusOne();
+
+      //  pop data and return the object
       var pop = this.chatData.chat[ this.randomChatArray.pop() ];
       return pop;
 
