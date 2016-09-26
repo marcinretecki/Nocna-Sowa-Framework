@@ -3,7 +3,6 @@
 //
 
 
-
 function LasChat() {
   //
   //  Elements
@@ -14,7 +13,6 @@ function LasChat() {
   this.answers =
   this.answerLeft =
   this.answerRight =
-  this.bubble =
   this.currentBubble = null;
 
   this.prefetch = document.createElement("div");
@@ -35,7 +33,7 @@ function LasChat() {
   //  State
   //
   this.answersWaiting = false;
-  this.currentState = '';
+  this.currentState = ''; // END / INTRO / CHAT
   this.scrollFn = function(){};
   this.challangeProgress = new LasSaveChallangeProgress();
 
@@ -585,13 +583,3 @@ function LasChat() {
   }
 
 }
-var lasChat = new LasChat();
-
-
-window.addEventListener('load', function() {
-
-  lasChat.init();
-
-  //lasChat.test();
-
-}, false);

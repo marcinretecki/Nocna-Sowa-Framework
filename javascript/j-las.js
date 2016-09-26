@@ -51,11 +51,13 @@ function LasSaveChallangeProgress() {
   }
 
 
-
-
-
-
 }
 
 //  The object is created in each exercise function
 //  var challangeProgress = new LasSaveChallangeProgress();
+
+
+
+
+// @codekit-append "j-las-chat.js";
+// @codekit-append "j-las-autio-test.js";
