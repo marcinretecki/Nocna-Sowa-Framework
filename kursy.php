@@ -71,14 +71,20 @@ include( 'includes/head.php' );
             //  if it is an editor or advanced user, we can give him a link to advanced courses
 
             if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_category('bez-wyzwania') ) {
+              //  if there is a wyzwanie and user has done przewodnik, show him the link and the tick
 
               echo '&#10003; <a href="' . $link . 'przewodnik/">' . $title . '</a>';
 
-              //  if there is a wyzwanie and user has done przewodnik, show him the link
               echo ' <a class="" href="' . $link . 'wyzwanie/"><i>Wyzwanie</i></a> ';
 
               //  show number of points
               echo $user_progress[$slug]['wyzwanie-punkty'];
+
+            }
+            elseif ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && has_category('bez-wyzwania') ) {
+              //  if there is no wyzwanie and user has done przewodnik, show him the link
+
+              echo '&#10003; <a href="' . $link . 'przewodnik/">' . $title . '</a>';
 
             }
             else {

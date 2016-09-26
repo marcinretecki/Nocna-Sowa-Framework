@@ -76,6 +76,7 @@ function las_show_comment_section() {
 //  Function routing different course parts
 //
 function las_course_router() {
+  global $post;
 
   if ( ( get_query_var( 'przewodnik' ) || get_query_var( 'wyzwanie' ) ) && !has_category() ) {
     //  Has no categories, normal page then
@@ -96,6 +97,7 @@ function las_course_router() {
 
     $type = false;
 
+    //  Set the type
     if ( get_query_var( 'przewodnik' ) ) {
       $type = 'przewodnik';
     }
@@ -118,10 +120,17 @@ function las_course_router() {
     //
     //  Route page types
     //
-    if ( has_category( $type . '-audio' ) ) {
+    if ( has_category( 'przewodnik-audio' ) ) {
       //  Audio
+      //  możliwe, że ten typ nie będzie potrzebny, bo będzie to w ramach normalnej strony
 
       include( 'includes/audio.php' );
+
+    }
+    elseif ( has_category( 'wyzwanie-audio' ) ) {
+      //  Audio Test
+
+      include( 'includes/audio-test.php' );
 
     }
     elseif ( has_category( $type . '-chat' ) ) {

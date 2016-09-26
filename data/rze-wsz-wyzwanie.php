@@ -1,9 +1,9 @@
 <script>
-function ChatData() {
+function LasChatData() {
 
   this.intro = {
     a1: {
-      bubbles: ['<i>Hallo, er det noen der?</i> (Czy ktoś tu jest?)', '<img src="/i/rzecz-wsz/HetvlijUZmKic.gif" />'],
+      bubbles: ['<i>Hallo, er det noen der?</i> (Czy ktoś tu jest?)', '<img src="/i/rze-wsz/HetvlijUZmKic.gif" />'],
       answerLeft: {answer: 'jestem, jestem', next: 'a2'}
     },
     a2: {
@@ -17,7 +17,7 @@ function ChatData() {
       answerRight: {answer: 'skąd znasz najpopularniejsze???', next: 'a4'},
     },
     a4: {
-      bubbles: ['Z norweskich filmów. Proste. Przecież chcesz używać słów z życia, a nie nudnych czytanek?', '<img src="/i/rzecz-wsz/l41lUYJGipkMD3NPa.gif" />'],
+      bubbles: ['Z norweskich filmów. Proste. Przecież chcesz używać słów z życia, a nie nudnych czytanek?', '<img src="/i/rze-wsz/l41lUYJGipkMD3NPa.gif" />'],
       answerLeft: {answer: 'no raczej', next: 'a5'}
     },
     a5: {
@@ -40,7 +40,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>biler</i>', next: 'bil2'},
     },
     bil2: {
-      bubbles: ['Świetnie!', '<img src="/i/rzecz-wsz/AkKtWEPSyS9Pi.gif" />'],
+      bubbles: ['Świetnie!', '<img src="/i/rze-wsz/AkKtWEPSyS9Pi.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -55,7 +55,7 @@ function ChatData() {
       answerLeft: {answer: 'zapamiętam', next: 'blikk2'},
     },
     blikk2: {
-      bubbles: ['Dobrze!', '<img src="/i/rzecz-wsz/tumblr_mpnbbcgkRO1rb324eo1_500.gif" />'],
+      bubbles: ['Dobrze!', '<img src="/i/rze-wsz/tumblr_mpnbbcgkRO1rb324eo1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -70,7 +70,7 @@ function ChatData() {
       answerLeft: {answer: '<i>øyene</i>', next: 'oye2'},
     },
     oye2: {
-      bubbles: ['Znowu dobrze!', '<img src="/i/rzecz-wsz/3ornk3noLGE88V6xFK.gif" />'],
+      bubbles: ['Znowu dobrze!', '<img src="/i/rze-wsz/3ornk3noLGE88V6xFK.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -85,7 +85,7 @@ function ChatData() {
       answerLeft: {answer: 'OK', next: 'moro2'},
     },
     moro2: {
-      bubbles: ['Yeah!', '<img src="/i/rzecz-wsz/yoJC2GnSClbPOkV0eA.gif" />'],
+      bubbles: ['Yeah!', '<img src="/i/rze-wsz/yoJC2GnSClbPOkV0eA.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -106,7 +106,7 @@ function ChatData() {
 
 
     idiot1: {
-      bubbles: ['Jakie słowo przychodzi Ci do głowy, kiedy widzisz takiego gościa na Preikestolen?', '<img src="/i/rzecz-wsz/NdbmK4ndXLTs4-2.gif" />'],
+      bubbles: ['Jakie słowo przychodzi Ci do głowy, kiedy widzisz takiego gościa na Preikestolen?', '<img src="/i/rze-wsz/NdbmK4ndXLTs4-2.gif" />'],
       answerLeft: {answer: '<i>Idioten!</i>', next: 'idiot2'},
       answerRight: {answer: '<i>Jeg vil gifte ham!</i>', next: 'idiot1b'},
     },
@@ -148,7 +148,7 @@ function ChatData() {
       answerLeft: {answer: 'Ah, <i>paret</i>', next: 'par3'}
     },
     par3: {
-      bubbles: ['<i>Godt! Et par hamstere til deg!</i>', '<img src="/i/rzecz-wsz/tumblr_n5zo6bBwT71s96utdo1_400.gif" />'],
+      bubbles: ['<i>Godt! Et par hamstere til deg!</i>', '<img src="/i/rze-wsz/tumblr_n5zo6bBwT71s96utdo1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -163,7 +163,7 @@ function ChatData() {
       answerLeft: {answer: '<i>fyren</i>', next: 'fyr2'},
     },
     fyr2: {
-      bubbles: ['<span class="emojione emojione-1f918-1f3fe"></span>', '<img src="/i/rzecz-wsz/axn-cinemagraphs-11.gif" />'],
+      bubbles: ['<span class="emojione emojione-1f918-1f3fe"></span>', '<img src="/i/rze-wsz/axn-cinemagraphs-11.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -178,7 +178,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en fyr</i>', next: 'enfyr2'},
     },
     enfyr2: {
-      bubbles: ['<i>Fantastisk!</i>', '<img src="/i/rzecz-wsz/lgVdC.gif" />'],
+      bubbles: ['<i>Fantastisk!</i>', '<img src="/i/rze-wsz/lgVdC.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -193,7 +193,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>dører, dørene</i>', next: 'dor2'},
     },
     dor2: {
-      bubbles: ['<i>Dørene åpnes!</i> <span class="emojione emojione-1f5dd"></span>', '<img src="/i/rzecz-wsz/tumblr_me7xtozqYx1rjcfxro1_250.gif" />'],
+      bubbles: ['<i>Dørene åpnes!</i> <span class="emojione emojione-1f5dd"></span>', '<img src="/i/rze-wsz/tumblr_me7xtozqYx1rjcfxro1_250.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -208,7 +208,7 @@ function ChatData() {
       answerLeft: {answer: '<i>hunden</i>', next: 'hund2'},
     },
     hund2: {
-      bubbles: ['<i>Fint!</i>', '<img src="/i/rzecz-wsz/tumblr_m5h30bSsH91qelkf9o1_500.gif" />'],
+      bubbles: ['<i>Fint!</i>', '<img src="/i/rze-wsz/tumblr_m5h30bSsH91qelkf9o1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -223,7 +223,7 @@ function ChatData() {
       answerLeft: {answer: 'Aha, <i>vannet</i>', next: 'vann2'},
     },
     vann2: {
-      bubbles: ['Dobrze Ci idzie!', '<img src="/i/rzecz-wsz/tumblr_n7n52ysAZ61r3gb3zo1_400.gif" />'],
+      bubbles: ['Dobrze Ci idzie!', '<img src="/i/rze-wsz/tumblr_n7n52ysAZ61r3gb3zo1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -238,7 +238,7 @@ function ChatData() {
       answerLeft: {answer: '<i>barn</i>', next: 'barn2'},
     },
     barn2: {
-      bubbles: ['W nagrodę mały Azjata:', '<img src="/i/rzecz-wsz/3oEjHKtwp6WjUaJ0kM.gif" />'],
+      bubbles: ['W nagrodę mały Azjata:', '<img src="/i/rze-wsz/3oEjHKtwp6WjUaJ0kM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -253,7 +253,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en sønn</i>', next: 'syn2'},
     },
     syn2: {
-      bubbles: ['Wspaniale.', '<img src="/i/rzecz-wsz/tumblr-m25p9yiv4y1qgn0dyo1-250.gif" />', 'A <q>córki</q>?'],
+      bubbles: ['Wspaniale.', '<img src="/i/rze-wsz/tumblr-m25p9yiv4y1qgn0dyo1-250.gif" />', 'A <q>córki</q>?'],
       answerLeft: {answer: '<i>datter</i>', next: 'syn2b'},
       answerRight: {answer: '<i>døtre</i>', next: 'syn3'}
     },
@@ -262,7 +262,7 @@ function ChatData() {
       answerLeft: {answer: '<i>døtre</i>', next: 'syn3'},
     },
     syn3: {
-      bubbles: ['Zgadza się. <i>Han har søte døtre.</i>', '<img src="/i/rzecz-wsz/tumblr_mzwj71IIl51r6b6qeo1_500.gif" />'],
+      bubbles: ['Zgadza się. <i>Han har søte døtre.</i>', '<img src="/i/rze-wsz/tumblr_mzwj71IIl51r6b6qeo1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -277,7 +277,7 @@ function ChatData() {
       answerLeft: {answer: '<i>maten</i>', next: 'mat2'},
     },
     mat2: {
-      bubbles: ['<i>Takk for maten!</i>', '<img src="/i/rzecz-wsz/1IejF9MZ0ivG8.gif" />'],
+      bubbles: ['<i>Takk for maten!</i>', '<img src="/i/rze-wsz/1IejF9MZ0ivG8.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -292,7 +292,7 @@ function ChatData() {
       answerLeft: {answer: '<i>beinet</i>', next: 'ben2'},
     },
     ben2: {
-      bubbles: ['Dobra decyzja. Ćwiczymy dalej.', '<img src="/i/rzecz-wsz/20bein.gif" />'],
+      bubbles: ['Dobra decyzja. Ćwiczymy dalej.', '<img src="/i/rze-wsz/20bein.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -307,7 +307,7 @@ function ChatData() {
       answerLeft: {answer: '<i>hender</i>', next: 'hand2'},
     },
     hand2: {
-      bubbles: ['Jak Ty to robisz?', '<img src="/i/rzecz-wsz/35hand.gif" />'],
+      bubbles: ['Jak Ty to robisz?', '<img src="/i/rze-wsz/35hand.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -322,7 +322,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en kaffe</i>', next: 'kaffe2'},
     },
     kaffe2: {
-      bubbles: ['Ammm', '<img src="/i/rzecz-wsz/xT9DPJcpQqpR6icVCE.gif" />'],
+      bubbles: ['Ammm', '<img src="/i/rze-wsz/xT9DPJcpQqpR6icVCE.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -337,7 +337,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>bøker</i>', next: 'bok2'},
     },
     bok2: {
-      bubbles: ['<i>Fint!</i>', '<img src="/i/rzecz-wsz/girl-reading-book-animation-16.gif" />'],
+      bubbles: ['<i>Fint!</i>', '<img src="/i/rze-wsz/girl-reading-book-animation-16.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -352,7 +352,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et spor</i>', next: 'spor2'},
     },
     spor2: {
-      bubbles: ['<i>Greit</i>.', '<img src="/i/rzecz-wsz/lKi1jDjWCRNmM.gif" />'],
+      bubbles: ['<i>Greit</i>.', '<img src="/i/rze-wsz/lKi1jDjWCRNmM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -367,7 +367,7 @@ function ChatData() {
       answerLeft: {answer: '<i>ei kvinne</i>', next: 'kvinne2'},
     },
     kvinne2: {
-      bubbles: ['OK', '<img src="/i/rzecz-wsz/7blow.gif" />'],
+      bubbles: ['OK', '<img src="/i/rze-wsz/7blow.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -382,7 +382,7 @@ function ChatData() {
       answerLeft: {answer: '<i>vennen</i>', next: 'venn2'},
     },
     venn2: {
-      bubbles: ['<i>Ja!</i>', '<img src="/i/rzecz-wsz/19skate.gif" />'],
+      bubbles: ['<i>Ja!</i>', '<img src="/i/rze-wsz/19skate.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -397,7 +397,7 @@ function ChatData() {
       answerLeft: {answer: '<i>fly</i>', next: 'fly2'},
     },
     fly2: {
-      bubbles: ['<i>Kjempebra!</i>', '<img src="/i/rzecz-wsz/32bird.gif" />'],
+      bubbles: ['<i>Kjempebra!</i>', '<img src="/i/rze-wsz/32bird.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -412,7 +412,7 @@ function ChatData() {
       answerLeft: {answer: '<i>telefonene</i>', next: 'tele2'},
     },
     tele2: {
-      bubbles: ['<i>Bra!</i>', '<img src="/i/rzecz-wsz/ESpe7v3ZSleec.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/i/rze-wsz/ESpe7v3ZSleec.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -427,7 +427,7 @@ function ChatData() {
       answerLeft: {answer: '<i>broren</i>', next: 'bror2'},
     },
     bror2: {
-      bubbles: ['Znów go zwinęli.', '<img src="/i/rzecz-wsz/17125c33392f0d050fe621fe04774793.gif" />'],
+      bubbles: ['Znów go zwinęli.', '<img src="/i/rze-wsz/17125c33392f0d050fe621fe04774793.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -442,7 +442,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>lys</i>', next: 'lys2'},
     },
     lys2: {
-      bubbles: ['<i>Bra!</i>', '<img src="/i/rzecz-wsz/xlGYf1RUbYYes.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/i/rze-wsz/xlGYf1RUbYYes.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -457,7 +457,7 @@ function ChatData() {
       answerLeft: {answer: '<i>onkelen</i>', next: 'onkel2'},
     },
     onkel2: {
-      bubbles: ['<i>Supert!</i>', 'Nie każdy ma takiego wujka.', '<img src="/i/rzecz-wsz/5sheet.gif" />'],
+      bubbles: ['<i>Supert!</i>', 'Nie każdy ma takiego wujka.', '<img src="/i/rze-wsz/5sheet.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -472,7 +472,7 @@ function ChatData() {
       answerLeft: {answer: '<i>kona</i>', next: 'kone2'},
     },
     kone2: {
-      bubbles: ['Tak jest!', '<img src="/i/rzecz-wsz/magda.gif" />'],
+      bubbles: ['Tak jest!', '<img src="/i/rze-wsz/magda.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -487,7 +487,7 @@ function ChatData() {
       answerLeft: {answer: '<i>kampene</i>', next: 'kamp2'},
     },
     kamp2: {
-      bubbles: ['O tak!', '<img src="/i/rzecz-wsz/X60jpxh.gif" />'],
+      bubbles: ['O tak!', '<img src="/i/rze-wsz/X60jpxh.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -502,7 +502,7 @@ function ChatData() {
       answerLeft: {answer: '<i>kvinnene</i>', next: 'dame2'},
     },
     dame2: {
-      bubbles: ['Świetnie!', '<img src="/i/rzecz-wsz/6288960204_23fcc5a01a_o.gif" />'],
+      bubbles: ['Świetnie!', '<img src="/i/rze-wsz/6288960204_23fcc5a01a_o.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -517,7 +517,7 @@ function ChatData() {
       answerLeft: {answer: 'no dobra, <i>en by</i>', next: 'by2'},
     },
     by2: {
-      bubbles: ['<i>Veldig bra!</i>', '<img src="/i/rzecz-wsz/newspaper-man-429.gif" />'],
+      bubbles: ['<i>Veldig bra!</i>', '<img src="/i/rze-wsz/newspaper-man-429.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -532,7 +532,7 @@ function ChatData() {
       answerLeft: {answer: '<i>livet</i>', next: 'liv2'},
     },
     liv2: {
-      bubbles: ['<img src="/i/rzecz-wsz/7177997572_fdeaeb4463_o.gif" />'],
+      bubbles: ['<img src="/i/rze-wsz/7177997572_fdeaeb4463_o.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -562,7 +562,7 @@ function ChatData() {
       answerLeft: {answer: '<i>vinduet</i>', next: 'vindu2'},
     },
     vindu2: {
-      bubbles: ['<i>Jøss!</i>', '<img src="/i/rzecz-wsz/cab-window-429.gif" />'],
+      bubbles: ['<i>Jøss!</i>', '<img src="/i/rze-wsz/cab-window-429.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -577,7 +577,7 @@ function ChatData() {
       answerLeft: {answer: '<i>venner</i>', next: 'venn2'},
     },
     venn2: {
-      bubbles: ['<i>Ja!</i>', '<img src="/i/rzecz-wsz/12UlfHpF05ielO.gif" />'],
+      bubbles: ['<i>Ja!</i>', '<img src="/i/rze-wsz/12UlfHpF05ielO.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -592,7 +592,7 @@ function ChatData() {
       answerLeft: {answer: '<i>stoler</i>', next: 'stol2'},
     },
     stol2: {
-      bubbles: ['<i>Bra!</i>', '<img src="/i/rzecz-wsz/tumblr_nt2vth7sTX1qef46ho1_500.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/i/rze-wsz/tumblr_nt2vth7sTX1qef46ho1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -607,7 +607,7 @@ function ChatData() {
       answerLeft: {answer: '<i>turene</i>', next: 'tur2'},
     },
     tur2: {
-      bubbles: ['Dobrze!', '<img src="/i/rzecz-wsz/rUlu713yOz2wM.gif" />'],
+      bubbles: ['Dobrze!', '<img src="/i/rze-wsz/rUlu713yOz2wM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -622,7 +622,7 @@ function ChatData() {
       answerLeft: {answer: '<i>babyen</i>', next: 'baby2'},
     },
     baby2: {
-      bubbles: ['<img src="/i/rzecz-wsz/8BdOabytiFWk8.gif" />'],
+      bubbles: ['<img src="/i/rze-wsz/8BdOabytiFWk8.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -637,7 +637,7 @@ function ChatData() {
       answerLeft: {answer: '<i>ei jente</i>', next: 'jente2'},
     },
     jente2: {
-      bubbles: ['<i>Lurt!</i>', '<img src="/i/rzecz-wsz/12hair.gif" />'],
+      bubbles: ['<i>Lurt!</i>', '<img src="/i/rze-wsz/12hair.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -648,7 +648,7 @@ function ChatData() {
       answerRight: {answer: '<i>en kontrol</i>', next: 'kontroll1b'}
     },
     kontroll1b: {
-      bubbles: ['<img src="/i/rzecz-wsz/bkKvvzE9PEcTK.gif" />', 'Jednak przez dwa <q>ll</q>:', '<i>en kontroll – kontrollen – kontroller – kontrollene</i>'],
+      bubbles: ['<img src="/i/rze-wsz/bkKvvzE9PEcTK.gif" />', 'Jednak przez dwa <q>ll</q>:', '<i>en kontroll – kontrollen – kontroller – kontrollene</i>'],
       answerLeft: {answer: 'OK, <i>en kontroll</i>', next: 'kontroll2'},
     },
     kontroll2: {
@@ -656,7 +656,7 @@ function ChatData() {
       answerLeft: {answer: 'pewnie <span class="emojione emojione-1f4aa-1f3fc"></span>', next: 'kontroll3'},
     },
     kontroll3: {
-      bubbles: ['<img src="/i/rzecz-wsz/26BRJ42FrwYMrKXV6.gif" />'],
+      bubbles: ['<img src="/i/rze-wsz/26BRJ42FrwYMrKXV6.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -671,7 +671,7 @@ function ChatData() {
       answerLeft: {answer: 'no tak, <i>en gutt</i>', next: 'gutt2'},
     },
     gutt2: {
-      bubbles: ['<i>High five!</i>', '<img src="/i/rzecz-wsz/tumblr_n6nl9svyjs1rc7zl1o1_400.gif" />'],
+      bubbles: ['<i>High five!</i>', '<img src="/i/rze-wsz/tumblr_n6nl9svyjs1rc7zl1o1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -686,7 +686,7 @@ function ChatData() {
       answerLeft: {answer: '<i>båten</i>', next: 'baat2'},
     },
     baat2: {
-      bubbles: ['<i>Yeah!</i>', '<img src="/i/rzecz-wsz/tumblr_m9nbokxIgu1r6g7k5o1_500.gif" />'],
+      bubbles: ['<i>Yeah!</i>', '<img src="/i/rze-wsz/tumblr_m9nbokxIgu1r6g7k5o1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -701,7 +701,7 @@ function ChatData() {
       answerLeft: {answer: '<i>familien</i>', next: 'famielien2'},
     },
     famielien2: {
-      bubbles: ['Jesteś niesamowity!', '<img src="/i/rzecz-wsz/YGJBp5EgyVP9K.gif" />'],
+      bubbles: ['Jesteś niesamowity!', '<img src="/i/rze-wsz/YGJBp5EgyVP9K.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -716,7 +716,7 @@ function ChatData() {
       answerLeft: {answer: '<i>netter</i>', next: 'netter2'},
     },
     netter2: {
-      bubbles: ['Uff. Dobrze.', '<img src="/i/rzecz-wsz/tumblr_nhqepgKJqs1qef46ho1_500.gif" />'],
+      bubbles: ['Uff. Dobrze.', '<img src="/i/rze-wsz/tumblr_nhqepgKJqs1qef46ho1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -731,7 +731,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en kompis</i>', next: 'kompis2'},
     },
     kompis2: {
-      bubbles: ['Świetnie! Bawimy się dalej.', '<img src="/i/rzecz-wsz/tumblr_myw0w7EBOA1t361sto1_400.gif" />'],
+      bubbles: ['Świetnie! Bawimy się dalej.', '<img src="/i/rze-wsz/tumblr_myw0w7EBOA1t361sto1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -746,7 +746,7 @@ function ChatData() {
       answerLeft: {answer: '<i>læreren</i>', next: 'laerer2'},
     },
     laerer2: {
-      bubbles: ['Brawo!', '<img src="/i/rzecz-wsz/StQCmtZt4GvqE.gif" />'],
+      bubbles: ['Brawo!', '<img src="/i/rze-wsz/StQCmtZt4GvqE.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -761,7 +761,7 @@ function ChatData() {
       answerLeft: {answer: '<i>politiet</i>', next: 'politi2'},
     },
     politi2: {
-      bubbles: ['<img src="/i/rzecz-wsz/NJXDSvnpx21.gif" />'],
+      bubbles: ['<img src="/i/rze-wsz/NJXDSvnpx21.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -776,7 +776,7 @@ function ChatData() {
       answerLeft: {answer: '<i>ei historie</i>', next: 'historie2'},
     },
     historie2: {
-      bubbles: ['Może tak być.', '<img src="/i/rzecz-wsz/EF4UWro.gif" />'],
+      bubbles: ['Może tak być.', '<img src="/i/rze-wsz/EF4UWro.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -791,13 +791,13 @@ function ChatData() {
       answerLeft: {answer: '<i>vinneren</i>', next: 'vinner2'},
     },
     vinner2: {
-      bubbles: ['<img src="/i/rzecz-wsz/26ght2GFICFOl41Ak.gif" />'],
+      bubbles: ['<img src="/i/rze-wsz/26ght2GFICFOl41Ak.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     finalen1: {
-      bubbles: ['Jesteś tu jeszcze?', '<img src="/i/rzecz-wsz/GxRJqOTR2vv0Y.gif" />'],
+      bubbles: ['Jesteś tu jeszcze?', '<img src="/i/rze-wsz/GxRJqOTR2vv0Y.gif" />'],
       answerLeft: {answer: 'jestem', next: 'finalen2'},
     },
     finalen2: {
@@ -816,7 +816,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en gang</i>', next: 'gang2'},
     },
     gang2: {
-      bubbles: ['<i>Veldig godt!</i> Tylko w którą stronę pójdziesz?', '<img src="/i/rzecz-wsz/KnXkh8WI2WCJO.gif" />'],
+      bubbles: ['<i>Veldig godt!</i> Tylko w którą stronę pójdziesz?', '<img src="/i/rze-wsz/KnXkh8WI2WCJO.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -846,7 +846,7 @@ function ChatData() {
       answerLeft: {answer: '<i>morgenene</i>', next: 'morgen2'},
     },
     morgen2: {
-      bubbles: ['<i>Bra!</i>', '<img src="/i/rzecz-wsz/mNg6J8yQ3wRVK.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/i/rze-wsz/mNg6J8yQ3wRVK.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -891,7 +891,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>kvelder</i>', next: 'kvelder2'},
     },
     kvelder2: {
-      bubbles: ['<i>Ha en hyggelig kveld!</i>', '<img src="/i/rzecz-wsz/1kTH8ButyMnYs.gif" />'],
+      bubbles: ['<i>Ha en hyggelig kveld!</i>', '<img src="/i/rze-wsz/1kTH8ButyMnYs.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -921,7 +921,7 @@ function ChatData() {
       answerLeft: {answer: '<i>guder</i>', next: 'guder2'},
     },
     guder2: {
-      bubbles: ['Lepiej z nimi nie zadzieraj.', '<img src="/i/rzecz-wsz/a8weqme-460sa.gif" />'],
+      bubbles: ['Lepiej z nimi nie zadzieraj.', '<img src="/i/rze-wsz/a8weqme-460sa.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -932,11 +932,11 @@ function ChatData() {
       answerRight: {answer: '<i>noen feils</i>', next: 'feil1b'}
     },
     feil1b: {
-      bubbles: ['<i>-s</i> dodajemy po angielsku, jak w...', '<img src="/i/rzecz-wsz/abf918a8d7e74da0cd8280037171f277.gif" />', 'A norweskie <i>feil</i> jest wyjątkiem:', '<i>en feil – feilen – feil – feilene</i>'],
+      bubbles: ['<i>-s</i> dodajemy po angielsku, jak w...', '<img src="/i/rze-wsz/abf918a8d7e74da0cd8280037171f277.gif" />', 'A norweskie <i>feil</i> jest wyjątkiem:', '<i>en feil – feilen – feil – feilene</i>'],
       answerLeft: {answer: '<i>noen feil</i>', next: 'feil2'},
     },
     feil2: {
-      bubbles: ['<i>Riktig svar!</i>', '<img src="/i/rzecz-wsz/5M94d.gif" />'],
+      bubbles: ['<i>Riktig svar!</i>', '<img src="/i/rze-wsz/5M94d.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -951,7 +951,7 @@ function ChatData() {
       answerLeft: {answer: '<i>veier</i>', next: 'veier2'},
     },
     veier2: {
-      bubbles: ['<i>Nydelig!</i>', '<img src="/i/rzecz-wsz/obeFfKertEkBa.gif" />'],
+      bubbles: ['<i>Nydelig!</i>', '<img src="/i/rze-wsz/obeFfKertEkBa.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -966,7 +966,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>et navn</i>', next: 'navn2'},
     },
     navn2: {
-      bubbles: ['<i>Riktig!</i>', '<img src="/i/rzecz-wsz/3oEjHNCWpx4iQYytAA.gif" />'],
+      bubbles: ['<i>Riktig!</i>', '<img src="/i/rze-wsz/3oEjHNCWpx4iQYytAA.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -981,7 +981,7 @@ function ChatData() {
       answerLeft: {answer: '<i>havet</i>', next: 'hav2'},
     },
     hav2: {
-      bubbles: ['<i>Imponerende!</i>', '<img src="/i/rzecz-wsz/l41m1a8cuTkchgHfy.gif" />'],
+      bubbles: ['<i>Imponerende!</i>', '<img src="/i/rze-wsz/l41m1a8cuTkchgHfy.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1007,7 +1007,7 @@ function ChatData() {
       answerRight: {answer: '<i>dealer</i>', next: 'del1b'}
     },
     del1b: {
-      bubbles: ['<img src="/i/rzecz-wsz/11uPwtlLq91Rni.gif" />', 'Oj, nie tędy droga. Miało być o częściach:', '<i>en del – delen – deler – delene</i>', 'Więc, nieokreślone części to...'],
+      bubbles: ['<img src="/i/rze-wsz/11uPwtlLq91Rni.gif" />', 'Oj, nie tędy droga. Miało być o częściach:', '<i>en del – delen – deler – delene</i>', 'Więc, nieokreślone części to...'],
       answerLeft: {answer: '<i>deler</i>', next: 'del2'},
     },
     del2: {
@@ -1056,7 +1056,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et møte</i>', next: 'moete2'},
     },
     moete2: {
-      bubbles: ['<i>Kjempefint!</i>', '<img src="/i/rzecz-wsz/YC6ZedMDgR1Fm.gif" />'],
+      bubbles: ['<i>Kjempefint!</i>', '<img src="/i/rze-wsz/YC6ZedMDgR1Fm.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1071,7 +1071,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et problem</i>', next: 'problem2'},
     },
     problem2: {
-      bubbles: ['<i>Kjempegodt!</i>', '<img src="/i/rzecz-wsz/fmVbF5EpioNPy.gif" />'],
+      bubbles: ['<i>Kjempegodt!</i>', '<img src="/i/rze-wsz/fmVbF5EpioNPy.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1086,7 +1086,7 @@ function ChatData() {
       answerLeft: {answer: '<i>rommet</i>', next: 'rom2'},
     },
     rom2: {
-      bubbles: ['<i>Perfekt!</i>', '<img src="/i/rzecz-wsz/UmVFuejI8ntew.gif" />'],
+      bubbles: ['<i>Perfekt!</i>', '<img src="/i/rze-wsz/UmVFuejI8ntew.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1101,7 +1101,7 @@ function ChatData() {
       answerLeft: {answer: '<i>ukene</i>', next: 'uke2'},
     },
     uke2: {
-      bubbles: ['Raz w tygodniu warto zrobić trening.', '<img src="/i/rzecz-wsz/Mw1EyMExatybS.gif" />'],
+      bubbles: ['Raz w tygodniu warto zrobić trening.', '<img src="/i/rze-wsz/Mw1EyMExatybS.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1118,7 +1118,7 @@ function ChatData() {
       answerLeft: {answer: 'OK, <i>en skole</i>', next: 'skole2'},
     },
     skole2: {
-      bubbles: ['<i>Fint!</i>', '<img src="/i/rzecz-wsz/zr6jd.gif" />'],
+      bubbles: ['<i>Fint!</i>', '<img src="/i/rze-wsz/zr6jd.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1148,7 +1148,7 @@ function ChatData() {
       answerLeft: {answer: 'czyli <i>våpen</i>', next: 'vaapen2'},
     },
     vaapen2: {
-      bubbles: ['Zastrzeliłeś mnie!', '<img src="/i/rzecz-wsz/OmBhM.gif" />'],
+      bubbles: ['Zastrzeliłeś mnie!', '<img src="/i/rze-wsz/OmBhM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1163,7 +1163,7 @@ function ChatData() {
       answerLeft: {answer: '<i>talene</i>', next: 'tale2'},
     },
     tale2: {
-      bubbles: ['Muszę powiedzieć, że dajesz radę.', '<img src="/i/rzecz-wsz/mtlwOSac6agE0.gif" />'],
+      bubbles: ['Muszę powiedzieć, że dajesz radę.', '<img src="/i/rze-wsz/mtlwOSac6agE0.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1208,7 +1208,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et bord</i>', next: 'bord2'},
     },
     bord2: {
-      bubbles: ['OK', '<img src="/i/rzecz-wsz/10ZoZ6owAU8Bnq.gif" />'],
+      bubbles: ['OK', '<img src="/i/rze-wsz/10ZoZ6owAU8Bnq.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1223,7 +1223,7 @@ function ChatData() {
       answerLeft: {answer: '<i>kriger</i>', next: 'krig2'},
     },
     krig2: {
-      bubbles: ['Dobra odpowiedź.', '<img src="/i/rzecz-wsz/XPmEZedldC1QA.gif" />'],
+      bubbles: ['Dobra odpowiedź.', '<img src="/i/rze-wsz/XPmEZedldC1QA.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1253,7 +1253,7 @@ function ChatData() {
       answerLeft: {answer: '<i>hjertet</i>', next: 'hjerte2'},
     },
     hjerte2: {
-      bubbles: ['<span class="emojione emojione-2764"></span> <span class="emojione emojione-2764"></span> <span class="emojione emojione-2764"></span>', '<img src="/i/rzecz-wsz/szCjFvyBhXPYk.gif" />'],
+      bubbles: ['<span class="emojione emojione-2764"></span> <span class="emojione emojione-2764"></span> <span class="emojione emojione-2764"></span>', '<img src="/i/rze-wsz/szCjFvyBhXPYk.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1268,7 +1268,7 @@ function ChatData() {
       answerLeft: {answer: '<i>ei klokke</i>', next: 'klokke2'},
     },
     klokke2: {
-      bubbles: ['<i>Riktig!</i>', '<img src="/i/rzecz-wsz/IX89WTEnYgvM4.gif" />'],
+      bubbles: ['<i>Riktig!</i>', '<img src="/i/rze-wsz/IX89WTEnYgvM4.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1283,7 +1283,7 @@ function ChatData() {
       answerLeft: {answer: '<i>personen</i>', next: 'person2'},
     },
     person2: {
-      bubbles: ['<i>Fint!</i>', '<img src="/i/rzecz-wsz/w9WS1R9ZAA1Ik.gif" />'],
+      bubbles: ['<i>Fint!</i>', '<img src="/i/rze-wsz/w9WS1R9ZAA1Ik.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1324,11 +1324,11 @@ function ChatData() {
       answerRight: {answer: '<i>King Kong</i>', next: 'konge1b'}
     },
     konge1b: {
-      bubbles: ['<img src="/i/rzecz-wsz/3oEdv9Xaqm76AzUsvu.gif" />'],
+      bubbles: ['<img src="/i/rze-wsz/3oEdv9Xaqm76AzUsvu.gif" />'],
       answerLeft: {answer: '<i>kongen</i>', next: 'konge2'},
     },
     konge2: {
-      bubbles: ['<i>Det er helt konge!</i>', '<img src="/i/rzecz-wsz/jT698wBbaJX8c.gif" />'],
+      bubbles: ['<i>Det er helt konge!</i>', '<img src="/i/rze-wsz/jT698wBbaJX8c.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1358,7 +1358,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en hjerne</i>', next: 'hjerne2'},
     },
     hjerne2: {
-      bubbles: ['Jest OK!', '<img src="/i/rzecz-wsz/tumblr_mvspokcAed1t0uxv8o1_250.gif" />'],
+      bubbles: ['Jest OK!', '<img src="/i/rze-wsz/tumblr_mvspokcAed1t0uxv8o1_250.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1388,7 +1388,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et svin</i>', next: 'svin2'}
     },
     svin2: {
-      bubbles: ['<img src="/i/rzecz-wsz/U8Mn2NSL6OR0Y.gif" />', 'Dobrze. A <i>et pinnsvin</i>? To oczywiście:', '<img src="/i/rzecz-wsz/hedgehog476r-2.gif" />'],
+      bubbles: ['<img src="/i/rze-wsz/U8Mn2NSL6OR0Y.gif" />', 'Dobrze. A <i>et pinnsvin</i>? To oczywiście:', '<img src="/i/rze-wsz/hedgehog476r-2.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1403,7 +1403,7 @@ function ChatData() {
       answerLeft: {answer: '<i>tak</i>', next: 'tak2'},
     },
     tak2: {
-      bubbles: ['OK. <i>Takk for svaret</i>!', '<img src="/i/rzecz-wsz/XD0udYYcgeVRS.gif" />'],
+      bubbles: ['OK. <i>Takk for svaret</i>!', '<img src="/i/rze-wsz/XD0udYYcgeVRS.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1418,7 +1418,7 @@ function ChatData() {
       answerLeft: {answer: '<i>badet</i>', next: 'bad2'},
     },
     bad2: {
-      bubbles: ['<i>Korrekt!</i>', '<img src="/i/rzecz-wsz/ivMHHIEAG86t2.gif" />'],
+      bubbles: ['<i>Korrekt!</i>', '<img src="/i/rze-wsz/ivMHHIEAG86t2.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1433,7 +1433,7 @@ function ChatData() {
       answerLeft: {answer: '<i>sykehus</i>', next: 'sykehus2'},
     },
     sykehus2: {
-      bubbles: ['<i>Riktig!</i>', '<img src="/i/rzecz-wsz/Scrubs-JD-pours-Kittens-on-Patient.gif" />'],
+      bubbles: ['<i>Riktig!</i>', '<img src="/i/rze-wsz/Scrubs-JD-pours-Kittens-on-Patient.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1448,7 +1448,7 @@ function ChatData() {
       answerLeft: {answer: '<i>kroppen</i>', next: 'kropp2'},
     },
     kropp2: {
-      bubbles: ['<i>Uten feil!</i>', '<img src="/i/rzecz-wsz/Dkv7sJS.gif" />'],
+      bubbles: ['<i>Uten feil!</i>', '<img src="/i/rze-wsz/Dkv7sJS.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1463,7 +1463,7 @@ function ChatData() {
       answerLeft: {answer: '<i>jorda</i>', next: 'jorda2'},
     },
     jorda2: {
-      bubbles: ['Tak! Pędzimy dalej!', '<img src="/i/rzecz-wsz/toaC2uZnfTiWk.gif" />'],
+      bubbles: ['Tak! Pędzimy dalej!', '<img src="/i/rze-wsz/toaC2uZnfTiWk.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1478,7 +1478,7 @@ function ChatData() {
       answerLeft: {answer: '<i>sjansen</i>', next: 'sjanse2'},
     },
     sjanse2: {
-      bubbles: ['<i>Det var en god jobb!</i> (To była dobra robota!)', '<img src="/i/rzecz-wsz/3osxY8yHdijYBl6p2w.gif" />'],
+      bubbles: ['<i>Det var en god jobb!</i> (To była dobra robota!)', '<img src="/i/rze-wsz/3osxY8yHdijYBl6p2w.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1493,7 +1493,7 @@ function ChatData() {
       answerLeft: {answer: '<i>en forelder</i>', next: 'forelder2'},
     },
     forelder2: {
-      bubbles: ['<i>Det var bra!</i>', '<img src="/i/rzecz-wsz/original-2-roundround.gif" />'],
+      bubbles: ['<i>Det var bra!</i>', '<img src="/i/rze-wsz/original-2-roundround.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1504,11 +1504,11 @@ function ChatData() {
       answerRight: {answer: '<i>legen</i>', next: 'lege2'}
     },
     lege1b: {
-      bubbles: ['<img src="/i/rzecz-wsz/UzHxxqF1WO6UE.gif" />', 'Określony z rodzajnikiem? Coś nie tak...'],
+      bubbles: ['<img src="/i/rze-wsz/UzHxxqF1WO6UE.gif" />', 'Określony z rodzajnikiem? Coś nie tak...'],
       answerLeft: {answer: '<i>legen</i>', next: 'lege2'},
     },
     lege2: {
-      bubbles: ['Mhmm', '<img src="/i/rzecz-wsz/tumblr_m3viuiMFVr1ru06ato1_500.gif" />'],
+      bubbles: ['Mhmm', '<img src="/i/rze-wsz/tumblr_m3viuiMFVr1ru06ato1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1523,7 +1523,7 @@ function ChatData() {
       answerLeft: {answer: '<i>saker</i>', next: 'saker2'},
     },
     saker2: {
-      bubbles: ['Zgadza się.', '<img src="/i/rzecz-wsz/n6M6H9R0474ty.gif" />'],
+      bubbles: ['Zgadza się.', '<img src="/i/rze-wsz/n6M6H9R0474ty.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1538,7 +1538,7 @@ function ChatData() {
       answerLeft: {answer: '<i>skadene</i>', next: 'skade2'},
     },
     skade2: {
-      bubbles: ['<img src="/i/rzecz-wsz/13ZHjidRzoi7n2.gif" />'],
+      bubbles: ['<img src="/i/rze-wsz/13ZHjidRzoi7n2.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1553,7 +1553,7 @@ function ChatData() {
       answerLeft: {answer: '<i>pølser</i>', next: 'peolse2'},
     },
     peolse2: {
-      bubbles: ['<img src="/i/rzecz-wsz/xNk979fe8QFck.gif" />'],
+      bubbles: ['<img src="/i/rze-wsz/xNk979fe8QFck.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1568,7 +1568,7 @@ function ChatData() {
       answerLeft: {answer: '<i>et fengsel</i>', next: 'fengsel2'},
     },
     fengsel2: {
-      bubbles: ['OK', '<img src="/i/rzecz-wsz/l0OWistc2HUjf6PKM.gif" />'],
+      bubbles: ['OK', '<img src="/i/rze-wsz/l0OWistc2HUjf6PKM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1579,7 +1579,7 @@ function ChatData() {
       answerRight: {answer: 'daję radę <span class="emojione emojione-1f4aa-1f3ff"></span>', next: 'RANDOM'}
     },
     zzzz2: {
-      bubbles: ['<span class="emojione emojione-1f388"></span><span class="emojione emojione-1f4cc"></span>', '<img src="/i/rzecz-wsz/4N8EsSk.gif" />'],
+      bubbles: ['<span class="emojione emojione-1f388"></span><span class="emojione emojione-1f4cc"></span>', '<img src="/i/rze-wsz/4N8EsSk.gif" />'],
       autoNext: 'RANDOM'
     }
 
@@ -1603,15 +1603,15 @@ function ChatData() {
 
   this.end = {
     a1: {
-      bubbles: ['Gładko Ci poszło!', '<img src="/i/rzecz-wsz/When-Gang-Does-Group-Dance-Too.gif" />', ''],
+      bubbles: ['Gładko Ci poszło!', '<img src="/i/rze-wsz/When-Gang-Does-Group-Dance-Too.gif" />', ''],
       autoNext: 'END'
     },
     b1: {
-      bubbles: ['To były najczęściej używane rzeczowniki w potocznym języku. Jeśli opanowałeś zasady tworzenia wszystkich czterech form, to na tej zasadzie będziesz już tworzyć kolejne!', '<img src="/i/rzecz-wsz/Bi6FcO7UoutWM.gif" />'],
+      bubbles: ['To były najczęściej używane rzeczowniki w potocznym języku. Jeśli opanowałeś zasady tworzenia wszystkich czterech form, to na tej zasadzie będziesz już tworzyć kolejne!', '<img src="/i/rze-wsz/Bi6FcO7UoutWM.gif" />'],
       autoNext: 'END'
     },
     c1: {
-      bubbles: ['Muszę już jechać.', '<img src="/i/rzecz-wsz/vjnLzg78di4wM.gif" />', 'Trzymaj się!'],
+      bubbles: ['Muszę już jechać.', '<img src="/i/rze-wsz/vjnLzg78di4wM.gif" />', 'Trzymaj się!'],
       autoNext: 'END'
     }
   };

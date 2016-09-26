@@ -27,6 +27,8 @@
 <script>
 var lasChapter = "<?php echo $post->post_name; ?>";
 </script>
+<script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+<script src="<?php autoVer('/c/j-min.js'); ?>"></script>
 <script src="<?php autoVer('/c/j-las-min.js'); ?>"></script>
 
 <?php if (!is_page('kursy') && !is_front_page() && !is_home()) { ?>

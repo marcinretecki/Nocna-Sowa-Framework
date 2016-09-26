@@ -3,34 +3,30 @@
 // Includes - Chat
 //
 
-
-
 echo '<div style="position:absolute;right:0;z-index:100">';
 echo '<h1>Chat!</h1>';
 echo '</div>';
 
 //
 //  Get the chat data
+//  @file is taken from router in page.php
 //
-function las_get_chat_data() {
-  global $post;
-
-  $file_przewodnik = $post->post_name . '-przewodnik.php';
-  $file_wyzwanie = $post->post_name . '-wyzwanie.php';;
-
-  if ( get_query_var( 'przewodnik' ) ) {
-    $file = stream_resolve_include_path( dirname(__DIR__) . '/chat-data/' . $file_przewodnik );
-  }
-  else {
-    $file = stream_resolve_include_path( dirname(__DIR__) . '/chat-data/' . $file_wyzwanie );
-  }
+function las_get_chat_data( $file ) {
 
   if ( $file ) {
-    include( $file );
     echo '<div id="chat-bot" class="wrapper"></div>';
-    echo '<script src="';
-    autoVer('/c/j-las-chat-min.js');
-    echo '"></script>';
+    echo '<script>';
+    echo "
+    var lasChat = new LasChat();
+    window.addEventListener('load', function() {
+
+      lasChat.init();
+
+      //lasChat.test();
+
+    }, false);"
+    ;
+    echo '</script>';
   }
   else {
     echo '<p>Nie znaleźliśmy pliku z chatem.</p>';
@@ -38,4 +34,4 @@ function las_get_chat_data() {
 
 }
 
-las_get_chat_data();
+las_get_chat_data( $file );

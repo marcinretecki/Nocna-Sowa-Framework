@@ -1,5 +1,5 @@
 <script>
-function ChatData() {
+function LasChatData() {
 
   var now = new Date(),
       hour = now.getHours(),
