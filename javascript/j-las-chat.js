@@ -35,7 +35,6 @@ function LasChat() {
   this.answersWaiting = false;
   this.currentState = ''; // END / INTRO / CHAT
   this.scrollFn = function(){};
-  this.challangeProgress = new LasSaveChallangeProgress();
 
   //
   //  Helper
@@ -50,51 +49,15 @@ function LasChat() {
   this.init = function() {
 
     //  Random chat arrays
-    this.randomIntroArray = this.createRandomChatArray( this.chatData.intro );
-    this.randomChatArray = this.createRandomChatArray( this.chatData.chat );
-    this.randomEndArray = this.createRandomChatArray( this.chatData.end );
+    this.randomIntroArray = lasHelper.createRandomArrayOfFirstBubbles( this.chatData.intro );
+    this.randomChatArray = lasHelper.createRandomArrayOfFirstBubbles( this.chatData.chat );
+    this.randomEndArray = lasHelper.createRandomArrayOfFirstBubbles( this.chatData.end );
 
     this.createChat();
     this.addListener();
     this.resetAnswers();
     this.getNextBubble( 'INTRO' );
     this.createBubble();
-  };
-
-
-  //  This makes an array of first items (a1, b1 etc) fom chat, intro or end data
-  this.createRandomChatArray = function( chatData ) {
-    var property,
-        propArray = [];
-
-    //  Push first items
-    for (property in chatData) {
-      if (chatData.hasOwnProperty(property) && ( property.slice(-1) === '1' ) ) {
-        // if it is own property and last letter is "1"
-
-        propArray.push(property);
-
-      }
-    }
-
-    //  Fisher-Yates Shuffle
-    let counter = propArray.length;
-
-    //  While there are elements in the propArray
-    while (counter > 0) {
-      //  Pick a random index
-      let index = Math.floor(Math.random() * counter);
-
-      //  Decrease counter by 1
-      counter--;
-
-      //  And swap the last element with it
-      let temp = propArray[counter];
-      propArray[counter] = propArray[index];
-      propArray[index] = temp;
-    }
-
-    return propArray;
   };
 
 
@@ -154,7 +117,7 @@ function LasChat() {
       //  if there are still chat items to show
 
       //  add one to progress progress
-      this.challangeProgress.plusOne();
+      lasHelper.lasSaveChallangeProgress.plusOne();
 
       //  pop data and return the object
       var pop = this.chatData.chat[ this.randomChatArray.pop() ];
@@ -484,7 +447,8 @@ function LasChat() {
     if ( ( event.target.id == 'answer-left' ) || ( event.target.parentNode.id =='answer-left' ) ) {
       that.clickedAnswer = that.answerLeft;
       that.answerToBubble();
-    } else if ( ( event.target.id =='answer-right' ) || ( event.target.parentNode.id =='answer-right' ) ) {
+    }
+    else if ( ( event.target.id =='answer-right' ) || ( event.target.parentNode.id =='answer-right' ) ) {
       that.clickedAnswer = that.answerRight;
       that.answerToBubble();
     }
