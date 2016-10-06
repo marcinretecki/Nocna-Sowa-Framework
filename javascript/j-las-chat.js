@@ -11,8 +11,8 @@ function LasChat() {
   this.clickedAnswer =
   this.chatFlow =
   this.answers =
-  this.answerLeft =
-  this.answerRight =
+  this.answerOne =
+  this.answerTwo =
   this.currentBubble = null;
 
   this.prefetch = document.createElement("div");
@@ -21,19 +21,20 @@ function LasChat() {
   //
   //  Chat Data
   //
-  this.chatData = new ChatData();
+  this.lasData = new LasChatData();
+  this.currentBubbleData = null;
   this.bubbleArray = [];
-  this.answerLeftText =
-  this.answerRightText =
-  this.answerLeftNext =
-  this.answerRightNext =
+  this.answerOneText =
+  this.answerTwoText =
+  this.answerOneNext =
+  this.answerTwoNext =
   this.bubbleAutoNext = '';
 
   //
   //  State
   //
   this.answersWaiting = false;
-  this.currentState = ''; // END / INTRO / CHAT
+  this.currentState = '';   // END / INTRO / CHAT
   this.scrollFn = function(){};
 
   //
@@ -49,13 +50,16 @@ function LasChat() {
   this.init = function() {
 
     //  Random chat arrays
-    this.randomIntroArray = lasHelper.createRandomArrayOfFirstBubbles( this.chatData.intro );
-    this.randomChatArray = lasHelper.createRandomArrayOfFirstBubbles( this.chatData.chat );
-    this.randomEndArray = lasHelper.createRandomArrayOfFirstBubbles( this.chatData.end );
+    this.randomIntroArray = this.createRandomArrayOfFirstBubbles( this.lasData.intro );
+    this.randomChatArray = this.createRandomArrayOfFirstBubbles( this.lasData.chat );
+    this.randomEndArray = this.createRandomArrayOfFirstBubbles( this.lasData.end );
 
+    //  Create
     this.createChat();
     this.addListener();
     this.resetAnswers();
+
+    //  Get the intro
     this.getNextBubble( 'INTRO' );
     this.createBubble();
   };
@@ -67,8 +71,8 @@ function LasChat() {
         chatRow = document.createElement('div'),
         chatFlow = document.createElement('ul'),
         answers = document.createElement('li'),
-        answerLeft = document.createElement('button'),
-        answerRight;
+        answerOne = document.createElement('button'),
+        answerTwo;
 
     chatWrapper.className = 'chat-wrapper';
     chatWrapper.setAttribute("role", "main");
@@ -83,20 +87,20 @@ function LasChat() {
     answers.className = 'chat-answers';
     answers.id = 'chat-answers';
 
-    answerLeft.className = 'btn btn-blue btn-s-2 btn-chat-answer';
-    //answerLeft.type = 'button';
-    answerLeft.setAttribute("role", "button");
-    answerLeft.innerHTML = "&nbsp;"
+    answerOne.className = 'btn btn-blue btn-s-2 btn-chat-answer';
+    //answerOne.type = 'button';
+    answerOne.setAttribute("role", "button");
+    answerOne.innerHTML = "&nbsp;"
 
-    answerRight = answerLeft.cloneNode(false);
+    answerTwo = answerOne.cloneNode(false);
 
-    answerLeft.id = 'answer-left';
-    answerRight.id = 'answer-right';
-    answerRight.innerHTML = "&nbsp;"
+    answerOne.id = 'answer-left';
+    answerTwo.id = 'answer-right';
+    answerTwo.innerHTML = "&nbsp;"
 
     // Append
-    answers.appendChild(answerLeft);
-    answers.appendChild(answerRight);
+    answers.appendChild(answerOne);
+    answers.appendChild(answerTwo);
     chatFlow.appendChild(answers);
     this.wrapper.appendChild(chatWrapper);
 
@@ -104,129 +108,8 @@ function LasChat() {
     this.chatFlow = chatFlow;
     this.chatWindow = chatWindow;
     this.answers = answers;
-    this.answerLeft = answerLeft;
-    this.answerRight = answerRight;
-  };
-
-
-  this.getRandomBubble = function() {
-    console.log( 'getRandomBubble');
-    console.log( this.randomChatArray.length );
-
-    if (this.randomChatArray.length > 0 ) {
-      //  if there are still chat items to show
-
-      //  add one to progress progress
-      lasHelper.lasSaveChallangeProgress.plusOne();
-
-      //  pop data and return the object
-      var pop = this.chatData.chat[ this.randomChatArray.pop() ];
-      return pop;
-
-    }
-    else {
-      //  Set state
-      this.currentState = 'END';
-
-      return this.getEndBubble();
-    }
-
-  };
-
-
-  this.getIntroBubble = function() {
-    console.log( 'getIntroBubble');
-    var pop = this.chatData.intro[ this.randomIntroArray.pop() ];
-
-    //  Set state
-    this.currentState = 'INTRO';
-
-    //  Return bubble
-    return pop;
-
-  };
-
-
-  this.getEndBubble = function() {
-    console.log( 'getEndBubble' );
-    var pop = this.chatData.end[ this.randomEndArray.pop() ];
-    //  Return bubble
-    return pop;
-
-  };
-
-
-
-  this.getNextBubble = function(no) {
-
-    var data;
-
-    if ( ( no === 'INTRO' ) ) {
-      //  if it is intro and we need next bubble
-
-      data = this.getIntroBubble();
-
-    }
-    else if ( no === 'ENDINTRO' ) {
-      //  if it is the end of intro,  move one to chat
-
-      //  Set state
-      this.currentState = 'CHAT';
-      data = this.getRandomBubble();
-
-    }
-    else if ( ( this.currentState === 'INTRO' ) && ( no !== '' ) ) {
-      //  if it is intro and we need next bubble
-
-      data = this.chatData.intro[ no ];
-
-    }
-    else if ( ( this.currentState === 'CHAT' ) && ( no === 'RANDOM' ) ) {
-      //  if we are at the chat, move one
-
-      data = this.getRandomBubble();
-
-    }
-    else if ( ( this.currentState === 'CHAT' ) && ( no !== '' ) ) {
-      //  if we are at chat, but need exact bubble
-
-      data = this.chatData.chat[ no ]
-
-    }
-    else if ( this.currentState === 'END' ) {
-      //  if we got to the end and need an exact bubble
-
-      data = this.chatData.end[ no ];
-    }
-
-    console.log("No: " + no);
-    console.log("Data: " + data);
-
-
-    // Assign
-    this.currentBubble = no;
-    this.bubbleArray = data.bubbles;
-
-    if (data.autoNext) {
-
-      this.bubbleAutoNext = data.autoNext;
-
-    } else {
-
-      this.bubbleAutoNext = "";
-      this.answerLeftText = data.answerLeft.answer;
-      this.answerLeftNext = data.answerLeft.next;
-
-      if (data.answerRight) {
-        this.answerRightText = data.answerRight.answer;
-        this.answerRightNext = data.answerRight.next;
-      } else {
-        this.answerRightText =
-        this.answerRightNext = "";
-      }
-
-    } // end if data.autoNext
-
+    this.answerOne = answerOne;
+    this.answerTwo = answerTwo;
   };
 
 
@@ -280,11 +163,13 @@ function LasChat() {
       nextFunction = function() { that.showAnswers(); };
     }
 
+    //  Show bubble with loader
     Velocity(bubble,
       { right: [0, "100%"] },
       { duration: speed*5, easing: [ 200, 20 ]}
     );
 
+    //  Hide bubble and swap content
     Velocity(bubble,
       { translateX: "-130%" },
       { duration: speed, easing: [ 200, 20 ], delay: speed,
@@ -300,6 +185,7 @@ function LasChat() {
       }
     );
 
+    //  Show bubble with content
     Velocity(bubble,
       { translateX: 0 },
       { duration: speed*5, easing: [ 200, 20 ], delay: speed*0.5,
@@ -316,13 +202,13 @@ function LasChat() {
   this.showAnswers = function() {
     this.answersWaiting = true;
 
-    this.answerLeft.innerHTML = this.answerLeftText;
+    this.answerOne.innerHTML = this.answerOneText;
 
-    this.answerLeft.style.display = "inline-block";
+    this.answerOne.style.display = "inline-block";
 
-    if (this.answerRightText !== "") {
-      this.answerRight.innerHTML = this.answerRightText;
-      this.answerRight.style.display = "inline-block";
+    if (this.answerTwoText !== "") {
+      this.answerTwo.innerHTML = this.answerTwoText;
+      this.answerTwo.style.display = "inline-block";
     }
 
     // Adjust padding
@@ -334,8 +220,8 @@ function LasChat() {
 
     Velocity(this.answers, { translateY: 0 }, { duration: speed*5, easing: [ 200, 20 ], queue: false } );
 
-    if (this.answerRightText !== "") {
-      Velocity(this.answerRight, { translateY: 0 }, { duration: speed*3, easing: "easeInOutQuart", /*delay: speed*3*/ });
+    if (this.answerTwoText !== "") {
+      Velocity(this.answerTwo, { translateY: 0 }, { duration: speed*3, easing: "easeInOutQuart", /*delay: speed*3*/ });
     }
 
   };
@@ -344,7 +230,6 @@ function LasChat() {
   this.answerToBubble = function() {
 
     var answerBubble = document.createElement('li'),
-        secondAnswer,
         next,
         text,
         clickedAnswerRect,
@@ -352,14 +237,12 @@ function LasChat() {
         newLeft,
         newTop;
 
-    if (this.clickedAnswer == this.answerLeft) {
-      secondAnswer = this.answerRight;
-      next = this.answerLeftNext;
-      text = this.answerLeftText;
+    if (this.clickedAnswer == this.answerOne) {
+      next = this.answerOneNext;
+      text = this.answerOneText;
     } else {
-      secondAnswer = this.answerLeft;
-      next = this.answerRightNext;
-      text = this.answerRightText;
+      next = this.answerTwoNext;
+      text = this.answerTwoText;
     }
 
     answerBubble.innerHTML = text;
@@ -406,19 +289,49 @@ function LasChat() {
       { translateY: "100%" },
       { duration: speed*2, easing: [ 300, 20 ], queue: false }
     );
-    Velocity(this.answerLeft,
+    Velocity(this.answerOne,
       { translateY: "0" },
-      { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerLeft.style.visibility = "visible"; } }
+      { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerOne.style.visibility = "visible"; } }
     );
 
-    //if (this.answerRightText !== "") {
-      Velocity(this.answerRight,
+    //if (this.answerTwoText !== "") {
+      Velocity(this.answerTwo,
         { translateY: "100%" },
-        { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerRight.style.visibility = "visible"; } }
+        { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerTwo.style.visibility = "visible"; } }
       );
     //}
   }
 
+
+  //
+  //  ASSIGN data from bubble
+  //
+  this.assignBubbleData = function(no, data) {
+    this.currentBubble = no;
+    this.currentBubbleData = data;
+
+    this.bubbleArray = this.currentBubbleData.bubbles;
+
+    if (this.currentBubbleData.autoNext) {
+
+      this.bubbleAutoNext = this.currentBubbleData.autoNext;
+
+    } else {
+
+      this.bubbleAutoNext = "";
+      this.answerOneText = this.currentBubbleData.answerOne.answer;
+      this.answerOneNext = this.currentBubbleData.answerOne.next;
+
+      if (this.currentBubbleData.answerTwo) {
+        this.answerTwoText = this.currentBubbleData.answerTwo.answer;
+        this.answerTwoNext = this.currentBubbleData.answerTwo.next;
+      } else {
+        this.answerTwoText =
+        this.answerTwoNext = "";
+      }
+
+    } // end if data.autoNext
+  };
 
   //
   //  HELPERS
@@ -445,11 +358,11 @@ function LasChat() {
   this.eventHandler = function(event) {
 
     if ( ( event.target.id == 'answer-left' ) || ( event.target.parentNode.id =='answer-left' ) ) {
-      that.clickedAnswer = that.answerLeft;
+      that.clickedAnswer = that.answerOne;
       that.answerToBubble();
     }
     else if ( ( event.target.id =='answer-right' ) || ( event.target.parentNode.id =='answer-right' ) ) {
-      that.clickedAnswer = that.answerRight;
+      that.clickedAnswer = that.answerTwo;
       that.answerToBubble();
     }
 
@@ -469,6 +382,9 @@ function LasChat() {
     }, false);
 
   };
+
+
+
 
 
   this.finish = function() {
@@ -494,11 +410,11 @@ function LasChat() {
 
   this.test = function() {
     var property,
-        data = this.chatData.chat,
+        data = this.lasData.chat,
         bubble,
         content,
-        answerLeft,
-        answerRight;
+        answerOne,
+        answerTwo;
 
     this.resetAnswers();
     that.chatFlow.innerHTML = '';
@@ -518,18 +434,18 @@ function LasChat() {
           that.chatFlow.appendChild(bubble);
         });
 
-        if (data[property].answerLeft) {
+        if (data[property].answerOne) {
 
-          answerLeft = document.createElement('li');
-          answerLeft.className = 'chat-bubble-answer';
-          answerLeft.style.opacity = "1";
-          answerLeft.innerHTML = data[property].answerLeft.answer;
-          that.chatFlow.appendChild(answerLeft);
+          answerOne = document.createElement('li');
+          answerOne.className = 'chat-bubble-answer';
+          answerOne.style.opacity = "1";
+          answerOne.innerHTML = data[property].answerOne.answer;
+          that.chatFlow.appendChild(answerOne);
 
-          if (data[property].answerRight) {
-            answerRight = answerLeft.cloneNode(false);
-            answerRight.innerHTML = data[property].answerRight.answer;
-            that.chatFlow.appendChild(answerRight);
+          if (data[property].answerTwo) {
+            answerTwo = answerOne.cloneNode(false);
+            answerTwo.innerHTML = data[property].answerTwo.answer;
+            that.chatFlow.appendChild(answerTwo);
           }
 
         }
@@ -547,3 +463,8 @@ function LasChat() {
   }
 
 }
+
+//
+//  Extend with LasHelper methods
+//
+LasChat.prototype = new LasHelper();

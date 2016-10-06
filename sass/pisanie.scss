@@ -115,7 +115,8 @@ html .login {background:$beige;height:auto;min-height:100%}
 .pad > p:last-child{margin:0;}
 
 
-.comment-parent:first-child .f-push::before{position:absolute;right:100%;width:20rem;bottom:3px;color:$dark-gray;content:"Naciśnij, by otworzyć sprawdzenie \2192";text-align:right;}
+.comment-parent .f-push::before{right:0;width:$space-2;height:$space-2;margin:0;}
+.comment-parent:first-child .f-push::after{position:absolute;right:125%;width:20rem;bottom:$space-half;color:$dark-gray;content:"Naciśnij, by otworzyć sprawdzenie \2192";text-align:right;}
 
 
 

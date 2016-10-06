@@ -3,7 +3,6 @@
 //
 
 
-
 //
 //  Helper object that contains methods used by other Las's objects
 //
@@ -64,16 +63,16 @@ function LasHelper() {
 
   //
   //  Function to create array of bubbles with "1"
-  //  @parameter chatData is feeded in init() with data files by objects making exercises
+  //  @parameter data is feeded in init() with data files by objects making exercises
   //  @return array of first keys in the series of bubbles
   //
-  this.createRandomArrayOfFirstBubbles = function( chatData ) {
+  this.createRandomArrayOfFirstBubbles = function( data ) {
     var property,
         propArray = [];
 
     //  Push first items
-    for (property in chatData) {
-      if (chatData.hasOwnProperty(property) && ( property.slice(-1) === '1' ) ) {
+    for (property in data) {
+      if (data.hasOwnProperty(property) && ( property.slice(-1) === '1' ) ) {
         // if it is own property and last letter is "1"
 
         propArray.push(property);
@@ -99,10 +98,117 @@ function LasHelper() {
     }
 
     return propArray;
-  }
+  };
+
+
+  //
+  //  Data bubbles
+  //
+  this.getRandomBubble = function() {
+    console.log( 'getRandomBubble');
+    console.log( this.randomChatArray.length );
+
+    if (this.randomChatArray.length > 0 ) {
+      //  if there are still chat items to show
+
+      //  add one to progress progress
+      this.lasSaveChallangeProgress.plusOne();
+
+      //  pop data and return the object
+      var pop = this.lasData.chat[ this.randomChatArray.pop() ];
+      return pop;
+
+    }
+    else {
+      //  Set state
+      this.currentState = 'END';
+
+      return this.getEndBubble();
+    }
+
+  };
+
+
+  this.getIntroBubble = function() {
+    console.log( 'getIntroBubble');
+    var pop = this.lasData.intro[ this.randomIntroArray.pop() ];
+
+    //  Set state
+    this.currentState = 'INTRO';
+
+    //  Return bubble
+    return pop;
+
+  };
+
+
+  this.getEndBubble = function() {
+    console.log( 'getEndBubble' );
+    var pop = this.lasData.end[ this.randomEndArray.pop() ];
+    //  Return bubble
+    return pop;
+
+  };
+
+
+  this.getNextBubble = function(no) {
+
+    var data;
+
+    if ( ( no === 'INTRO' ) ) {
+      //  if it is intro and we need next bubble
+
+      data = this.getIntroBubble();
+
+    }
+    else if ( no === 'ENDINTRO' ) {
+      //  if it is the end of intro,  move one to chat
+
+      //  Set state
+      this.currentState = 'CHAT';
+      data = this.getRandomBubble();
+
+    }
+    else if ( ( this.currentState === 'INTRO' ) && ( no !== '' ) ) {
+      //  if it is intro and we need next bubble
+
+      data = this.lasData.intro[ no ];
+
+    }
+    else if ( ( this.currentState === 'CHAT' ) && ( no === 'RANDOM' ) ) {
+      //  if we are at the chat, move one
+
+      data = this.getRandomBubble();
+
+    }
+    else if ( ( this.currentState === 'CHAT' ) && ( no !== '' ) ) {
+      //  if we are at chat, but need exact bubble
+
+      data = this.lasData.chat[ no ]
+
+    }
+    else if ( this.currentState === 'END' ) {
+      //  if we got to the end and need an exact bubble
+
+      data = this.lasData.end[ no ];
+    }
+
+    console.log("No: " + no);
+    console.log("Data: " + data);
+
+
+    //  Assign data
+    //  Method available at subObject
+    this.assignBubbleData(no, data);
+
+  };
+
+
+  this.hideLoader = function() {
+    Velocity(this.loader, { opacity: 0 }, { duration: 400, easing: [ 200, 20 ], queue: false, display: 'none' } );
+  };
 
 }
-var lasHelper = new LasHelper();
 
 
 
