@@ -24,6 +24,8 @@
 
 <div id="audio-test" class="wrapper section-content">
 
+    <p id="audio-msg centered">Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i> poniżej.</p>
+
     <audio id="audio-file" src="/s/<?php echo $post->post_name . '-' . $type; ?>.m4a" preload="auto"></audio>
 
     <button id="audio-play" class="btn btn btn-link btn-s-2" style="height:50%;width:100%">Play / Pause</button>
@@ -46,7 +48,7 @@ function las_get_audio_test_data( $file ) {
     var lasAudioTest = new LasAudioTest(),
         lasAudioFile = document.getElementById('audio-file');
 
-    lasAudioFile.addEventListener('canplaythrough', function() {
+    lasAudioFile.addEventListener('loadeddata', function() {
 
       lasAudioTest.init();
 
