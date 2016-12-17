@@ -243,8 +243,8 @@ function LasAudioTest() {
 
         //  animate
         Velocity(this.answersElArray[i],
-          { opacity: [0, 1] },
-          { duration: speed*2, easing: [ 300, 20 ], delay: speed*i }
+          { opacity: [1, 0] },
+          { duration: speed*5, easing: [ 300, 20 ], delay: speed*i }
         );
       }
       else {
@@ -272,7 +272,7 @@ function LasAudioTest() {
         //  if there is such an answer, hide it
         Velocity(this.answersElArray[i],
           { opacity: 0 },
-          { duration: speed*2, easing: [ 300, 20 ], display: "none" }
+          { duration: speed*5, easing: [ 300, 20 ], display: "none" }
         );
       }
 

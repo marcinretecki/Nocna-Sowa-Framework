@@ -399,7 +399,7 @@ function LasChat() {
     this.scrollAfterChange();
 
     Velocity(finish,
-        { opacity: ["1", "0"] },
+        { opacity: [1, 0] },
         { duration: speed*6, easing: "easeInOutQuart" }
       );
 
