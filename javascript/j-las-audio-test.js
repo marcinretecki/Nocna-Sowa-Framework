@@ -40,6 +40,7 @@ function LasAudioTest() {
   this.currentState = '';   // END / INTRO / CHAT
   this.firstPlay = true;
   this.playing = false;
+  this.score = false;
 
   //
   //  Helper
@@ -145,12 +146,24 @@ function LasAudioTest() {
 
     console.log("check pause " + that.audioFile.currentTime);
 
-    if ( ( that.audioFile.currentTime + 1 > that.stopTime ) && ( that.bubbleAutoNext === "" ) ) {
-      //  if no autoNext, then show answers
-      that.showAnswers();
+    if ( ( that.audioFile.currentTime + 1 > that.stopTime ) ) {
+      //  one second before the end of audio
+
+      if ( that.bubbleAutoNext === "" ) {
+        //  if no autoNext, then show answers
+        that.showAnswers();
+      }
+      else if ( that.bubbleAutoNext !== "" ) {
+        //  if there is autoNext
+        //  reset msg
+        that.resetMsg();
+        console.log('reset msg');
+      }
     }
 
     if ( that.audioFile.currentTime > that.stopTime ) {
+      //  at the end of audio
+
       // pause
       that.pauseAudio();
       console.log('auto pause!');
@@ -160,7 +173,9 @@ function LasAudioTest() {
 
       if ( that.bubbleAutoNext !== "" ) {
         //  if there is autoNext
+        //  get next bubble
         that.getNextBubble( that.bubbleAutoNext );
+        //  play next audio
         that.playAudio();
       }
       else if ( that.bubbleAutoNext === "END" ) {
@@ -227,6 +242,11 @@ function LasAudioTest() {
         //  if there is such an answer, display it
         this.answersElArray[i].innerHTML = this.answersData[i].answer;
         this.answersElArray[i].style.display = "inline-block";
+        //  animate
+        Velocity(this.answersElArray[i],
+          { opacity: 1 },
+          { duration: speed*5, easing: [ 300, 20 ] }
+        );
       }
       else {
         //  if there is no such answer, hide it
@@ -234,7 +254,8 @@ function LasAudioTest() {
       }
     }
 
-    Velocity(this.answersEl, { opacity: 1 }, { duration: speed*5, easing: [ 200, 20 ], queue: false } );
+    //  this shows the whole answers elements
+    //Velocity(this.answersEl, { opacity: 1 }, { duration: speed*5, easing: [ 300, 20 ], queue: false } );
 
   };
 
@@ -249,10 +270,26 @@ function LasAudioTest() {
     this.answersData = [];
 
     //  Reset answers
-    Velocity(this.answersEl,
-      { opacity: 0 },
-      { duration: speed*2, easing: [ 300, 20 ], queue: false, complete: function() {  } }
-    );
+    //Velocity(this.answersEl,
+    //  { opacity: 0 },
+    //  { duration: speed*2, easing: [ 300, 20 ], queue: false,  }
+    //);
+
+    //  Loop over answers
+    var i,
+        c = this.answersData.length;
+
+    for (i = 0; i < 4; i++) {
+
+      if ( i < c ) {
+        //  if there is such an answer, hide it
+        Velocity(this.answersEl,
+          { opacity: 0 },
+          { duration: speed*5, easing: [ 300, 20 ], display: "none" }
+        );
+      }
+
+    }
 
     //  Here we need to check how many answers there are and loop those visible
     /*Velocity(this.answerOne,
@@ -264,23 +301,25 @@ function LasAudioTest() {
   this.showMsg = function() {
     if ( this.msg === "SCORE") {
       //  if it was the right answer, show it
+      console.log('SCORE');
+      this.score = true;
       Velocity(this.audioScore,
-        { opacity: 0 },
-        { duration: speed, easing: [ 300, 20 ], queue: false }
+        { opacity: 1 },
+        { duration: speed*5, easing: [ 300, 20 ] }
       );
-
-      Velocity(this.audioScore, "reverse");
     }
     else if ( this.msg !== "" ) {
       this.audioMsg.innerHTML = this.msg;
       Velocity(this.audioMsg,
         { opacity: 1 },
-        { duration: speed*2, easing: [ 300, 20 ], queue: false }
+        { duration: speed*5, easing: [ 300, 20 ], queue: false }
       );
     }
 
   };
   this.resetMsg = function() {
+    this.resetScore();
+
     if ( this.msg !== "" ) {
       this.msg = "";
       Velocity(this.audioMsg,
@@ -289,6 +328,18 @@ function LasAudioTest() {
       );
     }
   };
+  this.resetScore = function() {
+    if (this.score === false) {
+      return false;
+    }
+
+    this.score = false;
+
+    Velocity(this.audioScore,
+      { opacity: 0 },
+      { duration: speed*5, easing: [ 300, 20 ], queue: false }
+    );
+  }
 
 
   this.answerToBubble = function( next ) {
