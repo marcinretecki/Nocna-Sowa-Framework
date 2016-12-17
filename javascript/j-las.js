@@ -155,46 +155,46 @@ function LasHelper() {
 
     var data;
 
-    if ( ( no === 'INTRO' ) ) {
+    if ( ( this.currentState === 'INTRO' ) && ( no !== '' )  && ( no !== 'ENDINTRO' ) ) {
       //  if it is intro and we need next bubble
+      console.log('if it is intro and we need next bubble')
+      data = this.lasData.intro[ no ];
 
+    } else if ( ( no === 'INTRO' ) ) {
+      //  if it is intro and we need first bubble
+      console.log('if it is intro and we need first bubble')
       data = this.getIntroBubble();
 
     }
     else if ( no === 'ENDINTRO' ) {
       //  if it is the end of intro,  move one to chat
-
+      console.log('if it is the end of intro,  move one to chat')
       //  Set state
       this.currentState = 'CHAT';
       data = this.getRandomBubble();
 
     }
-    else if ( ( this.currentState === 'INTRO' ) && ( no !== '' ) ) {
-      //  if it is intro and we need next bubble
-
-      data = this.lasData.intro[ no ];
-
-    }
     else if ( ( this.currentState === 'CHAT' ) && ( no === 'RANDOM' ) ) {
       //  if we are at the chat, move one
-
+      console.log('if we are at the chat, move one')
       data = this.getRandomBubble();
 
     }
     else if ( ( this.currentState === 'CHAT' ) && ( no !== '' ) ) {
       //  if we are at chat, but need exact bubble
-
+      console.log('if we are at chat, but need exact bubble')
       data = this.lasData.chat[ no ]
 
     }
     else if ( this.currentState === 'END' ) {
       //  if we got to the end and need an exact bubble
-
+      console.log('if we got to the end and need an exact bubble')
       data = this.lasData.end[ no ];
     }
 
     console.log("No: " + no);
-    console.log("Data: " + data);
+    console.log("Data:");
+    console.log(data);
 
 
     //  Assign data

@@ -13,6 +13,7 @@ function LasAudioTest() {
   //this.rewindBtn = document.getElementById('audio-rewind');
   this.audioFile = document.getElementById('audio-file');
   this.audioMsg = document.getElementById('audio-msg');
+  this.audioScore= document.getElementById('audio-score');
   this.answersEl = null;
   this.answersElArray = [];
 
@@ -37,14 +38,15 @@ function LasAudioTest() {
   //
   this.answersWaiting = false;
   this.currentState = '';   // END / INTRO / CHAT
-  this.firstPlay = false;
+  this.firstPlay = true;
+  this.playing = false;
 
   //
   //  Helper
   //
   var that = this,
       speed = 200,
-      answersTranformValue = "300%";      // is it needed in this object?
+      answersTranformValue = "300%";
 
   //
   //  Initiate
@@ -64,6 +66,8 @@ function LasAudioTest() {
 
     //  Get the intro
     this.getNextBubble( 'INTRO' );
+    this.showMsg();
+    this.showAnswers();
   };
 
 
@@ -75,9 +79,15 @@ function LasAudioTest() {
     answersEl.className = 'audio-test-answers';
     answersEl.id = 'audio-test-answers';
 
-    answerOne.className = 'btn btn-blue btn-s-2 btn-audio-test-answer';
+    //  To remove
+    answersEl.style.cssText = "opacity:0;";
+
+    answerOne.className = 'btn btn-green btn-s-2 btn-audio-test-answer';
     answerOne.setAttribute("role", "button");
     answerOne.innerHTML = "&nbsp;"
+
+    //  To remove
+    answerOne.style.cssText = "width:100%;display:block;padding:2rem;";
 
     answerTwo = answerOne.cloneNode(false);
     answerThree = answerOne.cloneNode(false);
@@ -109,18 +119,21 @@ function LasAudioTest() {
   //  AUDIO
   //
   this.playAudio = function() {
-    if ( this.answersWaiting ) {
-      console.log("Can't play!");
+    if ( this.playing ) {
       return false;
     }
-
     //  set the current time
     this.audioFile.currentTime = this.startTime;
+
+    //  show msg
+    this.showMsg();
+
 
     //  add pause listener
     this.audioFile.addEventListener('timeupdate', that.autoPauseAudio, false);
 
     console.log("play!");
+    this.playing = true;
     this.audioFile.play();
 
   };
@@ -128,30 +141,64 @@ function LasAudioTest() {
 
   this.autoPauseAudio = function() {
     //  when the time finishes, pause playback
-    //  all @this change to @that or it won't work
+    //  must change @this to @that or it won't work
 
-    console.log("check pause");
+    console.log("check pause " + that.audioFile.currentTime);
+
+    if ( ( that.audioFile.currentTime + 1 > that.stopTime ) && ( that.bubbleAutoNext === "" ) ) {
+      //  if no autoNext, then show answers
+      that.showAnswers();
+    }
 
     if ( that.audioFile.currentTime > that.stopTime ) {
-      that.audioFile.pause();
+      // pause
+      that.pauseAudio();
       console.log('auto pause!');
+
+      // remove listener
       that.audioFile.removeEventListener('timeupdate', that.autoPauseAudio, false);
 
       if ( that.bubbleAutoNext !== "" ) {
         //  if there is autoNext
         that.getNextBubble( that.bubbleAutoNext );
-        this.playAudio();
+        that.playAudio();
       }
       else if ( that.bubbleAutoNext === "END" ) {
         //  if it is the end
         that.finish();
       }
-      else {
-        //  if no autoNext or END, then show answers
-        that.showAnswers();
-      }
     }
 
+  };
+
+
+  this.rewindAudio = function() {
+    //  If the user wan't to listen to it again
+    //  all @this change to @that or it won't work
+
+    //  pause
+    that.pauseAudio();
+
+    if ( that.audioFile.currentTime > (that.startTime + 10) ) {
+      //  if the fragment can be rewinded 10s, do it
+      that.audioFile.currentTime = that.audioFile.currentTime - 10;
+      console.log('rewind 10s');
+    }
+    else {
+      //  if it can't be rewinded 10s, because it was playing for a shorter time, rewind to the beginning
+      that.audioFile.currentTime = that.startTime;
+      console.log('rewind to beggining');
+    }
+
+    //  Resume
+    that.playing = true;
+    that.audioFile.play();
+  };
+
+
+  this.pauseAudio = function() {
+    that.playing = false;
+    that.audioFile.pause();
   };
 
 
@@ -160,14 +207,13 @@ function LasAudioTest() {
   //  ANSWERS
   //
   this.showAnswers = function() {
+    if ( this.answersWaiting === true ) {
+      return false;
+    }
+
     console.log('show answers');
 
     this.answersWaiting = true;
-
-    //  Show msg
-    if ( this.msg !== "" ) {
-      this.audioMsg.innerHTML = this.msg;
-    }
 
     //  Loop over answers
     var i,
@@ -188,47 +234,76 @@ function LasAudioTest() {
       }
     }
 
-    Velocity(this.answersEl, { translateX: 0 }, { duration: speed*5, easing: [ 200, 20 ], queue: false } );
+    Velocity(this.answersEl, { opacity: 1 }, { duration: speed*5, easing: [ 200, 20 ], queue: false } );
 
   };
 
   this.resetAnswers = function() {
+    if ( this.answersWaiting === false ) {
+      return false;
+    }
+
     this.answersWaiting = false;
 
-    //  Reset msg
-    this.resetMsg();
+    console.log('clear answer data');
+    this.answersData = [];
 
     //  Reset answers
     Velocity(this.answersEl,
-      { translateX: "100%" },
-      { duration: speed*2, easing: [ 300, 20 ], queue: false }
+      { opacity: 0 },
+      { duration: speed*2, easing: [ 300, 20 ], queue: false, complete: function() {  } }
     );
 
     //  Here we need to check how many answers there are and loop those visible
     /*Velocity(this.answerOne,
       { translateX: "0" },
       { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerOne.style.visibility = "visible"; } }
-    );
-
-    if (this.answerTwoText !== "") {
-      Velocity(this.answerTwo,
-        { translateX: "100%" },
-        { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerTwo.style.visibility = "visible"; } }
-      );
-    }*/
+    );*/
   };
 
+  this.showMsg = function() {
+    if ( this.msg === "SCORE") {
+      //  if it was the right answer, show it
+      Velocity(this.audioScore,
+        { opacity: 0 },
+        { duration: speed, easing: [ 300, 20 ], queue: false }
+      );
+
+      Velocity(this.audioScore, "reverse");
+    }
+    else if ( this.msg !== "" ) {
+      this.audioMsg.innerHTML = this.msg;
+      Velocity(this.audioMsg,
+        { opacity: 1 },
+        { duration: speed*2, easing: [ 300, 20 ], queue: false }
+      );
+    }
+
+  };
   this.resetMsg = function() {
     if ( this.msg !== "" ) {
-      this.audioMsg.innerHTML = "";
       this.msg = "";
+      Velocity(this.audioMsg,
+        { opacity: 0 },
+        { duration: speed*2, easing: [ 300, 20 ], queue: false }
+      );
     }
   };
 
 
   this.answerToBubble = function( next ) {
+
+    // pause
+    // if user clicked an answer, we need to pause audio, so we can play the next one
+    that.pauseAudio();
+
+
+    console.log('answerToBubble');
+    console.log(next);
+
     //  reset answers and msg
     this.resetAnswers();
+    this.resetMsg();
 
     //  There needs to be animation and then:
     this.getNextBubble( next );
@@ -260,11 +335,8 @@ function LasAudioTest() {
     if ( this.currentBubbleData.autoNext ) {
       //  if there is autoNext
       this.bubbleAutoNext = this.currentBubbleData.autoNext;
-
-      //  reset msg
-      this.msg = "";
     }
-    else if ( this.currentBubbleData.answers && this.currentBubbleData.msg ) {
+    else if ( this.currentBubbleData.answers ) {
       //  if there are answers and msg
       //  loop over all available answers
 
@@ -274,10 +346,18 @@ function LasAudioTest() {
       //  Reset autoNext
       this.bubbleAutoNext = "";
 
+    }
+
+    if ( this.currentBubbleData.msg ) {
       //  assign the msg
       this.msg = this.currentBubbleData.msg;
 
     }
+    else {
+      //  reset msg
+      this.msg = "";
+    }
+
   };
 
 
@@ -286,6 +366,8 @@ function LasAudioTest() {
     //    {answer: '', next: ''},
     //    {answer: '', next: ''}
     //  ]
+
+    console.log('assignAnswers');
     var i,
         c = this.currentBubbleData.answers.length;
 
@@ -303,41 +385,75 @@ function LasAudioTest() {
 
     console.log('click');
 
-    if ( ( event.target.id == 'answer-one' ) || ( event.target.parentNode.id =='answer-one' ) ) {
+    if ( ( event.target.id == 'answer-one' ) || ( event.target.parentNode.id == 'answer-one' ) ) {
       //  load the answer no 1
       that.answerToBubble( that.answersData[0].next );
 
+      if ( that.firstPlay ) {
+        that.firstPlay = false;
+      }
+
     }
-    else if ( ( event.target.id =='answer-two' ) || ( event.target.parentNode.id =='answer-two' ) ) {
+    else if ( ( event.target.id =='answer-two' ) || ( event.target.parentNode.id == 'answer-two' ) ) {
       //  load the answer no 2
       that.answerToBubble( that.answersData[1].next );
 
+      if ( that.firstPlay ) {
+        that.firstPlay = false;
+      }
+
     }
-    else if ( ( event.target.id =='answer-three' ) || ( event.target.parentNode.id =='answer-three' ) ) {
+    else if ( ( event.target.id =='answer-three' ) || ( event.target.parentNode.id == 'answer-three' ) ) {
       //  load the answer no 3
       that.answerToBubble( that.answersData[2].next );
 
+      if ( that.firstPlay ) {
+        that.firstPlay = false;
+      }
+
     }
-    else if ( ( event.target.id =='answer-four' ) || ( event.target.parentNode.id =='answer-four' ) ) {
+    else if ( ( event.target.id =='answer-four' ) || ( event.target.parentNode.id == 'answer-four' ) ) {
       //  load the answer no 4
       that.answerToBubble( that.answersData[3].next );
 
+      if ( that.firstPlay ) {
+        that.firstPlay = false;
+      }
+
     }
-    else if ( ( event.target.id =='audio-play' ) || ( event.target.parentNode.id =='audio-play' ) ) {
+    else if ( ( event.target.id =='audio-play' ) || ( event.target.parentNode.id == 'audio-play' ) ) {
       //  Play audio at specific time
       //  Add event listener that will stop the file
 
-      if ( this.firstPlay ) {
-        //  if it is the first time we click play, reset the intro msg
-        this.resetMsg();
+      if ( that.firstPlay ) {
+        //  if it is the first time we click play, reset the intro msg and answer
+        //  and allow the play button to work
+        that.answerToBubble('ENDINTRO');
+        that.firstPlay = false;
       }
-      this.firstPlay = false;
+      else {
 
-      this.playAudio();
+        if ( that.playing ) {
+          //  if it is playing now, pause it
+          that.pauseAudio();
+        }
+        else if ( that.answersWaiting ) {
+          //  if there are answers waiting, play once again the question
+          that.playAudio();
+        }
+        else if ( !that.playing && !that.answersWaiting ) {
+          //  if it is paused, resume
+          that.playing = true;
+          that.audioFile.play();
+        }
+
+      }
+
 
     }
     else if ( ( event.target.id =='audio-rewind' ) || ( event.target.parentNode.id =='audio-rewind' ) ) {
       //  if the fragment is longer that 10 s, rewind 10 s, otherwise rewidn to the begging o the current fragment
+      that.rewindAudio();
     }
 
     event.preventDefault();
