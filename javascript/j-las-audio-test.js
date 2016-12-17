@@ -80,15 +80,12 @@ function LasAudioTest() {
     answersEl.className = 'audio-test-answers';
     answersEl.id = 'audio-test-answers';
 
-    //  To remove
-    answersEl.style.cssText = "opacity:0;";
-
     answerOne.className = 'btn btn-green btn-s-2 btn-audio-test-answer';
     answerOne.setAttribute("role", "button");
     answerOne.innerHTML = "&nbsp;"
 
     //  To remove
-    answerOne.style.cssText = "width:100%;display:block;padding:2rem;";
+    answerOne.style.cssText = "width:100%;display:block;padding:2rem;opacity:0";
 
     answerTwo = answerOne.cloneNode(false);
     answerThree = answerOne.cloneNode(false);
@@ -232,7 +229,8 @@ function LasAudioTest() {
 
     //  Loop over answers
     var i,
-        c = this.answersData.length;
+        c = this.answersData.length,
+        answerSequence = [];
 
     for (i = 0; i < 4; i++) {
       //  this.answersData[i] = {answer: this.currentBubbleData.answers[i].answer, next: this.currentBubbleData.answers[i].next};
@@ -242,10 +240,11 @@ function LasAudioTest() {
         //  if there is such an answer, display it
         this.answersElArray[i].innerHTML = this.answersData[i].answer;
         this.answersElArray[i].style.display = "inline-block";
+
         //  animate
         Velocity(this.answersElArray[i],
-          { opacity: 1 },
-          { duration: speed*5, easing: [ 300, 20 ] }
+          { opacity: [0, 1] },
+          { duration: speed*2, easing: [ 300, 20 ], delay: speed*i }
         );
       }
       else {
@@ -253,10 +252,6 @@ function LasAudioTest() {
         this.answersElArray[i].style.display = "none";
       }
     }
-
-    //  this shows the whole answers elements
-    //Velocity(this.answersEl, { opacity: 1 }, { duration: speed*5, easing: [ 300, 20 ], queue: false } );
-
   };
 
   this.resetAnswers = function() {
@@ -266,36 +261,25 @@ function LasAudioTest() {
 
     this.answersWaiting = false;
 
-    console.log('clear answer data');
-    this.answersData = [];
-
-    //  Reset answers
-    //Velocity(this.answersEl,
-    //  { opacity: 0 },
-    //  { duration: speed*2, easing: [ 300, 20 ], queue: false,  }
-    //);
-
     //  Loop over answers
     var i,
-        c = this.answersData.length;
+        c = this.answersData.length,
+        answerSequence = [];
 
     for (i = 0; i < 4; i++) {
 
       if ( i < c ) {
         //  if there is such an answer, hide it
-        Velocity(this.answersEl,
+        Velocity(this.answersElArray[i],
           { opacity: 0 },
-          { duration: speed*5, easing: [ 300, 20 ], display: "none" }
+          { duration: speed*2, easing: [ 300, 20 ], display: "none" }
         );
       }
 
     }
 
-    //  Here we need to check how many answers there are and loop those visible
-    /*Velocity(this.answerOne,
-      { translateX: "0" },
-      { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerOne.style.visibility = "visible"; } }
-    );*/
+    console.log('clear answer data');
+    this.answersData = [];
   };
 
   this.showMsg = function() {
