@@ -90,13 +90,13 @@ function LasChat() {
     answerOne.className = 'btn btn-blue btn-s-2 btn-chat-answer';
     //answerOne.type = 'button';
     answerOne.setAttribute("role", "button");
-    answerOne.innerHTML = "&nbsp;"
+    answerOne.innerHTML = "&nbsp;";
 
     answerTwo = answerOne.cloneNode(false);
 
     answerOne.id = 'answer-left';
     answerTwo.id = 'answer-right';
-    answerTwo.innerHTML = "&nbsp;"
+    answerTwo.innerHTML = "&nbsp;";
 
     // Append
     answers.appendChild(answerOne);
@@ -278,7 +278,7 @@ function LasChat() {
       }
     );
 
-  }
+  };
 
 
   this.resetAnswers = function() {
@@ -300,7 +300,7 @@ function LasChat() {
         { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerTwo.style.visibility = "visible"; } }
       );
     //}
-  }
+  };
 
 
   //
@@ -357,11 +357,11 @@ function LasChat() {
 
   this.eventHandler = function(event) {
 
-    if ( ( event.target.id == 'answer-left' ) || ( event.target.parentNode.id =='answer-left' ) ) {
+    if ( ( event.target.id === 'answer-left' ) || ( event.target.parentNode.id === 'answer-left' ) ) {
       that.clickedAnswer = that.answerOne;
       that.answerToBubble();
     }
-    else if ( ( event.target.id =='answer-right' ) || ( event.target.parentNode.id =='answer-right' ) ) {
+    else if ( ( event.target.id === 'answer-right' ) || ( event.target.parentNode.id === 'answer-right' ) ) {
       that.clickedAnswer = that.answerTwo;
       that.answerToBubble();
     }
@@ -395,7 +395,7 @@ function LasChat() {
     finish.style.cssText = "display:block;clear:both;margin:0;padding:2.5rem 0 0;opacity:0;";
     finish.innerHTML = '<span>Nocna</span> Sowa';
 
-    this.scrollFn = function() { that.chatFlow.insertBefore(finish, that.chatFlow.lastChild) };
+    this.scrollFn = function() { that.chatFlow.insertBefore(finish, that.chatFlow.lastChild); };
     this.scrollAfterChange();
 
     Velocity(finish,
@@ -405,7 +405,7 @@ function LasChat() {
 
     console.log("END");
 
-  }
+  };
 
 
   this.test = function() {
@@ -460,7 +460,7 @@ function LasChat() {
 
     that.chatFlow.style.display = "block";
 
-  }
+  };
 
 }
 
