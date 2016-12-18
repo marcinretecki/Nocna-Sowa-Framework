@@ -2,17 +2,6 @@
 //
 // Includes - Audio Test
 //
-
-/*
-    struktura danych
-    - ładujemy i włączamy pierwszy plik dźwiękowy
-    - user słucha, może zapałzować lub cofnąć
-    - na koniec nagrania, pojawiają się możlie odpowiedzi
-    - każda z odpowiedzi prowadzi do innego nagrania
-    - wszystkie możliwe nagrania są ładowane w tle
-    - na koniec dizękujemy i user może wrócić do innych ćwiczeń
-
-  */
 ?>
 
 
@@ -21,17 +10,23 @@
 </div>
 
 
-<div id="audio-test" class="section-content section-6-2" style="overflow:hidden;">
-  <div style="position:absolute;left:0;top:2rem;right:0;z-index:100;" class="centered white">
-    <button id="audio-rewind" class="btn btn btn-link btn-s-2">&laquo;-15s</button>
-    <button id="audio-play" class="btn btn btn-link btn-s-2">Play / Pause</button>
-  </div>
-
+<div id="audio-test" class="section-content section-6-2" style="overflow:hidden;width:800px">
   <p id="audio-msg" class="centered"></p>
 
   <audio id="audio-file" src="/s/<?php echo $post->post_name . '-' . $type; ?>.m4a?1" preload="auto"></audio>
 
-  <div id="audio-score" style="position:fixed;left:0;right:0;top:0;bottom:0;z-index:0;background:#fff;opacity:0;"></div>
+  <div id="audio-score" style="position:fixed;left:0;right:0;top:0;bottom:0;z-index:0;background:url('http://www.wnd.com/files/2014/08/OBAMA-SMILE.jpg') no-repeat center center;opacity:0;"></div>
+
+  <div id="audio-controls" style="display:none;opacity:0;">
+    <div class="centered">
+      <button id="audio-rewind" class="btn btn-white-outline" style="display:inline-block;width:6rem;height:6rem;margin:1rem;padding:0;border-radius:50%">Powtórz</button>
+      <button id="audio-more" class="btn btn-white-outline" style="display:none;width:6rem;height:6rem;margin:1rem;padding:0;border-radius:50%">???</button>
+    </div>
+
+    <div class="centered">
+      <button id="audio-next" class="btn btn-white-outline" style="display:inline-block;width:6rem;height:6rem;margin:1rem;padding:0;border-radius:50%">&raquo;</button>
+    </div>
+  </div>
 
 </div>
 

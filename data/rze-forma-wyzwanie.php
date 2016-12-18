@@ -6,14 +6,17 @@ function LasAudioData() {
   //  ale nie oba na raz!
   //  time jest zawsze
   //  msg jest dowolne
+  //  more jest dowolne
+  //  gdy startTime jest równy null, mamy quiz
 
   this.intro = {
     a1: {
       startTime:  0,
       stopTime:  0,
-      msg: "Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i>.",
+      msg: "Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>start</i>.",
       answers: [
-        { answer: 'Ale jak to działa?', next: 'a2' },
+        { answer: 'Start', next: 'ENDINTRO' },
+        { answer: 'Jak to działa?', next: 'a2' },
       ]
     },
     a2: {
@@ -49,7 +52,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  31,
       stopTime:   33,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -75,7 +78,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  44,
       stopTime:   46,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -101,7 +104,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  62,
       stopTime:   64,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -124,10 +127,10 @@ function LasAudioData() {
       ]
     },
     kvinne2: {
-      msg: 'Świetnie!',
+      msg: 'SCORE',
       startTime:  80,
       stopTime:   82,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -153,7 +156,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  93,
       stopTime:   95,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -179,7 +182,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  112,
       stopTime:   114,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -205,7 +208,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  126,
       stopTime:   128,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -231,7 +234,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  143,
       stopTime:   145,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -257,7 +260,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  160,
       stopTime:   162,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -283,15 +286,8 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  178,
       stopTime:   180,
-      answers: [
-        { answer: '?', next: 'hytte3' },
-        { answer: 'Następne', next: 'RANDOM' }
-      ]
-    },
-    hytte3: {
-      startTime:  188,
-      stopTime:   201,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM',
+      more:       { startTime: 188, stopTime: 201 }
     },
 
 
@@ -317,7 +313,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  205,
       stopTime:   207,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -343,33 +339,33 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  221,
       stopTime:   223,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
 
-    gulv: {
+    gulv1: {
       startTime:  231,
       stopTime:   234,
       msg: 'Jak powiesz "podłoga" w formie określonej?',
       answers: [
-        { answer: '<i>et gulv</i>', next: 'gulv' },
-        { answer: '<i>gulvet</i>', next: 'gulv' }
+        { answer: '<i>et gulv</i>', next: 'gulv1b' },
+        { answer: '<i>gulvet</i>', next: 'gulv2' }
       ]
     },
-    gulv: {
+    gulv1b: {
       msg: 'Niestety',
       startTime:  238,
       stopTime:   248,
       answers: [
-        { answer: '<i>gulvet</i>', next: 'gulv' }
+        { answer: '<i>gulvet</i>', next: 'gulv2' }
       ]
     },
-    gulv: {
+    gulv2: {
       msg: 'SCORE',
       startTime:  235,
       stopTime:   237,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -395,7 +391,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  253,
       stopTime:   255,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -421,7 +417,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  266,
       stopTime:   268,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -447,7 +443,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  284,
       stopTime:   286,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -473,21 +469,14 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  298,
       stopTime:   300,
-      answers: [
-        { answer: '?', next: 'mobil3' },
-        { answer: 'Następne', next: 'RANDOM' }
-      ]
-    },
-    mobil3: {
-      startTime:  312,
-      stopTime:   321,
-      autoNext: 'RANDOM'
-    },
+      autoNext:   'RANDOM',
+      more:       { startTime: 312, stopTime: 321 }
 
+    },
 
 
     melding1: {
-      startTime:  321,
+      startTime:  323,
       stopTime:   325,
       msg: 'Powiedz "jakaś wiadomość":',
       answers: [
@@ -507,15 +496,8 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  326,
       stopTime:   328,
-      answers: [
-        { answer: '?', next: 'melding3' },
-        { answer: 'Następne', next: 'RANDOM' }
-      ]
-    },
-    melding3: {
-      startTime:  336,
-      stopTime:   342,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM',
+      more:       { startTime: 336, stopTime: 342 }
     },
 
 
@@ -541,7 +523,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  346,
       stopTime:   348,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -567,7 +549,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  362,
       stopTime:   364,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -593,7 +575,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  375,
       stopTime:   377,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -619,7 +601,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  392,
       stopTime:   394,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -645,7 +627,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  406,
       stopTime:   408,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -671,7 +653,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  419,
       stopTime:   421,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -697,7 +679,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  436,
       stopTime:   438,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -723,7 +705,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  450,
       stopTime:   452,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -749,7 +731,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  468,
       stopTime:   470,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -775,7 +757,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  481,
       stopTime:   483,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     },
 
 
@@ -801,7 +783,7 @@ function LasAudioData() {
       msg: 'SCORE',
       startTime:  494,
       stopTime:   496,
-      autoNext: 'RANDOM'
+      autoNext:   'RANDOM'
     }
 
 
@@ -833,7 +815,8 @@ function LasAudioData() {
 //      msg: '',
 //      startTime:  1,
 //      stopTime:   3,
-//      autoNext: 'RANDOM'
+//      autoNext:   'RANDOM'
+//      more:       { startTime: 1, stopTime: 3 }
 //    }
 
   };
