@@ -205,7 +205,7 @@ function LasHelper() {
 
 
   this.hideLoader = function() {
-    Velocity(this.loader, { opacity: 0 }, { duration: 400, easing: [ 200, 20 ], queue: false, display: 'none' } );
+    Velocity(this.loader, { opacity: 0 }, { duration: 400, easing: [ 300, 20 ], queue: false, display: 'none' } );
   };
 
 }
