@@ -39,12 +39,15 @@ function LasAudioTest() {
   //
   //  State
   //
-  this.answersWaiting = false;
-  this.currentState = '';   // END / INTRO / CHAT
-  this.firstPlay = true;
-  this.playing = false;
-  this.score = false;
-  this.controls = false;
+  this.state = {
+    answersWaiting: false,
+    currentState:   '',   // END / INTRO / CHAT
+    firstPlay:      true,
+    playing:        false,
+    score:          false,
+    controls:       false,
+    bubbling:       false
+  }
 
   //
   //  Helper
@@ -121,7 +124,7 @@ function LasAudioTest() {
   //  AUDIO
   //
   this.playAudio = function() {
-    if ( this.playing ) {
+    if ( this.state.playing ) {
       return false;
     }
     //  set the current time
@@ -132,7 +135,7 @@ function LasAudioTest() {
     this.audioFile.addEventListener('timeupdate', that.autoPauseAudio, false);
 
     console.log("play!");
-    this.playing = true;
+    this.state.playing = true;
     this.audioFile.play();
 
   };
@@ -221,7 +224,7 @@ function LasAudioTest() {
 
 
   this.playMore = function() {
-    if ( this.playing ) {
+    if ( this.state.playing ) {
       return false;
     }
     //  set the current time
@@ -231,7 +234,7 @@ function LasAudioTest() {
     this.audioFile.addEventListener('timeupdate', that.autoPauseMore, false);
 
     console.log("play more!");
-    this.playing = true;
+    this.state.playing = true;
     this.audioFile.play();
 
   };
@@ -265,7 +268,7 @@ function LasAudioTest() {
   //  ANSWERS
   //
   this.showAnswers = function() {
-    if ( this.answersWaiting ) {
+    if ( this.state.answersWaiting ) {
       return false;
     }
 
@@ -273,7 +276,7 @@ function LasAudioTest() {
 
     console.log('show answers');
 
-    this.answersWaiting = true;
+    this.state.answersWaiting = true;
 
     //  Loop over answers
     var i,
@@ -302,11 +305,11 @@ function LasAudioTest() {
 
 
   this.resetAnswers = function() {
-    if ( !this.answersWaiting ) {
+    if ( !this.state.answersWaiting ) {
       return false;
     }
 
-    this.answersWaiting = false;
+    this.state.answersWaiting = false;
 
     //  Loop over answers
     var i,
@@ -331,9 +334,14 @@ function LasAudioTest() {
 
 
   this.answerToBubble = function( next ) {
+    if ( this.state.bubbling )
+      return false;
+    }
+    //
+    this.state.bubbling = true;
 
-    // pause
-    // if user clicked an answer, we need to pause audio, so we can play the next one
+    //  pause
+    //  if user clicked an answer, we need to pause audio, so we can play the next one
     that.pauseAudio();
 
 
@@ -352,6 +360,9 @@ function LasAudioTest() {
     this.playAudio();
     //  show msg
     this.showMsg();
+
+    //  reset bubbling state
+    this.state.bubbling = false;
   };
 
 
@@ -362,7 +373,7 @@ function LasAudioTest() {
     if ( this.msg === "SCORE") {
       //  if it was the right answer, show it
       console.log('SCORE');
-      this.score = true;
+      this.state.score = true;
       Velocity(this.audioScore,
         { opacity: 1 },
         { duration: speed*5, easing: [ 300, 20 ] }
@@ -393,11 +404,11 @@ function LasAudioTest() {
 
 
   this.resetScore = function() {
-    if (this.score === false) {
+    if (this.state.score === false) {
       return false;
     }
 
-    this.score = false;
+    this.state.score = false;
 
     Velocity(this.audioScore,
       { opacity: 0 },
@@ -410,11 +421,11 @@ function LasAudioTest() {
   //  CONTROLS
   //
   this.showControls = function() {
-    if ( this.controls === true ) {
+    if ( this.state.controls === true ) {
       return false;
     }
 
-    this.controls = true;
+    this.state.controls = true;
 
     if ( this.more !== null ) {
       this.audioMore.style.display = "inline-block";
@@ -433,11 +444,11 @@ function LasAudioTest() {
 
 
   this.resetControls = function() {
-    if ( this.controls === false ) {
+    if ( this.state.controls === false ) {
       return false;
     }
 
-    this.controls = false;
+    this.state.controls = false;
 
     Velocity(this.audioControls,
       { opacity: 0 },
