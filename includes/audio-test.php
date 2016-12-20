@@ -58,7 +58,7 @@ function las_get_audio_test_data( $file ) {
     echo '</script>';
   }
   else {
-    echo '<p>Nie znaleźliśmy pliku audio.</p>';
+    echo '<p style="position:relative;z-index:1000">Nie znaleźliśmy pliku audio.</p>';
   }
 
 }

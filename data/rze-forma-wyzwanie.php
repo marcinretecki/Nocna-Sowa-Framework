@@ -4,20 +4,19 @@ function LasAudioData() {
   //  Albo answers
   //  albo autoNext
   //  ale nie oba na raz!
-  //  time jest zawsze
   //  msg jest dowolne
   //  more jest dowolne
-  //  gdy startTime jest równy null, mamy quiz
+  //  gdy nie startTime, mamy quiz
 
   this.intro = {
     a1: {
-      startTime:  0,
-      stopTime:  0,
       msg: "Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>start</i>.",
       answers: [
         { answer: 'Start', next: 'ENDINTRO' },
         { answer: 'Jak to działa?', next: 'a2' },
-      ]
+      ],
+      more: { startTime: 0, stopTime: 26 }
+      //  TU JEST PROPOZYCJA ZMIANYYYYY
     },
     a2: {
       startTime:  0,
