@@ -80,19 +80,29 @@ function LasHelper() {
       }
     }
 
+    propArray = this.shuffleArray(propArray)
+
+    return propArray;
+  };
+
+
+  this.shuffleArray = function(propArray) {
     //  Fisher-Yates Shuffle
-    let counter = propArray.length;
+
+    var counter = propArray.length,
+        index,
+        temp;
 
     //  While there are elements in the propArray
     while (counter > 0) {
       //  Pick a random index
-      let index = Math.floor(Math.random() * counter);
+      index = Math.floor(Math.random() * counter);
 
       //  Decrease counter by 1
       counter--;
 
       //  And swap the last element with it
-      let temp = propArray[counter];
+      temp = propArray[counter];
       propArray[counter] = propArray[index];
       propArray[index] = temp;
     }

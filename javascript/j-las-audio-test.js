@@ -9,15 +9,19 @@ function LasAudioTest() {
   //
   this.wrapper = document.getElementById('audio-test');
   this.loader = document.getElementById('loader');
-  //this.playBtn = document.getElementById('audio-play');
-  //this.rewindBtn = document.getElementById('audio-rewind');
   this.audioFile = document.getElementById('audio-file');
   this.audioMsg = document.getElementById('audio-msg');
   this.audioScore = document.getElementById('audio-score');
   this.audioControls = document.getElementById('audio-controls');
   this.audioMore = document.getElementById('audio-more');
-  this.answersEl = null;
+  this.audioRewind = document.getElementById('audio-rewind');
+  //  answers
+  this.answersEl = document.getElementById('audio-test-answers');
   this.answersElArray = [];
+  this.answersElArray[0] = document.getElementById('answer-one');
+  this.answersElArray[1] = document.getElementById('answer-two');
+  this.answersElArray[2] = document.getElementById('answer-three');
+  this.answersElArray[3] = document.getElementById('answer-four');
 
   this.prefetch = document.createElement("div");
 
@@ -69,59 +73,23 @@ function LasAudioTest() {
     this.randomChatArray = this.createRandomArrayOfFirstBubbles( this.lasData.chat );
     this.randomEndArray = this.createRandomArrayOfFirstBubbles( this.lasData.end );
 
-    //  Create
-    this.createAudioTest();
+    //  Prepare
     this.addListener();
-    this.resetAnswers();
     this.hideLoader();
+
+
+    //  to remove
+    //  add css for audio-test-clue
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.appendChild(document.createTextNode(".audio-test-clue{background: #73b9e6 none repeat scroll 0 0;border-radius:3px;font-style:italic;padding:0.5rem 1rem;font-size:1rem;}"));
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(style);
 
     //  Get the intro
     this.getNextBubble( 'INTRO' );
     this.showMsg();
-    this.showAnswers();
-  };
-
-
-  this.createAudioTest = function() {
-    var answersEl = document.createElement('div'),
-        answerOne = document.createElement('button'),
-        answerTwo,
-        answerThree,
-        answerFour;
-
-    answersEl.className = 'audio-test-answers';
-    answersEl.id = 'audio-test-answers';
-
-    answerOne.className = 'btn btn-white-outline btn-audio-test-answer';
-    answerOne.setAttribute("role", "button");
-    answerOne.innerHTML = "&nbsp;";
-
-    //  To remove
-    answerOne.style.cssText = "width:100%;display:block;padding:2rem;margin:1rem auto;opacity:0;";
-
-    answerTwo = answerOne.cloneNode(false);
-    answerThree = answerOne.cloneNode(false);
-    answerFour = answerOne.cloneNode(false);
-
-    answerOne.id = 'answer-one';
-    answerTwo.id = 'answer-two';
-    answerThree.id = 'answer-three';
-    answerFour.id = 'answer-four';
-
-    // Append
-    answersEl.appendChild(answerOne);
-    answersEl.appendChild(answerTwo);
-    answersEl.appendChild(answerThree);
-    answersEl.appendChild(answerFour);
-    this.wrapper.appendChild(answersEl);
-
-    // Assign
-    this.answersEl = answersEl;
-    this.answersElArray[0] = answerOne;
-    this.answersElArray[1] = answerTwo;
-    this.answersElArray[2] = answerThree;
-    this.answersElArray[3] = answerFour;
-
+    this.showControls();
   };
 
 
@@ -131,7 +99,7 @@ function LasAudioTest() {
   this.createBubble = function() {
     //  here we have audio/quiz logic when the new bubble should appear
 
-    if ( that.bubbleAutoNext === "END" ) {
+    if ( this.bubbleAutoNext === "END" ) {
       //  if it is the end
       this.finish();
       return false;
@@ -146,7 +114,10 @@ function LasAudioTest() {
     }
     else if ( ( this.startTime === "" ) && ( this.msg === "SCORE" ) ) {
       //  if no time and score
-      window.setTimeout(that.resetScore.bind(this), speed*2);
+      this.createBubbleTimer = window.setTimeout(function() {
+        this.resetScore();
+        this.createBubbleTimer = undefined;
+      }.bind(this), speed*2);
     }
     else {
       //  we have audio, se we can play it
@@ -165,14 +136,17 @@ function LasAudioTest() {
     }
 
     //  reset listeners
-    that.resetListeners();
+    this.resetListeners();
 
     //  set the current time
     this.audioFile.currentTime = this.startTime;
 
+    this.playAudioListener = function() {
+      this.autoPauseAudio();
+    }.bind(this);
 
     //  add pause listener
-    this.audioFile.addEventListener('timeupdate', that.autoPauseAudio, false);
+    this.audioFile.addEventListener('timeupdate', this.playAudioListener, false);
 
     window.console.log("play!");
     this.state.playing = true;
@@ -183,51 +157,51 @@ function LasAudioTest() {
 
   this.autoPauseAudio = function() {
     //  when the time finishes, pause playback
-    //  must change @this to @that or it won't work
+    //  must change @this to @this or it won't work
 
-    window.console.log("check pause " + that.audioFile.currentTime);
+    window.console.log("check pause " + this.audioFile.currentTime);
 
-    if ( ( that.audioFile.currentTime + 1 > that.stopTime ) ) {
+    if ( ( this.audioFile.currentTime + 1 > this.stopTime ) ) {
       //  one second before the end of audio
 
-      if ( that.bubbleAutoNext === "RANDOM" ) {
+      if ( this.bubbleAutoNext === "RANDOM" ) {
         //  if random autoNext, then reset score and show controls
-        that.resetScore();
+        this.resetScore();
       }
-      else if ( that.bubbleAutoNext !== "" ) {
+      else if ( this.bubbleAutoNext !== "" ) {
         //  if there is autoNext
         //  reset msg
-        that.resetMsg();
+        this.resetMsg();
       }
-      else if ( that.bubbleAutoNext === "" ) {
+      else if ( this.bubbleAutoNext === "" ) {
         //  if no autoNext, then show answers
-        that.showAnswers();
+        this.showAnswers();
       }
 
     }
 
-    if ( that.audioFile.currentTime > that.stopTime ) {
+    if ( this.audioFile.currentTime > this.stopTime ) {
       //  at the end of audio
 
       // pause
-      that.pauseAudio();
+      this.pauseAudio();
       window.console.log('auto pause!');
 
       // reset listener
-      that.resetListeners();
+      this.resetListeners();
 
-      if ( ( that.bubbleAutoNext !== "" ) && ( that.bubbleAutoNext !== "RANDOM" ) ) {
+      if ( ( this.bubbleAutoNext !== "" ) && ( this.bubbleAutoNext !== "RANDOM" ) ) {
         //  if there is autoNext but not random one
 
         //  get next bubble
-        that.getNextBubble( that.bubbleAutoNext );
+        this.getNextBubble( this.bubbleAutoNext );
 
         //  create new bubble
-        that.createBubble();
+        this.createBubble();
       }
-      else if ( that.bubbleAutoNext === "END" ) {
+      else if ( this.bubbleAutoNext === "END" ) {
         //  if it is the end
-        that.finish();
+        this.finish();
       }
     }
 
@@ -236,31 +210,35 @@ function LasAudioTest() {
 
   this.rewindAudio = function() {
     //  If the user want to listen to it again
-    //  all @this change to @that or it won't work
+    //  all @this change to @this or it won't work
 
     //  pause
-    that.pauseAudio();
+    this.pauseAudio();
 
     //  reset listeners
-    that.resetListeners();
+    this.resetListeners();
 
     //  rewind to the beginning
-    that.audioFile.currentTime = that.startTime;
+    this.audioFile.currentTime = this.startTime;
     window.console.log('rewind to begining');
 
+    this.rewindAudioListener = function(){
+      this.autoPauseAudio();
+    }.bind(this);
+
     //  add pause listener
-    this.audioFile.addEventListener('timeupdate', that.autoPauseAudio, false);
+    this.audioFile.addEventListener('timeupdate', this.rewindAudioListener, false);
 
     //  Resume
-    that.state.playing = true;
-    that.audioFile.play();
+    this.state.playing = true;
+    this.audioFile.play();
 
   };
 
 
   this.pauseAudio = function() {
-    that.state.playing = false;
-    that.audioFile.pause();
+    this.state.playing = false;
+    this.audioFile.pause();
   };
 
 
@@ -271,8 +249,12 @@ function LasAudioTest() {
     //  set the current time
     this.audioFile.currentTime = this.more.startTime;
 
+    this.playMoreListener = function(){
+      this.autoPauseMore();
+    }.bind(this);
+
     //  add pause listener
-    this.audioFile.addEventListener('timeupdate', that.autoPauseMore, false);
+    this.audioFile.addEventListener('timeupdate', this.playMoreListener, false);
 
     window.console.log("play more!");
     this.state.playing = true;
@@ -283,21 +265,21 @@ function LasAudioTest() {
 
   this.autoPauseMore = function() {
     //  when the time finishes, pause playback of more
-    //  must change @this to @that or it won't work
+    //  must change @this to @this or it won't work
 
-    window.console.log("check pause more " + that.audioFile.currentTime);
+    window.console.log("check pause more " + this.audioFile.currentTime);
 
-    if ( that.audioFile.currentTime > that.more.stopTime ) {
+    if ( this.audioFile.currentTime > this.more.stopTime ) {
       //  at the end of audio
 
       // pause
-      that.pauseAudio();
+      this.pauseAudio();
       window.console.log('auto pause more!');
 
       // reset listener
-      that.resetListeners();
+      this.resetListeners();
 
-      that.state.playing = false;
+      this.state.playing = false;
 
     }
 
@@ -305,9 +287,16 @@ function LasAudioTest() {
 
   this.resetListeners = function() {
     // remove play listener
-    that.audioFile.removeEventListener('timeupdate', that.autoPauseAudio, false);
+    this.audioFile.removeEventListener('timeupdate', this.playAudioListener, false);
+    this.playAudioListener = undefined;
+
     // remove more listener
-    that.audioFile.removeEventListener('timeupdate', that.autoPauseMore, false);
+    this.audioFile.removeEventListener('timeupdate', this.playMoreListener, false);
+    this.playMoreListener = undefined;
+
+    //  remove rewidn listener
+    this.audioFile.removeEventListener('timeupdate', this.rewindAudioListener, false);
+    this.rewindAudioListener = undefined;
   };
 
 
@@ -318,12 +307,15 @@ function LasAudioTest() {
   this.showAnswers = function() {
     if ( this.state.answersWaiting || this.state.score || this.state.controls ) {
       //  wait untill answers or score is reset
-      window.setTimeout(that.showAnswers.bind(this), 100);
+      this.showAnswersTimer = window.setTimeout(function() {
+        this.showAnswers();
+      }.bind(this), 100);
 
       return false;
     }
 
-    window.clearTimeout(that.showAnswers.bind(this));
+    window.clearTimeout(this.showAnswersTimer);
+    this.showAnswersTimer = undefined;
 
     this.resetScore();
 
@@ -376,8 +368,8 @@ function LasAudioTest() {
 
       if ( i === (c - 1) ) {
         completeFn = function() {
-          that.state.answersWaiting = false;
-        }
+          this.state.answersWaiting = false;
+        }.bind(this);
       }
 
       if ( i < c ) {
@@ -412,7 +404,7 @@ function LasAudioTest() {
     this.state.bubbling = true;
 
     //  pause, if user clicked an answer, we need to pause audio, so we can play the next one
-    that.pauseAudio();
+    this.pauseAudio();
 
     window.console.log('answerToBubble');
     window.console.log(next);
@@ -447,7 +439,7 @@ function LasAudioTest() {
       this.audioMsg.innerHTML = this.msg;
       Velocity(this.audioMsg,
         { opacity: [1, 0] },
-        { duration: speed, easing: "easeInOutQuart" }
+        { duration: speed, easing: "easeInOutQuart", display: "block" }
       );
     }
 
@@ -464,7 +456,7 @@ function LasAudioTest() {
 
       Velocity(this.audioMsg,
         { opacity: [0, 1] },
-        { duration: speed, easing: "easeInOutQuart", queue: false }
+        { duration: speed, easing: "easeInOutQuart", display: "none" }
       );
     }
   };
@@ -480,7 +472,7 @@ function LasAudioTest() {
 
     Velocity(this.audioScore,
         { opacity: 1 },
-        { duration: speed*2, easing: "easeInOutQuart" }
+        { duration: speed*2, easing: "easeInOutQuart", display: "block" }
       );
   };
 
@@ -492,12 +484,16 @@ function LasAudioTest() {
 
     window.console.log("reset score");
 
+    var completeFn = function() {
+      this.state.score = false;
+      this.showControls();
+    }.bind(this);
+
     Velocity(this.audioScore,
       { opacity: 0 },
-      { duration: speed*2, easing: "easeInOutQuart", queue: false,
+      { duration: speed*2, easing: "easeInOutQuart", display: "none",
         complete: function() {
-          that.state.score = false;
-          that.showControls();
+          completeFn();
         }
       }
     );
@@ -516,11 +512,20 @@ function LasAudioTest() {
 
     window.console.log("show controls");
 
+    console.log(this.startTime);
+
     if ( this.more !== null ) {
       this.audioMore.style.display = "inline-block";
     }
     else {
       this.audioMore.style.display = "none";
+    }
+
+    if ( this.startTime !== "" ) {
+      this.audioRewind.style.display = "inline-block";
+    }
+    else {
+      this.audioRewind.style.display = "none";
     }
 
     Velocity(this.audioControls,
@@ -539,11 +544,15 @@ function LasAudioTest() {
 
     window.console.log("reset controls");
 
+    var completeFn = function() {
+      this.state.controls = false;
+    }.bind(this);
+
     Velocity(this.audioControls,
       { opacity: 0 },
       { duration: speed, easing: "easeInOutQuart", queue: false, display: "none",
         complete: function() {
-          that.state.controls = false;
+          completeFn();
         }
       }
     );
@@ -562,7 +571,7 @@ function LasAudioTest() {
     window.console.log("Assign bubble data");
 
     //  playback times
-    if ( this.currentBubbleData.hasOwnProperty("startTime") || (this.currentBubbleData.startTime === 0) ) {
+    if ( this.currentBubbleData.hasOwnProperty("startTime") ) {
       //  if there is time
       this.startTime = this.currentBubbleData.startTime;
       this.stopTime = this.currentBubbleData.stopTime;
@@ -631,6 +640,9 @@ function LasAudioTest() {
     var i,
         c = this.currentBubbleData.answers.length;
 
+    //  shuffle answers
+    this.currentBubbleData.answers = this.shuffleArray(this.currentBubbleData.answers);
+
     for (i = 0; i < c; i++) {
       this.answersData[i] = {};
       this.answersData[i].answer = this.currentBubbleData.answers[i].answer;
@@ -662,9 +674,9 @@ function LasAudioTest() {
     //  @target comes from even handler
     //  @answerData is assign in assignAnswers
 
-    if ( that.state.firstPlay ) {
+    if ( this.state.firstPlay ) {
       //  if it was first play, change the state
-      that.state.firstPlay = false;
+      this.state.firstPlay = false;
     }
 
 
@@ -691,7 +703,7 @@ function LasAudioTest() {
     }
     else {
       //  if not wrong, then run answer to bubble
-      that.answerToBubble( answerData.next );
+      this.answerToBubble( answerData.next );
     }
 
   };
@@ -703,48 +715,48 @@ function LasAudioTest() {
 
     if ( ( event.target.id === 'answer-one' ) || ( event.target.parentNode.id === 'answer-one' ) ) {
       //  load the answer no 1
-      that.clickAnswer( event.target, that.answersData[0] );
+      this.clickAnswer( event.target, this.answersData[0] );
 
     }
     else if ( ( event.target.id === 'answer-two' ) || ( event.target.parentNode.id === 'answer-two' ) ) {
       //  load the answer no 2
-      that.clickAnswer( event.target, that.answersData[1] );
+      this.clickAnswer( event.target, this.answersData[1] );
 
     }
     else if ( ( event.target.id === 'answer-three' ) || ( event.target.parentNode.id === 'answer-three' ) ) {
       //  load the answer no 3
-      that.clickAnswer( event.target, that.answersData[2] );
+      this.clickAnswer( event.target, this.answersData[2] );
 
     }
     else if ( ( event.target.id === 'answer-four' ) || ( event.target.parentNode.id === 'answer-four' ) ) {
       //  load the answer no 4
-      that.clickAnswer( event.target, that.answersData[3] );
+      this.clickAnswer( event.target, this.answersData[3] );
 
     }
     else if ( ( event.target.id === 'audio-play' ) || ( event.target.parentNode.id === 'audio-play' ) ) {
       //  Play audio at specific time
-      //  Add event listener that will stop the file
+      //  Add event listener this will stop the file
 
-      if ( that.state.firstPlay ) {
+      if ( this.state.firstPlay ) {
         //  if it is the first time we click play, reset the intro msg and answer
         //  and allow the play button to work
-        that.answerToBubble('ENDINTRO');
-        that.state.firstPlay = false;
+        this.answerToBubble('ENDINTRO');
+        this.state.firstPlay = false;
       }
       else {
 
-        if ( that.state.playing ) {
+        if ( this.state.playing ) {
           //  if it is playing now, pause it
-          that.pauseAudio();
+          this.pauseAudio();
         }
-        else if ( that.state.answersWaiting ) {
+        else if ( this.state.answersWaiting ) {
           //  if there are answers waiting, play once again the question
-          that.playAudio();
+          this.playAudio();
         }
-        else if ( !that.state.playing && !that.state.answersWaiting ) {
+        else if ( !this.state.playing && !this.state.answersWaiting ) {
           //  if it is paused, resume
-          that.state.playing = true;
-          that.audioFile.play();
+          this.state.playing = true;
+          this.audioFile.play();
         }
 
       }
@@ -752,16 +764,16 @@ function LasAudioTest() {
 
     }
     else if ( ( event.target.id === 'audio-rewind' ) || ( event.target.parentNode.id === 'audio-rewind' ) ) {
-      //  if the fragment is longer that 10 s, rewind 10 s, otherwise rewidn to the begging o the current fragment
-      that.rewindAudio();
+      //  if the fragment is longer this 10 s, rewind 10 s, otherwise rewidn to the begging o the current fragment
+      this.rewindAudio();
     }
     else if ( ( event.target.id === 'audio-next' ) || ( event.target.parentNode.id === 'audio-next' ) ) {
       //  get the next bubble
-      that.answerToBubble( that.bubbleAutoNext );
+      this.answerToBubble( this.bubbleAutoNext );
     }
     else if ( ( event.target.id === 'audio-more' ) || ( event.target.parentNode.id === 'audio-more' ) ) {
       //  play more
-      that.playMore();
+      this.playMore();
     }
 
     event.preventDefault();
@@ -773,12 +785,12 @@ function LasAudioTest() {
   this.addListener = function() {
     window.console.log('add event listener');
     this.wrapper.addEventListener('touchstart', function(event) {
-      that.eventHandler(event);
-    }, false);
+      this.eventHandler(event);
+    }.bind(this), false);
 
     this.wrapper.addEventListener('click', function(event) {
-      that.eventHandler(event);
-    }, false);
+      this.eventHandler(event);
+    }.bind(this), false);
 
   };
 
