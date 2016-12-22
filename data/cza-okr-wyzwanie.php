@@ -12,7 +12,7 @@ function LasAudioData() {
 
   this.intro = {
     a1: {
-      msg: "Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>start</i>.",
+      msg: "Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i>.",
       autoNext: "ENDINTRO",
       more: { startTime: 0, stopTime: 26 }
     }
@@ -22,624 +22,663 @@ function LasAudioData() {
   this.chat = {
 
     ikveld1: {
-      msg: 'Vi går på en fest <span class="audio-test-clue">(dziś wieczorem)</span>.',
+      msg: 'Vi går på festen <span class="audio-test-clue">dziś wieczorem</span>.',
       answers: [
-        { answer: '<i>i kveld</i>', next: 'ikveld2' },
-        { answer: '<i>om kvelden</i>', wrong: true },
-        { answer: '<i>i dag</i>', wrong: true },
-        { answer: '<i>om natta</i>', wrong: true }
+        { answer: 'i kveld', next: 'ikveld2' },
+        { answer: 'om kvelden', wrong: true },
+        { answer: 'i dag', wrong: true },
+        { answer: 'om natta', wrong: true }
       ]
     },
     ikveld2: {
-      msg: 'SCORE',
+      msg: 'Vi går på festen i kveld.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omkvelden1: {
-      msg: 'Jeg lærer norsk <span class="audio-test-clue">(wieczorami)</span>.',
+      msg: 'Jeg lærer norsk <span class="audio-test-clue">wieczorami</span>.',
       answers: [
-        { answer: '<i>om kvelden</i>', next: 'omkvelden2' },
-        { answer: '<i>i kveld</i>', wrong: true },
-        { answer: '<i>hver dag</i>', wrong: true },
-        { answer: '<i>i natt</i>', wrong: true }
+        { answer: 'om kvelden', next: 'omkvelden2' },
+        { answer: 'i kveld', wrong: true },
+        { answer: 'hver dag', wrong: true },
+        { answer: 'i natt', wrong: true }
       ]
     },
     omkvelden2: {
-      msg: 'SCORE',
+      msg: 'Jeg lærer norsk om kvelden.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     imorgen1: {
-      msg: 'Jeg går på jobb <span class="audio-test-clue">(jutro)</span>.',
+      msg: 'Jeg går på jobb <span class="audio-test-clue">jutro</span>.',
       answers: [
-        { answer: '<i>i morgen</i>', next: 'imorgen2' },
-        { answer: '<i>om morgenen</i>', wrong: true },
-        { answer: '<i>i dag</i>', wrong: true },
-        { answer: '<i>om dagen</i>', wrong: true }
+        { answer: 'i morgen', next: 'imorgen2' },
+        { answer: 'om morgenen', wrong: true },
+        { answer: 'i dag', wrong: true },
+        { answer: 'om dagen', wrong: true }
       ]
     },
     imorgen2: {
-      msg: 'SCORE',
+      msg: 'Jeg går på jobb i morgen.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     imorgentidlig1: {
-      msg: 'Jeg skal lage kaffe <span class="audio-test-clue">(jutro rano)</span>.',
+      msg: 'Jeg skal lage kaffe <span class="audio-test-clue">jutro rano</span>.',
       answers: [
-        { answer: '<i>i morgen tidlig</i>', next: 'imorgentidlig2' },
-        { answer: '<i>i morgen</i>', wrong: true },
-        { answer: '<i>i morgen kveld</i>', wrong: true },
-        { answer: '<i>om morgenen</i>', wrong: true }
+        { answer: 'i morgen tidlig', next: 'imorgentidlig2' },
+        { answer: 'i morgen', wrong: true },
+        { answer: 'i morgen kveld', wrong: true },
+        { answer: 'om morgenen', wrong: true }
       ]
     },
     imorgentidlig2: {
-      msg: 'SCORE',
+      msg: 'Jeg skal lage kaffe i morgen tidlig',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     ommorgen1: {
-      msg: 'Han står opp tidlig <span class="audio-test-clue">(rano/rankami)</span>.',
+      msg: 'Han står opp tidlig <span class="audio-test-clue">rano/rankami</span>.',
       answers: [
-        { answer: '<i>om morgenen</i>', next: 'ommorgen2' },
-        { answer: '<i>i morges</i>', wrong: true },
-        { answer: '<i>i morgen tidlig</i>', wrong: true },
-        { answer: '<i>i dag</i>', wrong: true }
+        { answer: 'om morgenen', next: 'ommorgen2' },
+        { answer: 'i morges', wrong: true },
+        { answer: 'i morgen tidlig', wrong: true },
+        { answer: 'i dag', wrong: true }
       ]
     },
     ommorgen2: {
-      msg: 'SCORE',
+      msg: 'Han står opp tidlig om morgenen.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     idag1: {
-      msg: 'Takk for <span class="audio-test-clue">(dziś)</span>.',
+      msg: 'Takk for <span class="audio-test-clue">dziś</span>.',
       answers: [
-        { answer: '<i>i dag</i>', next: 'idag2' },
-        { answer: '<i>i morges</i>', wrong: true },
-        { answer: '<i>i natt</i>', wrong: true },
-        { answer: '<i>sist</i>', wrong: true }
+        { answer: 'i dag', next: 'idag2' },
+        { answer: 'i morges', wrong: true },
+        { answer: 'i natt', wrong: true },
+        { answer: 'sist', wrong: true }
       ]
     },
     idag2: {
-      msg: 'SCORE',
+      msg: 'Takk for i dag.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     imorgenkveld1: {
-      msg: 'De skal på treningssenter <span class="audio-test-clue">(jutro wieczorem)</span>.',
+      msg: 'De skal på treningssenter <span class="audio-test-clue">jutro wieczorem</span>.',
       answers: [
-        { answer: '<i>i morgen kveld</i>', next: 'imorgenkveld2' },
-        { answer: '<i>i kveld</i>', wrong: true },
-        { answer: '<i>om kvelden</i>', wrong: true },
-        { answer: '<i>i morgen tidlig</i>', wrong: true }
+        { answer: 'i morgen kveld', next: 'imorgenkveld2' },
+        { answer: 'i kveld', wrong: true },
+        { answer: 'om kvelden', wrong: true },
+        { answer: 'i morgen tidlig', wrong: true }
       ]
     },
     imorgenkveld2: {
-      msg: 'SCORE',
+      msg: 'De skal på treningssenter i morgen kveld.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omettermiddagen1: {
-      msg: 'Jeg vil løpe  <span class="audio-test-clue">(popołudniami)</span>.',
+      msg: 'Jeg vil løpe  <span class="audio-test-clue">popołudniami</span>.',
       answers: [
-        { answer: '<i>om ettermiddagen</i>', next: 'omettermiddagen2' },
-        { answer: '<i>om formiddagen</i>', wrong: true },
-        { answer: '<i>i ettermiddag</i>', wrong: true },
-        { answer: '<i>i formiddag</i>', wrong: true }
+        { answer: 'om ettermiddagen', next: 'omettermiddagen2' },
+        { answer: 'om formiddagen', wrong: true },
+        { answer: 'i ettermiddag', wrong: true },
+        { answer: 'i formiddag', wrong: true }
       ]
     },
     omettermiddagen2: {
-      msg: 'SCORE',
+      msg: 'Jeg vil løpe om ettermiddagen.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     iettermiddag1: {
-      msg: 'Jeg går til frisøren <span class="audio-test-clue">(dziś popołudniu)</span>.',
+      msg: 'Jeg går til frisøren <span class="audio-test-clue">dziś popołudniu</span>.',
       answers: [
-        { answer: '<i>i ettermiddag</i>', next: 'iettermiddag2' },
-        { answer: '<i>i formiddag</i>', wrong: true },
-        { answer: '<i>om formiddagen</i>', wrong: true },
-        { answer: '<i>om ettermiddagen</i>', wrong: true }
+        { answer: 'i ettermiddag', next: 'iettermiddag2' },
+        { answer: 'i formiddag', wrong: true },
+        { answer: 'om formiddagen', wrong: true },
+        { answer: 'om ettermiddagen', wrong: true }
       ]
     },
     iettermiddag2: {
-      msg: 'SCORE',
+      msg: 'Jeg går til frisøren i ettermiddag.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omformiddagen1: {
-      msg: 'Han lufter hunden <span class="audio-test-clue">(przedpołudniami)</span>.',
+      msg: 'Han lufter hunden <span class="audio-test-clue">przedpołudniami</span>.',
       answers: [
-        { answer: '<i>om formiddagen</i>', next: 'omformiddagen2' },
-        { answer: '<i>om ettermiddagen</i>', wrong: true },
-        { answer: '<i>i ettermiddag</i>', wrong: true },
-        { answer: '<i>i formiddag</i>', wrong: true }
+        { answer: 'om formiddagen', next: 'omformiddagen2' },
+        { answer: 'om ettermiddagen', wrong: true },
+        { answer: 'i ettermiddag', wrong: true },
+        { answer: 'i formiddag', wrong: true }
       ]
     },
     omformiddagen2: {
-      msg: 'SCORE',
+      msg: 'Han lufter hunden om formiddagen.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omnatta1: {
-      msg: 'Han kan ikke sove <span class="audio-test-clue">(w nocy/nocami)</span>.',
+      msg: 'Han kan ikke sove <span class="audio-test-clue">w nocy/nocami</span>.',
       answers: [
-        { answer: '<i>om natta</i>', next: 'omnatta2' },
-        { answer: '<i>om kvelden</i>', wrong: true },
-        { answer: '<i>i natt</i>', wrong: true },
-        { answer: '<i>i kveld</i>', wrong: true }
+        { answer: 'om natta', next: 'omnatta2' },
+        { answer: 'om kvelden', wrong: true },
+        { answer: 'i natt', wrong: true },
+        { answer: 'i kveld', wrong: true }
       ]
     },
     omnatta2: {
-      msg: 'SCORE',
+      msg: 'Han kan ikke sove om natta.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     inatt: {
-      msg: 'Naboene fester <span class="audio-test-clue">(dziś w nocy)</span>.',
+      msg: 'Naboene fester <span class="audio-test-clue">dziś w nocy</span>.',
       answers: [
-        { answer: '<i>i natt</i>', next: 'inatt' },
-        { answer: '<i>i kveld</i>', wrong: true },
-        { answer: '<i>om kvelden</i>', wrong: true },
-        { answer: '<i>om ettermiddagen</i>', wrong: true }
+        { answer: 'i natt', next: 'inatt' },
+        { answer: 'i kveld', wrong: true },
+        { answer: 'om kvelden', wrong: true },
+        { answer: 'om ettermiddagen', wrong: true }
       ]
     },
     inatt: {
-      msg: 'SCORE',
+      msg: 'Naboene fester i natt.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omenstund1: {
-      msg: 'Jeg kommer  <span class="audio-test-clue">(za chwilę)</span>.',
+      msg: 'Jeg kommer  <span class="audio-test-clue">za chwilę</span>.',
       answers: [
-        { answer: '<i>om en stund</i>', next: 'omenstund2' },
-        { answer: '<i>i en stund</i>', wrong: true },
-        { answer: '<i>for en stund</i>', wrong: true },
-        { answer: '<i>en stund</i>', wrong: true }
+        { answer: 'om en stund', next: 'omenstund2' },
+        { answer: 'i en stund', wrong: true },
+        { answer: 'for en stund', wrong: true },
+        { answer: 'en stund', wrong: true }
       ]
     },
     omenstund2: {
-      msg: 'SCORE',
+      msg: 'Jeg kommer om en stund.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     na1: {
-      msg: 'Jeg må stikke <span class="audio-test-clue">(teraz)</span>.',
+      msg: 'Jeg må stikke <span class="audio-test-clue">teraz</span>.',
       answers: [
-        { answer: '<i>nå</i>', next: 'na2' },
-        { answer: '<i>om en stund</i>', wrong: true },
-        { answer: '<i>om et øyeblikk</i>', wrong: true },
-        { answer: '<i>etterpå</i>', wrong: true }
+        { answer: 'nå', next: 'na2' },
+        { answer: 'om en stund', wrong: true },
+        { answer: 'om et øyeblikk', wrong: true },
+        { answer: 'etterpå', wrong: true }
       ]
     },
     na2: {
-      msg: 'SCORE',
+      msg: 'Jeg må stikke nå.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omentime1: {
-      msg: 'Vi skal reise <span class="audio-test-clue">(za godzinę)</span>.',
+      msg: 'Vi skal reise <span class="audio-test-clue">za godzinę</span>.',
       answers: [
-        { answer: '<i>om en time</i>', next: 'omentime2' },
-        { answer: '<i>om en tid</i>', wrong: true },
-        { answer: '<i>i en time</i>', wrong: true },
-        { answer: '<i>timehvis</i>', wrong: true }
+        { answer: 'om en time', next: 'omentime2' },
+        { answer: 'om en tid', wrong: true },
+        { answer: 'i en time', wrong: true },
+        { answer: 'timehvis', wrong: true }
       ]
     },
     omentime2: {
-      msg: 'SCORE',
+      msg: 'Vi skal reise om en time.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omettminutt1: {
-      msg: 'Vi er på stedet <span class="audio-test-clue">(za minutę)</span>.',
+      msg: 'Vi er på stedet <span class="audio-test-clue">za minutę</span>.',
       answers: [
-        { answer: '<i>om ett minutt</i>', next: 'omettminutt2' },
-        { answer: '<i>i et minutt</i>', wrong: true },
-        { answer: '<i>om noen minutter</i>', wrong: true },
-        { answer: '<i>på minutt</i>', wrong: true }
+        { answer: 'om ett minutt', next: 'omettminutt2' },
+        { answer: 'i et minutt', wrong: true },
+        { answer: 'om noen minutter', wrong: true },
+        { answer: 'på minutt', wrong: true }
       ]
     },
     omettminutt2: {
-      msg: 'SCORE',
+      msg: 'Vi er på stedet om ett minutt.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omtredager1: {
-      msg: 'Han slutter prosjektet <span class="audio-test-clue">(za trzy dni)</span>.',
+      msg: 'Han slutter prosjektet <span class="audio-test-clue">za trzy dni</span>.',
       answers: [
-        { answer: '<i>om tre dager</i>', next: 'omtredager2' },
-        { answer: '<i>i tre dager</i>', wrong: true },
-        { answer: '<i>om tre timer</i>', wrong: true },
-        { answer: '<i>på torsdag</i>', wrong: true }
+        { answer: 'om tre dager', next: 'omtredager2' },
+        { answer: 'i tre dager', wrong: true },
+        { answer: 'om tre timer', wrong: true },
+        { answer: 'på torsdag', wrong: true }
       ]
     },
     omtredager2: {
-      msg: 'SCORE',
+      msg: 'Han slutter prosjektet om tre dager.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omfemuker1: {
-      msg: 'Jeg kommer tilbake til Norge <span class="audio-test-clue">(za pięć tygodni)</span>.',
+      msg: 'Jeg kommer tilbake til Norge <span class="audio-test-clue">za pięć tygodni</span>.',
       answers: [
-        { answer: '<i>om fem uker</i>', next: 'omfemuker2' },
-        { answer: '<i>om fem måneder</i>', wrong: true },
-        { answer: '<i>om ei uke</i>', wrong: true },
-        { answer: '<i>om to måneder</i>', wrong: true }
+        { answer: 'om fem uker', next: 'omfemuker2' },
+        { answer: 'om fem måneder', wrong: true },
+        { answer: 'om ei uke', wrong: true },
+        { answer: 'om to måneder', wrong: true }
       ]
     },
     omfemuker2: {
-      msg: 'SCORE',
+      msg: 'Jeg kommer tilbake til Norge om fem uker.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omfireman1: {
-      msg: 'Jeg åpner en ny butikk <span class="audio-test-clue">(za cztery miesiące)</span>.',
+      msg: 'Jeg åpner en ny butikk <span class="audio-test-clue">za cztery miesiące</span>.',
       answers: [
-        { answer: '<i>om fire måneder</i>', next: 'omfireman2' },
-        { answer: '<i>om et halvt år</i>', wrong: true },
-        { answer: '<i>om fire uker</i>', wrong: true },
-        { answer: '<i>i fire måneder</i>', wrong: true }
+        { answer: 'om fire måneder', next: 'omfireman2' },
+        { answer: 'om et halvt år', wrong: true },
+        { answer: 'om fire uker', wrong: true },
+        { answer: 'i fire måneder', wrong: true }
       ]
     },
     omfireman2: {
-      msg: 'SCORE',
+      msg: 'Jeg åpner en ny butikk om fire måneder.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omethalvtar1: {
-      msg: 'Han vil slanke seg <span class="audio-test-clue">(za pół roku)</span>.',
+      msg: 'Han vil slanke seg <span class="audio-test-clue">za pół roku</span>.',
       answers: [
-        { answer: '<i>om et halvt år</i>', next: 'omethalvtar2' },
-        { answer: '<i>om fem måneder</i>', wrong: true },
-        { answer: '<i>i seks måneder</i>', wrong: true },
-        { answer: '<i>om et år</i>', wrong: true }
+        { answer: 'om et halvt år', next: 'omethalvtar2' },
+        { answer: 'om fem måneder', wrong: true },
+        { answer: 'i seks måneder', wrong: true },
+        { answer: 'om et år', wrong: true }
       ]
     },
     omethalvtar2: {
-      msg: 'SCORE',
+      msg: 'Han vil slanke seg om et halvt år.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     omnoenar1: {
-      msg: 'Hun blir sjef her <span class="audio-test-clue">(za kilka lat)</span>.',
+      msg: 'Hun blir sjef her <span class="audio-test-clue">za kilka lat</span>.',
       answers: [
-        { answer: '<i>om noen år</i>', next: 'omnoenar2' },
-        { answer: '<i>i noen år</i>', wrong: true },
-        { answer: '<i>hvert år</i>', wrong: true },
-        { answer: '<i>neste år</i>', wrong: true }
+        { answer: 'om noen år', next: 'omnoenar2' },
+        { answer: 'i noen år', wrong: true },
+        { answer: 'hvert år', wrong: true },
+        { answer: 'neste år', wrong: true }
       ]
     },
     omnoenar2: {
-      msg: 'SCORE',
+      msg: 'Hun blir sjef her om noen år.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     nextar1: {
-      msg: 'De gifter seg <span class="audio-test-clue">(w przyszłym roku)</span>.',
+      msg: 'De gifter seg <span class="audio-test-clue">w przyszłym roku</span>.',
       answers: [
-        { answer: '<i>neste år</i>', next: 'nextar2' },
-        { answer: '<i>siste år</i>', wrong: true },
-        { answer: '<i>i år</i>', wrong: true },
-        { answer: '<i>om fem måneder</i>', wrong: true }
+        { answer: 'neste år', next: 'nextar2' },
+        { answer: 'siste år', wrong: true },
+        { answer: 'i år', wrong: true },
+        { answer: 'om fem måneder', wrong: true }
       ]
     },
     nextar2: {
-      msg: 'SCORE',
+      msg: 'De gifter seg neste år.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     nesteuke: {
-      msg: 'Vi sees <span class="audio-test-clue">(w przyszłym tygodniu)</span>.',
+      msg: 'Vi sees <span class="audio-test-clue">w przyszłym tygodniu</span>.',
       answers: [
-        { answer: '<i>neste uke</i>', next: 'nesteuke' },
-        { answer: '<i>igjen</i>', wrong: true },
-        { answer: '<i>om ei uke</i>', wrong: true },
-        { answer: '<i>om sju dager</i>', wrong: true }
+        { answer: 'neste uke', next: 'nesteuke' },
+        { answer: 'igjen', wrong: true },
+        { answer: 'om ei uke', wrong: true },
+        { answer: 'om sju dager', wrong: true }
       ]
     },
     nesteuke: {
-      msg: 'SCORE',
+      msg: 'Vi sees neste uke.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     nestemaned1: {
-      msg: 'Jeg begynner et dansekurs <span class="audio-test-clue">(w następnym/przyszłym miesiącu)</span>.',
+      msg: 'Jeg begynner et dansekurs <span class="audio-test-clue">w następnym/przyszłym miesiącu</span>.',
       answers: [
-        { answer: '<i>neste måned</i>', next: 'nestemaned2' },
-        { answer: '<i>neste år</i>', wrong: true },
-        { answer: '<i>neste gang</i>', wrong: true },
-        { answer: '<i>om en måned</i>', wrong: true }
+        { answer: 'neste måned', next: 'nestemaned2' },
+        { answer: 'neste år', wrong: true },
+        { answer: 'neste gang', wrong: true },
+        { answer: 'om en måned', wrong: true }
       ]
     },
     nestemaned2: {
-      msg: 'SCORE',
+      msg: 'Jeg begynner et dansekurs neste måned.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     nestegang1: {
-      msg: 'Jeg lærer noe nytt <span class="audio-test-clue">(codziennie)</span>.',
+      msg: 'Jeg lærer noe nytt <span class="audio-test-clue">codziennie</span>.',
       answers: [
-        { answer: '<i>hver dag</i>', next: 'nestegang2' },
-        { answer: '<i>i dag</i>', wrong: true },
-        { answer: '<i>om en dag</i>', wrong: true },
-        { answer: '<i>hver andre dag</i>', wrong: true }
+        { answer: 'hver dag', next: 'nestegang2' },
+        { answer: 'i dag', wrong: true },
+        { answer: 'om en dag', wrong: true },
+        { answer: 'hver andre dag', wrong: true }
       ]
     },
     nestegang2: {
-      msg: 'SCORE',
+      msg: 'Jeg lærer noe nytt hver dag.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     hvermorgen1: {
-      msg: 'Jeg løper i parken <span class="audio-test-clue">(każdego ranka)</span>.',
+      msg: 'Jeg løper i parken <span class="audio-test-clue">każdego ranka</span>.',
       answers: [
-        { answer: '<i>hver morgen</i>', next: 'hvermorgen2' },
-        { answer: '<i>i morgen</i>', wrong: true },
-        { answer: '<i>i morges</i>', wrong: true },
-        { answer: '<i>hver dag</i>', wrong: true }
+        { answer: 'hver morgen', next: 'hvermorgen2' },
+        { answer: 'i morgen', wrong: true },
+        { answer: 'i morges', wrong: true },
+        { answer: 'hver dag', wrong: true }
       ]
     },
     hvermorgen2: {
-      msg: 'SCORE',
+      msg: 'Jeg løper i parken hver morgen.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     hvertime1: {
-      msg: 'Jeg sjekker mobilen <span class="audio-test-clue">(co godzinę)</span>.',
+      msg: 'Jeg sjekker mobilen <span class="audio-test-clue">co godzinę</span>.',
       answers: [
-        { answer: '<i>hver time</i>', next: 'hvertime2' },
-        { answer: '<i>i en time</i>', wrong: true },
-        { answer: '<i>på en time</i>', wrong: true },
-        { answer: '<i>hver gang</i>', wrong: true }
+        { answer: 'hver time', next: 'hvertime2' },
+        { answer: 'i en time', wrong: true },
+        { answer: 'på en time', wrong: true },
+        { answer: 'hver gang', wrong: true }
       ]
     },
     hvertime2: {
-      msg: 'SCORE',
+      msg: 'Jeg sjekker mobilen hver time.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     hveruke1: {
-      msg: 'Hun ringer til foreldrene <span class="audio-test-clue">(co tydzień)</span>.',
+      msg: 'Hun ringer til foreldrene <span class="audio-test-clue">co tydzień</span>.',
       answers: [
-        { answer: '<i>hver uke</i>', next: 'hveruke2' },
-        { answer: '<i>hver søndag</i>', wrong: true },
-        { answer: '<i>om uka</i>', wrong: true },
-        { answer: '<i>mange ganger</i>', wrong: true }
+        { answer: 'hver uke', next: 'hveruke2' },
+        { answer: 'hver søndag', wrong: true },
+        { answer: 'om uka', wrong: true },
+        { answer: 'mange ganger', wrong: true }
       ]
     },
     hveruke2: {
-      msg: 'SCORE',
+      msg: 'Hun ringer til foreldrene hver uke.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     annenhveruke1: {
-      msg: 'Han jobber om morgenen <span class="audio-test-clue">(co drugi tydzień)</span>.',
+      msg: 'Han jobber om morgenen <span class="audio-test-clue">co drugi tydzień</span>.',
       answers: [
-        { answer: '<i>annenhver uke</i>', next: 'annenhveruke2' },
-        { answer: '<i>hver andre måned</i>', wrong: true },
-        { answer: '<i>hver uke</i>', wrong: true },
-        { answer: '<i>hver andre gang</i>', wrong: true }
+        { answer: 'annenhver uke', next: 'annenhveruke2' },
+        { answer: 'hver andre måned', wrong: true },
+        { answer: 'hver uke', wrong: true },
+        { answer: 'hver andre gang', wrong: true }
       ]
     },
     annenhveruke2: {
-      msg: 'SCORE',
+      msg: 'Han jobber om morgenen annenhver uke.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     annenhvermaned1: {
-      msg: 'Jeg flyr til Bergen <span class="audio-test-clue">(co drugi miesiąc)</span>.',
+      msg: 'Jeg flyr til Bergen <span class="audio-test-clue">co drugi miesiąc</span>.',
       answers: [
-        { answer: '<i>annehver måned</i>', next: 'annenhvermaned2' },
-        { answer: '<i>hver andre uke</i>', wrong: true },
-        { answer: '<i>hver måned</i>', wrong: true },
-        { answer: '<i>annenhver uke</i>', wrong: true }
+        { answer: 'annehver måned', next: 'annenhvermaned2' },
+        { answer: 'hver andre uke', wrong: true },
+        { answer: 'hver måned', wrong: true },
+        { answer: 'annenhver uke', wrong: true }
       ]
     },
     annenhvermaned2: {
-      msg: 'SCORE',
+      msg: 'Jeg flyr til Bergen annehver måned.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     hvergang1: {
-      msg: 'Han kommer for sent <span class="audio-test-clue">(za każdym razem)</span>.',
+      msg: 'Han kommer for sent <span class="audio-test-clue">za każdym razem</span>.',
       answers: [
-        { answer: '<i>hver gang</i>', next: 'hvergang2' },
-        { answer: '<i>annenhver gang</i>', wrong: true },
-        { answer: '<i>hver time</i>', wrong: true },
-        { answer: '<i>timevis</i>', wrong: true }
+        { answer: 'hver gang', next: 'hvergang2' },
+        { answer: 'annenhver gang', wrong: true },
+        { answer: 'hver time', wrong: true },
+        { answer: 'timevis', wrong: true }
       ]
     },
     hvergang2: {
-      msg: 'SCORE',
+      msg: 'Han kommer for sent hver gang.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     hvertar: {
-      msg: 'Dere betaler skatt <span class="audio-test-clue">(każdego roku)</span>.',
+      msg: 'Dere betaler skatt <span class="audio-test-clue">każdego roku</span>.',
       answers: [
-        { answer: '<i>hvert år</i>', next: 'hvertar' },
-        { answer: '<i>hver andre år</i>', wrong: true },
-        { answer: '<i>aldri</i>', wrong: true },
-        { answer: '<i>hvis dere husker det</i>', wrong: true }
+        { answer: 'hvert år', next: 'hvertar' },
+        { answer: 'hver andre år', wrong: true },
+        { answer: 'aldri', wrong: true },
+        { answer: 'hvis dere husker det', wrong: true }
       ]
     },
     hvertar: {
-      msg: 'SCORE',
+      msg: 'Dere betaler skatt hvert år.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     hversommer1: {
-      msg: 'De besøker venner <span class="audio-test-clue">(każdego lata)</span>.',
+      msg: 'De besøker venner <span class="audio-test-clue">każdego lata</span>.',
       answers: [
-        { answer: '<i>hver sommer</i>', next: 'hversommer2' },
-        { answer: '<i>hver vinter</i>', wrong: true },
-        { answer: '<i>hver måned</i>', wrong: true },
-        { answer: '<i>hver vår</i>', wrong: true }
+        { answer: 'hver sommer', next: 'hversommer2' },
+        { answer: 'hver vinter', wrong: true },
+        { answer: 'hver måned', wrong: true },
+        { answer: 'hver vår', wrong: true }
       ]
     },
     hversommer2: {
-      msg: 'SCORE',
+      msg: 'De besøker venner hver sommer.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     hvervinter1: {
-      msg: 'De reiser til Spania <span class="audio-test-clue">(każdej zimy)</span>.',
+      msg: 'De reiser til Spania <span class="audio-test-clue">każdej zimy</span>.',
       answers: [
-        { answer: '<i>hver vinter</i>', next: 'hvervinter2' },
-        { answer: '<i>om vinteren</i>', wrong: true },
-        { answer: '<i>i helga</i>', wrong: true },
-        { answer: '<i>hver ferie</i>', wrong: true }
+        { answer: 'hver vinter', next: 'hvervinter2' },
+        { answer: 'om vinteren', wrong: true },
+        { answer: 'i helga', wrong: true },
+        { answer: 'hver ferie', wrong: true }
       ]
     },
     hvervinter2: {
-      msg: 'SCORE',
+      msg: 'De reiser til Spania hver vinter.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     ihost1: {
-      msg: 'Det regner ikke <span class="audio-test-clue">(tej jesieni)</span>.',
+      msg: 'Det regner ikke <span class="audio-test-clue">tej jesieni</span>.',
       answers: [
-        { answer: '<i>i høst</i>', next: 'ihost2' },
-        { answer: '<i>siste høst</i>', wrong: true },
-        { answer: '<i>om høsten</i>', wrong: true },
-        { answer: '<i>hver høst</i>', wrong: true }
+        { answer: 'i høst', next: 'ihost2' },
+        { answer: 'siste høst', wrong: true },
+        { answer: 'om høsten', wrong: true },
+        { answer: 'hver høst', wrong: true }
       ]
     },
     ihost2: {
-      msg: 'SCORE',
+      msg: 'Det regner ikke i høst.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     ivar1: {
-      msg: 'De bytter dørklokka <span class="audio-test-clue">(tej wiosny)</span>.',
+      msg: 'De bytter dørklokka <span class="audio-test-clue">tej wiosny</span>.',
       answers: [
-        { answer: '<i>i vår</i>', next: 'ivar2' },
-        { answer: '<i>hver vår</i>', wrong: true },
-        { answer: '<i>hver andre høst</i>', wrong: true },
-        { answer: '<i>hver høst</i>', wrong: true }
+        { answer: 'i vår', next: 'ivar2' },
+        { answer: 'hver vår', wrong: true },
+        { answer: 'hver andre høst', wrong: true },
+        { answer: 'hver høst', wrong: true }
       ]
     },
     ivar2: {
-      msg: 'SCORE',
+      msg: 'De bytter dørklokka i vår.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     itoar1: {
-      msg: 'Vi skal bo i Ålesund <span class="audio-test-clue">(przez dwa lata)</span>.',
+      msg: 'Vi skal bo i Ålesund <span class="audio-test-clue">przez dwa lata</span>.',
       answers: [
-        { answer: '<i>i to år</i>', next: 'itoar2' },
-        { answer: '<i>om to år</i>', wrong: true },
-        { answer: '<i>for to år siden</i>', wrong: true },
-        { answer: '<i>for to år</i>', wrong: true }
+        { answer: 'i to år', next: 'itoar2' },
+        { answer: 'om to år', wrong: true },
+        { answer: 'for to år siden', wrong: true },
+        { answer: 'for to år', wrong: true }
       ]
     },
     itoar2: {
-      msg: 'SCORE',
+      msg: 'Vi skal bo i Ålesund i to år.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     iovermorgen1: {
-      msg: 'De leverer skapene <span class="audio-test-clue">(pojutrze)</span>.',
+      msg: 'De leverer skapene <span class="audio-test-clue">pojutrze</span>.',
       answers: [
-        { answer: '<i>i overmorgen</i>', next: 'iovermorgen2' },
-        { answer: '<i>om noen dager</i>', wrong: true },
-        { answer: '<i>på tirsdag</i>', wrong: true },
-        { answer: '<i>i morgen</i>', wrong: true }
+        { answer: 'i overmorgen', next: 'iovermorgen2' },
+        { answer: 'om noen dager', wrong: true },
+        { answer: 'på tirsdag', wrong: true },
+        { answer: 'i morgen', wrong: true }
       ]
     },
     iovermorgen2: {
-      msg: 'SCORE',
+      msg: 'De leverer skapene i overmorgen.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
     },
 
     ihelga1: {
-      msg: 'De leverer skapene <span class="audio-test-clue">(pojutrze)</span>.',
+      msg: 'De leverer skapene <span class="audio-test-clue">pojutrze</span>.',
       answers: [
-        { answer: '<i>i overmorgen</i>', next: 'ihelga2' },
-        { answer: '<i>om noen dager</i>', wrong: true },
-        { answer: '<i>på tirsdag</i>', wrong: true },
-        { answer: '<i>i morgen</i>', wrong: true }
+        { answer: 'i overmorgen', next: 'ihelga2' },
+        { answer: 'om noen dager', wrong: true },
+        { answer: 'på tirsdag', wrong: true },
+        { answer: 'i morgen', wrong: true }
       ]
     },
     ihelga2: {
-      msg: 'SCORE',
+      msg: 'De leverer skapene i overmorgen.',
+      score: true,
 //      startTime:  0,
 //      stopTime:   0,
       autoNext:   'RANDOM'
