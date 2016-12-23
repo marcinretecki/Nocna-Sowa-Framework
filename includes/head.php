@@ -37,7 +37,7 @@ var lasChapter = "<?php echo $post->post_name; ?>";
   <div class="section-nav">
     <span class="btn btn-nav navbar-logo--centered">//</span>
 
-    <nav class="navbar section-white" style="width:100%;">
+    <nav class="section-white" style="width:100%;">
       <ul class="nabar__list alignright">
                  <li><a href="../" class="btn btn-dark-outline btn-nav">SOS
         </a></li>

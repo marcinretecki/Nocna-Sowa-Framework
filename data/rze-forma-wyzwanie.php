@@ -24,19 +24,13 @@ function LasAudioData() {
       stopTime:   30,
       answers: [
         { answer: 'en buss', next: 'buss2' },
-        { answer: 'bussen', next: 'buss1b', wrong: true }
-      ]
-    },
-    buss1b: {
-      startTime:  34,
-      stopTime:   40,
-      answers: [
-        { answer: 'en buss', next: 'buss2' }
-      ]
+        { answer: 'bussen', wrong: true }
+      ],
+      more:       { startTime: 34, stopTime: 40 }
     },
     buss2: {
-      msg: '<i>en buss</i>',
-      score: true,
+      msg:        '<i>en buss</i>',
+      score:      true,
       startTime:  31,
       stopTime:   33,
       autoNext:   'RANDOM'
@@ -49,19 +43,13 @@ function LasAudioData() {
       stopTime:   43,
       answers: [
         { answer: 'speilet', next: 'speil2' },
-        { answer: 'et speil', next: 'speil1b', wrong: true }
-      ]
-    },
-    speil1b: {
-      startTime:  47,
-      stopTime:   56,
-      answers: [
-        { answer: 'speilet', next: 'speil2' }
-      ]
+        { answer: 'et speil', wrong: true }
+      ],
+      more:       { startTime: 47, stopTime: 56 }
     },
     speil2: {
-      msg: '<i>speilet</i>',
-      score: true,
+      msg:        '<i>speilet</i>',
+      score:      true,
       startTime:  44,
       stopTime:   46,
       autoNext:   'RANDOM'
@@ -74,19 +62,13 @@ function LasAudioData() {
       stopTime:   61,
       answers: [
         { answer: 'mannen', next: 'mann2' },
-        { answer: 'en mann', next: 'mann1b', wrong: true }
-      ]
-    },
-    mann1b: {
-      startTime:  65,
-      stopTime:   75,
-      answers: [
-        { answer: 'mannen', next: 'mann2' }
-      ]
+        { answer: 'en mann', wrong: true }
+      ],
+      more:       { startTime: 65, stopTime: 75 }
     },
     mann2: {
-      msg: '<i>mannen</i>',
-      score: true,
+      msg:        '<i>mannen</i>',
+      score:      true,
       startTime:  62,
       stopTime:   64,
       autoNext:   'RANDOM'
@@ -99,19 +81,13 @@ function LasAudioData() {
       stopTime:   79,
       answers: [
         { answer: 'ei kvinne', next: 'kvinne2' },
-        { answer: 'kvinna', next: 'kvinne1b', wrong: true }
-      ]
-    },
-    kvinne1b: {
-      startTime:  83,
-      stopTime:   89,
-      answers: [
-        { answer: 'ei kvinne', next: 'kvinne2' }
-      ]
+        { answer: 'kvinna', wrong: true }
+      ],
+      more:       { startTime: 83, stopTime: 89 }
     },
     kvinne2: {
-      msg: '<i>ei kvinne</i>',
-      score: true,
+      msg:        '<i>ei kvinne</i>',
+      score:      true,
       startTime:  80,
       stopTime:   82,
       autoNext:   'RANDOM'
@@ -124,19 +100,13 @@ function LasAudioData() {
       stopTime:   92,
       answers: [
         { answer: 'gutten', next: 'gutt2' },
-        { answer: 'en gutt', next: 'gutt1b', wrong: true }
-      ]
-    },
-    gutt1b: {
-      startTime:  96,
-      stopTime:  106,
-      answers: [
-        { answer: 'gutten', next: 'gutt2' }
-      ]
+        { answer: 'en gutt', wrong: true }
+      ],
+      more:       { startTime: 96, stopTime: 106 }
     },
     gutt2: {
-      msg: '<i>gutten</i>',
-      score: true,
+      msg:        '<i>gutten</i>',
+      score:      true,
       startTime:  93,
       stopTime:   95,
       autoNext:   'RANDOM'
@@ -149,19 +119,13 @@ function LasAudioData() {
       stopTime:   111,
       answers: [
         { answer: 'ei jente', next: 'jente2' },
-        { answer: 'jenta', next: 'jente1b', wrong: true }
-      ]
-    },
-    jente1b: {
-      startTime:  115,
-      stopTime:   121,
-      answers: [
-        { answer: 'ei jente', next: 'jente2' }
-      ]
+        { answer: 'jenta', wrong: true }
+      ],
+      more:       { startTime: 115, stopTime: 121 }
     },
     jente2: {
-      msg: '<i>ei jente</i>',
-      score: true,
+      msg:        '<i>ei jente</i>',
+      score:      true,
       startTime:  112,
       stopTime:   114,
       autoNext:   'RANDOM'
@@ -174,19 +138,13 @@ function LasAudioData() {
       stopTime:   125,
       answers: [
         { answer: 'barnet', next: 'barn2' },
-        { answer: 'et barn', next: 'barn1b', wrong: true }
-      ]
-    },
-    barn1b: {
-      startTime:  129,
-      stopTime:   138,
-      answers: [
-        { answer: 'barnet', next: 'barn2' }
-      ]
+        { answer: 'et barn', wrong: true }
+      ],
+      more:       { startTime: 129, stopTime: 138 }
     },
     barn2: {
-      msg: '<i>barnet</i>',
-      score: true,
+      msg:        '<i>barnet</i>',
+      score:      true,
       startTime:  126,
       stopTime:   128,
       autoNext:   'RANDOM'
@@ -199,19 +157,13 @@ function LasAudioData() {
       stopTime:   142,
       answers: [
         { answer: 'kona', next: 'kone2' },
-        { answer: 'ei kone', next: 'kone1b', wrong: true }
-      ]
-    },
-    kone1b: {
-      startTime:  146,
-      stopTime:   156,
-      answers: [
-        { answer: 'kona', next: 'kone2' }
-      ]
+        { answer: 'ei kone', wrong: true }
+      ],
+      more:       { startTime: 146, stopTime: 156 }
     },
     kone2: {
-      msg: '<i>kona</i>',
-      score: true,
+      msg:        '<i>kona</i>',
+      score:      true,
       startTime:  143,
       stopTime:   145,
       autoNext:   'RANDOM'
@@ -224,15 +176,9 @@ function LasAudioData() {
       stopTime:   159,
       answers: [
         { answer: 'landet', next: 'land2' },
-        { answer: 'et land', next: 'land1b', wrong: true }
-      ]
-    },
-    land1b: {
-      startTime:  163,
-      stopTime:   172,
-      answers: [
-        { answer: 'landet', next: 'land2' }
-      ]
+        { answer: 'et land', wrong: true }
+      ],
+      more:       { startTime: 163, stopTime: 172 }
     },
     land2: {
       msg: '<i>landet</i>',
@@ -249,15 +195,9 @@ function LasAudioData() {
       stopTime:   177,
       answers: [
         { answer: 'ei hytte', next: 'hytte2' },
-        { answer: 'hytta', next: 'hytte1b', wrong: true }
-      ]
-    },
-    hytte1b: {
-      startTime:  181,
-      stopTime:   187,
-      answers: [
-        { answer: 'ei hytte', next: 'hytte2' }
-      ]
+        { answer: 'hytta', wrong: true }
+      ],
+      more:       { startTime: 181, stopTime: 187 }
     },
     hytte2: {
       msg: '<i>ei hytte</i>',
@@ -275,15 +215,9 @@ function LasAudioData() {
       stopTime:   204,
       answers: [
         { answer: 'hylla', next: 'hylle2' },
-        { answer: 'ei hylle', next: 'hylle1b', wrong: true }
-      ]
-    },
-    hylle1b: {
-      startTime:  208,
-      stopTime:   217,
-      answers: [
-        { answer: 'hylla', next: 'hylle2' }
-      ]
+        { answer: 'ei hylle', wrong: true }
+      ],
+      more:       { startTime: 208, stopTime: 217 }
     },
     hylle2: {
       msg: '<i>hylla</i>',
@@ -300,15 +234,9 @@ function LasAudioData() {
       stopTime:   220,
       answers: [
         { answer: 'et vindu', next: 'vindu2' },
-        { answer: 'vinduet', next: 'vindu1b', wrong: true }
-      ]
-    },
-    vindu1b: {
-      startTime:  224,
-      stopTime:   230,
-      answers: [
-        { answer: 'et vindu', next: 'vindu2' }
-      ]
+        { answer: 'vinduet', wrong: true }
+      ],
+      more:       { startTime: 224, stopTime: 230 }
     },
     vindu2: {
       msg: '<i>et vindu</i>',
@@ -325,15 +253,9 @@ function LasAudioData() {
       stopTime:   234,
       answers: [
         { answer: 'gulvet', next: 'gulv2' },
-        { answer: 'et gulv', next: 'gulv1b', wrong: true }
-      ]
-    },
-    gulv1b: {
-      startTime:  238,
-      stopTime:   248,
-      answers: [
-        { answer: 'gulvet', next: 'gulv2' }
-      ]
+        { answer: 'et gulv', wrong: true }
+      ],
+      more:       { startTime: 238, stopTime: 248 }
     },
     gulv2: {
       msg: '<i>gulvet</i>',
@@ -350,15 +272,9 @@ function LasAudioData() {
       stopTime:   252,
       answers: [
         { answer: 'et bord', next: 'bord2' },
-        { answer: 'bordet', next: 'bord1b', wrong: true }
-      ]
-    },
-    bord1b: {
-      startTime:  256,
-      stopTime:   262,
-      answers: [
-        { answer: 'et bord', next: 'bord2' }
-      ]
+        { answer: 'bordet', wrong: true }
+      ],
+      more:       { startTime: 256, stopTime: 262 }
     },
     bord2: {
       msg: '<i>et bord</i>',
@@ -375,15 +291,9 @@ function LasAudioData() {
       stopTime:   265,
       answers: [
         { answer: 'skapet', next: 'skap2' },
-        { answer: 'et skap', next: 'skap1b', wrong: true }
-      ]
-    },
-    skap1b: {
-      startTime:  269,
-      stopTime:   279,
-      answers: [
-        { answer: 'skapet', next: 'skap2' }
-      ]
+        { answer: 'et skap', wrong: true }
+      ],
+      more:       { startTime: 269, stopTime: 279 }
     },
     skap2: {
       msg: '<i>skapet</i>',
@@ -400,15 +310,9 @@ function LasAudioData() {
       stopTime:   283,
       answers: [
         { answer: 'en stol', next: 'stol2' },
-        { answer: 'stolen', next: 'stol1b', wrong: true }
-      ]
-    },
-    stol1b: {
-      startTime:  287,
-      stopTime:   294,
-      answers: [
-        { answer: 'en stol', next: 'stol2' }
-      ]
+        { answer: 'stolen', wrong: true }
+      ],
+      more:       { startTime: 287, stopTime: 294 }
     },
     stol2: {
       msg: '<i>en stol</i>',
@@ -425,15 +329,9 @@ function LasAudioData() {
       stopTime:   297,
       answers: [
         { answer: 'mobilen', next: 'mobil2' },
-        { answer: 'en mobil', next: 'mobil1b', wrong: true }
-      ]
-    },
-    mobil1b: {
-      startTime:  301,
-      stopTime:   311,
-      answers: [
-        { answer: 'mobilen', next: 'mobil2' }
-      ]
+        { answer: 'en mobil', wrong: true }
+      ],
+      more:       { startTime: 301, stopTime: 311 }
     },
     mobil2: {
       msg: '<i>mobilen</i>',
@@ -451,15 +349,9 @@ function LasAudioData() {
       stopTime:   325,
       answers: [
         { answer: 'en melding', next: 'melding2' },
-        { answer: 'meldingen', next: 'melding1b', wrong: true }
-      ]
-    },
-    melding1b: {
-      startTime:  329,
-      stopTime:   335,
-      answers: [
-        { answer: 'en melding', next: 'melding2' }
-      ]
+        { answer: 'meldingen', wrong: true }
+      ],
+      more:       { startTime: 329, stopTime: 335 }
     },
     melding2: {
       msg: '<i>en melding</i>',
@@ -477,15 +369,9 @@ function LasAudioData() {
       stopTime:   345,
       answers: [
         { answer: 'toget', next: 'tog2' },
-        { answer: 'et tog', next: 'tog1b', wrong: true }
-      ]
-    },
-    tog1b: {
-      startTime:  349,
-      stopTime:   358,
-      answers: [
-        { answer: 'toget', next: 'tog2' }
-      ]
+        { answer: 'et tog', wrong: true }
+      ],
+      more:       { startTime: 349, stopTime: 358 }
     },
     tog2: {
       msg: '<i>toget</i>',
@@ -502,15 +388,9 @@ function LasAudioData() {
       stopTime:   361,
       answers: [
         { answer: 'et hus', next: 'hus2' },
-        { answer: 'huset', next: 'hus1b', wrong: true }
-      ]
-    },
-    hus1b: {
-      startTime:  365,
-      stopTime:   371,
-      answers: [
-        { answer: 'et hus', next: 'hus2' }
-      ]
+        { answer: 'huset', wrong: true }
+      ],
+      more:       { startTime: 365, stopTime: 371 }
     },
     hus2: {
       msg: '<i>et hus</i>',
@@ -527,15 +407,9 @@ function LasAudioData() {
       stopTime:   374,
       answers: [
         { answer: 'senga', next: 'seng2' },
-        { answer: 'ei seng', next: 'seng1b', wrong: true }
-      ]
-    },
-    seng1b: {
-      startTime:  378,
-      stopTime:   387,
-      answers: [
-        { answer: 'senga', next: 'seng2' }
-      ]
+        { answer: 'ei seng', wrong: true }
+      ],
+      more:       { startTime: 378, stopTime: 387 }
     },
     seng2: {
       msg: '<i>senga</i>',
@@ -552,15 +426,9 @@ function LasAudioData() {
       stopTime:   391,
       answers: [
         { answer: 'en kontakt', next: 'kontakt2' },
-        { answer: 'kontakten', next: 'kontakt1b', wrong: true }
-      ]
-    },
-    kontakt1b: {
-      startTime:  395,
-      stopTime:   401,
-      answers: [
-        { answer: 'en kontakt', next: 'kontakt2' }
-      ]
+        { answer: 'kontakten', wrong: true }
+      ],
+      more:       { startTime: 395, stopTime: 401 }
     },
     kontakt2: {
       msg: '<i>en kontakt</i>',
@@ -577,15 +445,9 @@ function LasAudioData() {
       stopTime:   405,
       answers: [
         { answer: 'et menneske', next: 'menneske2' },
-        { answer: 'mennesket', next: 'menneske1b', wrong: true }
-      ]
-    },
-    menneske1b: {
-      startTime:  409,
-      stopTime:   415,
-      answers: [
-        { answer: 'et menneske', next: 'menneske2' }
-      ]
+        { answer: 'mennesket', wrong: true }
+      ],
+      more:       { startTime: 409, stopTime: 415 }
     },
     menneske2: {
       msg: '<i>et menneske</i>',
@@ -602,15 +464,9 @@ function LasAudioData() {
       stopTime:   418,
       answers: [
         { answer: 'flyet', next: 'fly2' },
-        { answer: 'et fly', next: 'fly1b', wrong: true }
-      ]
-    },
-    fly1b: {
-      startTime:  422,
-      stopTime:   431,
-      answers: [
-        { answer: 'flyet', next: 'fly2' }
-      ]
+        { answer: 'et fly', wrong: true }
+      ],
+      more:       { startTime: 422, stopTime: 431 }
     },
     fly2: {
       msg: '<i>flyet</i>',
@@ -627,15 +483,9 @@ function LasAudioData() {
       stopTime:   435,
       answers: [
         { answer: 'en hund', next: 'hund2' },
-        { answer: 'hunden', next: 'hund1b', wrong: true }
-      ]
-    },
-    hund1b: {
-      startTime:  439,
-      stopTime:   445,
-      answers: [
-        { answer: 'en hund', next: 'hund2' }
-      ]
+        { answer: 'hunden', wrong: true }
+      ],
+      more:       { startTime: 439, stopTime: 445 }
     },
     hund2: {
       msg: '<i>en hund</i>',
@@ -652,15 +502,9 @@ function LasAudioData() {
       stopTime:   449,
       answers: [
         { answer: 'avtalen', next: 'avtale2' },
-        { answer: 'en avtale', next: 'avtale1b', wrong: true }
-      ]
-    },
-    avtale1b: {
-      startTime:  453,
-      stopTime:   463,
-      answers: [
-        { answer: 'avtalen', next: 'avtale2' }
-      ]
+        { answer: 'en avtale', wrong: true }
+      ],
+      more:       { startTime: 453, stopTime: 463 }
     },
     avtale2: {
       msg: '<i>avtalen</i>',
@@ -677,15 +521,9 @@ function LasAudioData() {
       stopTime:   467,
       answers: [
         { answer: 'en by', next: 'by2' },
-        { answer: 'byen', next: 'by1b', wrong: true }
-      ]
-    },
-    by1b: {
-      startTime:  471,
-      stopTime:   476,
-      answers: [
-        { answer: 'en by', next: 'by2' }
-      ]
+        { answer: 'byen', wrong: true }
+      ],
+      more:       { startTime: 471, stopTime: 476 }
     },
     by2: {
       msg: '<i>en by</i>',
@@ -702,15 +540,9 @@ function LasAudioData() {
       stopTime:   480,
       answers: [
         { answer: 'et firma', next: 'firma2' },
-        { answer: 'firmaet', next: 'firma1b', wrong: true }
-      ]
-    },
-    firma1b: {
-      startTime:  484,
-      stopTime:   490,
-      answers: [
-        { answer: 'et firma', next: 'firma2' }
-      ]
+        { answer: 'firmaet', wrong: true }
+      ],
+      more:       { startTime: 484, stopTime: 490 }
     },
     firma2: {
       msg: '<i>et firma</i>',
@@ -727,15 +559,9 @@ function LasAudioData() {
       stopTime:   493,
       answers: [
         { answer: 'skogen', next: 'skog2' },
-        { answer: 'en skog', next: 'skog1b', wrong: true }
-      ]
-    },
-    skog1b: {
-      startTime:  497,
-      stopTime:   505,
-      answers: [
-        { answer: 'skogen', next: 'skog2' }
-      ]
+        { answer: 'en skog', wrong: true }
+      ],
+      more:       { startTime: 497, stopTime: 505 }
     },
     skog2: {
       msg: '<i>skogen</i>',
@@ -758,7 +584,7 @@ function LasAudioData() {
 //      startTime:  1,        //  startTime time in seconds
 //      stopTime:   3,        //  stopTime time in seconds
 //      answers: [
-//        { answer: 'xx', next: 'xx1b', wrong: true },
+//        { answer: 'xx', wrong: true },
 //        { answer: 'xx', next: 'xx2' }
 //      ]
 //    },
