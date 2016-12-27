@@ -13,19 +13,21 @@
 <div class="section-content section-4-2">
   <div id="audio-test" class="col-10 center">
 
-    <div id="audio-pause-timer" style="position:fixed;left:0;top:40%;z-index:1000;width:100%;opacity:0;display:none;">
-      <svg width="80" height="80" viewbox="0 0 80 80" style="display:block;margin:0 auto;">
-        <defs>
-          <mask id="cutout">
-            <circle cx="50%" cy="50%" r="35" fill="#fff" />
-            <circle cx="50%" cy="50%" r="30" fill="#000" />
-          </mask>
-        </defs>
+    <div id="audio-pause-timer" style="position:fixed;left:0px;top:40%;z-index:1000;width:100%;opacity:0;display:none;" class="">
+      <button id="audio-skip-pause" class="btn btn-white btn-nav" style="display:block;margin:0px auto;width:4rem;height:4rem;padding:0;border-radius:50%;background-image:url('/i/icon_next.png');background-size:26px auto;background-position:center center;background-repeat:no-repeat;box-shadow:0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);">
+        <svg width="80" height="80" viewBox="0 0 80 80" style="display:block;margin:0 auto;position:aboslute;left:0;top:0;">
+          <defs>
+            <mask id="cutout">
+              <circle cx="50%" cy="50%" r="40" fill="#fff"/>
+              <circle cx="50%" cy="50%" r="35" fill="#000"/>
+            </mask>
+          </defs>
 
-        <g mask="url(#cutout)">
-          <path id="circle" transform="translate(40,40)" style="fill:#fff;" />
-        </g>
-      </svg>
+          <g mask="url(#cutout)">
+            <path id="circle" transform="translate(40,40)" style="fill:#60B3B3;" d="M 0 0 v -40 A 40 40 1 1 1 -0.025132739575065628 -39.99999210431674 z"/>
+          </g>
+        </svg>
+      </button>
     </div>
 
     <audio id="audio-file" src="<?php las_autover('/s/' . $post->post_name . '-wyzwanie.m4a'); ?>" preload="auto">
@@ -49,11 +51,11 @@
       </div>
 
       <div id="audio-controls" class="section-dark" style="height:0;border-radius:0 0 3px 3px;">
-        <button id="audio-rewind" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0 0 0.2rem;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);font-family: Bariol_regularregular; font-size: 1.3rem;position:absolute;bottom:-2rem;left:2rem;border-radius:50%;background-image:url(/i/icon_rewind.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-bottom:1px;"></button>
+        <button id="audio-rewind" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);position:absolute;bottom:-2rem;left:25%;border-radius:50%;background-image:url(/i/icon_rewind.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-left:-3rem;margin-bottom:1px;"></button>
 
-        <button id="audio-more" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0 0 0.2rem;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);font-family: Bariol_regularregular; font-size: 1.3rem;position:absolute;bottom:-2rem;left:50%;transform:translate(-50%,0);border-radius:50%;background-image:url(/i/icon_more.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-bottom:1px;"></button>
+        <button id="audio-more" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);position:absolute;bottom:-2rem;left:50%;transform:translate(-50%,0);border-radius:50%;background-image:url(/i/icon_more.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-bottom:1px;"></button>
 
-        <button id="audio-next" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0 0 0.2rem;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);font-family: Bariol_regularregular; font-size: 1.3rem;position:absolute;bottom:-2rem;right:2rem;border-radius:50%;background-image:url(/i/icon_next.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-bottom:1px;"></button>
+        <button id="audio-next" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);position:absolute;bottom:-2rem;right:25%;border-radius:50%;background-image:url(/i/icon_next.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-right:-3rem;margin-bottom:1px;"></button>
       </div>
 
     </div>
