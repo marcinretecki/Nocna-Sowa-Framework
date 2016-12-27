@@ -7,42 +7,45 @@ function LasChat() {
   //
   //  Elements
   //
-  this.wrapper = document.getElementById('chat-bot');
+  this.wrapper =              document.getElementById('chat-bot');
   this.clickedAnswer =
   this.chatFlow =
   this.answers =
   this.answerOne =
   this.answerTwo =
-  this.currentBubble = null;
+  this.currentBubble =        null;
 
-  this.prefetch = document.createElement("div");
+  this.prefetch =             document.createElement("div");
 
 
   //
   //  Chat Data
   //
-  this.lasData = new LasChatData();
-  this.currentBubbleData = null;
-  this.bubbleArray = [];
+  this.lasData =              new LasChatData();
+  this.currentBubbleData =    null;
+  this.bubbleArray =          [];
   this.answerOneText =
   this.answerTwoText =
   this.answerOneNext =
   this.answerTwoNext =
-  this.bubbleAutoNext = '';
+  this.bubbleAutoNext =       '';
 
   //
   //  State
   //
-  this.answersWaiting = false;
-  this.currentState = '';   // END / INTRO / CHAT
-  this.scrollFn = function(){};
+  this.state = {
+    answersWaiting:           false,
+    currentState:             ''              // END / INTRO / CHAT
+  }
+
+  this.scrollFn =             function(){};
 
   //
   //  Helper
   //
-  var that = this,
-      speed = 200,
-      answersTranformValue = "300%";
+  var that =                  this,
+      speed =                 200,
+      answersTranformValue =  "300%";
 
   //
   //  Initiate
@@ -50,9 +53,9 @@ function LasChat() {
   this.init = function() {
 
     //  Random chat arrays
-    this.randomIntroArray = this.createRandomArrayOfFirstBubbles( this.lasData.intro );
-    this.randomChatArray = this.createRandomArrayOfFirstBubbles( this.lasData.chat );
-    this.randomEndArray = this.createRandomArrayOfFirstBubbles( this.lasData.end );
+    this.randomIntroArray =   this.createRandomArrayOfFirstBubbles( this.lasData.intro );
+    this.randomChatArray =    this.createRandomArrayOfFirstBubbles( this.lasData.chat );
+    this.randomEndArray =     this.createRandomArrayOfFirstBubbles( this.lasData.end );
 
     //  Create
     this.createChat();
@@ -117,7 +120,7 @@ function LasChat() {
   //  BUBBLES
   //
   this.createBubble = function() {
-    if (this.answersWaiting) {
+    if (this.state.answersWaiting) {
       return false;
     }
 
@@ -200,7 +203,7 @@ function LasChat() {
   //  ANSWERS
   //
   this.showAnswers = function() {
-    this.answersWaiting = true;
+    this.state.answersWaiting = true;
 
     this.answerOne.innerHTML = this.answerOneText;
 
@@ -282,7 +285,7 @@ function LasChat() {
 
 
   this.resetAnswers = function() {
-    this.answersWaiting = false;
+    this.state.answersWaiting = false;
 
     // testing whole answers animation
     Velocity(this.answers,

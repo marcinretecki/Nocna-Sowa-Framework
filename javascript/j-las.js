@@ -131,7 +131,7 @@ function LasHelper() {
     }
     else {
       //  Set state
-      this.currentState = 'END';
+      this.state.currentState = 'END';
 
       return this.getEndBubble();
     }
@@ -144,7 +144,7 @@ function LasHelper() {
     var pop = this.lasData.intro[ this.randomIntroArray.pop() ];
 
     //  Set state
-    this.currentState = 'INTRO';
+    this.state.currentState = 'INTRO';
 
     //  Return bubble
     return pop;
@@ -165,7 +165,7 @@ function LasHelper() {
 
     var data;
 
-    if ( ( this.currentState === 'INTRO' ) && ( no !== '' )  && ( no !== 'ENDINTRO' ) ) {
+    if ( ( this.state.currentState === 'INTRO' ) && ( no !== '' )  && ( no !== 'ENDINTRO' ) ) {
       //  if it is intro and we need next bubble
       console.log('if it is intro and we need next bubble')
       data = this.lasData.intro[ no ];
@@ -180,23 +180,23 @@ function LasHelper() {
       //  if it is the end of intro,  move one to chat
       console.log('if it is the end of intro,  move one to chat')
       //  Set state
-      this.currentState = 'CHAT';
+      this.state.currentState = 'CHAT';
       data = this.getRandomBubble();
 
     }
-    else if ( ( this.currentState === 'CHAT' ) && ( no === 'RANDOM' ) ) {
+    else if ( ( this.state.currentState === 'CHAT' ) && ( no === 'RANDOM' ) ) {
       //  if we are at the chat, move one
       console.log('if we are at the chat, move one')
       data = this.getRandomBubble();
 
     }
-    else if ( ( this.currentState === 'CHAT' ) && ( no !== '' ) ) {
+    else if ( ( this.state.currentState === 'CHAT' ) && ( no !== '' ) ) {
       //  if we are at chat, but need exact bubble
       console.log('if we are at chat, but need exact bubble')
       data = this.lasData.chat[ no ]
 
     }
-    else if ( this.currentState === 'END' ) {
+    else if ( this.state.currentState === 'END' ) {
       //  if we got to the end and need an exact bubble
       console.log('if we got to the end and need an exact bubble')
       data = this.lasData.end[ no ];
@@ -218,6 +218,91 @@ function LasHelper() {
     Velocity(this.loader, { opacity: 0 }, { duration: 400, easing: [ 300, 20 ], queue: false, display: 'none' } );
   };
 
+
+  this.pauseTimer = function(duration) {
+
+    /*! SVG Pie Timer 0.9.1 | Anders Grimsrud, grint.no | MIT License | github.com/agrimsrud/svgPieTimer.js */
+    //  Modified
+
+    if (this.pauseTimerAnimationFrame !== undefined) {
+      cancelAnimationFrame(this.pauseTimerAnimationFrame);
+      this.pauseTimerAnimationFrame = undefined;
+    }
+
+    Date.now = Date.now || function() { return +new Date };
+
+    var loader = document.getElementById('circle'),
+        n = 1;
+
+    function draw(rate) {
+        var angle = 360 * rate;
+
+        angle %= 360;
+
+        var rad = (angle * Math.PI / 180),
+            x = Math.sin(rad) * 40,
+            y = Math.cos(rad) * - 40,
+            mid = (angle > 180) ? 1 : 0,
+            shape = 'M 0 0 v -40 A 40 40 1 '
+                   + mid + ' 1 '
+                   +  x  + ' '
+                   +  y  + ' z';
+
+        loader.setAttribute('d', shape);
+    }
+
+
+    var end = Date.now() + duration * n,
+        totaldur = duration * n;
+
+    // Animate frame by frame
+
+    var frame = function() {
+        var current = Date.now(),
+            remaining = end - current,
+
+            // Now set rotation rate
+            // E.g. 50% of first loop returns 1.5
+            // E.g. 75% of sixth loop returns 6.75
+            // Has to return >0 for SVG to be drawn correctly
+            // If you need the current loop, use Math.floor(rate)
+
+            rate = n + 1 - remaining / duration;
+
+        // As requestAnimationFrame will draw whenever capable,
+        // the animation might end before it reaches 100%.
+        // Let's simulate completeness on the last visual
+        // frame of the loop, regardless of actual progress
+
+        if(remaining < 60) {
+
+            // 1.0 might break, set to slightly lower than 1
+            // Update: Set to slightly lower than n instead
+
+            draw(n - 0.0001);
+
+
+            // Stop animating when we reach n loops (if n is set)
+
+            if ( remaining < totaldur && n ) {
+              return
+            }
+        }
+
+        // Draw
+
+        draw(rate);
+
+        // Request next frame
+
+       this.pauseTimerAnimationFrame = requestAnimationFrame(frame);
+
+    }.bind(this);
+
+    frame();
+
+  }
+
 }
 
 
@@ -225,3 +310,7 @@ function LasHelper() {
 
 // @codekit-append "j-las-chat.js";
 // @codekit-append "j-las-audio-test.js";
+
+
+
+

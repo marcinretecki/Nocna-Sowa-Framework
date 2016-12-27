@@ -13,6 +13,8 @@ function LasAudioTest() {
   this.audioMsg =             document.getElementById('audio-msg');
   this.audioScore =           document.getElementById('audio-score');
   this.audioControls =        document.getElementById('audio-controls');
+  this.audioSpinner =         document.getElementById('audio-spinner');
+  this.audioPauseTimer =      document.getElementById('audio-pause-timer');
   this.audioMore =            document.getElementById('audio-more');
   this.audioNext =            document.getElementById('audio-next');
   this.audioRewind =          document.getElementById('audio-rewind');
@@ -37,6 +39,7 @@ function LasAudioTest() {
   this.bubbleAutoNext =       '';
   this.startTime =            '';
   this.stopTime =             '';
+  this.pauseTime =            0;
   this.autoNext =             '';
   this.score =                false;
 
@@ -49,13 +52,15 @@ function LasAudioTest() {
   this.state = {
     currentState:             '',   // END / INTRO / CHAT
     firstPlay:                true,
-    answersWaiting:           false,
+    answers:                  false,
     playing:                  false,
     score:                    false,
     msg:                      false,
     controls:                 false,
     bubbling:                 false,
-    vibrating:                false
+    pauseTimer:               false,
+    vibrating:                false,
+    spinner:                  false
   };
 
 
@@ -83,7 +88,6 @@ function LasAudioTest() {
     this.addListener();
     this.hideLoader();
 
-
     //  to remove
     //  add css for audio-test-clue
     var style = document.createElement("style");
@@ -91,6 +95,8 @@ function LasAudioTest() {
     style.appendChild(document.createTextNode(".audio-test-clue{background: #60B3B3 none repeat scroll 0 0;border-radius:3px;font-style:italic;padding:0.25rem 0.5rem;display:inline-block;}"));
     var head = document.getElementsByTagName("head")[0];
     head.appendChild(style);
+
+    document.querySelector('.section-beige.wrapper').style.cssText = 'background-image: url("/i/las_test_6.jpg"); background-size: cover;';
 
     //  Get the intro
     this.getNextBubble( 'INTRO' );
@@ -137,7 +143,7 @@ function LasAudioTest() {
     this.state.bubbling = true;
 
     //  stop all animation
-    Velocity("stop");
+    //Velocity("stop");
 
     //  pause, if user clicked an answer, we need to pause audio, so we can play the next one
     this.pauseAudio();
@@ -182,10 +188,20 @@ function LasAudioTest() {
 
     //  add pause listener
     this.audioFile.addEventListener('timeupdate', this.playAudioListener, false);
+    this.prePauseCheck = true;
 
     window.console.log("play!");
     this.state.playing = true;
     this.audioFile.play();
+
+    //  spinner
+    this.showSpinner();
+
+    if ( ( this.bubbleAutoNext === "RANDOM" ) && !this.score ) {
+      //  if it is callan, we need to show msg earlier
+      this.showMsg();
+    }
+
 
   };
 
@@ -196,15 +212,23 @@ function LasAudioTest() {
 
     window.console.log("check pause " + this.audioFile.currentTime);
 
-    if ( ( this.audioFile.currentTime + 1 > this.stopTime ) ) {
+    if ( ( this.audioFile.currentTime + 1 > this.stopTime ) && this.prePauseCheck ) {
       //  one second before the end of audio
 
-      //  if the score was shown, reset it and on complete show controls
-      this.resetScore();
+      if ( this.pauseTime > 0 ) {
+        console.log("set prePauseTimer")
+        this.prePauseTimer = window.setTimeout(function() {
+          window.clearTimeout(this.prePauseTimer);
+          this.prePauseTimer = undefined;
+          this.prePause();
+        }.bind(this), (this.pauseTime * 1000) );
+      }
+      else {
+        this.prePause();
+      }
 
-      //  if the bubble has answers, show them
-      window.console.log('time + 1, show answers?');
-      this.showAnswers();
+      //  prevent prePause from firing too many times
+      this.prePauseCheck = false;
 
     }
 
@@ -215,25 +239,72 @@ function LasAudioTest() {
       this.pauseAudio();
       window.console.log('auto pause!');
 
-      // reset listener
-      this.resetListeners();
+      if ( this.pauseTime > 0 ) {
+        console.log("set atPauseTimer")
+        this.atPauseTimer = window.setTimeout(function() {
+          window.clearTimeout(this.atPauseTimer);
+          this.atPauseTimer = undefined;
+          this.atPause();
+        }.bind(this), (this.pauseTime * 1000) );
 
-      if ( ( this.bubbleAutoNext !== "" ) && ( this.bubbleAutoNext !== "RANDOM" ) ) {
-        //  if there is autoNext but not random one
-
-        //  get next bubble
-        this.getNextBubble( this.bubbleAutoNext );
-
-        //  create new bubble
-        this.createBubble();
+        //  show pause timer
+        this.showPauseTimer();
       }
-      else if ( this.bubbleAutoNext === "END" ) {
-        //  if it is the end
-        this.finish();
+      else {
+        this.atPause();
       }
+
     }
 
   };
+
+  this.prePause = function() {
+    //  one second before the end of audio
+
+    window.console.log('pre pause');
+
+    if ( ( this.bubbleAutoNext === "RANDOM" ) && !this.score ) {
+      //  if it is callan, we need to show controls here, because there is no score
+      this.showControls();
+    }
+    else {
+      //  if the score was shown, reset it and on complete show controls
+      this.resetScore();
+    }
+
+    //  reset timer
+    this.resetPauseTimer();
+
+    //  rese spinner
+    this.resetSpinner();
+
+    //  if the bubble has answers, show them
+    this.showAnswers();
+  };
+
+  this.atPause = function() {
+    //  at the end of audio
+
+    window.console.log('at pause');
+
+    //  reset listener
+    this.resetListeners();
+
+    if ( ( this.bubbleAutoNext !== "" ) && ( this.bubbleAutoNext !== "RANDOM" ) ) {
+      //  if there is autoNext but not random one
+
+      //  get next bubble
+      this.getNextBubble( this.bubbleAutoNext );
+
+      //  create new bubble
+      this.createBubble();
+    }
+    else if ( this.bubbleAutoNext === "END" ) {
+      //  if it is the end
+      this.finish();
+    }
+
+  }
 
 
   this.rewindAudio = function() {
@@ -261,12 +332,18 @@ function LasAudioTest() {
     this.state.playing = true;
     this.audioFile.play();
 
+    //  Spinner
+    this.showSpinner();
+
   };
 
 
   this.pauseAudio = function() {
     this.audioFile.pause();
     this.state.playing = false;
+
+    //  Spinner
+    this.resetSpinner();
   };
 
 
@@ -335,11 +412,11 @@ function LasAudioTest() {
   this.showAnswers = function() {
     if ( this.state.answers || this.showAnswersTimer || ( this.answersData.length === 0 ) ) {
       //  answers are waiting or the timer is set or there is no answers to show
-      window.console.log('timer set or answers waiting');
+      window.console.log('timer set, answers waiting or no answers');
       return false;
     }
 
-    if ( this.state.score || this.state.controls || this.state.msg ) {
+    if ( this.state.score || this.state.msg ) {
       //  wait untill answers, score or controls is reset
       window.console.log('set answers timer');
 
@@ -381,7 +458,7 @@ function LasAudioTest() {
         );
 
         Velocity(this.answersElArray[i],
-          { borderColorAlpha: [1, 0] },
+          { borderColor: "#60B3B3" },
           { duration: speed*2, easing: easingQuart }
         );
 
@@ -395,6 +472,8 @@ function LasAudioTest() {
       }
 
     } //  end loop
+
+    this.showControls();
 
   };
 
@@ -420,7 +499,7 @@ function LasAudioTest() {
       if ( i < c ) {
         //  if there is such an answer, hide it
         Velocity(this.answersElArray[i],
-          { borderColorAlpha: [0, 1] },
+          { borderColor: "#308c8c" },
           { duration: speed*2, easing: easingQuart, queue: false }
         );
 
@@ -514,7 +593,7 @@ function LasAudioTest() {
     this.state.score = true;
 
     Velocity(this.audioScore,
-      { opacity: [1, 0] },
+      "fadeIn",
       { duration: speed*2, easing: easingQuart, display: "block" }
     );
 
@@ -538,12 +617,12 @@ function LasAudioTest() {
 
     var completeFn = function() {
       this.state.score = false;
-      this.showControls();
+      this.showControls(true);
     }.bind(this);
 
     Velocity(this.audioScore,
-      { opacity: [0, 1] },
-      { duration: speed*2, easing: easingQuart, display: "none",
+      "fadeOut",
+      { duration: speed*2, easing: easingQuart,
         complete: function() {
           completeFn();
         }
@@ -555,8 +634,8 @@ function LasAudioTest() {
   //
   //  CONTROLS
   //
-  this.showControls = function() {
-    if ( this.state.controls ) {
+  this.showControls = function(afterScore) {
+    if ( this.state.controls || ( ( this.more === null ) && ( this.startTime === "" ) && !this.state.firstPlay && !afterScore ) ) {
       return false;
     }
 
@@ -564,26 +643,40 @@ function LasAudioTest() {
 
     window.console.log("show controls");
 
-    if ( this.more !== null ) {
-      this.audioMore.style.display = "inline-block";
+    if ( this.state.answers ) {
+      this.audioControls.className = "section-green";
     }
     else {
-      this.audioMore.style.display = "none";
+      this.audioControls.className = "section-dark";
+    }
+
+    Velocity(this.audioControls,
+      { height: ["2rem", 0] },
+      { duration: speed, easing: easingSpring }
+    );
+
+    if ( this.more !== null ) {
+      console.log("show controls, more: " + this.more.startTime);
+      Velocity(this.audioMore,
+        "fadeIn",
+        { duration: speed, easing: easingQuart, display: "block", delay: speed }
+      );
     }
 
     if ( this.startTime !== "" ) {
-      this.audioRewind.style.display = "inline-block";
-    }
-    else {
-      this.audioRewind.style.display = "none";
+      console.log("show controls, rewind: " + this.startTime);
+      Velocity(this.audioRewind,
+        "fadeIn",
+        { duration: speed, easing: easingQuart, display: "block", delay: speed }
+      );
     }
 
-    this.audioNext.style.display = "inline-block";
-
-    Velocity(this.audioControls,
-      "fadeIn",
-      { duration: speed*2, easing: easingQuart}
-    );
+    if ( this.state.firstPlay || ( this.bubbleAutoNext === "RANDOM" ) ) {
+      Velocity(this.audioNext,
+        "fadeIn",
+        { duration: speed, easing: easingQuart, display: "block", delay: speed }
+      );
+    }
 
   };
 
@@ -599,20 +692,115 @@ function LasAudioTest() {
       this.state.controls = false;
     }.bind(this);
 
-    this.audioNext.style.display = "none";
-    this.audioMore.style.display = "none";
-    this.audioRewind.style.display = "none";
-
     Velocity(this.audioControls,
-      "fadeOut",
+      { height: [0, "2rem"] },
       { duration: speed*2, easing: easingQuart, queue: false,
+        complete: function() {
+          console.log("complete fn reset controls");
+          completeFn();
+        }
+      }
+    );
+
+    Velocity(this.audioMore,
+      "fadeOut",
+      { duration: speed*2, easing: easingQuart }
+    );
+
+    Velocity(this.audioRewind,
+      "fadeOut",
+      { duration: speed*2, easing: easingQuart }
+    );
+
+    Velocity(this.audioNext,
+      "fadeOut",
+      { duration: speed*2, easing: easingQuart }
+    );
+
+  };
+
+
+  //
+  //  SPINNER
+  //
+  this.showSpinner = function() {
+    if ( this.state.spinner ) {
+      return false;
+    }
+
+    this.state.spinner = true;
+
+    Velocity(this.audioSpinner, "stop");
+
+    Velocity(this.audioSpinner,
+      "fadeIn",
+      { duration: speed, easing: easingQuart, display: "inline-block" }
+    );
+  };
+
+
+  this.resetSpinner = function() {
+    if ( !this.state.spinner ) {
+      return false;
+    }
+
+    var completeFn = function() {
+      this.state.spinner = false;
+    }.bind(this);
+
+    Velocity(this.audioSpinner,
+      "fadeOut",
+      { duration: speed, easing: easingQuart,
+        complete: function() {
+          completeFn();
+        }
+      }
+    );
+  }
+
+
+  //
+  //  PAUSE TIMER
+  //  This can be moved to helper class
+  //
+  this.showPauseTimer = function() {
+    if ( this.state.pauseTimer ) {
+      return false;
+    }
+
+    this.state.pauseTimer = true;
+
+    if ( this.pauseTime > 0 ) {
+
+      Velocity(this.audioPauseTimer,
+        "fadeIn",
+        { duration: speed*2, easing: easingQuart }
+      );
+
+      this.pauseTimer( this.pauseTime * 1000 );
+
+    }
+
+  }
+
+  this.resetPauseTimer = function() {
+
+    console.log("reset pause timer");
+
+    var completeFn = function() {
+      this.state.pauseTimer = false;
+    }.bind(this);
+
+    Velocity(this.audioPauseTimer,
+      "fadeOut",
+      { duration: speed*2, easing: easingQuart, delay: 1000 - speed*2,
         complete: function() {
           completeFn();
         }
       }
     );
 
-  };
+  }
 
 
 
@@ -641,6 +829,16 @@ function LasAudioTest() {
       this.stopTime  = "";
 
       window.console.log("No time.");
+    }
+
+    //  pause time
+    if ( this.currentBubbleData.hasOwnProperty("pauseTime") ) {
+      this.pauseTime = this.currentBubbleData.pauseTime;
+
+    }
+    else {
+      //  reset pause
+      this.pauseTime = 0;
     }
 
     //  autoNext or answers
@@ -739,11 +937,6 @@ function LasAudioTest() {
     //  @target comes from even handler
     //  @answerData is assign in assignAnswers
 
-    if ( this.state.firstPlay ) {
-      //  if it was first play, change the state
-      this.state.firstPlay = false;
-    }
-
     if ( answerData.hasOwnProperty("next") && answerData.next ) {
       //  if not wrong, then run answer to bubble
       this.answerToBubble( answerData.next );
@@ -831,11 +1024,17 @@ function LasAudioTest() {
       //  Play audio at specific time
       //  Add event listener this will stop the file
 
-      if ( this.state.firstPlay ) {
+      //  this one is currently unsupported
+      //  we moved to audio-next logic
+
+      /*if ( this.state.firstPlay ) {
         //  if it is the first time we click play, reset the intro msg and answer
         //  and allow the play button to work
         this.answerToBubble('ENDINTRO');
+        console.log("First click");
+        console.log(this.state.firstPlay);
         this.state.firstPlay = false;
+        console.log(this.state.firstPlay);
       }
       else {
 
@@ -853,15 +1052,29 @@ function LasAudioTest() {
           this.audioFile.play();
         }
 
-      }
+      }*/
 
 
     }
     else if ( ( event.target.id === 'audio-rewind' ) || ( event.target.parentNode.id === 'audio-rewind' ) ) {
       //  if the fragment is longer this 10 s, rewind 10 s, otherwise rewidn to the begging o the current fragment
-      this.rewindAudio();
+
+      if ( this.state.playing ) {
+        //  if it is playing now, pause it
+        this.pauseAudio();
+      }
+      else {
+        this.rewindAudio();
+      }
+
     }
     else if ( ( event.target.id === 'audio-next' ) || ( event.target.parentNode.id === 'audio-next' ) ) {
+
+      if ( this.state.firstPlay ) {
+        //  if it is the first time we click play
+        this.state.firstPlay = false;
+      }
+
       //  get the next bubble
       this.answerToBubble( this.bubbleAutoNext );
     }

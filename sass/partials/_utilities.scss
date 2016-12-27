@@ -83,9 +83,20 @@ transform:translate3d(0,0,0);
   100% { transform: translateY(0); }
 }
 .ball-pulse-sync{position:relative;display:inline-block;top:-3px;margin-left:3px;}
-.ball-pulse-sync > div:nth-child(0) {animation: ball-pulse-sync 0.6s -0.21s infinite ease-in-out; }
 .ball-pulse-sync > div:nth-child(1) {animation: ball-pulse-sync 0.6s -0.14s infinite ease-in-out; }
 .ball-pulse-sync > div:nth-child(2) {animation: ball-pulse-sync 0.6s -0.07s infinite ease-in-out; }
 .ball-pulse-sync > div:nth-child(3) {animation: ball-pulse-sync 0.6s 0s infinite ease-in-out; }
 .ball-pulse-sync > div {display: inline-block;width:5px;height:5px;border-radius:100%;margin:0 2px;vertical-align:middle;background-color:#fff;animation-fill-mode: both;}
 .ball-pulse-sync-dark > div{background-color:$font-dark;}
+
+
+@keyframes wave-pulse-sync {
+  50% { transform: scaleY(2); }
+  100% { transform: scaleY(1); }
+}
+.wave-pulse-sync{position:relative;display:inline-block;}
+.wave-pulse-sync > div:nth-child(1) {animation: wave-pulse-sync 0.9s -0.6s infinite ease-in-out; }
+.wave-pulse-sync > div:nth-child(2) {animation: wave-pulse-sync 0.9s -0.3s infinite ease-in-out; }
+.wave-pulse-sync > div:nth-child(3) {animation: wave-pulse-sync 0.9s 0s infinite ease-in-out; }
+.wave-pulse-sync > div {display: inline-block;width:$space;height:$space;border-radius:1px 1px 0 0;margin:0 $space-quarter;vertical-align:middle;background-color:#fff;animation-fill-mode: both; transform-origin: bottom;}
+.wave-pulse-sync-dark > div{background-color:$font-dark;}
