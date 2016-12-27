@@ -28,7 +28,7 @@ function LasAudioData() {
       autoNext:   "aa2"
     },
     aa2: {
-      msg:        'Jeg liker å være ute.',
+      msg:        '',
       startTime:  4,
       stopTime:   7,
       autoNext:   'RANDOM'
@@ -42,7 +42,7 @@ function LasAudioData() {
       autoNext:   "ab2"
     },
     ab2: {
-      msg:        'Hun liker å få gaver.',
+      msg:        '',
       startTime:  12,
       stopTime:   15,
       autoNext:   'RANDOM'
@@ -56,7 +56,7 @@ function LasAudioData() {
       autoNext:   "ac2"
     },
     ac2: {
-      msg:        'Vi liker å reise.',
+      msg:        '',
       startTime:  19,
       stopTime:   21,
       autoNext:   'RANDOM'
@@ -70,7 +70,7 @@ function LasAudioData() {
       autoNext:   "ad2"
     },
     ad2: {
-      msg:        'Du liker å fortelle eventyr.',
+      msg:        '',
       startTime:  26,
       stopTime:   29,
       autoNext:   'RANDOM'
@@ -84,7 +84,7 @@ function LasAudioData() {
       autoNext:   "ae2"
     },
     ae2: {
-      msg:        'Dere liker å bo i Oslo.',
+      msg:        '',
       startTime:  34,
       stopTime:   36.5,
       autoNext:   'RANDOM'
@@ -98,7 +98,7 @@ function LasAudioData() {
       autoNext:   "af2"
     },
     af2: {
-      msg:        'Han trenger å snakke.',
+      msg:        '',
       startTime:  42,
       stopTime:   44,
       autoNext:   'RANDOM'
@@ -112,7 +112,7 @@ function LasAudioData() {
       autoNext:   "ag2"
     },
     ag2: {
-      msg:        'De trenger å tro i noe.',
+      msg:        '',
       startTime:  49,
       stopTime:   51  ,
       autoNext:   'RANDOM'
@@ -126,7 +126,7 @@ function LasAudioData() {
       autoNext:   "ah2"
     },
     ah2: {
-      msg:        'Han trenger å ligge og slappe av.',
+      msg:        '',
       startTime:  57,
       stopTime:   59.5,
       autoNext:   'RANDOM'
@@ -140,7 +140,7 @@ function LasAudioData() {
       autoNext:   "aj2"
     },
     aj2: {
-      msg:        'De trenger å kjøpe klær.',
+      msg:        '',
       startTime:  65,
       stopTime:   67.5,
       autoNext:   'RANDOM'
@@ -154,7 +154,7 @@ function LasAudioData() {
       autoNext:   "ai2"
     },
     ai2: {
-      msg:        'Vi prøver å lese på norsk.',
+      msg:        '',
       startTime:  73,
       stopTime:   75.5,
       autoNext:   'RANDOM'
@@ -168,7 +168,7 @@ function LasAudioData() {
       autoNext:   "ak2"
     },
     ak2: {
-      msg:        'Dere prøver å forstå.',
+      msg:        '',
       startTime:  81,
       stopTime:   83,
       autoNext:   'RANDOM'
@@ -182,7 +182,7 @@ function LasAudioData() {
       autoNext:   "al2"
     },
     al2: {
-      msg:        'Jeg prøver å høre på norsk radio.',
+      msg:        '',
       startTime:  88,
       stopTime:   91,
       autoNext:   'RANDOM'
@@ -196,7 +196,7 @@ function LasAudioData() {
       autoNext:   "ba2"
     },
     ba2: {
-      msg:        'De prøver å kjøre i byen.',
+      msg:        '',
       startTime:  96,
       stopTime:   98.5,
       autoNext:   'RANDOM'
@@ -210,7 +210,7 @@ function LasAudioData() {
       autoNext:   "bb2"
     },
     bb2: {
-      msg:        'Hun lærer å gå.',
+      msg:        '',
       startTime:  104,
       stopTime:   105.5,
       autoNext:   'RANDOM'
@@ -224,7 +224,7 @@ function LasAudioData() {
       autoNext:   "bc2"
     },
     bc2: {
-      msg:        'Han lærer å vente.',
+      msg:        '',
       startTime:  111,
       stopTime:   113,
       autoNext:   'RANDOM'
@@ -238,7 +238,7 @@ function LasAudioData() {
       autoNext:   "bd2"
     },
     bd2: {
-      msg:        'Hun lærer å elske.',
+      msg:        '',
       startTime:  118,
       stopTime:   120,
       autoNext:   'RANDOM'
@@ -252,7 +252,7 @@ function LasAudioData() {
       autoNext:   "be2"
     },
     be2: {
-      msg:        'Hun lærer å konsentrere seg om en ting.',
+      msg:        '',
       startTime:  126,
       stopTime:   129.5,
       autoNext:   'RANDOM'
@@ -266,7 +266,7 @@ function LasAudioData() {
       autoNext:   "bf2"
     },
     bf2: {
-      msg:        'Barnet begynner å bli i barnehagen.',
+      msg:        '',
       startTime:  135,
       stopTime:   138.5,
       autoNext:   'RANDOM'
@@ -280,7 +280,7 @@ function LasAudioData() {
       autoNext:   "bg2"
     },
     bg2: {
-      msg:        'Mannen begynner å svømme.',
+      msg:        '',
       startTime:  144,
       stopTime:   146,
       autoNext:   'RANDOM'
@@ -294,7 +294,7 @@ function LasAudioData() {
       autoNext:   "bh2"
     },
     bh2: {
-      msg:        'Kvinna begynner å trene.',
+      msg:        '',
       startTime:  151,
       stopTime:   153.5,
       autoNext:   'RANDOM'
@@ -308,7 +308,7 @@ function LasAudioData() {
       autoNext:   "bi2"
     },
     bi2: {
-      msg:        'Hun begynner å klare på jobben.',
+      msg:        '',
       startTime:  159,
       stopTime:   161.5,
       autoNext:   'RANDOM'
@@ -322,7 +322,7 @@ function LasAudioData() {
       autoNext:   "bk2"
     },
     bk2: {
-      msg:        'De slutter å drikke.',
+      msg:        '',
       startTime:  167,
       stopTime:   169,
       autoNext:   'RANDOM'
@@ -336,7 +336,7 @@ function LasAudioData() {
       autoNext:   "bl2"
     },
     bl2: {
-      msg:        'Han slutter å studere økonomi.',
+      msg:        '',
       startTime:  174,
       stopTime:   176.5,
       autoNext:   'RANDOM'
@@ -350,7 +350,7 @@ function LasAudioData() {
       autoNext:   "bm2"
     },
     bm2: {
-      msg:        'Hun stopper å ringe.',
+      msg:        '',
       startTime:  182,
       stopTime:   183.5,
       autoNext:   'RANDOM'
@@ -364,7 +364,7 @@ function LasAudioData() {
       autoNext:   "bn2"
     },
     bn2: {
-      msg:        'Han stopper å komme.',
+      msg:        '',
       startTime:  189,
       stopTime:   190.5,
       autoNext:   'RANDOM'
@@ -378,7 +378,7 @@ function LasAudioData() {
       autoNext:   "bp2"
     },
     bp2: {
-      msg:        'Jenta stopper å spise søtsaker.',
+      msg:        '',
       startTime:  196,
       stopTime:   199,
       autoNext:   'RANDOM'
@@ -392,7 +392,7 @@ function LasAudioData() {
       autoNext:   "bo2"
     },
     bo2: {
-      msg:        'Faren stopper å gi penger.',
+      msg:        '',
       startTime:  204,
       stopTime:   206.5,
       autoNext:   'RANDOM'
@@ -406,9 +406,9 @@ function LasAudioData() {
   this.end = {
 
     end1: {
-      msg: 'D',
-      startTime: 0,
-      stopTime: 0
+      msg:        "END",
+      startTime:  0,
+      stopTime:   0
     }
 
   };

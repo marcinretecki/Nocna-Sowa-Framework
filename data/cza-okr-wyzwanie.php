@@ -12,8 +12,8 @@ function LasAudioData() {
 
   this.intro = {
     a1: {
-      msg: "Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i>.",
-      autoNext: "ENDINTRO",
+      msg:        "Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i>.",
+      autoNext:   "ENDINTRO",
       more: { startTime: 0, stopTime: 26 }
     }
   };
@@ -33,9 +33,9 @@ function LasAudioData() {
     ikveld2: {
       msg: 'Vi går på festen i kveld.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
-      autoNext:   'RANDOM'
+      startTime:  0,
+      stopTime:   2,
+      autoNext:     'RANDOM'
     },
 
     omkvelden1: {
@@ -50,8 +50,8 @@ function LasAudioData() {
     omkvelden2: {
       msg: 'Jeg lærer norsk om kvelden.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  3,
+      stopTime:   5,
       autoNext:   'RANDOM'
     },
 
@@ -67,8 +67,8 @@ function LasAudioData() {
     imorgen2: {
       msg: 'Jeg går på jobb i morgen.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  6,
+      stopTime:   8,
       autoNext:   'RANDOM'
     },
 
@@ -84,8 +84,8 @@ function LasAudioData() {
     imorgentidlig2: {
       msg: 'Jeg skal lage kaffe i morgen tidlig',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  9,
+      stopTime:   12,
       autoNext:   'RANDOM'
     },
 
@@ -101,8 +101,8 @@ function LasAudioData() {
     ommorgen2: {
       msg: 'Han står opp tidlig om morgenen.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  14,
+      stopTime:   15.5,
       autoNext:   'RANDOM'
     },
 
@@ -118,8 +118,8 @@ function LasAudioData() {
     idag2: {
       msg: 'Takk for i dag.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  17,
+      stopTime:   18.5,
       autoNext:   'RANDOM'
     },
 
@@ -135,8 +135,8 @@ function LasAudioData() {
     imorgenkveld2: {
       msg: 'De skal på treningssenter i morgen kveld.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  20,
+      stopTime:   23,
       autoNext:   'RANDOM'
     },
 
@@ -152,8 +152,8 @@ function LasAudioData() {
     omettermiddagen2: {
       msg: 'Jeg vil løpe om ettermiddagen.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  24,
+      stopTime:   26,
       autoNext:   'RANDOM'
     },
 
@@ -169,8 +169,8 @@ function LasAudioData() {
     iettermiddag2: {
       msg: 'Jeg går til frisøren i ettermiddag.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  27,
+      stopTime:   30,
       autoNext:   'RANDOM'
     },
 
@@ -186,8 +186,8 @@ function LasAudioData() {
     omformiddagen2: {
       msg: 'Han lufter hunden om formiddagen.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  31,
+      stopTime:   33.5,
       autoNext:   'RANDOM'
     },
 
@@ -203,8 +203,8 @@ function LasAudioData() {
     omnatta2: {
       msg: 'Han kan ikke sove om natta.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  35,
+      stopTime:   37,
       autoNext:   'RANDOM'
     },
 
@@ -220,8 +220,8 @@ function LasAudioData() {
     inatt: {
       msg: 'Naboene fester i natt.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  38,
+      stopTime:   40,
       autoNext:   'RANDOM'
     },
 
@@ -237,8 +237,8 @@ function LasAudioData() {
     omenstund2: {
       msg: 'Jeg kommer om en stund.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  41,
+      stopTime:   42.5,
       autoNext:   'RANDOM'
     },
 
@@ -254,8 +254,8 @@ function LasAudioData() {
     na2: {
       msg: 'Jeg må stikke nå.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  44,
+      stopTime:   45.5,
       autoNext:   'RANDOM'
     },
 
@@ -271,8 +271,8 @@ function LasAudioData() {
     omentime2: {
       msg: 'Vi skal reise om en time.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  47,
+      stopTime:   49,
       autoNext:   'RANDOM'
     },
 
@@ -288,8 +288,8 @@ function LasAudioData() {
     omettminutt2: {
       msg: 'Vi er på stedet om ett minutt.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  50,
+      stopTime:   52,
       autoNext:   'RANDOM'
     },
 
@@ -305,8 +305,8 @@ function LasAudioData() {
     omtredager2: {
       msg: 'Han slutter prosjektet om tre dager.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  53,
+      stopTime:   56,
       autoNext:   'RANDOM'
     },
 
@@ -322,8 +322,8 @@ function LasAudioData() {
     omfemuker2: {
       msg: 'Jeg kommer tilbake til Norge om fem uker.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  57,
+      stopTime:   60,
       autoNext:   'RANDOM'
     },
 
@@ -339,8 +339,8 @@ function LasAudioData() {
     omfireman2: {
       msg: 'Jeg åpner en ny butikk om fire måneder.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  61,
+      stopTime:   64,
       autoNext:   'RANDOM'
     },
 
@@ -356,8 +356,8 @@ function LasAudioData() {
     omethalvtar2: {
       msg: 'Han vil slanke seg om et halvt år.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  65,
+      stopTime:   67.5,
       autoNext:   'RANDOM'
     },
 
@@ -373,8 +373,8 @@ function LasAudioData() {
     omnoenar2: {
       msg: 'Hun blir sjef her om noen år.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  69,
+      stopTime:   71,
       autoNext:   'RANDOM'
     },
 
@@ -390,8 +390,8 @@ function LasAudioData() {
     nextar2: {
       msg: 'De gifter seg neste år.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  72,
+      stopTime:   74,
       autoNext:   'RANDOM'
     },
 
@@ -407,8 +407,8 @@ function LasAudioData() {
     nesteuke: {
       msg: 'Vi sees neste uke.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  75,
+      stopTime:   77,
       autoNext:   'RANDOM'
     },
 
@@ -424,27 +424,47 @@ function LasAudioData() {
     nestemaned2: {
       msg: 'Jeg begynner et dansekurs neste måned.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  78,
+      stopTime:   81,
       autoNext:   'RANDOM'
     },
 
+
     nestegang1: {
-      msg: 'Jeg lærer noe nytt <span class="audio-test-clue">codziennie</span>.',
+      msg: 'De vil ikke ta opp lån <span class="audio-test-clue">następnym razem</span>.',
       answers: [
-        { answer: 'hver dag', next: 'nestegang2' },
-        { answer: 'i dag', wrong: true },
-        { answer: 'om en dag', wrong: true },
-        { answer: 'hver andre dag', wrong: true }
+        { answer: 'neste gang', next: 'nestegang2' },
+        { answer: 'hver gang', wrong: true },
+        { answer: 'om en stund', wrong: true },
+        { answer: 'nesten gang', wrong: true }
       ]
     },
     nestegang2: {
       msg: 'Jeg lærer noe nytt hver dag.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  82,
+      stopTime:   84.5,
       autoNext:   'RANDOM'
     },
+
+
+    nytthverdag1: {
+      msg: 'Jeg lærer noe nytt <span class="audio-test-clue">codziennie</span>.',
+      answers: [
+        { answer: 'hver dag', next: 'nytthverdag2' },
+        { answer: 'i dag', wrong: true },
+        { answer: 'om en dag', wrong: true },
+        { answer: 'hver andre dag', wrong: true }
+      ]
+    },
+    nytthverdag2: {
+      msg: 'Jeg lærer noe nytt hver dag.',
+      score: true,
+      startTime:  86,
+      stopTime:   88,
+      autoNext:   'RANDOM'
+    },
+
 
     hvermorgen1: {
       msg: 'Jeg løper i parken <span class="audio-test-clue">każdego ranka</span>.',
@@ -458,8 +478,8 @@ function LasAudioData() {
     hvermorgen2: {
       msg: 'Jeg løper i parken hver morgen.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  89,
+      stopTime:   91.5,
       autoNext:   'RANDOM'
     },
 
@@ -475,8 +495,8 @@ function LasAudioData() {
     hvertime2: {
       msg: 'Jeg sjekker mobilen hver time.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  93,
+      stopTime:   95.5,
       autoNext:   'RANDOM'
     },
 
@@ -492,8 +512,8 @@ function LasAudioData() {
     hveruke2: {
       msg: 'Hun ringer til foreldrene hver uke.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  97,
+      stopTime:   100,
       autoNext:   'RANDOM'
     },
 
@@ -509,8 +529,8 @@ function LasAudioData() {
     annenhveruke2: {
       msg: 'Han jobber om morgenen annenhver uke.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  101,
+      stopTime:   104,
       autoNext:   'RANDOM'
     },
 
@@ -526,8 +546,8 @@ function LasAudioData() {
     annenhvermaned2: {
       msg: 'Jeg flyr til Bergen annehver måned.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  105,
+      stopTime:   108,
       autoNext:   'RANDOM'
     },
 
@@ -543,8 +563,8 @@ function LasAudioData() {
     hvergang2: {
       msg: 'Han kommer for sent hver gang.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  109,
+      stopTime:   111.5,
       autoNext:   'RANDOM'
     },
 
@@ -560,8 +580,8 @@ function LasAudioData() {
     hvertar: {
       msg: 'Dere betaler skatt hvert år.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  113,
+      stopTime:   115.5,
       autoNext:   'RANDOM'
     },
 
@@ -577,8 +597,8 @@ function LasAudioData() {
     hversommer2: {
       msg: 'De besøker venner hver sommer.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  117,
+      stopTime:   119.5,
       autoNext:   'RANDOM'
     },
 
@@ -594,8 +614,8 @@ function LasAudioData() {
     hvervinter2: {
       msg: 'De reiser til Spania hver vinter.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  121,
+      stopTime:   123.5,
       autoNext:   'RANDOM'
     },
 
@@ -611,8 +631,8 @@ function LasAudioData() {
     ihost2: {
       msg: 'Det regner ikke i høst.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  125,
+      stopTime:  126.5,
       autoNext:   'RANDOM'
     },
 
@@ -628,8 +648,8 @@ function LasAudioData() {
     ivar2: {
       msg: 'De bytter dørklokka i vår.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  128,
+      stopTime:   130,
       autoNext:   'RANDOM'
     },
 
@@ -645,8 +665,8 @@ function LasAudioData() {
     itoar2: {
       msg: 'Vi skal bo i Ålesund i to år.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  131,
+      stopTime:   134,
       autoNext:   'RANDOM'
     },
 
@@ -662,8 +682,8 @@ function LasAudioData() {
     iovermorgen2: {
       msg: 'De leverer skapene i overmorgen.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  135,
+      stopTime:   137,
       autoNext:   'RANDOM'
     },
 
@@ -679,8 +699,8 @@ function LasAudioData() {
     ihelga2: {
       msg: 'De leverer skapene i overmorgen.',
       score: true,
-//      startTime:  0,
-//      stopTime:   0,
+      startTime:  138,
+      stopTime:   140.5,
       autoNext:   'RANDOM'
     }
 

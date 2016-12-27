@@ -10,36 +10,56 @@
 </div>
 
 
-<div class="section-content section-6-2">
+<div class="section-content section-4-2">
   <div id="audio-test" class="col-10 center">
 
-    <audio id="audio-file" src="/s/<?php echo $post->post_name . '-' . $type; ?>.m4a" preload="auto">
+    <div id="audio-pause-timer" style="position:fixed;left:0;top:40%;z-index:1000;width:100%;opacity:0;display:none;">
+      <svg width="80" height="80" viewbox="0 0 80 80" style="display:block;margin:0 auto;">
+        <defs>
+          <mask id="cutout">
+            <circle cx="50%" cy="50%" r="35" fill="#fff" />
+            <circle cx="50%" cy="50%" r="30" fill="#000" />
+          </mask>
+        </defs>
+
+        <g mask="url(#cutout)">
+          <path id="circle" transform="translate(40,40)" style="fill:#fff;" />
+        </g>
+      </svg>
+    </div>
+
+    <audio id="audio-file" src="<?php las_autover('/s/' . $post->post_name . '-wyzwanie.m4a'); ?>" preload="auto">
       Your browser does not support the <code>audio</code> element.
     </audio>
 
     <div id="audio-score" style="display:none;position:fixed;left:50%;right:0;top:10rem;bottom:0;width:10rem;height:10rem;z-index:0;background:url('https://cdn2.iconfinder.com/data/icons/social-productivity-line-art-2/128/thumbs-up-2-512.png') no-repeat center center;background-size:contain;opacity:0;transform:translate(-50%, 0);"></div>
 
-    <div id="audio-test-answers" class="audio-test-answers section-green space-x2" style="border-radius:3px;position:relative;">
-      <p id="audio-msg" class="centered space-0 pad-2 size-2" style="border-radius:3px 3px;padding:2rem 1rem;background-color:#0f6666;"></p>
+    <div id="audio-test-answers" class="audio-test-answers section-green" style="border-radius:3px;position:relative;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);">
 
-      <button id="answer-one" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0;border:0;border-radius:3px;">&nbsp;</button>
+      <p id="audio-msg" class="centered space-0 pad-2 size-2 section-dark" style="border-radius:3px 3px 0 0;padding:2rem 1rem;"></p>
 
-      <button id="answer-two" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0;border:0;border-top:1px solid rgba(255,255,255,0);border-radius:0 0 3px 3px;">&nbsp;</button>
+      <div>
+        <button id="answer-one" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0;border:0;border-radius:3px 3px 0 0;">&nbsp;</button>
 
-      <button id="answer-three" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0;border:0;border-top:1px solid rgba(255,255,255,0);border-radius:0 0 3px 3px;">&nbsp;</button>
+        <button id="answer-two" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0;border:0;border-top:1px solid #60B3B3;">&nbsp;</button>
 
-      <button id="answer-four" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0;border:0;border-top:1px solid rgba(255,255,255,0);border-radius:0 0 3px 3px;">&nbsp;</button>
+        <button id="answer-three" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0;border:0;border-top:1px solid #60B3B3;">&nbsp;</button>
+
+        <button id="answer-four" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0 0 3px 3px;border:0;border-top:1px solid #60B3B3;">&nbsp;</button>
+      </div>
+
+      <div id="audio-controls" class="section-dark" style="height:0;border-radius:0 0 3px 3px;">
+        <button id="audio-rewind" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0 0 0.2rem;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);font-family: Bariol_regularregular; font-size: 1.3rem;position:absolute;bottom:-2rem;left:2rem;border-radius:50%;background-image:url(/i/icon_rewind.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-bottom:1px;"></button>
+
+        <button id="audio-more" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0 0 0.2rem;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);font-family: Bariol_regularregular; font-size: 1.3rem;position:absolute;bottom:-2rem;left:50%;transform:translate(-50%,0);border-radius:50%;background-image:url(/i/icon_more.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-bottom:1px;"></button>
+
+        <button id="audio-next" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0 0 0.2rem;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);font-family: Bariol_regularregular; font-size: 1.3rem;position:absolute;bottom:-2rem;right:2rem;border-radius:50%;background-image:url(/i/icon_next.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-bottom:1px;"></button>
+      </div>
+
     </div>
 
-    <div id="audio-controls">
-      <div class="centered">
-        <button id="audio-rewind" class="btn btn-green" style="width:4rem;height:4rem;margin:1rem;padding:0;border-radius:50%">Powtórz</button>
-        <button id="audio-more" class="btn btn-green" style="width:4rem;height:4rem;margin:1rem;padding:0;border-radius:50%">???</button>
-      </div>
-
-      <div class="centered">
-        <button id="audio-next" class="btn btn-green" style="width:4rem;height:4rem;margin:1rem;padding:0;border-radius:50%">&raquo;</button>
-      </div>
+    <div id="audio-spinner" class="wave-pulse-sync" style="position:fixed;left:50%;transform:translateX(-50%);bottom:2rem;display:none;opacity:0;">
+      <div></div><div></div><div></div>
     </div>
 
   </div>

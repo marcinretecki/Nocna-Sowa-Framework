@@ -36,6 +36,12 @@ function autoVer($url) {
   }
 }
 
+function las_autover($url){
+  $path = pathinfo($url);
+  $ver = '.' . filemtime('/nocnasowa/las' . $url) . '.';
+  echo 'http://las.nocnasowa.pl' . $path['dirname'] . '/' . str_replace( '.', $ver, $path['basename'] );
+}
+
 
 
 //
