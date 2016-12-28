@@ -802,11 +802,11 @@
 			"flagValue": -1
 			},
 		"noempty": {
-			"active": 0,
+			"active": 1,
 			"flagValue": -1
 			},
 		"nonbsp": {
-			"active": 0,
+			"active": 1,
 			"flagValue": -1
 			},
 		"nonew": {

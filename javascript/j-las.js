@@ -16,7 +16,7 @@ function LasHelper() {
   //
   this.lasSaveChallangeProgress = function() {
 
-    var that = this,
+    var self = this,
         newCookie = new Object(),
         chapter = lasChapter,         //  it is defined in the head
         saveChallangeProgress = new Object();
@@ -25,7 +25,7 @@ function LasHelper() {
     //  Private functions
     //
     function getCookie() {
-      return Cookies.getJSON("lasChallangeProgress");
+      return Cookies.getJSON('lasChallangeProgress');
     };
 
     function setCookie(value) {
@@ -33,7 +33,7 @@ function LasHelper() {
     };
 
     function cleanCookie() {
-      Cookies.remove("lasChallangeProgress");
+      Cookies.remove('lasChallangeProgress');
     };
 
     //
@@ -62,7 +62,7 @@ function LasHelper() {
 
 
   //
-  //  Function to create array of bubbles with "1"
+  //  Function to create array of bubbles with '1'
   //  @parameter data is feeded in init() with data files by objects making exercises
   //  @return array of first keys in the series of bubbles
   //
@@ -73,7 +73,7 @@ function LasHelper() {
     //  Push first items
     for (property in data) {
       if (data.hasOwnProperty(property) && ( property.slice(-1) === '1' ) ) {
-        // if it is own property and last letter is "1"
+        // if it is own property and last letter is '1'
 
         propArray.push(property);
 
@@ -202,8 +202,8 @@ function LasHelper() {
       data = this.lasData.end[ no ];
     }
 
-    console.log("No: " + no);
-    console.log("Data:");
+    console.log('No: ' + no);
+    console.log('Data:');
     console.log(data);
 
 
@@ -308,8 +308,8 @@ function LasHelper() {
 
 
 
-// @codekit-append "j-las-chat.js";
-// @codekit-append "j-las-audio-test.js";
+// @codekit-append 'j-las-chat.js';
+// @codekit-append 'j-las-audio-test.js';
 
 
 

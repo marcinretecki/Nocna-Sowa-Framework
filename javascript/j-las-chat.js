@@ -15,7 +15,7 @@ function LasChat() {
   this.answerTwo =
   this.currentBubble =        null;
 
-  this.prefetch =             document.createElement("div");
+  this.prefetch =             document.createElement('div');
 
 
   //
@@ -43,9 +43,10 @@ function LasChat() {
   //
   //  Helper
   //
-  var that =                  this,
+  var self =                  this,
       speed =                 200,
-      answersTranformValue =  "300%";
+      answersTranformValue =  '300%',
+      velocity =              Velocity;
 
   //
   //  Initiate
@@ -78,9 +79,9 @@ function LasChat() {
         answerTwo;
 
     chatWrapper.className = 'chat-wrapper';
-    chatWrapper.setAttribute("role", "main");
+    chatWrapper.setAttribute('role', 'main');
     chatWindow.className = 'section-content chat-window';
-    chatRow.className = "row";
+    chatRow.className = 'row';
     chatFlow.className = 'col-10 white center chat-flow nodots group';
 
     chatRow.appendChild(chatFlow);
@@ -92,14 +93,14 @@ function LasChat() {
 
     answerOne.className = 'btn btn-blue btn-s-2 btn-chat-answer';
     //answerOne.type = 'button';
-    answerOne.setAttribute("role", "button");
-    answerOne.innerHTML = "&nbsp;";
+    answerOne.setAttribute('role', 'button');
+    answerOne.innerHTML = '&nbsp;';
 
     answerTwo = answerOne.cloneNode(false);
 
     answerOne.id = 'answer-left';
     answerTwo.id = 'answer-right';
-    answerTwo.innerHTML = "&nbsp;";
+    answerTwo.innerHTML = '&nbsp;';
 
     // Append
     answers.appendChild(answerOne);
@@ -130,66 +131,66 @@ function LasChat() {
 
     this.prefetch.innerHTML = content;
 
-    bubble.className = "beige chat-bubble";
+    bubble.className = 'beige chat-bubble';
     bubble.innerHTML = '<span class="ball-pulse-sync ball-pulse-sync-dark"><div></div><div></div><div></div></span>';
-    bubble.id = "bubble-" + this.currentBubble;
+    bubble.id = 'bubble-' + this.currentBubble;
 
-    this.scrollFn = function() { that.chatFlow.insertBefore(bubble, that.chatFlow.lastChild) };
+    this.scrollFn = function() { self.chatFlow.insertBefore(bubble, self.chatFlow.lastChild) };
     this.scrollAfterChange();
 
 
     if ( this.bubbleArray.length > 0 ) {
       // if there are more bubbles in the array
 
-      nextFunction = function() { that.createBubble() };
+      nextFunction = function() { self.createBubble() };
 
     }
-    else if (this.bubbleAutoNext === "END") {
+    else if (this.bubbleAutoNext === 'END') {
       // if it is the end of chat
 
       nextFunction = function() {
-        that.finish();
+        self.finish();
       };
 
     }
-    else if (this.bubbleAutoNext !== "") {
+    else if (this.bubbleAutoNext !== '') {
       // if there is a autoNext bubble
 
       nextFunction = function() {
-        that.getNextBubble( that.bubbleAutoNext );
-        that.createBubble();
+        self.getNextBubble( self.bubbleAutoNext );
+        self.createBubble();
       };
 
     }
     else {
 
-      nextFunction = function() { that.showAnswers(); };
+      nextFunction = function() { self.showAnswers(); };
     }
 
     //  Show bubble with loader
-    Velocity(bubble,
-      { right: [0, "100%"] },
+    velocity(bubble,
+      { right: [0, '100%'] },
       { duration: speed*5, easing: [ 200, 20 ]}
     );
 
     //  Hide bubble and swap content
-    Velocity(bubble,
-      { translateX: "-130%" },
+    velocity(bubble,
+      { translateX: '-130%' },
       { duration: speed, easing: [ 200, 20 ], delay: speed,
         complete: function() {
           if (content.indexOf('<img') !== -1 ) {
-            bubble.className += " chat-bubble-img";
+            bubble.className += ' chat-bubble-img';
           }
 
-          that.scrollFn = function() { bubble.innerHTML = content; };
-          that.scrollAfterChange();
+          self.scrollFn = function() { bubble.innerHTML = content; };
+          self.scrollAfterChange();
 
         }
       }
     );
 
     //  Show bubble with content
-    Velocity(bubble,
+    velocity(bubble,
       { translateX: 0 },
       { duration: speed*5, easing: [ 200, 20 ], delay: speed*0.5,
         complete: function() { nextFunction(); }
@@ -207,24 +208,24 @@ function LasChat() {
 
     this.answerOne.innerHTML = this.answerOneText;
 
-    this.answerOne.style.display = "inline-block";
+    this.answerOne.style.display = 'inline-block';
 
-    if (this.answerTwoText !== "") {
+    if (this.answerTwoText !== '') {
       this.answerTwo.innerHTML = this.answerTwoText;
-      this.answerTwo.style.display = "inline-block";
+      this.answerTwo.style.display = 'inline-block';
     }
 
     // Adjust padding
-    Velocity(this.chatFlow,
-      { paddingBottom: that.answers.offsetHeight + 5 + "px" },
-      { duration: speed*1, easing: "easeInOutQuart" }
+    velocity(this.chatFlow,
+      { paddingBottom: self.answers.offsetHeight + 5 + 'px' },
+      { duration: speed*1, easing: 'easeInOutQuart' }
     );
-    that.scrollAfterChange();
+    self.scrollAfterChange();
 
-    Velocity(this.answers, { translateY: 0 }, { duration: speed*5, easing: [ 200, 20 ], queue: false } );
+    velocity(this.answers, { translateY: 0 }, { duration: speed*5, easing: [ 200, 20 ], queue: false } );
 
-    if (this.answerTwoText !== "") {
-      Velocity(this.answerTwo, { translateY: 0 }, { duration: speed*3, easing: "easeInOutQuart", /*delay: speed*3*/ });
+    if (this.answerTwoText !== '') {
+      velocity(this.answerTwo, { translateY: 0 }, { duration: speed*3, easing: 'easeInOutQuart', /*delay: speed*3*/ });
     }
 
   };
@@ -252,7 +253,7 @@ function LasChat() {
     answerBubble.className = 'chat-bubble-answer';
 
     // Append answer
-    that.chatFlow.insertBefore(answerBubble, this.chatFlow.lastChild);
+    self.chatFlow.insertBefore(answerBubble, this.chatFlow.lastChild);
 
     // Get coordinates for te animation
     clickedAnswerRect = this.clickedAnswer.getBoundingClientRect();
@@ -265,18 +266,18 @@ function LasChat() {
     this.resetAnswers();
 
     // Adjust padding
-    Velocity(this.chatFlow,
-      { paddingBottom: "4rem" },
-      { duration: speed*4, easing: "easeInOutQuart" }
+    velocity(this.chatFlow,
+      { paddingBottom: '4rem' },
+      { duration: speed*4, easing: 'easeInOutQuart' }
     );
 
     // Animate answerBubble
-    Velocity(answerBubble,
+    velocity(answerBubble,
       { translateY: [0, newTop], translateX: [0, newLeft], backgroundColor: ['#73b9e6', '#3a8ac0'], opacity: [1, 1] },
       { duration: speed*2, easing: [ 300, 20 ],
         complete: function() {
-          that.getNextBubble(next);
-          setTimeout(function() { that.createBubble(); }, speed*2);
+          self.getNextBubble(next);
+          setTimeout(function() { self.createBubble(); }, speed*2);
         }
       }
     );
@@ -288,19 +289,19 @@ function LasChat() {
     this.state.answersWaiting = false;
 
     // testing whole answers animation
-    Velocity(this.answers,
-      { translateY: "100%" },
+    velocity(this.answers,
+      { translateY: '100%' },
       { duration: speed*2, easing: [ 300, 20 ], queue: false }
     );
-    Velocity(this.answerOne,
-      { translateY: "0" },
-      { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerOne.style.visibility = "visible"; } }
+    velocity(this.answerOne,
+      { translateY: '0' },
+      { duration: speed*2, easing: [ 300, 20 ], display: 'none', complete: function() { self.answerOne.style.visibility = 'visible'; } }
     );
 
-    //if (this.answerTwoText !== "") {
-      Velocity(this.answerTwo,
-        { translateY: "100%" },
-        { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerTwo.style.visibility = "visible"; } }
+    //if (this.answerTwoText !== '') {
+      velocity(this.answerTwo,
+        { translateY: '100%' },
+        { duration: speed*2, easing: [ 300, 20 ], display: 'none', complete: function() { self.answerTwo.style.visibility = 'visible'; } }
       );
     //}
   };
@@ -321,7 +322,7 @@ function LasChat() {
 
     } else {
 
-      this.bubbleAutoNext = "";
+      this.bubbleAutoNext = '';
       this.answerOneText = this.currentBubbleData.answerOne.answer;
       this.answerOneNext = this.currentBubbleData.answerOne.next;
 
@@ -330,7 +331,7 @@ function LasChat() {
         this.answerTwoNext = this.currentBubbleData.answerTwo.next;
       } else {
         this.answerTwoText =
-        this.answerTwoNext = "";
+        this.answerTwoNext = '';
       }
 
     } // end if data.autoNext
@@ -351,7 +352,7 @@ function LasChat() {
     // Keep the scroll at place
     this.wrapper.scrollTop = scrollNo;
 
-    Velocity(that.answers, "scroll", { container: that.wrapper, duration: speed*3, offset: -5, easing: "easeInOutQuart", queue: false });
+    velocity(self.answers, 'scroll', { container: self.wrapper, duration: speed*3, offset: -5, easing: 'easeInOutQuart', queue: false });
 
     // Reset scroll function
     this.scrollFn = function() {};
@@ -361,12 +362,12 @@ function LasChat() {
   this.eventHandler = function(event) {
 
     if ( ( event.target.id === 'answer-left' ) || ( event.target.parentNode.id === 'answer-left' ) ) {
-      that.clickedAnswer = that.answerOne;
-      that.answerToBubble();
+      self.clickedAnswer = self.answerOne;
+      self.answerToBubble();
     }
     else if ( ( event.target.id === 'answer-right' ) || ( event.target.parentNode.id === 'answer-right' ) ) {
-      that.clickedAnswer = that.answerTwo;
-      that.answerToBubble();
+      self.clickedAnswer = self.answerTwo;
+      self.answerToBubble();
     }
 
     event.preventDefault();
@@ -377,11 +378,11 @@ function LasChat() {
 
   this.addListener = function() {
     this.answers.addEventListener('touchstart', function(event) {
-      that.eventHandler(event);
+      self.eventHandler(event);
     }, false);
 
     this.answers.addEventListener('click', function(event) {
-      that.eventHandler(event);
+      self.eventHandler(event);
     }, false);
 
   };
@@ -394,19 +395,19 @@ function LasChat() {
 
     var finish = document.createElement('li');
 
-    finish.className = "nocnasowa centered size-1";
-    finish.style.cssText = "display:block;clear:both;margin:0;padding:2.5rem 0 0;opacity:0;";
+    finish.className = 'nocnasowa centered size-1';
+    finish.style.cssText = 'display:block;clear:both;margin:0;padding:2.5rem 0 0;opacity:0;';
     finish.innerHTML = '<span>Nocna</span> Sowa';
 
-    this.scrollFn = function() { that.chatFlow.insertBefore(finish, that.chatFlow.lastChild); };
+    this.scrollFn = function() { self.chatFlow.insertBefore(finish, self.chatFlow.lastChild); };
     this.scrollAfterChange();
 
-    Velocity(finish,
+    velocity(finish,
         { opacity: [1, 0] },
-        { duration: speed*6, easing: "easeInOutQuart" }
+        { duration: speed*6, easing: 'easeInOutQuart' }
       );
 
-    console.log("END");
+    console.log('END');
 
   };
 
@@ -420,8 +421,8 @@ function LasChat() {
         answerTwo;
 
     this.resetAnswers();
-    that.chatFlow.innerHTML = '';
-    that.chatFlow.style.display = "none";
+    self.chatFlow.innerHTML = '';
+    self.chatFlow.style.display = 'none';
 
     for (property in data) {
       if (data.hasOwnProperty(property)) {
@@ -430,25 +431,25 @@ function LasChat() {
           bubble = document.createElement('li');
           content = item;
 
-          bubble.className = "beige chat-bubble";
-          bubble.style.right = "0";
+          bubble.className = 'beige chat-bubble';
+          bubble.style.right = '0';
           bubble.innerHTML = content;
 
-          that.chatFlow.appendChild(bubble);
+          self.chatFlow.appendChild(bubble);
         });
 
         if (data[property].answerOne) {
 
           answerOne = document.createElement('li');
           answerOne.className = 'chat-bubble-answer';
-          answerOne.style.opacity = "1";
+          answerOne.style.opacity = '1';
           answerOne.innerHTML = data[property].answerOne.answer;
-          that.chatFlow.appendChild(answerOne);
+          self.chatFlow.appendChild(answerOne);
 
           if (data[property].answerTwo) {
             answerTwo = answerOne.cloneNode(false);
             answerTwo.innerHTML = data[property].answerTwo.answer;
-            that.chatFlow.appendChild(answerTwo);
+            self.chatFlow.appendChild(answerTwo);
           }
 
         }
@@ -456,12 +457,12 @@ function LasChat() {
       var line = document.createElement('li');
       line.style.cssText = 'width:100%;height:3px;background:#000;margin:2.5rem 0;clear:both;';
 
-      that.chatFlow.appendChild(line);
+      self.chatFlow.appendChild(line);
 
       } // end if has property
     } // end loop
 
-    that.chatFlow.style.display = "block";
+    self.chatFlow.style.display = 'block';
 
   };
 
