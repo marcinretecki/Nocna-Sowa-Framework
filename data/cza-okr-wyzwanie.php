@@ -12,8 +12,8 @@ function LasAudioData() {
 
   this.intro = {
     a1: {
-      msg:        "Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i>.",
-      autoNext:   "ENDINTRO",
+      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i>.',
+      autoNext:   'ENDINTRO',
       more: { startTime: 0, stopTime: 26 }
     }
   };

@@ -12,8 +12,8 @@ function LasAudioData() {
 
   this.intro = {
     a1: {
-      msg:        "Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i>.",
-      autoNext:   "ENDINTRO",
+      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i>.',
+      autoNext:   'ENDINTRO',
       more: { startTime: 0, stopTime: 26 }
     }
   };
@@ -25,7 +25,7 @@ function LasAudioData() {
       startTime:  0,
       stopTime:   3,
       pauseTime:  6,
-      autoNext:   "aa2"
+      autoNext:   'aa2'
     },
     aa2: {
       msg:        'Jeg liker å være ute.',
@@ -39,7 +39,7 @@ function LasAudioData() {
       startTime:  8,
       stopTime:   11,
       pauseTime:  6,
-      autoNext:   "ab2"
+      autoNext:   'ab2'
     },
     ab2: {
       msg:        'Hun liker å få gaver.',
@@ -53,7 +53,7 @@ function LasAudioData() {
       startTime:  16,
       stopTime:   18,
       pauseTime:  6,
-      autoNext:   "ac2"
+      autoNext:   'ac2'
     },
     ac2: {
       msg:        'Vi liker å reise.',
@@ -67,7 +67,7 @@ function LasAudioData() {
       startTime:  22,
       stopTime:   24.5,
       pauseTime:  8,
-      autoNext:   "ad2"
+      autoNext:   'ad2'
     },
     ad2: {
       msg:        'Du liker å fortelle eventyr.',
@@ -81,7 +81,7 @@ function LasAudioData() {
       startTime:  30,
       stopTime:   32.5,
       pauseTime:  8,
-      autoNext:   "ae2"
+      autoNext:   'ae2'
     },
     ae2: {
       msg:        'Dere liker å bo i Oslo.',
@@ -95,7 +95,7 @@ function LasAudioData() {
       startTime:  38,
       stopTime:   40.5,
       pauseTime:  6,
-      autoNext:   "af2"
+      autoNext:   'af2'
     },
     af2: {
       msg:        'Han trenger å snakke.',
@@ -109,7 +109,7 @@ function LasAudioData() {
       startTime:  45,
       stopTime:   48,
       pauseTime:  8,
-      autoNext:   "ag2"
+      autoNext:   'ag2'
     },
     ag2: {
       msg:        'De trenger å tro i noe.',
@@ -123,7 +123,7 @@ function LasAudioData() {
       startTime:  52,
       stopTime:   55.5,
       pauseTime:  8,
-      autoNext:   "ah2"
+      autoNext:   'ah2'
     },
     ah2: {
       msg:        'Han trenger å ligge og slappe av.',
@@ -137,7 +137,7 @@ function LasAudioData() {
       startTime:  61,
       stopTime:   64,
       pauseTime:  8,
-      autoNext:   "aj2"
+      autoNext:   'aj2'
     },
     aj2: {
       msg:        'De trenger å kjøpe klær.',
@@ -151,7 +151,7 @@ function LasAudioData() {
       startTime:  69,
       stopTime:   71.5,
       pauseTime:  8,
-      autoNext:   "ai2"
+      autoNext:   'ai2'
     },
     ai2: {
       msg:        'Vi prøver å lese på norsk.',
@@ -165,7 +165,7 @@ function LasAudioData() {
       startTime:  77,
       stopTime:   80,
       pauseTime:  6,
-      autoNext:   "ak2"
+      autoNext:   'ak2'
     },
     ak2: {
       msg:        'Dere prøver å forstå.',
@@ -179,7 +179,7 @@ function LasAudioData() {
       startTime:  84,
       stopTime:   87,
       pauseTime:  9,
-      autoNext:   "al2"
+      autoNext:   'al2'
     },
     al2: {
       msg:        'Jeg prøver å høre på norsk radio.',
@@ -193,7 +193,7 @@ function LasAudioData() {
       startTime:  92,
       stopTime:   95,
       pauseTime:  8,
-      autoNext:   "ba2"
+      autoNext:   'ba2'
     },
     ba2: {
       msg:        'De prøver å kjøre i byen.',
@@ -207,7 +207,7 @@ function LasAudioData() {
       startTime:  100,
       stopTime:   102.5,
       pauseTime:  6,
-      autoNext:   "bb2"
+      autoNext:   'bb2'
     },
     bb2: {
       msg:        'Hun lærer å gå.',
@@ -221,7 +221,7 @@ function LasAudioData() {
       startTime:  107,
       stopTime:   109.5,
       pauseTime:  6,
-      autoNext:   "bc2"
+      autoNext:   'bc2'
     },
     bc2: {
       msg:        'Han lærer å vente.',
@@ -235,7 +235,7 @@ function LasAudioData() {
       startTime:  114,
       stopTime:   116.5,
       pauseTime:  6,
-      autoNext:   "bd2"
+      autoNext:   'bd2'
     },
     bd2: {
       msg:        'Hun lærer å elske.',
@@ -249,7 +249,7 @@ function LasAudioData() {
       startTime:  121,
       stopTime:   124.5,
       pauseTime:  10,
-      autoNext:   "be2"
+      autoNext:   'be2'
     },
     be2: {
       msg:        'Hun lærer å konsentrere seg om en ting.',
@@ -263,7 +263,7 @@ function LasAudioData() {
       startTime:  131,
       stopTime:   134,
       pauseTime:  8,
-      autoNext:   "bf2"
+      autoNext:   'bf2'
     },
     bf2: {
       msg:        'Barnet begynner å bli i barnehagen.',
@@ -277,7 +277,7 @@ function LasAudioData() {
       startTime:  140,
       stopTime:   143,
       pauseTime:  6,
-      autoNext:   "bg2"
+      autoNext:   'bg2'
     },
     bg2: {
       msg:        'Mannen begynner å svømme.',
@@ -291,7 +291,7 @@ function LasAudioData() {
       startTime:  147,
       stopTime:   149.5,
       pauseTime:  6,
-      autoNext:   "bh2"
+      autoNext:   'bh2'
     },
     bh2: {
       msg:        'Kvinna begynner å trene.',
@@ -305,7 +305,7 @@ function LasAudioData() {
       startTime:  155,
       stopTime:   158,
       pauseTime:  8,
-      autoNext:   "bi2"
+      autoNext:   'bi2'
     },
     bi2: {
       msg:        'Hun begynner å klare på jobben.',
@@ -319,7 +319,7 @@ function LasAudioData() {
       startTime:  163,
       stopTime:   165.5,
       pauseTime:  6,
-      autoNext:   "bk2"
+      autoNext:   'bk2'
     },
     bk2: {
       msg:        'De slutter å drikke.',
@@ -333,7 +333,7 @@ function LasAudioData() {
       startTime:  170,
       stopTime:   172.5,
       pauseTime:  8,
-      autoNext:   "bl2"
+      autoNext:   'bl2'
     },
     bl2: {
       msg:        'Han slutter å studere økonomi.',
@@ -347,7 +347,7 @@ function LasAudioData() {
       startTime:  178,
       stopTime:   180.5,
       pauseTime:  6,
-      autoNext:   "bm2"
+      autoNext:   'bm2'
     },
     bm2: {
       msg:        'Hun stopper å ringe.',
@@ -361,7 +361,7 @@ function LasAudioData() {
       startTime:  185,
       stopTime:   187.5,
       pauseTime:  6,
-      autoNext:   "bn2"
+      autoNext:   'bn2'
     },
     bn2: {
       msg:        'Han stopper å komme.',
@@ -375,7 +375,7 @@ function LasAudioData() {
       startTime:  192,
       stopTime:   195,
       pauseTime:  8,
-      autoNext:   "bp2"
+      autoNext:   'bp2'
     },
     bp2: {
       msg:        'Jenta stopper å spise søtsaker.',
@@ -389,7 +389,7 @@ function LasAudioData() {
       startTime:  200,
       stopTime:   203,
       pauseTime:  8,
-      autoNext:   "bo2"
+      autoNext:   'bo2'
     },
     bo2: {
       msg:        'Faren stopper å gi penger.',
