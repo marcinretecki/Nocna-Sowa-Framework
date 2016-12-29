@@ -47,7 +47,6 @@ function LasAudioTest() {
   this.startTime =            -1;
   this.stopTime =             -1;
   this.pauseTime =            -1;
-  this.score =                false;
 
   //  this will be assigned with assignAnswersData
   this.answersData =          [];
@@ -72,7 +71,8 @@ function LasAudioTest() {
     vibrating:                false,
     spinner:                  false,
     clicked:                  false,
-    prePause:                 false
+    prePause:                 false,
+    exNumber:                 0
   };
 
 
@@ -211,20 +211,6 @@ function LasAudioTest() {
 
     }
 
-    //  if there is score
-    if ( this.currentBubbleData.hasOwnProperty('score') ) {
-
-      //  assign score
-      this.score = this.currentBubbleData.score;
-
-    }
-    else {
-
-      //  reset score
-      this.score = false;
-
-    }
-
   };
 
 
@@ -283,14 +269,10 @@ function LasAudioTest() {
 
     }
 
-    //  the bubble can be a score
-    //  it will check itself if there is score to show
-    this.showScore();
-
     //  or it can be another question
 
     //  if there is no time (and no score)
-    if ( ( this.startTime < 0 ) && !this.score ) {
+    if ( this.startTime < 0  ) {
 
       this.showAnswers();
 
@@ -486,9 +468,6 @@ function LasAudioTest() {
 
     window.console.log('pre pause');
 
-    //  if the score was shown, reset it and on complete show controls
-    this.resetScore();
-
     //  reset timer
     this.resetSkipButton();
 
@@ -683,9 +662,12 @@ function LasAudioTest() {
       window.console.log('set answers timer');
 
       this.showAnswersTimer = window.setTimeout(function() {
+
         window.clearTimeout(this.showAnswersTimer);
         this.showAnswersTimer = undefined;
+
         this.showAnswers();
+
       }.bind(this), 200);
 
       return false;
@@ -900,7 +882,7 @@ function LasAudioTest() {
 
     //  if there is score already
     //  or the bubble has no score
-    if ( this.state.score || !this.score ) {
+    if ( this.state.score ) {
       return false;
     }
 
@@ -908,18 +890,37 @@ function LasAudioTest() {
 
     this.state.score = true;
 
+    //  add 1 to the number of excercises user made
+    this.state.exNumber = this.state.exNumber + 1;
+
+    //  change the number in element
+    this.audioScoreNumber.innerHTML = this.state.exNumber;
+
     velocity.hook( this.audioScore, "translateX", "-50%" );
     velocity.hook( this.audioScore, "translateY", "-40%" );
+    velocity.hook( this.audioScore, "scale", "0" );
+
+    //  some numbers are not centered properly
+    //  here we can fix this
+    if ( ( this.state.exNumber === 1 )  || ( this.state.exNumber === 11 ) ) {
+      velocity.hook( this.audioScoreNumber, "left", "-4px" );
+    }
+    else if ( this.state.exNumber === 4 ) {
+      velocity.hook( this.audioScoreNumber, "left", "-5px" );
+    }
+    else {
+      velocity.hook( this.audioScoreNumber, "left", "0" );
+    }
 
     velocity(
       this.audioScore,
-      { opacity: [1, 0], scale: [1, 0] },
+      { opacity: [1, 0], scale: 1 },
       { duration: speed, easing: easingQuart, display: 'block' }
     );
 
     velocity(
       this.audioScoreNumber,
-      { scale: [1.2, 1] },
+      { scale: [1.5, 1] },
       { duration: speed, easing: easingQuart, delay: speed }
     );
 
@@ -930,34 +931,22 @@ function LasAudioTest() {
     );
 
 
+    window.console.log('add score timer');
 
+    //  Add the timer to reset score
+    this.showScoreTimer = window.setTimeout(function() {
 
-    //  no startTime, add timeout to reset score automatically
+      this.resetScore();
+      this.showScoreTimer = undefined;
 
-    //  this is not working as intended!
-    //  when set like this, it never resets the score
-    //  it's possible that it takes data from the next bubble and so never resets the score
-
-    if ( this.startTime < 0 ) {
-
-      window.console.log('add score timer');
-
-      this.showScoreTimer = window.setTimeout(function() {
-
-        this.resetScore();
-        this.showScoreTimer = undefined;
-
-      }.bind(this), speed*4);
-
-    }
+    }.bind(this), speed*4);
 
   };
 
 
   this.resetScore = function() {
     //  hide the score
-    //  it can be called from setTimeout on showScore
-    //  or on prePause
+    //  it can be called on showScore (via setTimeout)
 
     var completeFn;
 
@@ -1237,8 +1226,11 @@ function LasAudioTest() {
     var vibratingTimer;
     var answerEl;
 
-    //  if not wrong, then run answer to bubble
+    //  if it was the right answer
     if ( answerData.hasOwnProperty('next') && answerData.next ) {
+
+      //  show score
+      this.showScore();
 
       //  assign next bubble name
       this.nextBubbleName = answerData.next;
