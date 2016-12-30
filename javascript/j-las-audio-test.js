@@ -56,7 +56,16 @@ function LasAudioTest() {
 
 
   //
+  //  Sequence type
+  //  pimp || quiz || ''
+  //
+  this.sequenceType =         '';
+
+
+  //
   //  State
+  //  this prohibits some functions from firing more than once
+  //  it's also usefull in debugging
   //
   this.state = {
     currentState:             '',   // END / INTRO / CHAT
@@ -124,10 +133,54 @@ function LasAudioTest() {
   //  BUBBLE
   //
   this.assignBubbleData = function(no, data) {
-    this.currentBubble = no;
-    this.currentBubbleData = data;
+    //  check what data is available, assign it and reset those unavailable
+
+    //  new sequence?
+    //  before assign, check the previous bubble
+
+    var sequenceTypeData
+
+    //  if it is the first bubble
+    if ( this.state.currentState === 'INTRO' ) {
+      sequenceTypeData = false;
+    }
+    else if ( this.currentBubbleData && ( this.currentBubbleData.autoNext !== 'ENDINTRO' ) ) {
+      sequenceTypeData = this.currentBubbleData;
+    }
+    else {
+      sequenceTypeData = data;
+    }
+
+    window.console.log("previous? ");
+    window.console.log(sequenceTypeData);
+
+    //  if there is any data
+    if ( sequenceTypeData ) {
+
+      //  if the new bubble has answers, it is a quiz
+      if ( sequenceTypeData.hasOwnProperty( 'answers' ) ) {
+        this.sequenceType = 'quiz';
+
+        window.console.log('quiz');
+      }
+      //  if the new bubble has autoNext and pause, it is a pimp
+      else if ( sequenceTypeData.hasOwnProperty( 'autoNext' ) && sequenceTypeData.hasOwnProperty( 'pauseTime' ) ) {
+        this.sequenceType = 'pimp';
+
+        window.console.log('pimp');
+      }
+      else {
+        window.console.log('wtf is this?');
+        window.console.log('not a pimp or a quiz');
+      }
+
+    }
 
     window.console.log('Assign bubble data');
+
+    //  assign
+    this.currentBubble = no;
+    this.currentBubbleData = data;
 
     //  if there is time
     if ( this.currentBubbleData.hasOwnProperty('startTime') ) {
@@ -181,6 +234,9 @@ function LasAudioTest() {
       //  Reset autoNext
       this.bubbleAutoNext = '';
 
+    }
+    else {
+      throw "There is no nautoNext or answers – audio test can't work";
     }
 
     //  if there is msg
@@ -288,8 +344,8 @@ function LasAudioTest() {
       //  answers show on autoPause
       this.playAudio();
 
-      //  if it is callan, we need to show msg earlier
-      if ( ( this.bubbleAutoNext === 'RANDOM' ) && !this.score ) {
+      //  if it is a pimp, we need to show msg earlier
+      if ( this.sequenceType === 'pimp' ) {
 
         this.showMsg();
 
@@ -484,6 +540,10 @@ function LasAudioTest() {
 
     window.console.log('at pause');
 
+    //  if there was audio, we need to show controls
+    //  controls will check themselves if they are already in or not
+    this.showControls();
+
     //  if there is autoNext but not random one
     if ( ( this.bubbleAutoNext !== '' ) && ( this.bubbleAutoNext !== 'RANDOM' ) ) {
 
@@ -493,19 +553,16 @@ function LasAudioTest() {
       //  create new bubble
       this.createBubble();
 
-      //  if it is callan, we need to show controls here, because there is no score
-      if ( ( this.bubbleAutoNext === 'RANDOM' ) && !this.score ) {
-
-        this.showControls();
-
-      }
-
     }
     //  if it is the end
     else if ( this.bubbleAutoNext === 'END' ) {
 
       this.finish();
 
+    }
+    else  {
+      //  do nothing
+      //  it is a rewind or we have answers
     }
 
   };
@@ -649,14 +706,15 @@ function LasAudioTest() {
     var completeFn;
 
     //  answers are waiting or the timer is set or there is no answers to show
-    if ( this.state.answers || this.showAnswersTimer || ( this.answersData.length === 0 ) ) {
+    if ( this.state.answers || this.showAnswersTimer || !this.answersData.length ) {
 
       window.console.log('no answers or timer set or answers waiting');
 
       return false;
     }
 
-    //  wait untill answers, score or controls is reset
+    //  wait untill score or msg is reset
+    //  does it nee to wait for controls?
     if ( this.state.score || this.state.msg ) {
 
       window.console.log('set answers timer');
@@ -722,34 +780,34 @@ function LasAudioTest() {
       //  end loop
     }
 
-    //  if the question has no msg, it will usually have audio
-    //  then we should show controls for this audio
-    //  should I be doing som if statement to check if my assuption is valid?
-    this.showControls();
-
   };
 
 
   this.resetAnswers = function() {
     //  reset the answers
 
+    var i;
+    var c = this.answersData.length;
+    var completeFn;
+
     //  if there was no answers
     if ( !this.state.answers ) {
       return false;
     }
 
-    //  Loop over answers
-    var i;
-    var c = this.answersData.length;
-    var completeFn;
+
+    window.console.log('reset answers');
 
     completeFn = function() {
       this.state.answers = false;
       //  show msg if there is one
       //  why show msg here???
+      window.console.log('showMsg at completeFn at resetAnswers');
       this.showMsg();
     }.bind(this);
 
+
+    //  Loop over answers
     for (i = 0; i < 4; i++) {
 
       //  if there is such an answer, hide it
@@ -812,7 +870,7 @@ function LasAudioTest() {
 
     //  we do not check state here, because we want to use Velocity chaining
     //  but we need to check if there is a msg to show
-    if ( this.msg === '' ) {
+    if ( !this.msg ) {
       return false;
     }
 
@@ -958,14 +1016,10 @@ function LasAudioTest() {
 
     window.console.log('reset score');
 
-    //  when score hides, show controls
+    //  prevent score from showing again, before it is fully reset
     completeFn = function() {
 
       this.state.score = false;
-
-      //  true arg prevents showControls from calling if there was audio
-      //  with audio, controls show atPause
-      this.showControls( true );
 
     }.bind(this);
 
@@ -985,11 +1039,11 @@ function LasAudioTest() {
   //
   //  CONTROLS
   //
-  this.showControls = function( afterScore ) {
+  this.showControls = function() {
 
     //  if controls are already in
-    //  or each of the single controls has no purpose and it is not afterScore and it is not before the first play
-    if ( this.state.controls || ( ( this.more === null ) && ( this.startTime < 0 ) && !this.state.beforeFirstPlay && !afterScore ) ) {
+    //  or there is no time && no more && it is not before the first play
+    if ( this.state.controls || ( !this.more && ( this.startTime < 0 ) && !this.state.beforeFirstPlay ) || !this.msg ) {
       return false;
     }
 
@@ -997,7 +1051,7 @@ function LasAudioTest() {
 
     window.console.log('show controls');
 
-    //  if there are answers, we want to mach the color to them
+    //  if there are answers, we want to match the color to them
     if ( this.state.answers ) {
       this.audioControls.className = 'section-green';
     }
@@ -1016,7 +1070,7 @@ function LasAudioTest() {
 
     //  if there is more audio, show MORE button
     if ( this.more !== null ) {
-      window.console.log('show controls, more: ' + this.more.startTime);
+      window.console.log('show more button');
 
       velocity(
         this.audioMore,
@@ -1027,7 +1081,7 @@ function LasAudioTest() {
 
     //  if there is time, show REWIND
     if ( this.startTime >= 0 ) {
-      window.console.log('show controls, rewind: ' + this.startTime);
+      window.console.log('show rewind button');
 
       velocity(
         this.audioRewind,
@@ -1036,8 +1090,8 @@ function LasAudioTest() {
       );
     }
 
-    //  if this is the first play or the end of automatic sequence, show NEXT button
-    if ( this.state.beforeFirstPlay || ( this.bubbleAutoNext === 'RANDOM' ) ) {
+    //  if there are no answers, we need NEXT button
+    if ( !this.answersData.length ) {
       velocity(
         this.audioNext,
         'fadeIn',
