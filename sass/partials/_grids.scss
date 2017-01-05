@@ -4,12 +4,12 @@
 
 .row{overflow:hidden;margin-left:(-$space);margin-right:(-$space);}
 .col{margin-left:(-$space);margin-right:(-$space);}
-[class*='col-']{float:left;display:block;padding-left:$space;padding-right:$space}
-.col-15,.p-15 > p{width: $col-15}
-.col-14,.p-14 > p{width: $col-14}
-.col-13,.p-13 > p{width: $col-13}
-.col-12,.p-12 > p{width: $col-12}
-.col-11,.p-11 > p{width: $col-11}
+[class*='col-']{float:left;display:block;padding-left:$space;padding-right:$space;}
+.col-15,.p-15 > p{width: $col-15;}
+.col-14,.p-14 > p{width: $col-14;}
+.col-13,.p-13 > p{width: $col-13;}
+.col-12,.p-12 > p{width: $col-12;}
+.col-11,.p-11 > p{width: $col-11;}
 
 // OBS! Legacy code
 .col-10,.p-10 > p{width: $col-10;padding-left:$space;padding-right:$space;
@@ -36,33 +36,33 @@
 .p-10 > blockquote .share{left:auto;right:$space;top:auto;bottom:0}
 .p-10 > iframe,.p-10 > object{margin-bottom:$space;}
 
-.col-9,.p-9 > p{width:$col-9}
-.col-8,.p-8 > p{width:$col-8;
+.col-9,.p-9 > p{width:$col-9;}
+.col-8,.p-8 > p{width:$col-8;;
   @media #{$m640} {
     width:auto;float:none;
   }
 }
-.col-7,.p-7 > p{width:$col-7}
-.col-6,.p-6 > p{width:$col-6}
-.col-5,.p-5 > p{width:$col-5}
+.col-7,.p-7 > p{width:$col-7;}
+.col-6,.p-6 > p{width:$col-6;}
+.col-5,.p-5 > p{width:$col-5;}
 .col-4,.p-4 > p{width:$col-4;
   @media #{$m770} {
     width:$col-8;
   }
 }
-.col-3,.p-3 > p{width:$col-3}
+.col-3,.p-3 > p{width:$col-3;}
 .col-2,.p-2 > p{width:$col-2;
   @media #{$m770} {
     width:$col-4;
   }
 }
-.col-1,.p-1 > p{width:$col-1}
+.col-1,.p-1 > p{width:$col-1;}
 
 .p-center > p{float:none;margin-left:auto;margin-right:auto;}
 // OBS!
 .p-center > *{float:none;margin-left:auto;margin-right:auto;}
 
-.l-1-32{margin-left:$col-1-32}
+.l-1-32{margin-left:$col-1-32;}
 .l-1{margin-left:$col-1;}
 .l-2{margin-left:$col-2;}
 .l-3{margin-left:$col-3;}
@@ -74,10 +74,10 @@
   }
 }
 
-.r-1-32{margin-right:$col-1-32}
+.r-1-32{margin-right:$col-1-32;}
 
-.minus-l-5{margin-left:(-$col-5)}
-.minus-r-5{margin-right:(-$col-5)}
+.minus-l-5{margin-left:(-$col-5);}
+.minus-r-5{margin-right:(-$col-5);}
 
 
 

@@ -74,6 +74,7 @@ a:hover .caret,.caret:hover{border-top-color:$white;}
 
 /*ul*/.navbar__list{padding:0;margin:0;}
 /*ul*/.navbar__list > li{display:inline;padding:0;margin:0;}
+/*ul*/.navbar__list a{margin:0;}
 /*ul*/.navbar__list .btn-nav{
   @media #{$m770}{
     display: block;

@@ -1,0 +1,20 @@
+/*
+Threme Name: Las
+Threme URI: http://las.nocnasowa.pl
+Description: Custom
+Author: Marcin Retecki
+
+*/
+
+
+// Variables
+@import "partials/variables";
+@import "partials/mixins";
+
+
+.las-szlak-list{counter-reset:szlak 0;}
+.las-szlak-list__btn{display:block;padding:$space $space-2;border:1px solid $dark-light;border-width:1px 0 0;line-height:1.25;white-space:normal;text-align:left;border-radius:0;}
+
+.las-szlak-list >li:first-child .las-szlak-list__btn{border-top-color:transparent;}
+
+.las-szlak-list__btn--arrow::after{display:block;position:absolute;right:0;top:0;bottom:0;width:2rem;font-family:$bariol;font-size:$size-2;color:inherit;content:'\00bb';}
