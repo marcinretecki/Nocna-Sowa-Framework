@@ -20,6 +20,7 @@
   <link href="<?php echo get_permalink( $id ); ?>" rel="canonical" />
 
   <?php include( $source_url . 'includes/header-meta.php' ); ?>
+  <link rel="stylesheet" type="text/css" href="<?php autoVer('/c/las.css'); ?>" />
   <link rel="stylesheet" type="text/css" href="<?php autoVer('/c/chat-bot-rzeczownik.css'); ?>" />
 </head>
 
@@ -32,10 +33,12 @@ var lasChapter = "<?php echo $post->post_name; ?>";
 <script src="<?php autoVer('/c/j-las-min.js'); ?>"></script>
 
 
-<?php if (!is_page('kursy') && !is_front_page() && !is_home()) { ?>
+<?php if ( !is_front_page() && !is_home() ) { ?>
 <div class="section-white header-top header-top--shadowed header-top--fixed">
   <div class="section-nav">
     <span class="btn btn-nav navbar-logo--centered">//</span>
+
+
 
     <nav class="section-white" style="width:100%;">
       <ul class="nabar__list alignright">
@@ -43,14 +46,15 @@ var lasChapter = "<?php echo $post->post_name; ?>";
         </a></li>
       </ul>
 
+      <?php if ( !is_page('kursy') ) { ?>
+
       <ul class="navbar__list">
-                 <li><a href="/kursy/" class="btn btn-dark-outline btn-nav">&laquo; Twój Szlak
+                 <li><a href="/szlak/" class="btn btn-dark-outline btn-nav">&laquo; Twój Szlak
         </a></li>
       </ul>
+      <?php } ?>
     </nav>
 
   </div>
 </div>
-<?php }; ?>
-
-<section class="section-beige wrapper">
+<?php };

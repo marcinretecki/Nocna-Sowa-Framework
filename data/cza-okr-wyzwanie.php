@@ -396,7 +396,7 @@ function LasAudioData() {
     },
 
     nesteuke: {
-      msg: 'Vi sees <span class="audio-test-clue">w przyszłym tygodniu</span>.',
+      msg:        'Vi sees <span class="audio-test-clue">w przyszłym tygodniu</span>.',
       answers: [
         { answer: 'neste uke', next: 'nesteuke' },
         { answer: 'igjen', wrong: true },
@@ -405,14 +405,14 @@ function LasAudioData() {
       ]
     },
     nesteuke: {
-      msg: 'Vi sees neste uke.',
-      score: true,
+      msg:        'Vi sees neste uke.',
+      score:      true,
       startTime:  75,
       stopTime:   77,
       autoNext:   'RANDOM'
     },
 
-    nestemaned1: {
+/*    nestemaned1: {
       msg: 'Jeg begynner et dansekurs <span class="audio-test-clue">w następnym/przyszłym miesiącu</span>.',
       answers: [
         { answer: 'neste måned', next: 'nestemaned2' },
@@ -427,11 +427,11 @@ function LasAudioData() {
       startTime:  78,
       stopTime:   81,
       autoNext:   'RANDOM'
-    },
+    },*/
 
 
     nestegang1: {
-      msg: 'De vil ikke ta opp lån <span class="audio-test-clue">następnym razem</span>.',
+      msg:        'De vil ikke ta opp lån <span class="audio-test-clue">następnym razem</span>.',
       answers: [
         { answer: 'neste gang', next: 'nestegang2' },
         { answer: 'hver gang', wrong: true },

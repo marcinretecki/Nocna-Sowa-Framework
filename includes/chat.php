@@ -3,10 +3,11 @@
 // Includes - Chat
 //
 
-echo '<div style="position:absolute;right:0;z-index:100">';
-echo '<h1>Chat!</h1>';
-echo '</div>';
+?>
 
+<section class="section-trans wrapper" style="background-image: url('/i/las_test_6.jpg');">
+
+<?php
 //
 //  Get the chat data
 //  @file is taken from router in page.php
