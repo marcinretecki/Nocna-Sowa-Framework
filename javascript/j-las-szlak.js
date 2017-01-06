@@ -9,10 +9,18 @@ function LasSzlak() {
   //  Elements
   //
   this.szlakWrapper =       document.getElementById('szlak-wrapper');
-  this.navs =               {
-                              basic:      document.getElementById('section-basic'),
-                              advanced:   document.getElementById('section-advanced')
-                            };
+  this.szlakPopUp =         document.getElementById('szlak-post-popup');
+  this.szlakPopUpSection =  document.getElementById('szlak-post-popup');
+  this.navs = {
+    basic:                  document.getElementById('section-basic'),
+    advanced:               document.getElementById('section-advanced')
+  };
+
+  this.popupBtns = {
+    przewodnik:             document.getElementById('szlak-btn-przewodnik'),
+    wyzwanie:               document.getElementById('szlak-btn-wyzwanie'),
+    sos:                    document.getElementById('szlak-btn-sos')
+  };
 
 
   this.clickedLevel =       '';
@@ -33,7 +41,8 @@ function LasSzlak() {
   //  it's also usefull in debugging
   //
   this.state = {
-    clicked:                  false
+    clicked:                  false,
+    popupUrl:                 ''
   };
 
 
@@ -73,6 +82,8 @@ function LasSzlak() {
     var navOutFn;
     var navInFn;
 
+    var width = document.body.getBoundingClientRect().width;
+
     //  there is nothing to do
     if ( l === 0 ) {
       window.console.log('nothing to show');
@@ -98,7 +109,7 @@ function LasSzlak() {
     window.console.log(toShow);
 
 
-    showFn = function() {
+    showFn = function( delay ) {
       //  change the btn
       if (! btnToShow.classList.contains('btn-white') ) {
         btnToShow.classList.remove('btn-dark');
@@ -106,17 +117,28 @@ function LasSzlak() {
         btnToShow.blur();
       }
 
+      //  set delay
+      if ( delay ) {
+        delay = 200;
+      }
+      else {
+        delay = 0;
+      }
+
       //  animate section
       velocity(
         toShow,
         'slideDown',
-        { duration: speed*2, easing: easingSpring }
+        { duration: speed*2, easing: easingSpring, delay: delay, display: 'block' }
       );
 
     }.bind(this);
 
 
     hideFn = function( completeFn ) {
+      //  @completeFn = function || false
+      //  @delay = true || false
+
       //  reverse change on btn
       btnToHide.classList.remove('btn-white');
       btnToHide.classList.add('btn-dark');
@@ -126,7 +148,7 @@ function LasSzlak() {
       velocity(
         toHide,
         'slideUp',
-        { duration: speed*2, easing: easingQuart,
+        { duration: speed*2, easing: easingQuart, display: 'none',
           complete: function() {
             if ( completeFn ) {
               completeFn();
@@ -140,33 +162,30 @@ function LasSzlak() {
 
     navOutFn = function() {
 
-      velocity(
-        this.navs[this.clickedLevel],
-        { translateX: [0, '50%'] },
-        { duration: speed, easing: easingQuart }
-      );
+      this.navs[this.clickedLevel].classList.add('las-szlak-section-nav--out');
 
     }.bind(this);
 
 
     navInFn = function() {
 
-      velocity(
-        this.navs[this.clickedLevel],
-        { translateX: '50%' },
-        { duration: speed, easing: easingQuart }
-      );
+      this.navs[this.clickedLevel].classList.remove('las-szlak-section-nav--out');
 
     }.bind(this);
 
+    console.log(toShow.id.split('-')[2]);
+
 
     //  only hide
-    if ( toHide && ( toShow === toHide ) ) {
+    if ( ( toHide && ( toShow === toHide ) ) || ( !toShow.id.split('-')[2] ) ) {
 
       window.console.log('only hide');
-      hideFn();
 
+      //  move nav back
       navInFn();
+
+      //  hide section
+      hideFn(false);
 
       //  clear the queue
       this.sections[this.clickedLevel] = [];
@@ -177,6 +196,8 @@ function LasSzlak() {
     else if ( toHide ) {
 
       window.console.log('both show and hide');
+
+      //  hide section and queue show section
       hideFn( showFn );
 
     }
@@ -184,10 +205,60 @@ function LasSzlak() {
     else {
 
       window.console.log('only show');
-      showFn();
+
+      //  move nav out
       navOutFn();
 
+      //  show section
+      showFn(true);
+
+
     }
+
+  };
+
+
+  this.togglePopup = function() {
+
+    var props;
+    var options;
+    var data;
+
+    //  if there is no url
+    if ( !this.state.popupUrl ) {
+      return;
+    }
+
+    //  if popup is visble
+    if ( this.data( this.szlakPopUp, 'visible') ) {
+
+      //  prepare props
+      props = { scale: 0, backgroundColorAlpha: 0 };
+      options = { duration: speed*2, easing: easingQuart, display: 'none' };
+
+      //  save data
+      data = this.data( this.szlakPopUp, 'visible', false );
+
+    }
+    //  if popup is hidden
+    else {
+
+      //  set urls
+      this.popupBtns.przewodnik.href =  this.state.popupUrl + 'przewodnik/';
+      this.popupBtns.wyzwanie.href =    this.state.popupUrl + 'wyzwanie/';
+      this.popupBtns.sos.href =         this.state.popupUrl;
+
+      //  prepare props
+      props = { scale: [1, 0], backgroundColor: '#3c454c', backgroundColorAlpha: 0.5  };
+      options = { duration: speed*2, easing: easingQuart, display: 'block' };
+
+      //  save data
+      data = this.data( this.szlakPopUp, 'visible', true );
+    }
+
+
+
+    velocity( this.szlakPopUp, props, options );
 
   };
 
@@ -215,37 +286,58 @@ function LasSzlak() {
 
     window.console.log('click');
 
+    var popupModify = function(prop){ return prop.split('#')[1] };
 
-    //  check if href has section id
-    if ( event.target.href && event.target.href.split('#')[1] ) {
+    //  if it is popup link
+    if ( event.target.href && this.checkNodeAndParents(event, 'popup', 'href', popupModify) ) {
+
+      this.state.popupUrl = event.target.getAttribute('data-szlak-url');
+
+      this.togglePopup();
+      return;
+    }
+
+    //  if it is a click on popup button
+    if ( ( event.target === this.popupBtns.przewodnik ) || ( event.target === this.popupBtns.wyzwanie ) || ( event.target === this.popupBtns.sos ) ) {
+      window.console.log('btn');
+
+      //  here (or somewhere else) we can show loading indicator
+
+      return;
+    }
+
+    if ( this.checkNodeAndParents(event, this.szlakPopUp ) ) {
+
+      this.togglePopup();
+      return;
+    }
+
+
+    //  if href has section id
+    if ( event.target.href && event.target.href.split('#section')[1] ) {
 
       sectionId = event.target.href.split('#')[1];
 
       //  get the sectionToMove
       sectionToMove = document.getElementById( sectionId );
 
-      //  check level
+      //  store level
       this.clickedLevel = sectionId.split('-')[1];
 
       window.console.log(this.clickedLevel);
 
-      //  push element to the basic queue
-      if ( this.clickedLevel === 'basic' ) {
-        this.sections.basic.push( sectionToMove );
-        this.btns.basic.push( event.target );
-      }
-      //  push element to the advanced queue
-      else if ( this.clickedLevel === 'advanced' ) {
-        this.sections.advanced.push( sectionToMove );
-        this.btns.advanced.push( event.target );
-      }
+      //  push element to the proper queue
+      if ( this.clickedLevel ) {
+        this.sections[this.clickedLevel].push( sectionToMove );
+        this.btns[this.clickedLevel].push( event.target );
 
-      //  call animation
-      this.toggleSection();
+        //  call animation
+        this.toggleSection();
+      }
 
       //  prevent jerk
       event.preventDefault();
-      return false;
+      return;
 
     }
 
@@ -257,6 +349,7 @@ function LasSzlak() {
 
     window.console.log('add event listener');
 
+    //  wrapper
     this.szlakWrapper.addEventListener('touchstart', function(event) {
 
       this.eventHandler(event);
@@ -273,3 +366,8 @@ function LasSzlak() {
 
 
 }
+
+//
+//  Extend with LasHelper methods
+//
+LasSzlak.prototype = new LasHelper();
