@@ -42,11 +42,13 @@ function las_courses_loop($courses, $level) {
     if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
 
       //  Begin section
-      $sections .= '<section id="section-' . $level . '-' . $i . '" class="section-white rounded space col-8" style="display:none;padding:0;">';
+      $sections .= '<section id="section-' . $level . '-' . $i . '" class="section-white space col-8 las-szlak-section" style="display:none;">';
 
-      $sections .= '<h3 class="pad centered h1 size-3">' . $post->post_title . '</h3>';
+      $sections .= '<a href="#section-' . $level . '" class="btn btn-white btn-nav las-szlak-section__back-btn">&laquo; Wróć</a>';
 
-      $sections .= '<ol class="navbar__list las-szlak-list">';
+      $sections .= '<h3 class="las-szlak-section__h centered h1 size-3">' . $post->post_title . '</h3>';
+
+      $sections .= '<ol class="navbar__list las-szlak-list las-szlak-list--posts">';
 
       $children_args = array(
         'post_type'       => 'page',
@@ -68,22 +70,52 @@ function las_courses_loop($courses, $level) {
 
         //  if it is an editor or advanced user, we can give him a link to advanced courses
 
-
-          $sections .= '<li><a class="btn btn-dark-outline las-szlak-list__btn" href="' . $link . 'przewodnik/">' . $title;
+          $sections .= '<li><a class="btn btn-dark-outline las-szlak-list__btn las-szlak-list__btn--light" ';
 
           //  if there is wyzwanie and user has done przewodnik
           if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_category('bez-wyzwania') ) {
 
-             $sections .= ' / Wyzwanie';
+            //  hash to show choice
+            $sections .= 'href="#popup" data-szlak-url="' . $link . '">';
 
-            //$sections .= ' <a class="btn btn-dark-outline" href="' . $link . 'wyzwanie/"><i>Wyzwanie</i> ' . $user_progress[$slug]['wyzwanie-punkty'] . '</a></li>';
+            //  active przewodnik
+            $sections .= '<span style="display:block;position:absolute;right:0;top:0;bottom:0;width:2rem;text-align:center;">|P!|</span>';
+
+            // active wyzwanie
+            if ( $user_progress[$slug]['wyzwanie-punkty'] && ( $user_progress[$slug]['wyzwanie-punkty'] > 0 ) ) {
+              $sections .= '<span style="display:block;position:absolute;right:2rem;top:0;bottom:0;width:2rem;text-align:center;">W' . $user_progress[$slug]['wyzwanie-punkty'] . '</span>';
+            }
+            //  inactive wyzwanie
+            else {
+              $sections .= '<span style="display:block;position:absolute;right:2rem;top:0;bottom:0;width:2rem;text-align:center;">^</span>';
+            }
+
+            $sections .= $title;
+
+            // $user_progress[$slug]['wyzwanie-punkty']
+
+            //  wyzwanie
+            //  sos
 
           }
-          //  if there is no wyzwanie and user has done przewodnik, show him the link
-          elseif ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && has_category('bez-wyzwania') ) {
+          //  if there is wyzwanie and user has not done przewodnik
+          elseif ( $user_progress && !$user_progress[$slug]['przewodnik'] && !has_category('bez-wyzwania') ) {
 
-            $sections .= ' / Nie ma wyzwania';
+            //  direct link
+            $sections .= 'href="' . $link . 'przewodnik/">';
 
+            //  inactive przewodnik
+            $sections .= '<span style="display:block;position:absolute;right:0;top:0;bottom:0;width:2rem;text-align:center;">|p|</span>';
+
+            //  inactive wyzwanie
+            $sections .= '<span style="display:block;position:absolute;right:2rem;top:0;bottom:0;width:2rem;text-align:center;">^</span>';
+
+            $sections .= $title;
+
+          }
+          //  there is no wyzwanie
+          else {
+            $sections .= 'href="' . $link . 'przewodnik/">' . $title;
           }
 
           $sections .= '</a>';
@@ -113,20 +145,20 @@ function las_courses_loop($courses, $level) {
   $l = count( $title_array );
 
   //  echo link sections
-  echo '<div class="row space-x4">';
+  echo '<div class="group space-x4">';
 
-  echo '<nav id="section-' . $level . '" class="section-dark rounded col-8" style="padding:0; transform:translateX(50%);">';
+  echo '<nav id="section-' . $level . '" class="section-dark col-8 las-szlak-section-nav" style="box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);overflow:visible;">';
 
   if ( $level === 'basic' ) {
-    echo '<h2 class="pad centered h1 size-3">Początek drogi</h2>';
+    echo '<h2 class="las-szlak-section__h centered h1 size-3">Początek drogi</h2>';
   }
   elseif ( $level === 'advanced' ) {
-    echo '<h2 class="pad centered h1 size-3">Daleko w lesie</h2>';
+    echo '<h2 class="las-szlak-section__h centered h1 size-3">Daleko w lesie</h2>';
   }
 
   echo '<ol class="navbar__list las-szlak-list">';
 
-  for ( $j; $j<$l; $j++ ) {
+  for ( $j; $j < $l; $j++ ) {
 
     //  remove the number from the title
     $new_title = explode( '. ', $title_array[$j] );
@@ -242,8 +274,26 @@ include( 'includes/head.php' );
 
     las_show_all_courses();
 
-
   ?>
+
+  <div id="szlak-post-popup" class="szlak-post-popup">
+    <div class="szlak-post-popup__section section-content section-6-4">
+      <div class="section-white section-content rounded group centered">
+        <div style="position:absolute;right:1rem;top:1rem;cursor:pointer;">X</div>
+
+            <a href="" class="szlak-post-popup__btn" id="szlak-btn-przewodnik">
+              <div class="szlak-post-popup__img"></div>
+              <span class="btn btn-nav btn-white">Przewodnik</span>
+        </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-wyzwanie">
+              <div class="szlak-post-popup__img"></div>
+              <span class="btn btn-nav btn-white">Wyzwanie</span>
+        </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-sos">
+              <div class="szlak-post-popup__img"></div>
+              <span class="btn btn-nav btn-white">SOS</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
 </div>
 

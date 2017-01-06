@@ -46,7 +46,7 @@ var lasChapter = "<?php echo $post->post_name; ?>";
         </a></li>
       </ul>
 
-      <?php if ( !is_page('kursy') ) { ?>
+      <?php if ( !is_page('szlak') ) { ?>
 
       <ul class="navbar__list">
                  <li><a href="/szlak/" class="btn btn-dark-outline btn-nav">&laquo; Twój Szlak
