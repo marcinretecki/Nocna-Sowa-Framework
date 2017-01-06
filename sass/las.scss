@@ -12,9 +12,62 @@ Author: Marcin Retecki
 @import "partials/mixins";
 
 
-.las-szlak-list{counter-reset:szlak 0;}
-.las-szlak-list__btn{display:block;padding:$space $space-2;border:1px solid $dark-light;border-width:1px 0 0;line-height:1.25;white-space:normal;text-align:left;border-radius:0;}
+.las-szlak-list{border-radius:0 0 3px 3px;overflow:hidden;}
+.las-szlak-list__btn{display:block;padding:$space $space-4 $space $space-2;border:1px solid $dark-light;border-width:1px 0 0;line-height:1.25;white-space:normal;text-align:left;border-radius:0;}
 
-.las-szlak-list >li:first-child .las-szlak-list__btn{border-top-color:transparent;}
+//  to fix
+.las-szlak-list__btn--light{border-color:$beige !important;}
 
-.las-szlak-list__btn--arrow::after{display:block;position:absolute;right:0;top:0;bottom:0;width:2rem;font-family:$bariol;font-size:$size-2;color:inherit;content:'\00bb';}
+.las-szlak-list > li:first-child .las-szlak-list__btn{border-top-color:transparent;}
+
+.las-szlak-list__btn--arrow::after{display:block;position:absolute;right:0;top:0;bottom:0;width:4rem;background-image:url('//las.nocnasowa.pl/i/icon_next_w.png');background-size:26px auto;background-position:center center;background-repeat:no-repeat;content:'';}
+
+.las-szlak-list--posts{
+  @media #{$m640} {
+    padding-bottom:$space-4;
+  }
+}
+
+.las-szlak-section-nav{padding:0;transform:translateX(50%);box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);border-radius:3px;
+  @include transition-bezier;
+
+  @media #{$m640} {
+    transform:translateX(0);
+  }
+}
+
+.las-szlak-section-nav--out{transform:translateX(0);}
+
+.las-szlak-section{display:none;padding:0;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);border-radius:3px;
+  @media #{$m640} {
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+    z-index:200;
+    margin:0 !important;
+  }
+}
+
+.las-szlak-section__h{padding:$space-2 $space;margin:0;
+  @media #{$m640} {
+
+  }
+}
+
+.las-szlak-section__back-btn{display:none;position:absolute;left:0;top:0;
+  @media #{$m640} {
+    display:block;
+  }
+}
+
+.szlak-post-popup{display:none;position:fixed;left:0;top:0;right:0;bottom:0;z-index:300;overflow:auto;-webkit-overflow-scrolling:touch;}
+.szlak-post-popup__section{}
+.szlak-post-popup__btn{
+  display:block;margin:0 auto $space;max-width:100%;width:200px;
+
+  @include for-tablet-portrait-up {
+     display:inline-block;height:0;width:25%;margin:0 $space;
+  }
+}
+.szlak-post-popup__img{display:block;padding-top:100%;background:$beige;margin-bottom:$space-half;}
