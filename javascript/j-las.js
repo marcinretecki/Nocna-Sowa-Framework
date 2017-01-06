@@ -301,7 +301,128 @@ function LasHelper() {
 
     frame();
 
-  }
+  };
+
+
+  //
+  //  DATA
+  //
+  this.expando = "las" + ( new Date().getTime() );
+
+  this.data = function(node, key, value) {
+    //  function adapted from Velocity.js
+
+    //  get data
+    if ( value === undefined ) {
+
+      //  if there is not data in node
+      if ( node[this.expando] === undefined ) {
+
+        return false;
+
+      }
+
+      //  if key is not provided, return alla data
+      if ( key === undefined ) {
+
+        return node[this.expando];
+
+      }
+      //  if there is key, return it's value
+      else {
+
+        if ( key in node[this.expando] ) {
+          return node[this.expando][key];
+        }
+
+      }
+
+    }
+    //  set data
+    else if ( key !== undefined ) {
+
+      //  check if object exists
+      if ( typeof node[this.expando] !== "object" ) {
+
+        node[this.expando] = {};
+
+      }
+
+      //  store value
+      node[this.expando][key] = value;
+
+      return value;
+    }
+
+  };
+
+
+
+  //
+  //  Traversing
+  //
+  this.checkNodeAndParents = function( event, value, prop, modify ) {
+    //  @event
+    //  @value is the thing to check
+    //  @prop optional, can be href, id or other property of the @node
+    //  @mod optional function to modify prop before checking
+
+    var nodeToCheck = event.target;
+    var wrapper = event.currentTarget;
+    var thingToCheck;
+    var i = 0;
+
+    //  while the traverse has not reached the wrapper
+    //  or it has checked 10 direct parents
+    while ( ( nodeToCheck !== wrapper ) && ( i < 10 ) ) {
+
+      window.console.log('value');
+      window.console.log(value);
+      window.console.log('nodeToCheck');
+      window.console.log(nodeToCheck);
+      window.console.log('prop');
+      window.console.log(prop);
+
+      //  if there is prop
+      if ( prop !== undefined ) {
+        thingToCheck = nodeToCheck[prop];
+
+        window.console.log('thingToCheck');
+        window.console.log(thingToCheck);
+
+        //  if we need to modify prop
+        if ( thingToCheck && ( modify !== undefined ) ) {
+          window.console.log('modify');
+          window.console.log(modify);
+          thingToCheck = modify(thingToCheck);
+        }
+      }
+      else {
+        thingToCheck = nodeToCheck;
+      }
+
+      window.console.log('thingToCheck');
+      window.console.log(thingToCheck);
+
+      //  if it is the same
+      if ( thingToCheck && ( thingToCheck === value ) ) {
+        return true;
+      }
+
+      //  else, traverse to the parent
+      nodeToCheck = nodeToCheck.parentNode;
+
+      window.console.log('traverse up');
+
+      //  count traverses, so we don't check all the divs
+      i++;
+    }
+
+    //  haven't found anything
+    return false;
+
+  };
+
 
 }
 
