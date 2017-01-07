@@ -1546,11 +1546,11 @@ function LasAudioTest() {
 
     window.console.log('add event listener');
 
-    this.wrapper.addEventListener('touchstart', function(event) {
+    /*this.wrapper.addEventListener('touchend', function(event) {
 
       this.eventHandler(event);
 
-    }.bind(this), false);
+    }.bind(this), false);*/
 
     this.wrapper.addEventListener('click', function(event) {
 

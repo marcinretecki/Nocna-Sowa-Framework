@@ -10,7 +10,7 @@ function LasSzlak() {
   //
   this.szlakWrapper =       document.getElementById('szlak-wrapper');
   this.szlakPopUp =         document.getElementById('szlak-post-popup');
-  this.szlakPopUpSection =  document.getElementById('szlak-post-popup');
+  this.szlakPopUpSection =  document.getElementById('szlak-post-popup__section');
   this.navs = {
     basic:                  document.getElementById('section-basic'),
     advanced:               document.getElementById('section-advanced')
@@ -233,8 +233,15 @@ function LasSzlak() {
     if ( this.data( this.szlakPopUp, 'visible') ) {
 
       //  prepare props
-      props = { scale: 0, backgroundColorAlpha: 0 };
-      options = { duration: speed*2, easing: easingQuart, display: 'none' };
+      props = [
+        { backgroundColorAlpha: 0 },
+        { scale: 0 }
+      ];
+      options = [
+        { duration: speed*2, easing: easingQuart, display: 'none' },
+        { duration: speed*2, easing: easingQuart }
+      ];
+
 
       //  save data
       data = this.data( this.szlakPopUp, 'visible', false );
@@ -249,16 +256,22 @@ function LasSzlak() {
       this.popupBtns.sos.href =         this.state.popupUrl;
 
       //  prepare props
-      props = { scale: [1, 0], backgroundColor: '#3c454c', backgroundColorAlpha: 0.5  };
-      options = { duration: speed*2, easing: easingQuart, display: 'block' };
+      props = [
+        { backgroundColor: '#3c454c', backgroundColorAlpha: [0.5, 0]  },
+        { scale: [1, 0] }
+      ];
+      options = [
+        { duration: speed*2, easing: easingQuart, display: 'block' },
+        { duration: speed*2, easing: easingQuart }
+      ];
 
       //  save data
       data = this.data( this.szlakPopUp, 'visible', true );
     }
 
 
-
-    velocity( this.szlakPopUp, props, options );
+    velocity( this.szlakPopUp, props[0], options[0] );
+    velocity( this.szlakPopUpSection, props[1], options[1] );
 
   };
 
@@ -267,12 +280,16 @@ function LasSzlak() {
     //  this decides what happens after each click
     //  @event comes from addListener
 
+
+
     var throttleTimer;
     var sectionToMove;
     var sectionId;
 
     //  throttle clicks
     if ( this.state.clicked ) {
+      event.stopPropagation();
+      event.preventDefault();
       return;
     }
 
@@ -294,6 +311,10 @@ function LasSzlak() {
       this.state.popupUrl = event.target.getAttribute('data-szlak-url');
 
       this.togglePopup();
+
+      //  prevent jerk
+      event.stopPropagation();
+      event.preventDefault();
       return;
     }
 
@@ -309,6 +330,10 @@ function LasSzlak() {
     if ( this.checkNodeAndParents(event, this.szlakPopUp ) ) {
 
       this.togglePopup();
+
+      //  prevent jerk
+      event.stopPropagation();
+      event.preventDefault();
       return;
     }
 
@@ -336,10 +361,12 @@ function LasSzlak() {
       }
 
       //  prevent jerk
+      event.stopPropagation();
       event.preventDefault();
       return;
 
     }
+
 
   };
 
@@ -349,12 +376,11 @@ function LasSzlak() {
 
     window.console.log('add event listener');
 
-    //  wrapper
-    this.szlakWrapper.addEventListener('touchstart', function(event) {
+    /*this.szlakWrapper.addEventListener('touchend', function(event) {
 
       this.eventHandler(event);
 
-    }.bind(this), false);
+    }.bind(this), false);*/
 
     this.szlakWrapper.addEventListener('click', function(event) {
 

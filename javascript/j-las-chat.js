@@ -377,7 +377,7 @@ function LasChat() {
 
 
   this.addListener = function() {
-    this.answers.addEventListener('touchstart', function(event) {
+    this.answers.addEventListener('touchend', function(event) {
       self.eventHandler(event);
     }, false);
 

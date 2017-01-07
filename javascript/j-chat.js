@@ -411,12 +411,17 @@ function Chat() {
 
 
   this.addListener = function() {
-    this.answers.addEventListener('touchstart', function(event) {
+
+    /*this.answers.addEventListener('touchend', function(event) {
+
       that.eventHandler(event);
-    }, false);
+
+    }, false);*/
 
     this.answers.addEventListener('click', function(event) {
+
       that.eventHandler(event);
+
     }, false);
 
   };

@@ -376,24 +376,24 @@ function LasHelper() {
     //  or it has checked 10 direct parents
     while ( ( nodeToCheck !== wrapper ) && ( i < 10 ) ) {
 
-      window.console.log('value');
-      window.console.log(value);
-      window.console.log('nodeToCheck');
-      window.console.log(nodeToCheck);
-      window.console.log('prop');
-      window.console.log(prop);
+      //window.console.log('value');
+      //window.console.log(value);
+      //window.console.log('nodeToCheck');
+      //window.console.log(nodeToCheck);
+      //window.console.log('prop');
+      //window.console.log(prop);
 
       //  if there is prop
       if ( prop !== undefined ) {
         thingToCheck = nodeToCheck[prop];
 
-        window.console.log('thingToCheck');
-        window.console.log(thingToCheck);
+        //window.console.log('thingToCheck');
+        //window.console.log(thingToCheck);
 
         //  if we need to modify prop
         if ( thingToCheck && ( modify !== undefined ) ) {
-          window.console.log('modify');
-          window.console.log(modify);
+          //window.console.log('modify');
+          //window.console.log(modify);
           thingToCheck = modify(thingToCheck);
         }
       }
@@ -401,11 +401,15 @@ function LasHelper() {
         thingToCheck = nodeToCheck;
       }
 
-      window.console.log('thingToCheck');
-      window.console.log(thingToCheck);
+      //window.console.log('thingToCheck');
+      //window.console.log(thingToCheck);
 
+      //  if there is no value to check
+      if ( thingToCheck && ( value === false ) ) {
+        return true;
+      }
       //  if it is the same
-      if ( thingToCheck && ( thingToCheck === value ) ) {
+      else if ( thingToCheck && ( thingToCheck === value ) ) {
         return true;
       }
 
