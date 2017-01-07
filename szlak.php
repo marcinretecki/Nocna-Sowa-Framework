@@ -277,8 +277,9 @@ include( 'includes/head.php' );
   ?>
 
   <div id="szlak-post-popup" class="szlak-post-popup">
-    <div class="szlak-post-popup__section section-content section-6-4">
-      <div class="section-white section-content rounded group centered">
+    <div class="szlak-post-popup__content section-content section-6-4">
+      <div id="szlak-post-popup__section" class="section-white section-content rounded group centered szlak-post-popup__section">
+
         <div style="position:absolute;right:1rem;top:1rem;cursor:pointer;">X</div>
 
             <a href="" class="szlak-post-popup__btn" id="szlak-btn-przewodnik">
@@ -291,6 +292,7 @@ include( 'includes/head.php' );
               <div class="szlak-post-popup__img"></div>
               <span class="btn btn-nav btn-white">SOS</span>
         </a>
+
       </div>
     </div>
   </div>
