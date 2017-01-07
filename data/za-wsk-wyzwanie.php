@@ -274,6 +274,70 @@ function LasAudioData() {
 //      startTime:  3,
 //      stopTime:   5,
       autoNext:   'RANDOM'
+    },
+
+
+    ba1: {
+      msg:        'Hvorfor ringer <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> kvinna fra Aftenposten?',
+      answers: [
+        { answer: 'denne',   next: 'ba2' },
+        { answer: 'dette',   wrong: true },
+        { answer: 'disse',   wrong: true }
+      ]
+    },
+    ba2: {
+      msg:        'Hvorfor ringer denne kvinna fra Aftenposten?',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
+    },
+
+
+    bb1: {
+      msg:        'Hvor kan jeg legge <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> pakkene?',
+      answers: [
+        { answer: 'disse',   next: 'bb2' },
+        { answer: 'dette',   wrong: true },
+        { answer: 'denne',   wrong: true }
+      ]
+    },
+    bb2: {
+      msg:        'Hvor kan jeg legge disse pakkene?',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
+    },
+
+
+    bc1: {
+      msg:        'Hvem er sjefen i <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> firmaet?',
+      answers: [
+        { answer: 'dette',   next: 'bc2' },
+        { answer: 'disse',   wrong: true },
+        { answer: 'denne',   wrong: true }
+      ]
+    },
+    bc2: {
+      msg:        'Hvem er sjefen i dette firmaet?',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
+    },
+
+
+    bd1: {
+      msg:        'Hva gjør <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> hunden her?',
+      answers: [
+        { answer: 'denne',   next: 'bd2' },
+        { answer: 'dette',   wrong: true },
+        { answer: 'disse',   wrong: true }
+      ]
+    },
+    bd2: {
+      msg:        'Hva gjør denne hunden her?',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
     }
 
 

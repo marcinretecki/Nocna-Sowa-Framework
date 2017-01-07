@@ -242,6 +242,70 @@ function LasAudioData() {
 //      startTime:  3,
 //      stopTime:   5,
       autoNext:   'RANDOM'
+    },
+
+
+    ba1: {
+      msg:        'Hvor er Chuck Norris?<br/> Hvor er <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span>?',
+      answers: [
+        { answer: 'han',   next: 'ba2' },
+        { answer: 'hun',   wrong: true },
+        { answer: 'du',   wrong: true }
+      ]
+    },
+    ba2: {
+      msg:        'Hvor er Chuck Norris?<br/> Hvor er han?',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
+    },
+
+
+    bb1: {
+      msg:        'Hva gjør Scarlett?<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> sitter ved vinduet.',
+      answers: [
+        { answer: 'hun',   next: 'bb2' },
+        { answer: 'han',   wrong: true },
+        { answer: 'jeg',   wrong: true }
+      ]
+    },
+    bb2: {
+      msg:        'Hva gjør Scarlett?<br /> Hun sitter ved vinduet.',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
+    },
+
+
+    bc1: {
+      msg:        'Lager Penelope og Woody en film?<br />Ja, <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> liker å jobbe sammen.',
+      answers: [
+        { answer: 'de',   next: 'bc2' },
+        { answer: 'hun',   wrong: true },
+        { answer: 'han',   wrong: true }
+      ]
+    },
+    bc2: {
+      msg:        'Lager Penelope og Woody en film?<br />Ja, de liker å jobbe sammen.',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
+    },
+
+
+    bd1: {
+      msg:        'Kommer Marilyn Monroe i dag?<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> kan ikke.',
+      answers: [
+        { answer: 'hun',   next: 'bd2' },
+        { answer: 'han',   wrong: true },
+        { answer: 'dere',   wrong: true }
+      ]
+    },
+    bd2: {
+      msg:        'Kommer Marilyn Monroe i dag?<br />Hun kan ikke.',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
     }/*,
 
 

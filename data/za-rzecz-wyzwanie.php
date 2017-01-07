@@ -219,6 +219,70 @@ function LasAudioData() {
 //      startTime:  3,
 //      stopTime:   5,
       autoNext:   'RANDOM'
+    },
+
+
+    ba1: {
+      msg:        'Er rommet ferdig?<br /> Ja, <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er ferdig.',
+      answers: [
+        { answer: 'det',   next: 'ba2' },
+        { answer: 'den',   wrong: true },
+        { answer: 'de',   wrong: true }
+      ]
+    },
+    ba2: {
+      msg:        'Er rommet ferdig?<br />Ja, det er ferdig.',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
+    },
+
+
+    bb1: {
+      msg:        'Er toalettet ledig? <br />Er <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> ledig?',
+      answers: [
+        { answer: 'det',   next: 'bb2' },
+        { answer: 'den',   wrong: true },
+        { answer: 'de',   wrong: true }
+      ]
+    },
+    bb2: {
+      msg:        'Er toalettet ledig?<br />Er det ledig?',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
+    },
+
+
+    bc1: {
+      msg:        'Hvor kan jeg kjøpe en billett?<br />Hvor kan jeg kjøpe <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span>?',
+      answers: [
+        { answer: 'den',   next: 'bc2' },
+        { answer: 'den',   wrong: true },
+        { answer: 'det',   wrong: true }
+      ]
+    },
+    bc2: {
+      msg:        'Hvor kan jeg kjøpe en billett?<br />Hvor kan jeg kjøpe den?',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
+    },
+
+
+    bd1: {
+      msg:        'Hvor er nøklene? <br />Hvor er <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span>?',
+      answers: [
+        { answer: 'de',   next: 'bd2' },
+        { answer: 'den',   wrong: true },
+        { answer: 'det',   wrong: true }
+      ]
+    },
+    bd2: {
+      msg:        'Hvor er nøklene? <br />Hvor er de?',
+//      startTime:  3,
+//      stopTime:   5,
+      autoNext:   'RANDOM'
     }
 
 
