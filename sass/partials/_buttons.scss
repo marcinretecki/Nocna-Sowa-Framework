@@ -2,27 +2,7 @@
 // Buttons
 //
 
-// navs – is this a good place for it? NOOOO
-nav{margin:0;padding:0;z-index:99}
-nav ul{margin:0;padding:0;list-style-type:none;}
-nav li{margin:0;padding:0;display:inline;}
-nav li:before{display:none}
-nav a{display:block;margin:0;font-style:normal;text-decoration:none}
-nav a:hover,nav a:active,nav a:focus{}
 
-// Blog new nav
-.nav-tabs{border-top:1px solid $dark-border;}
-.nav-tabs-list{margin-top:-1px;text-align:left;}
-.nav-tabs-list li{display:inline-block;margin-right:$space;}
-.nav-tabs-list li a{padding:$space-half 0;color:$gray-on-dark;font-family:$bariol-reg}
-.nav-tabs-list li a:hover{color:$white}
-.nav-tabs-list .active{border:1px solid $blue;border-width:1px 0 0;}
-.nav-tabs-list .active a{color:$white}
-.nav-tabs-op{
-  @media #{$m770}{
-    display:none;
-  }
-}
 
 .pagination{padding:$space-2 0;}
 .prev,.next{}

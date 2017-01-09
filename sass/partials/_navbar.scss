@@ -25,7 +25,7 @@ a:hover .caret,.caret:hover{border-top-color:$white;}
 .header-top--shadowed{box-shadow:0 0 $space rgba(0, 0, 0, 0.25);}
 .header-top--hidden{transform:translate3d(0,-100%,0);box-shadow:0 0 0 rgba(0,0,0,0);}
 
-.section-nav{}
+.section-nav{width:1064px;max-width:100%;min-height:$space-2;margin:0 auto;}
 .section-nav__toggle{display:none;
   @media #{$m770}{
     display: inline-block;
@@ -74,6 +74,7 @@ a:hover .caret,.caret:hover{border-top-color:$white;}
 
 /*ul*/.navbar__list{padding:0;margin:0;}
 /*ul*/.navbar__list > li{display:inline;padding:0;margin:0;}
+/*ul*/.navbar__list > li::before{display:none;}
 /*ul*/.navbar__list a{margin:0;}
 /*ul*/.navbar__list .btn-nav{
   @media #{$m770}{
@@ -87,3 +88,27 @@ a:hover .caret,.caret:hover{border-top-color:$white;}
 .navbar-logo--centered{position:absolute;left:0;right:0;top:0;}
 .navbar-logo__blue{color:$blue;}
 .navbar-logo:hover .navbar-logo__blue, .navbar-logo__blue:hover, .navbar-logo:active .navbar-logo__blue, .navbar-logo:focus .navbar-logo__blue{color:$white;}
+
+
+
+// old navs code
+nav{margin:0;padding:0;z-index:99}
+nav ul{margin:0;padding:0;list-style-type:none;}
+nav li{margin:0;padding:0;display:inline;}
+nav li:before{display:none}
+nav a{display:block;margin:0;font-style:normal;text-decoration:none}
+nav a:hover,nav a:active,nav a:focus{}
+
+// Blog new nav
+.nav-tabs{border-top:1px solid $dark-border;}
+.nav-tabs-list{margin-top:-1px;text-align:left;}
+.nav-tabs-list li{display:inline-block;margin-right:$space;}
+.nav-tabs-list li a{padding:$space-half 0;color:$gray-on-dark;font-family:$bariol-reg}
+.nav-tabs-list li a:hover{color:$white}
+.nav-tabs-list .active{border:1px solid $blue;border-width:1px 0 0;}
+.nav-tabs-list .active a{color:$white}
+.nav-tabs-op{
+  @media #{$m770}{
+    display:none;
+  }
+}

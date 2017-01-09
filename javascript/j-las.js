@@ -7,6 +7,45 @@
 //  Helper object that contains methods used by other Las's objects
 //
 function LasHelper() {
+  "use strict";
+
+  //
+  //  Helper
+  //
+  this.helper = {};
+
+  var self = this;
+
+
+  //
+  //  Get basic elements
+  //
+  this.getBasicElements = function() {
+
+    this.loader =                         document.getElementById('loader');
+
+    //  Velocity
+    this.velocity =                       Velocity;
+
+    //  assign helper
+    this.helper.speed =                   200;
+    this.helper.answersTranformValue =    '300%';
+    this.helper.easingSpring =            [ 200, 20 ];
+    this.helper.easingQuart =             'easeInOutQuart';
+    this.helper.currentUrl =              window.location.href.split('#')[0];
+
+
+    //  if there are more common elements, we can put them here to keep consistency
+
+    //  remove loader when user clicks back button
+    window.addEventListener('unload', function(event) {
+
+      this.hideLoader();
+      window.console.log('unload');
+
+    }.bind(this), false);
+
+  };
 
   //
   //  Save progress
@@ -16,25 +55,27 @@ function LasHelper() {
   //
   this.lasSaveChallangeProgress = function() {
 
-    var self = this,
-        newCookie = new Object(),
-        chapter = lasChapter,         //  it is defined in the head
-        saveChallangeProgress = new Object();
+    var newCookie = {};
+
+    //  it is defined in the head
+    var chapter = lasChapter;
+
+    var saveChallangeProgress = {};
 
     //
     //  Private functions
     //
     function getCookie() {
       return Cookies.getJSON('lasChallangeProgress');
-    };
+    }
 
     function setCookie(value) {
       Cookies.set('lasChallangeProgress', value, { expires: 365 });
-    };
+    }
 
     function cleanCookie() {
       Cookies.remove('lasChallangeProgress');
-    };
+    }
 
     //
     //  Public function
@@ -80,7 +121,7 @@ function LasHelper() {
       }
     }
 
-    propArray = this.shuffleArray(propArray)
+    propArray = this.shuffleArray(propArray);
 
     return propArray;
   };
@@ -115,8 +156,8 @@ function LasHelper() {
   //  Data bubbles
   //
   this.getRandomBubble = function() {
-    console.log( 'getRandomBubble');
-    console.log( this.randomChatArray.length );
+    window.console.log( 'getRandomBubble');
+    window.console.log( this.randomChatArray.length );
 
     if (this.randomChatArray.length > 0 ) {
       //  if there are still chat items to show
@@ -140,7 +181,7 @@ function LasHelper() {
 
 
   this.getIntroBubble = function() {
-    console.log( 'getIntroBubble');
+    window.console.log( 'getIntroBubble');
     var pop = this.lasData.intro[ this.randomIntroArray.pop() ];
 
     //  Set state
@@ -153,7 +194,7 @@ function LasHelper() {
 
 
   this.getEndBubble = function() {
-    console.log( 'getEndBubble' );
+    window.console.log( 'getEndBubble' );
     var pop = this.lasData.end[ this.randomEndArray.pop() ];
     //  Return bubble
     return pop;
@@ -167,18 +208,18 @@ function LasHelper() {
 
     if ( ( this.state.currentState === 'INTRO' ) && ( no !== '' )  && ( no !== 'ENDINTRO' ) ) {
       //  if it is intro and we need next bubble
-      console.log('if it is intro and we need next bubble')
+      window.console.log('if it is intro and we need next bubble');
       data = this.lasData.intro[ no ];
 
     } else if ( ( no === 'INTRO' ) ) {
       //  if it is intro and we need first bubble
-      console.log('if it is intro and we need first bubble')
+      window.console.log('if it is intro and we need first bubble');
       data = this.getIntroBubble();
 
     }
     else if ( no === 'ENDINTRO' ) {
       //  if it is the end of intro,  move one to chat
-      console.log('if it is the end of intro,  move one to chat')
+      window.console.log('if it is the end of intro,  move one to chat');
       //  Set state
       this.state.currentState = 'CHAT';
       data = this.getRandomBubble();
@@ -186,25 +227,25 @@ function LasHelper() {
     }
     else if ( ( this.state.currentState === 'CHAT' ) && ( no === 'RANDOM' ) ) {
       //  if we are at the chat, move one
-      console.log('if we are at the chat, move one')
+      window.console.log('if we are at the chat, move one');
       data = this.getRandomBubble();
 
     }
     else if ( ( this.state.currentState === 'CHAT' ) && ( no !== '' ) ) {
       //  if we are at chat, but need exact bubble
-      console.log('if we are at chat, but need exact bubble')
-      data = this.lasData.chat[ no ]
+      window.console.log('if we are at chat, but need exact bubble');
+      data = this.lasData.chat[ no ];
 
     }
     else if ( this.state.currentState === 'END' ) {
       //  if we got to the end and need an exact bubble
-      console.log('if we got to the end and need an exact bubble')
+      window.console.log('if we got to the end and need an exact bubble');
       data = this.lasData.end[ no ];
     }
 
-    console.log('No: ' + no);
-    console.log('Data:');
-    console.log(data);
+    window.console.log('No: ' + no);
+    window.console.log('Data:');
+    window.console.log(data);
 
 
     //  Assign data
@@ -214,25 +255,57 @@ function LasHelper() {
   };
 
 
+  //
+  //  LOADER
+  //
   this.hideLoader = function() {
-    Velocity(this.loader, { opacity: 0 }, { duration: 400, easing: [ 300, 20 ], queue: false, display: 'none' } );
+
+    window.console.log('hide loader');
+    window.console.log('this.loader');
+
+    this.velocity(
+      this.loader,
+      'fadeOut',
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+    );
   };
 
 
+  this.showLoader = function() {
+
+    window.console.log('show loader');
+
+    this.velocity(
+      this.loader,
+      'fadeIn',
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+    );
+  };
+
+
+  //
+  //  PAUSE TIMER
+  //
   this.pauseTimer = function(duration) {
 
     /*! SVG Pie Timer 0.9.1 | Anders Grimsrud, grint.no | MIT License | github.com/agrimsrud/svgPieTimer.js */
     //  Modified
+
+    var loader;
+    var n;
+    var end;
+    var totaldur;
+    var frame;
 
     if (this.pauseTimerAnimationFrame !== undefined) {
       cancelAnimationFrame(this.pauseTimerAnimationFrame);
       this.pauseTimerAnimationFrame = undefined;
     }
 
-    Date.now = Date.now || function() { return +new Date };
+    Date.now = Date.now || function() { return +new Date; };
 
-    var loader = document.getElementById('circle'),
-        n = 1;
+    loader = document.getElementById('circle');
+    n = 1;
 
     function draw(rate) {
         var angle = 360 * rate;
@@ -252,12 +325,12 @@ function LasHelper() {
     }
 
 
-    var end = Date.now() + duration * n,
-        totaldur = duration * n;
+    end = Date.now() + duration * n;
+    totaldur = duration * n;
 
     // Animate frame by frame
 
-    var frame = function() {
+    frame = function() {
         var current = Date.now(),
             remaining = end - current,
 
@@ -285,7 +358,7 @@ function LasHelper() {
             // Stop animating when we reach n loops (if n is set)
 
             if ( remaining < totaldur && n ) {
-              return
+              return;
             }
         }
 
@@ -367,32 +440,26 @@ function LasHelper() {
     //  @prop optional, can be href, id or other property of the @node
     //  @mod optional function to modify prop before checking
 
-    var nodeToCheck = event.target;
-    var wrapper = event.currentTarget;
+    var nodeToCheck =   event.target;
+    var wrapper =       event.currentTarget;
     var thingToCheck;
-    var i = 0;
+    var i =             0;
 
     //  while the traverse has not reached the wrapper
-    //  or it has checked 10 direct parents
-    while ( ( nodeToCheck !== wrapper ) && ( i < 10 ) ) {
+    //  or it has checked 5 direct parents
+    while ( ( nodeToCheck !== wrapper ) && ( i < 5 ) ) {
 
-      //window.console.log('value');
       //window.console.log(value);
-      //window.console.log('nodeToCheck');
       //window.console.log(nodeToCheck);
-      //window.console.log('prop');
       //window.console.log(prop);
 
       //  if there is prop
       if ( prop !== undefined ) {
-        thingToCheck = nodeToCheck[prop];
 
-        //window.console.log('thingToCheck');
-        //window.console.log(thingToCheck);
+        thingToCheck = nodeToCheck[prop];
 
         //  if we need to modify prop
         if ( thingToCheck && ( modify !== undefined ) ) {
-          //window.console.log('modify');
           //window.console.log(modify);
           thingToCheck = modify(thingToCheck);
         }
@@ -401,16 +468,16 @@ function LasHelper() {
         thingToCheck = nodeToCheck;
       }
 
-      //window.console.log('thingToCheck');
       //window.console.log(thingToCheck);
 
       //  if there is no value to check
+      //  check if the thing exists
       if ( thingToCheck && ( value === false ) ) {
-        return true;
+        return nodeToCheck;
       }
       //  if it is the same
       else if ( thingToCheck && ( thingToCheck === value ) ) {
-        return true;
+        return nodeToCheck;
       }
 
       //  else, traverse to the parent

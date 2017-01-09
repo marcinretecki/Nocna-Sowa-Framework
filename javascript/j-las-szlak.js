@@ -47,22 +47,16 @@ function LasSzlak() {
 
 
   //
-  //  Helper
-  //
-  var speed =                 200;
-  var answersTranformValue =  '300%';
-  var easingSpring =          [ 200, 20 ];
-  var easingQuart =           'easeInOutQuart';
-  var velocity =              Velocity;
-
-
-  //
   //  Initiate
   //
   this.init = function() {
 
-    //  add listeners
+    //  get Elements
+    this.getBasicElements();
+
+    //  prepare
     this.addListener();
+    this.hideLoader();
 
     //
     //  init powinien wyczajać, która sekcja była otwarta i otwierać ją od razu
@@ -126,10 +120,10 @@ function LasSzlak() {
       }
 
       //  animate section
-      velocity(
+      this.velocity(
         toShow,
         'slideDown',
-        { duration: speed*2, easing: easingSpring, delay: delay, display: 'block' }
+        { duration: 2 * this.helper.speed, easing: this.helper.easingSpring, delay: delay, display: 'block' }
       );
 
     }.bind(this);
@@ -145,10 +139,10 @@ function LasSzlak() {
       btnToHide.blur();
 
       //  animatio section
-      velocity(
+      this.velocity(
         toHide,
         'slideUp',
-        { duration: speed*2, easing: easingQuart, display: 'none',
+        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'none',
           complete: function() {
             if ( completeFn ) {
               completeFn();
@@ -173,7 +167,7 @@ function LasSzlak() {
 
     }.bind(this);
 
-    console.log(toShow.id.split('-')[2]);
+    window.console.log(toShow.id.split('-')[2]);
 
 
     //  only hide
@@ -229,6 +223,8 @@ function LasSzlak() {
       return;
     }
 
+    window.console.log('togglePopup');
+
     //  if popup is visble
     if ( this.data( this.szlakPopUp, 'visible') ) {
 
@@ -238,8 +234,8 @@ function LasSzlak() {
         { scale: 0 }
       ];
       options = [
-        { duration: speed*2, easing: easingQuart, display: 'none' },
-        { duration: speed*2, easing: easingQuart }
+        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' },
+        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
       ];
 
 
@@ -261,8 +257,8 @@ function LasSzlak() {
         { scale: [1, 0] }
       ];
       options = [
-        { duration: speed*2, easing: easingQuart, display: 'block' },
-        { duration: speed*2, easing: easingQuart }
+        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'block' },
+        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
       ];
 
       //  save data
@@ -270,8 +266,8 @@ function LasSzlak() {
     }
 
 
-    velocity( this.szlakPopUp, props[0], options[0] );
-    velocity( this.szlakPopUpSection, props[1], options[1] );
+    this.velocity( this.szlakPopUp, props[0], options[0] );
+    this.velocity( this.szlakPopUpSection, props[1], options[1] );
 
   };
 
@@ -280,16 +276,13 @@ function LasSzlak() {
     //  this decides what happens after each click
     //  @event comes from addListener
 
-
-
     var throttleTimer;
     var sectionToMove;
     var sectionId;
+    var elWithHref;
 
     //  throttle clicks
     if ( this.state.clicked ) {
-      event.stopPropagation();
-      event.preventDefault();
       return;
     }
 
@@ -303,45 +296,27 @@ function LasSzlak() {
 
     window.console.log('click');
 
-    var popupModify = function(prop){ return prop.split('#')[1] };
 
-    //  if it is popup link
-    if ( event.target.href && this.checkNodeAndParents(event, 'popup', 'href', popupModify) ) {
+    //  traverse up to find the element with href
+    elWithHref = this.checkNodeAndParents( event, false, 'href' );
 
-      this.state.popupUrl = event.target.getAttribute('data-szlak-url');
+    //  check if it is a link to other page
+    if ( elWithHref && ( elWithHref.href.split('#')[0] !== this.helper.currentUrl ) ) {
 
-      this.togglePopup();
+      //  show loader
+      this.showLoader();
 
-      //  prevent jerk
+      //  stop eventHandler
       event.stopPropagation();
-      event.preventDefault();
-      return;
-    }
-
-    //  if it is a click on popup button
-    if ( ( event.target === this.popupBtns.przewodnik ) || ( event.target === this.popupBtns.wyzwanie ) || ( event.target === this.popupBtns.sos ) ) {
-      window.console.log('btn');
-
-      //  here (or somewhere else) we can show loading indicator
-
-      return;
-    }
-
-    if ( this.checkNodeAndParents(event, this.szlakPopUp ) ) {
-
-      this.togglePopup();
-
-      //  prevent jerk
-      event.stopPropagation();
-      event.preventDefault();
       return;
     }
 
 
     //  if href has section id
-    if ( event.target.href && event.target.href.split('#section')[1] ) {
+    if ( elWithHref && elWithHref.href.split('#section')[1] ) {
 
-      sectionId = event.target.href.split('#')[1];
+      //  get the id
+      sectionId = elWithHref.href.split('#')[1];
 
       //  get the sectionToMove
       sectionToMove = document.getElementById( sectionId );
@@ -354,7 +329,7 @@ function LasSzlak() {
       //  push element to the proper queue
       if ( this.clickedLevel ) {
         this.sections[this.clickedLevel].push( sectionToMove );
-        this.btns[this.clickedLevel].push( event.target );
+        this.btns[this.clickedLevel].push( elWithHref );
 
         //  call animation
         this.toggleSection();
@@ -362,9 +337,34 @@ function LasSzlak() {
 
       //  prevent jerk
       event.stopPropagation();
-      event.preventDefault();
       return;
 
+    }
+
+
+    //  if it is popup link
+    if ( elWithHref && ( elWithHref.href.split('#')[1] === 'popup' ) ) {
+
+      window.console.log('click #popup');
+
+      this.state.popupUrl = elWithHref.getAttribute('data-szlak-url');
+
+      this.togglePopup();
+
+      event.stopPropagation();
+      return;
+    }
+
+
+    //  if it was clicked somewhere on the popup
+    if ( ( event.target === this.szlakPopUp )
+      || this.checkNodeAndParents(event, this.szlakPopUp ) ) {
+
+      this.togglePopup();
+
+      //  prevent jerk
+      event.stopPropagation();
+      return;
     }
 
 
@@ -387,6 +387,7 @@ function LasSzlak() {
       this.eventHandler(event);
 
     }.bind(this), false);
+
 
   };
 

@@ -5,7 +5,7 @@
 
 //
 //  TODO
-//  - add velocity hooks, to prevent layout trashing at the beggining of the app
+//  - add this.velocity hooks, to prevent layout trashing at the beggining of the app
 //  - change spinner, so it looks good with answers
 //  - add state to buttons, so they look clicked
 
@@ -18,7 +18,6 @@ function LasAudioTest() {
   //  Elements
   //
   this.wrapper =              document.getElementById('audio-test');
-  this.loader =               document.getElementById('loader');
   this.audioFile =            document.getElementById('audio-file');
   this.audioMsg =             document.getElementById('audio-msg');
   this.audioScore =           document.getElementById('audio-score');
@@ -93,14 +92,6 @@ function LasAudioTest() {
   };
 
 
-  //
-  //  Helper
-  //
-  var speed =                 200;
-  var answersTranformValue =  '300%';
-  var easingSpring =          [ 200, 20 ];
-  var easingQuart =           'easeInOutQuart';
-  var velocity =              Velocity;
 
   // don't use this, only for testing quick code
   var self =                  this;
@@ -110,6 +101,9 @@ function LasAudioTest() {
   //  Initiate
   //
   this.init = function() {
+
+    //  get Elements
+    this.getBasicElements();
 
     //  Random chat arrays
     this.randomIntroArray =   this.createRandomArrayOfFirstBubbles( this.lasData.intro );
@@ -378,7 +372,7 @@ function LasAudioTest() {
     this.state.bubbling = true;
 
     //  stop all animations
-    velocity.pauseAll();
+    this.velocity.pauseAll();
 
     //  pause, if user clicked an answer, we need to pause audio, so we can play the next one
     this.pauseAudio();
@@ -735,25 +729,25 @@ function LasAudioTest() {
       if ( i < c ) {
 
         //  we use IIFE to lock the variable i
-        (function( self, i ) {
-          self.answersElArray[i].innerHTML = self.answersData[i].answer;
+        (function( i ) {
+          this.answersElArray[i].innerHTML = this.answersData[i].answer;
 
           //  animate size
-          velocity(
-            self.answersElArray[i],
+          this.velocity(
+            this.answersElArray[i],
             'slideDown',
-            { duration: speed*2, easing: easingSpring, display: 'block', queue: false }
+            { duration: this.helper.speed*2, easing: this.helper.easingSpring, display: 'block', queue: false }
           );
 
           //  animate border
-          velocity(
-            self.answersElArray[i],
+          this.velocity(
+            this.answersElArray[i],
             { borderColor: '#60B3B3' },
-            { duration: speed*2, easing: easingQuart }
+            { duration: this.helper.speed*2, easing: this.helper.easingQuart }
           );
 
           window.console.log('show answer ' + i);
-        })( this, i );
+        }).bind( this )( i );
 
       }
       //  if there is no such answer, hide it
@@ -800,21 +794,21 @@ function LasAudioTest() {
       if ( i < c ) {
 
         //  IIFE to lock the i variable
-        (function( self, i, c ) {
+        (function( i, c ) {
 
-          velocity(
-            self.answersElArray[i],
+          this.velocity(
+            this.answersElArray[i],
             { borderColor: '#308c8c' },
-            { duration: speed*2, easing: easingQuart, queue: false }
+            { duration: this.helper.speed*2, easing: this.helper.easingQuart, queue: false }
           );
 
           //  if it is the last answer to reset
           if ( i === (c - 1) ) {
 
-            velocity(
-              self.answersElArray[i],
+            this.velocity(
+              this.answersElArray[i],
               'slideUp',
-              { duration: speed*2, easing: easingQuart,
+              { duration: this.helper.speed*2, easing: this.helper.easingQuart,
                 complete: function() {
                   completeFn();
                 }
@@ -825,15 +819,15 @@ function LasAudioTest() {
           //  all other answers
           else {
 
-            velocity(
-              self.answersElArray[i],
+            this.velocity(
+              this.answersElArray[i],
               'slideUp',
-              { duration: speed*2, easing: easingQuart }
+              { duration: this.helper.speed*2, easing: this.helper.easingQuart }
             );
 
           }
 
-        })( this, i, c );
+        }).bind( this )( i, c );
 
       }
 
@@ -873,10 +867,10 @@ function LasAudioTest() {
     }.bind(this);
 
     //  animate
-    velocity(
+    this.velocity(
       this.audioMsg,
       'slideDown',
-      { duration: speed*2, easing: easingSpring,
+      { duration: this.helper.speed*2, easing: this.helper.easingSpring,
         begin: function() {
           beginFn();
         }
@@ -891,8 +885,8 @@ function LasAudioTest() {
 
     var completeFn;
 
-    console.log('try resetMsg ');
-    console.log('msg state ' + this.state.msg);
+    window.console.log('try resetMsg ');
+    window.console.log('msg state ' + this.state.msg);
 
     //  if there was no msg
     if ( !this.state.msg ) {
@@ -900,7 +894,7 @@ function LasAudioTest() {
     }
 
     //  if user clicked fast enough, showMsg could not finish, then we need to stop animation
-    velocity(
+    this.velocity(
       this.audioMsg,
       'stop'
     );
@@ -912,10 +906,10 @@ function LasAudioTest() {
       this.state.msg = false;
     }.bind(this);
 
-    velocity(
+    this.velocity(
       this.audioMsg,
       'slideUp',
-      { duration: speed*2, easing: easingQuart,
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart,
         complete: function() {
           completeFn();
         }
@@ -995,22 +989,22 @@ function LasAudioTest() {
     }
 
     //  show the whole controls bar
-    velocity(
+    this.velocity(
       this.audioControls,
       'slideDown',
-      { duration: speed*2, easing: easingSpring }
+      { duration: this.helper.speed*2, easing: this.helper.easingSpring }
     );
 
-    //  below, each velocity call need display: block, or buttons will be showed as inline-block
+    //  below, each this.velocity call need display: block, or buttons will be showed as inline-block
 
     //  if there is more audio, show MORE button
     if ( this.more !== null ) {
       window.console.log('show more button');
 
-      velocity(
+      this.velocity(
         this.audioMore,
         'fadeIn',
-        { duration: speed, easing: easingQuart, display: 'block', delay: speed }
+        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
       );
     }
 
@@ -1018,19 +1012,19 @@ function LasAudioTest() {
     if ( this.startTime >= 0 ) {
       window.console.log('show rewind button');
 
-      velocity(
+      this.velocity(
         this.audioRewind,
         'fadeIn',
-        { duration: speed, easing: easingQuart, display: 'block', delay: speed }
+        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
       );
     }
 
     //  if there are no answers, we need NEXT button
     if ( !this.answersData.length ) {
-      velocity(
+      this.velocity(
         this.audioNext,
         'fadeIn',
-        { duration: speed, easing: easingQuart, display: 'block', delay: speed }
+        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
       );
     }
 
@@ -1052,31 +1046,31 @@ function LasAudioTest() {
     window.console.log('reset controls');
 
     //  hide the whole controls element
-    velocity(
+    this.velocity(
       this.audioControls,
       'slideUp',
-      { duration: speed*2, easing: easingQuart }
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
     );
 
     //  hide MORE
-    velocity(
+    this.velocity(
       this.audioMore,
       'fadeOut',
-      { duration: speed*2, easing: easingQuart }
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
     );
 
     //  hide REWIND
-    velocity(
+    this.velocity(
       this.audioRewind,
       'fadeOut',
-      { duration: speed*2, easing: easingQuart }
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
     );
 
     //  hide NEXT
-    velocity(
+    this.velocity(
       this.audioNext,
       'fadeOut',
-      { duration: speed*2, easing: easingQuart }
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
     );
 
   };
@@ -1097,17 +1091,17 @@ function LasAudioTest() {
 
     window.console.log('show pause timer');
 
-    //  reset velocity queue
-    velocity(
+    //  reset this.velocity queue
+    this.velocity(
       this.audioPauseTimer,
       'stop'
     );
 
     //  show the timer
-    velocity(
+    this.velocity(
       this.audioPauseTimer,
       'fadeIn',
-      { duration: speed*2, easing: easingQuart }
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
     );
 
     //  start the timer
@@ -1133,8 +1127,8 @@ function LasAudioTest() {
 
     window.console.log('reset pause timer');
 
-    //  reset velocity queue
-    velocity(
+    //  reset this.velocity queue
+    this.velocity(
       this.audioPauseTimer,
       'stop'
     );
@@ -1144,13 +1138,13 @@ function LasAudioTest() {
       delayCalc = 0;
     }
     else {
-      delayCalc = 1000 - speed*2;
+      delayCalc = 1000 - this.helper.speed*2;
     }
 
-    velocity(
+    this.velocity(
       this.audioPauseTimer,
       'fadeOut',
-      { duration: speed*2, easing: easingQuart, delay: delayCalc }
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart, delay: delayCalc }
     );
 
   };
@@ -1183,9 +1177,9 @@ function LasAudioTest() {
 
     //  hook the current state of audioScore
     //  ! TO REMOVE
-    velocity.hook( this.audioScore, 'translateX', '-50%' );
-    velocity.hook( this.audioScore, 'translateY', '-40%' );
-    velocity.hook( this.audioScore, 'scale', '0' );
+    this.velocity.hook( this.audioScore, 'translateX', '-50%' );
+    this.velocity.hook( this.audioScore, 'translateY', '-40%' );
+    this.velocity.hook( this.audioScore, 'scale', '0' );
 
     //  some numbers in Bariol are not centered properly
     //  this fixes it
@@ -1199,7 +1193,7 @@ function LasAudioTest() {
       leftPx = '0';
     }
 
-    velocity.hook( this.audioScoreNumber, 'left', leftPx );
+    this.velocity.hook( this.audioScoreNumber, 'left', leftPx );
 
     //  call resetScore after the animation has completed
     completeFn = function() {
@@ -1208,26 +1202,26 @@ function LasAudioTest() {
 
     }.bind(this);
 
-    velocity(
+    this.velocity(
       this.audioScore,
       { opacity: [1, 0], scale: 1 },
-      { duration: speed, easing: easingQuart, display: 'block',
+      { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block',
         complete: function() {
           completeFn();
         }
       }
     );
 
-    velocity(
+    this.velocity(
       this.audioScoreNumber,
       { scale: [1.5, 1] },
-      { duration: speed, easing: easingQuart, delay: speed }
+      { duration: this.helper.speed, easing: this.helper.easingQuart, delay: this.helper.speed }
     );
 
-    velocity(
+    this.velocity(
       this.audioScoreNumber,
       { scale: 1 },
-      { duration: speed*2, easing: easingQuart }
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
     );
 
 
@@ -1239,7 +1233,7 @@ function LasAudioTest() {
       this.resetScore();
       this.showScoreTimer = undefined;
 
-    }.bind(this), speed*4);*/
+    }.bind(this), this.helper.speed*4);*/
 
   };
 
@@ -1266,10 +1260,10 @@ function LasAudioTest() {
     }.bind(this);
 
     //  animate
-    velocity(
+    this.velocity(
       this.audioScore,
       'fadeOut',
-      { duration: speed*2, easing: easingQuart, delay: speed,
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart, delay: this.helper.speed,
         complete: function() {
           completeFn();
         }
@@ -1289,18 +1283,18 @@ function LasAudioTest() {
 
     this.state.spinner = true;
 
-    //  spinner's animation queue is controlled by velocity
+    //  spinner's animation queue is controlled by this.velocity
 
-    //  reset velocity queue
-    velocity(
+    //  reset this.velocity queue
+    this.velocity(
       this.audioSpinner,
       'stop'
     );
 
-    velocity(
+    this.velocity(
       this.audioSpinner,
       'fadeIn',
-      { duration: speed, easing: easingQuart, display: 'inline-block' }
+      { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'inline-block' }
     );
   };
 
@@ -1313,15 +1307,15 @@ function LasAudioTest() {
 
     this.state.spinner = false;
 
-    velocity(
+    this.velocity(
       this.audioSpinner,
       'stop'
     );
 
-    velocity(
+    this.velocity(
       this.audioSpinner,
       'fadeOut',
-      { duration: speed, easing: easingQuart }
+      { duration: this.helper.speed, easing: this.helper.easingQuart }
     );
   };
 
@@ -1332,7 +1326,7 @@ function LasAudioTest() {
 
   this.finish = function() {
 
-    console.log('END');
+    window.console.log('END');
 
     //  here we need to redirect user to the next ex
 
@@ -1382,7 +1376,7 @@ function LasAudioTest() {
       //  reduce number of vibrating calls
       vibratingTimer = window.setTimeout(function() {
         this.state.vibrating = false;
-      }.bind(this), speed*2);
+      }.bind(this), this.helper.speed*2);
 
 
       //  check if user clicked on button or some node inside it
@@ -1399,24 +1393,24 @@ function LasAudioTest() {
 
       //  if there is next, we show the answer is wrong with color change
       if ( answerData.hasOwnProperty('next') && answerData.next ) {
-        velocity(
+        this.velocity(
         answerEl,
           { backgroundColor: '#dd4b39' },
-          { duration: speed, easing: easingQuart }
+          { duration: this.helper.speed, easing: this.helper.easingQuart }
         );
 
-        velocity(
+        this.velocity(
         answerEl,
           'reverse',
-          { duration: speed*4, easing: easingQuart }
+          { duration: this.helper.speed*4, easing: this.helper.easingQuart }
         );
       }
       //  if there is no next, we only vibrate the answer
       else {
-        velocity(
+        this.velocity(
         answerEl,
           { translateX: ['0', '-0.5rem'] },
-          { duration: speed*4, easing: [ 5000, 20 ], queue: false }
+          { duration: this.helper.speed*4, easing: [ 5000, 20 ], queue: false }
         );
       }
 

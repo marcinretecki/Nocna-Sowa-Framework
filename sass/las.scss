@@ -11,6 +11,8 @@ Author: Marcin Retecki
 @import "partials/variables";
 @import "partials/mixins";
 
+.navbar-logo--las{background:transparent url("//las.nocnasowa.pl/i/icon_feather.png") no-repeat scroll center center / auto 100%;text-indent:-9999px;}
+
 
 .las-szlak-list{border-radius:0 0 3px 3px;overflow:hidden;}
 .las-szlak-list__btn{display:block;padding:$space $space-4 $space $space-2;border:1px solid $dark-light;border-width:1px 0 0;line-height:1.25;white-space:normal;text-align:left;border-radius:0;}
@@ -27,6 +29,14 @@ Author: Marcin Retecki
     padding-bottom:$space-4;
   }
 }
+
+//  Szlak icons
+.las-szlak__icons{display:block;position:absolute;right:$space-half;top:0;bottom:0;}
+.las-szlak__icon{display:inline-block;width:2rem;height:100%;text-align:center;background-size:1rem auto;background-position:center center;background-repeat:no-repeat;}
+.las-szlak__icon--post{background-image:url('//las.nocnasowa.pl/i/icon_post.png');}
+.las-szlak__icon--mountain{background-image:url('//las.nocnasowa.pl/i/icon_mountain.png');}
+.las-szlak__icon--inactive{opacity:0.5;}
+
 
 .las-szlak-section-nav{padding:0;transform:translateX(50%);box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);border-radius:3px;
   @include transition-bezier;
@@ -62,7 +72,12 @@ Author: Marcin Retecki
 }
 
 .szlak-post-popup{display:none;position:fixed;left:0;top:0;right:0;bottom:0;z-index:300;overflow:auto;-webkit-overflow-scrolling:touch;}
-.szlak-post-popup__section{}
+.szlak-post-popup__content{
+  @include for-phone-only {
+    padding:0;
+  }
+}
+.szlak-post-popup__section{transform-origin:top;}
 .szlak-post-popup__btn{
   display:block;margin:0 auto $space;max-width:100%;width:200px;
 

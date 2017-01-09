@@ -8,11 +8,11 @@ function LasChat() {
   //  Elements
   //
   this.wrapper =              document.getElementById('chat-bot');
-  this.clickedAnswer =
-  this.chatFlow =
-  this.answers =
-  this.answerOne =
-  this.answerTwo =
+  this.clickedAnswer =        null;
+  this.chatFlow =             null;
+  this.answers =              null;
+  this.answerOne =            null;
+  this.answerTwo =            null;
   this.currentBubble =        null;
 
   this.prefetch =             document.createElement('div');
@@ -24,10 +24,10 @@ function LasChat() {
   this.lasData =              new LasChatData();
   this.currentBubbleData =    null;
   this.bubbleArray =          [];
-  this.answerOneText =
-  this.answerTwoText =
-  this.answerOneNext =
-  this.answerTwoNext =
+  this.answerOneText =        '';
+  this.answerTwoText =        '';
+  this.answerOneNext =        '';
+  this.answerTwoNext =        '';
   this.bubbleAutoNext =       '';
 
   //
@@ -36,34 +36,36 @@ function LasChat() {
   this.state = {
     answersWaiting:           false,
     currentState:             ''              // END / INTRO / CHAT
-  }
+  };
 
   this.scrollFn =             function(){};
 
   //
   //  Helper
   //
-  var self =                  this,
-      speed =                 200,
-      answersTranformValue =  '300%',
-      velocity =              Velocity;
+  var self =                  this;
 
   //
   //  Initiate
   //
   this.init = function() {
 
-    //  Random chat arrays
+    //  get Elements
+    this.getBasicElements();
+
+    //  random chat arrays
     this.randomIntroArray =   this.createRandomArrayOfFirstBubbles( this.lasData.intro );
     this.randomChatArray =    this.createRandomArrayOfFirstBubbles( this.lasData.chat );
     this.randomEndArray =     this.createRandomArrayOfFirstBubbles( this.lasData.end );
 
-    //  Create
+    //  create chat
     this.createChat();
     this.addListener();
     this.resetAnswers();
 
-    //  Get the intro
+    this.hideLoader();
+
+    //  get the intro
     this.getNextBubble( 'INTRO' );
     this.createBubble();
   };
@@ -82,7 +84,7 @@ function LasChat() {
     chatWrapper.setAttribute('role', 'main');
     chatWindow.className = 'section-content chat-window';
     chatRow.className = 'row';
-    chatFlow.className = 'col-10 white center chat-flow nodots group';
+    chatFlow.className = 'col-10 center chat-flow nodots group';
 
     chatRow.appendChild(chatFlow);
     chatWindow.appendChild(chatRow);
@@ -131,18 +133,18 @@ function LasChat() {
 
     this.prefetch.innerHTML = content;
 
-    bubble.className = 'beige chat-bubble';
+    bubble.className = 'white chat-bubble';
     bubble.innerHTML = '<span class="ball-pulse-sync ball-pulse-sync-dark"><div></div><div></div><div></div></span>';
     bubble.id = 'bubble-' + this.currentBubble;
 
-    this.scrollFn = function() { self.chatFlow.insertBefore(bubble, self.chatFlow.lastChild) };
+    this.scrollFn = function() { self.chatFlow.insertBefore(bubble, self.chatFlow.lastChild); };
     this.scrollAfterChange();
 
 
     if ( this.bubbleArray.length > 0 ) {
       // if there are more bubbles in the array
 
-      nextFunction = function() { self.createBubble() };
+      nextFunction = function() { self.createBubble(); };
 
     }
     else if (this.bubbleAutoNext === 'END') {
@@ -168,15 +170,15 @@ function LasChat() {
     }
 
     //  Show bubble with loader
-    velocity(bubble,
+    this.velocity(bubble,
       { right: [0, '100%'] },
-      { duration: speed*5, easing: [ 200, 20 ]}
+      { duration: 5 * self.helper.speed, easing: [ 200, 20 ]}
     );
 
     //  Hide bubble and swap content
-    velocity(bubble,
+    this.velocity(bubble,
       { translateX: '-130%' },
-      { duration: speed, easing: [ 200, 20 ], delay: speed,
+      { duration: this.helper.speed, easing: [ 200, 20 ], delay: this.helper.speed,
         complete: function() {
           if (content.indexOf('<img') !== -1 ) {
             bubble.className += ' chat-bubble-img';
@@ -190,9 +192,9 @@ function LasChat() {
     );
 
     //  Show bubble with content
-    velocity(bubble,
+    this.velocity(bubble,
       { translateX: 0 },
-      { duration: speed*5, easing: [ 200, 20 ], delay: speed*0.5,
+      { duration: 5 * self.helper.speed, easing: [ 200, 20 ], delay: 0.5 * self.helper.speed,
         complete: function() { nextFunction(); }
       }
     );
@@ -216,16 +218,16 @@ function LasChat() {
     }
 
     // Adjust padding
-    velocity(this.chatFlow,
+    this.velocity(this.chatFlow,
       { paddingBottom: self.answers.offsetHeight + 5 + 'px' },
-      { duration: speed*1, easing: 'easeInOutQuart' }
+      { duration: 1 * self.helper.speed, easing: 'easeInOutQuart' }
     );
     self.scrollAfterChange();
 
-    velocity(this.answers, { translateY: 0 }, { duration: speed*5, easing: [ 200, 20 ], queue: false } );
+    this.velocity(this.answers, { translateY: 0 }, { duration: 5 * self.helper.speed, easing: [ 200, 20 ], queue: false } );
 
     if (this.answerTwoText !== '') {
-      velocity(this.answerTwo, { translateY: 0 }, { duration: speed*3, easing: 'easeInOutQuart', /*delay: speed*3*/ });
+      this.velocity(this.answerTwo, { translateY: 0 }, { duration: 3 * self.helper.speed, easing: 'easeInOutQuart', /*delay: 3*self.helper.speed*/ });
     }
 
   };
@@ -266,18 +268,18 @@ function LasChat() {
     this.resetAnswers();
 
     // Adjust padding
-    velocity(this.chatFlow,
+    this.velocity(this.chatFlow,
       { paddingBottom: '4rem' },
-      { duration: speed*4, easing: 'easeInOutQuart' }
+      { duration: 4 * self.helper.speed, easing: 'easeInOutQuart' }
     );
 
     // Animate answerBubble
-    velocity(answerBubble,
+    this.velocity(answerBubble,
       { translateY: [0, newTop], translateX: [0, newLeft], backgroundColor: ['#73b9e6', '#3a8ac0'], opacity: [1, 1] },
-      { duration: speed*2, easing: [ 300, 20 ],
+      { duration: 2 * self.helper.speed, easing: [ 300, 20 ],
         complete: function() {
           self.getNextBubble(next);
-          setTimeout(function() { self.createBubble(); }, speed*2);
+          setTimeout(function() { self.createBubble(); }, 2 * self.helper.speed);
         }
       }
     );
@@ -289,19 +291,19 @@ function LasChat() {
     this.state.answersWaiting = false;
 
     // testing whole answers animation
-    velocity(this.answers,
+    this.velocity(this.answers,
       { translateY: '100%' },
-      { duration: speed*2, easing: [ 300, 20 ], queue: false }
+      { duration: 2 * self.helper.speed, easing: [ 300, 20 ], queue: false }
     );
-    velocity(this.answerOne,
+    this.velocity(this.answerOne,
       { translateY: '0' },
-      { duration: speed*2, easing: [ 300, 20 ], display: 'none', complete: function() { self.answerOne.style.visibility = 'visible'; } }
+      { duration: 2 * self.helper.speed, easing: [ 300, 20 ], display: 'none', complete: function() { self.answerOne.style.visibility = 'visible'; } }
     );
 
     //if (this.answerTwoText !== '') {
-      velocity(this.answerTwo,
+      this.velocity(this.answerTwo,
         { translateY: '100%' },
-        { duration: speed*2, easing: [ 300, 20 ], display: 'none', complete: function() { self.answerTwo.style.visibility = 'visible'; } }
+        { duration: 2 * self.helper.speed, easing: [ 300, 20 ], display: 'none', complete: function() { self.answerTwo.style.visibility = 'visible'; } }
       );
     //}
   };
@@ -352,7 +354,7 @@ function LasChat() {
     // Keep the scroll at place
     this.wrapper.scrollTop = scrollNo;
 
-    velocity(self.answers, 'scroll', { container: self.wrapper, duration: speed*3, offset: -5, easing: 'easeInOutQuart', queue: false });
+    this.velocity(self.answers, 'scroll', { container: self.wrapper, duration: 4 * self.helper.speed, offset: -5, easing: 'easeInOutQuart', queue: false });
 
     // Reset scroll function
     this.scrollFn = function() {};
@@ -402,12 +404,12 @@ function LasChat() {
     this.scrollFn = function() { self.chatFlow.insertBefore(finish, self.chatFlow.lastChild); };
     this.scrollAfterChange();
 
-    velocity(finish,
+    this.velocity(finish,
         { opacity: [1, 0] },
-        { duration: speed*6, easing: 'easeInOutQuart' }
+        { duration: 6 * self.helper.speed, easing: 'easeInOutQuart' }
       );
 
-    console.log('END');
+    window.console.log('END');
 
   };
 

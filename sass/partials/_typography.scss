@@ -283,3 +283,6 @@ h4 a,h4 a:visited {
 .no-break{white-space:nowrap;}
 
 .text-shadow{text-shadow:1px 1px 1px rgba(0, 0, 0, 0.25);}
+
+.bariol-reg{@include font-bariol-reg;}
+.bariol-thin{@include font-bariol-thin;}

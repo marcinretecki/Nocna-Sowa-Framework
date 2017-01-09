@@ -43,7 +43,7 @@ function Chat() {
   //
   //  Helper
   //
-  var that = this,
+  var self = this,
       speed = 200,
       answersTranformValue = "300%",
       gaLabel = document.title.split(' | Nocna Sowa')[0];
@@ -181,29 +181,29 @@ function Chat() {
     bubble.innerHTML = '<span class="ball-pulse-sync ball-pulse-sync-dark"><div></div><div></div><div></div></span>';
     bubble.id = "bubble-" + this.currentBubble;
 
-    this.scrollFn = function() { that.chatFlow.insertBefore(bubble, that.chatFlow.lastChild) };
+    this.scrollFn = function() { self.chatFlow.insertBefore(bubble, self.chatFlow.lastChild) };
     this.scrollAfterChange();
 
     if ( this.bubbleArray.length > 0 ) {
 
-      nextFunction = function() { that.createBubble() };
+      nextFunction = function() { self.createBubble() };
 
     } else if (this.bubbleAutoNext === "END") {
 
       nextFunction = function() {
-        that.finish();
+        self.finish();
       };
 
     } else if (this.bubbleAutoNext !== "") {
 
       nextFunction = function() {
-        that.getNextBubble( that.bubbleAutoNext );
-        that.createBubble();
+        self.getNextBubble( self.bubbleAutoNext );
+        self.createBubble();
       };
 
     } else {
 
-      nextFunction = function() { that.showAnswers(); };
+      nextFunction = function() { self.showAnswers(); };
     }
 
     Velocity(bubble,
@@ -219,8 +219,8 @@ function Chat() {
             bubble.className += " chat-bubble-img";
           }
 
-          that.scrollFn = function() { bubble.innerHTML = content; };
-          that.scrollAfterChange();
+          self.scrollFn = function() { bubble.innerHTML = content; };
+          self.scrollAfterChange();
 
         }
       }
@@ -253,10 +253,10 @@ function Chat() {
 
     // Adjust padding
     Velocity(this.chatFlow,
-      { paddingBottom: that.answers.offsetHeight + 5 + "px" },
+      { paddingBottom: self.answers.offsetHeight + 5 + "px" },
       { duration: speed*1, easing: "easeInOutQuart" }
     );
-    that.scrollAfterChange();
+    self.scrollAfterChange();
 
     Velocity(this.answers, { translateY: 0 }, { duration: speed*5, easing: [ 200, 20 ], queue: false } );
 
@@ -292,7 +292,7 @@ function Chat() {
     answerBubble.className = 'chat-bubble-answer';
 
     // Append answer
-    that.chatFlow.insertBefore(answerBubble, this.chatFlow.lastChild);
+    self.chatFlow.insertBefore(answerBubble, this.chatFlow.lastChild);
 
     // Get coordinates for te animation
     clickedAnswerRect = this.clickedAnswer.getBoundingClientRect();
@@ -315,8 +315,8 @@ function Chat() {
       { translateY: [0, newTop], translateX: [0, newLeft], backgroundColor: ['#73b9e6', '#3a8ac0'], opacity: [1, 1] },
       { duration: speed*2, easing: [ 300, 20 ],
         complete: function() {
-          that.getNextBubble(next);
-          setTimeout(function() { that.createBubble(); }, speed*2);
+          self.getNextBubble(next);
+          setTimeout(function() { self.createBubble(); }, speed*2);
         }
       }
     );
@@ -329,13 +329,13 @@ function Chat() {
 
   //Velocity(this.answerLeft,
   //  { translateY: answersTranformValue },
-  //  { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerLeft.style.visibility = "visible"; } }
+  //  { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { self.answerLeft.style.visibility = "visible"; } }
   //);
 
   //if (this.answerRightText !== "") {
   //  Velocity(this.answerRight,
   //    { translateY: answersTranformValue },
-  //    { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerRight.style.visibility = "visible"; } }
+  //    { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { self.answerRight.style.visibility = "visible"; } }
   //  );
   //}
 
@@ -346,12 +346,12 @@ function Chat() {
     );
     Velocity(this.answerLeft,
       { translateY: "0" },
-      { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerLeft.style.visibility = "visible"; } }
+      { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { self.answerLeft.style.visibility = "visible"; } }
     );
     //if (this.answerRightText !== "") {
       Velocity(this.answerRight,
         { translateY: "100%" },
-        { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { that.answerRight.style.visibility = "visible"; } }
+        { duration: speed*2, easing: [ 300, 20 ], display: "none", complete: function() { self.answerRight.style.visibility = "visible"; } }
       );
     //}
   }
@@ -372,7 +372,7 @@ function Chat() {
     // Keep the scroll at place
     this.wrapper.scrollTop = scrollNo;
 
-    Velocity(that.answers, "scroll", { container: that.wrapper, duration: speed*3, offset: -5, easing: "easeInOutQuart", queue: false });
+    Velocity(self.answers, "scroll", { container: self.wrapper, duration: speed*3, offset: -5, easing: "easeInOutQuart", queue: false });
 
     // Reset scroll function
     this.scrollFn = function() {};
@@ -382,13 +382,13 @@ function Chat() {
   this.eventHandler = function(event) {
 
     if ( ( event.target.id == 'answer-left' ) || ( event.target.parentNode.id =='answer-left' ) ) {
-      that.clickedAnswer = that.answerLeft;
-      that.sendGaEvent(that.answerLeftText);
-      that.answerToBubble();
+      self.clickedAnswer = self.answerLeft;
+      self.sendGaEvent(self.answerLeftText);
+      self.answerToBubble();
     } else if ( ( event.target.id =='answer-right' ) || ( event.target.parentNode.id =='answer-right' ) ) {
-      that.clickedAnswer = that.answerRight;
-      that.sendGaEvent(that.answerRightText);
-      that.answerToBubble();
+      self.clickedAnswer = self.answerRight;
+      self.sendGaEvent(self.answerRightText);
+      self.answerToBubble();
     }
 
     event.preventDefault();
@@ -404,31 +404,26 @@ function Chat() {
     try { ga('send', 'event', category, action, label); }
     catch(err) {};
 
-    console.log('Category: ' + category);
-    console.log('Action: ' + action);
-    console.log('Label: ' + label);
+    window.console.log('Category: ' + category);
+    window.console.log('Action: ' + action);
+    window.console.log('Label: ' + label);
   };
 
 
   this.addListener = function() {
-
-    /*this.answers.addEventListener('touchend', function(event) {
-
-      that.eventHandler(event);
-
-    }, false);*/
+    this.answers.addEventListener('touchstart', function(event) {
+      self.eventHandler(event);
+    }, false);
 
     this.answers.addEventListener('click', function(event) {
-
-      that.eventHandler(event);
-
+      self.eventHandler(event);
     }, false);
 
   };
 
 
   this.setCookie = function() {
-    Cookies.set('ns_chat_status', that.currentBubble, { expires: 365 });
+    Cookies.set('ns_chat_status', self.currentBubble, { expires: 365 });
   };
 
   this.getCookie = function() {
@@ -444,7 +439,7 @@ function Chat() {
     finish.style.cssText = "display:block;clear:both;margin:0;padding:2.5rem 0 0;opacity:0;";
     finish.innerHTML = '<span>Nocna</span> Sowa';
 
-    this.scrollFn = function() { that.chatFlow.insertBefore(finish, that.chatFlow.lastChild) };
+    this.scrollFn = function() { self.chatFlow.insertBefore(finish, self.chatFlow.lastChild) };
     this.scrollAfterChange();
 
     Velocity(finish,
@@ -452,7 +447,7 @@ function Chat() {
         { duration: speed*6, easing: "easeInOutQuart" }
       );
 
-    console.log("END");
+    window.console.log("END");
 
   }
 
@@ -466,8 +461,8 @@ function Chat() {
         answerRight;
 
     this.resetAnswers();
-    that.chatFlow.innerHTML = '';
-    that.chatFlow.style.display = "none";
+    self.chatFlow.innerHTML = '';
+    self.chatFlow.style.display = "none";
 
     for (property in data) {
       if (data.hasOwnProperty(property)) {
@@ -480,7 +475,7 @@ function Chat() {
           bubble.style.right = "0";
           bubble.innerHTML = content;
 
-          that.chatFlow.appendChild(bubble);
+          self.chatFlow.appendChild(bubble);
         });
 
         if (data[property].answerLeft) {
@@ -489,12 +484,12 @@ function Chat() {
           answerLeft.className = 'chat-bubble-answer';
           answerLeft.style.opacity = "1";
           answerLeft.innerHTML = data[property].answerLeft.answer;
-          that.chatFlow.appendChild(answerLeft);
+          self.chatFlow.appendChild(answerLeft);
 
           if (data[property].answerRight) {
             answerRight = answerLeft.cloneNode(false);
             answerRight.innerHTML = data[property].answerRight.answer;
-            that.chatFlow.appendChild(answerRight);
+            self.chatFlow.appendChild(answerRight);
           }
 
         }
@@ -502,12 +497,12 @@ function Chat() {
       var line = document.createElement('li');
       line.style.cssText = 'width:100%;height:3px;background:#000;margin:2.5rem 0;clear:both;';
 
-      that.chatFlow.appendChild(line);
+      self.chatFlow.appendChild(line);
 
       } // end if has property
     } // end loop
 
-    that.chatFlow.style.display = "block";
+    self.chatFlow.style.display = "block";
 
   }
 
