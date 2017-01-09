@@ -72,8 +72,6 @@
   </div>
 
 
-  <div id="loader" class="las-loader" style="position:fixed;left:0;top:0;right:0;bottom:0;background:#000;z-index:1000"></div>
-
 
 <script>
 var lasAudioTest = new LasAudioTest();

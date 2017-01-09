@@ -34,26 +34,30 @@ var lasChapter = "<?php echo $post->post_name; ?>";
 
 
 <?php if ( !is_front_page() && !is_home() ) { ?>
+
+<?php
+  //  Loader
+?>
+<div id="loader" class="las-loader" style="position:fixed;left:0;top:0;right:0;bottom:0;background:#000;z-index:1000"></div>
+
 <div class="section-white header-top header-top--shadowed header-top--fixed">
   <div class="section-nav">
-    <span class="btn btn-nav navbar-logo--centered">//</span>
+    <span class="btn btn-nav navbar-logo--centered navbar-logo--las">Las</span>
 
 
-
+    <?php if ( !is_page('szlak') ) { ?>
     <nav class="section-white" style="width:100%;">
       <ul class="nabar__list alignright">
                  <li><a href="../" class="btn btn-dark-outline btn-nav">SOS
         </a></li>
       </ul>
 
-      <?php if ( !is_page('szlak') ) { ?>
-
       <ul class="navbar__list">
                  <li><a href="/szlak/" class="btn btn-dark-outline btn-nav">&laquo; Twój Szlak
         </a></li>
       </ul>
-      <?php } ?>
     </nav>
+    <?php } ?>
 
   </div>
 </div>
