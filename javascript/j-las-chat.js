@@ -339,6 +339,7 @@ function LasChat() {
     } // end if data.autoNext
   };
 
+
   //
   //  HELPERS
   //

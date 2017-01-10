@@ -23,6 +23,7 @@ function LasHelper() {
   this.getBasicElements = function() {
 
     this.loader =                         document.getElementById('loader');
+    this.nav =                            document.getElementById('las-nav');
 
     //  Velocity
     this.velocity =                       Velocity;
@@ -35,7 +36,7 @@ function LasHelper() {
     this.helper.currentUrl =              window.location.href.split('#')[0];
 
 
-    //  if there are more common elements, we can put them here to keep consistency
+
 
     //  remove loader when user clicks back button
     window.addEventListener('unload', function(event) {
@@ -44,6 +45,35 @@ function LasHelper() {
       window.console.log('unload');
 
     }.bind(this), false);
+
+
+    this.nav.addEventListener('click', function(event) {
+
+      this.navEventHandler(event);
+
+    }.bind(this), false);
+
+  };
+
+
+  //
+  //  NAV
+  //
+  this.navEventHandler = function( event ) {
+
+    window.console.log('navEventHandler');
+
+    var elWithHref;
+
+    //  traverse up to find the element with href
+    elWithHref = this.checkNodeAndParents( event, false, 'href' );
+
+    if ( ( elWithHref.id === 'las-nav-btn-sos' ) || ( elWithHref.id === 'las-nav-btn-szlak' ) ) {
+
+      //  show loader
+      this.showLoader();
+
+    }
 
   };
 

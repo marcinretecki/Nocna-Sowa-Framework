@@ -11,9 +11,15 @@ Author: Marcin Retecki
 @import "partials/variables";
 @import "partials/mixins";
 
+//
+//  NAV
+//
 .navbar-logo--las{background:transparent url("//las.nocnasowa.pl/i/icon_feather.png") no-repeat scroll center center / auto 100%;text-indent:-9999px;}
 
 
+//
+//  SZLAK
+//
 .las-szlak-list{border-radius:0 0 3px 3px;overflow:hidden;}
 .las-szlak-list__btn{display:block;padding:$space $space-4 $space $space-2;border:1px solid $dark-light;border-width:1px 0 0;line-height:1.25;white-space:normal;text-align:left;border-radius:0;}
 
@@ -31,8 +37,8 @@ Author: Marcin Retecki
 }
 
 //  Szlak icons
-.las-szlak__icons{display:block;position:absolute;right:$space-half;top:0;bottom:0;}
-.las-szlak__icon{display:inline-block;width:2rem;height:100%;text-align:center;background-size:1rem auto;background-position:center center;background-repeat:no-repeat;}
+.las-szlak__icons{position:absolute;right:0;top:0;bottom:0;padding:$space-half;font-size:$size-0;text-align:center;}
+.las-szlak__icon{display:block;width:2rem;height:50%;margin-bottom:$space-half;background-size:1rem auto;background-position:center 100%;background-repeat:no-repeat;}
 .las-szlak__icon--post{background-image:url('//las.nocnasowa.pl/i/icon_post.png');}
 .las-szlak__icon--mountain{background-image:url('//las.nocnasowa.pl/i/icon_mountain.png');}
 .las-szlak__icon--inactive{opacity:0.5;}
@@ -86,3 +92,20 @@ Author: Marcin Retecki
   }
 }
 .szlak-post-popup__img{display:block;padding-top:100%;background:$beige;margin-bottom:$space-half;}
+
+
+//
+//  ICONS
+//
+.las-icon{display:inline-block;width:($size-1 * $line-1);height:($size-1 * $line-1);background-size:($size-1 * $line-1) auto;background-repeat:no-repeat;vertical-align:text-bottom}
+.las-icon--next{background-image:url('//las.nocnasowa.pl/i/icon_next.png');}
+
+.size-2 .las-icon{width:($size-2 * $line-1);height:($size-2 * $line-1);background-size:($size-2 * $line-1) auto;}
+
+.section-dark .las-icon--next{background-image:url('//las.nocnasowa.pl/i/icon_next_w.png');}
+
+
+
+//
+//  WYZWANIE
+//
