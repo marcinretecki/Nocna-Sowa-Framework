@@ -1,20 +1,11 @@
 <script>
 function LasAudioData() {
 
-  //  Albo answers
-  //  albo autoNext
-  //  ale nie oba na raz!
-  //  msg jest dowolne
-  //  more jest dowolne
-  //  gdy nie startTime, mamy quiz
-  //  answer jest poiminięte tylko w intro 1
-
-
   this.intro = {
     a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i>.',
-      autoNext:   'ENDINTRO',
-      more: { startTime: 0, stopTime: 26 }
+      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
+      autoNext:   'ENDINTRO'/*,
+      more: { startTime: 0, stopTime: 26 }*/
     }
   };
 
@@ -62,20 +53,6 @@ function LasAudioData() {
       autoNext:   'RANDOM'
     },
 
-    //  czy kan powinno tu być?
-    ad1: {
-      startTime:  22,
-      stopTime:   25,
-      pauseTime:  8,
-      autoNext:   'ad2'
-    },
-    ad2: {
-      msg:        'Han kan ikke be om hjelp.',
-      startTime:  26,
-      stopTime:   28,
-      autoNext:   'RANDOM'
-    },
-
 
     ae1: {
       startTime:  29,
@@ -91,7 +68,8 @@ function LasAudioData() {
     },
 
 
-    /*af1: {
+    /*  złe nagranie
+    af1: {
       startTime:  36,
       stopTime:   39,
       pauseTime:  6,
@@ -230,20 +208,6 @@ function LasAudioData() {
       autoNext:   'RANDOM'
     },
 
-    //  czy kan powinno tu być???
-    be1: {
-      startTime:  106,
-      stopTime:   108.5,
-      pauseTime:  8,
-      autoNext:   'be2'
-    },
-    be2: {
-      msg:        'Jeg kan ikke komme til deg.',
-      startTime:  110,
-      stopTime:   111.5,
-      autoNext:   'RANDOM'
-    },
-
 
     bf1: {
       startTime:  113,
@@ -257,20 +221,6 @@ function LasAudioData() {
       stopTime:   118,
       autoNext:   'RANDOM'
     },
-
-
-    /*bg1: {
-      startTime:  119,
-      stopTime:   121.5,
-      pauseTime:  6,
-      autoNext:   'bg2'
-    },
-    bg2: {
-      msg:        'De vil ikke spise hjemme.',
-      startTime:  123,
-      stopTime:   125,
-      autoNext:   'RANDOM'
-    },*/
 
 
     bh1: {
@@ -328,20 +278,6 @@ function LasAudioData() {
       autoNext:   'RANDOM'
     },
 
-    // vil?
-    bl1: {
-      startTime:  151,
-      stopTime:   154,
-      pauseTime:  8,
-      autoNext:   'bl2'
-    },
-    bl2: {
-      msg:        'Jeg vil ikke fly på Bjørnøya.',
-      startTime:  155,
-      stopTime:   157,
-      autoNext:   'RANDOM'
-    },
-
 
     bm1: {
       startTime:  158,
@@ -353,34 +289,6 @@ function LasAudioData() {
       msg:        'Vi trenger ikke å rydde.',
       startTime:  161,
       stopTime:   163,
-      autoNext:   'RANDOM'
-    },
-
-    //  czy kan tu powinno być?
-    bn1: {
-      startTime:  164,
-      stopTime:   166.5,
-      pauseTime:  5,
-      autoNext:   'bn2'
-    },
-    bn2: {
-      msg:        'Det kan ikke vente.',
-      startTime:  168,
-      stopTime:   169.5,
-      autoNext:   'RANDOM'
-    },
-
-    // skal?
-    bp1: {
-      startTime:  171,
-      stopTime:   173.5,
-      pauseTime:  7,
-      autoNext:   'bp2'
-    },
-    bp2: {
-      msg:        'Jeg skal ikke bytte huset.',
-      startTime:  175,
-      stopTime:   177,
       autoNext:   'RANDOM'
     },
 

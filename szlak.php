@@ -68,6 +68,13 @@ function las_courses_loop($courses, $level) {
         $title = $post->post_title;
         $slug = $post->post_name;
 
+        if ( $user_progress[$slug]['wyzwanie-punkty'] && ( $user_progress[$slug]['wyzwanie-punkty'] > 0 ) ) {
+          $punkty = $user_progress[$slug]['wyzwanie-punkty'];
+        }
+        else {
+          $punkty = false;
+        }
+
         //  if it is an editor or advanced user, we can give him a link to advanced courses
 
           $sections .= '<li><a class="btn btn-dark-outline las-szlak-list__btn las-szlak-list__btn--light" ';
@@ -75,35 +82,25 @@ function las_courses_loop($courses, $level) {
           //  if there is wyzwanie and user has done przewodnik
           if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_category('bez-wyzwania') ) {
 
-            if ( $user_progress[$slug]['wyzwanie-punkty'] ) {
-              $punkty = $user_progress[$slug]['wyzwanie-punkty'];
-            }
-            else {
-              $punkty = 0;
-            }
-
             //  hash to show choice
             $sections .= 'href="#popup" data-szlak-url="' . $link . '" data-szlak-punkty="' . $punkty . '">';
 
             $sections .= $title;
 
             //  icons
-            $sections .= '<span class="las-szlak__icons">';
+            $sections .= '<div class="las-szlak__icons">';
 
-            // active wyzwanie
-            if ( $user_progress[$slug]['wyzwanie-punkty'] && ( $user_progress[$slug]['wyzwanie-punkty'] > 0 ) ) {
-              $sections .= '<span class="las-szlak__icon las-szlak__icon--mountain"></span>';
+            // user has done wyzwanie
+            if ( $punkty > 0 ) {
+              $sections .= '<i class="las-szlak__icon las-szlak__icon--mountain"></i>' . $punkty;
             }
-            //  inactive wyzwanie
+            //  user has not done wyzwanie but it is available
             else {
-              $sections .= '<span class="las-szlak__icon las-szlak__icon--mountain las-szlak__icon--inactive"></span>';
+              $sections .= '<i class="las-szlak__icon las-szlak__icon--mountain las-szlak__icon--inactive"></i>';
             }
-
-            //  active przewodnik
-            $sections .= '<span class="las-szlak__icon las-szlak__icon--post"></span>';
 
             //  close icons
-            $sections .= '</span>';
+            $sections .= '</div>';
 
           }
           //  if user has not done przewodnik
@@ -115,19 +112,28 @@ function las_courses_loop($courses, $level) {
             $sections .= $title;
 
             //  icons
-            $sections .= '<span class="las-szlak__icons">';
+            $sections .= '<div class="las-szlak__icons">';
 
             //  inactive przewodnik
-            $sections .= '<span class="las-szlak__icon las-szlak__icon--post las-szlak__icon--inactive"></span>';
+            $sections .= '<i class="las-szlak__icon las-szlak__icon--post las-szlak__icon--inactive"></i>';
 
             //  close icons
-            $sections .= '</span>';
+            $sections .= '</div>';
 
 
           }
-          //  there is no wyzwanie
-          else {
+          //  there is no wyzwanie but user has done przewodnik
+          elseif ( $user_progress && $user_progress[$slug]['przewodnik'] ) {
             $sections .= 'href="' . $link . 'przewodnik/">' . $title;
+
+            //  icons
+            $sections .= '<div class="las-szlak__icons">';
+
+            //  inactive przewodnik
+            $sections .= '<i class="las-szlak__icon las-szlak__icon--post"></i>';
+
+            //  close icons
+            $sections .= '</div>';
           }
 
           $sections .= '</a>';

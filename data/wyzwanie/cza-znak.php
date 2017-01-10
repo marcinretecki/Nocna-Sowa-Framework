@@ -1,20 +1,11 @@
 <script>
 function LasAudioData() {
 
-  //  Albo answers
-  //  albo autoNext
-  //  ale nie oba na raz!
-  //  msg jest dowolne
-  //  more jest dowolne
-  //  gdy nie startTime, mamy quiz
-  //  answer jest poiminięte tylko w intro 1
-
-
   this.intro = {
     a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i>play</i>.',
-      autoNext:   'ENDINTRO',
-      more: { startTime: 0, stopTime: 26 }
+      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
+      autoNext:   'ENDINTRO'/*,
+      more: { startTime: 0, stopTime: 26 }*/
     }
   };
 

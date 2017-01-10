@@ -17,18 +17,8 @@ $id = $post->ID;
 function las_show_normal_page() {
   global $post;
 
-  echo '<div class="section-content">';
-  echo 'normal page';
-  echo '<h1>';
-  the_title();
-  echo '</h1>';
-
-  the_content();
-
-  echo '<a href="';
-  the_permalink();
-  echo '">Pytania i odpowiedzi</a>';
-  echo '</div>';
+  //  Get przewodnik
+  include( stream_resolve_include_path( __DIR__ . '/includes/przewodnik.php' ) );
 }
 
 
@@ -78,22 +68,23 @@ function las_show_comment_section() {
 function las_course_router() {
   global $post;
 
+  //  Has no categories, normal page then
+  //  cokolwiek by to nie było....
   if ( ( get_query_var( 'przewodnik' ) || get_query_var( 'wyzwanie' ) ) && !has_category() ) {
-    //  Has no categories, normal page then
-    //  cokolwiek by to nie było....
 
+    //  show normal page
     las_show_normal_page();
 
   }
+  //  It is a QA part
   elseif ( !get_query_var( 'przewodnik' ) && !get_query_var( 'wyzwanie' ) ) {
-    //  It is a QA part
-    //  Show comment section
 
+    //  Show comment section
     las_show_comment_section();
 
   }
+  //  It must be one of the types
   else {
-    //  It must be one of the types
 
     $type = false;
 
@@ -111,7 +102,7 @@ function las_course_router() {
     }
 
     //  Get data file
-    $file = stream_resolve_include_path( __DIR__ . '/data/' . $post->post_name . '-' . $type . '.php' );
+    $file = stream_resolve_include_path( __DIR__ . '/data/' . $type . '/' . $post->post_name . '.php' );
 
     if ( $file ) {
       include( $file );
@@ -120,46 +111,41 @@ function las_course_router() {
     //
     //  Route page types
     //
-    if ( has_category( 'przewodnik-audio' ) ) {
-      //  Audio
-      //  możliwe, że ten typ nie będzie potrzebny, bo będzie to w ramach normalnej strony
+    if ( $type === 'wyzwanie' ) {
 
-      include( 'includes/audio.php' );
+      if ( has_category( 'wyzwanie-audio' ) ) {
+        //  Audio Test
 
+        include( 'includes/audio-test.php' );
+
+      }
+      elseif ( has_category( 'wyzwanie-chat' ) ) {
+        //  Chat
+
+        include( 'includes/chat.php' );
+
+      }
+      elseif ( has_category( 'wyzwanie-liczby' ) ) {
+        //  Liczby
+
+        include( 'includes/liczby.php' );
+
+      }
+      elseif ( has_category( 'wyzwanie-quiz' ) ) {
+        //  Quiz
+
+        include( 'includes/quiz.php' );
+
+      }
+      elseif ( has_category( 'wyzwanie-setninger') ) {
+        //  Setninger
+
+        include( 'includes/setninger.php' );
+
+      }
     }
-    elseif ( has_category( 'wyzwanie-audio' ) ) {
-      //  Audio Test
-
-      include( 'includes/audio-test.php' );
-
-    }
-    elseif ( has_category( $type . '-chat' ) ) {
-      //  Chat
-
-      include( 'includes/chat.php' );
-
-    }
-    elseif ( has_category( $type . '-liczby' ) ) {
-      //  Liczby
-
-      include( 'includes/liczby.php' );
-
-    }
-    elseif ( has_category( $type . '-quiz' ) ) {
-      //  Quiz
-
-      include( 'includes/quiz.php' );
-
-    }
-    elseif ( has_category( $type . '-setninger') ) {
-      //  Setninger
-
-      include( 'includes/setninger.php' );
-
-    }
+    //  if it is not wyzwanie
     else {
-      //  All other types
-      //  including Video
 
       las_show_normal_page();
 
