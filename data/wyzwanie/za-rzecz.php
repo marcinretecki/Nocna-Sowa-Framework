@@ -159,7 +159,7 @@ function LasAudioData() {
 
 
     aj1: {
-      msg:        'Trollene sier at treet er gammelt.<br /> <br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er høyest i hele skogen.',
+      msg:        'Trollene sier at treet er gammelt.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er høyest i hele skogen.',
       answers: [
         { answer: 'det',   next: 'aj2' },
         { answer: 'den',   wrong: true },
@@ -292,9 +292,9 @@ function LasAudioData() {
   this.end = {
 
     end1: {
-      msg: 'END',
-      //startTime: 0,
-      //stopTime: 0
+      msg: 'END'/*,
+      startTime: 0,
+      stopTime: 0*/
     }
 
   };

@@ -369,7 +369,7 @@ function LasAudioData() {
       autoNext:   'bp2'
     },
     bp2: {
-      msg:        'Jenta stopper å spise søtsaker.',
+      msg:        'Jenta stopper å spise godteri.',
       startTime:  196,
       stopTime:   199,
       autoNext:   'RANDOM'

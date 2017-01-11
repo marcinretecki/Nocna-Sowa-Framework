@@ -214,7 +214,7 @@ function LasAudioData() {
 
 
     am1: {
-      msg:        'Folk streiker på gata.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er sinte..',
+      msg:        'Folk streiker på gata.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er sinte.',
       answers: [
         { answer: 'de',   next: 'am2' },
         { answer: 'den',   wrong: true },
@@ -223,22 +223,6 @@ function LasAudioData() {
     },
     am2: {
       msg:        'Folk streiker på gata.<br />De er sinte.',
-//      startTime:  3,
-//      stopTime:   5,
-      autoNext:   'RANDOM'
-    },
-
-
-    an1: {
-      msg:        'Jeg og Małysz spiser bananer.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> liker frukt.',
-      answers: [
-        { answer: 'vi',   next: 'an2' },
-        { answer: 'jeg',   wrong: true },
-        { answer: 'han',   wrong: true }
-      ]
-    },
-    an2: {
-      msg:        'Jeg og Małysz spiser bananer.<br />Vi liker frukt.',
 //      startTime:  3,
 //      stopTime:   5,
       autoNext:   'RANDOM'
@@ -330,9 +314,9 @@ function LasAudioData() {
   this.end = {
 
     end1: {
-      msg: 'END',
-      //startTime: 0,
-      //stopTime: 0
+      msg: 'END'/*,
+      startTime: 0,
+      stopTime: 0*/
     }
 
   };

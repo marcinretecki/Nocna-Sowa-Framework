@@ -347,9 +347,9 @@ function LasAudioData() {
   this.end = {
 
     end1: {
-      msg: 'END',
+      msg: 'END'/*,
       startTime: 0,
-      stopTime: 0
+      stopTime: 0*/
     }
 
   };
