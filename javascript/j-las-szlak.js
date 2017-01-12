@@ -9,6 +9,7 @@ function LasSzlak() {
   //  Elements
   //
   this.szlakWrapper =       document.getElementById('szlak-wrapper');
+  this.szlakSection =       document.getElementById('szlak-section');
   this.szlakPopUp =         document.getElementById('szlak-post-popup');
   this.szlakPopUpSection =  document.getElementById('szlak-post-popup__section');
   this.navs = {
@@ -105,11 +106,8 @@ function LasSzlak() {
 
     showFn = function( delay ) {
       //  change the btn
-      if (! btnToShow.classList.contains('btn-white') ) {
-        btnToShow.classList.remove('btn-dark');
-        btnToShow.classList.add('btn-white');
-        btnToShow.blur();
-      }
+      btnToShow.classList.add('szlak-list__btn--active');
+      btnToShow.blur();
 
       //  set delay
       if ( delay ) {
@@ -134,8 +132,7 @@ function LasSzlak() {
       //  @delay = true || false
 
       //  reverse change on btn
-      btnToHide.classList.remove('btn-white');
-      btnToHide.classList.add('btn-dark');
+      btnToHide.classList.remove('szlak-list__btn--active');
       btnToHide.blur();
 
       //  animatio section
@@ -156,14 +153,14 @@ function LasSzlak() {
 
     navOutFn = function() {
 
-      this.navs[this.clickedLevel].classList.add('las-szlak-section-nav--out');
+      this.szlakSection.classList.add('szlak-section-faded');
 
     }.bind(this);
 
 
     navInFn = function() {
 
-      this.navs[this.clickedLevel].classList.remove('las-szlak-section-nav--out');
+      this.szlakSection.classList.remove('szlak-section-faded');
 
     }.bind(this);
 
