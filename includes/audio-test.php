@@ -31,7 +31,7 @@
         </button>
       </div>
 
-      <audio id="audio-file" src="<?php las_autover('/s/' . $post->post_name . '-wyzwanie.m4a'); ?>" preload="auto">
+      <audio id="audio-file" src="<?php las_ns_auto_ver('/las/s/' . $post->post_name . '-wyzwanie.m4a'); ?>" preload="auto">
         Your browser does not support the <code>audio</code> element.
       </audio>
 

@@ -15,36 +15,15 @@ function las_admin_dev_mode() {
   }
 }
 
-function las_autover_live($url){
+function ns_auto_ver($url){
   $path = pathinfo($url);
-  $ver = '.' . filemtime('/nocnasowa/live' . $url).'.';
-  echo 'http://nocnasowa.pl' . $path['dirname'] . '/' . str_replace( '.', $ver, $path['basename'] );
-}
-
-function las_autover_livecopy($url){
-  $path = pathinfo($url);
-  $ver = '.' . filemtime('/nocnasowa/livecopy' . $url).'.';
-  echo 'http://livecopy.nocnasowa.pl' . $path['dirname'] . '/' . str_replace( '.', $ver, $path['basename'] );
-}
-
-function autoVer($url) {
-  if ( las_admin_dev_mode() ) {
-    return las_autover_livecopy($url);
-  }
-  else {
-    return las_autover_live($url);
-  }
-}
-
-function las_autover($url){
-  $path = pathinfo($url);
-  $ver = '.' . filemtime('/nocnasowa/las' . $url) . '.';
-  echo 'http://las.nocnasowa.pl' . $path['dirname'] . '/' . str_replace( '.', $ver, $path['basename'] );
+  $ver = '.' . filemtime( $_SERVER['DOCUMENT_ROOT'] . $url ) . '.';
+  echo $path['dirname'] . '/' . str_replace( '.', $ver, $path['basename'] );
 }
 
 
 
-//
+/*//
 // Get source url for development
 //
 function las_get_source_url() {
@@ -55,7 +34,7 @@ function las_get_source_url() {
     return '/nocnasowa/live/wp-content/themes/nocnasowa_theme/';
   }
 }
-$source_url = las_get_source_url();
+$source_url = las_get_source_url();*/
 
 
 

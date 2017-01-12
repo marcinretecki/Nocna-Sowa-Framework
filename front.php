@@ -12,7 +12,7 @@
 
   <link href="http://las.nocnasowa.pl/" rel="canonical" />
 
-  <?php include( $source_url . 'includes/header-meta.php' ); ?>
+  <?php include( '/c/w/themes/nocnasowa_theme/includes/header-meta.php' ); ?>
 
   <meta name="description" itemprop="description" content="Aplikacja do nauki norweskiego online" />
   <meta itemprop="image" content="">
