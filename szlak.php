@@ -20,9 +20,9 @@ function las_courses_loop($courses, $level) {
 
   $first_section = true;
 
-  echo '<p style="display:none">User progress for testing: ';
+  /*echo '<p style="display:none">User progress for testing: ';
   var_dump( $user_progress );
-  echo '</p>';
+  echo '</p>';*/
 
   $title_array = [];
   $sections = '';
@@ -42,13 +42,15 @@ function las_courses_loop($courses, $level) {
     if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
 
       //  Begin section
-      $sections .= '<section id="section-' . $level . '-' . $i . '" class="section-white space col-8 las-szlak-section" style="display:none;">';
+      $sections .= '<section id="section-' . $level . '-' . $i . '" class="wrapper wrapper--szlak-section__sublist" style="display:none;">';
 
-      $sections .= '<a href="#section-' . $level . '" class="btn btn-white btn-nav las-szlak-section__back-btn">&laquo; Wróć</a>';
+      $sections .= '<div class="szlak-section__sublist">';
 
-      $sections .= '<h3 class="las-szlak-section__h centered h1 size-3">' . $post->post_title . '</h3>';
+      $sections .= '<a href="#section-' . $level . '" class="btn btn-white btn-nav szlak-section__btn-back">&laquo; Wróć</a>';
 
-      $sections .= '<ul class="navbar__list las-szlak-list las-szlak-list--posts">';
+      $sections .= '<h3 class="szlak-section__h centered h1 size-3" style="color:#000;">' . $post->post_title . '</h3>';
+
+      $sections .= '<ol class="navbar__list szlak-list">';
 
       $children_args = array(
         'post_type'       => 'page',
@@ -77,7 +79,7 @@ function las_courses_loop($courses, $level) {
 
         //  if it is an editor or advanced user, we can give him a link to advanced courses
 
-          $sections .= '<li><a class="btn btn-dark-outline las-szlak-list__btn las-szlak-list__btn--light" ';
+          $sections .= '<li><a class="btn szlak-list__btn szlak-list__btn--light" ';
 
           //  if there is wyzwanie and user has done przewodnik
           if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_category('bez-wyzwania') ) {
@@ -88,15 +90,15 @@ function las_courses_loop($courses, $level) {
             $sections .= $title;
 
             //  icons
-            $sections .= '<div class="las-szlak__icons">';
+            $sections .= '<div class="szlak__icons">';
 
             // user has done wyzwanie
             if ( $punkty > 0 ) {
-              $sections .= '<i class="las-szlak__icon las-szlak__icon--mountain"></i>' . $punkty;
+              $sections .= '<i class="szlak__icon szlak__icon--mountain"></i>' . $punkty;
             }
             //  user has not done wyzwanie but it is available
             else {
-              $sections .= '<i class="las-szlak__icon las-szlak__icon--mountain las-szlak__icon--inactive"></i>';
+              $sections .= '<i class="szlak__icon szlak__icon--mountain szlak__icon--inactive"></i>';
             }
 
             //  close icons
@@ -112,10 +114,10 @@ function las_courses_loop($courses, $level) {
             $sections .= $title;
 
             //  icons
-            $sections .= '<div class="las-szlak__icons">';
+            $sections .= '<div class="szlak__icons">';
 
             //  inactive przewodnik
-            $sections .= '<i class="las-szlak__icon las-szlak__icon--post las-szlak__icon--inactive"></i>';
+            $sections .= '<i class="szlak__icon szlak__icon--post szlak__icon--inactive"></i>';
 
             //  close icons
             $sections .= '</div>';
@@ -127,10 +129,10 @@ function las_courses_loop($courses, $level) {
             $sections .= 'href="' . $link . 'przewodnik/">' . $title;
 
             //  icons
-            $sections .= '<div class="las-szlak__icons">';
+            $sections .= '<div class="szlak__icons">';
 
             //  inactive przewodnik
-            $sections .= '<i class="las-szlak__icon las-szlak__icon--post"></i>';
+            $sections .= '<i class="szlak__icon szlak__icon--post"></i>';
 
             //  close icons
             $sections .= '</div>';
@@ -147,9 +149,10 @@ function las_courses_loop($courses, $level) {
     //  Reset children loop data
     wp_reset_postdata();
 
-    $sections .= '</ul>';
+    $sections .= '</ol>';
 
     // End section
+    $sections .= '</div>';
     $sections .= '</section>';
 
     $i++;
@@ -163,18 +166,18 @@ function las_courses_loop($courses, $level) {
   $l = count( $title_array );
 
   //  echo link sections
-  echo '<div class="group space-x4">';
+  //echo '<div class="group space-x4">';
 
-  echo '<nav id="section-' . $level . '" class="section-dark col-8 las-szlak-section-nav" style="box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);overflow:visible;">';
+  echo '<nav id="section-' . $level . '" class="szlak-section__nav">';
 
   if ( $level === 'basic' ) {
-    echo '<h2 class="las-szlak-section__h centered h1 size-3">Początek drogi</h2>';
+    echo '<h2 class="szlak-section__h centered h1 size-3">Początek drogi</h2>';
   }
   elseif ( $level === 'advanced' ) {
-    echo '<h2 class="las-szlak-section__h centered h1 size-3">Daleko w lesie</h2>';
+    echo '<h2 class="szlak-section__h centered h1 size-3">Daleko w lesie</h2>';
   }
 
-  echo '<ul class="navbar__list las-szlak-list">';
+  echo '<ol class="navbar__list szlak-list">';
 
   for ( $j; $j < $l; $j++ ) {
 
@@ -193,7 +196,9 @@ function las_courses_loop($courses, $level) {
 
     if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
 
-      echo '<a class="btn btn-dark las-szlak-list__btn las-szlak-list__btn--arrow js-szlak-btn" href="#section-' . $level . '-' . $j . '">' . $new_title . '</a>';
+      echo '<a class="btn szlak-list__btn szlak-list__btn--nav js-szlak-btn" href="#section-' . $level . '-' . $j . '">';
+      echo $new_title;
+      echo '<i class="szlak-list__btn--arrow"></i></a>';
 
     }
     else {
@@ -208,14 +213,14 @@ function las_courses_loop($courses, $level) {
 
   }
 
-  echo '</ul>';
+  echo '</ol>';
   echo '</nav>';
 
   //  echo content sections
   echo $sections;
 
   //  close row
-  echo '</div>';
+  //echo '</div>';
 
 }
 
@@ -271,51 +276,49 @@ function las_show_all_courses() {
 include( 'includes/head.php' );
 ?>
 
-<section class="section-trans wrapper" style="background-image: url('/i/las_test_7.jpg');">
+<section id="szlak-wrapper" class="section-trans wrapper group" style="background-image: url('/i/las_test_8.jpg');">
 
-  <div class="section-content section-8-2">
+  <h1 class="szlak-h1 size-6 centered">Twój Szlak</h1>
 
-    <h1 class="size-6 centered space-0 text-shadow">Twój Szlak</h1>
 
-  </div>
-
-  <div id="szlak-wrapper" class="section-content">
+  <div id="szlak-section" class="szlak-section">
 
     <?php
 
-      $test =  json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true );
+      /*$test =  json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true );
 
       echo '<p style="display:none">';
       var_dump($test);
-      echo '</p>';
+      echo '</p>';*/
 
 
       las_show_all_courses();
 
     ?>
 
-    <div id="szlak-post-popup" class="szlak-post-popup">
-      <div class="szlak-post-popup__content section-content section-6-4">
-        <div id="szlak-post-popup__section" class="section-white section-content rounded group centered szlak-post-popup__section">
+  </div>
 
-          <div style="position:absolute;right:1rem;top:1rem;cursor:pointer;">X</div>
+  <div id="szlak-post-popup" class="szlak-post-popup">
+    <div class="szlak-post-popup__content section-content section-6-4">
+      <div id="szlak-post-popup__section" class="section-white section-content rounded group centered szlak-post-popup__section">
 
-              <a href="" class="szlak-post-popup__btn" id="szlak-btn-przewodnik">
-                <div class="szlak-post-popup__img"></div>
-                <span class="btn btn-nav btn-white">Przewodnik</span>
-          </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-wyzwanie">
-                <div class="szlak-post-popup__img"></div>
-                <span class="btn btn-nav btn-white">Wyzwanie</span>
-          </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-sos">
-                <div class="szlak-post-popup__img"></div>
-                <span class="btn btn-nav btn-white">SOS</span>
-          </a>
+        <div style="position:absolute;right:1rem;top:1rem;cursor:pointer;">X</div>
 
-        </div>
+            <a href="" class="szlak-post-popup__btn" id="szlak-btn-przewodnik">
+              <div class="szlak-post-popup__img"></div>
+              <span class="btn btn-nav btn-white">Przewodnik</span>
+        </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-wyzwanie">
+              <div class="szlak-post-popup__img"></div>
+              <span class="btn btn-nav btn-white">Wyzwanie</span>
+        </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-sos">
+              <div class="szlak-post-popup__img"></div>
+              <span class="btn btn-nav btn-white">SOS</span>
+        </a>
+
       </div>
     </div>
-
   </div>
+
 
 <?php include( 'includes/footer.php' ); ?>
 
