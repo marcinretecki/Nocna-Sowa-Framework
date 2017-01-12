@@ -44,7 +44,7 @@ $source_url = las_get_source_url();*/
 //
 function las_dev_redirect() {
   if ( ( $_SERVER['REQUEST_URI'] !== '/' ) && !is_user_logged_in() ) {
-    header('Location: http://las.nocnasowa.pl/');
+    header('Location: /las/');
     exit;
   }
 }
@@ -56,7 +56,7 @@ add_action('template_redirect', 'las_dev_redirect');
 //
 function las_login_redirect() {
   if ( !current_user_can( 'edit_posts' ) ) {
-    wp_redirect( 'http://las.nocnasowa.pl/' );
+    wp_redirect( '/las/' );
     exit;
   }
 }

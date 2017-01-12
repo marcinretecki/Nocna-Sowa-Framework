@@ -10,7 +10,7 @@
 <head>
   <title itemprop="name">Las - aplikacja do nauki języka norweskiego online</title>
 
-  <link href="http://las.nocnasowa.pl/" rel="canonical" />
+  <link href="http://nocnasowa.pl/las/" rel="canonical" />
 
   <?php include( '/c/w/themes/nocnasowa_theme/includes/header-meta.php' ); ?>
 
