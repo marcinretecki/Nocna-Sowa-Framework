@@ -22,10 +22,15 @@
   font-family:$bariol-reg;
 }
 
-
 // trzeba też zrobić mixiny dla wielkości fontów i dodać line-height, żeby był consistent
 
+@mixin scrolling {
+  overflow:auto;-webkit-overflow-scrolling:touch;
+}
 
+//
+//  MEDIA
+//
 @mixin for-phone-only {
   @media (max-width: 599px) { @content; }
 }

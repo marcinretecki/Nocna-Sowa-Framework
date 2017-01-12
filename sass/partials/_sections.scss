@@ -5,11 +5,9 @@
 // To jest najważniejszy element gridu....
 .section-content{position:relative;width:1064px;max-width:100%;padding:$space-4 $space $space-4;margin:0 auto;}
 
-.wrapper{height:100%;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;}
-
-//  think about overlay class (fixed) with overlay-content (overflow:scroll) that does the scrolling
-//  the wrapper still applies to the main content
-//  but the overlay should be outside the wrapper
+.wrapper{height:100%;position:relative;
+  @include scrolling;
+}
 
 
 .section {

@@ -6,105 +6,326 @@ Author: Marcin Retecki
 
 */
 
-
 // Variables
 @import "partials/variables";
 @import "partials/mixins";
-
 //
-//  NAV
+//  NAVBAR
 //
-.navbar-logo--las{background:transparent url("//las.nocnasowa.pl/i/icon_feather.png") no-repeat scroll center center / auto 100%;text-indent:-9999px;}
-
+.navbar-logo--las {
+  background: transparent url("//las.nocnasowa.pl/i/icon_feather.png") no-repeat scroll center center / auto 100%;
+  text-indent: -9999px;
+}
 
 //
 //  SZLAK
 //
-.las-szlak-list{border-radius:0 0 3px 3px;overflow:hidden;}
-.las-szlak-list__btn{display:block;padding:$space $space-4 $space $space-2;border:1px solid $dark-light;border-width:1px 0 0;line-height:1.25;white-space:normal;text-align:left;border-radius:0;}
-
-//  to fix
-.las-szlak-list__btn--light{border-color:$beige !important;}
-
-.las-szlak-list > li:first-child .las-szlak-list__btn{border-top-color:transparent;}
-
-.las-szlak-list__btn--arrow::after{display:block;position:absolute;right:0;top:0;bottom:0;width:4rem;background-image:url('//las.nocnasowa.pl/i/icon_next_w.png');background-size:26px auto;background-position:center center;background-repeat:no-repeat;content:'';}
-
-.las-szlak-list--posts{
-  @media #{$m640} {
-    padding-bottom:$space-4;
+.szlak-h1 {
+  padding: $space-6 $space $space-4;
+  margin: 0;
+  @include for-tablet-landscape-up {
+    position: fixed;
+    left: 0;
+    bottom: 50%;
+    width: 50%;
+    margin-bottom: -2rem;
+    padding: 0;
+    pointer-events: none;
   }
 }
 
-//  Szlak icons
-.las-szlak__icons{position:absolute;right:0;top:0;bottom:0;padding:$space-half;font-size:$size-0;text-align:center;}
-.las-szlak__icon{display:block;width:2rem;height:50%;margin-bottom:$space-half;background-size:1rem auto;background-position:center 100%;background-repeat:no-repeat;}
-.las-szlak__icon--post{background-image:url('//las.nocnasowa.pl/i/icon_post.png');}
-.las-szlak__icon--mountain{background-image:url('//las.nocnasowa.pl/i/icon_mountain.png');}
-.las-szlak__icon--inactive{opacity:0.5;}
-
-
-.las-szlak-section-nav{padding:0;transform:translateX(50%);box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);border-radius:3px;
-  @include transition-bezier;
-
-  @media #{$m640} {
-    transform:translateX(0);
+.szlak-section {
+  background: rgba($dark-btn, 0.9);
+  @include for-tablet-landscape-up {
+    float: right;
+    width: 50%;
+    padding: $space-4 0 0;
   }
 }
 
-.las-szlak-section-nav--out{transform:translateX(0);}
-
-.las-szlak-section{display:none;padding:0;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);border-radius:3px;
-  @media #{$m640} {
-    position:fixed;
-    top:0;left:0;right:0;bottom:0;
-    overflow:auto;
-    -webkit-overflow-scrolling:touch;
-    z-index:200;
-    margin:0 !important;
+.szlak-section__h {
+  padding: $space-2;
+  margin: 0;
+  @include for-tablet-landscape-up {
+    padding: $space;
   }
 }
 
-.las-szlak-section__h{padding:$space-2 $space;margin:0;
-  @media #{$m640} {
+//
+//  NAV SECTION
+//
+.szlak-section__nav {
+  padding: 0 0 $space-4;
+  counter-reset: szlak 0;
+  @include transition;
+}
 
+.wrapper--szlak-section__sublist {
+  display: none;
+  background: rgba($white, 0.9);
+  position: fixed;
+  left: 3rem;
+  right: 0;
+  top: 0;
+  @include scrolling;
+  @include for-tablet-landscape-up {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 50%;
   }
 }
 
-.las-szlak-section__back-btn{display:none;position:absolute;left:0;top:0;
-  @media #{$m640} {
-    display:block;
+.szlak-section__sublist {
+  @include for-tablet-landscape-up {
+    padding: $space-4 0;
   }
 }
 
-.szlak-post-popup{display:none;position:fixed;left:0;top:0;right:0;bottom:0;z-index:300;overflow:auto;-webkit-overflow-scrolling:touch;}
-.szlak-post-popup__content{
+//  BUTTONS LIST
+.szlak-list {
+  overflow: hidden;
+  @include transition;
+}
+
+//  DARK
+.szlak-list__btn,
+.szlak-list_btn:visited {
+  display: block;
+  padding: $space $space-4 $space $space-4;
+  border: 1px solid $dark-light;
+  border-width: 1px 0 0;
+  border-radius: 0;
+  color: $white;
+  line-height: $line-0;
+  white-space: normal;
+  text-align: left;
+}
+
+.szlak-list__btn:focus,
+.szlak-list__btn:hover {
+  color: inherit;
+  background: rgba($dark-btn-hover, 0.9);
+}
+
+.szlak-list > li:first-child .szlak-list__btn {
+  border-top-color: transparent;
+}
+
+// top:-1px fixes the issue with border when faded
+.szlak-list__btn--nav::before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: -1px;
+  bottom: 0;
+  width: (3 * $space);
+  padding: $space 0;
+  border: 1px solid $dark-light;
+  border-width: 1px 1px 0 0;
+  font-size: $size-1;
+  text-align: center;
+  color: inherit;
+  @include font-bariol-reg;
+  counter-increment: szlak;
+  content: counter(szlak);
+}
+
+.szlak-list__btn--nav:hover::before {
+  background: rgba($dark-btn-hover, 0.9);
+}
+
+.szlak-list > li:first-child .szlak-list__btn--nav::before {
+  border-top-color: transparent;
+}
+
+//  ARROW
+.szlak-list__btn--arrow {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  background-image: url('//las.nocnasowa.pl/i/icon_next_w.png');
+  background-size: 26px auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  content: '';
+}
+
+//  LIGHT
+.szlak-list__btn--light {
+  padding-left: $space-2;
+}
+
+.szlak-list__btn--light,
+.szlak-list_btn--light:visited {
+  color: $font-dark;
+  border-top-color: $gray;
+}
+
+.szlak-list__btn--light:focus,
+.szlak-list__btn--light:hover {
+  color: inherit;
+  background: rgba($green, 0.9);
+}
+
+//  BACK
+.szlak-section__btn-back {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: $space-2;
+}
+
+//  SZLAK ICONS
+.szlak__icons {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: $space-half;
+  font-size: $size-0;
+  text-align: center;
+}
+
+.szlak__icon {
+  display: block;
+  width: 2rem;
+  height: 50%;
+  margin-bottom: $space-half;
+  background-size: 1rem auto;
+  background-position: center 100%;
+  background-repeat: no-repeat;
+}
+
+.szlak__icon--post {
+  background-image: url('//las.nocnasowa.pl/i/icon_post.png');
+}
+
+.szlak__icon--mountain {
+  background-image: url('//las.nocnasowa.pl/i/icon_mountain.png');
+}
+
+.szlak__icon--inactive {
+  opacity: 0.5;
+}
+
+//
+//  FX
+//
+//  convert it to velocity
+//
+.szlak-section-faded {
+  background-color: rgba($dark-btn, 0);
+}
+
+.szlak-section-faded .szlak-section__nav {
+  @include for-tablet-landscape-up {
+    margin-left: -(3 * $space);
+  }
+}
+
+.szlak-section-faded .szlak-list__btn--nav {
+  @include for-tablet-landscape-up {
+    padding-left: (7 * $space);
+  }
+}
+
+.szlak-section-faded .szlak-section__h,
+.szlak-section-faded .szlak-list__btn--nav,
+.szlak-section-faded .szlak-list__btn--nav:hover {
+  color: transparent;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.szlak-section-faded .szlak-list__btn--nav::before {
+  border-color: $dark-light;
+  color: $white;
+  background: rgba($dark-btn, 0.9);
+}
+
+.szlak-section-faded .szlak-list__btn--arrow {
+  opacity: 0;
+}
+
+.szlak-section-faded .szlak-list__btn--active::before {
+  background-color: rgba($green, 0.9);
+  /* border-top-color:$white; */
+  border-right-color: transparent;
+}
+
+//
+// POPUP
+//
+.szlak-post-popup {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 300;
+  @include scrolling;
+}
+
+.szlak-post-popup__content {
   @include for-phone-only {
-    padding:0;
+    padding: 0;
   }
 }
-.szlak-post-popup__section{transform-origin:top;}
-.szlak-post-popup__btn{
-  display:block;margin:0 auto $space;max-width:100%;width:200px;
 
+.szlak-post-popup__section {
+  transform-origin: top;
+}
+
+.szlak-post-popup__btn {
+  display: block;
+  margin: 0 auto $space;
+  max-width: 100%;
+  width: 200px;
   @include for-tablet-portrait-up {
-     display:inline-block;height:0;width:25%;margin:0 $space;
+    display: inline-block;
+    height: 0;
+    width: 25%;
+    margin: 0 $space;
   }
 }
-.szlak-post-popup__img{display:block;padding-top:100%;background:$beige;margin-bottom:$space-half;}
 
+.szlak-post-popup__img {
+  display: block;
+  padding-top: 100%;
+  background: $beige;
+  margin-bottom: $space-half;
+}
 
 //
 //  ICONS
 //
-.las-icon{display:inline-block;width:($size-1 * $line-1);height:($size-1 * $line-1);background-size:($size-1 * $line-1) auto;background-repeat:no-repeat;vertical-align:text-bottom}
-.las-icon--next{background-image:url('//las.nocnasowa.pl/i/icon_next.png');}
+.las-icon {
+  display: inline-block;
+  width: ($size-1 * $line-1);
+  height: ($size-1 * $line-1);
+  background-size: ($size-1 * $line-1) auto;
+  background-repeat: no-repeat;
+  vertical-align: text-bottom
+}
 
-.size-2 .las-icon{width:($size-2 * $line-1);height:($size-2 * $line-1);background-size:($size-2 * $line-1) auto;}
+.las-icon--next {
+  background-image: url('//las.nocnasowa.pl/i/icon_next.png');
+}
 
-.section-dark .las-icon--next{background-image:url('//las.nocnasowa.pl/i/icon_next_w.png');}
+.size-2 .las-icon {
+  width: ($size-2 * $line-1);
+  height: ($size-2 * $line-1);
+  background-size: ($size-2 * $line-1) auto;
+}
 
-
+.section-dark .las-icon--next {
+  background-image: url('//las.nocnasowa.pl/i/icon_next_w.png');
+}
 
 //
 //  WYZWANIE
