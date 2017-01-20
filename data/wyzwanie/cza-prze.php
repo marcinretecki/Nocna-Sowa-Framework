@@ -251,13 +251,13 @@ function LasAudioData() {
     },
 
 
-    bka1: {
+    bj1: {
       startTime:  139,
       stopTime:   140.5,
       pauseTime:  5,
-      autoNext:   'bk2'
+      autoNext:   'bj2'
     },
-    bka2: {
+    bj2: {
       msg:        'Jeg vet ikke.',
       startTime:  142,
       stopTime:   143.5,
