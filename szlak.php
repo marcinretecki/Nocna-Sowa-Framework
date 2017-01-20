@@ -24,9 +24,9 @@ function las_courses_loop($courses, $level) {
   var_dump( $user_progress );
   echo '</p>';*/
 
-  $title_array = [];
+  $title_array = [''];
   $sections = '';
-  $i = 0;
+  $i = 1;
 
 
   //  create content sections
@@ -46,7 +46,7 @@ function las_courses_loop($courses, $level) {
 
       $sections .= '<div class="szlak-section__sublist">';
 
-      $sections .= '<a href="#section-' . $level . '" class="btn btn-white btn-nav szlak-section__btn-back">&laquo; Wróć</a>';
+      $sections .= '<a href="#section-' . $level . '" class="szlak-arrow szlak-arrow--prev"></a>';
 
       $sections .= '<h3 class="szlak-section__h centered h1 size-3" style="color:#000;">' . $post->post_title . '</h3>';
 
@@ -90,15 +90,15 @@ function las_courses_loop($courses, $level) {
             $sections .= $title;
 
             //  icons
-            $sections .= '<div class="szlak__icons">';
+            $sections .= '<div class="szlak-icons">';
 
             // user has done wyzwanie
             if ( $punkty > 0 ) {
-              $sections .= '<i class="szlak__icon szlak__icon--mountain"></i>' . $punkty;
+              $sections .= '<i class="szlak-icon szlak-icon--mountain"></i>' . $punkty;
             }
             //  user has not done wyzwanie but it is available
             else {
-              $sections .= '<i class="szlak__icon szlak__icon--mountain szlak__icon--inactive"></i>';
+              $sections .= '<i class="szlak-icon szlak-icon--mountain szlak-icon--inactive"></i>';
             }
 
             //  close icons
@@ -114,10 +114,10 @@ function las_courses_loop($courses, $level) {
             $sections .= $title;
 
             //  icons
-            $sections .= '<div class="szlak__icons">';
+            $sections .= '<div class="szlak-icons">';
 
             //  inactive przewodnik
-            $sections .= '<i class="szlak__icon szlak__icon--post szlak__icon--inactive"></i>';
+            $sections .= '<i class="szlak-icon szlak-icon--post szlak-icon--inactive"></i>';
 
             //  close icons
             $sections .= '</div>';
@@ -129,10 +129,10 @@ function las_courses_loop($courses, $level) {
             $sections .= 'href="' . $link . 'przewodnik/">' . $title;
 
             //  icons
-            $sections .= '<div class="szlak__icons">';
+            $sections .= '<div class="szlak-icons">';
 
             //  inactive przewodnik
-            $sections .= '<i class="szlak__icon szlak__icon--post"></i>';
+            $sections .= '<i class="szlak-icon szlak-icon--post"></i>';
 
             //  close icons
             $sections .= '</div>';
@@ -162,7 +162,7 @@ function las_courses_loop($courses, $level) {
   wp_reset_postdata();
 
 
-  $j = 0;
+  $j = 1;
   $l = count( $title_array );
 
   //  echo link sections
@@ -198,7 +198,7 @@ function las_courses_loop($courses, $level) {
 
       echo '<a class="btn szlak-list__btn szlak-list__btn--nav js-szlak-btn" href="#section-' . $level . '-' . $j . '">';
       echo $new_title;
-      echo '<i class="szlak-list__btn--arrow"></i></a>';
+      echo '<i class="szlak-arrow"></i></a>';
 
     }
     else {
@@ -216,8 +216,8 @@ function las_courses_loop($courses, $level) {
   echo '</ol>';
   echo '</nav>';
 
-  //  echo content sections
-  echo $sections;
+  //  return content sections
+  return $sections;
 
   //  close row
   //echo '</div>';
@@ -236,6 +236,7 @@ function las_show_all_courses() {
   // Kursy IDs
   $basic_courses_parent = 20;
   $advanced_courses_parent = 24;
+  $return = '';
 
   $courses_args = array(
     'post_type'       => 'page',
@@ -254,29 +255,31 @@ function las_show_all_courses() {
 
   // if there are any courses to display
   if ( $basic_courses ) {
-    las_courses_loop( $basic_courses, 'basic' );
+    $return = las_courses_loop( $basic_courses, 'basic' );
   }
   else {
-    echo 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
+    $return .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
   }
 
   // if there are any advanced courses to display
   if ( $advanced_courses ) {
-    las_courses_loop( $advanced_courses, 'advanced' );
+    $return .= $advanced_sections = las_courses_loop( $advanced_courses, 'advanced' );
   }
   else {
-    echo 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
+    $return .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
   }
 
+  return $return;
 
 }
 
 
 
 include( 'includes/head.php' );
+
 ?>
 
-<section id="szlak-wrapper" class="section-trans wrapper group" style="background-image: url('/i/las_test_8.jpg');">
+<section id="szlak-wrapper" class="section-trans wrapper group" style="background-image: url('/las/c/i/las_test_8.jpg');">
 
   <h1 class="szlak-h1 size-6 centered">Twój Szlak</h1>
 
@@ -292,7 +295,7 @@ include( 'includes/head.php' );
       echo '</p>';*/
 
 
-      las_show_all_courses();
+      $szlak_sections = las_show_all_courses();
 
     ?>
 
@@ -319,8 +322,9 @@ include( 'includes/head.php' );
     </div>
   </div>
 
+</section>
 
-<?php include( 'includes/footer.php' ); ?>
+<?php echo $szlak_sections; ?>
 
 
 <script>
@@ -328,3 +332,8 @@ include( 'includes/head.php' );
 var lasSzlak = new LasSzlak();
 lasSzlak.init();
 </script>
+
+
+<?php
+
+include( 'includes/footer.php' );

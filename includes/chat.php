@@ -5,7 +5,7 @@
 
 ?>
 
-<section class="section-trans wrapper" style="background-image: url('/i/las_test_6.jpg');">
+<section class="section-trans wrapper" style="background-image: url('/las/c/i/las_test_6.jpg');">
 
 <?php
 //
@@ -36,3 +36,6 @@ function las_get_chat_data( $file ) {
 }
 
 las_get_chat_data( $file );
+
+?>
+</section>

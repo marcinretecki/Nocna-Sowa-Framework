@@ -53,7 +53,7 @@ var lasChapter = "<?php echo $post->post_name; ?>";
       </ul>
 
       <ul class="navbar__list">
-                 <li><a id="las-nav-btn-szlak" href="/szlak/" class="btn btn-dark-outline btn-nav">&laquo; Twój Szlak
+                 <li><a id="las-nav-btn-szlak" href="/las/szlak/" class="btn btn-dark-outline btn-nav">&laquo; Twój Szlak
         </a></li>
       </ul>
     </nav>

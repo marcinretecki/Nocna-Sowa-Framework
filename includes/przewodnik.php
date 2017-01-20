@@ -1,4 +1,4 @@
-<div class="section-trans" style="background-image: url('/i/las_test_7.jpg');">
+<div class="section-trans" style="background-image: url('/las/c/i/las_test_7.jpg');">
 
   <header class="section-content section-8-6 centered">
     <h1 class="size-6 text-shadow"><?php the_title(); ?></h1>

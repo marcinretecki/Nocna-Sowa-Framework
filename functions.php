@@ -43,7 +43,7 @@ $source_url = las_get_source_url();*/
 // it is actually redirecting all not logged in users, so it can be used for restricting content
 //
 function las_dev_redirect() {
-  if ( ( $_SERVER['REQUEST_URI'] !== '/' ) && !is_user_logged_in() ) {
+  if ( ( $_SERVER['REQUEST_URI'] !== '/las/' ) && !is_user_logged_in() ) {
     header('Location: /las/');
     exit;
   }
