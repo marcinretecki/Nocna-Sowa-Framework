@@ -29,11 +29,13 @@ function LasHelper() {
     this.velocity =                       Velocity;
 
     //  assign helper
-    this.helper.speed =                   200;
-    this.helper.answersTranformValue =    '300%';
-    this.helper.easingSpring =            [ 200, 20 ];
-    this.helper.easingQuart =             'easeInOutQuart';
-    this.helper.currentUrl =              window.location.href.split('#')[0];
+    this.helper = {
+      speed:                              200,
+      answersTranformValue:               '300%',
+      easingSpring:                       [ 200, 20 ],
+      easingQuart:                        'easeInOutQuart',
+      currentUrl:                         window.location.href.split('#')[0]
+    };
 
 
 
@@ -49,7 +51,12 @@ function LasHelper() {
 
     this.nav.addEventListener('click', function(event) {
 
-      this.navEventHandler(event);
+      //  ignore right click
+      if (event.which === 1) {
+
+        this.navEventHandler(event);
+
+      }
 
     }.bind(this), false);
 

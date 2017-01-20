@@ -105,23 +105,27 @@ function LasSzlak() {
 
 
     showFn = function( delay ) {
+      //  @delay = true || false
+
       //  change the btn
       btnToShow.classList.add('szlak-list__btn--active');
-      btnToShow.blur();
+      btnToShow.blur()
+
+      var delayVal;
 
       //  set delay
       if ( delay ) {
-        delay = 200;
+        delayVal = 0.5 * this.helper.speed;
       }
       else {
-        delay = 0;
+        delayVal = 0;
       }
 
       //  animate section
       this.velocity(
         toShow,
-        'slideDown',
-        { duration: 2 * this.helper.speed, easing: this.helper.easingSpring, delay: delay, display: 'block' }
+        { translateX: [0, '100%'] },
+        { duration: 3 * this.helper.speed, easing: this.helper.easingSpring, delay: delayVal, display: 'block' }
       );
 
     }.bind(this);
@@ -129,7 +133,6 @@ function LasSzlak() {
 
     hideFn = function( completeFn ) {
       //  @completeFn = function || false
-      //  @delay = true || false
 
       //  reverse change on btn
       btnToHide.classList.remove('szlak-list__btn--active');
@@ -138,11 +141,11 @@ function LasSzlak() {
       //  animatio section
       this.velocity(
         toHide,
-        'slideUp',
+        { translateX: '100%' },
         { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'none',
           complete: function() {
             if ( completeFn ) {
-              completeFn();
+              completeFn( false );
             }
           }
         }
@@ -153,14 +156,14 @@ function LasSzlak() {
 
     navOutFn = function() {
 
-      this.szlakSection.classList.add('szlak-section-faded');
+      this.szlakWrapper.classList.add('szlak-wrapper--faded');
 
     }.bind(this);
 
 
     navInFn = function() {
 
-      this.szlakSection.classList.remove('szlak-section-faded');
+      this.szlakWrapper.classList.remove('szlak-wrapper--faded');
 
     }.bind(this);
 
@@ -176,7 +179,7 @@ function LasSzlak() {
       navInFn();
 
       //  hide section
-      hideFn(false);
+      hideFn( false );
 
       //  clear the queue
       this.sections[this.clickedLevel] = [];
@@ -200,8 +203,8 @@ function LasSzlak() {
       //  move nav out
       navOutFn();
 
-      //  show section
-      showFn(true);
+      //  show section with delay
+      showFn( true );
 
 
     }
@@ -333,6 +336,7 @@ function LasSzlak() {
       }
 
       //  prevent jerk
+      event.preventDefault();
       event.stopPropagation();
       return;
 
@@ -348,6 +352,7 @@ function LasSzlak() {
 
       this.togglePopup();
 
+      //  stop eventHandler
       event.stopPropagation();
       return;
     }
@@ -359,7 +364,7 @@ function LasSzlak() {
 
       this.togglePopup();
 
-      //  prevent jerk
+      //  stop eventHandler
       event.stopPropagation();
       return;
     }
@@ -379,9 +384,14 @@ function LasSzlak() {
 
     }.bind(this), false);*/
 
-    this.szlakWrapper.addEventListener('click', function(event) {
+    window.addEventListener('click', function(event) {
 
-      this.eventHandler(event);
+      //  ignore right click
+      if (event.which === 1) {
+
+        this.eventHandler(event);
+
+      }
 
     }.bind(this), false);
 

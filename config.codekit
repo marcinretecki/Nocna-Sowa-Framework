@@ -21,7 +21,7 @@
 		"outputAbbreviatedPath": "\/j-las-audio-test-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
+		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
 	"\/javascript\/j-las-chat.js": {
@@ -43,7 +43,7 @@
 		"outputAbbreviatedPath": "\/j-las-szlak-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
+		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
 	"\/javascript\/j-las.js": {
@@ -51,7 +51,7 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/javascript\/j-las.js",
-		"outputAbbreviatedPath": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/las\/c\/j-las-min.js",
+		"outputAbbreviatedPath": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-las-min.js",
 		"outputPathIsOutsideProject": 1,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 0,
@@ -130,7 +130,7 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/sass\/las.scss",
-		"outputAbbreviatedPath": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/las\/c\/las.css",
+		"outputAbbreviatedPath": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/las.css",
 		"outputPathIsOutsideProject": 1,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 3,

@@ -380,12 +380,19 @@ function LasChat() {
 
 
   this.addListener = function() {
-    this.answers.addEventListener('touchend', function(event) {
+    /*this.answers.addEventListener('touchend', function(event) {
       self.eventHandler(event);
-    }, false);
+    }, false);*/
 
     this.answers.addEventListener('click', function(event) {
-      self.eventHandler(event);
+
+      //  ignore right click
+      if (event.which === 1) {
+
+        self.eventHandler(event);
+
+      }
+
     }, false);
 
   };

@@ -19,7 +19,9 @@ function LasAudioTest() {
   //
   this.wrapper =              document.getElementById('audio-test');
   this.audioFile =            document.getElementById('audio-file');
+  this.audioMsgWrapper =      document.getElementById('audio-msg-wrapper');
   this.audioMsg =             document.getElementById('audio-msg');
+  this.audioTrans =           document.getElementById('audio-trans');
   this.audioScore =           document.getElementById('audio-score');
   this.audioScoreNumber =     document.getElementById('audio-score-number');
   this.audioControls =        document.getElementById('audio-controls');
@@ -50,6 +52,7 @@ function LasAudioTest() {
   this.currentBubbleData =    null;
   this.more =                 null;
   this.msg =                  '';
+  this.trans =                '';
   this.bubbleAutoNext =       '';
   this.startTime =            -1;
   this.stopTime =             -1;
@@ -81,6 +84,7 @@ function LasAudioTest() {
     playing:                  false,
     score:                    false,
     msg:                      false,
+    trans:                    false,
     controls:                 false,
     bubbling:                 false,
     pauseTimer:               false,
@@ -254,6 +258,20 @@ function LasAudioTest() {
 
       //  reset msg
       this.msg = '';
+
+    }
+
+    //  if there is trans
+    if ( this.currentBubbleData.hasOwnProperty('trans') ) {
+
+      //  assign the trans
+      this.trans = this.currentBubbleData.trans;
+
+    }
+    else {
+
+      //  reset trans
+      this.trans = '';
 
     }
 
@@ -868,7 +886,7 @@ function LasAudioTest() {
 
     //  animate
     this.velocity(
-      this.audioMsg,
+      this.audioMsgWrapper,
       'slideDown',
       { duration: this.helper.speed*2, easing: this.helper.easingSpring,
         begin: function() {
@@ -895,7 +913,7 @@ function LasAudioTest() {
 
     //  if user clicked fast enough, showMsg could not finish, then we need to stop animation
     this.velocity(
-      this.audioMsg,
+      this.audioMsgWrapper,
       'stop'
     );
 
@@ -903,11 +921,17 @@ function LasAudioTest() {
 
     //  to let the msg chaining to happen
     completeFn = function() {
+
+      //  reset state
       this.state.msg = false;
+
+      //  reset trans
+      this.resetTrans();
+
     }.bind(this);
 
     this.velocity(
-      this.audioMsg,
+      this.audioMsgWrapper,
       'slideUp',
       { duration: this.helper.speed*2, easing: this.helper.easingQuart,
         complete: function() {
@@ -958,6 +982,49 @@ function LasAudioTest() {
       window.console.log("try showControls");
       this.showControls();
     }
+
+  };
+
+
+  this.showTrans = function() {
+
+    //  if there is no trans to show or it is already showed
+    if ( !this.trans || this.state.trans ) {
+      return false;
+    }
+
+    this.state.trans = true;
+
+    window.console.log('show trans');
+
+    this.audioTrans.innerHTML = '<i>' + this.trans + '</i>';
+
+    //  animate
+    this.velocity(
+      this.audioTrans,
+      'slideDown',
+      { duration: this.helper.speed, easing: this.helper.easingSpring }
+    );
+
+  };
+
+
+  this.resetTrans = function() {
+
+    if ( !this.state.trans ) {
+      return;
+    }
+
+    //  hide
+    this.velocity(
+      this.audioTrans,
+      'slideUp',
+      { duration: 0 }
+    );
+
+    this.audioTrans.innerHTML = '';
+
+    this.state.trans = false;
 
   };
 
@@ -1391,24 +1458,24 @@ function LasAudioTest() {
 
       //  animate
 
-      //  if there is next, we show the answer is wrong with color change
+      //  if there is next, show the answer is wrong with color change
       if ( answerData.hasOwnProperty('next') && answerData.next ) {
         this.velocity(
-        answerEl,
-          { backgroundColor: '#dd4b39' },
+          answerEl,
+          { backgroundColor: '#c55c27' },
           { duration: this.helper.speed, easing: this.helper.easingQuart }
         );
 
         this.velocity(
-        answerEl,
+          answerEl,
           'reverse',
           { duration: this.helper.speed*4, easing: this.helper.easingQuart }
         );
       }
-      //  if there is no next, we only vibrate the answer
+      //  if there is no next, only vibrate the answer
       else {
         this.velocity(
-        answerEl,
+          answerEl,
           { translateX: ['0', '-0.5rem'] },
           { duration: this.helper.speed*4, easing: [ 5000, 20 ], queue: false }
         );
@@ -1475,18 +1542,25 @@ function LasAudioTest() {
       }
 
     }
-    //  if controls are inactive, don't allow the below from testing
-    else if ( !this.state.controls ) {
-      return false;
+    else if ( ( event.target.id === 'audio-msg-wrapper' ) || ( event.target.parentNode.id === 'audio-msg-wrapper' ) ) {
+      //  show trans
+
+      this.showTrans();
     }
-    else if ( ( event.target.id === 'audio-rewind' ) || ( event.target.parentNode.id === 'audio-rewind' ) ) {
+
+    //  if controls are inactive, don't allow the below from testing
+    if ( !this.state.controls ) {
+      return;
+    }
+
+    if ( ( event.target.id === 'audio-rewind' ) || ( event.target.parentNode.id === 'audio-rewind' ) ) {
 
       //  if controls are inactive, don't allow the click
       if ( !this.state.controls ) {
-        return false;
+        return;
       }
 
-      //  tu  możemy rozdzielić state na more i rewind, wtedy każde będzie działało osobono (lub nie)
+      //  tu  możemy rozdzielić state na more i rewind, wtedy każde będzie działało osobono zamiast pauzować drugie
 
       //  if it is playing now, pause it
       if ( this.state.playing ) {
@@ -1548,7 +1622,12 @@ function LasAudioTest() {
 
     this.wrapper.addEventListener('click', function(event) {
 
-      this.eventHandler(event);
+      //  ignore right click
+      if (event.which === 1) {
+
+        this.eventHandler(event);
+
+      }
 
     }.bind(this), false);
 

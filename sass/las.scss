@@ -13,7 +13,7 @@ Author: Marcin Retecki
 //  NAVBAR
 //
 .navbar-logo--las {
-  background: transparent url("//las.nocnasowa.pl/i/icon_feather.png") no-repeat scroll center center / auto 100%;
+  background: transparent url("/las/c/i/icon_feather.png") no-repeat scroll center center / auto 100%;
   text-indent: -9999px;
 }
 
@@ -34,6 +34,9 @@ Author: Marcin Retecki
   }
 }
 
+//
+//  SECTIONS
+//
 .szlak-section {
   background: rgba($dark-btn, 0.9);
   @include for-tablet-landscape-up {
@@ -51,25 +54,24 @@ Author: Marcin Retecki
   }
 }
 
-//
-//  NAV SECTION
-//
 .szlak-section__nav {
   padding: 0 0 $space-4;
   counter-reset: szlak 0;
-  @include transition;
+  @include transition-bezier;
 }
 
 .wrapper--szlak-section__sublist {
   display: none;
-  background: rgba($white, 0.9);
   position: fixed;
-  left: 3rem;
-  right: 0;
+  left: 0;
   top: 0;
+  right: 0;
+  background: rgba($white, 0.9);
+  transform: translateX(100%);
   @include scrolling;
   @include for-tablet-landscape-up {
     position: fixed;
+    left: auto;
     right: 0;
     top: 0;
     width: 50%;
@@ -77,18 +79,23 @@ Author: Marcin Retecki
 }
 
 .szlak-section__sublist {
-  @include for-tablet-landscape-up {
-    padding: $space-4 0;
-  }
+  padding: $space-4 0;
+  @include for-tablet-landscape-up {}
 }
 
+//
 //  BUTTONS LIST
+//
 .szlak-list {
   overflow: hidden;
-  @include transition;
+  @include transition-bezier;
 }
 
-//  DARK
+//  DARK BUTTON
+.szlak-list__btn, .szlak-list__btn::before {
+  @include transition-bezier;
+}
+
 .szlak-list__btn,
 .szlak-list_btn:visited {
   display: block;
@@ -139,22 +146,7 @@ Author: Marcin Retecki
   border-top-color: transparent;
 }
 
-//  ARROW
-.szlak-list__btn--arrow {
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 4rem;
-  background-image: url('//las.nocnasowa.pl/i/icon_next_w.png');
-  background-size: 26px auto;
-  background-position: center center;
-  background-repeat: no-repeat;
-  content: '';
-}
-
-//  LIGHT
+//  LIGHT BUTTON
 .szlak-list__btn--light {
   padding-left: $space-2;
 }
@@ -167,20 +159,12 @@ Author: Marcin Retecki
 
 .szlak-list__btn--light:focus,
 .szlak-list__btn--light:hover {
-  color: inherit;
+  color: $white;
   background: rgba($green, 0.9);
 }
 
-//  BACK
-.szlak-section__btn-back {
-  display: block;
-  position: absolute;
-  left: 0;
-  top: $space-2;
-}
-
 //  SZLAK ICONS
-.szlak__icons {
+.szlak-icons {
   position: absolute;
   right: 0;
   top: 0;
@@ -190,7 +174,7 @@ Author: Marcin Retecki
   text-align: center;
 }
 
-.szlak__icon {
+.szlak-icon {
   display: block;
   width: 2rem;
   height: 50%;
@@ -200,16 +184,41 @@ Author: Marcin Retecki
   background-repeat: no-repeat;
 }
 
-.szlak__icon--post {
-  background-image: url('//las.nocnasowa.pl/i/icon_post.png');
+.szlak-icon--post {
+  background-image: url('/las/c/i/icon_post.png');
 }
 
-.szlak__icon--mountain {
-  background-image: url('//las.nocnasowa.pl/i/icon_mountain.png');
+.szlak-icon--mountain {
+  background-image: url('/las/c/i/icon_mountain.png');
 }
 
-.szlak__icon--inactive {
+.szlak-icon--inactive {
   opacity: 0.5;
+}
+
+//  ARROW
+.szlak-arrow {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: $space-4;
+  background-image: url('/las/c/i/icon_next_w.png');
+  background-size: ($line-0 * $size-1) auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  content: '';
+}
+
+.szlak-arrow--prev {
+  top: $space-2;
+  right: auto;
+  left: 0;
+  bottom: auto;
+  height: (3 * $space);
+  background-position-x: $space;
+  background-image: url('/las/c/i/icon_prev.png');
 }
 
 //
@@ -217,44 +226,63 @@ Author: Marcin Retecki
 //
 //  convert it to velocity
 //
-.szlak-section-faded {
-  background-color: rgba($dark-btn, 0);
+.szlak-wrapper--faded .szlak-section {
+  opacity: 0;
+  @include for-tablet-landscape-up {
+    opacity: 1;
+    background-color: rgba($dark-btn, 0);
+  }
 }
 
-.szlak-section-faded .szlak-section__nav {
+.szlak-wrapper--faded .szlak-h1 {
+  opacity: 0;
+  @include for-tablet-landscape-up {
+    opacity: 1;
+  }
+}
+
+.szlak-wrapper--faded .szlak-section__nav {
   @include for-tablet-landscape-up {
     margin-left: -(3 * $space);
   }
 }
 
-.szlak-section-faded .szlak-list__btn--nav {
+.szlak-wrapper--faded .szlak-list__btn--nav {
   @include for-tablet-landscape-up {
     padding-left: (7 * $space);
   }
 }
 
-.szlak-section-faded .szlak-section__h,
-.szlak-section-faded .szlak-list__btn--nav,
-.szlak-section-faded .szlak-list__btn--nav:hover {
-  color: transparent;
-  border-color: transparent;
-  background-color: transparent;
+.szlak-wrapper--faded .szlak-section__h,
+.szlak-wrapper--faded .szlak-list__btn--nav,
+.szlak-wrapper--faded .szlak-list__btn--nav:hover {
+  @include for-tablet-landscape-up {
+    color: transparent;
+    border-color: transparent;
+    background-color: transparent;
+  }
 }
 
-.szlak-section-faded .szlak-list__btn--nav::before {
-  border-color: $dark-light;
-  color: $white;
-  background: rgba($dark-btn, 0.9);
+.szlak-wrapper--faded .szlak-list__btn--nav::before {
+  @include for-tablet-landscape-up {
+    border-color: $dark-light;
+    color: $white;
+    background: rgba($dark-btn, 0.9);
+  }
 }
 
-.szlak-section-faded .szlak-list__btn--arrow {
-  opacity: 0;
+.szlak-wrapper--faded .szlak-arrow {
+  @include for-tablet-landscape-up {
+    opacity: 0;
+  }
 }
 
-.szlak-section-faded .szlak-list__btn--active::before {
-  background-color: rgba($green, 0.9);
-  /* border-top-color:$white; */
-  border-right-color: transparent;
+.szlak-wrapper--faded .szlak-list__btn--active::before {
+  @include for-tablet-landscape-up {
+    background-color: rgba($dark-btn-hover, 0.9);
+    /* border-top-color:$white; */
+    border-right-color: transparent;
+  }
 }
 
 //
@@ -278,7 +306,7 @@ Author: Marcin Retecki
 }
 
 .szlak-post-popup__section {
-  transform-origin: top;
+  //transform-origin: top;
 }
 
 .szlak-post-popup__btn {
@@ -314,7 +342,7 @@ Author: Marcin Retecki
 }
 
 .las-icon--next {
-  background-image: url('//las.nocnasowa.pl/i/icon_next.png');
+  background-image: url('/las/c/i/icon_next.png');
 }
 
 .size-2 .las-icon {
@@ -324,7 +352,7 @@ Author: Marcin Retecki
 }
 
 .section-dark .las-icon--next {
-  background-image: url('//las.nocnasowa.pl/i/icon_next_w.png');
+  background-image: url('/las/c/i/icon_next_w.png');
 }
 
 //
