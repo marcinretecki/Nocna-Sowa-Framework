@@ -78,14 +78,31 @@ include( 'includes/head.php' );
                 $short_url = str_replace('http://livecopy.nocnasowa.pl', '', $url);
 
 
-                echo '<h3 class="h2 size-1 space-half">' . $post->post_title . '</h3>';
+                echo '<h3 class="h2 size-1">' . $post->post_title . '</h3>';
+
+
+                //  KATEGORIE
+                $categories = get_the_category();
+
+                if ( $categories ) {
+
+                  echo '<p class="space-half size-0"><i>';
+
+                  foreach ( $categories as $category ) {
+                    echo $category->slug . ' ';
+                  }
+
+                  echo '</i></p>';
+
+                }
+
 
                 //  PRZEWODNIK
                 echo '<p class="size-0">';
 
                 if ( strlen($post->post_content) > 5 ) {
                   echo $green_light;
-                  echo 'Treść Przewodnika <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $url . '">' . $short_url . '</a>';
+                  echo 'Treść Przewodnika <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $url . 'przewodnik/">' . $short_url . 'przewodnik/</a>';
                 }
                 else {
                   echo $red_light . 'Treść Przewodnika';
@@ -94,28 +111,48 @@ include( 'includes/head.php' );
                 echo '<br />';
 
                 //  WYZWANIE
-                $wyzwanie = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $post->post_name . '.php' );
 
-                if ( $wyzwanie ) {
+                if ( has_category('bez-wyzwania') ) {
+
                   echo $green_light;
-                  echo 'Wyzwanie Data File <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $url . 'wyzwanie/">' . $short_url . 'wyzwanie/</a>';
+                  echo 'Nie ma wyzwania.';
+
+                }
+                elseif (   !has_category('wyzwanie-audio')
+                        && !has_category('wyzwanie-chat')
+                        && !has_category('wyzwanie-liczby')
+                        && !has_category('wyzwanie-setninger') ) {
+
+                  echo $red_light;
+                  echo 'Nie wybrałeś wyzwania!';
+
                 }
                 else {
-                  echo $red_light . 'Wyzwanie Data File';
-                }
 
-                echo '<br />';
+                  $wyzwanie = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $post->post_name . '.php' );
 
-                //  WYZWANIE AUDIO
-                $wyzwanie_audio_url = '/las/c/s/wyzwanie/' . $post->post_name . '.m4a';
-                $wyzwanie_audio = stream_resolve_include_path( $wyzwanie_audio_url );
+                  if ( $wyzwanie ) {
+                    echo $green_light;
+                    echo 'Wyzwanie Data File <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $url . 'wyzwanie/">' . $short_url . 'wyzwanie/</a>';
+                  }
+                  else {
+                    echo $red_light . 'Wyzwanie Data File';
+                  }
 
-                if ( $wyzwanie_audio ) {
-                  echo $green_light;
-                  echo 'Wyzwanie Audio File <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $wyzwanie_audio_url . '">' . $wyzwanie_audio_url . '</a>';
-                }
-                else {
-                  echo $red_light . 'Wyzwanie Audio File';
+                  echo '<br />';
+
+                  //  WYZWANIE AUDIO
+                  $wyzwanie_audio_url = '/las/c/s/wyzwanie/' . $post->post_name . '.m4a';
+                  $wyzwanie_audio = stream_resolve_include_path( $wyzwanie_audio_url );
+
+                  if ( $wyzwanie_audio ) {
+                    echo $green_light;
+                    echo 'Wyzwanie Audio File <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $wyzwanie_audio_url . '">' . $wyzwanie_audio_url . '</a>';
+                  }
+                  else {
+                    echo $red_light . 'Wyzwanie Audio File';
+                  }
+
                 }
 
                 echo '</p>';

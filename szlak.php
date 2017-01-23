@@ -301,6 +301,10 @@ include( 'includes/head.php' );
 
   </div>
 
+</section>
+
+<?php echo $szlak_sections; ?>
+
   <div id="szlak-post-popup" class="szlak-post-popup">
     <div class="szlak-post-popup__content section-content section-6-4">
       <div id="szlak-post-popup__section" class="section-white section-content rounded group centered szlak-post-popup__section">
@@ -321,10 +325,6 @@ include( 'includes/head.php' );
       </div>
     </div>
   </div>
-
-</section>
-
-<?php echo $szlak_sections; ?>
 
 
 <script>
