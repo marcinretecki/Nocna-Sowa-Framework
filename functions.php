@@ -15,10 +15,25 @@ function las_admin_dev_mode() {
   }
 }
 
-function ns_auto_ver($url){
-  $path = pathinfo($url);
-  $ver = '.' . filemtime( $_SERVER['DOCUMENT_ROOT'] . $url ) . '.';
-  echo $path['dirname'] . '/' . str_replace( '.', $ver, $path['basename'] );
+function ns_auto_ver( $url ){
+
+  $path = pathinfo( $url );
+
+  $file = stream_resolve_include_path( $_SERVER['DOCUMENT_ROOT'] . $url );
+
+  if ( $file ) {
+
+    $mtime = filemtime( $_SERVER['DOCUMENT_ROOT'] . $url );
+
+    $ver = '.' . $mtime . '.';
+
+    echo $path['dirname'] . '/' . str_replace( '.', $ver, $path['basename'] );
+
+  }
+  else {
+    return false;
+  }
+
 }
 
 
