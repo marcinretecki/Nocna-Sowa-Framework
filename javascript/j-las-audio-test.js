@@ -17,8 +17,8 @@ function LasAudioTest() {
   //
   //  Elements
   //
-  this.wrapper =              document.getElementById('audio-test');
   this.audioFile =            document.getElementById('audio-file');
+  this.wrapper =              document.getElementById('audio-test');
   this.audioMsgWrapper =      document.getElementById('audio-msg-wrapper');
   this.audioMsg =             document.getElementById('audio-msg');
   this.audioTrans =           document.getElementById('audio-trans');
@@ -96,6 +96,18 @@ function LasAudioTest() {
   };
 
 
+  //  on case there is no audio file and we have pimp
+  this.audioFileErrorMsg =    '<p class="size-2">';
+  this.audioFileErrorMsg +=   '<svg class="emojione-svg">';
+  this.audioFileErrorMsg +=   '<description>&#x1f622;</description>';
+  this.audioFileErrorMsg +=   '<use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f622"></use>';
+  this.audioFileErrorMsg +=   '</svg>';
+  this.audioFileErrorMsg +=   '<br />Niestety nie udało nam się załadować pliku audio. Spróbuj <a href="#" onClick="window.location.reload(true);">odświerzyć</a> stronę.</p><p class="space-0">Jeśli to nie podziała, napisz do nas. Zaraz zajmiemy się tą sprawą.</p>';
+
+
+  this.canNotPlayFn =         null;
+
+
 
   // don't use this, only for testing quick code
   var self =                  this;
@@ -105,6 +117,13 @@ function LasAudioTest() {
   //  Initiate
   //
   this.init = function() {
+
+    window.console.log('init');
+
+    if ( !this.audioFile ) {
+      window.console.log('there is no audio file');
+    }
+
 
     //  get Elements
     this.getBasicElements();
@@ -193,6 +212,11 @@ function LasAudioTest() {
       //  assign playback times
       this.startTime = this.currentBubbleData.startTime;
       this.stopTime = this.currentBubbleData.stopTime;
+
+      //  fix the problem with time 0
+      if ( this.startTime === 0 ) {
+        this.startTime = 0.01;
+      }
 
       window.console.log('Start time: ' + this.startTime + ' Stop time: ' + this.stopTime);
 
@@ -347,6 +371,16 @@ function LasAudioTest() {
 
     }
 
+    //  if there is no audio file, we need to inform the user
+    if ( !this.audioFile ) {
+      window.console.log('no way to do pimp with no audio');
+
+      //  get error msg
+      this.msg = this.audioFileErrorMsg;
+
+      this.showMsg();
+    }
+
 
     //  if there is no time (and no score?)
     if ( this.startTime < 0  ) {
@@ -422,37 +456,54 @@ function LasAudioTest() {
   this.playAudio = function() {
     //  not only plays the fime at specific time but also sets the autoPause
 
-    if ( this.state.playing || ( this.startTime < 0 ) ) {
-      return false;
+    if ( this.state.playing || ( this.startTime < 0 ) || !this.audioFile ) {
+      return;
     }
 
     //  reset listeners
     this.resetListeners();
 
-    //  set the current time
-    this.audioFile.currentTime = this.startTime;
+    //  unmute just in case
+    this.audioFile.muted = false;
 
-    this.playAudioListener = function() {
-      this.autoPauseAudio();
-    }.bind(this);
+    //  try to set the time and play
+    try {
+      //  set the current time
+      this.audioFile.currentTime = this.startTime;
 
-    //  add pause listener
-    this.audioFile.addEventListener('timeupdate', this.playAudioListener, false);
+      this.playAudioListener = function() {
+        this.autoPauseAudio();
+      }.bind(this);
 
-    //  show spinner
-    this.showSpinner();
+      //  add pause listener
+      this.audioFile.addEventListener('timeupdate', this.playAudioListener, false);
 
-    window.console.log('play ' + this.audioFile.currentTime);
+      //  show spinner
+      this.showSpinner();
 
-    //  play the file
-    this.state.playing = true;
-    this.audioFile.play();
+      window.console.log('play ' + this.audioFile.currentTime);
+
+      //  play the file
+      this.state.playing = true;
+      this.audioFile.play();
+    }
+    //  if the audio is not loaded
+    catch (e) {
+      window.console.log('can not set time or play');
+
+      this.loadAudioFile();
+    }
+
 
   };
 
 
   this.rewindAudio = function() {
     //  If the user want to listen to it again
+
+    if ( !this.audioFile ) {
+      return;
+    }
 
     window.console.log('rewind');
 
@@ -635,6 +686,10 @@ function LasAudioTest() {
   this.pauseAudio = function() {
     //  simple as that
 
+    if ( !this.audioFile ) {
+      return;
+    }
+
     this.audioFile.pause();
     this.state.playing = false;
 
@@ -657,26 +712,38 @@ function LasAudioTest() {
       return false;
     }
 
-    //  set the current time for more
-    this.audioFile.currentTime = this.more.startTime;
 
-    //  prepare the autoPauseMore listener
-    this.playMoreListener = function(){
-      this.autoPauseMore();
-    }.bind(this);
+    if ( !this.audioFile ) {
+      return;
+    }
 
-    //  add pause listener
-    this.audioFile.addEventListener('timeupdate', this.playMoreListener, false);
+    try {
+      //  set the current time for more
+      this.audioFile.currentTime = this.more.startTime;
+
+      //  prepare the autoPauseMore listener
+      this.playMoreListener = function(){
+        this.autoPauseMore();
+      }.bind(this);
+
+      //  add pause listener
+      this.audioFile.addEventListener('timeupdate', this.playMoreListener, false);
 
 
-    //  show spinner
-    this.showSpinner();
+      //  show spinner
+      this.showSpinner();
 
-    window.console.log('play more!');
+      window.console.log('play more!');
 
-    //  play more
-    this.state.playing = true;
-    this.audioFile.play();
+      //  play more
+      this.state.playing = true;
+      this.audioFile.play();
+    }
+    catch (e) {
+      window.console.log('can not set time or play');
+
+      this.loadAudioFile();
+    }
 
   };
 
@@ -704,6 +771,10 @@ function LasAudioTest() {
 
 
   this.resetListeners = function() {
+
+    if ( !this.audioFile ) {
+      return;
+    }
 
     // remove play listener
     this.audioFile.removeEventListener('timeupdate', this.playAudioListener, false);
@@ -881,7 +952,14 @@ function LasAudioTest() {
     //  if the msg is reseted and the immidiately showed again,
     //  the innerHTML would update before reset animation would finish
     beginFn = function() {
-      this.audioMsg.innerHTML = this.msg;
+
+      if ( ( this.msg.substr(0, 3) === '<p>' ) && !this.audioFile ) {
+        this.audioMsg.parentNode.innerHTML = this.msg;
+      }
+      else {
+        this.audioMsg.innerHTML = this.msg;
+      }
+
     }.bind(this);
 
     //  animate
@@ -1065,7 +1143,7 @@ function LasAudioTest() {
     //  below, each this.velocity call need display: block, or buttons will be showed as inline-block
 
     //  if there is more audio, show MORE button
-    if ( this.more !== null ) {
+    if ( ( this.more !== null ) && this.audioFile ) {
       window.console.log('show more button');
 
       this.velocity(
@@ -1076,7 +1154,7 @@ function LasAudioTest() {
     }
 
     //  if there is time, show REWIND
-    if ( this.startTime >= 0 ) {
+    if ( ( this.startTime >= 0 ) && this.audioFile  ) {
       window.console.log('show rewind button');
 
       this.velocity(
@@ -1574,8 +1652,8 @@ function LasAudioTest() {
     else if ( ( event.target.id === 'audio-next' ) || ( event.target.parentNode.id === 'audio-next' ) ) {
       //  next
 
+      //  if it is the first time user clicks play
       if ( this.state.beforeFirstPlay ) {
-        //  if it is the first time we click play
         this.state.beforeFirstPlay = false;
       }
 
@@ -1630,6 +1708,48 @@ function LasAudioTest() {
       }
 
     }.bind(this), false);
+
+  };
+
+
+  //
+  //  LOAD FILE
+  //
+  this.loadAudioFile = function() {
+
+    var force;
+    var progress;
+
+    window.console.log('loadAudioFile');
+
+    //  pause immitiately when the play starts and remove listener
+    force = function() {
+
+      window.console.log('force');
+      this.audioFile.pause();
+      this.audioFile.removeEventListener('play', force, false);
+
+    }.bind( this );
+
+    //  when the progress fires, we can seek the audio file and set the time for playback
+    progress = function () {
+
+      window.console.log('progress');
+
+      //  remove its listener
+      this.audioFile.removeEventListener('progress', progress, false);
+
+      //  trigger the playback again
+      this.state.playing = false;
+      this.playAudio();
+
+    }.bind( this );
+
+    this.audioFile.addEventListener( 'play', force, false );
+    this.audioFile.addEventListener( 'progress', progress, false );
+
+    //  play and trigger events
+    this.audioFile.play();
 
   };
 
