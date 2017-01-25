@@ -3,11 +3,11 @@ function LasChatData() {
 
   this.intro = {
     a1: {
-      bubbles: ['<i>Hallo, er det noen der?</i> (Czy ktoś tu jest?)', '<img src="/i/rze-wsz/HetvlijUZmKic.gif" />'],
+      bubbles: ['<i>Hallo, er det noen der?</i> (Czy ktoś tu jest?)', '<img src="/las/c/i/rze-wsz/HetvlijUZmKic.gif" />'],
       answerOne: {answer: 'jestem, jestem', next: 'a2'}
     },
     a2: {
-      bubbles: ['<i>Fint!</i> Przed nami sporo pracy.', 'Mam zamiar zrobić z Ciebie mistrza odmiany rzeczownika. <span class="emojione emojione-1f3c6"></span>', 'Piszesz się na to? <span class="emojione emojione-1f58a"></span>'],
+      bubbles: ['<i>Fint!</i> Przed nami sporo pracy.', 'Mam zamiar zrobić z Ciebie mistrza odmiany rzeczownika. <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f3c6"></use></svg>', 'Piszesz się na to? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f58a"></use></svg>'],
       answerOne: {answer: 'z radością', next: 'a3'},
       answerTwo: {answer: 'mogę zaryzykować', next: 'a3'}
     },
@@ -17,7 +17,7 @@ function LasChatData() {
       answerTwo: {answer: 'skąd znasz najpopularniejsze???', next: 'a4'},
     },
     a4: {
-      bubbles: ['Z norweskich filmów. Proste. Przecież chcesz używać słów z życia, a nie nudnych czytanek?', '<img src="/i/rze-wsz/l41lUYJGipkMD3NPa.gif" />'],
+      bubbles: ['Z norweskich filmów. Proste. Przecież chcesz używać słów z życia, a nie nudnych czytanek?', '<img src="/las/c/i/rze-wsz/l41lUYJGipkMD3NPa.gif" />'],
       answerOne: {answer: 'no raczej', next: 'a5'}
     },
     a5: {
@@ -31,7 +31,7 @@ function LasChatData() {
   this.chat = {
 
     bil1: {
-      bubbles: ['Jak powiedzieć <q>samochody</q> <span class="emojione emojione-1f698"></span> <span class="emojione emojione-1f696"></span>, kiedy masz na myśli jakieś dowolne, nieokreślone?'],
+      bubbles: ['Jak powiedzieć <q>samochody</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f698"></use></svg> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f696"></use></svg>, kiedy masz na myśli jakieś dowolne, nieokreślone?'],
       answerOne: {answer: '<i>bilen</i>', next: 'bil1b'},
       answerTwo: {answer: '<i>biler</i>', next: 'bil2'}
     },
@@ -40,7 +40,7 @@ function LasChatData() {
       answerOne: {answer: 'OK, <i>biler</i>', next: 'bil2'},
     },
     bil2: {
-      bubbles: ['Świetnie!', '<img src="/i/rze-wsz/AkKtWEPSyS9Pi.gif" />'],
+      bubbles: ['Świetnie!', '<img src="/las/c/i/rze-wsz/AkKtWEPSyS9Pi.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -55,13 +55,13 @@ function LasChatData() {
       answerOne: {answer: 'zapamiętam', next: 'blikk2'},
     },
     blikk2: {
-      bubbles: ['Dobrze!', '<img src="/i/rze-wsz/tumblr_mpnbbcgkRO1rb324eo1_500.gif" />'],
+      bubbles: ['Dobrze!', '<img src="/las/c/i/rze-wsz/tumblr_mpnbbcgkRO1rb324eo1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     oye1: {
-      bubbles: ['<q>Oczy</q> <span class="emojione emojione-1f441"></span><span class="emojione emojione-1f441"></span> w formie określonej?'],
+      bubbles: ['<q>Oczy</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f441"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f441"></use></svg> w formie określonej?'],
       answerOne: {answer: '<i>øyene</i>',  next: 'oye2'},
       answerTwo: {answer: '<i>øyet</i>',  next: 'oye2'}
     },
@@ -70,7 +70,7 @@ function LasChatData() {
       answerOne: {answer: '<i>øyene</i>', next: 'oye2'},
     },
     oye2: {
-      bubbles: ['Znowu dobrze!', '<img src="/i/rze-wsz/3ornk3noLGE88V6xFK.gif" />'],
+      bubbles: ['Znowu dobrze!', '<img src="/las/c/i/rze-wsz/3ornk3noLGE88V6xFK.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -85,7 +85,7 @@ function LasChatData() {
       answerOne: {answer: 'OK', next: 'moro2'},
     },
     moro2: {
-      bubbles: ['Yeah!', '<img src="/i/rze-wsz/yoJC2GnSClbPOkV0eA.gif" />'],
+      bubbles: ['Yeah!', '<img src="/las/c/i/rze-wsz/yoJC2GnSClbPOkV0eA.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -100,18 +100,18 @@ function LasChatData() {
       answerOne: {answer: '<i>gavene</i>', next: '2'},
     },
     gave2: {
-      bubbles: ['<span class="emojione emojione-1f44d-1f3fc"></span> <span class="emojione emojione-1f381"></span>'],
+      bubbles: ['<svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f44d-1f3fc"></use></svg> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f381"></use></svg>'],
       autoNext: 'RANDOM'
     },
 
 
     idiot1: {
-      bubbles: ['Jakie słowo przychodzi Ci do głowy, kiedy widzisz takiego gościa na Preikestolen?', '<img src="/i/rze-wsz/NdbmK4ndXLTs4-2.gif" />'],
+      bubbles: ['Jakie słowo przychodzi Ci do głowy, kiedy widzisz takiego gościa na Preikestolen?', '<img src="/las/c/i/rze-wsz/NdbmK4ndXLTs4-2.gif" />'],
       answerOne: {answer: '<i>Idioten!</i>', next: 'idiot2'},
       answerTwo: {answer: '<i>Jeg vil gifte ham!</i>', next: 'idiot1b'},
     },
     idiot1b: {
-      bubbles: ['Miało być jedno słowo. <span class="emojione emojione-1f609"></span>'],
+      bubbles: ['Miało być jedno słowo. <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f609"></use></svg>'],
       autoNext: 'idiot2'
     },
     idiot2: {
@@ -130,12 +130,12 @@ function LasChatData() {
 
 
     par1: {
-      bubbles: ['Jak powiedzieć <q>para</q>? No wiesz, para butów <span class="no-break"><span class="emojione emojione-1f45e"></span><span class="emojione emojione-1f45e"></span></span> albo ludzi <span class="emojione emojione-1f46b"></span>. Najprościej, <span class="no-break">w nieokreślonej</span> formie.'],
+      bubbles: ['Jak powiedzieć <q>para</q>? No wiesz, para butów <span class="no-break"><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f45e"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f45e"></use></svg></span> albo ludzi <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f46b"></use></svg>. Najprościej, <span class="no-break">w nieokreślonej</span> formie.'],
       answerOne: {answer: '<i>et par</i>', next: 'par2'},
       answerTwo: {answer: '<i>pæra</i>', next: 'par1b'}
     },
     par1b: {
-      bubbles: ['<i>Pæra</i> to określona gruszka. <span class="emojione emojione-1f350"></span>', 'Więc?'],
+      bubbles: ['<i>Pæra</i> to określona gruszka. <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f350"></use></svg>', 'Więc?'],
       answerOne: {answer: 'OK, <i>et par</i>', next: 'par2'}
     },
     par2:{
@@ -148,13 +148,13 @@ function LasChatData() {
       answerOne: {answer: 'Ah, <i>paret</i>', next: 'par3'}
     },
     par3: {
-      bubbles: ['<i>Godt! Et par hamstere til deg!</i>', '<img src="/i/rze-wsz/tumblr_n5zo6bBwT71s96utdo1_400.gif" />'],
+      bubbles: ['<i>Godt! Et par hamstere til deg!</i>', '<img src="/las/c/i/rze-wsz/tumblr_n5zo6bBwT71s96utdo1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     fyr1: {
-      bubbles: ['Określony <q>ogień</q> <span class="emojione emojione-1f525"></span> to:'],
+      bubbles: ['Określony <q>ogień</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f525"></use></svg> to:'],
       answerOne: {answer: '<i>fyr</i>', next: 'fyr1b'},
       answerTwo: {answer: '<i>fyren</i>', next: 'fyr2'}
     },
@@ -163,7 +163,7 @@ function LasChatData() {
       answerOne: {answer: '<i>fyren</i>', next: 'fyr2'},
     },
     fyr2: {
-      bubbles: ['<span class="emojione emojione-1f918-1f3fe"></span>', '<img src="/i/rze-wsz/axn-cinemagraphs-11.gif" />'],
+      bubbles: ['<svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f918-1f3fe"></use></svg>', '<img src="/las/c/i/rze-wsz/axn-cinemagraphs-11.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -178,7 +178,7 @@ function LasChatData() {
       answerOne: {answer: '<i>en fyr</i>', next: 'enfyr2'},
     },
     enfyr2: {
-      bubbles: ['<i>Fantastisk!</i>', '<img src="/i/rze-wsz/lgVdC.gif" />'],
+      bubbles: ['<i>Fantastisk!</i>', '<img src="/las/c/i/rze-wsz/lgVdC.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -193,22 +193,22 @@ function LasChatData() {
       answerOne: {answer: 'OK, <i>dører, dørene</i>', next: 'dor2'},
     },
     dor2: {
-      bubbles: ['<i>Dørene åpnes!</i> <span class="emojione emojione-1f5dd"></span>', '<img src="/i/rze-wsz/tumblr_me7xtozqYx1rjcfxro1_250.gif" />'],
+      bubbles: ['<i>Dørene åpnes!</i> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f5dd"></use></svg>', '<img src="/las/c/i/rze-wsz/tumblr_me7xtozqYx1rjcfxro1_250.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     hund1: {
-      bubbles: ['<q>Pies</q> <span class="emojione emojione-1f429"></span> określony?'],
+      bubbles: ['<q>Pies</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f429"></use></svg> określony?'],
       answerOne: {answer: '<i>hunden</i>', next: 'hund2'},
       answerTwo: {answer: '<i>hunder</i>', next: 'hund1b'}
     },
     hund1b: {
-      bubbles: ['Końcówka <i>-er</i> jest przecież w liczbie mnogiej. <span class="emojione emojione-1f609"></span> Dlatego...'],
+      bubbles: ['Końcówka <i>-er</i> jest przecież w liczbie mnogiej. <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f609"></use></svg> Dlatego...'],
       answerOne: {answer: '<i>hunden</i>', next: 'hund2'},
     },
     hund2: {
-      bubbles: ['<i>Fint!</i>', '<img src="/i/rze-wsz/tumblr_m5h30bSsH91qelkf9o1_500.gif" />'],
+      bubbles: ['<i>Fint!</i>', '<img src="/las/c/i/rze-wsz/tumblr_m5h30bSsH91qelkf9o1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -223,7 +223,7 @@ function LasChatData() {
       answerOne: {answer: 'Aha, <i>vannet</i>', next: 'vann2'},
     },
     vann2: {
-      bubbles: ['Dobrze Ci idzie!', '<img src="/i/rze-wsz/tumblr_n7n52ysAZ61r3gb3zo1_400.gif" />'],
+      bubbles: ['Dobrze Ci idzie!', '<img src="/las/c/i/rze-wsz/tumblr_n7n52ysAZ61r3gb3zo1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -238,7 +238,7 @@ function LasChatData() {
       answerOne: {answer: '<i>barn</i>', next: 'barn2'},
     },
     barn2: {
-      bubbles: ['W nagrodę mały Azjata:', '<img src="/i/rze-wsz/3oEjHKtwp6WjUaJ0kM.gif" />'],
+      bubbles: ['W nagrodę mały Azjata:', '<img src="/las/c/i/rze-wsz/3oEjHKtwp6WjUaJ0kM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -253,7 +253,7 @@ function LasChatData() {
       answerOne: {answer: '<i>en sønn</i>', next: 'syn2'},
     },
     syn2: {
-      bubbles: ['Wspaniale.', '<img src="/i/rze-wsz/tumblr-m25p9yiv4y1qgn0dyo1-250.gif" />', 'A <q>córki</q>?'],
+      bubbles: ['Wspaniale.', '<img src="/las/c/i/rze-wsz/tumblr-m25p9yiv4y1qgn0dyo1-250.gif" />', 'A <q>córki</q>?'],
       answerOne: {answer: '<i>datter</i>', next: 'syn2b'},
       answerTwo: {answer: '<i>døtre</i>', next: 'syn3'}
     },
@@ -262,13 +262,13 @@ function LasChatData() {
       answerOne: {answer: '<i>døtre</i>', next: 'syn3'},
     },
     syn3: {
-      bubbles: ['Zgadza się. <i>Han har søte døtre.</i>', '<img src="/i/rze-wsz/tumblr_mzwj71IIl51r6b6qeo1_500.gif" />'],
+      bubbles: ['Zgadza się. <i>Han har søte døtre.</i>', '<img src="/las/c/i/rze-wsz/tumblr_mzwj71IIl51r6b6qeo1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     mat1: {
-      bubbles: ['<q>Jedzenie</q> określone? <span class="emojione emojione-1f373"></span><span class="emojione emojione-1f953"></span>'],
+      bubbles: ['<q>Jedzenie</q> określone? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f373"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f953"></use></svg>'],
       answerOne: {answer: '<i>mat</i>', next: 'mat1b'},
       answerTwo: {answer: '<i>maten</i>', next: 'mat2'}
     },
@@ -277,7 +277,7 @@ function LasChatData() {
       answerOne: {answer: '<i>maten</i>', next: 'mat2'},
     },
     mat2: {
-      bubbles: ['<i>Takk for maten!</i>', '<img src="/i/rze-wsz/1IejF9MZ0ivG8.gif" />'],
+      bubbles: ['<i>Takk for maten!</i>', '<img src="/las/c/i/rze-wsz/1IejF9MZ0ivG8.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -292,7 +292,7 @@ function LasChatData() {
       answerOne: {answer: '<i>beinet</i>', next: 'ben2'},
     },
     ben2: {
-      bubbles: ['Dobra decyzja. Ćwiczymy dalej.', '<img src="/i/rze-wsz/20bein.gif" />'],
+      bubbles: ['Dobra decyzja. Ćwiczymy dalej.', '<img src="/las/c/i/rze-wsz/20bein.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -307,7 +307,7 @@ function LasChatData() {
       answerOne: {answer: '<i>hender</i>', next: 'hand2'},
     },
     hand2: {
-      bubbles: ['Jak Ty to robisz?', '<img src="/i/rze-wsz/35hand.gif" />'],
+      bubbles: ['Jak Ty to robisz?', '<img src="/las/c/i/rze-wsz/35hand.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -322,7 +322,7 @@ function LasChatData() {
       answerOne: {answer: '<i>en kaffe</i>', next: 'kaffe2'},
     },
     kaffe2: {
-      bubbles: ['Ammm', '<img src="/i/rze-wsz/xT9DPJcpQqpR6icVCE.gif" />'],
+      bubbles: ['Ammm', '<img src="/las/c/i/rze-wsz/xT9DPJcpQqpR6icVCE.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -337,7 +337,7 @@ function LasChatData() {
       answerOne: {answer: 'OK, <i>bøker</i>', next: 'bok2'},
     },
     bok2: {
-      bubbles: ['<i>Fint!</i>', '<img src="/i/rze-wsz/girl-reading-book-animation-16.gif" />'],
+      bubbles: ['<i>Fint!</i>', '<img src="/las/c/i/rze-wsz/girl-reading-book-animation-16.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -352,7 +352,7 @@ function LasChatData() {
       answerOne: {answer: '<i>et spor</i>', next: 'spor2'},
     },
     spor2: {
-      bubbles: ['<i>Greit</i>.', '<img src="/i/rze-wsz/lKi1jDjWCRNmM.gif" />'],
+      bubbles: ['<i>Greit</i>.', '<img src="/las/c/i/rze-wsz/lKi1jDjWCRNmM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -367,7 +367,7 @@ function LasChatData() {
       answerOne: {answer: '<i>ei kvinne</i>', next: 'kvinne2'},
     },
     kvinne2: {
-      bubbles: ['OK', '<img src="/i/rze-wsz/7blow.gif" />'],
+      bubbles: ['OK', '<img src="/las/c/i/rze-wsz/7blow.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -382,13 +382,13 @@ function LasChatData() {
       answerOne: {answer: '<i>vennen</i>', next: 'venn2'},
     },
     venn2: {
-      bubbles: ['<i>Ja!</i>', '<img src="/i/rze-wsz/19skate.gif" />'],
+      bubbles: ['<i>Ja!</i>', '<img src="/las/c/i/rze-wsz/19skate.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     fly1: {
-      bubbles: ['<q>Samoloty</q> nieokreślone? <span class="emojione emojione-1f6eb"></span> <span class="emojione emojione-1f6ec"></span>'],
+      bubbles: ['<q>Samoloty</q> nieokreślone? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f6eb"></use></svg> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f6ec"></use></svg>'],
       answerOne: {answer: '<i>fly</i>', next: 'fly2'},
       answerTwo: {answer: '<i>flyer</i>', next: 'fly1b'}
     },
@@ -397,13 +397,13 @@ function LasChatData() {
       answerOne: {answer: '<i>fly</i>', next: 'fly2'},
     },
     fly2: {
-      bubbles: ['<i>Kjempebra!</i>', '<img src="/i/rze-wsz/32bird.gif" />'],
+      bubbles: ['<i>Kjempebra!</i>', '<img src="/las/c/i/rze-wsz/32bird.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     tele1: {
-      bubbles: ['<q>Telefony</q> określone? <span class="emojione emojione-1f4f1"></span><span class="emojione emojione-1f4f1"></span><span class="emojione emojione-1f4f1"></span>'],
+      bubbles: ['<q>Telefony</q> określone? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f4f1"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f4f1"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f4f1"></use></svg>'],
       answerOne: {answer: '<i>mobiler</i>', next: 'tele1b'},
       answerTwo: {answer: '<i>telefonene</i>', next: 'tele2'}
     },
@@ -412,13 +412,13 @@ function LasChatData() {
       answerOne: {answer: '<i>telefonene</i>', next: 'tele2'},
     },
     tele2: {
-      bubbles: ['<i>Bra!</i>', '<img src="/i/rze-wsz/ESpe7v3ZSleec.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/las/c/i/rze-wsz/ESpe7v3ZSleec.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     bror1: {
-      bubbles: ['<q>Brat</q> <span class="emojione emojione-1f938"></span> określony?'],
+      bubbles: ['<q>Brat</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f938"></use></svg> określony?'],
       answerOne: {answer: '<i>en bror</i>', next: 'bror1b'},
       answerTwo: {answer: '<i>broren</i>', next: 'bror2'}
     },
@@ -427,7 +427,7 @@ function LasChatData() {
       answerOne: {answer: '<i>broren</i>', next: 'bror2'},
     },
     bror2: {
-      bubbles: ['Znów go zwinęli.', '<img src="/i/rze-wsz/17125c33392f0d050fe621fe04774793.gif" />'],
+      bubbles: ['Znów go zwinęli.', '<img src="/las/c/i/rze-wsz/17125c33392f0d050fe621fe04774793.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -438,11 +438,11 @@ function LasChatData() {
       answerTwo: {answer: '<i>lyset</i>', next: 'lys1b'}
     },
     lys1b: {
-      bubbles: ['<i>Lyset</i> to określone światło. Przecież wiesz. W liczbie mnogiej nie dodajemy końcówki <i>-er</i>, bo <i>et lys</i> ma tylko jedną sylabę i jest rodzaju <i>et</i> <span class="emojione emojione-1f609"></span>'],
+      bubbles: ['<i>Lyset</i> to określone światło. Przecież wiesz. W liczbie mnogiej nie dodajemy końcówki <i>-er</i>, bo <i>et lys</i> ma tylko jedną sylabę i jest rodzaju <i>et</i> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f609"></use></svg>'],
       answerOne: {answer: 'OK, <i>lys</i>', next: 'lys2'},
     },
     lys2: {
-      bubbles: ['<i>Bra!</i>', '<img src="/i/rze-wsz/xlGYf1RUbYYes.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/las/c/i/rze-wsz/xlGYf1RUbYYes.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -457,7 +457,7 @@ function LasChatData() {
       answerOne: {answer: '<i>onkelen</i>', next: 'onkel2'},
     },
     onkel2: {
-      bubbles: ['<i>Supert!</i>', 'Nie każdy ma takiego wujka.', '<img src="/i/rze-wsz/5sheet.gif" />'],
+      bubbles: ['<i>Supert!</i>', 'Nie każdy ma takiego wujka.', '<img src="/las/c/i/rze-wsz/5sheet.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -472,13 +472,13 @@ function LasChatData() {
       answerOne: {answer: '<i>kona</i>', next: 'kone2'},
     },
     kone2: {
-      bubbles: ['Tak jest!', '<img src="/i/rze-wsz/magda.gif" />'],
+      bubbles: ['Tak jest!', '<img src="/las/c/i/rze-wsz/magda.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     kamp1: {
-      bubbles: ['Określone <q>walki</q>, <q>bitwy</q> <span class="emojione emojione-2694"></span> lub <q>mecze</q>?'],
+      bubbles: ['Określone <q>walki</q>, <q>bitwy</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-2694"></use></svg> lub <q>mecze</q>?'],
       answerOne: {answer: '<i>kamp</i>', next: 'kamp1b'},
       answerTwo: {answer: '<i>kampene</i>', next: 'kamp2'}
     },
@@ -487,7 +487,7 @@ function LasChatData() {
       answerOne: {answer: '<i>kampene</i>', next: 'kamp2'},
     },
     kamp2: {
-      bubbles: ['O tak!', '<img src="/i/rze-wsz/X60jpxh.gif" />'],
+      bubbles: ['O tak!', '<img src="/las/c/i/rze-wsz/X60jpxh.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -502,7 +502,7 @@ function LasChatData() {
       answerOne: {answer: '<i>kvinnene</i>', next: 'dame2'},
     },
     dame2: {
-      bubbles: ['Świetnie!', '<img src="/i/rze-wsz/6288960204_23fcc5a01a_o.gif" />'],
+      bubbles: ['Świetnie!', '<img src="/las/c/i/rze-wsz/6288960204_23fcc5a01a_o.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -517,7 +517,7 @@ function LasChatData() {
       answerOne: {answer: 'no dobra, <i>en by</i>', next: 'by2'},
     },
     by2: {
-      bubbles: ['<i>Veldig bra!</i>', '<img src="/i/rze-wsz/newspaper-man-429.gif" />'],
+      bubbles: ['<i>Veldig bra!</i>', '<img src="/las/c/i/rze-wsz/newspaper-man-429.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -532,7 +532,7 @@ function LasChatData() {
       answerOne: {answer: '<i>livet</i>', next: 'liv2'},
     },
     liv2: {
-      bubbles: ['<img src="/i/rze-wsz/7177997572_fdeaeb4463_o.gif" />'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/7177997572_fdeaeb4463_o.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -543,11 +543,11 @@ function LasChatData() {
       answerTwo: {answer: '<i>en movie</i>', next: 'film1b'}
     },
     film1b: {
-      bubbles: ['<span class="emojione emojione-1f926-1f3fb"></span>'],
+      bubbles: ['<svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f926-1f3fb"></use></svg>'],
       answerOne: {answer: '<i>en film</i>', next: 'film2'},
     },
     film2: {
-      bubbles: ['<i>Flott!</i> <span class="emojione emojione-1f4fd"></span><span class="emojione emojione-1f39e"></span>'],
+      bubbles: ['<i>Flott!</i> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f4fd"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f39e"></use></svg>'],
       autoNext: 'RANDOM'
     },
 
@@ -562,7 +562,7 @@ function LasChatData() {
       answerOne: {answer: '<i>vinduet</i>', next: 'vindu2'},
     },
     vindu2: {
-      bubbles: ['<i>Jøss!</i>', '<img src="/i/rze-wsz/cab-window-429.gif" />'],
+      bubbles: ['<i>Jøss!</i>', '<img src="/las/c/i/rze-wsz/cab-window-429.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -573,11 +573,11 @@ function LasChatData() {
       answerTwo: {answer: '<i>venner</i>', next: 'venn2'}
     },
     venn1b: {
-      bubbles: ['To nie ten serial. <span class="emojione emojione-1f609"></span> W liczbie mnogiej przecież końcówka <i>-er</i> lub <i>-ene</i>. W nieokreślonej będzie...'],
+      bubbles: ['To nie ten serial. <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f609"></use></svg> W liczbie mnogiej przecież końcówka <i>-er</i> lub <i>-ene</i>. W nieokreślonej będzie...'],
       answerOne: {answer: '<i>venner</i>', next: 'venn2'},
     },
     venn2: {
-      bubbles: ['<i>Ja!</i>', '<img src="/i/rze-wsz/12UlfHpF05ielO.gif" />'],
+      bubbles: ['<i>Ja!</i>', '<img src="/las/c/i/rze-wsz/12UlfHpF05ielO.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -592,7 +592,7 @@ function LasChatData() {
       answerOne: {answer: '<i>stoler</i>', next: 'stol2'},
     },
     stol2: {
-      bubbles: ['<i>Bra!</i>', '<img src="/i/rze-wsz/tumblr_nt2vth7sTX1qef46ho1_500.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/las/c/i/rze-wsz/tumblr_nt2vth7sTX1qef46ho1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -607,7 +607,7 @@ function LasChatData() {
       answerOne: {answer: '<i>turene</i>', next: 'tur2'},
     },
     tur2: {
-      bubbles: ['Dobrze!', '<img src="/i/rze-wsz/rUlu713yOz2wM.gif" />'],
+      bubbles: ['Dobrze!', '<img src="/las/c/i/rze-wsz/rUlu713yOz2wM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -618,11 +618,11 @@ function LasChatData() {
       answerTwo: {answer: '<i>baby</i>', next: 'baby1b'}
     },
     baby1b: {
-      bubbles: ['Końcóweczka <i>-en</i> śmiało może być dodana. Tak się robi norweski. <span class="emojione emojione-1f609"></span>'],
+      bubbles: ['Końcóweczka <i>-en</i> śmiało może być dodana. Tak się robi norweski. <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f609"></use></svg>'],
       answerOne: {answer: '<i>babyen</i>', next: 'baby2'},
     },
     baby2: {
-      bubbles: ['<img src="/i/rze-wsz/8BdOabytiFWk8.gif" />'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/8BdOabytiFWk8.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -637,32 +637,32 @@ function LasChatData() {
       answerOne: {answer: '<i>ei jente</i>', next: 'jente2'},
     },
     jente2: {
-      bubbles: ['<i>Lurt!</i>', '<img src="/i/rze-wsz/12hair.gif" />'],
+      bubbles: ['<i>Lurt!</i>', '<img src="/las/c/i/rze-wsz/12hair.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     kontroll1: {
-      bubbles: ['<q>Kontrola</q>, <q>sprawdzenie</q> <span class="emojione emojione-1f575"></span> w nieokreślonej formie?'],
+      bubbles: ['<q>Kontrola</q>, <q>sprawdzenie</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f575"></use></svg> w nieokreślonej formie?'],
       answerOne: {answer: '<i>en kontroll</i>', next: 'kontroll2'},
       answerTwo: {answer: '<i>en kontrol</i>', next: 'kontroll1b'}
     },
     kontroll1b: {
-      bubbles: ['<img src="/i/rze-wsz/bkKvvzE9PEcTK.gif" />', 'Jednak przez dwa <q>ll</q>:', '<i>en kontroll – kontrollen – kontroller – kontrollene</i>'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/bkKvvzE9PEcTK.gif" />', 'Jednak przez dwa <q>ll</q>:', '<i>en kontroll – kontrollen – kontroller – kontrollene</i>'],
       answerOne: {answer: 'OK, <i>en kontroll</i>', next: 'kontroll2'},
     },
     kontroll2: {
       bubbles: ['Dobrze.', 'Masz siłę na dalszą walkę?'],
-      answerOne: {answer: 'pewnie <span class="emojione emojione-1f4aa-1f3fc"></span>', next: 'kontroll3'},
+      answerOne: {answer: 'pewnie <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f4aa-1f3fc"></use></svg>', next: 'kontroll3'},
     },
     kontroll3: {
-      bubbles: ['<img src="/i/rze-wsz/26BRJ42FrwYMrKXV6.gif" />'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/26BRJ42FrwYMrKXV6.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     gutt1: {
-      bubbles: ['<q>Chłopiec</q> <span class="emojione emojione-1f466-1f3fc"></span> nieokreślony?'],
+      bubbles: ['<q>Chłopiec</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f466-1f3fc"></use></svg> nieokreślony?'],
       answerOne: {answer: '<i>gutten</i>', next: 'gutt1b'},
       answerTwo: {answer: '<i>en gutt</i>', next: 'gutt2'}
     },
@@ -671,13 +671,13 @@ function LasChatData() {
       answerOne: {answer: 'no tak, <i>en gutt</i>', next: 'gutt2'},
     },
     gutt2: {
-      bubbles: ['<i>High five!</i>', '<img src="/i/rze-wsz/tumblr_n6nl9svyjs1rc7zl1o1_400.gif" />'],
+      bubbles: ['<i>High five!</i>', '<img src="/las/c/i/rze-wsz/tumblr_n6nl9svyjs1rc7zl1o1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     baat1: {
-      bubbles: ['<q>Łódka</q> <span class="emojione emojione-1f6a4"></span> określona?'],
+      bubbles: ['<q>Łódka</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f6a4"></use></svg> określona?'],
       answerOne: {answer: '<i>båten</i>', next: 'baat2'},
       answerTwo: {answer: '<i>båter</i>', next: 'baat1b'}
     },
@@ -686,7 +686,7 @@ function LasChatData() {
       answerOne: {answer: '<i>båten</i>', next: 'baat2'},
     },
     baat2: {
-      bubbles: ['<i>Yeah!</i>', '<img src="/i/rze-wsz/tumblr_m9nbokxIgu1r6g7k5o1_500.gif" />'],
+      bubbles: ['<i>Yeah!</i>', '<img src="/las/c/i/rze-wsz/tumblr_m9nbokxIgu1r6g7k5o1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -701,7 +701,7 @@ function LasChatData() {
       answerOne: {answer: '<i>familien</i>', next: 'famielien2'},
     },
     famielien2: {
-      bubbles: ['Jesteś niesamowity!', '<img src="/i/rze-wsz/YGJBp5EgyVP9K.gif" />'],
+      bubbles: ['Jesteś niesamowity!', '<img src="/las/c/i/rze-wsz/YGJBp5EgyVP9K.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -716,7 +716,7 @@ function LasChatData() {
       answerOne: {answer: '<i>netter</i>', next: 'netter2'},
     },
     netter2: {
-      bubbles: ['Uff. Dobrze.', '<img src="/i/rze-wsz/tumblr_nhqepgKJqs1qef46ho1_500.gif" />'],
+      bubbles: ['Uff. Dobrze.', '<img src="/las/c/i/rze-wsz/tumblr_nhqepgKJqs1qef46ho1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -731,7 +731,7 @@ function LasChatData() {
       answerOne: {answer: '<i>en kompis</i>', next: 'kompis2'},
     },
     kompis2: {
-      bubbles: ['Świetnie! Bawimy się dalej.', '<img src="/i/rze-wsz/tumblr_myw0w7EBOA1t361sto1_400.gif" />'],
+      bubbles: ['Świetnie! Bawimy się dalej.', '<img src="/las/c/i/rze-wsz/tumblr_myw0w7EBOA1t361sto1_400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -746,13 +746,13 @@ function LasChatData() {
       answerOne: {answer: '<i>læreren</i>', next: 'laerer2'},
     },
     laerer2: {
-      bubbles: ['Brawo!', '<img src="/i/rze-wsz/StQCmtZt4GvqE.gif" />'],
+      bubbles: ['Brawo!', '<img src="/las/c/i/rze-wsz/StQCmtZt4GvqE.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     politi1: {
-      bubbles: ['<q>Policja</q> <span class="emojione emojione-1f694"></span> <span class="emojione emojione-1f52b"></span> określona to:'],
+      bubbles: ['<q>Policja</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f694"></use></svg> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f52b"></use></svg> określona to:'],
       answerOne: {answer: '<i>politi</i>', next: 'politi1b'},
       answerTwo: {answer: '<i>politiet</i>', next: 'politi2'}
     },
@@ -761,7 +761,7 @@ function LasChatData() {
       answerOne: {answer: '<i>politiet</i>', next: 'politi2'},
     },
     politi2: {
-      bubbles: ['<img src="/i/rze-wsz/NJXDSvnpx21.gif" />'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/NJXDSvnpx21.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -776,13 +776,13 @@ function LasChatData() {
       answerOne: {answer: '<i>ei historie</i>', next: 'historie2'},
     },
     historie2: {
-      bubbles: ['Może tak być.', '<img src="/i/rze-wsz/EF4UWro.gif" />'],
+      bubbles: ['Może tak być.', '<img src="/las/c/i/rze-wsz/EF4UWro.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     vinner1: {
-      bubbles: ['<q>Zwycięzca</q> <span class="emojione emojione-1f3c5"></span> określony?'],
+      bubbles: ['<q>Zwycięzca</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f3c5"></use></svg> określony?'],
       answerOne: {answer: '<i>vinner</i>', next: 'vinner1b'},
       answerTwo: {answer: '<i>vinneren</i>', next: 'vinner2'}
     },
@@ -791,13 +791,13 @@ function LasChatData() {
       answerOne: {answer: '<i>vinneren</i>', next: 'vinner2'},
     },
     vinner2: {
-      bubbles: ['<img src="/i/rze-wsz/26ght2GFICFOl41Ak.gif" />'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/26ght2GFICFOl41Ak.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     finalen1: {
-      bubbles: ['Jesteś tu jeszcze?', '<img src="/i/rze-wsz/GxRJqOTR2vv0Y.gif" />'],
+      bubbles: ['Jesteś tu jeszcze?', '<img src="/las/c/i/rze-wsz/GxRJqOTR2vv0Y.gif" />'],
       answerOne: {answer: 'jestem', next: 'finalen2'},
     },
     finalen2: {
@@ -816,13 +816,13 @@ function LasChatData() {
       answerOne: {answer: '<i>en gang</i>', next: 'gang2'},
     },
     gang2: {
-      bubbles: ['<i>Veldig godt!</i> Tylko w którą stronę pójdziesz?', '<img src="/i/rze-wsz/KnXkh8WI2WCJO.gif" />'],
+      bubbles: ['<i>Veldig godt!</i> Tylko w którą stronę pójdziesz?', '<img src="/las/c/i/rze-wsz/KnXkh8WI2WCJO.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     tid1: {
-      bubbles: ['<q>Czas</q> <span class="emojione emojione-23f1"></span> określony?'],
+      bubbles: ['<q>Czas</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-23f1"></use></svg> określony?'],
       answerOne: {answer: '<i>tid</i>', next: 'tid1b'},
       answerTwo: {answer: '<i>tida</i>', next: 'tid2'}
     },
@@ -846,13 +846,13 @@ function LasChatData() {
       answerOne: {answer: '<i>morgenene</i>', next: 'morgen2'},
     },
     morgen2: {
-      bubbles: ['<i>Bra!</i>', '<img src="/i/rze-wsz/mNg6J8yQ3wRVK.gif" />'],
+      bubbles: ['<i>Bra!</i>', '<img src="/las/c/i/rze-wsz/mNg6J8yQ3wRVK.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     modre1: {
-      bubbles: ['<q>Matki</q> nieokreślone? <span class="emojione emojione-1f469-1f469-1f467-1f466"></span>'],
+      bubbles: ['<q>Matki</q> nieokreślone? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f469-1f469-1f467-1f466"></use></svg>'],
       answerOne: {answer: '<i>mødre</i>', next: 'modre2'},
       answerTwo: {answer: '<i>mødrene</i>', next: 'modre1b'}
     },
@@ -867,7 +867,7 @@ function LasChatData() {
 
 
     fedrene1: {
-      bubbles: ['<q>Ojcowie</q> <span class="emojione emojione-1f468-2764-1f468"></span> określeni?'],
+      bubbles: ['<q>Ojcowie</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f468-2764-1f468"></use></svg> określeni?'],
       answerOne: {answer: '<i>fedre</i>', next: 'fedrene1b'},
       answerTwo: {answer: '<i>fedrene</i>', next: 'fedrene2'}
     },
@@ -891,13 +891,13 @@ function LasChatData() {
       answerOne: {answer: 'OK, <i>kvelder</i>', next: 'kvelder2'},
     },
     kvelder2: {
-      bubbles: ['<i>Ha en hyggelig kveld!</i>', '<img src="/i/rze-wsz/1kTH8ButyMnYs.gif" />'],
+      bubbles: ['<i>Ha en hyggelig kveld!</i>', '<img src="/las/c/i/rze-wsz/1kTH8ButyMnYs.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     steder1: {
-      bubbles: ['<q>Wiele miejsc</q> <span class="emojione emojione-1f5fa"></span> to:'],
+      bubbles: ['<q>Wiele miejsc</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f5fa"></use></svg> to:'],
       answerOne: {answer: '<i>mange steder</i>', next: 'steder2'},
       answerTwo: {answer: '<i>mye steder</i>', next: 'steder1b'}
     },
@@ -906,7 +906,7 @@ function LasChatData() {
       answerOne: {answer: '<i>mange steder</i>', next: 'steder2'},
     },
     steder2: {
-      bubbles: ['Tak. <span class="emojione emojione-1f642"></span>'],
+      bubbles: ['Tak. <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f642"></use></svg>'],
       autoNext: 'RANDOM'
     },
 
@@ -921,7 +921,7 @@ function LasChatData() {
       answerOne: {answer: '<i>guder</i>', next: 'guder2'},
     },
     guder2: {
-      bubbles: ['Lepiej z nimi nie zadzieraj.', '<img src="/i/rze-wsz/a8weqme-460sa.gif" />'],
+      bubbles: ['Lepiej z nimi nie zadzieraj.', '<img src="/las/c/i/rze-wsz/a8weqme-460sa.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -932,17 +932,17 @@ function LasChatData() {
       answerTwo: {answer: '<i>noen feils</i>', next: 'feil1b'}
     },
     feil1b: {
-      bubbles: ['<i>-s</i> dodajemy po angielsku, jak w...', '<img src="/i/rze-wsz/abf918a8d7e74da0cd8280037171f277.gif" />', 'A norweskie <i>feil</i> jest wyjątkiem:', '<i>en feil – feilen – feil – feilene</i>'],
+      bubbles: ['<i>-s</i> dodajemy po angielsku, jak w...', '<img src="/las/c/i/rze-wsz/abf918a8d7e74da0cd8280037171f277.gif" />', 'A norweskie <i>feil</i> jest wyjątkiem:', '<i>en feil – feilen – feil – feilene</i>'],
       answerOne: {answer: '<i>noen feil</i>', next: 'feil2'},
     },
     feil2: {
-      bubbles: ['<i>Riktig svar!</i>', '<img src="/i/rze-wsz/5M94d.gif" />'],
+      bubbles: ['<i>Riktig svar!</i>', '<img src="/las/c/i/rze-wsz/5M94d.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     veier1: {
-      bubbles: ['Nieokreślone <span class="emojione emojione-1f6e3"></span> <q>drogi</q>?'],
+      bubbles: ['Nieokreślone <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f6e3"></use></svg> <q>drogi</q>?'],
       answerOne: {answer: '<i>vei</i>', next: 'veier1b'},
       answerTwo: {answer: '<i>veier</i>', next: 'veier2'}
     },
@@ -951,7 +951,7 @@ function LasChatData() {
       answerOne: {answer: '<i>veier</i>', next: 'veier2'},
     },
     veier2: {
-      bubbles: ['<i>Nydelig!</i>', '<img src="/i/rze-wsz/obeFfKertEkBa.gif" />'],
+      bubbles: ['<i>Nydelig!</i>', '<img src="/las/c/i/rze-wsz/obeFfKertEkBa.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -966,7 +966,7 @@ function LasChatData() {
       answerOne: {answer: 'OK, <i>et navn</i>', next: 'navn2'},
     },
     navn2: {
-      bubbles: ['<i>Riktig!</i>', '<img src="/i/rze-wsz/3oEjHNCWpx4iQYytAA.gif" />'],
+      bubbles: ['<i>Riktig!</i>', '<img src="/las/c/i/rze-wsz/3oEjHNCWpx4iQYytAA.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -981,7 +981,7 @@ function LasChatData() {
       answerOne: {answer: '<i>havet</i>', next: 'hav2'},
     },
     hav2: {
-      bubbles: ['<i>Imponerende!</i>', '<img src="/i/rze-wsz/l41m1a8cuTkchgHfy.gif" />'],
+      bubbles: ['<i>Imponerende!</i>', '<img src="/las/c/i/rze-wsz/l41m1a8cuTkchgHfy.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -996,7 +996,7 @@ function LasChatData() {
       answerOne: {answer: '<i>jobben</i>', next: 'jobb2'},
     },
     jobb2: {
-      bubbles: ['<i>Fint!</i> <span class="emojione emojione-1f6e0"></span><span class="emojione emojione-1f4b0"></span>'],
+      bubbles: ['<i>Fint!</i> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f6e0"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f4b0"></use></svg>'],
       autoNext: 'RANDOM'
     },
 
@@ -1007,7 +1007,7 @@ function LasChatData() {
       answerTwo: {answer: '<i>dealer</i>', next: 'del1b'}
     },
     del1b: {
-      bubbles: ['<img src="/i/rze-wsz/11uPwtlLq91Rni.gif" />', 'Oj, nie tędy droga. Miało być o częściach:', '<i>en del – delen – deler – delene</i>', 'Więc, nieokreślone części to...'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/11uPwtlLq91Rni.gif" />', 'Oj, nie tędy droga. Miało być o częściach:', '<i>en del – delen – deler – delene</i>', 'Więc, nieokreślone części to...'],
       answerOne: {answer: '<i>deler</i>', next: 'del2'},
     },
     del2: {
@@ -1026,13 +1026,13 @@ function LasChatData() {
       answerOne: {answer: '<i>et ord</i>', next: 'ord2'},
     },
     ord2: {
-      bubbles: ['<i>Utrolig!</i> <span class="emojione emojione-1f638"></span>'],
+      bubbles: ['<i>Utrolig!</i> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f638"></use></svg>'],
       autoNext: 'RANDOM'
     },
 
 
     time1: {
-      bubbles: ['Jedna <q>godzina</q> <span class="emojione emojione-1f570"></span> to:'],
+      bubbles: ['Jedna <q>godzina</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f570"></use></svg> to:'],
       answerOne: {answer: '<i>en time</i>', next: 'time2'},
       answerTwo: {answer: '<i>ei tid</i>', next: 'time1b'}
     },
@@ -1056,13 +1056,13 @@ function LasChatData() {
       answerOne: {answer: '<i>et møte</i>', next: 'moete2'},
     },
     moete2: {
-      bubbles: ['<i>Kjempefint!</i>', '<img src="/i/rze-wsz/YC6ZedMDgR1Fm.gif" />'],
+      bubbles: ['<i>Kjempefint!</i>', '<img src="/las/c/i/rze-wsz/YC6ZedMDgR1Fm.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     problem1: {
-      bubbles: ['<q>Problem</q>, jakiś dowolny? <span class="emojione emojione-1f415"></span><span class="emojione emojione-1f4a9"></span>'],
+      bubbles: ['<q>Problem</q>, jakiś dowolny? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f415"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f4a9"></use></svg>'],
       answerOne: {answer: '<i>et problem</i>', next: 'problem2'},
       answerTwo: {answer: '<i>ei problem</i>', next: 'problem1b'}
     },
@@ -1071,13 +1071,13 @@ function LasChatData() {
       answerOne: {answer: '<i>et problem</i>', next: 'problem2'},
     },
     problem2: {
-      bubbles: ['<i>Kjempegodt!</i>', '<img src="/i/rze-wsz/fmVbF5EpioNPy.gif" />'],
+      bubbles: ['<i>Kjempegodt!</i>', '<img src="/las/c/i/rze-wsz/fmVbF5EpioNPy.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     rom1: {
-      bubbles: ['Określony <q>pokój</q> <span class="emojione emojione-1f6cb"></span> lub <q>przestrzeń</q>? <span class="emojione emojione-1f6f0"></span>'],
+      bubbles: ['Określony <q>pokój</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f6cb"></use></svg> lub <q>przestrzeń</q>? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f6f0"></use></svg>'],
       answerOne: {answer: '<i>romet</i>', next: 'rom1b'},
       answerTwo: {answer: '<i>rommet</i>', next: 'rom2'}
     },
@@ -1086,7 +1086,7 @@ function LasChatData() {
       answerOne: {answer: '<i>rommet</i>', next: 'rom2'},
     },
     rom2: {
-      bubbles: ['<i>Perfekt!</i>', '<img src="/i/rze-wsz/UmVFuejI8ntew.gif" />'],
+      bubbles: ['<i>Perfekt!</i>', '<img src="/las/c/i/rze-wsz/UmVFuejI8ntew.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1101,7 +1101,7 @@ function LasChatData() {
       answerOne: {answer: '<i>ukene</i>', next: 'uke2'},
     },
     uke2: {
-      bubbles: ['Raz w tygodniu warto zrobić trening.', '<img src="/i/rze-wsz/Mw1EyMExatybS.gif" />'],
+      bubbles: ['Raz w tygodniu warto zrobić trening.', '<img src="/las/c/i/rze-wsz/Mw1EyMExatybS.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1118,13 +1118,13 @@ function LasChatData() {
       answerOne: {answer: 'OK, <i>en skole</i>', next: 'skole2'},
     },
     skole2: {
-      bubbles: ['<i>Fint!</i>', '<img src="/i/rze-wsz/zr6jd.gif" />'],
+      bubbles: ['<i>Fint!</i>', '<img src="/las/c/i/rze-wsz/zr6jd.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     maaned1: {
-      bubbles: ['Określony <q>miesiąc</q>? <span class="emojione emojione-1f315"></span>'],
+      bubbles: ['Określony <q>miesiąc</q>? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f315"></use></svg>'],
       answerOne: {answer: '<i>månen</i>', next: 'maaned1b'},
       answerTwo: {answer: '<i>måneden</i>', next: 'maaned2'}
     },
@@ -1139,7 +1139,7 @@ function LasChatData() {
 
 
     vaapen1: {
-      bubbles: ['<q>Broń</q> <span class="emojione emojione-1f52b"></span><span class="emojione emojione-1f5e1"></span><span class="emojione emojione-26cf"></span> w liczbie mnogiej nieokreślonej?'],
+      bubbles: ['<q>Broń</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f52b"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f5e1"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-26cf"></use></svg> w liczbie mnogiej nieokreślonej?'],
       answerOne: {answer: '<i>våpen</i>', next: 'vaapen2'},
       answerTwo: {answer: '<i>våpnene</i>', next: 'vaapen1b'}
     },
@@ -1148,7 +1148,7 @@ function LasChatData() {
       answerOne: {answer: 'czyli <i>våpen</i>', next: 'vaapen2'},
     },
     vaapen2: {
-      bubbles: ['Zastrzeliłeś mnie!', '<img src="/i/rze-wsz/OmBhM.gif" />'],
+      bubbles: ['Zastrzeliłeś mnie!', '<img src="/las/c/i/rze-wsz/OmBhM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1163,13 +1163,13 @@ function LasChatData() {
       answerOne: {answer: '<i>talene</i>', next: 'tale2'},
     },
     tale2: {
-      bubbles: ['Muszę powiedzieć, że dajesz radę.', '<img src="/i/rze-wsz/mtlwOSac6agE0.gif" />'],
+      bubbles: ['Muszę powiedzieć, że dajesz radę.', '<img src="/las/c/i/rze-wsz/mtlwOSac6agE0.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     blod1: {
-      bubbles: ['Czy możemy zrobić liczbę mnogą od słowa <q>krew</q>, czyli <i>blod</i>? <span class="emojione emojione-1f489"></span>'],
+      bubbles: ['Czy możemy zrobić liczbę mnogą od słowa <q>krew</q>, czyli <i>blod</i>? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f489"></use></svg>'],
       answerOne: {answer: 'tak', next: 'blod1b'},
       answerTwo: {answer: 'nie', next: 'blod2'}
     },
@@ -1193,7 +1193,7 @@ function LasChatData() {
       answerOne: {answer: 'OK, <i>land</i>', next: 'land2'},
     },
     land2: {
-      bubbles: ['Dobrze.', 'A przy okazji, <q>kraje nordyckie</q> to po norwesku <i>Norden</i>.', '<span class="emojione emojione-1f1e7-1f1fb"></span><span class="emojione emojione-1f1e9-1f1f0"></span><span class="emojione emojione-1f1f8-1f1ea"></span><span class="emojione emojione-1f1e9-1f1f0"></span><span class="emojione emojione-1f1eb-1f1ee"></span><span class="emojione emojione-1f1eb-1f1f4"></span><span class="emojione emojione-1f1ee-1f1f8"></span><span class="emojione emojione-1f1e6-1f1fd"></span><span class="emojione emojione-1f1ec-1f1f1"></span>'],
+      bubbles: ['Dobrze.', 'A przy okazji, <q>kraje nordyckie</q> to po norwesku <i>Norden</i>.', '<svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f1e7-1f1fb"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f1e9-1f1f0"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f1f8-1f1ea"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f1e9-1f1f0"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f1eb-1f1ee"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f1eb-1f1f4"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f1ee-1f1f8"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f1e6-1f1fd"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f1ec-1f1f1"></use></svg>'],
       autoNext: 'RANDOM'
     },
 
@@ -1208,7 +1208,7 @@ function LasChatData() {
       answerOne: {answer: '<i>et bord</i>', next: 'bord2'},
     },
     bord2: {
-      bubbles: ['OK', '<img src="/i/rze-wsz/10ZoZ6owAU8Bnq.gif" />'],
+      bubbles: ['OK', '<img src="/las/c/i/rze-wsz/10ZoZ6owAU8Bnq.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1223,7 +1223,7 @@ function LasChatData() {
       answerOne: {answer: '<i>kriger</i>', next: 'krig2'},
     },
     krig2: {
-      bubbles: ['Dobra odpowiedź.', '<img src="/i/rze-wsz/XPmEZedldC1QA.gif" />'],
+      bubbles: ['Dobra odpowiedź.', '<img src="/las/c/i/rze-wsz/XPmEZedldC1QA.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1238,7 +1238,7 @@ function LasChatData() {
       answerOne: {answer: '<i>prisene</i>', next: 'pris2'},
     },
     pris2: {
-      bubbles: ['<span class="emojione emojione-263a"></span>'],
+      bubbles: ['<svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-263a"></use></svg>'],
       autoNext: 'RANDOM'
     },
 
@@ -1253,13 +1253,13 @@ function LasChatData() {
       answerOne: {answer: '<i>hjertet</i>', next: 'hjerte2'},
     },
     hjerte2: {
-      bubbles: ['<span class="emojione emojione-2764"></span> <span class="emojione emojione-2764"></span> <span class="emojione emojione-2764"></span>', '<img src="/i/rze-wsz/szCjFvyBhXPYk.gif" />'],
+      bubbles: ['<svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-2764"></use></svg> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-2764"></use></svg> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-2764"></use></svg>', '<img src="/las/c/i/rze-wsz/szCjFvyBhXPYk.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     klokke1: {
-      bubbles: ['<q>Zegar</q>, <q>zegarek</q> <span class="emojione emojione-231a"></span> nieokreślony to:'],
+      bubbles: ['<q>Zegar</q>, <q>zegarek</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-231a"></use></svg> nieokreślony to:'],
       answerOne: {answer: '<i>ei klokka</i>', next: 'klokke1b'},
       answerTwo: {answer: '<i>ei klokke</i>', next: 'klokke2'}
     },
@@ -1268,13 +1268,13 @@ function LasChatData() {
       answerOne: {answer: '<i>ei klokke</i>', next: 'klokke2'},
     },
     klokke2: {
-      bubbles: ['<i>Riktig!</i>', '<img src="/i/rze-wsz/IX89WTEnYgvM4.gif" />'],
+      bubbles: ['<i>Riktig!</i>', '<img src="/las/c/i/rze-wsz/IX89WTEnYgvM4.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     person1: {
-      bubbles: ['Określona <q>osoba</q>? <span class="emojione emojione-1f470-1f3fb"></span> <span class="emojione emojione-1f448-1f3fc"></span>'],
+      bubbles: ['Określona <q>osoba</q>? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f470-1f3fb"></use></svg> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f448-1f3fc"></use></svg>'],
       answerOne: {answer: '<i>personer</i>', next: 'person1b'},
       answerTwo: {answer: '<i>personen</i>', next: 'person2'}
     },
@@ -1283,7 +1283,7 @@ function LasChatData() {
       answerOne: {answer: '<i>personen</i>', next: 'person2'},
     },
     person2: {
-      bubbles: ['<i>Fint!</i>', '<img src="/i/rze-wsz/w9WS1R9ZAA1Ik.gif" />'],
+      bubbles: ['<i>Fint!</i>', '<img src="/las/c/i/rze-wsz/w9WS1R9ZAA1Ik.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1304,7 +1304,7 @@ function LasChatData() {
 
 
     ting1: {
-      bubbles: ['<q>Rzeczy</q> bliżej nieokreślone <span class="emojione emojione-1f459"></span><span class="emojione emojione-1f452"></span><span class="emojione emojione-1f48d"></span> to:'],
+      bubbles: ['<q>Rzeczy</q> bliżej nieokreślone <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f459"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f452"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f48d"></use></svg> to:'],
       answerOne: {answer: '<i>ting</i>', next: 'ting2'},
       answerTwo: {answer: '<i>tinger</i>', next: 'ting1b'}
     },
@@ -1319,16 +1319,16 @@ function LasChatData() {
 
 
     konge1: {
-      bubbles: ['<q>Król</q> <span class="emojione emojione-1f451"></span> określony?'],
+      bubbles: ['<q>Król</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f451"></use></svg> określony?'],
       answerOne: {answer: '<i>kongen</i>', next: 'konge2'},
       answerTwo: {answer: '<i>King Kong</i>', next: 'konge1b'}
     },
     konge1b: {
-      bubbles: ['<img src="/i/rze-wsz/3oEdv9Xaqm76AzUsvu.gif" />'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/3oEdv9Xaqm76AzUsvu.gif" />'],
       answerOne: {answer: '<i>kongen</i>', next: 'konge2'},
     },
     konge2: {
-      bubbles: ['<i>Det er helt konge!</i>', '<img src="/i/rze-wsz/jT698wBbaJX8c.gif" />'],
+      bubbles: ['<i>Det er helt konge!</i>', '<img src="/las/c/i/rze-wsz/jT698wBbaJX8c.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1343,7 +1343,7 @@ function LasChatData() {
       answerOne: {answer: '<i>eierne</i>', next: 'eier2'},
     },
     eier2: {
-      bubbles: ['<i>Yes!</i> <span class="emojione emojione-1f474-1f3fb"></span><span class="emojione emojione-1f475-1f3fb"></span>'],
+      bubbles: ['<i>Yes!</i> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f474-1f3fb"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f475-1f3fb"></use></svg>'],
       autoNext: 'RANDOM'
     },
 
@@ -1358,13 +1358,13 @@ function LasChatData() {
       answerOne: {answer: '<i>en hjerne</i>', next: 'hjerne2'},
     },
     hjerne2: {
-      bubbles: ['Jest OK!', '<img src="/i/rze-wsz/tumblr_mvspokcAed1t0uxv8o1_250.gif" />'],
+      bubbles: ['Jest OK!', '<img src="/las/c/i/rze-wsz/tumblr_mvspokcAed1t0uxv8o1_250.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     tegn1: {
-      bubbles: ['<q>Znak</q> <span class="emojione emojione-2622"></span> nieokreślony? '],
+      bubbles: ['<q>Znak</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-2622"></use></svg> nieokreślony? '],
       answerOne: {answer: '<i>et tegn</i>', next: 'tegn2'},
       answerTwo: {answer: '<i>et tegne</i>', next: 'tegn1b'}
     },
@@ -1379,7 +1379,7 @@ function LasChatData() {
 
 
     svin1: {
-      bubbles: ['<q>Świnia</q> <span class="emojione emojione-1f43d"></span> nieokreślona? No co, też popularne słowo.'],
+      bubbles: ['<q>Świnia</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f43d"></use></svg> nieokreślona? No co, też popularne słowo.'],
       answerOne: {answer: '<i>et svin</i>', next: 'svin2'},
       answerTwo: {answer: '<i>et svina</i>', next: 'svin1b'}
     },
@@ -1388,7 +1388,7 @@ function LasChatData() {
       answerOne: {answer: '<i>et svin</i>', next: 'svin2'}
     },
     svin2: {
-      bubbles: ['<img src="/i/rze-wsz/U8Mn2NSL6OR0Y.gif" />', 'Dobrze. A <i>et pinnsvin</i>? To oczywiście:', '<img src="/i/rze-wsz/hedgehog476r-2.gif" />'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/U8Mn2NSL6OR0Y.gif" />', 'Dobrze. A <i>et pinnsvin</i>? To oczywiście:', '<img src="/las/c/i/rze-wsz/hedgehog476r-2.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1403,13 +1403,13 @@ function LasChatData() {
       answerOne: {answer: '<i>tak</i>', next: 'tak2'},
     },
     tak2: {
-      bubbles: ['OK. <i>Takk for svaret</i>!', '<img src="/i/rze-wsz/XD0udYYcgeVRS.gif" />'],
+      bubbles: ['OK. <i>Takk for svaret</i>!', '<img src="/las/c/i/rze-wsz/XD0udYYcgeVRS.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     bad1: {
-      bubbles: ['<q>Łazienka</q> lub <q>kąpiel</q> określona? <span class="emojione emojione-1f6c1"></span>'],
+      bubbles: ['<q>Łazienka</q> lub <q>kąpiel</q> określona? <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f6c1"></use></svg>'],
       answerOne: {answer: '<i>et bad</i>', next: 'bad1b'},
       answerTwo: {answer: '<i>badet</i>', next: 'bad2'}
     },
@@ -1418,7 +1418,7 @@ function LasChatData() {
       answerOne: {answer: '<i>badet</i>', next: 'bad2'},
     },
     bad2: {
-      bubbles: ['<i>Korrekt!</i>', '<img src="/i/rze-wsz/ivMHHIEAG86t2.gif" />'],
+      bubbles: ['<i>Korrekt!</i>', '<img src="/las/c/i/rze-wsz/ivMHHIEAG86t2.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1433,7 +1433,7 @@ function LasChatData() {
       answerOne: {answer: '<i>sykehus</i>', next: 'sykehus2'},
     },
     sykehus2: {
-      bubbles: ['<i>Riktig!</i>', '<img src="/i/rze-wsz/Scrubs-JD-pours-Kittens-on-Patient.gif" />'],
+      bubbles: ['<i>Riktig!</i>', '<img src="/las/c/i/rze-wsz/Scrubs-JD-pours-Kittens-on-Patient.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1444,17 +1444,17 @@ function LasChatData() {
       answerTwo: {answer: '<i>kroppen</i>', next: 'kropp2'}
     },
     kropp1b: {
-      bubbles: ['Wybrałeś <span class="emojione emojione-2615"></span>', 'Ciało to <i>en kropp</i>, a w formie określonej...'],
+      bubbles: ['Wybrałeś <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-2615"></use></svg>', 'Ciało to <i>en kropp</i>, a w formie określonej...'],
       answerOne: {answer: '<i>kroppen</i>', next: 'kropp2'},
     },
     kropp2: {
-      bubbles: ['<i>Uten feil!</i>', '<img src="/i/rze-wsz/Dkv7sJS.gif" />'],
+      bubbles: ['<i>Uten feil!</i>', '<img src="/las/c/i/rze-wsz/Dkv7sJS.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
     jorda1: {
-      bubbles: ['<q>Ziemia</q> <span class="emojione emojione-1f30d"></span>, <q>gleba</q> określona?'],
+      bubbles: ['<q>Ziemia</q> <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f30d"></use></svg>, <q>gleba</q> określona?'],
       answerOne: {answer: '<i>jorda</i>', next: 'jorda2'},
       answerTwo: {answer: '<i>jord</i>', next: 'jorda1b'}
     },
@@ -1463,7 +1463,7 @@ function LasChatData() {
       answerOne: {answer: '<i>jorda</i>', next: 'jorda2'},
     },
     jorda2: {
-      bubbles: ['Tak! Pędzimy dalej!', '<img src="/i/rze-wsz/toaC2uZnfTiWk.gif" />'],
+      bubbles: ['Tak! Pędzimy dalej!', '<img src="/las/c/i/rze-wsz/toaC2uZnfTiWk.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1478,7 +1478,7 @@ function LasChatData() {
       answerOne: {answer: '<i>sjansen</i>', next: 'sjanse2'},
     },
     sjanse2: {
-      bubbles: ['<i>Det var en god jobb!</i> (To była dobra robota!)', '<img src="/i/rze-wsz/3osxY8yHdijYBl6p2w.gif" />'],
+      bubbles: ['<i>Det var en god jobb!</i> (To była dobra robota!)', '<img src="/las/c/i/rze-wsz/3osxY8yHdijYBl6p2w.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1493,7 +1493,7 @@ function LasChatData() {
       answerOne: {answer: '<i>en forelder</i>', next: 'forelder2'},
     },
     forelder2: {
-      bubbles: ['<i>Det var bra!</i>', '<img src="/i/rze-wsz/original-2-roundround.gif" />'],
+      bubbles: ['<i>Det var bra!</i>', '<img src="/las/c/i/rze-wsz/original-2-roundround.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1504,11 +1504,11 @@ function LasChatData() {
       answerTwo: {answer: '<i>legen</i>', next: 'lege2'}
     },
     lege1b: {
-      bubbles: ['<img src="/i/rze-wsz/UzHxxqF1WO6UE.gif" />', 'Określony z rodzajnikiem? Coś nie tak...'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/UzHxxqF1WO6UE.gif" />', 'Określony z rodzajnikiem? Coś nie tak...'],
       answerOne: {answer: '<i>legen</i>', next: 'lege2'},
     },
     lege2: {
-      bubbles: ['Mhmm', '<img src="/i/rze-wsz/tumblr_m3viuiMFVr1ru06ato1_500.gif" />'],
+      bubbles: ['Mhmm', '<img src="/las/c/i/rze-wsz/tumblr_m3viuiMFVr1ru06ato1_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1523,7 +1523,7 @@ function LasChatData() {
       answerOne: {answer: '<i>saker</i>', next: 'saker2'},
     },
     saker2: {
-      bubbles: ['Zgadza się.', '<img src="/i/rze-wsz/n6M6H9R0474ty.gif" />'],
+      bubbles: ['Zgadza się.', '<img src="/las/c/i/rze-wsz/n6M6H9R0474ty.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1538,7 +1538,7 @@ function LasChatData() {
       answerOne: {answer: '<i>skadene</i>', next: 'skade2'},
     },
     skade2: {
-      bubbles: ['<img src="/i/rze-wsz/13ZHjidRzoi7n2.gif" />'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/13ZHjidRzoi7n2.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1553,7 +1553,7 @@ function LasChatData() {
       answerOne: {answer: '<i>pølser</i>', next: 'peolse2'},
     },
     peolse2: {
-      bubbles: ['<img src="/i/rze-wsz/xNk979fe8QFck.gif" />'],
+      bubbles: ['<img src="/las/c/i/rze-wsz/xNk979fe8QFck.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1568,7 +1568,7 @@ function LasChatData() {
       answerOne: {answer: '<i>et fengsel</i>', next: 'fengsel2'},
     },
     fengsel2: {
-      bubbles: ['OK', '<img src="/i/rze-wsz/l0OWistc2HUjf6PKM.gif" />'],
+      bubbles: ['OK', '<img src="/las/c/i/rze-wsz/l0OWistc2HUjf6PKM.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -1576,10 +1576,10 @@ function LasChatData() {
     zzzz1: {
       bubbles: ['Nie zasypiasz?'],
       answerOne: {answer: 'trochę', next: 'zzzz2'},
-      answerTwo: {answer: 'daję radę <span class="emojione emojione-1f4aa-1f3ff"></span>', next: 'RANDOM'}
+      answerTwo: {answer: 'daję radę <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f4aa-1f3ff"></use></svg>', next: 'RANDOM'}
     },
     zzzz2: {
-      bubbles: ['<span class="emojione emojione-1f388"></span><span class="emojione emojione-1f4cc"></span>', '<img src="/i/rze-wsz/4N8EsSk.gif" />'],
+      bubbles: ['<svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f388"></use></svg><svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f4cc"></use></svg>', '<img src="/las/c/i/rze-wsz/4N8EsSk.gif" />'],
       autoNext: 'RANDOM'
     }
 
@@ -1603,15 +1603,15 @@ function LasChatData() {
 
   this.end = {
     a1: {
-      bubbles: ['Gładko Ci poszło!', '<img src="/i/rze-wsz/When-Gang-Does-Group-Dance-Too.gif" />', ''],
+      bubbles: ['Gładko Ci poszło!', '<img src="/las/c/i/rze-wsz/When-Gang-Does-Group-Dance-Too.gif" />', ''],
       autoNext: 'END'
     },
     b1: {
-      bubbles: ['To były najczęściej używane rzeczowniki w potocznym języku. Jeśli opanowałeś zasady tworzenia wszystkich czterech form, to na tej zasadzie będziesz już tworzyć kolejne!', '<img src="/i/rze-wsz/Bi6FcO7UoutWM.gif" />'],
+      bubbles: ['To były najczęściej używane rzeczowniki w potocznym języku. Jeśli opanowałeś zasady tworzenia wszystkich czterech form, to na tej zasadzie będziesz już tworzyć kolejne!', '<img src="/las/c/i/rze-wsz/Bi6FcO7UoutWM.gif" />'],
       autoNext: 'END'
     },
     c1: {
-      bubbles: ['Muszę już jechać.', '<img src="/i/rze-wsz/vjnLzg78di4wM.gif" />', 'Trzymaj się!'],
+      bubbles: ['Muszę już jechać.', '<img src="/las/c/i/rze-wsz/vjnLzg78di4wM.gif" />', 'Trzymaj się!'],
       autoNext: 'END'
     }
   };

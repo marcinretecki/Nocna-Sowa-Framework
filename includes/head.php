@@ -21,7 +21,6 @@
 
   <?php include( '/c/w/themes/nocnasowa_theme/includes/header-meta.php' ); ?>
   <link rel="stylesheet" type="text/css" href="<?php ns_auto_ver('/c/las.css'); ?>" />
-  <link rel="stylesheet" type="text/css" href="<?php ns_auto_ver('/c/chat-bot-rzeczownik.css'); ?>" />
 </head>
 
 <body>

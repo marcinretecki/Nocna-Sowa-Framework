@@ -3,11 +3,11 @@ function LasChatData() {
 
   this.intro = {
     a1: {
-      bubbles: ['Hei!', 'Jest trochę przedziwnych, albo wyjątkowych sytuacji, z którymi się spotkasz. I chcę Cię na to przygotować.', '<img src="/i/cza-niereg/Trampoline-Swing-With-leaves.gif" />', 'Wchodzisz w to?'],
-      answerOne: {answer: 'emot ninja (nie znalazłem) <span class="emojione emojione-1f93a"></span>', next: 'a2'}
+      bubbles: ['Hei!', 'Jest trochę przedziwnych, albo wyjątkowych sytuacji, z którymi się spotkasz. I chcę Cię na to przygotować.', '<img src="/las/c/i/cza-niereg/Trampoline-Swing-With-leaves.gif" />', 'Wchodzisz w to?'],
+      answerOne: {answer: 'emot ninja (nie znalazłem) <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f93a"></use></svg>', next: 'a2'}
     },
     a2: {
-      bubbles: ['<img src="/i/cza-niereg/lIpKFSBdO4K2I.gif" />'],
+      bubbles: ['<img src="/las/c/i/cza-niereg/lIpKFSBdO4K2I.gif" />'],
       autoNext: 'ENDINTRO'
     }
   };
@@ -24,11 +24,11 @@ function LasChatData() {
       answerOne: {answer: 'OK, <i>Du er pen.</i>', next: 'aa2'},
     },
     aa2: {
-      bubbles: ['Wspaniale!', '<img src="/i/cza-niereg/tumblr_meruyt3J3p1rmialto1_500.gif" />', 'Jesteś tu?'],
+      bubbles: ['Wspaniale!', '<img src="/las/c/i/cza-niereg/tumblr_meruyt3J3p1rmialto1_500.gif" />', 'Jesteś tu?'],
       answerOne: {answer: '<i>Jeg er her.</i>', next: 'aa3'}
     },
     aa3: {
-      bubbles: ['<i>Bare sjekker deg.</i>', 'Tylko Cię sprawdzam. <span class="emojione emojione-1f609"></span>'],
+      bubbles: ['<i>Bare sjekker deg.</i>', 'Tylko Cię sprawdzam. <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f609"></use></svg>'],
       autoNext: 'RANDOM'
     },
 
@@ -39,12 +39,12 @@ function LasChatData() {
       answerTwo: {answer: '<i>De gjører.</i>', next: 'ab1b'}
     },
     ab1b: {
-      bubbles: ['<img src="/i/cza-niereg/E4hvU2Ee5TS1i.gif" />', 'Może się zastanów.'],
+      bubbles: ['<img src="/las/c/i/cza-niereg/E4hvU2Ee5TS1i.gif" />', 'Może się zastanów.'],
       answerOne: {answer: 'no tak: <i>De gjør.</i>', next: 'ab2'},
     },
 
     ab2: {
-      bubbles: ['Veldig bra!', '<img src="/i/cza-niereg/When-Gang-Does-Group-Dance-Too.gif" />'],
+      bubbles: ['Veldig bra!', '<img src="/las/c/i/cza-niereg/When-Gang-Does-Group-Dance-Too.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -69,7 +69,7 @@ function LasChatData() {
       answerOne: {answer: 'przykład?', next: 'ad2'}
     },
     ad2: {
-      bubbles: ['<q>Uważam, że Knut jest brzydki.</q>', '<i>Jeg synes at Knut er stygg.</i>', 'Albo nawet brzydki jak noc:', '<i>Jeg synes at Knut er stygg som et troll.</i>', 'Z resztą to kwestia gustu.', '<img src="/i/cza-niereg/25nEL3k.gif" />'],
+      bubbles: ['<q>Uważam, że Knut jest brzydki.</q>', '<i>Jeg synes at Knut er stygg.</i>', 'Albo nawet brzydki jak noc:', '<i>Jeg synes at Knut er stygg som et troll.</i>', 'Z resztą to kwestia gustu.', '<img src="/las/c/i/cza-niereg/25nEL3k.gif" />'],
       answerOne: {answer: '.....monolog....', next: 'ad4ae'},
     },
     /*ad3: {
@@ -80,7 +80,7 @@ function LasChatData() {
 
     ad4ae: {
       bubbles: ['Kolejny wyjątek to mówić: å si, ale:', '<i>Jeg sier.</i> <br/><i>Du sier.</i> <br /><i>Vi sier.</i>', 'Zapamiętałeś?'],
-      answerOne: {answer: 'na całe życie <span class="emojione emojione-1f64b-1f3fb"></span>', next: 'ae2'},
+      answerOne: {answer: 'na całe życie <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f64b-1f3fb"></use></svg>', next: 'ae2'},
       answerTwo: {answer: 'nie łapię', next: 'ae1b'}
     },
     ae1b: {
@@ -102,7 +102,7 @@ function LasChatData() {
     },
     ae5: {
       bubbles: ['<i>Å si</i> znaczy mówić coś, mówić, że albo wypowiadać.', '<i>Jeg sier det.</i> – Mówię to.', '<i>Han sier at Norge er pen.</i> – On mówi, że Norwegia jest piękna.'],
-      answerOne: {answer: 'OK, mam to <span class="emojione emojione-1f4dd></span>', next: 'ae6'}
+      answerOne: {answer: 'OK, mam to <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f4dd></span>', next: 'ae6'}
     },
     ae6: {
       bubbles: ['Jest jeszcze jeden czasownik: <i>å snakkes</i>.', 'Spotkasz się z nim często w potocznym języku.', 'Wiesz jak go używać?'],
@@ -119,11 +119,11 @@ function LasChatData() {
       answerTwo: {answer: '<i>Dere sees.</i>', next: 'ae8b'}
     },
     ae8b: {
-      bubbles: ['<img src="/i/cza-niereg/3o6ZtlfHW4pbmqWZbi.gif" />', '<i>Dere</i> to <q>wy</q>. Powinno być: '],
+      bubbles: ['<img src="/las/c/i/cza-niereg/3o6ZtlfHW4pbmqWZbi.gif" />', '<i>Dere</i> to <q>wy</q>. Powinno być: '],
       answerOne: {answer: '<i>Vi sees.</i> Albo <i>Vi ses.</i>', next: 'ae9'},
     },
     ae9: {
-      bubbles: ['<img src="/i/cza-niereg/3oz8xQr4vghemtkHbW.gif" />', 'Jak myślisz, co znaczy takie zdanie?', '<i>Vi treffes ofte.</i>'],
+      bubbles: ['<img src="/las/c/i/cza-niereg/3oz8xQr4vghemtkHbW.gif" />', 'Jak myślisz, co znaczy takie zdanie?', '<i>Vi treffes ofte.</i>'],
       answerOne: {answer: 'Spotykaliśmy się często.', next: 'ae9b'},
       answerTwo: {answer: 'Spotykamy się często.', next: 'ae10'}
     },
@@ -132,7 +132,7 @@ function LasChatData() {
       answerOne: {answer: 'Spotykamy się często.', next: 'ae10'}
     },
     ae10: {
-      bubbles: ['<img src="/i/cza-niereg/tumblr-nxm9h7e9ng1uluepno1-400.gif" />'],
+      bubbles: ['<img src="/las/c/i/cza-niereg/tumblr-nxm9h7e9ng1uluepno1-400.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -156,7 +156,7 @@ function LasChatData() {
       answerOne: {answer: 'OK, już pamiętam', next: 'af3'}
     },
     af3: {
-      bubbles: ['<i>Flott!</i>', '<img src="/i/cza-niereg/mv7Q7X9QWxPdS.gif" />'],
+      bubbles: ['<i>Flott!</i>', '<img src="/las/c/i/cza-niereg/mv7Q7X9QWxPdS.gif" />'],
       autoNext: 'RANDOM'
     },
 
@@ -171,7 +171,7 @@ function LasChatData() {
       answerOne: {answer: 'OK....', next: 'ag2'},
     },
     ag2: {
-      bubbles: ['<img src="/i/cza-niereg/dmUjJNqY4tML6.gif" />'],
+      bubbles: ['<img src="/las/c/i/cza-niereg/dmUjJNqY4tML6.gif" />'],
       autoNext: 'RANDOM'
     }
 
@@ -198,7 +198,7 @@ function LasChatData() {
 
   this.end = {
     a1: {
-      bubbles: ['Tak poznałeś wszystkie najważniejsze wyjątki czasowników w czasie teraźniejszym. Koniec.', '<img src="/i/cza-niereg/mX7EwTtsRcvKM.gif" />', '<i>Ha en fin dag! Vi sees i skogen!</i>', '<img src="/i/cza-niereg/gBxL0G0DqZd84.gif" />'],
+      bubbles: ['Tak poznałeś wszystkie najważniejsze wyjątki czasowników w czasie teraźniejszym. Koniec.', '<img src="/las/c/i/cza-niereg/mX7EwTtsRcvKM.gif" />', '<i>Ha en fin dag! Vi sees i skogen!</i>', '<img src="/las/c/i/cza-niereg/gBxL0G0DqZd84.gif" />'],
       autoNext: 'END'
     }
   };
