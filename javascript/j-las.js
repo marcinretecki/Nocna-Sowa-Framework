@@ -93,11 +93,10 @@ function LasHelper() {
   this.lasSaveChallangeProgress = function() {
 
     var newCookie = {};
-
-    //  it is defined in the head
-    var chapter = lasChapter;
-
     var saveChallangeProgress = {};
+
+    //  use self or it will point to the wrong this
+    var chapter = self.helper.chapter;
 
     //
     //  Private functions
@@ -298,7 +297,6 @@ function LasHelper() {
   this.hideLoader = function() {
 
     window.console.log('hide loader');
-    window.console.log('this.loader');
 
     this.velocity(
       this.loader,
@@ -528,6 +526,45 @@ function LasHelper() {
 
     //  haven't found anything
     return false;
+
+  };
+
+
+  this.playAudioTestMode = function(startTime, stopTime) {
+
+    var pauseTimer;
+
+    if ( !this.audioFile ) {
+      return;
+    }
+
+    if ( startTime === 0 ) {
+      startTime = 0.01;
+    }
+
+    console.log(this);
+
+    try {
+      //  set the current time
+      this.audioFile.currentTime = startTime;
+
+      this.audioFile.play();
+    }
+    //  if the audio is not loaded
+    catch (e) {
+      window.console.log('can not set time or play');
+
+      this.loadAudioFile();
+    }
+
+    pauseTimer = window.setTimeout(function() {
+
+      window.clearTimeout(pauseTimer);
+      pauseTimer = undefined;
+      this.audioFile.pause();
+
+    }.bind(this), (stopTime - startTime) * 1000 );
+
 
   };
 

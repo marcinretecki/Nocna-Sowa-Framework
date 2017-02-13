@@ -1753,6 +1753,90 @@ function LasAudioTest() {
 
   };
 
+
+
+  this.test = function() {
+    var property;
+    var data = this.lasData.chat;
+    var bubble;
+    var content;
+    var bubbleData;
+    var bubbleProp;
+    var line;
+    var i;
+    var answers;
+    var answersL;
+
+    this.wrapper.innerHTML = '';
+
+    //  iteriate over all data props
+    for ( property in data ) {
+      if ( data.hasOwnProperty(property) ) {
+
+        //  create bubble
+        bubble = document.createElement('div');
+        bubble.className = 'pad section-dark space size-0';
+        bubble.style.position = 'relative';
+
+        //  reset content
+        content = '';
+
+        bubbleData = data[property];
+
+        for ( bubbleProp in bubbleData ) {
+          if ( bubbleData.hasOwnProperty(bubbleProp) ) {
+
+            if ( ( bubbleProp === 'msg' ) || ( bubbleProp === 'spokenWord' ) ) {
+              content += '<p class="size-1 space-half">' + bubbleData[bubbleProp] + '</p>';
+            }
+            else if ( bubbleProp === 'trans' ) {
+              content += '<p class="size-1 space-half" style="opacity:0.75;"><i>Trans</i>: ' + bubbleData[bubbleProp] + '</p>';
+            }
+            else if ( ( bubbleProp === 'answers' ) ) {
+
+              answers = bubbleData.answers;
+              answersL = answers.length;
+
+              content += 'Odpowiedzi:<br />';
+
+
+              for (i = 0; i < answersL; i++) {
+
+                if ( answers[i].wrong ) {
+                  content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#dd4b39;display:inline-block;"></span>' + answers[i].answer;
+                }
+                else {
+                  content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#308c8c;display:inline-block;"></span>' + answers[i].answer
+                }
+
+                content += '<br />';
+
+              }
+
+
+            } else {
+              content += ' <span style="opacity:0.75;">| ' + bubbleProp + ': ' + bubbleData[bubbleProp] + '</span>';
+            }
+
+            if ( ( bubbleProp === 'startTime' ) && this.audioFile ) {
+              content += '<button style="position:absolute;right:0.5rem;top:0.5rem;" class="btn btn-white btn-small" onClick="las.playAudioTestMode(' + bubbleData.startTime +  ', ' + bubbleData.stopTime + ');">TestAudio &raquo;</button>';
+            }
+
+          }
+
+        }
+
+        bubble.innerHTML = content;
+        this.wrapper.appendChild(bubble);
+
+      // end if has property
+      }
+    // end loop
+    }
+
+
+  };
+
 }
 
 //

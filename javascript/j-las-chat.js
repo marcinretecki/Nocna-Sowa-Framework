@@ -127,9 +127,9 @@ function LasChat() {
       return false;
     }
 
-    var bubble = document.createElement('li'),
-        content = this.bubbleArray.shift(),
-        nextFunction;
+    var bubble = document.createElement('li');
+    var content = this.bubbleArray.shift();
+    var nextFunction;
 
     this.prefetch.innerHTML = content;
 
@@ -423,14 +423,20 @@ function LasChat() {
 
 
   this.test = function() {
-    var property,
-        data = this.lasData.chat,
-        bubble,
-        content,
-        answerOne,
-        answerTwo;
+    var property;
+    var data = this.lasData.chat;
+    var bubble;
+    var content;
+    var answerOne;
+    var answerTwo;
 
+    this.showLoader();
+
+    this.state.answersWaiting = true;
     this.resetAnswers();
+    this.state.answersWaiting = true;
+    this.bubbleArray = [];
+    this.velocity(self.answers, 'stop', true);
     self.chatFlow.innerHTML = '';
     self.chatFlow.style.display = 'none';
 
@@ -441,7 +447,7 @@ function LasChat() {
           bubble = document.createElement('li');
           content = item;
 
-          bubble.className = 'beige chat-bubble';
+          bubble.className = 'white chat-bubble';
           bubble.style.right = '0';
           bubble.innerHTML = content;
 
@@ -465,7 +471,7 @@ function LasChat() {
         }
 
       var line = document.createElement('li');
-      line.style.cssText = 'width:100%;height:3px;background:#000;margin:2.5rem 0;clear:both;';
+      line.style.cssText = 'width:100%;height:3px;background:#fff;margin:2.5rem 0;clear:both;';
 
       self.chatFlow.appendChild(line);
 
@@ -474,7 +480,10 @@ function LasChat() {
 
     self.chatFlow.style.display = 'block';
 
+    this.hideLoader();
+
   };
+
 
 }
 

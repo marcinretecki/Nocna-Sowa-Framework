@@ -478,7 +478,7 @@ backface-visibility:hidden;
 
 
 /* cwiczenia */
-.ex{padding-top:$space-2;margin-bottom:$space-4;}
+.ex{margin-top:$space-4;margin-bottom:$space-4;}
 // .command{position:relative;}
 // .command:before{display:inline-block;position:absolute;left:-($space);top:$size-1 / 4;width:3px;height:$size-1;content:"";}
 // .category-zaczynam .command:before{background:$green}
@@ -492,7 +492,7 @@ backface-visibility:hidden;
 .ex .text{margin:0;padding:0;}
 .ex .tick{display:none;position:absolute;left:(-$space-2);top:2px;width:20px;height:20px;vertical-align:text-top;}
 .ex br+i{margin:0;}
-.ex li{position:relative;overflow:visible;}
+.ex li{margin-bottom:$space;position:relative;overflow:visible;}
 .ex .btn-dark,.ex .btn-ex-fb{display:none;}
 .ex .btn-ex-fb{padding-top:$space;opacity:0.5}
 .ex .btn-ex-fb:hover{opacity:1}

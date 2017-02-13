@@ -42,6 +42,24 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/javascript\/j-las-liczby.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/j-las-liczby-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/j-las-setninger.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/j-las-setninger-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/javascript\/j-las-szlak.js": {
 		"ft": 64,
 		"mi": 1,
