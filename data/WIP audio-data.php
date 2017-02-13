@@ -8,6 +8,7 @@ function LasAudioData() {
   //  more jest dowolne
   //  gdy nie startTime, mamy quiz
   //  answer jest poiminięte tylko w intro 1
+  //  cmd + alt + n -> aa
 
 
   this.intro = {

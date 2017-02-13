@@ -80,51 +80,34 @@
 
 <?php
 
-$audio_file_m4a = stream_resolve_include_path( '/las/c/s/wyzwanie/' . $post->post_name . '.m4a' );
-$audio_file_opus = stream_resolve_include_path( '/las/c/s/wyzwanie/' . $post->post_name . '.opus' );
+//  get the audio file
+include( stream_resolve_include_path( __DIR__ . '/get-audio-file.php' ) );
 
+
+//  @file is defined in page.php
+if ( $file ) {
 ?>
+  <script>
+  var las = new LasAudioTest();
+  las.helper.chapter = "<?php echo $post->post_name; ?>";
 
-
-<audio id="audio-file" preload="auto">
   <?php
-
-    if ( $audio_file_m4a ) {
-      echo '<source src="';
-      ns_auto_ver( $audio_file_m4a );
-      echo '" type="audio/mpeg">';
-    }
-
-    if ( $audio_file_opus ) {
-      echo '<source src="';
-      ns_auto_ver( $audio_file_opus );
-      echo '" type="audio/ogg">';
-    }
-
+  //  there is no file
+  //  @audio_file_xxx is defined in get-audio-file
+  if ( !$audio_file_m4a && !$audio_file_opus ) {
+    echo 'las.audioFile = false;';
+  }
   ?>
 
-  Twoja przeglądarka jest za stara na to ćwiczenie.
-</audio>
+  window.addEventListener('load', function() {
+    las.init();
+  }, false);
+
+  </script>
+<?php }
+else {
+  echo '<p>Nie znaleźliśmy pliku z ćwiczeniem.</p>';
+}
 
 
-<script>
-var lasAudioTest = new LasAudioTest();
-
-<?php
-
-  //  there is no file
-  if ( !$audio_file_m4a && !$audio_file_opus ) {
-    echo 'lasAudioTest.audioFile = false;';
-  }
-  else {}
-
-?>
-
-lasAudioTest.init();
-</script>
-
-
-
-
-<?php
 

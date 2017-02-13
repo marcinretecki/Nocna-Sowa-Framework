@@ -19,8 +19,8 @@ function LasAudioData() {
       autoNext:   'aa2'
     },
     aa2: {
-      trans:      'Jutro mam iść do pracy.',
       msg:        'Jeg skal på jobb i morgen.',
+      trans:      'Jutro mam iść do pracy.',
       startTime:  4,
       stopTime:   6.5,
       autoNext:   'RANDOM'
@@ -34,8 +34,8 @@ function LasAudioData() {
       autoNext:   'ab2'
     },
     ab2: {
-      trans:      'Jutro idę do pracy.',
       msg:        'Jeg går på jobb i morgen.',
+      trans:      'Jutro idę do pracy.',
       startTime:  12,
       stopTime:   13.5,
       autoNext:   'RANDOM'
@@ -49,8 +49,8 @@ function LasAudioData() {
       autoNext:   'ac2'
     },
     ac2: {
-      trans:      'Przyjdę do Ciebie.',
       msg:        'Jeg skal komme til deg.',
+      trans:      'Przyjdę do Ciebie.',
       startTime:  19,
       stopTime:   21,
       autoNext:   'RANDOM'
@@ -64,8 +64,8 @@ function LasAudioData() {
       autoNext:   'ae2'
     },
     ae2: {
-      trans:      'Przyjdę do Ciebie.',
       msg:        'Jeg kommer til deg.',
+      trans:      'Przyjdę do Ciebie.',
       startTime:  33,
       stopTime:   34.5,
       autoNext:   'RANDOM'
@@ -79,8 +79,8 @@ function LasAudioData() {
       autoNext:   'af2'
     },
     af2: {
-      trans:      'Napiszę do Ciebie maila.',
       msg:        'Jeg skal skrive e-posten til deg.',
+      trans:      'Napiszę do Ciebie maila.',
       startTime:  40,
       stopTime:   42,
       autoNext:   'RANDOM'
@@ -94,8 +94,8 @@ function LasAudioData() {
       autoNext:   'ah2'
     },
     ah2: {
-      trans:      'Napiszę do Ciebie maila.',
       msg:        'Jeg skriver e-posten til deg.',
+      trans:      'Napiszę do Ciebie maila.',
       startTime:  47,
       stopTime:   49,
       autoNext:   'RANDOM'
@@ -109,8 +109,8 @@ function LasAudioData() {
       autoNext:   'aj2'
     },
     aj2: {
-      trans:      'On ma odebrać paczkę z poczty.',
       msg:        'Han skal hente pakka på posten.',
+      trans:      'On ma odebrać paczkę z poczty.',
       startTime:  54,
       stopTime:   56,
       autoNext:   'RANDOM'
@@ -124,8 +124,8 @@ function LasAudioData() {
       autoNext:   'ai2'
     },
     ai2: {
-      trans:      'On odbierze paczkę z poczty.',
       msg:        'Han henter pakka på posten.',
+      trans:      'On odbierze paczkę z poczty.',
       startTime:  60,
       stopTime:   61.5,
       autoNext:   'RANDOM'
@@ -139,8 +139,8 @@ function LasAudioData() {
       autoNext:   'ak2'
     },
     ak2: {
-      trans:      'Zamierzam przeczytać tę książkę w przyszłym miesiącu.',
       msg:        'Jeg skal lese denne boka neste måned.',
+      trans:      'Zamierzam przeczytać tę książkę w przyszłym miesiącu.',
       startTime:  67,
       stopTime:   68.5,
       autoNext:   'RANDOM'
@@ -154,8 +154,8 @@ function LasAudioData() {
       autoNext:   'al2'
     },
     al2: {
-      trans:      'Przeczytam tę książkę w przyszłym miesiącu.',
       msg:        'Jeg leser denne boka neste måned.',
+      trans:      'Przeczytam tę książkę w przyszłym miesiącu.',
       startTime:  74,
       stopTime:   76,
       autoNext:   'RANDOM'
@@ -169,8 +169,8 @@ function LasAudioData() {
       autoNext:   'ba2'
     },
     ba2: {
-      trans:      'Planuję zrobić zakupy w drodze do domu.',
       msg:        'Jeg skal handle på vei hjem.',
+      trans:      'Planuję zrobić zakupy w drodze do domu.',
       startTime:  81,
       stopTime:   83.5,
       autoNext:   'RANDOM'
@@ -184,8 +184,8 @@ function LasAudioData() {
       autoNext:   'bb2'
     },
     bb2: {
-      trans:      'Zrobię zakupy w drodze do domu.',
       msg:        'Jeg handler på vei hjem.',
+      trans:      'Zrobię zakupy w drodze do domu.',
       startTime:  89,
       stopTime:   90.5,
       autoNext:   'RANDOM'
@@ -199,8 +199,8 @@ function LasAudioData() {
       autoNext:   'bc2'
     },
     bc2: {
-      trans:      'Zamierzam sprzedać samochód w tym roku.',
       msg:        'Jeg skal selge bilen i år.',
+      trans:      'Zamierzam sprzedać samochód w tym roku.',
       startTime:  95,
       stopTime:   97,
       autoNext:   'RANDOM'
@@ -214,8 +214,8 @@ function LasAudioData() {
       autoNext:   'bd2'
     },
     bd2: {
-      trans:      'Sprzedam samochód w tym roku.',
       msg:        'Jeg selger bilen i år.',
+      trans:      'Sprzedam samochód w tym roku.',
       startTime:  102,
       stopTime:   104.5,
       autoNext:   'RANDOM'
@@ -229,8 +229,8 @@ function LasAudioData() {
       autoNext:   'bf2'
     },
     bf2: {
-      trans:      'Zamierzam otworzyć konto w banku.',
       msg:        'Jeg skal åpne en konto i banken.',
+      trans:      'Zamierzam otworzyć konto w banku.',
       startTime:  116,
       stopTime:   118,
       autoNext:   'RANDOM'
@@ -244,8 +244,8 @@ function LasAudioData() {
       autoNext:   'bh2'
     },
     bh2: {
-      trans:      'Otworzę konto w banku.',
       msg:        'Jeg åpner en konto i banken.',
+      trans:      'Otworzę konto w banku.',
       startTime:  130,
       stopTime:   131.5,
       autoNext:   'RANDOM'
@@ -259,8 +259,8 @@ function LasAudioData() {
       autoNext:   'bi2'
     },
     bi2: {
-      trans:      'Jutro będę rozmawiał z szefem.',
       msg:        'Jeg skal snakke med sjefen i morgen.',
+      trans:      'Jutro będę rozmawiał z szefem.',
       startTime:  136,
       stopTime:   137.5,
       autoNext:   'RANDOM'
@@ -274,8 +274,8 @@ function LasAudioData() {
       autoNext:   'bj2'
     },
     bj2: {
-      trans:      'Jutro porozmawiam z szefem.',
       msg:        'Jeg snakker med sjefen i morgen.',
+      trans:      'Jutro porozmawiam z szefem.',
       startTime:  142,
       stopTime:   143.5,
       autoNext:   'RANDOM'
@@ -289,8 +289,8 @@ function LasAudioData() {
       autoNext:   'bk2'
     },
     bk2: {
-      trans:      'W czwartek idę do fizjoterapeuty.',
       msg:        'Jeg skal gå til fysioterapeut.',
+      trans:      'W czwartek idę do fizjoterapeuty.',
       startTime:  148,
       stopTime:   149.5,
       autoNext:   'RANDOM'
@@ -304,8 +304,8 @@ function LasAudioData() {
       autoNext:   'bl2'
     },
     bl2: {
-      trans:      'W czwartek idę do fizjoterapeuty.',
       msg:        'Jeg går til fysjoteraput.',
+      trans:      'W czwartek idę do fizjoterapeuty.',
       startTime:  148,
       stopTime:   149.5,
       autoNext:   'RANDOM'

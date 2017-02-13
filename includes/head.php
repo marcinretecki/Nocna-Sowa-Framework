@@ -24,9 +24,6 @@
 </head>
 
 <body>
-<script>
-var lasChapter = "<?php echo $post->post_name; ?>";
-</script>
 <script src="//cdn.jsdelivr.net/velocity/1.4.0/velocity.min.js"></script>
 <script src="<?php ns_auto_ver('/c/j-min.js'); ?>"></script>
 <script src="<?php ns_auto_ver('/c/j-las-min.js'); ?>"></script>

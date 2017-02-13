@@ -44,25 +44,6 @@ function las_show_comment_section() {
 
 
 //
-//  Ścieżki
-//
-//  /
-//    - komentarze
-//  /przewodnik/
-//    - przewodnik-audio
-//    - przewodnik-chat
-//    - przewodnik-video
-//  /wyzwanie/
-//    - wyzwanie-audio
-//    - wyzwanie-chat
-//    - wyzwanie-liczby
-//    - wyzwanie-quiz
-//    - wyzwanie-setninger
-//
-
-
-
-//
 //  Function routing different course parts
 //
 function las_course_router() {
@@ -77,7 +58,7 @@ function las_course_router() {
 
   }
   //  It is a QA part
-  elseif ( !get_query_var( 'przewodnik' ) && !get_query_var( 'wyzwanie' ) ) {
+  elseif ( !get_query_var( 'przewodnik' ) && !get_query_var( 'wyzwanie' ) && !get_query_var( 'testmode' ) ) {
 
     //  Show comment section
     las_show_comment_section();
@@ -92,7 +73,7 @@ function las_course_router() {
     if ( get_query_var( 'przewodnik' ) ) {
       $type = 'przewodnik';
     }
-    elseif ( get_query_var( 'wyzwanie' ) ) {
+    elseif ( get_query_var( 'wyzwanie' ) || get_query_var( 'testmode' ) ) {
       $type = 'wyzwanie';
     }
 
@@ -142,6 +123,12 @@ function las_course_router() {
 
         include( 'includes/setninger.php' );
 
+      }
+
+      //  if it is wyzwanie and testmode
+      if ( get_query_var( 'testmode' ) ) {
+
+        include( stream_resolve_include_path( __DIR__ . '/includes/testmode.php' ) );
       }
     }
     //  if it is not wyzwanie

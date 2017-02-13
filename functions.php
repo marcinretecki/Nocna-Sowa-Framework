@@ -97,6 +97,7 @@ add_action('init', 'las_rewrite_init');
 function las_courses_rewrite_rule() {
   add_rewrite_endpoint( 'przewodnik', EP_PAGES );
   add_rewrite_endpoint( 'wyzwanie', EP_PAGES );
+  add_rewrite_endpoint( 'testmode', EP_PAGES );
 }
 add_action('init', 'las_courses_rewrite_rule', 10, 0);
 
@@ -106,6 +107,9 @@ function las_courses_rewrite_filter_request( $vars ) {
  }
  if ( isset( $vars['wyzwanie'] ) ) {
    $vars['wyzwanie'] = true;
+ }
+ if ( isset( $vars['testmode'] ) ) {
+   $vars['testmode'] = true;
  }
  return $vars;
 }

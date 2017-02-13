@@ -92,7 +92,7 @@ include( 'includes/head.php' );
                     echo $category->slug . ' ';
                   }
 
-                  echo '</i></p>';
+                  echo '</i> | '  . $short_url . '</p>';
 
                 }
 
@@ -133,7 +133,7 @@ include( 'includes/head.php' );
 
                   if ( $wyzwanie ) {
                     echo $green_light;
-                    echo 'Wyzwanie Data File <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $url . 'wyzwanie/">' . $short_url . 'wyzwanie/</a>';
+                    echo 'Wyzwanie Data File <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $url . 'wyzwanie/">Wyzwanie</a> <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $url . 'testmode/">Testmode</a>';
                   }
                   else {
                     echo $red_light . 'Wyzwanie Data File';
