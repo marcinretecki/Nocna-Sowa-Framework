@@ -1,14 +1,20 @@
 <script>
 function LasLiczbyData() {
 
+  this.testNotes = [
+  ];
+
   this.intro = {
-    a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.'
-    }
+    msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.'
   };
 
 
   this.chat = {
+
+    num0: {
+      startTime:  0,
+      stopTime:   0
+    },
 
     num1: {
       startTime:  0,
