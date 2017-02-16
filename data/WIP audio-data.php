@@ -1,6 +1,10 @@
 <script>
 function LasAudioData() {
 
+  this.testNotes = [
+    'note'
+  ];
+
   //  Albo answers
   //  albo autoNext
   //  ale nie oba na raz!

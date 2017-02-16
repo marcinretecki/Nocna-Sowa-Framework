@@ -1,6 +1,9 @@
 <script>
 function LasAudioData() {
 
+  this.testNotes = [
+  ];
+
   //  Uzupełnij zdania zaimkami: den, det, de.
 
   this.intro = {

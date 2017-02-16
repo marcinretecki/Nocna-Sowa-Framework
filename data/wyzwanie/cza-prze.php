@@ -1,6 +1,11 @@
 <script>
 function LasAudioData() {
 
+  this.testNotes = [
+    'dwa przykłady mają jakiś błąd',
+    'czy gwarancja powinna być z rodzajnikiem?'
+  ];
+
   this.intro = {
     a1: {
       msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
@@ -13,6 +18,7 @@ function LasAudioData() {
   this.chat = {
 
     aa1: {
+      spokenWord: 'Powiedz: Telefon nie leży na szafce.',
       startTime:  0,
       stopTime:   2.5,
       pauseTime:  8,
@@ -22,11 +28,17 @@ function LasAudioData() {
       msg:        'Mobilen ligger ikke på skapet.',
       startTime:  4,
       stopTime:   6.5,
+      more:       {
+        spokenWord: '"En mobil" to skrót od en mobiltelefon.',
+        startTime:  0,
+        stopTime:   0,
+      },
       autoNext:   'RANDOM'
     },
 
 
     ab1: {
+      spokenWord: 'Oni nie mieszkają razem.',
       startTime:  8,
       stopTime:   10.5,
       pauseTime:  6,
@@ -41,6 +53,7 @@ function LasAudioData() {
 
 
     ac1: {
+      spokenWord: 'One nie lubią dzwonić.',
       startTime:  15,
       stopTime:   18,
       pauseTime:  6,
@@ -55,6 +68,7 @@ function LasAudioData() {
 
 
     ae1: {
+      spokenWord: 'Ona nie daje rady.',
       startTime:  29,
       stopTime:   31.5,
       pauseTime:  5,
@@ -70,6 +84,7 @@ function LasAudioData() {
 
     /*  złe nagranie
     af1: {
+      spokenWord: 'Mężczyzna nie mówi wszystkiego.',
       startTime:  36,
       stopTime:   39,
       pauseTime:  6,
@@ -84,6 +99,7 @@ function LasAudioData() {
 
 
     ah1: {
+      spokenWord: 'Dzieci nie lubią czekać.',
       startTime:  43,
       stopTime:   45.5,
       pauseTime:  6,
@@ -98,6 +114,7 @@ function LasAudioData() {
 
 
     aj1: {
+      spokenWord: 'Rodzice nie słuchają dzieci.',
       startTime:  50,
       stopTime:   52.5,
       pauseTime:  6,
@@ -112,6 +129,7 @@ function LasAudioData() {
 
 
     ai1: {
+      spokenWord: 'Tor nie wierzy.',
       startTime:  57,
       stopTime:   59,
       pauseTime:  5,
@@ -126,6 +144,7 @@ function LasAudioData() {
 
 
     ak1: {
+      spokenWord: 'Nie rozumiem wszystkiego.',
       startTime:  63,
       stopTime:   65.5,
       pauseTime:  5,
@@ -140,6 +159,7 @@ function LasAudioData() {
 
 
     al1: {
+      spokenWord: 'Nie jedziemy do Stavanger.',
       startTime:  70,
       stopTime:   72.5,
       pauseTime:  6,
@@ -154,6 +174,7 @@ function LasAudioData() {
 
 
     ba1: {
+      spokenWord: 'Sprzedawca nie daje gwarancji.',
       startTime:  77,
       stopTime:   79.5,
       pauseTime:  8,
@@ -168,6 +189,7 @@ function LasAudioData() {
 
 
     bb1: {
+      spokenWord: 'Nie zostanę królem.',
       startTime:  85,
       stopTime:   87.5,
       pauseTime:  5,
@@ -182,6 +204,7 @@ function LasAudioData() {
 
 
     bc1: {
+      spokenWord: 'Nigdzie nie idziemy.',
       startTime:  92,
       stopTime:   94,
       pauseTime:  6,
@@ -196,6 +219,7 @@ function LasAudioData() {
 
 
     bd1: {
+      spokenWord: 'Teresa nie bierze narkotyków.',
       startTime:  98,
       stopTime:   100.5,
       pauseTime:  8,
@@ -210,6 +234,7 @@ function LasAudioData() {
 
 
     bf1: {
+      spokenWord: 'Ona nie pije mleka.',
       startTime:  113,
       stopTime:   115,
       pauseTime:  6,
@@ -224,6 +249,7 @@ function LasAudioData() {
 
 
     bh1: {
+      spokenWord: 'Oni nie są teraz w domu.',
       startTime:  126,
       stopTime:   128.5,
       pauseTime:  6,
@@ -238,6 +264,7 @@ function LasAudioData() {
 
 
     bi1: {
+      spokenWord: 'Nie szkodzi.',
       startTime:  133,
       stopTime:   134.5,
       pauseTime:  5,
@@ -252,6 +279,7 @@ function LasAudioData() {
 
 
     bj1: {
+      spokenWord: 'Nie wiem.',
       startTime:  139,
       stopTime:   140.5,
       pauseTime:  5,
@@ -266,6 +294,7 @@ function LasAudioData() {
 
 
     bk1: {
+      spokenWord: 'Nic nie powiem.',
       startTime:  145,
       stopTime:   147,
       pauseTime:  5,
@@ -280,6 +309,7 @@ function LasAudioData() {
 
 
     bm1: {
+      spokenWord: '??? ZNIKŁ PRZYKŁAD Z IA',
       startTime:  158,
       stopTime:   160,
       pauseTime:  6,
@@ -294,6 +324,7 @@ function LasAudioData() {
 
 
     bo1: {
+      spokenWord: 'Ona nie przestaje rozmawiać.',
       startTime:  178,
       stopTime:   180.5,
       pauseTime:  6,
@@ -308,6 +339,7 @@ function LasAudioData() {
 
 
     ca1: {
+      spokenWord: 'On nie kończy jeszcze pracy.',
       startTime:  185,
       stopTime:   187.5,
       pauseTime:  7,
@@ -322,6 +354,7 @@ function LasAudioData() {
 
 
     cb1: {
+      spokenWord: 'Ona nie próbuje zrozumieć.',
       startTime:  192,
       stopTime:   194.5,
       pauseTime:  6,
@@ -336,6 +369,7 @@ function LasAudioData() {
 
 
     cc1: {
+      spokenWord: 'Nie dostaję wiadomości.',
       startTime:  199,
       stopTime:   201.5,
       pauseTime:  6,
@@ -350,6 +384,7 @@ function LasAudioData() {
 
 
     cd1: {
+      spokenWord: 'Nie lubię krwi.',
       startTime:  206,
       stopTime:   208,
       pauseTime:  6,
@@ -364,6 +399,7 @@ function LasAudioData() {
 
 
     ce1: {
+      spokenWord: 'Nie mam jeszcze firmy.',
       startTime:  212,
       stopTime:   214,
       pauseTime:  7,
@@ -378,6 +414,7 @@ function LasAudioData() {
 
 
     cf1: {
+      spokenWord: 'Nie jestem jeszcze gotowy.',
       startTime:  218,
       stopTime:   220.5,
       pauseTime:  7,

@@ -1,6 +1,9 @@
 <script>
 function LasChatData() {
 
+  this.testNotes = [
+  ];
+
   this.intro = {
     a1: {
       bubbles: [ 'Hei!', 'Jest trochę przedziwnych, albo wyjątkowych sytuacji, z którymi się spotkasz. I chcę Cię na to przygotować.', '<img src="/las/c/i/cza-niereg/Trampoline-Swing-With-leaves.gif" />', 'Wchodzisz w to?' ],

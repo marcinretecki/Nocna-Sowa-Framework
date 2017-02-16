@@ -1,6 +1,9 @@
 <script>
 function LasChatData() {
 
+  this.testNotes = [
+  ];
+
   this.intro = {
     a1: {
       msg:        'Ułuż pytania z podanych słów.',

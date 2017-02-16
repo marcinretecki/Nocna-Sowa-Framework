@@ -1,6 +1,9 @@
 <script>
 function LasAudioData() {
 
+  this.testNotes = [
+  ];
+
 
   this.intro = {
     a1: {

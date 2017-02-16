@@ -1,6 +1,9 @@
 <script>
 function LasAudioData() {
 
+  this.testNotes = [
+  ];
+
   this.intro = {
     a1: {
       msg: 'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',

@@ -1,6 +1,9 @@
 <script>
 function LasChatData() {
 
+  this.testNotes = [
+  ];
+
   this.intro = {
     a1: {
       bubbles: ['<i>Hallo, er det noen der?</i> (Czy ktoś tu jest?)', '<img src="/las/c/i/rze-wsz/HetvlijUZmKic.gif" />'],
