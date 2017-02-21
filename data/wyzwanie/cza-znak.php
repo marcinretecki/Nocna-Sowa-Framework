@@ -2,6 +2,9 @@
 function LasAudioData() {
 
   this.testNotes = [
+    'Jenta stopper å spise søtsaker. Może dodać więcej: godteri - bo niektórzy znają to słowo',
+    'Hun lærer å konsentrere seg om en ting. - czy tu jest dobre czytanie slowa ting? moze jest ok. sprawdz.',
+    'nie ma zakończenia'
   ];
 
   this.intro = {
@@ -221,20 +224,6 @@ function LasAudioData() {
       msg:        'Han lærer å vente.',
       startTime:  111,
       stopTime:   113,
-      autoNext:   'RANDOM'
-    },
-
-
-    bd1: {
-      startTime:  114,
-      stopTime:   116.5,
-      pauseTime:  6,
-      autoNext:   'bd2'
-    },
-    bd2: {
-      msg:        'Hun lærer å elske.',
-      startTime:  118,
-      stopTime:   120,
       autoNext:   'RANDOM'
     },
 

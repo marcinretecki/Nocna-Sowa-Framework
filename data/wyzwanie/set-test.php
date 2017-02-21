@@ -1,5 +1,5 @@
 <script>
-function LasChatData() {
+function LasSetningerData() {
 
   this.testNotes = [
   ];

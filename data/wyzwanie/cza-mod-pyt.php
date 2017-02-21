@@ -2,6 +2,7 @@
 function LasAudioData() {
 
   this.testNotes = [
+    'nie ma nagrania ani czasów'
   ];
 
   this.intro = {

@@ -3,7 +3,10 @@ function LasAudioData() {
 
   this.testNotes = [
     'dwa przykłady mają jakiś błąd',
-    'czy gwarancja powinna być z rodzajnikiem?'
+    'czy gwarancja powinna być z rodzajnikiem?',
+    'Vi drar ikke til Stavanger. - zrobic moze znak zapytania i napisac im ze moze byc reise',
+    'jak powiesz nie wiem: jeg sier ikke noe',
+    'nigdzie nie idziemy, czy da sie inaczej poprawnie to samo powiedziec w znaku zapytania'
   ];
 
   this.intro = {
@@ -29,7 +32,7 @@ function LasAudioData() {
       startTime:  4,
       stopTime:   6.5,
       more:       {
-        spokenWord: '"En mobil" to skrót od en mobiltelefon.',
+        spokenWord: 'En mobil to skrót od en mobiltelefon.',
         startTime:  0,
         stopTime:   0,
       },

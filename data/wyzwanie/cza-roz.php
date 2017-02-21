@@ -2,6 +2,10 @@
 function LasAudioData() {
 
   this.testNotes = [
+    'Slipp meg frem! – jest zachrypnięte',
+    'Ti stille! – złe nagranie',
+    'dodaj: Powiedz: Podaj mi sól! Rekk meg saltet!',
+    'Ikke glem å komme! – złe nagranie'
   ];
 
   this.intro = {
@@ -16,8 +20,8 @@ function LasAudioData() {
   this.chat = {
 
 
-/*  po polsku jest zachrypnięte
     aa1: {
+      spokenWord: 'Powiedz: Przepuść mnie!',
       startTime:  0,
       stopTime:   2,
       pauseTime:  5,
@@ -28,10 +32,11 @@ function LasAudioData() {
       startTime:  3,
       stopTime:   4.5,
       autoNext:   'RANDOM'
-    },*/
+    },
 
 
     ab1: {
+      spokenWord: 'Powiedz: Nie dotykaj tego!',
       startTime:  5,
       stopTime:   7,
       pauseTime:  5,
@@ -46,6 +51,7 @@ function LasAudioData() {
 
 
     ac1: {
+      spokenWord: 'Powiedz: Słuchaj mnie!',
       startTime:  10,
       stopTime:   12,
       pauseTime:  5,
@@ -60,6 +66,7 @@ function LasAudioData() {
 
 
     ad1: {
+      spokenWord: 'Powiedz: Usiądź!',
       startTime:  15,
       stopTime:   16.5,
       pauseTime:  5,
@@ -73,8 +80,8 @@ function LasAudioData() {
     },
 
 
-      //  złe nagranie po polsku
-/*    ae1: {
+    ae1: {
+      spokenWord: 'Powiedz: Bądź cicho!',
       startTime:  ,
       stopTime:   ,
       pauseTime:  5,
@@ -85,10 +92,11 @@ function LasAudioData() {
       startTime:  22,
       stopTime:   23,
       autoNext:   'RANDOM'
-    },*/
+    },
 
 
     af1: {
+      spokenWord: 'Powiedz: Zamknij się!',
       startTime:  24,
       stopTime:   26,
       pauseTime:  5,
@@ -103,6 +111,7 @@ function LasAudioData() {
 
 
     ag1: {
+      spokenWord: 'Powiedz: Nie pal!',
       startTime:  29,
       stopTime:   30.5,
       pauseTime:  5,
@@ -117,6 +126,7 @@ function LasAudioData() {
 
 
     ah1: {
+      spokenWord: 'Powiedz: Nie pij!',
       startTime:  33,
       stopTime:   34.5,
       pauseTime:  5,
@@ -131,6 +141,7 @@ function LasAudioData() {
 
 
     aj1: {
+      spokenWord: 'Powiedz: Zaczekaj chwilę!',
       startTime:  38,
       stopTime:   40,
       pauseTime:  5,
@@ -145,6 +156,7 @@ function LasAudioData() {
 
 
     ai1: {
+      spokenWord: 'Powiedz: Sprawdź to!',
       startTime:  43,
       stopTime:   45,
       pauseTime:  5,
@@ -159,6 +171,7 @@ function LasAudioData() {
 
 
     ak1: {
+      spokenWord: 'Powiedz: Trzymaj psa!',
       startTime:  48,
       stopTime:   50,
       pauseTime:  5,
@@ -173,6 +186,7 @@ function LasAudioData() {
 
 
     al1: {
+      spokenWord: 'Powiedz: Zamknij drzwi!',
       startTime:  53,
       stopTime:   55,
       pauseTime:  5,
@@ -187,6 +201,7 @@ function LasAudioData() {
 
 
     ba1: {
+      spokenWord: 'Powiedz: Nie bijcie się!',
       startTime:  58,
       stopTime:   60,
       pauseTime:  6,
@@ -201,6 +216,7 @@ function LasAudioData() {
 
 
     bb1: {
+      spokenWord: 'Powiedz: Przestań krzyczeć!',
       startTime:  64,
       stopTime:   66,
       pauseTime:  5,
@@ -214,8 +230,8 @@ function LasAudioData() {
     },
 
 
-      //  złe nagranie po pl
-/*    bc1: {
+    bc1: {
+      spokenWord: 'Powiedz: Pozwól mi zobaczyć!',
       startTime:  70,
       stopTime:   72,
       pauseTime:  5,
@@ -226,10 +242,11 @@ function LasAudioData() {
       startTime:  73,
       stopTime:   74,
       autoNext:   'RANDOM'
-    },*/
+    },
 
 
     bd1: {
+      spokenWord: 'Powiedz: Pozwól mi coś powiedzieć!',
       startTime:  75,
       stopTime:   77.5,
       pauseTime:  5,
@@ -244,6 +261,7 @@ function LasAudioData() {
 
 
     be1: {
+      spokenWord: 'Powiedz: Weź to ze spokojem!',
       startTime:  82,
       stopTime:   84.5,
       pauseTime:  5,
@@ -258,6 +276,7 @@ function LasAudioData() {
 
 
     bf1: {
+      spokenWord: 'Powiedz: Nie płacz!',
       startTime:  88,
       stopTime:   90,
       pauseTime:  5,
@@ -272,6 +291,7 @@ function LasAudioData() {
 
 
     bg1: {
+      spokenWord: 'Powiedz: Przyjdź!',
       startTime:  94,
       stopTime:   96,
       pauseTime:  5,
@@ -286,6 +306,7 @@ function LasAudioData() {
 
 
     bh1: {
+      spokenWord: 'Powiedz: Wyluzuj!',
       startTime:  99,
       stopTime:   101,
       pauseTime:  5,
@@ -300,6 +321,7 @@ function LasAudioData() {
 
 
     bi1: {
+      spokenWord: 'Powiedz: Nie spiesz się i nie stresuj!',
       startTime:  104,
       stopTime:   106.5,
       pauseTime:  5,
@@ -314,6 +336,7 @@ function LasAudioData() {
 
 
     bk1: {
+      spokenWord: 'Powiedz: Oddychaj głęboko!',
       startTime:  110,
       stopTime:   112,
       pauseTime:  5,
@@ -328,6 +351,7 @@ function LasAudioData() {
 
 
     bl1: {
+      spokenWord: 'Powiedz: Uspokój się!',
       startTime:  115,
       stopTime:   117,
       pauseTime:  5,
@@ -340,8 +364,9 @@ function LasAudioData() {
       autoNext:   'RANDOM'
     },
 
-/*  zabrakło ć w pl
+
     bm1: {
+      spokenWord: 'Powiedz: Nie zapomnij przyjść!',
       startTime:  120,
       stopTime:   122.5,
       pauseTime:  5,
@@ -352,10 +377,11 @@ function LasAudioData() {
       startTime:  124,
       stopTime:   125.5,
       autoNext:   'RANDOM'
-    },*/
+    },
 
 
     bn1: {
+      spokenWord: 'Powiedz: Bądź ostrożny! Uważaj!',
       startTime:  127,
       stopTime:   130.5,
       pauseTime:  5,
@@ -370,6 +396,7 @@ function LasAudioData() {
 
 
     bp1: {
+      spokenWord: 'Powiedz: Pomóż mi!',
       startTime:  134,
       stopTime:   135.5,
       pauseTime:  5,
@@ -384,6 +411,7 @@ function LasAudioData() {
 
 
     bo1: {
+      spokenWord: 'Powiedz: Bądź tak miły! albo Poproszę.',
       startTime:  139,
       stopTime:   143,
       pauseTime:  5,
@@ -398,6 +426,7 @@ function LasAudioData() {
 
 
     br1: {
+      spokenWord: 'Powiedz: Zrób to!',
       startTime:  146,
       stopTime:   147.5,
       pauseTime:  5,

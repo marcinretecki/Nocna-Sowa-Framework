@@ -16,6 +16,7 @@ function LasAudioData() {
   this.chat = {
 
     aa1: {
+      spokenWord: 'Powiedz: Jutro mam iść do pracy. Użyj skal.',
       startTime:  0,
       stopTime:   2.5,
       pauseTime:  8,
@@ -31,6 +32,7 @@ function LasAudioData() {
 
 
     ab1: {
+      spokenWord: 'Powiedz: Jutro idę do pracy. Bez użycia skal.',
       startTime:  8,
       stopTime:   10.5,
       pauseTime:  6,
@@ -46,6 +48,7 @@ function LasAudioData() {
 
 
     ac1: {
+      spokenWord: 'Powiedz: Przyjdę do Ciebie. Użyj skal.',
       startTime:  15,
       stopTime:   18,
       pauseTime:  6,
@@ -61,6 +64,7 @@ function LasAudioData() {
 
 
     ae1: {
+      spokenWord: 'Powiedz: Przyjdę do Ciebie. Bez użycia skal.',
       startTime:  29,
       stopTime:   31.5,
       pauseTime:  5,
@@ -76,6 +80,7 @@ function LasAudioData() {
 
 
     af1: {
+      spokenWord: 'Powiedz: Napiszę do Ciebie maila. Użyj skal.',
       startTime:  36,
       stopTime:   39,
       pauseTime:  6,
@@ -91,6 +96,7 @@ function LasAudioData() {
 
 
     ah1: {
+      spokenWord: 'Powiedz: Napiszę do Ciebie maila. Bez użycia skal.',
       startTime:  43,
       stopTime:   45.5,
       pauseTime:  6,
@@ -106,6 +112,7 @@ function LasAudioData() {
 
 
     aj1: {
+      spokenWord: 'Powiedz: On ma odebrać paczkę z poczty. Użyj skal.',
       startTime:  50,
       stopTime:   52.5,
       pauseTime:  6,
@@ -121,6 +128,7 @@ function LasAudioData() {
 
 
     ai1: {
+      spokenWord: 'Powiedz: On odbierze paczkę z poczty. Bez użycia skal.',
       startTime:  57,
       stopTime:   59,
       pauseTime:  5,
@@ -136,6 +144,7 @@ function LasAudioData() {
 
 
     ak1: {
+      spokenWord: 'Powiedz: Zamierzam przeczytać tę książkę w przyszłym miesiącu. Użyj skal.',
       startTime:  63,
       stopTime:   65.5,
       pauseTime:  5,
@@ -151,6 +160,7 @@ function LasAudioData() {
 
 
     al1: {
+      spokenWord: 'Powiedz: Przeczytam tę książkę w przyszłym miesiącu. Bez użycia skal.',
       startTime:  70,
       stopTime:   72.5,
       pauseTime:  6,
@@ -166,6 +176,7 @@ function LasAudioData() {
 
 
     ba1: {
+      spokenWord: 'Powiedz: Planuję zrobić zakupy w drodze do domu. Użyj skal.',
       startTime:  77,
       stopTime:   79.5,
       pauseTime:  8,
@@ -181,6 +192,7 @@ function LasAudioData() {
 
 
     bb1: {
+      spokenWord: 'Powiedz: Zrobię zakupy w drodze do domu. Bez użycia skal.',
       startTime:  85,
       stopTime:   87.5,
       pauseTime:  5,
@@ -196,6 +208,7 @@ function LasAudioData() {
 
 
     bc1: {
+      spokenWord: 'Powiedz: Zamierzam sprzedać samochód w tym roku. Użyj skal.',
       startTime:  92,
       stopTime:   94,
       pauseTime:  6,
@@ -211,6 +224,7 @@ function LasAudioData() {
 
 
     bd1: {
+      spokenWord: 'Powiedz: Sprzedam samochód w tym roku. Bez użycia skal.',
       startTime:  98,
       stopTime:   100.5,
       pauseTime:  8,
@@ -226,6 +240,7 @@ function LasAudioData() {
 
 
     bf1: {
+      spokenWord: 'Powiedz: Zamierzam otworzyć konto w banku. Użyj skal.',
       startTime:  113,
       stopTime:   115,
       pauseTime:  6,
@@ -241,6 +256,7 @@ function LasAudioData() {
 
 
     bh1: {
+      spokenWord: 'Powiedz: Otworzę konto w banku. Bez użycia skal.',
       startTime:  126,
       stopTime:   128.5,
       pauseTime:  6,
@@ -256,6 +272,7 @@ function LasAudioData() {
 
 
     bi1: {
+      spokenWord: 'Powiedz: Jutro będę rozmawiał z szefem. Użyj skal.',
       startTime:  133,
       stopTime:   134.5,
       pauseTime:  5,
@@ -271,6 +288,7 @@ function LasAudioData() {
 
 
     bj1: {
+      spokenWord: 'Powiedz: Jutro porozmawiam z szefem. Bez użycia skal.',
       startTime:  139,
       stopTime:   140.5,
       pauseTime:  5,
@@ -286,6 +304,7 @@ function LasAudioData() {
 
 
     bk1: {
+      spokenWord: 'Powiedz: W czwartek idę do fizjoterapeuty. Użyj skal. [fysioterapøyt]',
       startTime:  145,
       stopTime:   147,
       pauseTime:  5,
@@ -301,6 +320,7 @@ function LasAudioData() {
 
 
     bl1: {
+      spokenWord: 'Powiedz: W czwartek idę do fizjoterapeuty. Bez użycia skal. [fysioterapøyt]',
       startTime:  145,
       stopTime:   147,
       pauseTime:  5,

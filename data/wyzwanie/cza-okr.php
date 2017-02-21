@@ -2,6 +2,13 @@
 function LasAudioData() {
 
   this.testNotes = [
+    'De leverer skapene i overmorgen. - nie ma quizu :(',
+    'De bytter dørklokka i vår. - czytanie dørklokka',
+    'Vi skal reise om en time. - czy jest prawidlowa odpowiedz zaznaczona',
+    'Takk for i dag. - czytanie takk',
+    'po przykladzie han lufter hunden om formiddagen nie bylo punktow',
+    'Han står opp tidlig om morgenen. - czytana tylko końcówka zdania',
+    'De vil ikke ta opp lånn neste gang. Po tym przykﬁadzie wyswietla sie zle zdanie: Jeg lærer noe nytt hver dag., a czytane jest dobre'
   ];
 
   this.intro = {
