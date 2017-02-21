@@ -1109,6 +1109,120 @@ function LasAudioTest() {
 
 
   //
+  //  CONTROLS
+  //
+  this.showControls = function() {
+
+    //  if controls are already in
+    //  or there is no time && no more && it is not before the first play
+    if (        this.state.controls
+          || ( !this.more && ( this.startTime < 0 ) && !this.state.beforeFirstPlay && ( this.bubbleAutoNext !== 'RANDOM' ) )
+          || ( !this.msg && !this.answersData.length ) ) {
+      return false;
+    }
+
+    this.state.controls = true;
+
+    window.console.log('show controls');
+
+    //  if there are answers, we want to match the color to them
+    if ( this.state.answers ) {
+      this.audioControls.className = 'section-green';
+    }
+    else {
+      this.audioControls.className = 'section-dark';
+    }
+
+    //  show the whole controls bar
+    this.velocity(
+      this.audioControls,
+      'slideDown',
+      { duration: this.helper.speed*2, easing: this.helper.easingSpring }
+    );
+
+    //  below, each this.velocity call need display: block, or buttons will be showed as inline-block
+
+    //  if there is more audio, show MORE button
+    if ( ( this.more !== null ) && this.audioFile ) {
+      window.console.log('show more button');
+
+      this.velocity(
+        this.audioMore,
+        'fadeIn',
+        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
+      );
+    }
+
+    //  if there is time, show REWIND
+    if ( ( this.startTime >= 0 ) && this.audioFile  ) {
+      window.console.log('show rewind button');
+
+      this.velocity(
+        this.audioRewind,
+        'fadeIn',
+        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
+      );
+    }
+
+    //  if there are no answers, we need NEXT button
+    if ( !this.answersData.length ) {
+      this.velocity(
+        this.audioNext,
+        'fadeIn',
+        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
+      );
+    }
+
+  };
+
+
+  this.resetControls = function() {
+    var completeFn;
+
+    //  if there was no controls
+    if ( !this.state.controls ) {
+      return false;
+    }
+
+    //  reset the state instantly, so it doesn't trigger again
+    //  this way it can also use Velocity's queue
+    this.state.controls = false;
+
+    window.console.log('reset controls');
+
+    //  hide the whole controls element
+    this.velocity(
+      this.audioControls,
+      'slideUp',
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
+    );
+
+    //  hide MORE
+    this.velocity(
+      this.audioMore,
+      'fadeOut',
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
+    );
+
+    //  hide REWIND
+    this.velocity(
+      this.audioRewind,
+      'fadeOut',
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
+    );
+
+    //  hide NEXT
+    this.velocity(
+      this.audioNext,
+      'fadeOut',
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
+    );
+
+  };
+
+
+
+  //
   //  SKIP BUTTON
   //  pause timer
   //
@@ -1640,82 +1754,145 @@ function LasAudioTest() {
   this.test = function() {
     var property;
     var data = this.lasData.chat;
+    var testNotes = this.lasData.testNotes;
+    var testNotesEl;
+    var testNotesContent = '';
     var bubble;
     var content;
     var bubbleData;
     var bubbleProp;
     var line;
     var i;
+    var j;
     var answers;
     var answersL;
+    var moreProp;
+    var moreData;
+    var quantity = 0;
 
+    //  clean wrapper
     this.wrapper.innerHTML = '';
 
-    //  iteriate over all data props
-    for ( property in data ) {
-      if ( data.hasOwnProperty(property) ) {
 
-        //  create bubble
-        bubble = document.createElement('div');
-        bubble.className = 'pad section-dark space size-0';
-        bubble.style.position = 'relative';
+    if ( testNotes ) {
+      //  create test notes
+      testNotesEl = document.createElement('div');
+      testNotesEl.className = 'pad section-dark space size-0';
+      testNotesEl.style.position = 'relative';
+      testNotesContent += '<p class="size-1 space-half">Test Notes</p><ul class="light-dots">';
 
-        //  reset content
-        content = '';
+      //  show test notes
+      for ( j = 0; j < testNotes.length; j++ ) {
 
-        bubbleData = data[property];
+        testNotesContent += '<li>' + testNotes[j] + '</li>';
 
-        for ( bubbleProp in bubbleData ) {
-          if ( bubbleData.hasOwnProperty(bubbleProp) ) {
+      }
 
-            if ( ( bubbleProp === 'msg' ) || ( bubbleProp === 'spokenWord' ) ) {
-              content += '<p class="size-1 space-half">' + bubbleData[bubbleProp] + '</p>';
-            }
-            else if ( bubbleProp === 'trans' ) {
-              content += '<p class="size-1 space-half" style="opacity:0.75;"><i>Trans</i>: ' + bubbleData[bubbleProp] + '</p>';
-            }
-            else if ( ( bubbleProp === 'answers' ) ) {
+      testNotesContent += '</ul>';
 
-              answers = bubbleData.answers;
-              answersL = answers.length;
+      testNotesEl.innerHTML = testNotesContent;
+      this.wrapper.appendChild(testNotesEl);
+    }
 
-              content += 'Odpowiedzi:<br />';
+    if ( data ) {
+      //  iteriate over all data props
+      for ( property in data ) {
+        if ( data.hasOwnProperty(property) ) {
+
+          //  if it is has 1 in prop name, then add to quantity
+          if ( property.slice(-1) === '1' ) {
+            quantity++;
+          }
+
+          //  create bubble
+          bubble = document.createElement('div');
+          bubble.className = 'pad section-dark space size-0';
+          bubble.style.position = 'relative';
+
+          //  reset content
+          content = '';
+
+          bubbleData = data[property];
+
+          for ( bubbleProp in bubbleData ) {
+            if ( bubbleData.hasOwnProperty(bubbleProp) ) {
+
+              if ( ( bubbleProp === 'msg' ) || ( bubbleProp === 'spokenWord' ) ) {
+                content += '<p class="size-1 space-half">' + bubbleData[bubbleProp] + '</p>';
+              }
+              else if ( bubbleProp === 'trans' ) {
+                content += '<p class="size-1 space-half" style="opacity:0.75;"><i>Trans</i>: ' + bubbleData[bubbleProp] + '</p>';
+              }
+              else if ( ( bubbleProp === 'answers' ) ) {
+
+                answers = bubbleData.answers;
+                answersL = answers.length;
+
+                content += 'Odpowiedzi:<br />';
 
 
-              for (i = 0; i < answersL; i++) {
+                for (i = 0; i < answersL; i++) {
 
-                if ( answers[i].wrong ) {
-                  content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#dd4b39;display:inline-block;"></span>' + answers[i].answer;
+                  if ( answers[i].wrong ) {
+                    content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#dd4b39;display:inline-block;"></span>' + answers[i].answer;
+                  }
+                  else {
+                    content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#308c8c;display:inline-block;"></span>' + answers[i].answer
+                  }
+
+                  content += '<br />';
+
                 }
-                else {
-                  content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#308c8c;display:inline-block;"></span>' + answers[i].answer
-                }
-
-                content += '<br />';
 
               }
+              else if ( ( bubbleProp === 'more' ) ) {
+
+                moreData = bubbleData[bubbleProp];
+
+                for ( moreProp in moreData ) {
+                  if ( moreData.hasOwnProperty(moreProp) ) {
+
+                    if ( moreProp === 'spokenWord' ) {
+
+                      content += '<p class="size-1 space-half" style="opacity:0.75;"><i>More</i>: ' + moreData[moreProp] + '</p>';
+
+                    }
+                    else {
+                      content += ' <span style="opacity:0.75;">| ' + moreProp + ': ' + moreData[moreProp] + '</span>';
+                    }
 
 
-            } else {
-              content += ' <span style="opacity:0.75;">| ' + bubbleProp + ': ' + bubbleData[bubbleProp] + '</span>';
-            }
+                  }
+                }
 
-            if ( ( bubbleProp === 'startTime' ) && this.audioFile ) {
-              content += '<button style="position:absolute;right:0.5rem;top:0.5rem;" class="btn btn-white btn-small" onClick="las.playAudioTestMode(' + bubbleData.startTime +  ', ' + bubbleData.stopTime + ');">TestAudio &raquo;</button>';
+              }
+              else {
+                content += ' <span style="opacity:0.75;">| ' + bubbleProp + ': ' + bubbleData[bubbleProp] + '</span>';
+              }
+
+              if ( ( bubbleProp === 'startTime' ) && this.audioFile ) {
+                content += '<button style="position:absolute;right:0.5rem;top:0.5rem;" class="btn btn-white btn-small" onClick="las.playAudioTestMode(' + bubbleData.startTime +  ', ' + bubbleData.stopTime + ');">TestAudio &raquo;</button>';
+              }
+
             }
 
           }
 
+          bubble.innerHTML = content;
+          this.wrapper.appendChild(bubble);
+
+        // end if has property
         }
-
-        bubble.innerHTML = content;
-        this.wrapper.appendChild(bubble);
-
-      // end if has property
+      // end loop
       }
-    // end loop
-    }
 
+      // dodaj liczby do testNotesEl
+      testNotesEl.appendChild( document.createElement('p') );
+      testNotesEl.lastChild.className = 'size-0 space-0';
+      testNotesEl.lastChild.innerHTML = 'Ilość zestawów pytań: ' + quantity;
+
+    //  end if data
+    };
 
   };
 

@@ -467,6 +467,69 @@ function LasHelper() {
 
 
   //
+  //  Encode special character from the bubble
+  //  it has return
+  //
+  this.encodeBubble = function( bubbleString ) {
+
+    //  EMOJI
+    //  <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f58a"></use></svg>
+    //  #emoji-1f58a;
+
+    var bubbleArray = bubbleString.split('#');
+    var bubbleArrayL = bubbleArray.length;
+    var subArray;
+    var newString;
+    var i;
+
+
+    //  if bubbleArray has only one element, emotes were not found
+    if ( 2 > bubbleArray.length ) {
+      return bubbleString;
+    }
+
+    //  iteriate over the array
+    //  start from 1, becuae 0 has no emoji
+    for ( i = 1; i < bubbleArrayL; i++ ) {
+
+      //  check if it is emoji
+      if ( bubbleArray[i].indexOf('emoji') !== -1 ) {
+
+        //  split again to get only emoji
+        subArray = bubbleArray[i].split(';');
+
+        //  check if there was ';'
+        if ( 1 < subArray.length ) {
+
+          //  replace this part with svg
+          subArray[0] = '<svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#' + subArray[0] + '"></use></svg>';
+
+        }
+
+        //  join back subArray
+        bubbleArray[i] = subArray.join('');
+
+      }
+      //  there is no emoji
+      else {
+        //  join back subArray and put back #
+        bubbleArray[i] = subArray.join('#');
+      }
+
+
+    }
+
+    //  join all parts back
+    newString = bubbleArray.join('');
+
+    return newString;
+
+
+  };
+
+
+
+  //
   //  Traversing
   //
   this.checkNodeAndParents = function( event, value, prop, modify ) {
@@ -570,117 +633,6 @@ function LasHelper() {
 
 
 
-  //
-  //  CONTROLS
-  //
-  this.showControls = function() {
-
-    //  if controls are already in
-    //  or there is no time && no more && it is not before the first play
-    if (        this.state.controls
-          || ( !this.more && ( this.startTime < 0 ) && !this.state.beforeFirstPlay && ( this.bubbleAutoNext !== 'RANDOM' ) )
-          || ( !this.msg && !this.answersData.length ) ) {
-      return false;
-    }
-
-    this.state.controls = true;
-
-    window.console.log('show controls');
-
-    //  if there are answers, we want to match the color to them
-    if ( this.state.answers ) {
-      this.audioControls.className = 'section-green';
-    }
-    else {
-      this.audioControls.className = 'section-dark';
-    }
-
-    //  show the whole controls bar
-    this.velocity(
-      this.audioControls,
-      'slideDown',
-      { duration: this.helper.speed*2, easing: this.helper.easingSpring }
-    );
-
-    //  below, each this.velocity call need display: block, or buttons will be showed as inline-block
-
-    //  if there is more audio, show MORE button
-    if ( ( this.more !== null ) && this.audioFile ) {
-      window.console.log('show more button');
-
-      this.velocity(
-        this.audioMore,
-        'fadeIn',
-        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
-      );
-    }
-
-    //  if there is time, show REWIND
-    if ( ( this.startTime >= 0 ) && this.audioFile  ) {
-      window.console.log('show rewind button');
-
-      this.velocity(
-        this.audioRewind,
-        'fadeIn',
-        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
-      );
-    }
-
-    //  if there are no answers, we need NEXT button
-    if ( !this.answersData.length ) {
-      this.velocity(
-        this.audioNext,
-        'fadeIn',
-        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
-      );
-    }
-
-  };
-
-
-  this.resetControls = function() {
-    var completeFn;
-
-    //  if there was no controls
-    if ( !this.state.controls ) {
-      return false;
-    }
-
-    //  reset the state instantly, so it doesn't trigger again
-    //  this way it can also use Velocity's queue
-    this.state.controls = false;
-
-    window.console.log('reset controls');
-
-    //  hide the whole controls element
-    this.velocity(
-      this.audioControls,
-      'slideUp',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
-    );
-
-    //  hide MORE
-    this.velocity(
-      this.audioMore,
-      'fadeOut',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
-    );
-
-    //  hide REWIND
-    this.velocity(
-      this.audioRewind,
-      'fadeOut',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
-    );
-
-    //  hide NEXT
-    this.velocity(
-      this.audioNext,
-      'fadeOut',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
-    );
-
-  };
 
 
 }
