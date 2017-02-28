@@ -14,62 +14,65 @@
 function LasAudioTest() {
   "use strict";
 
+  //  get methods from the LasHelper
+  //  we can add new methods or overwrite old ones
+  var lasAudioTest = new LasHelper();
+
+
   //
   //  Elements
   //
-  this.audioFile =            document.getElementById('audio-file');
-  this.wrapper =              document.getElementById('audio-test');
-  this.audioMsgWrapper =      document.getElementById('audio-msg-wrapper');
-  this.audioMsg =             document.getElementById('audio-msg');
-  this.audioTrans =           document.getElementById('audio-trans');
-  this.audioScore =           document.getElementById('audio-score');
-  this.audioScoreNumber =     document.getElementById('audio-score-number');
-  this.audioControls =        document.getElementById('audio-controls');
-  this.audioSpinner =         document.getElementById('audio-spinner');
-  this.audioPauseTimer =      document.getElementById('audio-pause-timer');
-  this.audioMore =            document.getElementById('audio-more');
-  this.audioNext =            document.getElementById('audio-next');
-  this.audioRewind =          document.getElementById('audio-rewind');
+  lasAudioTest.audioFile =            document.getElementById('audio-file');
+  lasAudioTest.wrapper =              document.getElementById('audio-test');
+  lasAudioTest.audioMsgWrapper =      document.getElementById('audio-msg-wrapper');
+  lasAudioTest.audioMsg =             document.getElementById('audio-msg');
+  lasAudioTest.audioTrans =           document.getElementById('audio-trans');
+  lasAudioTest.audioScore =           document.getElementById('audio-score');
+  lasAudioTest.audioScoreNumber =     document.getElementById('audio-score-number');
+  lasAudioTest.audioControls =        document.getElementById('audio-controls');
+  lasAudioTest.audioSpinner =         document.getElementById('audio-spinner');
+  lasAudioTest.audioPauseTimer =      document.getElementById('audio-pause-timer');
+  lasAudioTest.audioMore =            document.getElementById('audio-more');
+  lasAudioTest.audioNext =            document.getElementById('audio-next');
+  lasAudioTest.audioRewind =          document.getElementById('audio-rewind');
 
   //  answers
-  this.answersEl =            document.getElementById('audio-test-answers');
-  this.answersElArray =       [];
-  this.answersElArray[0] =    document.getElementById('answer-one');
-  this.answersElArray[1] =    document.getElementById('answer-two');
-  this.answersElArray[2] =    document.getElementById('answer-three');
-  this.answersElArray[3] =    document.getElementById('answer-four');
+  lasAudioTest.answersEl =            document.getElementById('audio-test-answers');
+  lasAudioTest.answersElArray =       [];
+  lasAudioTest.answersElArray[0] =    document.getElementById('answer-one');
+  lasAudioTest.answersElArray[1] =    document.getElementById('answer-two');
+  lasAudioTest.answersElArray[2] =    document.getElementById('answer-three');
+  lasAudioTest.answersElArray[3] =    document.getElementById('answer-four');
 
   //  we use this to start downloading images earlier
-  this.prefetch =             document.createElement('div');
+  lasAudioTest.prefetch =             document.createElement('div');
 
 
-  //
-  //  Audio Data
-  //
-  this.lasData =              new LasAudioData();
+
 
   //  this will we assigned at assignBubbleData
-  this.currentBubbleData =    null;
-  this.more =                 null;
-  this.msg =                  '';
-  this.trans =                '';
-  this.bubbleAutoNext =       '';
-  this.startTime =            -1;
-  this.stopTime =             -1;
-  this.pauseTime =            -1;
+  lasAudioTest.currentBubbleData =    null;
+  lasAudioTest.more =                 null;
+  lasAudioTest.msg =                  '';
+  lasAudioTest.trans =                '';
+  lasAudioTest.bubbleAutoNext =       '';
+  lasAudioTest.startTime =            -1;
+  lasAudioTest.stopTime =             -1;
+  lasAudioTest.pauseTime =            -1;
+  lasAudioTest.audioTimes =           [];
 
   //  this will be assigned with assignAnswersData
-  this.answersData =          [];
+  lasAudioTest.answersData =          [];
 
   //  this comes from the click handler
-  this.nextBubbleName =       '';
+  lasAudioTest.nextBubbleName =       '';
 
 
   //
   //  Sequence type
   //  pimp || quiz || ''
   //
-  this.sequenceType =         '';
+  lasAudioTest.sequenceType =         '';
 
 
   //
@@ -77,7 +80,7 @@ function LasAudioTest() {
   //  this prohibits some functions from firing more than once
   //  it's also usefull in debugging
   //
-  this.state = {
+  lasAudioTest.state = {
     currentState:             '',   // END / INTRO / CHAT
     beforeFirstPlay:          true,
     answers:                  false,
@@ -97,32 +100,37 @@ function LasAudioTest() {
 
 
   //  on case there is no audio file and we have pimp
-  this.audioFileErrorMsg =    '<p class="size-2">';
-  this.audioFileErrorMsg +=   '<svg class="emojione-svg">';
-  this.audioFileErrorMsg +=   '<description>&#x1f622;</description>';
-  this.audioFileErrorMsg +=   '<use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f622"></use>';
-  this.audioFileErrorMsg +=   '</svg>';
-  this.audioFileErrorMsg +=   '<br />Niestety nie udało nam się załadować pliku audio. Spróbuj <a href="#" onClick="window.location.reload(true);">odświerzyć</a> stronę.</p><p class="space-0">Jeśli to nie podziała, napisz do nas. Zaraz zajmiemy się tą sprawą.</p>';
+  lasAudioTest.audioFileErrorMsg =    '<p class="size-2">';
+  lasAudioTest.audioFileErrorMsg +=   '<svg class="emojione-svg">';
+  lasAudioTest.audioFileErrorMsg +=   '<description>&#x1f622;</description>';
+  lasAudioTest.audioFileErrorMsg +=   '<use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f622"></use>';
+  lasAudioTest.audioFileErrorMsg +=   '</svg>';
+  lasAudioTest.audioFileErrorMsg +=   '<br />Niestety nie udało nam się załadować pliku audio. Spróbuj <a href="#" onClick="window.location.reload(true);">odświerzyć</a> stronę.</p><p class="space-0">Jeśli to nie podziała, napisz do nas. Zaraz zajmiemy się tą sprawą.</p>';
 
 
-  this.canNotPlayFn =         null;
+  lasAudioTest.canNotPlayFn =         null;
 
 
 
-  // don't use this, only for testing quick code
-  var self =                  this;
+
 
 
   //
   //  Initiate
   //
-  this.init = function() {
+  lasAudioTest.init = function() {
 
     window.console.log('init');
 
     if ( !this.audioFile ) {
       window.console.log('there is no audio file');
     }
+
+
+    //
+    //  Get Data
+    //
+    this.lasData =              new LasAudioData();
 
 
     //  get Elements
@@ -155,7 +163,7 @@ function LasAudioTest() {
   //
   //  BUBBLE
   //
-  this.assignBubbleData = function(no, data) {
+  lasAudioTest.assignBubbleData = function(no, data) {
     //  check what data is available, assign it and reset those unavailable
 
     //  new sequence?
@@ -316,7 +324,7 @@ function LasAudioTest() {
   };
 
 
-  this.assignAnswersData = function() {
+  lasAudioTest.assignAnswersData = function() {
     //  this.answers = [
     //    { answer: '', next: '', wrong: true },
     //    { answer: '', next: '' }
@@ -360,7 +368,7 @@ function LasAudioTest() {
   };
 
 
-  this.createBubble = function() {
+  lasAudioTest.createBubble = function() {
     //  here we have audio/quiz logic when the new bubble should appear
 
     //  if it is the end
@@ -393,10 +401,15 @@ function LasAudioTest() {
     //  there is time, so we can play it
     else {
 
-      //  allow prepause event
+      //  allow prePause event
       this.state.prePause = true;
 
       //  answers show on autoPause
+      this.audioTimes = [
+        this.startTime,
+        this.stopTime,
+        this.pauseTime
+      ];
       this.playAudio();
 
 
@@ -413,7 +426,7 @@ function LasAudioTest() {
   };
 
 
-  this.answerToBubble = function() {
+  lasAudioTest.answerToBubble = function() {
     //  convert clicked answer into the next bubble
 
     //  this one prevents some glitches
@@ -424,6 +437,7 @@ function LasAudioTest() {
     this.state.bubbling = true;
 
     //  stop all animations
+    //  is this necessary?
     this.velocity.pauseAll();
 
     //  pause, if user clicked an answer, we need to pause audio, so we can play the next one
@@ -436,7 +450,7 @@ function LasAudioTest() {
     this.resetMsg();
     this.resetAnswers();
     this.resetControls();
-    this.resetListeners();
+    this.resetAudioListeners();
 
     //  get next bubble
     this.getNextBubble( this.nextBubbleName );
@@ -451,150 +465,10 @@ function LasAudioTest() {
 
 
   //
-  //  AUDIO
+  //  AUDIO PAUSE EVENTS
   //
-  this.playAudio = function() {
-    //  not only plays the fime at specific time but also sets the autoPause
 
-    if ( this.state.playing || ( this.startTime < 0 ) || !this.audioFile ) {
-      return;
-    }
-
-    //  reset listeners
-    this.resetListeners();
-
-    //  unmute just in case
-    this.audioFile.muted = false;
-
-    //  try to set the time and play
-    try {
-      //  set the current time
-      this.audioFile.currentTime = this.startTime;
-
-      this.playAudioListener = function() {
-        this.autoPauseAudio();
-      }.bind(this);
-
-      //  add pause listener
-      this.audioFile.addEventListener('timeupdate', this.playAudioListener, false);
-
-      //  show spinner
-      this.showSpinner();
-
-      window.console.log('play ' + this.audioFile.currentTime);
-
-      //  play the file
-      this.state.playing = true;
-      this.audioFile.play();
-    }
-    //  if the audio is not loaded
-    catch (e) {
-      window.console.log('can not set time or play');
-
-      this.loadAudioFile();
-    }
-
-
-  };
-
-
-  this.rewindAudio = function() {
-    //  If the user want to listen to it again
-
-    if ( !this.audioFile ) {
-      return;
-    }
-
-    window.console.log('rewind');
-
-    //  pause
-    this.pauseAudio();
-
-    //  play again
-    this.playAudio();
-
-  };
-
-
-  this.autoPauseAudio = function() {
-    //  before pause, call prePause
-    //  when the time finishes, pause playback and call atPause
-
-    //  the eventListener guarantees accuracy up to one second,
-    //  but half a second should be enough to begin animation
-    //  so it finishes together with the playback
-
-    //  half a second before the end of audio
-    if ( ( this.audioFile.currentTime + 0.5 > this.stopTime ) && this.state.prePause ) {
-
-      //  prevent prePause from firing too many times
-      this.state.prePause = false;
-
-      //  if there is a pause and the prePauseTimer is not yet set
-      if ( ( this.pauseTime > 0 ) && !this.prePauseTimer ) {
-
-        window.console.log('set prePauseTimer');
-
-        //  set prePauseTimer
-        this.prePauseTimer = window.setTimeout(function() {
-
-          window.clearTimeout(this.prePauseTimer);
-          this.prePauseTimer = undefined;
-          this.prePause();
-
-        }.bind(this), (this.pauseTime * 1000) );
-
-      }
-      //  if there is no pause
-      else if ( this.pauseTime < 0 ) {
-
-        this.prePause();
-
-      }
-
-    }
-
-    //  at the end of audio
-    if ( this.audioFile.currentTime > this.stopTime ) {
-
-      //  reset listener
-      this.resetListeners();
-
-      // pause
-      this.pauseAudio();
-      window.console.log('auto pause!');
-
-      //  if there is a pause and the atPauseTimer is not yet set
-      if ( ( this.pauseTime > 0 ) && !this.atPauseTimer ) {
-
-        window.console.log('set atPauseTimer');
-
-        //  set atPauseTimer
-        this.atPauseTimer = window.setTimeout(function() {
-
-          window.clearTimeout(this.atPauseTimer);
-          this.atPauseTimer = undefined;
-          this.atPause();
-
-        }.bind(this), (this.pauseTime * 1000) );
-
-        //  show skip button
-        this.showSkipButton();
-
-      }
-      //  if there was no pause time
-      else if ( this.pauseTime < 0 ) {
-
-        this.atPause();
-
-      }
-
-    }
-
-  };
-
-
-  this.prePause = function() {
+  lasAudioTest.prePause = function() {
     //  half a second before the end of audio
 
     window.console.log('pre pause');
@@ -641,157 +515,10 @@ function LasAudioTest() {
   };
 
 
-  this.skipPauseTimers = function() {
-    //  if the user doesn;t want to wait
-    //  she can skip the pause timers
-
-    if ( this.atPauseTimer === undefined ) {
-      return false;
-    }
-
-    window.console.log('skipPauseTimers');
-
-    //  reset the skip button, first arg means NOW
-    this.resetSkipButton( true );
-
-    //  reset pre pause timer
-    window.clearTimeout(this.prePauseTimer);
-
-    this.prePauseTimer = undefined;
-
-    //  call prePause
-    this.prePause();
-
-    //  reset at pause timer
-    window.clearTimeout(this.atPauseTimer);
-
-    this.atPauseTimer = undefined;
-
-    //  give a bit of breathing time for the animations to get going
-    //  I know the name is ridiculous...
-    this.skipPauseTimersTimer = window.setTimeout(function() {
-
-      window.clearTimeout( this.skipPauseTimersTimer );
-
-      this.skipPauseTimersTimer = undefined;
-
-      this.atPause();
-
-    }.bind(this), 200);
-
-
-  };
-
-
-  this.pauseAudio = function() {
-    //  simple as that
-
-    if ( !this.audioFile ) {
-      return;
-    }
-
-    this.audioFile.pause();
-    this.state.playing = false;
-
-    //  reset spinner
-    this.resetSpinner();
-
-  };
-
-
-  //
-  //  MORE
-  //
-  this.playMore = function() {
-    //  some bubbles have more content to play
-    //  we need seperate logic for those
-
-    //  if the file is playing, we can't force it to stop
-    //  or can we?
-    if ( this.state.playing ) {
-      return false;
-    }
-
-
-    if ( !this.audioFile ) {
-      return;
-    }
-
-    try {
-      //  set the current time for more
-      this.audioFile.currentTime = this.more.startTime;
-
-      //  prepare the autoPauseMore listener
-      this.playMoreListener = function(){
-        this.autoPauseMore();
-      }.bind(this);
-
-      //  add pause listener
-      this.audioFile.addEventListener('timeupdate', this.playMoreListener, false);
-
-
-      //  show spinner
-      this.showSpinner();
-
-      window.console.log('play more!');
-
-      //  play more
-      this.state.playing = true;
-      this.audioFile.play();
-    }
-    catch (e) {
-      window.console.log('can not set time or play');
-
-      this.loadAudioFile();
-    }
-
-  };
-
-
-  this.autoPauseMore = function() {
-    //  when the time finishes, pause playback of more
-    //  it is seperate from the normal autoPause,
-    //  because we do not have prePause and atPause additions
-
-    //  at the end of audio
-    if ( this.audioFile.currentTime > this.more.stopTime ) {
-
-      // reset listener
-      this.resetListeners();
-
-      window.console.log('auto pause more!');
-
-      // pause
-      this.state.playing = false;
-      this.pauseAudio();
-
-    }
-
-  };
-
-
-  this.resetListeners = function() {
-
-    if ( !this.audioFile ) {
-      return;
-    }
-
-    // remove play listener
-    this.audioFile.removeEventListener('timeupdate', this.playAudioListener, false);
-    this.playAudioListener = undefined;
-
-    // remove more listener
-    this.audioFile.removeEventListener('timeupdate', this.playMoreListener, false);
-    this.playMoreListener = undefined;
-
-  };
-
-
-
   //
   //  ANSWERS
   //
-  this.showAnswers = function() {
+  lasAudioTest.showAnswers = function() {
 
     var i;
     var c;
@@ -853,7 +580,7 @@ function LasAudioTest() {
   };
 
 
-  this.resetAnswers = function() {
+  lasAudioTest.resetAnswers = function() {
     //  reset the answers
 
     var i;
@@ -934,7 +661,7 @@ function LasAudioTest() {
   //
   //  MESSAGE
   //
-  this.showMsg = function() {
+  lasAudioTest.showMsg = function() {
     var beginFn;
 
     //  we do not check state here, because we want to use Velocity chaining
@@ -976,7 +703,7 @@ function LasAudioTest() {
   };
 
 
-  this.resetMsg = function() {
+  lasAudioTest.resetMsg = function() {
     //  hide the msg
 
     var completeFn;
@@ -1020,7 +747,7 @@ function LasAudioTest() {
   };
 
 
-  this.waitForMsg = function() {
+  lasAudioTest.waitForMsg = function() {
 
     //  if timer is already set
     //  or it is pimp
@@ -1064,7 +791,7 @@ function LasAudioTest() {
   };
 
 
-  this.showTrans = function() {
+  lasAudioTest.showTrans = function() {
 
     //  if there is no trans to show or it is already showed
     if ( !this.trans || this.state.trans ) {
@@ -1087,7 +814,7 @@ function LasAudioTest() {
   };
 
 
-  this.resetTrans = function() {
+  lasAudioTest.resetTrans = function() {
 
     if ( !this.state.trans ) {
       return;
@@ -1111,7 +838,7 @@ function LasAudioTest() {
   //
   //  CONTROLS
   //
-  this.showControls = function() {
+  lasAudioTest.showControls = function() {
 
     //  if controls are already in
     //  or there is no time && no more && it is not before the first play
@@ -1176,7 +903,7 @@ function LasAudioTest() {
   };
 
 
-  this.resetControls = function() {
+  lasAudioTest.resetControls = function() {
     var completeFn;
 
     //  if there was no controls
@@ -1226,7 +953,7 @@ function LasAudioTest() {
   //  SKIP BUTTON
   //  pause timer
   //
-  this.showSkipButton = function() {
+  lasAudioTest.showSkipButton = function() {
     //  if the timer is already in
     //  or there is no pause time
     if ( this.state.skipButton || ( this.pauseTime < 0 ) ) {
@@ -1257,7 +984,7 @@ function LasAudioTest() {
   };
 
 
-  this.resetSkipButton = function( now ) {
+  lasAudioTest.resetSkipButton = function( now ) {
 
     //  move @now into some state prop
 
@@ -1299,7 +1026,7 @@ function LasAudioTest() {
   //
   //  SCORE
   //
-  this.showScore = function() {
+  lasAudioTest.showScore = function() {
     //  this shows that the user made a good decision
 
     var completeFn,
@@ -1384,7 +1111,7 @@ function LasAudioTest() {
   };
 
 
-  this.resetScore = function() {
+  lasAudioTest.resetScore = function() {
     //  hide the score
     //  it can be called on showScore (via setTimeout)
 
@@ -1421,7 +1148,7 @@ function LasAudioTest() {
   //
   //  SPINNER
   //
-  this.showSpinner = function() {
+  lasAudioTest.showSpinner = function() {
     //  if the spinner is in
     if ( this.state.spinner ) {
       return false;
@@ -1445,7 +1172,7 @@ function LasAudioTest() {
   };
 
 
-  this.resetSpinner = function() {
+  lasAudioTest.resetSpinner = function() {
     //  if there was no spinner
     if ( !this.state.spinner ) {
       return false;
@@ -1470,7 +1197,7 @@ function LasAudioTest() {
 
 
 
-  this.finish = function() {
+  lasAudioTest.finish = function() {
 
     window.console.log('END');
 
@@ -1482,7 +1209,7 @@ function LasAudioTest() {
   //
   //  HELPERS
   //
-  this.clickAnswer = function( target, answerData ) {
+  lasAudioTest.clickAnswer = function( target, answerData ) {
     //  controls the click event logic for answers
     //  @target comes from event handler
     //  @answerData is assigned in assignAnswersData
@@ -1510,7 +1237,13 @@ function LasAudioTest() {
 
       if ( this.more !== null ) {
         window.console.log('wrong answer has more');
-        this.playMore();
+        //  assign audio times
+        this.audioTimes = [
+          this.more.startTime,
+          this.more.stopTime,
+          -1
+        ];
+        this.playAudio();
       }
 
       if ( this.state.vibrating ) {
@@ -1565,7 +1298,7 @@ function LasAudioTest() {
   };
 
 
-  this.eventHandler = function( event ) {
+  lasAudioTest.eventHandler = function( event ) {
     //  this decides what happens after each click
     //  @event comes from addListener
 
@@ -1673,7 +1406,13 @@ function LasAudioTest() {
         this.pauseAudio();
       }
       else {
-        this.playMore();
+        //  assign play times
+        this.audioTimes = [
+          this.more.startTime,
+          this.more.stopTime,
+          -1
+        ];
+        this.playAudio();
       }
     }
 
@@ -1683,7 +1422,7 @@ function LasAudioTest() {
   };
 
 
-  this.addListener = function() {
+  lasAudioTest.addListener = function() {
     //  assign click and touchstart events to the wrapper
 
     window.console.log('add event listener');
@@ -1708,50 +1447,9 @@ function LasAudioTest() {
   };
 
 
-  //
-  //  LOAD FILE
-  //
-  this.loadAudioFile = function() {
-
-    var force;
-    var progress;
-
-    window.console.log('loadAudioFile');
-
-    //  pause immitiately when the play starts and remove listener
-    force = function() {
-
-      window.console.log('force');
-      this.audioFile.pause();
-      this.audioFile.removeEventListener('play', force, false);
-
-    }.bind( this );
-
-    //  when the progress fires, we can seek the audio file and set the time for playback
-    progress = function () {
-
-      window.console.log('progress');
-
-      //  remove its listener
-      this.audioFile.removeEventListener('progress', progress, false);
-
-      //  trigger the playback again
-      this.state.playing = false;
-      this.playAudio();
-
-    }.bind( this );
-
-    this.audioFile.addEventListener( 'play', force, false );
-    this.audioFile.addEventListener( 'progress', progress, false );
-
-    //  play and trigger events
-    this.audioFile.play();
-
-  };
 
 
-
-  this.test = function() {
+  lasAudioTest.test = function() {
     var property;
     var data = this.lasData.chat;
     var testNotes = this.lasData.testNotes;
@@ -1896,9 +1594,9 @@ function LasAudioTest() {
 
   };
 
-}
 
-//
-//  Extend with LasHelper methods
-//
-LasAudioTest.prototype = new LasHelper();
+
+  //  return augmented object
+  return lasAudioTest;
+
+}

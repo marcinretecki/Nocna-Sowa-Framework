@@ -5,64 +5,47 @@
 function LasLiczby() {
   "use strict";
 
-
-  //
-  //  Elements
-  //
-  this.wrapper =              document.getElementById('liczby');
-  this.audioMsgWrapper =      document.getElementById('audio-msg-wrapper');
-  this.audioMsg =             document.getElementById('audio-msg');
-  this.number =               document.getElementById('number');
-  this.audioControls =        document.getElementById('audio-controls');
-  this.audioMore =            document.getElementById('audio-more');
-  this.audioNext =            document.getElementById('audio-next');
-  this.audioRewind =          document.getElementById('audio-rewind');
+  //  get methods from the LasAudioTest
+  //  we can add new methods or overwrite old ones
+  var lasLiczby = new LasAudioTest();
 
 
-  //
-  //  Data
-  //
-  this.words = {
-    j:                        ['null', 'en', 'to', 'tre', 'fire', 'fem', 'seks', 'sju', 'åtte', 'ni', 'ti',
-                               'elleve', 'tolv', 'tretten', 'fjorten', 'femten', 'seksten', 'sytten', 'atten', 'nitten'],
-    d:                        ['', '', 'tjue', 'tretti', 'førti', 'femti', 'seksti', 'sytti', 'åtti', 'nitti'],
-  };
+  lasLiczby.currentNum =          0;
 
-  //
-  //  Audio Data
-  //
-  this.lasData =              new LasLiczbyData();
+  lasLiczby.sequenceType =        'pimp';
 
-  this.msg =                  '';
-  this.num =                  0;
-  this.answersData =          [];
-
-
-  //
-  //  State
-  //  this prohibits some functions from firing more than once
-  //  it's also usefull in debugging
-  //
-  this.state = {
-    controls:                 false,
-
-  };
+  //  there are 3 levels
+  //  0 (0-19)
+  //  1 (20-99)
+  //  2 (100-9999)
+  lasLiczby.state.level =         1;
 
 
   //
   //  Initiate
   //
-  this.init = function() {
+  lasLiczby.init = function() {
+
+    //
+    //  Get Data
+    //
+    this.lasData =                new LasLiczbyData();
 
     //  get Elements
     this.getBasicElements();
+
+
+    //  Random chat arrays
+    this.randomIntroArray =       this.createRandomArrayOfFirstBubbles( this.lasData.intro );
+    this.randomChatArray =        this.createRandomArrayOfNumbers();
+    this.randomEndArray =         this.createRandomArrayOfFirstBubbles( this.lasData.end );
 
     //  Prepare
     this.addListener();
     this.hideLoader();
 
-    //  get intro
-    this.getIntro();
+    //  Get the intro
+    this.getNextBubble( 'INTRO' );
     this.showMsg();
     this.showControls();
 
@@ -72,7 +55,7 @@ function LasLiczby() {
   //
   //  Create
   //
-  this.getIntro = function() {
+  lasLiczby.getIntro = function() {
 
     window.console.log( 'show intro' );
 
@@ -80,7 +63,7 @@ function LasLiczby() {
 
   };
 
-  this.getNewNumber = function() {
+  lasLiczby.getNewNumber = function() {
 
     window.console.log( 'get new number' );
 
@@ -90,252 +73,276 @@ function LasLiczby() {
     this.resetNum();
     this.resetControls();
 
-    this.getRandomNumber( 20 );
+    this.getRandomNumber();
 
-    this.showNum();
+    //this.showNum();
 
   };
 
 
   //
-  //  MESSAGE
+  //  BUBBLE
   //
-  this.showMsg = function() {
-    var beginFn;
+  lasLiczby.assignBubbleData = function(no, data) {
+    //  check what data is available, assign it and reset those unavailable
 
-    //  we do not check state here, because we want to use Velocity chaining
-    //  but we need to check if there is a msg to show
-    if ( !this.msg ) {
-      return false;
+    //  msg
+    //  start/stop times
+    //  more
+    //  there will be a sequence of playback, not single play/stop
+
+
+    //  if it is intro or ending
+    if ( ( this.state.currentState === 'INTRO' ) || ( this.state.currentState === 'END' ) ) {
+
+      //  assign
+      this.currentBubble = no;
+      this.currentBubbleData = data;
+
     }
+    //  if it is chat
+    else {
 
-    this.state.msg = true;
+      //  tu robimy całą logikę z liczbami
 
-    window.console.log('show msg');
-
-    this.audioMsg.innerHTML = this.msg;
-
-  };
+      this.msg = 'liczba';
 
 
-  this.resetMsg = function() {
-    //  hide the msg
-
-    var completeFn;
-
-    window.console.log('try resetMsg ');
-    window.console.log('msg state ' + this.state.msg);
-
-    //  if there was no msg
-    if ( !this.state.msg ) {
-      return false;
-    }
-
-    //  if user clicked fast enough, showMsg could not finish, then we need to stop animation
-    this.velocity(
-      this.audioMsgWrapper,
-      'stop'
-    );
-
-    window.console.log('reset msg');
-
-    this.state.msg = false;
-
-    this.audioMsg.innerHTML = '';
-
-  };
 
 
-  this.waitForMsg = function() {
 
-    //  if timer is already set
-    if ( this.waitForMsgTimer ) {
-      return false;
-    }
 
-    //  wait until msg is reset
-    if ( this.state.msg ) {
+      return;
 
-      window.console.log('set waitForMsg timer');
-
-      this.waitForMsgTimer = window.setTimeout(function() {
-
-        window.clearTimeout(this.waitForMsgTimer);
-        this.waitForMsgTimer = undefined;
-
-        this.waitForMsg();
-
-      }.bind(this), 100);
-
-      return false;
 
     }
 
-    //  show msg
-    this.showMsg();
 
-  };
+    //  if there is msg
+    if ( this.currentBubbleData.hasOwnProperty('msg') ) {
 
-  //
-  //  CONTROLS
-  //
-  this.showControls = function() {
+      //  assign the msg
+      this.msg = this.currentBubbleData.msg;
 
-    //  if controls are already in
-    //  or there is no time && no more && it is not before the first play
-    if (        this.state.controls
-          || ( !this.more && ( this.startTime < 0 ) && !this.state.beforeFirstPlay && ( this.bubbleAutoNext !== 'RANDOM' ) )
-          || ( !this.msg && !this.answersData.length ) ) {
-      return false;
-    }
-
-    this.state.controls = true;
-
-    window.console.log('show controls');
-
-    //  if there are answers, we want to match the color to them
-    if ( this.state.answers ) {
-      this.audioControls.className = 'section-green';
     }
     else {
-      this.audioControls.className = 'section-dark';
+
+      //  reset msg
+      this.msg = '';
+
     }
 
-    //  show the whole controls bar
-    this.velocity(
-      this.audioControls,
-      'slideDown',
-      { duration: this.helper.speed*2, easing: this.helper.easingSpring }
-    );
+    //  if there is more
+    if ( this.currentBubbleData.hasOwnProperty('more') ) {
 
-    //  below, each this.velocity call need display: block, or buttons will be showed as inline-block
+      //  assign more
+      this.more = this.currentBubbleData.more;
 
-    //  if there is more audio, show MORE button
-    if ( ( this.more !== null ) && this.audioFile ) {
-      window.console.log('show more button');
-
-      this.velocity(
-        this.audioMore,
-        'fadeIn',
-        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
-      );
     }
+    else {
 
-    //  if there is time, show REWIND
-    if ( ( this.startTime >= 0 ) && this.audioFile  ) {
-      window.console.log('show rewind button');
+      //  reset more
+      this.more = null;
 
-      this.velocity(
-        this.audioRewind,
-        'fadeIn',
-        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
-      );
-    }
-
-    //  if there are no answers, we need NEXT button
-    if ( !this.answersData.length ) {
-      this.velocity(
-        this.audioNext,
-        'fadeIn',
-        { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
-      );
     }
 
   };
 
 
-  this.resetControls = function() {
-    var completeFn;
+  lasLiczby.answerToBubble = function() {
+    //  convert clicked answer into the next bubble
 
-    //  if there was no controls
-    if ( !this.state.controls ) {
+    //  this one prevents some glitches
+    if ( this.state.bubbling ) {
       return false;
     }
 
-    //  reset the state instantly, so it doesn't trigger again
-    //  this way it can also use Velocity's queue
-    this.state.controls = false;
+    this.state.bubbling = true;
 
-    window.console.log('reset controls');
+    //  pause, if user clicked an answer, we need to pause audio, so we can play the next one
+    this.pauseAudio();
 
-    //  hide the whole controls element
-    this.velocity(
-      this.audioControls,
-      'slideUp',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
-    );
+    window.console.log('answerToBubble');
 
-    //  hide MORE
-    this.velocity(
-      this.audioMore,
-      'fadeOut',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
-    );
+    //  reset everything
+    this.resetMsg();
+    this.resetAnswers();
+    this.resetControls();
+    this.resetAudioListeners();
 
-    //  hide REWIND
-    this.velocity(
-      this.audioRewind,
-      'fadeOut',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
-    );
+    //  get next bubble
+    this.getNextBubble( this.nextBubbleName );
 
-    //  hide NEXT
-    this.velocity(
-      this.audioNext,
-      'fadeOut',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
-    );
+    //  create new bubble
+    this.createBubble();
+
+    //  reset bubbling state
+    this.state.bubbling = false;
+
+  };
+
+
+  lasLiczby.getRandomBubble = function() {
+    window.console.log( 'getRandomBubble in lasLiczby');
+
+    //  level 1
+
+    if (this.numberCount < 0 ) {
+      //  if there are still chat items to show
+
+      //  add one to progress progress
+      this.lasSaveChallangeProgress.plusOne();
+
+      //  pop data and return the object
+      var pop = this.lasData.chat[ this.randomChatArray.pop() ];
+      return pop;
+
+    }
+    else {
+      //  Set state
+      this.state.currentState = 'END';
+
+      return this.getEndBubble();
+    }
 
   };
 
 
   //
-  //  Number
+  //  Create random array
   //
-  this.showNum = function() {
+  lasLiczby.createRandomArrayOfNumbers = function() {
 
-    this.number.innerHTML = this.num;
+    var i;
+    var tensL;
+    var num;
+    var tens;
+
+    //  reset array
+    this.randomChatArray = [];
+
+    //  from 0 to 19
+    if ( this.state.level === 0 ) {
+
+      this.randomChatArray = this.shuffleArray( [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] );
+
+    }
+    //  bigger numbers
+    else if ( this.state.level === 1 ) {
+
+      //  we use IIFE to lock the variable i
+      (function() {
+
+        i = this.randomChatArray.length;
+
+        tens = [2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9];
+        tensL = tens.length;
+
+        while ( i < tensL ) {
+
+          num = parseInt ( tens[i] + '' + this.getRandomNumber( 0 ) );
+
+          //  check if array contains the number
+          if ( !this.randomChatArray.includes( num ) ) {
+
+            i = this.randomChatArray.unshift( num );
+
+          }
+
+        }
+
+        //  fill up rest of the arrays
+        while ( i < 20 ) {
+
+          //  get random number
+          num = this.getRandomNumber( 1 );
+
+          //  check if array contains the number
+          if ( !this.randomChatArray.includes( num ) ) {
+
+            i = this.randomChatArray.unshift( num );
+
+          }
+
+        }
+
+        //  shuffel
+        this.randomChatArray = this.shuffleArray( this.randomChatArray );
+
+
+      }).bind( this )();
+
+    }
+    //  thousands
+    else if ( this.state.level === 2 ) {
+
+      //  we use IIFE to lock the variable i
+      (function() {
+
+        i = this.randomChatArray.length;
+
+        //  fill up the array
+        while ( i < 20 ) {
+
+          //  get random number
+          num = this.getRandomNumber( 2 );
+
+          //  check if array contains the number
+          if ( !this.randomChatArray.includes( num ) ) {
+
+            i = this.randomChatArray.unshift( num );
+
+          }
+
+        }
+
+      }).bind( this )();
+
+    }
+
+    window.console.log( this.randomChatArray );
 
   };
 
 
-  this.resetNum = function() {
 
-    this.number.innerHTML = '';
-
-  };
-
+  //
+  //  Numbers
+  //
 
   //  Random number
-  this.getRandomNumber = function( option ) {
+  //  returns a number in chosen span
+  lasLiczby.getRandomNumber = function( option ) {
 
-    var min, max;
+    var min;
+    var max;
 
-    if ( '0' === option ) {
+    if ( 0 === option ) {
       min = 0;
-      max = 19;
+      max = 9;
     }
-    else if ( '20' === option ) {
+    else if ( 1 === option ) {
       min = 20;
       max = 99;
     }
-    else {
+    else if ( 2 === option ) {
       min = 1000;
       max = 9999;
     }
 
-    this.num =  Math.floor( Math.random() * (max - min + 1) ) + min;
+    return Math.floor( Math.random() * (max - min + 1) ) + min;
 
   };
 
 
-  this.getWords = function( num ) {
+  //  Number to words
+  lasLiczby.getWords = function() {
     var j = this.words.j;
     var d = this.words.d;
     var r = '';
     var tusen, hundre, ti, en;
 
-    num = num.toString();
+    num = this.currentNum.toString();
 
     //  do 20
     if (20 > num) {
@@ -415,100 +422,17 @@ function LasLiczby() {
   };
 
 
-  //
-  //  Helpers
-  //
-  this.eventHandler = function( event ) {
-    //  this decides what happens after each click
-    //  @event comes from addListener
-
-    var throttleTimer;
-
-    //  throttle clicks
-    if ( this.state.clicked ) {
-      return;
-    }
-
-    this.state.clicked = true;
-
-    throttleTimer = window.setTimeout(function() {
-      this.state.clicked = false;
-      window.clearTimeout( throttleTimer );
-    }.bind(this), 150);
 
 
-    window.console.log('click');
-
-
-    //  if controls are inactive, don't allow the below from testing
-    if ( !this.state.controls ) {
-      return;
-    }
-
-    if ( ( event.target.id === 'audio-rewind' ) || ( event.target.parentNode.id === 'audio-rewind' ) ) {
-
-      //  tu  możemy rozdzielić state na more i rewind, wtedy każde będzie działało osobono zamiast pauzować drugie
-
-      //  if it is playing now, pause it
-      if ( this.state.playing ) {
-        this.pauseAudio();
-      }
-      else {
-        this.rewindAudio();
-      }
-
-    }
-    else if ( ( event.target.id === 'audio-next' ) || ( event.target.parentNode.id === 'audio-next' ) ) {
-      //  next
-
-      //  get new number
-      this.getNewNumber();
-
-    }
-    else if ( ( event.target.id === 'audio-more' ) || ( event.target.parentNode.id === 'audio-more' ) ) {
-      //  play more
-
-      //  if it is playing now, pause it
-      if ( this.state.playing ) {
-        this.pauseAudio();
-      }
-      else {
-        this.playMore();
-      }
-    }
-
-    event.preventDefault();
-    return false;
-
-  };
-
-  this.addListener = function() {
-    //  assign click and touchstart events to the wrapper
-
-    window.console.log('add event listener');
-
-    this.wrapper.addEventListener('click', function(event) {
-
-      //  ignore right click
-      if (event.which === 1) {
-
-        this.eventHandler(event);
-
-      }
-
-    }.bind(this), false);
-
-  };
-
-
+  //  return augmented object
+  return lasLiczby;
 
 }
 
 
-//
-//  Extend with LasHelper methods
-//
-LasLiczby.prototype = new LasHelper();
 
+console.log('num: ' + LasLiczby.currentNum);
+console.log('state:');
+console.log(LasLiczby.state);
 
 
