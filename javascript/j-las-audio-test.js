@@ -137,9 +137,9 @@ function LasAudioTest() {
     this.getBasicElements();
 
     //  Random chat arrays
-    this.randomIntroArray =   this.createRandomArrayOfFirstBubbles( this.lasData.intro );
-    this.randomChatArray =    this.createRandomArrayOfFirstBubbles( this.lasData.chat );
-    this.randomEndArray =     this.createRandomArrayOfFirstBubbles( this.lasData.end );
+    this.randomIntroArray =   this.getRandomArrayOfFirstBubbles( this.lasData.intro );
+    this.randomChatArray =    this.getRandomArrayOfFirstBubbles( this.lasData.chat );
+    this.randomEndArray =     this.getRandomArrayOfFirstBubbles( this.lasData.end );
 
     //  Prepare
     this.addListener();
@@ -170,6 +170,7 @@ function LasAudioTest() {
     //  before assign, check the previous bubble
 
     var sequenceTypeData;
+
 
     //  if it is the first bubble
     if ( this.state.currentState === 'INTRO' ) {
@@ -210,9 +211,21 @@ function LasAudioTest() {
 
     window.console.log('Assign bubble data');
 
+
     //  assign
     this.currentBubble = no;
     this.currentBubbleData = data;
+
+
+    //  reset
+    this.startTime = -1;
+    this.stopTime  = -1;
+    this.pauseTime = -1;
+    this.bubbleAutoNext = '';
+    this.msg = '';
+    this.trans = '';
+    this.more = null;
+
 
     //  if there is time
     if ( this.currentBubbleData.hasOwnProperty('startTime') ) {
@@ -229,26 +242,13 @@ function LasAudioTest() {
       window.console.log('Start time: ' + this.startTime + ' Stop time: ' + this.stopTime);
 
     }
-    else {
 
-      //  reset times
-      this.startTime = -1;
-      this.stopTime  = -1;
-
-      window.console.log('No time.');
-    }
 
     //  if there is pause time
     if ( this.currentBubbleData.hasOwnProperty('pauseTime') ) {
 
       //  assign it
       this.pauseTime = this.currentBubbleData.pauseTime;
-
-    }
-    else {
-
-      //  reset pause
-      this.pauseTime = -1;
 
     }
 
@@ -267,8 +267,6 @@ function LasAudioTest() {
       //  loop over all available answers
       this.assignAnswersData();
 
-      //  Reset autoNext
-      this.bubbleAutoNext = '';
 
     }
     //  it can be end
@@ -276,7 +274,7 @@ function LasAudioTest() {
       //  we will show finish
     }
     else {
-      throw "There is no nautoNext or answers – audio test can't work";
+      throw "There is no autoNext or answers – audio test can't work";
     }
 
     //  if there is msg
@@ -284,12 +282,6 @@ function LasAudioTest() {
 
       //  assign the msg
       this.msg = this.currentBubbleData.msg;
-
-    }
-    else {
-
-      //  reset msg
-      this.msg = '';
 
     }
 
@@ -300,12 +292,7 @@ function LasAudioTest() {
       this.trans = this.currentBubbleData.trans;
 
     }
-    else {
 
-      //  reset trans
-      this.trans = '';
-
-    }
 
     //  if there is more
     if ( this.currentBubbleData.hasOwnProperty('more') ) {
@@ -314,12 +301,7 @@ function LasAudioTest() {
       this.more = this.currentBubbleData.more;
 
     }
-    else {
 
-      //  reset more
-      this.more = null;
-
-    }
 
   };
 
@@ -375,7 +357,7 @@ function LasAudioTest() {
     if ( this.bubbleAutoNext === 'END' ) {
 
       this.finish();
-      return false;
+      return;
 
     }
 
@@ -399,12 +381,13 @@ function LasAudioTest() {
 
     }
     //  there is time, so we can play it
+    //  answers show on autoPause
     else {
 
       //  allow prePause event
       this.state.prePause = true;
 
-      //  answers show on autoPause
+      //  assign times
       this.audioTimes = [
         this.startTime,
         this.stopTime,
@@ -412,14 +395,14 @@ function LasAudioTest() {
       ];
       this.playAudio();
 
+    }
 
-      //  if it is a pimp, we need to show msg earlier, it is blocked at waitForMsg
-      //  if it is quiz, showMsg will be called at resetAnswers
-      if ( this.sequenceType === 'pimp' ) {
 
-        this.showMsg();
+    //  if it is a pimp, we need to show msg earlier, it is blocked at waitForMsg
+    //  if it is quiz, showMsg will be called at resetAnswers
+    if ( this.sequenceType === 'pimp' ) {
 
-      }
+      this.showMsg();
 
     }
 
@@ -487,7 +470,7 @@ function LasAudioTest() {
   };
 
 
-  this.atPause = function() {
+  lasAudioTest.atPause = function() {
     //  at the end of audio
 
     window.console.log('at pause');

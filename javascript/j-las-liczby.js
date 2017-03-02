@@ -2,6 +2,15 @@
 //  Las Liczby
 //
 
+
+
+/*
+TODO
+- check if there is a Stack (or autoNext pimp) so the spinner won't hide
+- last of stack doesn't show msg after pauseTime
+
+*/
+
 function LasLiczby() {
   "use strict";
 
@@ -10,15 +19,19 @@ function LasLiczby() {
   var lasLiczby = new LasAudioTest();
 
 
-  lasLiczby.currentNum =          0;
+  lasLiczby.currentNum =            0;
+  lasLiczby.currentNumWords =       '';
 
-  lasLiczby.sequenceType =        'pimp';
+  lasLiczby.sequenceType =          'pimp';
+
+  lasLiczby.numAudioStack =         [];
+  lasLiczby.numAudioStackPointer =  0;
 
   //  there are 3 levels
   //  0 (0-19)
   //  1 (20-99)
-  //  2 (100-9999)
-  lasLiczby.state.level =         1;
+  //  2 (1000-9999)
+  lasLiczby.state.level =           2;
 
 
   //
@@ -29,16 +42,16 @@ function LasLiczby() {
     //
     //  Get Data
     //
-    this.lasData =                new LasLiczbyData();
+    this.lasData =                  new LasLiczbyData();
 
     //  get Elements
     this.getBasicElements();
 
 
     //  Random chat arrays
-    this.randomIntroArray =       this.createRandomArrayOfFirstBubbles( this.lasData.intro );
-    this.randomChatArray =        this.createRandomArrayOfNumbers();
-    this.randomEndArray =         this.createRandomArrayOfFirstBubbles( this.lasData.end );
+    this.randomIntroArray =         this.getRandomArrayOfFirstBubbles( this.lasData.intro );
+    this.randomChatArray =          this.getRandomArrayOfNumbers();
+    this.randomEndArray =           this.getRandomArrayOfFirstBubbles( this.lasData.end );
 
     //  Prepare
     this.addListener();
@@ -53,68 +66,138 @@ function LasLiczby() {
 
 
   //
-  //  Create
-  //
-  lasLiczby.getIntro = function() {
-
-    window.console.log( 'show intro' );
-
-    this.msg = this.lasData.intro.msg;
-
-  };
-
-  lasLiczby.getNewNumber = function() {
-
-    window.console.log( 'get new number' );
-
-
-    //  reset everything
-    this.resetMsg();
-    this.resetNum();
-    this.resetControls();
-
-    this.getRandomNumber();
-
-    //this.showNum();
-
-  };
-
-
-  //
   //  BUBBLE
   //
   lasLiczby.assignBubbleData = function(no, data) {
     //  check what data is available, assign it and reset those unavailable
 
     //  msg
-    //  start/stop times
+    //  start/stop/pause times
     //  more
     //  there will be a sequence of playback, not single play/stop
 
 
-    //  if it is intro or ending
-    if ( ( this.state.currentState === 'INTRO' ) || ( this.state.currentState === 'END' ) ) {
+    //  assign data
+    this.currentBubble = no;
+    this.currentBubbleData = data;
 
-      //  assign
-      this.currentBubble = no;
-      this.currentBubbleData = data;
+
+    //  reset
+    this.msg = '';
+    this.more = null;
+    this.startTime = -1;
+    this.stopTime = -1;
+    this.pauseTime = -1;
+    this.bubbleAutoNext = '';
+
+    window.console.log('liczby assign data');
+
+
+    //  if it is chat, manipulate some stuff
+    if ( this.state.currentState === 'CHAT' ) {
+
+      //  if the bubble is a new number
+      if ( typeof this.currentBubbleData === 'number' ) {
+
+        window.console.log('typeof jest liczbą');
+
+        //  reset stack
+        this.numAudioStack = [];
+        this.numAudioStackPointer = 0;
+
+        //  assign current number
+        this.currentNum = this.currentBubbleData;
+
+        //  create words and audioStack
+        this.createWordsFromNum();
+
+        window.console.log( this.numAudioStack[ this.numAudioStackPointer ] );
+
+        //  reassign bubbleData
+        this.currentBubbleData = this.lasData.chat[ this.numAudioStack[ this.numAudioStackPointer ] ];
+
+      }
+
+
+      //  last from the stack
+      if ( this.currentBubble === 'lastFromStack' ) {
+
+        //  set new autoNext and msg
+        this.currentBubbleData = {
+          msg:        this.currentNum + '<br />' + this.currentNumWords,
+          autoNext:   'RANDOM'
+        };
+
+      }
+      //  if there is audioStack
+      else if ( this.numAudioStack.length > this.numAudioStackPointer ) {
+
+        //  set new pointer
+        this.numAudioStackPointer += 1;
+
+        //  set autoNext
+        this.bubbleAutoNext = this.numAudioStack[ this.numAudioStackPointer ];
+        window.console.log( this.bubbleAutoNext );
+
+      }
+
+
+      //  if it is the last number from the stack
+      if ( this.numAudioStack.length === this.numAudioStackPointer + 1 ) {
+
+        //  numbers 0-19
+        if ( this.state.level === 0 ) {
+
+          this.pauseTime = 3;
+
+        }
+        //  numbers 20-99
+        else if ( this.state.level === 1 ) {
+
+          this.pauseTime = 5;
+
+        }
+        //  numbers 1000+
+        else if ( this.state.level === 2 ) {
+
+          this.pauseTime = 7;
+
+        }
+      }
+
+      //  end if CHAT
+    }
+
+
+    //  if there is time
+    if ( this.currentBubbleData.hasOwnProperty('startTime') ) {
+
+      //  assign playback times
+      this.startTime = this.currentBubbleData.startTime;
+      this.stopTime = this.currentBubbleData.stopTime;
+
+      //  fix the problem with time 0
+      if ( this.startTime === 0 ) {
+        this.startTime = 0.01;
+      }
+
+      window.console.log('Start time: ' + this.startTime + ' Stop time: ' + this.stopTime);
 
     }
-    //  if it is chat
-    else {
-
-      //  tu robimy całą logikę z liczbami
-
-      this.msg = 'liczba';
 
 
+    window.console.log('stack number: ' + this.numAudioStackPointer + ' | length: ' + this.numAudioStack.length);
 
 
+    //  if there is autoNext
+    if ( this.currentBubbleData.hasOwnProperty('autoNext') ) {
 
+      this.bubbleAutoNext = this.currentBubbleData.autoNext;
 
-      return;
-
-
+    }
+    //  it can be end
+    else if ( this.state.currentState === 'END' ) {
+      //  we will show finish
     }
 
 
@@ -125,24 +208,12 @@ function LasLiczby() {
       this.msg = this.currentBubbleData.msg;
 
     }
-    else {
-
-      //  reset msg
-      this.msg = '';
-
-    }
 
     //  if there is more
     if ( this.currentBubbleData.hasOwnProperty('more') ) {
 
       //  assign more
       this.more = this.currentBubbleData.more;
-
-    }
-    else {
-
-      //  reset more
-      this.more = null;
 
     }
 
@@ -187,14 +258,14 @@ function LasLiczby() {
 
     //  level 1
 
-    if (this.numberCount < 0 ) {
+    if ( this.randomChatArray.length > 0 ) {
       //  if there are still chat items to show
 
       //  add one to progress progress
       this.lasSaveChallangeProgress.plusOne();
 
       //  pop data and return the object
-      var pop = this.lasData.chat[ this.randomChatArray.pop() ];
+      var pop = this.randomChatArray.pop();
       return pop;
 
     }
@@ -208,23 +279,25 @@ function LasLiczby() {
   };
 
 
+
   //
+  //  Numbers
+  //
+
+
   //  Create random array
-  //
-  lasLiczby.createRandomArrayOfNumbers = function() {
+  lasLiczby.getRandomArrayOfNumbers = function() {
 
     var i;
     var tensL;
     var num;
     var tens;
-
-    //  reset array
-    this.randomChatArray = [];
+    var newArray = [];
 
     //  from 0 to 19
     if ( this.state.level === 0 ) {
 
-      this.randomChatArray = this.shuffleArray( [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] );
+      newArray = this.shuffleArray( [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] );
 
     }
     //  bigger numbers
@@ -233,7 +306,7 @@ function LasLiczby() {
       //  we use IIFE to lock the variable i
       (function() {
 
-        i = this.randomChatArray.length;
+        i = newArray.length;
 
         tens = [2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9];
         tensL = tens.length;
@@ -243,9 +316,9 @@ function LasLiczby() {
           num = parseInt ( tens[i] + '' + this.getRandomNumber( 0 ) );
 
           //  check if array contains the number
-          if ( !this.randomChatArray.includes( num ) ) {
+          if ( !newArray.includes( num ) ) {
 
-            i = this.randomChatArray.unshift( num );
+            i = newArray.unshift( num );
 
           }
 
@@ -258,16 +331,16 @@ function LasLiczby() {
           num = this.getRandomNumber( 1 );
 
           //  check if array contains the number
-          if ( !this.randomChatArray.includes( num ) ) {
+          if ( !newArray.includes( num ) ) {
 
-            i = this.randomChatArray.unshift( num );
+            i = newArray.unshift( num );
 
           }
 
         }
 
         //  shuffel
-        this.randomChatArray = this.shuffleArray( this.randomChatArray );
+        newArray = this.shuffleArray( newArray );
 
 
       }).bind( this )();
@@ -279,7 +352,7 @@ function LasLiczby() {
       //  we use IIFE to lock the variable i
       (function() {
 
-        i = this.randomChatArray.length;
+        i = newArray.length;
 
         //  fill up the array
         while ( i < 20 ) {
@@ -288,9 +361,9 @@ function LasLiczby() {
           num = this.getRandomNumber( 2 );
 
           //  check if array contains the number
-          if ( !this.randomChatArray.includes( num ) ) {
+          if ( !newArray.includes( num ) ) {
 
-            i = this.randomChatArray.unshift( num );
+            i = newArray.unshift( num );
 
           }
 
@@ -300,15 +373,12 @@ function LasLiczby() {
 
     }
 
-    window.console.log( this.randomChatArray );
+    window.console.log( newArray );
+
+    return newArray;
 
   };
 
-
-
-  //
-  //  Numbers
-  //
 
   //  Random number
   //  returns a number in chosen span
@@ -336,88 +406,149 @@ function LasLiczby() {
 
 
   //  Number to words
-  lasLiczby.getWords = function() {
-    var j = this.words.j;
-    var d = this.words.d;
+  lasLiczby.createWordsFromNum = function() {
+    var j = this.lasData.words.j;
+    var d = this.lasData.words.d;
     var r = '';
     var tusen, hundre, ti, en;
-
-    num = this.currentNum.toString();
+    var num = this.currentNum.toString();
+    var numAudioStackL;
 
     //  do 20
-    if (20 > num) {
+    if ( 20 > num ) {
 
-      if (1 == num) {
+      if ( 1 == num ) {
+
         r += 'én / ei / ett<br />(zgodnie z rodzajem)';
+
+        //  push to audio sequence
+        numAudioStackL = this.numAudioStack.push('numEnEiEt');
+
       }
       else {
+
         r += j[num];
+
+        //  push to audio sequence
+        numAudioStackL = this.numAudioStack.push('num' + num);
+
       }
+
+
 
     }
     //  do 100
-    else if (100 > num) {
+    else if ( 100 > num ) {
 
       ti = parseInt( num[0] );
       en = parseInt( num[1] );
 
       r += d[ti];
-      if (0 < en) {
+
+      //  push to audio sequence
+      numAudioStackL = this.numAudioStack.push('num' + ti + '0');
+
+      //  większe od 0
+      if ( 0 < en ) {
+
         r += j[en];
+
+        //  push to audio sequence
+        numAudioStackL = this.numAudioStack.push('num' + en);
       }
 
     }
     //  tysiące
     else {
 
-      tusen = parseInt( num[0] );
-      hundre = parseInt( num[1] );
-      ti = parseInt( num[2] );
-      en = parseInt( num[3] );
+      tusen =   parseInt( num[0] );
+      hundre =  parseInt( num[1] );
+      ti =      parseInt( num[2] );
+      en =      parseInt( num[3] );
 
-      if (1 < tusen) {
+      //  kilka tysięcy
+      if ( 1 < tusen ) {
         r += j[tusen];
-        r += ' ';
-      } else if (1 == tusen) {
-         r += 'ett ';
+        r += ' tusen';
+
+        //  push to audio sequence
+        numAudioStackL = this.numAudioStack.push('num' + tusen);
+      }
+      //  jeden tysiąc
+      else if ( 1 == tusen ) {
+        r += 'ett tusen ';
+
+        //  push to audio sequence
+        numAudioStackL = this.numAudioStack.push('numEt');
       }
 
-      r += 'tusen';
+      //  push to audio sequence
+      numAudioStackL = this.numAudioStack.push('num1000');
 
-      if (1 < hundre) {
-        r += ' ';
-        r += j[hundre];
-      }
-      else if (1 == hundre) {
-        r += ' ett';
-      }
+      //  jeśli są setki
+      if ( 0 < hundre ) {
 
-      if (0 < hundre) {
-        r += ' hundre';
-      }
+        //  kilka setek
+        if ( 1 < hundre ) {
+          r += ' ' + j[hundre] + ' hundre';
 
-      if ( (0 < ti) || (0 < en) ) {
-        r += ' og ';
-      }
+          //  push to audio sequence
+          numAudioStackL = this.numAudioStack.push('num' + hundre);
+        }
+        //  jedna setka
+        else if ( 1 == hundre ) {
+          r += ' ett hundre';
 
-      if (1 == ti) {
-        r += j[ti*10 + en];
-      }
-      else {
-
-        if (0 < ti) {
-          r += d[ti];
+          //  push to audio sequence
+          numAudioStackL = this.numAudioStack.push('numEt');
         }
 
+        //  push to audio sequence
+        numAudioStackL = this.numAudioStack.push('num100');
+
+      }
+
+      //  jeśli są dziesiątki lub jedności
+      if ( (0 < ti) || (0 < en) ) {
+        r += ' og ';
+
+        //  push to audio sequence
+        numAudioStackL = this.numAudioStack.push('og');
+      }
+
+      //  od 10 do 19
+      if ( 1 == ti ) {
+        r += j[10 + en];
+
+        //  push to audio sequence
+        numAudioStackL = this.numAudioStack.push('num' + (10 + en) );
+      }
+      else {
+        //  dziesiątki
+        if (0 < ti) {
+          r += d[ti];
+
+          //  push to audio sequence
+          numAudioStackL = this.numAudioStack.push('num' + (ti*10) );
+        }
+        //  jedności
         if  (0 < en) {
           r += j[en];
+
+          //  push to audio sequence
+          numAudioStackL = this.numAudioStack.push('num' + en );
         }
 
       }
 
     }
 
-    return r;
+    numAudioStackL = this.numAudioStack.push('lastFromStack');
+
+    //  assign
+    this.currentNumWords = r;
+
+    window.console.log(this.numAudioStack);
 
   };
 

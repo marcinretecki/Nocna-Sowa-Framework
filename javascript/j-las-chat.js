@@ -57,9 +57,9 @@ function LasChat() {
     this.getBasicElements();
 
     //  random chat arrays
-    this.randomIntroArray =   this.createRandomArrayOfFirstBubbles( this.lasData.intro );
-    this.randomChatArray =    this.createRandomArrayOfFirstBubbles( this.lasData.chat );
-    this.randomEndArray =     this.createRandomArrayOfFirstBubbles( this.lasData.end );
+    this.randomIntroArray =   this.getRandomArrayOfFirstBubbles( this.lasData.intro );
+    this.randomChatArray =    this.getRandomArrayOfFirstBubbles( this.lasData.chat );
+    this.randomEndArray =     this.getRandomArrayOfFirstBubbles( this.lasData.end );
 
     //  create chat
     this.createChat();

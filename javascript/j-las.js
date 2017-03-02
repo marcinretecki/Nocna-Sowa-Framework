@@ -143,7 +143,7 @@ function LasHelper() {
   //  @parameter data is feeded in init() with data files by objects making exercises
   //  @return array of first keys in the series of bubbles
   //
-  this.createRandomArrayOfFirstBubbles = function( data ) {
+  this.getRandomArrayOfFirstBubbles = function( data ) {
     var property,
         propArray = [];
 
@@ -676,6 +676,7 @@ function LasHelper() {
     var stopTime = this.audioTimes[1];
     var pauseTime = this.audioTimes[2];
 
+    //  prePause
     //  half a second before the end of audio
     if ( ( this.audioFile.currentTime + 0.5 > stopTime ) && this.state.prePause ) {
 
