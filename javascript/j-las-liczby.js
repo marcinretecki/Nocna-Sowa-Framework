@@ -124,7 +124,7 @@ function LasLiczby() {
 
         //  set new autoNext and msg
         this.currentBubbleData = {
-          msg:        this.currentNum + '<br />' + this.currentNumWords,
+          msg:        '<span class="h1 size-6">' + this.currentNum + '</span><br />' + this.currentNumWords,
           autoNext:   'RANDOM'
         };
 
@@ -419,7 +419,7 @@ function LasLiczby() {
 
       if ( 1 == num ) {
 
-        r += 'én / ei / ett<br />(zgodnie z rodzajem)';
+        r += 'én, ei, ett<<br />(zgodnie z rodzajem)';
 
         //  push to audio sequence
         numAudioStackL = this.numAudioStack.push('numEnEiEt');

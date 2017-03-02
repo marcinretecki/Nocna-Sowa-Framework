@@ -400,11 +400,11 @@ function LasAudioTest() {
 
     //  if it is a pimp, we need to show msg earlier, it is blocked at waitForMsg
     //  if it is quiz, showMsg will be called at resetAnswers
-    if ( this.sequenceType === 'pimp' ) {
+/*    if ( this.sequenceType === 'pimp' ) {
 
       this.showMsg();
 
-    }
+    }*/
 
   };
 
@@ -735,7 +735,7 @@ function LasAudioTest() {
     //  if timer is already set
     //  or it is pimp
     //  in the second case, msg is showed earlier
-    if ( this.waitForMsgTimer || ( this.sequenceType === 'pimp' ) ) {
+    if ( this.waitForMsgTimer /*|| ( this.sequenceType === 'pimp' )*/ ) {
       return false;
     }
 
