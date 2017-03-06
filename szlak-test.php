@@ -142,7 +142,13 @@ include( 'includes/head.php' );
                   echo '<br />';
 
                   //  WYZWANIE AUDIO
-                  $wyzwanie_audio_url = '/las/c/s/wyzwanie/' . $post->post_name . '.m4a';
+                  if ( has_category('wyzwanie-liczby') ) {
+                    $wyzwanie_audio_url = '/las/c/s/wyzwanie/liczby.m4a';
+                  }
+                  else {
+                    $wyzwanie_audio_url = '/las/c/s/wyzwanie/' . $post->post_name . '.m4a';
+                  }
+
                   $wyzwanie_audio = stream_resolve_include_path( $wyzwanie_audio_url );
 
                   if ( $wyzwanie_audio ) {

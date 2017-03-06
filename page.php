@@ -83,7 +83,13 @@ function las_course_router() {
     }
 
     //  Get data file
-    $file = stream_resolve_include_path( __DIR__ . '/data/' . $type . '/' . $post->post_name . '.php' );
+    if ( has_category( 'wyzwanie-liczby' ) ) {
+      $file = stream_resolve_include_path( __DIR__ . '/data/' . $type . '/liczby.php' );
+    }
+    else {
+      $file = stream_resolve_include_path( __DIR__ . '/data/' . $type . '/' . $post->post_name . '.php' );
+    }
+
 
     if ( $file ) {
       include( $file );

@@ -88,7 +88,7 @@ if ( $file ) {
   las.helper.chapter = "<?php echo $post->post_name; ?>";
 
   <?php
-  //  there is no file
+  //  there is no audio file
   //  @audio_file_xxx is defined in get-audio-file
   if ( !$audio_file_m4a && !$audio_file_opus ) {
     echo 'las.audioFile = false;';
