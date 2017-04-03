@@ -29,13 +29,10 @@
 
 
 small{font-weight:400;font-size:$size-0;font-variant:small-caps}
-.small{font-size:$size-0;}
 b,strong{font-weight:700}
 abbr{border:none;text-decoration:underline;text-decoration-style:dashed;text-decoration-color:$gray;font-variant:small-caps;text-transform:uppercase;cursor:help;}
 q,i,em{font-style:italic;}
 cite{}
-.note{display:block;margin-bottom:$space;font-size:$size-mini;font-style:italic}
-.normal{font-style:normal;font-variant:normal;}
 
 
 ul,ol,p,dl{padding:0;font-size:$size-1;line-height:$line-1;}
@@ -57,7 +54,7 @@ ul > li{position:relative;margin-left:(-$space);padding:0 0 0 $space;list-style:
     margin-left:$space;
   }
 }
-ul > li:before{content:"";position:absolute;left:0;top:0.6875em;width:$space-quarter;height:$space-quarter;border-radius:1px;background:$dark;}
+ul > li:before{content:"";position:absolute;left:0;top:0.6875em;width:0.25em;height:0.25em;border-radius:1px;background:$dark;}
 .light-dots > li:before{background:$white;}
 ol ol{margin-left:$space;margin-bottom:$space;list-style:lower-alpha;}
 .nodots li:before{display:none}
@@ -88,13 +85,13 @@ dd {
   }
 }
 
-.capital:first-letter{display:block;float:left;margin-top:0.35rem;margin-right:0.5rem;font-size:4.5rem;line-height:0.8;}
+.capital:first-letter{display:block;float:left;margin-top:0.5rem;margin-right:0.5rem;font-size:5rem;line-height:0.8;}
 .plan{margin:0 0 $space-half;font-weight:700;}
 .plan+ul{margin-bottom:$space-2;}
 .no-margin{margin-bottom:0;}
 
 .p-short{line-height:1.333;}
-.p-quote{text-indent:-0.55rem;}
+.p-quote{text-indent:-0.5rem;}
 
 
 
@@ -159,6 +156,9 @@ blockquote p:last-child,blockquote p:last-of-type,blockquote ul:last-child{margi
 
 .quote-white{color:$white;text-shadow:1px 1px 5px rgba(0,0,0,0.25)}
 .quote-white:before{color:$white}
+
+
+.note{display:block;margin-bottom:$space;font-size:$size-mini;font-style:italic}
 
 
 
@@ -273,7 +273,10 @@ h4 a,h4 a:visited {
 //
 // Modificators
 //
-.size-0{font-size:$size-0;}
+.normal{font-style:normal;font-variant:normal;}
+
+.size-0,
+.small{font-size:$size-0;}
 .size-1{font-size:$size-1;line-height:$line-1;}
 .size-2{font-size:$size-2;}
 .size-3{font-size:$size-3;}
@@ -285,8 +288,12 @@ h4 a,h4 a:visited {
   }
 }
 
-.color-white{color:$white}
-.color-dark{color:font-dark}
+
+
+
+.color-white{color: $white;}
+.color-dark{color: $font-dark;}
+.color-gray{color: $gray;}
 
 .no-break{white-space:nowrap;}
 

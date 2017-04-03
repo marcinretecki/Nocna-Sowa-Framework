@@ -1,6 +1,7 @@
 //
-//  LAS SZLAK
+//  Las Szlak
 //
+
 
 function LasSzlak() {
   "use strict";
@@ -19,14 +20,14 @@ function LasSzlak() {
   lasSzlak.szlakPopUp =         document.getElementById('szlak-post-popup');
   lasSzlak.szlakPopUpSection =  document.getElementById('szlak-post-popup__section');
   lasSzlak.navs = {
-    basic:                  document.getElementById('section-basic'),
-    advanced:               document.getElementById('section-advanced')
+    basic:                      document.getElementById('section-basic'),
+    advanced:                   document.getElementById('section-advanced')
   };
 
   lasSzlak.popupBtns = {
-    przewodnik:             document.getElementById('szlak-btn-przewodnik'),
-    wyzwanie:               document.getElementById('szlak-btn-wyzwanie'),
-    sos:                    document.getElementById('szlak-btn-sos')
+    przewodnik:                 document.getElementById('szlak-btn-przewodnik'),
+    wyzwanie:                   document.getElementById('szlak-btn-wyzwanie'),
+    sos:                        document.getElementById('szlak-btn-sos')
   };
 
 
@@ -115,7 +116,7 @@ function LasSzlak() {
 
       //  change the btn
       btnToShow.classList.add('szlak-list__btn--active');
-      btnToShow.blur()
+      btnToShow.blur();
 
       var delayVal;
 

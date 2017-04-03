@@ -439,25 +439,8 @@ backface-visibility:hidden;
 .hero-treningi{background-image:url('/c/i/treningi/20151225_Oslo_GOPR9075.jpg');background-color:$dark}
 
 
-/* content - blog */
-
-// Czy to jest potrzebne?
-//.content{position:relative;padding:$space-4 0;}
-//.content section{padding-top:$space-2;}
-//.content .single{padding:0;}
-
-// Do usunięcia levels
-//.section-levels-1{border-bottom:$space solid $green;}
-//.section-levels-2{border-bottom:$space solid $orange;}
-//.section-levels-3{border-bottom:$space solid $red;}
-//.section-levels-4{border-bottom:$space solid $dark-btn;}
-//.section-levels-b{padding-bottom:$space}
-
-
-
-
-.footer-author{margin-top:$space-4}
-.footer-author p:last-child{margin-bottom:0}
+//  is it needed?
+.footer-author p:last-child{margin-bottom:0;}
 
 
 // Do oczyszczenia wszystkie <aside> w artykułach – trzeba dodać .aside-entry
@@ -485,7 +468,7 @@ backface-visibility:hidden;
 // .category-ucze-sie .command:before{background:$orange}
 // .category-rozwijam .command:before{background:$red}
 
-.ex h3{margin-top:0;font-size:$size-1}
+//.ex h3{margin-top:0;font-size:$size-1}
 .ex p{}
 .ex i{padding:0 $space;margin:0 0.25rem;border-bottom:1px dotted $gray;color:transparent;}
 .ex .vis{color:#000;}
@@ -574,16 +557,16 @@ li .np+p{padding-left:$space;}
 .comment{position:relative;margin-bottom:$space;}
 .comment-group{margin-bottom:$space-2}
 .depth-2{margin-left:$space-2;}
-.comment footer{border-bottom:1px solid $gray;margin-bottom:0.25rem;}
+.comment footer{font-size:$size-0; border-bottom:1px solid $gray;margin-bottom:0.25rem;}
 .byuser footer {border-bottom:2px solid $blue;}
-.avatar{display:inline-block;position:absolute;right:100%;margin-right:8px;background:$gray;vertical-align:text-bottom;
+.avatar{display:inline-block;position:absolute;right:100%;margin-right:$space-half;background:$gray;vertical-align:text-bottom;
   @media #{$m770} {
     position:static;
   }
 }
 .avatar-32{width:32px;height:32px;}
 .avatar-160{width:160px;height:160px;}
-.comment-author{margin-right:8px;font-size:$size-2;font-style:normal;}
+.comment-author{margin-right:$space-half;font-size:$size-2;font-style:normal;}
 .comment time{color:$dark-gray;}
 .comment-reply{line-height:$size-2 * 1.25;}
 .comment_link{color:$dark-gray;font-variant:small-caps}

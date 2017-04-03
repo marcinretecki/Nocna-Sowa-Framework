@@ -27,11 +27,6 @@ function LasLiczby() {
   lasLiczby.numAudioStack =         [];
   lasLiczby.numAudioStackPointer =  0;
 
-  //  there are 3 levels
-  //  0 (0-19)
-  //  1 (20-99)
-  //  2 (1000-9999)
-  lasLiczby.state.level =           2;
 
 
   //
@@ -43,6 +38,14 @@ function LasLiczby() {
     //  Get Data
     //
     this.lasData =                  new LasLiczbyData();
+
+    //  there are 3 levels
+    //  0 (0-19)
+    //  20 (20-99)
+    //  100 (1000-9999)
+    if ( this.helper.chapter ) {
+      this.state.level =           parseInt ( this.helper.chapter.split('-')[1] );
+    }
 
     //  get Elements
     this.getBasicElements();
@@ -152,13 +155,13 @@ function LasLiczby() {
 
         }
         //  numbers 20-99
-        else if ( this.state.level === 1 ) {
+        else if ( this.state.level === 20 ) {
 
           this.pauseTime = 5;
 
         }
         //  numbers 1000+
-        else if ( this.state.level === 2 ) {
+        else if ( this.state.level === 100 ) {
 
           this.pauseTime = 7;
 
@@ -256,13 +259,8 @@ function LasLiczby() {
   lasLiczby.getRandomBubble = function() {
     window.console.log( 'getRandomBubble in lasLiczby');
 
-    //  level 1
-
     if ( this.randomChatArray.length > 0 ) {
       //  if there are still chat items to show
-
-      //  add one to progress progress
-      this.lasSaveChallangeProgress.plusOne();
 
       //  pop data and return the object
       var pop = this.randomChatArray.pop();
@@ -294,14 +292,18 @@ function LasLiczby() {
     var tens;
     var newArray = [];
 
+    window.console.log('Level: ' + this.state.level);
+
     //  from 0 to 19
     if ( this.state.level === 0 ) {
 
       newArray = this.shuffleArray( [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] );
 
+      window.console.log(newArray);
+
     }
     //  bigger numbers
-    else if ( this.state.level === 1 ) {
+    else if ( this.state.level === 20 ) {
 
       //  we use IIFE to lock the variable i
       (function() {
@@ -328,7 +330,7 @@ function LasLiczby() {
         while ( i < 20 ) {
 
           //  get random number
-          num = this.getRandomNumber( 1 );
+          num = this.getRandomNumber( 20 );
 
           //  check if array contains the number
           if ( !newArray.includes( num ) ) {
@@ -347,7 +349,7 @@ function LasLiczby() {
 
     }
     //  thousands
-    else if ( this.state.level === 2 ) {
+    else if ( this.state.level === 100 ) {
 
       //  we use IIFE to lock the variable i
       (function() {
@@ -358,7 +360,7 @@ function LasLiczby() {
         while ( i < 20 ) {
 
           //  get random number
-          num = this.getRandomNumber( 2 );
+          num = this.getRandomNumber( 100 );
 
           //  check if array contains the number
           if ( !newArray.includes( num ) ) {
@@ -391,11 +393,11 @@ function LasLiczby() {
       min = 0;
       max = 9;
     }
-    else if ( 1 === option ) {
+    else if ( 20 === option ) {
       min = 20;
       max = 99;
     }
-    else if ( 2 === option ) {
+    else if ( 100 === option ) {
       min = 1000;
       max = 9999;
     }
@@ -419,7 +421,7 @@ function LasLiczby() {
 
       if ( 1 == num ) {
 
-        r += 'én, ei, ett<<br />(zgodnie z rodzajem)';
+        r += 'én, ei, ett<br />zgodnie z rodzajem';
 
         //  push to audio sequence
         numAudioStackL = this.numAudioStack.push('numEnEiEt');
@@ -559,11 +561,3 @@ function LasLiczby() {
   return lasLiczby;
 
 }
-
-
-
-console.log('num: ' + LasLiczby.currentNum);
-console.log('state:');
-console.log(LasLiczby.state);
-
-

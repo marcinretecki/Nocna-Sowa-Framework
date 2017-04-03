@@ -1,5 +1,5 @@
 //
-// Las Audio Test
+//  Las Audio Test
 //
 
 
@@ -400,6 +400,7 @@ function LasAudioTest() {
 
     //  if it is a pimp, we need to show msg earlier, it is blocked at waitForMsg
     //  if it is quiz, showMsg will be called at resetAnswers
+    //  I added waitForMsg earlier, so this one should be useless now
 /*    if ( this.sequenceType === 'pimp' ) {
 
       this.showMsg();
@@ -1157,7 +1158,7 @@ function LasAudioTest() {
 
   lasAudioTest.resetSpinner = function() {
     //  if there was no spinner
-    if ( !this.state.spinner ) {
+    if ( !this.state.spinner || ( this.numAudioStack && ( this.numAudioStack.length > this.numAudioStackPointer + 1 ) ) ) {
       return false;
     }
 
@@ -1182,9 +1183,12 @@ function LasAudioTest() {
 
   lasAudioTest.finish = function() {
 
+    //  add one to progress
+    this.cookieSetT();
+
     window.console.log('END');
 
-    //  here we need to redirect user to the next ex
+    //  here we can show summary user to the next ex
 
   };
 
@@ -1215,6 +1219,10 @@ function LasAudioTest() {
     }
     //  wrong answer, only animate, do not change anything
     else if ( answerData.hasOwnProperty('wrong') && answerData.wrong ) {
+
+      //  add one to progress progress
+      this.cookiePlusOne( 'wrong' );
+
 
       window.console.log('wrong!');
 
@@ -1340,6 +1348,9 @@ function LasAudioTest() {
     else if ( ( event.target.id === 'audio-msg-wrapper' ) || ( event.target.parentNode.id === 'audio-msg-wrapper' ) ) {
       //  show trans
 
+      //  add one to progress
+      this.cookiePlusOne( 'trans' );
+
       this.showTrans();
     }
 
@@ -1357,6 +1368,10 @@ function LasAudioTest() {
         this.pauseAudio();
       }
       else {
+
+        //  add one to progress progress
+        this.cookiePlusOne( 'repeat' );
+
         this.rewindAudio();
       }
 
@@ -1389,6 +1404,10 @@ function LasAudioTest() {
         this.pauseAudio();
       }
       else {
+
+        //  add one to progress
+        this.cookiePlusOne( 'more' );
+
         //  assign play times
         this.audioTimes = [
           this.more.startTime,

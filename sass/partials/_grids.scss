@@ -36,6 +36,8 @@
 .p-10 > blockquote .share{left:auto;right:$space;top:auto;bottom:0}
 .p-10 > iframe,.p-10 > object{margin-bottom:$space;}
 
+.p-10 > p:last-child{margin-bottom:0;}
+
 .col-9,.p-9 > p{width:$col-9;}
 .col-8,.p-8 > p{width:$col-8;;
   @media #{$m640} {

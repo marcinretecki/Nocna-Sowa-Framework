@@ -100,7 +100,14 @@ backface-visibility:hidden;
 .nocnasowa{font-style:normal;font-variant:normal;font-weight:200;line-height:1.3;font-family:$bariol-reg;color:$dark-btn;text-decoration:none;}
 .nocnasowa span{color:$blue;}
 
-
+.nocnasowa--img{
+  display: inline-block;
+  width: 111px;
+  height: 23px;
+  background:transparent url('/c/i/logo_nocna_sowa.png') no-repeat center center;
+  background-size: 111px 23px;
+  text-indent: -9999px;
+}
 
 
 

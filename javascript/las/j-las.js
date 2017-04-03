@@ -1,5 +1,5 @@
 //
-// Las JavaScript
+//  Las JavaScript
 //
 
 
@@ -12,9 +12,16 @@ function LasHelper() {
   //
   //  Helper
   //
-  this.helper = {};
+  this.helper = {
+    speed:                              200,
+    answersTranformValue:               '300%',
+    easingSpring:                       [ 200, 20 ],
+    easingQuart:                        'easeInOutQuart',
+    currentUrl:                         window.location.href.split('#')[0]
+  };
 
   var self = this;
+
 
 
   //
@@ -27,18 +34,6 @@ function LasHelper() {
 
     //  Velocity
     this.velocity =                       Velocity;
-
-    //  assign helper
-    this.helper = {
-      speed:                              200,
-      answersTranformValue:               '300%',
-      easingSpring:                       [ 200, 20 ],
-      easingQuart:                        'easeInOutQuart',
-      currentUrl:                         window.location.href.split('#')[0]
-    };
-
-
-
 
     //  remove loader when user clicks back button
     window.addEventListener('unload', function(event) {
@@ -84,58 +79,7 @@ function LasHelper() {
 
   };
 
-  //
-  //  Save progress
-  //  First save progress as a cookie
-  //  When user browses back to the list, cookie progress is saved to database (by PHP)
-  //  @return object with one method plusOne()
-  //
-  this.lasSaveChallangeProgress = function() {
 
-    var newCookie = {};
-    var saveChallangeProgress = {};
-
-    //  use self or it will point to the wrong this
-    var chapter = self.helper.chapter;
-
-    //
-    //  Private functions
-    //
-    function getCookie() {
-      return Cookies.getJSON('lasChallangeProgress');
-    }
-
-    function setCookie(value) {
-      Cookies.set('lasChallangeProgress', value, { expires: 365 });
-    }
-
-    function cleanCookie() {
-      Cookies.remove('lasChallangeProgress');
-    }
-
-    //
-    //  Public function
-    //
-    saveChallangeProgress.plusOne = function() {
-      var cookie = getCookie();
-
-      if ( ( cookie !== undefined ) && ( cookie[ chapter ] !== undefined ) ) {
-        //  if we have already this cookie
-
-        newCookie = cookie;
-        newCookie[ chapter ] = newCookie[ chapter ] * 1 + 1;  // * 1 converts it to integer
-      }
-      else {
-        //  if we don't have such cookie
-        newCookie[ chapter ] = 0;
-      }
-
-      setCookie(newCookie);
-    };
-
-    return saveChallangeProgress;
-
-  }();
 
 
   //
@@ -195,11 +139,11 @@ function LasHelper() {
     window.console.log( 'getRandomBubble');
     window.console.log( this.randomChatArray.length );
 
+    //  add one to progress
+    this.cookiePlusOne( 'ex' );
+
     if (this.randomChatArray.length > 0 ) {
       //  if there are still chat items to show
-
-      //  add one to progress progress
-      this.lasSaveChallangeProgress.plusOne();
 
       //  pop data and return the object
       var pop = this.lasData.chat[ this.randomChatArray.pop() ];
@@ -256,6 +200,11 @@ function LasHelper() {
     else if ( no === 'ENDINTRO' ) {
       //  if it is the end of intro,  move one to chat
       window.console.log('if it is the end of intro,  move one to chat');
+
+      //  start chapter timer
+      Date.now = Date.now || function() { return +new Date; };
+      this.helper.beginT = Math.floor( Date.now() / 1000 );
+
       //  Set state
       this.state.currentState = 'CHAT';
       data = this.getRandomBubble();
@@ -908,13 +857,12 @@ function LasHelper() {
 
 
 
-
-
 }
 
 
 
 
+// @codekit-append 'j-las-cookie.js';
 // @codekit-append 'j-las-szlak.js';
 // @codekit-append 'j-las-chat.js';
 // @codekit-append 'j-las-audio-test.js';

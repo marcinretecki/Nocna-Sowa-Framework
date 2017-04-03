@@ -7,7 +7,7 @@
 		"uuidString": "5E0C8142-B278-40C2-A052-5B80A4F7EF50"
 		}
 	],
-"creatorBuild": "25568",
+"creatorBuild": "25704",
 "files": {
 	"\/.gitignore": {
 		"ft": 8192,
@@ -21,60 +21,6 @@
 		"oA": 0,
 		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-chat-min.js",
 		"oF": 6,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/javascript\/j-las-audio-test.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/j-las-audio-test-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/javascript\/j-las-chat.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-las-chat-min.js",
-		"oF": 6,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/javascript\/j-las-liczby.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/j-las-liczby-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/javascript\/j-las-setninger.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/j-las-setninger-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/javascript\/j-las-szlak.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/j-las-szlak-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/javascript\/j-las.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-las-min.js",
-		"oF": 7,
 		"sC": 1,
 		"tS": 0
 		},
@@ -102,6 +48,69 @@
 		"oA": 0,
 		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-min.js",
 		"oF": 6,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/las\/j-las-audio-test.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/j-las-audio-test-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/las\/j-las-chat.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-las-chat-min.js",
+		"oF": 6,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/las\/j-las-cookie.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/j-las-cookie-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/las\/j-las-liczby.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/j-las-liczby-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/las\/j-las-setninger.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/j-las-setninger-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/las\/j-las-szlak.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/j-las-szlak-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/las\/j-las.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-las-min.js",
+		"oF": 7,
 		"sC": 1,
 		"tS": 0
 		},
@@ -599,7 +608,7 @@
 	"alwaysUseExternalServer": 0,
 	"animateCSSInjections": 1,
 	"autoBuildNewItems": 1,
-	"autoprefixerBrowserString": "last 4 versions",
+	"autoprefixerBrowserString": "last 5 versions",
 	"babelAuxiliaryCommentAfter": "",
 	"babelAuxiliaryCommentBefore": "",
 	"babelConfigFileHandlingType": 0,
@@ -1264,6 +1273,10 @@
 			"active": 1,
 			"optionString": ""
 			},
+		"no-compare-neg-zero": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-cond-assign": {
 			"active": 1,
 			"optionString": "'except-parens'"
@@ -1743,6 +1756,10 @@
 		"no-with": {
 			"active": 0,
 			"optionString": ""
+			},
+		"nonblock-statement-body-position": {
+			"active": 0,
+			"optionString": "'beside'"
 			},
 		"object-curly-newline": {
 			"active": 0,
@@ -2343,7 +2360,8 @@
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
-		"autoOutputPathStyle": 0
+		"autoOutputPathStyle": 0,
+		"quality": 100
 		},
 	"languageDefaultsJS": {
 		"autoOutputAction": 1,
@@ -2436,7 +2454,9 @@
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
-		"autoOutputPathStyle": 0
+		"autoOutputPathStyle": 0,
+		"enableLossy": 1,
+		"quality": 100
 		},
 	"languageDefaultsPUG": {
 		"autoOutputAction": 0,
