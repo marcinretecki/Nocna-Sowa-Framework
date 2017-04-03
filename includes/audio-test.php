@@ -90,6 +90,7 @@ if ( $file ) {
   <script>
   var las = new LasAudioTest();
   las.helper.chapter = "<?php echo $post->post_name; ?>";
+  las.helper.type = "<?php echo $type; ?>";
 
   <?php
   //  there is no file

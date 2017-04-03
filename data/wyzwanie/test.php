@@ -132,7 +132,7 @@ function LasAudioData() {
   this.end = {
 
     end1: {
-      msg: 'END'
+      autoNext: 'END'
     }
 
   };

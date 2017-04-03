@@ -3,6 +3,10 @@
 // Functions
 //
 
+if ( is_user_logged_in() ) {
+  include( stream_resolve_include_path( __DIR__ . '/functions/f_user_meta.php' ) );
+}
+
 //
 // Change css and js source for development
 //
@@ -195,115 +199,6 @@ function las_add_roles() {
 
 
 
-//
-//  Get user progress
-//
-//  User progress array example
-//
-//  array(        |przewodnik  |wyzwanie
-//    'p-0-1' => [1,           0],
-//    'p-1-1' => [1,           10],
-//    'p-1-2' => [1,           0],
-//    'p-1-3' => [0,           0],
-//    ...
-//  );
-//  przewodnik może mieć wartość 0 (jeszcze nie czytał) lub 1 (już czytał)
-//  wyzwanie ma wartość 0 (gdy jeszcze nie wchodził) lub większe za każdy przykład, który zrobił w ćwiczeniu s
-//
-//  @return array or false
-//
-function las_get_user_progress() {
-
-  $current_user = wp_get_current_user();
-
-  $user_meta = get_user_meta( $current_user->ID, 'las_progress' );
-
-  //$las_progress_array = array(
-  //  'p-0-1' => [1],
-  //  'p-1-1' => [1, 10],
-  //  'p-1-2' => [1, 0],
-  //  'p-1-3' => [0, 0]
-  //);
-
-  //update_user_meta( $current_user->ID, 'las_progress', $las_progress_array );
-
-  if ( $user_meta && is_array($user_meta[0]) ) {
-    return $user_meta[0];
-
-  }
-  else {
-    return false;
-  }
-
-
-}
-
-
-
-//
-// Check if user visits course's "przewodnik"
-// if yes, then update his meta
-//
-function las_update_user_meta() {
-  global $post;
-  $current_user = wp_get_current_user();
-  $user_progress = las_get_user_progress();
-
-  $cookieProgress = json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true );
-
-  // which page is it?
-  if ( get_query_var( 'przewodnik' ) ) {
-    $progress_type = 'przewodnik';
-  }
-  elseif ( get_query_var( 'wyzwanie' ) ) {
-    $progress_type = 'wyzwanie';
-  }
-  else {
-    $progress_type = "page";
-  }
-
-
-  // update meta
-  if ( $user_progress && ( $user_progress[$post->post_name][$progress_type] > 0 ) ) {
-    // user had progress on this chapter
-    $user_progress[$post->post_name][$progress_type] += 1;
-  }
-  elseif ( $user_progress && ( ( $user_progress[$post->post_name][$progress_type] === 0 ) || ( !$user_progress[$post->post_name][$progress_type] ) ) ) {
-    // user had no progress on this chapter
-    $user_progress[$post->post_name][$progress_type] = 1;
-  }
-  else {
-    // user had no progress at all
-    $user_progress = array();
-    $user_progress[$post->post_name][$progress_type] = 1;
-  }
-
-
-  //  update user meta according to cookies
-  if ( $cookieProgress && ( $cookieProgress !== NULL ) && ( is_array($cookieProgress) ) ) {
-
-    //  Loop all items in the cookie array and save them
-    //  At any given time there should only be one item in the array, so there should't be any performance overhead here
-    //
-    foreach ($cookieProgress as $key => $value) {
-      $user_progress[$key]["wyzwanie-punkty"] += $value;
-    }
-
-    //  destroy variables from the loop
-    unset($key);
-    unset($value);
-
-    //  reset cookie
-    setcookie("lasChallangeProgress", "{}", 1, "/");
-
-  }
-
-
-  update_user_meta( $current_user->ID, 'las_progress', $user_progress);
-
-
-}
-add_action('template_redirect', 'las_update_user_meta');
 
 
 

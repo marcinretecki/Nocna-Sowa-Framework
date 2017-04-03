@@ -70,7 +70,7 @@ function las_courses_loop($courses, $level) {
         $title = $post->post_title;
         $slug = $post->post_name;
 
-        if ( $user_progress[$slug]['wyzwanie-punkty'] && ( $user_progress[$slug]['wyzwanie-punkty'] > 0 ) ) {
+        if ( $user_progress && ($user_progress[$slug]['wyzwanie-punkty'] && ( $user_progress[$slug]['wyzwanie-punkty'] > 0 ) ) ) {
           $punkty = $user_progress[$slug]['wyzwanie-punkty'];
         }
         else {

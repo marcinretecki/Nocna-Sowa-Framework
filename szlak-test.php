@@ -18,6 +18,18 @@ include( 'includes/head.php' );
 
         <?php
 
+          print_r( json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true ) );
+
+          echo '<h2 class="h1">User Struct</h2>';
+
+          $user_progress = las_get_user_progress();
+
+          echo '<pre class="size-0">';
+          var_dump( $user_progress );
+          echo '</pre>';
+
+
+
 
           $green_light = '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-right:1rem;background-color:#308c8c;display:inline-block;"></span>';
           $red_light = '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-right:1rem;background-color:#dd4b39;display:inline-block;"></span>';
