@@ -53,7 +53,7 @@ function las_update_user_meta() {
   $current_time = time();
   $chapter = $post->post_name;
 
-  $cookieProgress = json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true );
+  $cookie_progress = json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true );
 
   // which page is it?
   if ( get_query_var( 'przewodnik' ) ) {
@@ -110,29 +110,21 @@ function las_update_user_meta() {
     //  set number of examples, mistakes, times etc.
     //  this is usally only the previous visited page or wyzwanie
     //
-    if ( $cookieProgress && ( $cookieProgress !== NULL ) && ( is_array($cookieProgress) ) ) {
+    if ( $cookie_progress && ( $cookie_progress !== NULL ) && ( is_array($cookie_progress) ) ) {
 
       //  Loop all items in the cookie array and save them
       //  At any given time there should only be one item in the array, so there should't be any performance overhead here
       //
 
 
-      //  ????
-      //  reset($someArray);
-      //  echo key($someArray);
-      //
-      //
-
-
-
-      foreach ($cookieProgress as $chapter_key => $progress_array) {
+      foreach ($cookie_progress as $chapter_key => $progress_array) {
 
         //  jsut in case, get to the beginning of the array
         reset($progress_array);
-        $progress_type = key($progress_array);
+        $cookie_progress_type = key($progress_array);
 
 
-        $user_progress[$chapter_key][$progress_type][] = $progress_array[$progress_type][0];
+        $user_progress[$chapter_key][$cookie_progress_type][] = $progress_array[$cookie_progress_type][0];
 
 
       }
@@ -140,7 +132,7 @@ function las_update_user_meta() {
       //  destroy variables from the loop
       unset($chapter_key);
       unset($progress_array);
-      unset($progress_type);
+      unset($cookie_progress_type);
 
     }
 
