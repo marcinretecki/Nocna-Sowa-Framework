@@ -8,12 +8,12 @@ $id = $post->ID;
 
 
 //
-// Custom Loop
-// it prints courses list
+//  Custom Loop
+//  it prints courses list
 //
-// @courses (object) comes from get_posts() in las_show_all_courses()
+//  @courses (object) comes from get_posts() in las_get_all_courses()
 //
-function las_courses_loop($courses, $level) {
+function las_courses_loop( $courses, $level ) {
   global $post; //  needed for setup_postdata
 
   $user_progress = las_get_user_progress();
@@ -254,6 +254,7 @@ function las_get_all_courses() {
   $advanced_courses = get_posts( $courses_args );
 
   // if there are any courses to display
+  //  LOOP them
   if ( $basic_courses ) {
     $return = las_courses_loop( $basic_courses, 'basic' );
   }
@@ -295,21 +296,21 @@ function las_get_results() {
 
   $last = $user_progress[$last_chapter][$last_type][$last_access];
 
-  $return .= '<div style="position:fixed;left:0;top:0;width:80%;height:80%;background:#fff;padding:2rem;">';
+  print_r($last);
+
+  $return .= '<div style="position:fixed;left:1rem;top:3rem;right:1rem;bottom:1rem;background:#fff;padding:2rem;">';
 
   $return .= 'Czas: ' . $last['t'];
   $return .= '<br />';
   $return .= 'Przykłady: ' . $last['ex'];
   $return .= '<br />';
-  if ( $last['wrong'] >= 0 ) {
+  if ( $last['wrong'] ) {
     $return .= 'Błędy: ' . $last['wrong'];
     $return .= '<br />';
   }
 
-  //
-  //  tu można dodać ile to szybciej od ostatniego
-  //  ile słów i jakiś innych rzeczy ktoś napotkał
-  //
+  $return .= 'Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.';
+  $return .= '<br />';
 
   $return .= '<a href="#" class="btn btn-green">Powtórz Wyzwanie</a>';
   $return .= '<button id="" class="btn btn-green">Wróć na Szlak</button>';
@@ -321,6 +322,11 @@ function las_get_results() {
 }
 
 
+
+
+//
+//  Begin HTML
+//
 
 include( 'includes/head.php' );
 
