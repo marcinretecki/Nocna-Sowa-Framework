@@ -18,14 +18,14 @@ include( 'includes/head.php' );
 
         <?php
 
-          print_r( json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true ) );
+          print_r( las_get_cookie_progress() );
 
           echo '<h2 class="h1">User Struct</h2>';
 
           $user_progress = las_get_user_progress();
 
           echo '<pre class="size-0">';
-          var_dump( $user_progress );
+          print_r( $user_progress );
           echo '</pre>';
 
 

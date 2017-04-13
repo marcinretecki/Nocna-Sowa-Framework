@@ -69,14 +69,14 @@ function LasAudioData() {
     //  no audio at all
     //  no more
     //  Powiedz ta żona
-    bb1: {
+    bd1: {
       msg:        'Powiedz <span class="audio-test-clue">ta żona</span>. (no audio on q&a)',
       answers: [
-        { answer: 'kona', next: 'bb2' },
+        { answer: 'kona', next: 'bd2' },
         { answer: 'ei kone', wrong: true }
       ]
     },
-    bb2: {
+    bd2: {
       msg:        'kona',
       autoNext:   'RANDOM'
     },

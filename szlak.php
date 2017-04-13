@@ -231,7 +231,7 @@ function las_courses_loop($courses, $level) {
 // Show all courses
 // Gets all courses lists, and loop through them
 //
-function las_show_all_courses() {
+function las_get_all_courses() {
 
   // Kursy IDs
   $basic_courses_parent = 20;
@@ -275,6 +275,53 @@ function las_show_all_courses() {
 
 
 
+//
+//  Show results from last wyzwanie
+//
+function las_get_results() {
+
+  $return = '';
+  $user_progress = las_get_user_progress();
+
+  //  if the last is empty, don't show anything
+  if ( count( $user_progress['last'] ) === 0 ) {
+    return false;
+  }
+
+  //  these should be in this order
+  $last_chapter = $user_progress['last'][0];
+  $last_type = $user_progress['last'][1];
+  $last_access = $user_progress['last'][2];
+
+  $last = $user_progress[$last_chapter][$last_type][$last_access];
+
+  $return .= '<div style="position:fixed;left:0;top:0;width:80%;height:80%;background:#fff;padding:2rem;">';
+
+  $return .= 'Czas: ' . $last['t'];
+  $return .= '<br />';
+  $return .= 'Przykłady: ' . $last['ex'];
+  $return .= '<br />';
+  if ( $last['wrong'] >= 0 ) {
+    $return .= 'Błędy: ' . $last['wrong'];
+    $return .= '<br />';
+  }
+
+  //
+  //  tu można dodać ile to szybciej od ostatniego
+  //  ile słów i jakiś innych rzeczy ktoś napotkał
+  //
+
+  $return .= '<a href="#" class="btn btn-green">Powtórz Wyzwanie</a>';
+  $return .= '<button id="" class="btn btn-green">Wróć na Szlak</button>';
+
+  $return .= '</div>';
+
+  return $return;
+
+}
+
+
+
 include( 'includes/head.php' );
 
 ?>
@@ -295,7 +342,13 @@ include( 'includes/head.php' );
       echo '</p>';*/
 
 
-      $szlak_sections = las_show_all_courses();
+      //
+      //  tu jest zamieszane, cześć funckji robi echo, ale jest return na koniec
+      //  jakoś to trzeba rozdzielić, albo zrobić return w postaci array?
+      //
+
+
+      $szlak_sections = las_get_all_courses();
 
     ?>
 
@@ -305,26 +358,34 @@ include( 'includes/head.php' );
 
 <?php echo $szlak_sections; ?>
 
-  <div id="szlak-post-popup" class="szlak-post-popup">
-    <div class="szlak-post-popup__content section-content section-6-4">
-      <div id="szlak-post-popup__section" class="section-white section-content rounded group centered szlak-post-popup__section">
+<div id="szlak-post-popup" class="szlak-post-popup">
+  <div class="szlak-post-popup__content section-content section-6-4">
+    <div id="szlak-post-popup__section" class="section-white section-content rounded group centered szlak-post-popup__section">
 
-        <div style="position:absolute;right:1rem;top:1rem;cursor:pointer;">X</div>
+      <div style="position:absolute;right:1rem;top:1rem;cursor:pointer;">X</div>
 
-            <a href="" class="szlak-post-popup__btn" id="szlak-btn-przewodnik">
-              <div class="szlak-post-popup__img"></div>
-              <span class="btn btn-nav btn-white">Przewodnik</span>
-        </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-wyzwanie">
-              <div class="szlak-post-popup__img"></div>
-              <span class="btn btn-nav btn-white">Wyzwanie</span>
-        </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-sos">
-              <div class="szlak-post-popup__img"></div>
-              <span class="btn btn-nav btn-white">SOS</span>
-        </a>
+          <a href="" class="szlak-post-popup__btn" id="szlak-btn-przewodnik">
+            <div class="szlak-post-popup__img"></div>
+            <span class="btn btn-nav btn-white">Przewodnik</span>
+      </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-wyzwanie">
+            <div class="szlak-post-popup__img"></div>
+            <span class="btn btn-nav btn-white">Wyzwanie</span>
+      </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-sos">
+            <div class="szlak-post-popup__img"></div>
+            <span class="btn btn-nav btn-white">SOS</span>
+      </a>
 
-      </div>
     </div>
   </div>
+</div>
+
+<?php
+  $wyzwanie_result = las_get_results();
+
+  if ( $wyzwanie_result ) {
+    echo $wyzwanie_result;
+  }
+?>
 
 
 <script>
