@@ -9,12 +9,10 @@
 
     //  if there was no cookie for this key
     if ( !cookie ) {
-
       return false;
-
     }
 
-    return cookie;
+    return cookie
   }
 
   function setCookie(value) {
@@ -31,27 +29,35 @@
     var chapter = this.helper.chapter;
     var type = this.helper.type;
     var cookie = getCookie( chapter );
+    var access;
 
-
-    //  if there is no proper meta
-    if ( !cookie[ chapter ] ) {
-      cookie[ chapter ] = [];
-    }
-
+    //  there is no cookie for this chapter and type
+    //  user is not accepting cookies
     if ( !cookie[ chapter ][ type ] ) {
-      cookie[ chapter ][ type ] = [];
+      console.log('user is not accepting cookies');
+      return;
     }
 
-    if ( !cookie[ chapter ][ type ][0] ) {
-      cookie[ chapter ][ type ][0] = [];
-    }
+    //  if the access time is not yet set
+    if ( !this.helper.access ) {
+      //  get access time from the name of the first property
+      for ( property in cookie[ chapter ][ type ] ) {
 
-    if ( !cookie[ chapter ][ type ][0][ prop ] ) {
-      cookie[ chapter ][ type ][0][ prop ] = 0;
+        if ( cookie[ chapter ][ type ].hasOwnProperty(property) ) {
+          this.helper.access = property;
+          break;
+        }
+
+      }
+    }
+    access = this.helper.access;
+
+    if ( !cookie[ chapter ][ type ][ access ][ prop ] ) {
+      cookie[ chapter ][ type ][ access ][ prop ] = 0;
     }
 
     //  add +1 to the prop of interaction
-    cookie[ chapter ][ type ][0][ prop ] += 1;
+    cookie[ chapter ][ type ][ access ][ prop ] += 1;
 
     //  set the new cookie
     setCookie(cookie);
@@ -63,6 +69,7 @@
 
     var beginT = this.helper.beginT;
     var chapter = this.helper.chapter;
+    var access = this.helper.access;
     var type = this.helper.type;
     var cookie = getCookie( chapter );
 
@@ -72,7 +79,7 @@
     var t = endT - beginT;
 
     console.log('Elapsed T: ' + t);
-    cookie[ chapter ][ type ][0].t = t;
+    cookie[ chapter ][ type ][ access ].t = t;
 
     //  set the new cookie
     setCookie(cookie);

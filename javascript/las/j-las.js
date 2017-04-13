@@ -88,8 +88,8 @@ function LasHelper() {
   //  @return array of first keys in the series of bubbles
   //
   this.getRandomArrayOfFirstBubbles = function( data ) {
-    var property,
-        propArray = [];
+    var property;
+    var propArray = [];
 
     //  Push first items
     for (property in data) {
@@ -139,17 +139,18 @@ function LasHelper() {
     window.console.log( 'getRandomBubble');
     window.console.log( this.randomChatArray.length );
 
-    //  add one to progress
-    this.cookiePlusOne( 'ex' );
+    //  if there are still chat items to show
+    if ( this.randomChatArray.length > 0 ) {
 
-    if (this.randomChatArray.length > 0 ) {
-      //  if there are still chat items to show
+      //  add one to progress
+      this.cookiePlusOne( 'ex' );
 
       //  pop data and return the object
       var pop = this.lasData.chat[ this.randomChatArray.pop() ];
       return pop;
 
     }
+    //  no more random bubbles
     else {
       //  Set state
       this.state.currentState = 'END';
