@@ -279,6 +279,20 @@ function LasSzlak() {
   };
 
 
+  lasSzlak.hideResult = function() {
+
+    //  this should be condensed into the togglePopUp
+
+    var szlakResult =  document.getElementById('szlak-result');
+    var szlakResultContent =  document.getElementById('szlak-result-content');
+
+    this.velocity( szlakResult, { backgroundColorAlpha: 0 }, { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' } );
+    this.velocity( szlakResultContent, { scale: 0 }, { duration: 2 * this.helper.speed, easing: this.helper.easingQuart } );
+
+
+  };
+
+
   lasSzlak.eventHandler = function( event ) {
     //  this decides what happens after each click
     //  @event comes from addListener
@@ -370,6 +384,16 @@ function LasSzlak() {
       || this.checkNodeAndParents(event, this.szlakPopUp ) ) {
 
       this.togglePopup();
+
+      //  stop eventHandler
+      event.stopPropagation();
+      return;
+    }
+
+
+    //  if it iwas "wróć na szlak" button
+    if ( event.target.id === 'close-result' ) {
+      this.hideResult();
 
       //  stop eventHandler
       event.stopPropagation();

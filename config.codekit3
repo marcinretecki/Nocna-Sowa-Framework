@@ -60,6 +60,15 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/javascript\/las\/j-las-audio.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/j-las-audio-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/javascript\/las\/j-las-chat.js": {
 		"ft": 64,
 		"mi": 1,

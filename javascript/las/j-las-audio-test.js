@@ -1129,53 +1129,6 @@ function LasAudioTest() {
   };
 
 
-  //
-  //  SPINNER
-  //
-  lasAudioTest.showSpinner = function() {
-    //  if the spinner is in
-    if ( this.state.spinner ) {
-      return false;
-    }
-
-    this.state.spinner = true;
-
-    //  spinner's animation queue is controlled by this.velocity
-
-    //  reset this.velocity queue
-    this.velocity(
-      this.audioSpinner,
-      'stop'
-    );
-
-    this.velocity(
-      this.audioSpinner,
-      'fadeIn',
-      { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'inline-block' }
-    );
-  };
-
-
-  lasAudioTest.resetSpinner = function() {
-    //  if there was no spinner
-    if ( !this.state.spinner || ( this.numAudioStack && ( this.numAudioStack.length > this.numAudioStackPointer + 1 ) ) ) {
-      return false;
-    }
-
-    this.state.spinner = false;
-
-    this.velocity(
-      this.audioSpinner,
-      'stop'
-    );
-
-    this.velocity(
-      this.audioSpinner,
-      'fadeOut',
-      { duration: this.helper.speed, easing: this.helper.easingQuart }
-    );
-  };
-
 
 
 

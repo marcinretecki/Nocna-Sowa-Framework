@@ -1,3 +1,6 @@
+//
+//  COOKIES
+//
 (function() {
 
   //
@@ -15,15 +18,25 @@
     return cookie
   }
 
+
   function setCookie(value) {
     Cookies.set( 'lasChallangeProgress', value, { expires: 365, path: '/las/' } );
   }
+
 
   function cleanCookie() {
     Cookies.remove( 'lasChallangeProgress', { path: '/las/' } );
   }
 
 
+  //
+  //  Public functions
+  //
+
+  //
+  //  Add one to the prop
+  //  ex, wrong, more, repeat etc.
+  //
   LasHelper.prototype.cookiePlusOne = function( prop ) {
 
     var chapter = this.helper.chapter;
@@ -65,6 +78,9 @@
   };
 
 
+  //
+  //  Set the elapsed time on wyzwanie
+  //
   LasHelper.prototype.cookieSetT = function() {
 
     var beginT = this.helper.beginT;
