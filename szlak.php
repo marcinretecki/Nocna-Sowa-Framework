@@ -228,8 +228,8 @@ function las_courses_loop( $courses, $level ) {
 
 
 //
-// Show all courses
-// Gets all courses lists, and loop through them
+//  Show all courses
+//  Gets all courses lists, and loop through them
 //
 function las_get_all_courses() {
 
@@ -277,11 +277,10 @@ function las_get_all_courses() {
 
 
 //
-//  Show results from last wyzwanie
+//  Get results from last wyzwanie
 //
-function las_get_results() {
+function las_get_last_wyzwanie_result() {
 
-  $return = '';
   $user_progress = las_get_user_progress();
 
   //  if the last is empty, don't show anything
@@ -293,34 +292,83 @@ function las_get_results() {
   $last_chapter = $user_progress['last'][0];
   $last_type = $user_progress['last'][1];
   $last_access = $user_progress['last'][2];
+  $first_time = $user_progress['last'][3];
 
-  $last = $user_progress[$last_chapter][$last_type][$last_access];
+  $last_wyzwanie_result = $user_progress[$last_chapter][$last_type][$last_access];
+  $last_wyzwanie_result['id'] = $user_progress[$last_chapter][ 'id' ];
 
-  print_r($last);
-
-  $return .= '<div style="position:fixed;left:1rem;top:3rem;right:1rem;bottom:1rem;background:#fff;padding:2rem;">';
-
-  $return .= 'Czas: ' . $last['t'];
-  $return .= '<br />';
-  $return .= 'Przykłady: ' . $last['ex'];
-  $return .= '<br />';
-  if ( $last['wrong'] ) {
-    $return .= 'Błędy: ' . $last['wrong'];
-    $return .= '<br />';
+  if ( $first_time ) {
+    $last_wyzwanie_result[ 'first_time' ] = true;
   }
 
-  $return .= 'Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.';
-  $return .= '<br />';
+  $last_wyzwanie_result['url'] = '';
 
-  $return .= '<a href="#" class="btn btn-green">Powtórz Wyzwanie</a>';
-  $return .= '<button id="" class="btn btn-green">Wróć na Szlak</button>';
-
-  $return .= '</div>';
-
-  return $return;
+  return $last_wyzwanie_result;
 
 }
 
+
+
+//
+//  Show result
+//
+//
+function las_show_last_wyzwanie_result( $last_wyzwanie_result ) {
+
+
+  //
+  //  TODO
+  //  jeśli było dużo błędów, albo ćwiczenie nie było zrobione całe, pytamy, czy chce spróbować jeszcze raz, albo wrócić do przewodnika
+  //  jeśli nie było błędów, to sugestia, żeby wrócić na szlak
+  //  animacja, która odkryje nastepny chapter
+  //
+
+
+  //  if there are no examples
+  //  there is nothing to show
+  if ( !$last_wyzwanie_result['ex'] ) {
+    return;
+  }
+
+  $wyzwanie_link = get_permalink( $last_wyzwanie_result['id'] );
+
+  $echo = '';
+
+  $echo .= '<div id="szlak-result" class="szlak-post-popup" style="display:block;background-color:rgba(60, 69, 76, 0.5);">';
+  $echo .= '<div id="szlak-result-content" class="szlak-post-popup__content section-content section-6-4">';
+  $echo .= '<div class="section-white section-content rounded group centered szlak-post-popup__section">';
+
+  //  if there is no time
+  //  user has not finished the chapter
+  if ( !$last_wyzwanie_result['t'] && $last_wyzwanie_result['first_time'] ) {
+    $echo .= 'Nie zrobiłeś wszystkich przykładów. Może spróbujesz jeszcze raz? Jesli były za trudne, wróć do przedownika albo do poprzednich wyzwań. Jeśli nie zrobiłeś wyzwania, bo wydawało Ci się nudne, daj nam o tym znać.';
+  }
+  else {
+
+    $echo .= 'Czas: ' . $last_wyzwanie_result['t'];
+    $echo .= '<br />';
+    $echo .= 'Przykłady: ' . $last_wyzwanie_result['ex'];
+    $echo .= '<br />';
+    if ( $last['wrong'] ) {
+      $echo .= 'Błędy: ' . $last_wyzwanie_result['wrong'];
+      $echo .= '<br />';
+    }
+
+    $echo .= 'Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.';
+    $echo .= '<br />';
+
+  }
+
+  $echo .= '<a href="' . $wyzwanie_link . 'wyzwanie/" class="btn btn-green">Powtórz Wyzwanie</a>';
+  $echo .= '<button id="close-result" class="btn btn-green">Wróć na Szlak</button>';
+
+  $echo .= '</div>';
+  $echo .= '</div>';
+  $echo .= '</div>';
+
+  echo $echo;
+
+}
 
 
 
@@ -386,10 +434,14 @@ include( 'includes/head.php' );
 </div>
 
 <?php
-  $wyzwanie_result = las_get_results();
+  $last_wyzwanie_result = las_get_last_wyzwanie_result();
 
-  if ( $wyzwanie_result ) {
-    echo $wyzwanie_result;
+  if ( $last_wyzwanie_result ) {
+
+    //  reset the the last, so it doesn't show again
+    las_reset_last_wyzwanie_user_meta();
+
+    las_show_last_wyzwanie_result( $last_wyzwanie_result );
   }
 ?>
 
