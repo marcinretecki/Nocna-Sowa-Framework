@@ -12,8 +12,10 @@
   }
 
 
-  //  not only plays the file at specific time but also sets the autoPause
-  //  uses @this.audioTimes
+  //
+  //  Play Audio
+  //  set the autoPause
+  //
   LasHelper.prototype.playAudio = function() {
 
     var startTime = this.audioTimes[0];
@@ -71,6 +73,13 @@
 
     //  pause
     this.pauseAudio();
+
+    //  assign times
+    this.audioTimes = [
+      this.startTime,
+      this.stopTime,
+      -1
+    ];
 
     //  play again
     this.playAudio();

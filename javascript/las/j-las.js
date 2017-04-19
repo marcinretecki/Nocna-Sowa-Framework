@@ -544,6 +544,20 @@ function LasHelper() {
 
 
 
+  //
+  //  Get user input for further usage
+  //  @return input
+  //
+  this.getValueFromInput = function( field ) {
+
+    if ( field.value ) {
+      return field.value;
+    }
+    else {
+      return false;
+    }
+
+  };
 
 
 
