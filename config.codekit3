@@ -105,15 +105,6 @@
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-szlak.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/j-las-szlak-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
 	"\/javascript\/las\/j-las.js": {
 		"ft": 64,
 		"mi": 0,
