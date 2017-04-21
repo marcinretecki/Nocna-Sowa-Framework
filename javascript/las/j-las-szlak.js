@@ -116,7 +116,7 @@ function LasSzlak() {
 
       //  change the btn
       btnToShow.classList.add('szlak-list__btn--active');
-      btnToShow.blur();
+      //btnToShow.blur();
 
       var delayVal;
 
@@ -131,31 +131,26 @@ function LasSzlak() {
       //  animate section
       this.velocity(
         toShow,
-        { translateX: [0, '100%'] },
-        { duration: 3 * this.helper.speed, easing: this.helper.easingSpring, delay: delayVal, display: 'block' }
+        'slideDown',
+        { duration: this.helper.speed*2, easing: this.helper.easingQuart, display: 'block', queue: false }
       );
 
     }.bind(this);
 
 
-    hideFn = function( completeFn ) {
-      //  @completeFn = function || false
+    hideFn = function() {
 
       //  reverse change on btn
       btnToHide.classList.remove('szlak-list__btn--active');
       btnToHide.blur();
 
+      btnToShow.parentNode.style.cssText = 'display:block;';
+
       //  animatio section
       this.velocity(
         toHide,
-        { translateX: '100%' },
-        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'none',
-          complete: function() {
-            if ( completeFn ) {
-              completeFn( false );
-            }
-          }
-        }
+        'slideUp',
+        { duration: 2 * this.helper.speed*2, easing: this.helper.easingQuart, display: 'none' }
       );
 
     }.bind(this);
@@ -163,14 +158,14 @@ function LasSzlak() {
 
     navOutFn = function() {
 
-      this.szlakWrapper.classList.add('szlak-wrapper--faded');
+      //this.szlakWrapper.classList.add('szlak-wrapper--faded');
 
     }.bind(this);
 
 
     navInFn = function() {
 
-      this.szlakWrapper.classList.remove('szlak-wrapper--faded');
+      //this.szlakWrapper.classList.remove('szlak-wrapper--faded');
 
     }.bind(this);
 
@@ -199,7 +194,8 @@ function LasSzlak() {
       window.console.log('both show and hide');
 
       //  hide section and queue show section
-      hideFn( showFn );
+      hideFn();
+      showFn();
 
     }
     //  only show
