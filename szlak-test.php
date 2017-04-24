@@ -203,9 +203,9 @@ include( 'includes/head.php' );
 
 <script>
 //  init Szlak
-var lasHelper = new LasHelper();
-lasHelper.getBasicElements();
-lasHelper.hideLoader();
+var las = new LasHelper();
+las.getBasicElements();
+las.hideLoader();
 </script>
 
 

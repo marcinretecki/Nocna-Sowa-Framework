@@ -9,7 +9,7 @@
 //
 //  Array
 //  [
-//    'test' => [                         //  chapter
+//    'chapter-1' => [                         //  chapter
 //      'przewodnik' => [                 //  progress_type
 //        '1490692099',                   //  access time, UNIX seconds
 //        '1490658658',
@@ -32,7 +32,7 @@
 //      ],
 //      'wyzwanie-suma-ex' =>  44
 //    ],
-//    'liczby' => [
+//    'chapter-2' => [
 //      ...
 //    ],
 //    'totals'  =>  [
@@ -44,9 +44,10 @@
 //      'przewodnik'      =>  10,
 //      'wyzwanie'        =>  13,
 //      't'               =>  16789,
-//      'dates'           => [2017-03-19, 2017-03-22, ...]
+//      'dates'           =>  [2017-03-19, 2017-03-22, ...],
+//      'exp'             =>  1952
 //    ],
-//    last => [chapter, type, access]
+//    'last' => [chapter, type, access],
 //  ]
 
 

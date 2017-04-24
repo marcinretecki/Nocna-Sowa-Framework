@@ -18,8 +18,8 @@
           <svg width="80" height="80" viewBox="0 0 80 80" style="display:block;margin:0 auto;position:aboslute;left:0;top:0;">
             <defs>
               <mask id="cutout">
-                <circle cx="50%" cy="50%" r="40" fill="#fff"/>
-                <circle cx="50%" cy="50%" r="35" fill="#000"/>
+                <circle cx="50%" cy="50%" r="40" fill="#fff" />
+                <circle cx="50%" cy="50%" r="35" fill="#000" />
               </mask>
             </defs>
 

@@ -1,188 +1,96 @@
 <?php
 //
-// Template Name: Szlak
+//  Template Name: Szlak
 //
+
+
+//
+//  Szlak structure
+//
+//    Level (Początek)
+//
+//      1. Section  (main list)
+//        1.1 Chapter (sublist)
+//        1.2 Chapter
+//        1.3 ...
+//      2. Section
+//      ...
+//
+//    Level (Daleko)
+//
+//      1. Section
+//        1.1 Chapter
+//        1.2 Chapter
+//        1.3 ...
+//      2. Section
+//      ...
+//
+
+
 
 global $post;
 $id = $post->ID;
 
 
 //
-//  Custom Loop
-//  it prints courses list
+//  List Loop
 //
+//  @return all sections at the level
 //  @courses (object) comes from get_posts() in las_get_all_courses()
 //
-function las_courses_loop( $courses, $level ) {
+function las_list_loop( $courses, $level ) {
   global $post; //  needed for setup_postdata
 
   $user_progress = las_get_user_progress();
-
   $first_section = true;
-
-  /*echo '<p style="display:none">User progress for testing: ';
-  var_dump( $user_progress );
-  echo '</p>';*/
-
-  $title_array = [''];
   $sections = '';
-  $i = 1;
-
-
-  //  create content sections
-  foreach ( $courses as $post ) {
-
-    //  $post check
-    //print_r($post);
-
-    //  add title to array
-    $title_array[$i] = $post->post_title;
-
-    //  if user can see links to excersises
-    if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
-
-      //  Begin section
-      $sections .= '<section id="section-' . $level . '-' . $i . '" class="wrapper wrapper--szlak-section__sublist" style="display:none;">';
-
-      $sections .= '<div class="szlak-section__sublist">';
-
-      $sections .= '<a href="#section-' . $level . '" class="szlak-arrow szlak-arrow--prev"></a>';
-
-      $sections .= '<h3 class="szlak-section__h centered h1 size-3" style="color:#000;">' . $post->post_title . '</h3>';
-
-      $sections .= '<ol class="navbar__list szlak-list">';
-
-      $children_args = array(
-        'post_type'       => 'page',
-        'post_parent'     => $post->ID,
-        'posts_per_page'  => -1,
-        'orderby'         => 'menu_order',
-        'nopaging'        => true,
-        'order'           => 'ASC'
-      );
-
-      $children = get_posts( $children_args );
-
-      foreach ( $children as $post ) {
-        setup_postdata( $post );
-
-        $link = get_permalink();
-        $title = $post->post_title;
-        $slug = $post->post_name;
-
-        if ( $user_progress && ($user_progress[$slug]['wyzwanie-punkty'] && ( $user_progress[$slug]['wyzwanie-punkty'] > 0 ) ) ) {
-          $punkty = $user_progress[$slug]['wyzwanie-punkty'];
-        }
-        else {
-          $punkty = false;
-        }
-
-        //  if it is an editor or advanced user, we can give him a link to advanced courses
-
-          $sections .= '<li><a class="btn szlak-list__btn szlak-list__btn--light" ';
-
-          //  if there is wyzwanie and user has done przewodnik
-          if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_category('bez-wyzwania') ) {
-
-            //  hash to show choice
-            $sections .= 'href="#popup" data-szlak-url="' . $link . '" data-szlak-punkty="' . $punkty . '">';
-
-            $sections .= $title;
-
-            //  icons
-            $sections .= '<div class="szlak-icons">';
-
-            // user has done wyzwanie
-            if ( $punkty > 0 ) {
-              $sections .= '<i class="szlak-icon szlak-icon--mountain"></i>' . $punkty;
-            }
-            //  user has not done wyzwanie but it is available
-            else {
-              $sections .= '<i class="szlak-icon szlak-icon--mountain szlak-icon--inactive"></i>';
-            }
-
-            //  close icons
-            $sections .= '</div>';
-
-          }
-          //  if user has not done przewodnik
-          elseif ( $user_progress && !$user_progress[$slug]['przewodnik'] ) {
-
-            //  direct link
-            $sections .= 'href="' . $link . 'przewodnik/">';
-
-            $sections .= $title;
-
-            //  icons
-            $sections .= '<div class="szlak-icons">';
-
-            //  inactive przewodnik
-            $sections .= '<i class="szlak-icon szlak-icon--post szlak-icon--inactive"></i>';
-
-            //  close icons
-            $sections .= '</div>';
-
-
-          }
-          //  there is no wyzwanie but user has done przewodnik
-          elseif ( $user_progress && $user_progress[$slug]['przewodnik'] ) {
-            $sections .= 'href="' . $link . 'przewodnik/">' . $title;
-
-            //  icons
-            $sections .= '<div class="szlak-icons">';
-
-            //  inactive przewodnik
-            $sections .= '<i class="szlak-icon szlak-icon--post"></i>';
-
-            //  close icons
-            $sections .= '</div>';
-          }
-
-          $sections .= '</a>';
-
-      //  end foreach
-      }
-
-    //  end if user can see links to excersises
-    }
-
-    //  Reset children loop data
-    wp_reset_postdata();
-
-    $sections .= '</ol>';
-
-    // End section
-    $sections .= '</div>';
-    $sections .= '</section>';
-
-    $i++;
-
-  //  end foreach
-  }
-  wp_reset_postdata();
-
-
   $j = 1;
-  $l = count( $title_array );
 
   //  echo link sections
   //echo '<div class="group space-x4">';
 
-  echo '<nav id="section-' . $level . '" class="szlak-section__nav">';
+  $sections .= '<nav id="section-' . $level . '" class="szlak-section__nav">';
 
   if ( $level === 'basic' ) {
-    echo '<h2 class="szlak-section__h centered h1 size-3">Początek drogi</h2>';
+    $sections .= '<h2 class="szlak-section__h centered h1 size-3">Początek drogi</h2>';
   }
   elseif ( $level === 'advanced' ) {
-    echo '<h2 class="szlak-section__h centered h1 size-3">Daleko w lesie</h2>';
+    $sections .= '<h2 class="szlak-section__h centered h1 size-3">Daleko w lesie</h2>';
   }
 
-  echo '<ol class="navbar__list szlak-list">';
+  $sections .= '<ol class="navbar__list szlak-list">';
 
-  for ( $j; $j < $l; $j++ ) {
+
+
+  //  create content sections
+  foreach ( $courses as $section ) {
+
+    //  $section check
+    //print_r($section);
+
+
+    $chapters_args = array(
+      'post_type'       => 'page',
+      'post_parent'     => $section->ID,
+      'posts_per_page'  => -1,
+      'orderby'         => 'menu_order',
+      'nopaging'        => true,
+      'order'           => 'ASC'
+    );
+
+    $chapters = get_posts( $chapters_args );
+
+
+    //
+    //  Outer li
+    //
+    $sections .= '<li style="display:block;">';
+
+
+    //  Section title
 
     //  remove the number from the title
-    $new_title = explode( '. ', $title_array[$j] );
+    $new_title = explode( '. ', $section->post_title );
 
     //  check if there was a number in the title
     if ( $new_title[1] ) {
@@ -192,38 +100,176 @@ function las_courses_loop( $courses, $level ) {
       $new_title = $new_title[0];
     }
 
-    echo '<li>';
+
+
+    //
+    //  trzeba sprawdzić, czy user wykonał cały poprzedni dział
+    //
+
 
     if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
 
-      echo '<a class="btn szlak-list__btn szlak-list__btn--nav js-szlak-btn" href="#section-' . $level . '-' . $j . '">';
-      echo $new_title;
-      echo '<i class="szlak-arrow"></i></a>';
+      $sections .= '<a class="btn szlak-list__btn js-szlak-btn" href="#sublist-' . $level . '-' . $j . '">';
+      $sections .= $new_title;
+      $sections .= '<i class="szlak-arrow"></i></a>';
 
     }
     else {
 
       //  możemy to zastąpić na link, który prowadzi do upsale
-
-      echo $new_title;
+      $sections .= $new_title;
 
     }
 
-    echo '</li>';
 
+    //  if user can see links to excersises
+    if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
+
+      //
+      //  Begin sublist
+      //
+      $sections .= '<ol id="sublist-' . $level . '-' . $j . '" class="navbar__list szlak-sublist">';
+
+
+
+      $sublist = las_sublist_loop( $chapters, $user_progress );
+
+      $sections .= $sublist;
+
+      //  close sublist
+      $sections .= '</ol>';
+
+    }
+
+
+    $sections .= '</li>';
+
+    $j++;
+
+  //  end foreach
   }
+  wp_reset_postdata();
 
-  echo '</ol>';
-  echo '</nav>';
+
+  //  close nav
+  $sections .= '</ol>';
+  $sections .= '</nav>';
 
   //  return content sections
   return $sections;
 
-  //  close row
-  //echo '</div>';
-
 }
 
+
+//
+//  Sublist Loop
+//  @return sublist
+//  @children and @user_progress come from las_list_loop()
+//
+function las_sublist_loop( $chapters, $user_progress ) {
+  global $post; //  needed for setup_postdata
+
+  $sublist = '';
+
+  foreach ( $chapters as $post ) {
+    setup_postdata( $post );
+
+    $link = get_permalink();
+    $title = $post->post_title;
+    $slug = $post->post_name;
+
+    if ( $user_progress && ($user_progress[$slug]['wyzwanie-punkty'] && ( $user_progress[$slug]['wyzwanie-punkty'] > 0 ) ) ) {
+      $punkty = $user_progress[$slug]['wyzwanie-punkty'];
+    }
+    else {
+      $punkty = false;
+    }
+
+    //  if it is an editor or advanced user, we can give him a link to advanced courses
+
+
+    //
+    //  Inner li
+    //
+    $sublist .= '<li><a class="btn szlak-sublist__btn" ';
+
+    //  if there is wyzwanie and user has done przewodnik
+    if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_category('bez-wyzwania') ) {
+
+      //  hash to show choice
+      $sublist .= 'href="#popup" data-szlak-url="' . $link . '" data-szlak-punkty="' . $punkty . '">';
+
+      $sublist .= $title;
+
+
+      //  icons
+      $sublist .= '<div class="szlak-icons">';
+
+      // user has done wyzwanie
+      if ( $punkty > 0 ) {
+        $sublist .= '<i class="szlak-icon szlak-icon--mountain"></i>' . $punkty;
+      }
+      //  user has not done wyzwanie but it is available
+      else {
+        $sublist .= '<i class="szlak-icon szlak-icon--mountain szlak-icon--inactive"></i>';
+      }
+
+      //  close icons
+      $sublist .= '</div>';
+
+    }
+    //  if user has not done przewodnik
+    elseif ( $user_progress && !$user_progress[$slug]['przewodnik'] ) {
+
+      //  direct link
+      $sublist .= 'href="' . $link . 'przewodnik/">';
+
+      $sublist .= $title;
+
+      //  icons
+      $sublist .= '<div class="szlak-icons">';
+
+      //  inactive przewodnik
+      $sublist .= '<i class="szlak-icon szlak-icon--post szlak-icon--inactive"></i>';
+
+      //  close icons
+      $sublist .= '</div>';
+
+
+    }
+    //  there is no wyzwanie but user has done przewodnik
+    elseif ( $user_progress && $user_progress[$slug]['przewodnik'] ) {
+      $sublist .= 'href="' . $link . 'przewodnik/">' . $title;
+
+      //  icons
+      $sublist .= '<div class="szlak-icons">';
+
+      //  inactive przewodnik
+      $sublist .= '<i class="szlak-icon szlak-icon--post"></i>';
+
+      //  close icons
+      $sublist .= '</div>';
+    }
+
+
+    //  experimental circles
+    $sublist .= '<div class="szlak-sublist__icon-wrapper">';
+      $sublist .= '<i class="szlak-sublist__icon"></i>';
+    $sublist .= '</div>';
+
+    $sublist .= '</a>';
+
+  //  end foreach
+  }
+
+
+  //  Reset chapters loop data
+  wp_reset_postdata();
+
+
+  return $sublist;
+
+}
 
 
 
@@ -256,7 +302,7 @@ function las_get_all_courses() {
   // if there are any courses to display
   //  LOOP them
   if ( $basic_courses ) {
-    $return = las_courses_loop( $basic_courses, 'basic' );
+    $return = las_list_loop( $basic_courses, 'basic' );
   }
   else {
     $return .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
@@ -264,13 +310,29 @@ function las_get_all_courses() {
 
   // if there are any advanced courses to display
   if ( $advanced_courses ) {
-    $return .= $advanced_sections = las_courses_loop( $advanced_courses, 'advanced' );
+    $return .= $advanced_sections = las_list_loop( $advanced_courses, 'advanced' );
   }
   else {
     $return .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
   }
 
   return $return;
+
+}
+
+
+
+//
+//  Check if user finished section
+//
+function las_is_finished_section( $user_progress ) {
+
+}
+
+//
+//  Check if user finished chapter
+//
+function las_is_finished_chapter( $user_progress ) {
 
 }
 
@@ -396,13 +458,7 @@ include( 'includes/head.php' );
       echo '</p>';*/
 
 
-      //
-      //  tu jest zamieszane, cześć funckji robi echo, ale jest return na koniec
-      //  jakoś to trzeba rozdzielić, albo zrobić return w postaci array?
-      //
-
-
-      $szlak_sections = las_get_all_courses();
+      echo las_get_all_courses();
 
     ?>
 
@@ -410,7 +466,6 @@ include( 'includes/head.php' );
 
 </section>
 
-<?php echo $szlak_sections; ?>
 
 <div id="szlak-post-popup" class="szlak-post-popup">
   <div class="szlak-post-popup__content section-content section-6-4">
@@ -448,8 +503,8 @@ include( 'includes/head.php' );
 
 <script>
 //  init Szlak
-var lasSzlak = new LasSzlak();
-lasSzlak.init();
+var las = new LasSzlak();
+las.init();
 </script>
 
 
