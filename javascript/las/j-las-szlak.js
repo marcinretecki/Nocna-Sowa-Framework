@@ -111,22 +111,11 @@ function LasSzlak() {
     window.console.log(toShow);
 
 
-    showFn = function( delay ) {
-      //  @delay = true || false
+    showFn = function() {
 
       //  change the btn
       btnToShow.classList.add('szlak-list__btn--active');
-      //btnToShow.blur();
-
-      var delayVal;
-
-      //  set delay
-      if ( delay ) {
-        delayVal = 0.5 * this.helper.speed;
-      }
-      else {
-        delayVal = 0;
-      }
+      btnToShow.blur();
 
       //  animate section
       this.velocity(
@@ -143,8 +132,6 @@ function LasSzlak() {
       //  reverse change on btn
       btnToHide.classList.remove('szlak-list__btn--active');
       btnToHide.blur();
-
-      btnToShow.parentNode.style.cssText = 'display:block;';
 
       //  animatio section
       this.velocity(
@@ -181,7 +168,7 @@ function LasSzlak() {
       navInFn();
 
       //  hide section
-      hideFn( false );
+      hideFn();
 
       //  clear the queue
       this.sections[this.clickedLevel] = [];
@@ -206,8 +193,8 @@ function LasSzlak() {
       //  move nav out
       navOutFn();
 
-      //  show section with delay
-      showFn( true );
+      //  show section
+      showFn();
 
 
     }
@@ -330,7 +317,7 @@ function LasSzlak() {
 
 
     //  if href has section id
-    if ( elWithHref && elWithHref.href.split('#section')[1] ) {
+    if ( elWithHref && elWithHref.href.split('#sublist')[1] ) {
 
       //  get the id
       sectionId = elWithHref.href.split('#')[1];

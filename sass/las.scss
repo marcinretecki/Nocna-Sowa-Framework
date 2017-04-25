@@ -60,35 +60,17 @@ Author: Marcin Retecki
   @include transition-bezier;
 }
 
-.wrapper--szlak-section__sublist {
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  background: rgba($white, 0.9);
-  transform: translateX(100%);
-  @include scrolling;
-  @include for-tablet-landscape-up {
-    position: fixed;
-    left: auto;
-    right: 0;
-    top: 0;
-    width: 50%;
-  }
-}
 
-.szlak-section__sublist {
-  padding: $space-4 0;
-  @include for-tablet-landscape-up {}
-}
 
 //
 //  BUTTONS LIST
 //
 .szlak-list {
   overflow: hidden;
-  @include transition-bezier;
+}
+
+.szlak-list > li {
+  display: block;
 }
 
 //  DARK BUTTON
@@ -101,6 +83,7 @@ Author: Marcin Retecki
 .szlak-list_btn:visited {
   display: block;
   padding: $space $space-4 $space $space-4;
+  margin: 0;
   border: 1px solid $dark-light;
   border-width: 1px 0 0;
   border-radius: 0;
@@ -116,21 +99,19 @@ Author: Marcin Retecki
   background: rgba($dark-btn-hover, 0.9);
 }
 
-.szlak-list > li:first-child .szlak-list__btn {
+.szlak-list > li:first-child > .szlak-list__btn {
   border-top-color: transparent;
 }
 
-// top:-1px fixes the issue with border when faded
-.szlak-list__btn--nav::before {
+
+.szlak-list__btn::before {
   display: block;
   position: absolute;
   left: 0;
-  top: -1px;
+  top: 0;
   bottom: 0;
-  width: (3 * $space);
+  width: $space-4;
   padding: $space 0;
-  border: 1px solid $dark-light;
-  border-width: 1px 1px 0 0;
   font-size: $size-1;
   text-align: center;
   color: inherit;
@@ -139,30 +120,47 @@ Author: Marcin Retecki
   content: counter(szlak);
 }
 
-.szlak-list__btn--nav:hover::before {
+
+.szlak-list__btn--active {
   background: rgba($dark-btn-hover, 0.9);
 }
 
-.szlak-list > li:first-child .szlak-list__btn--nav::before {
-  border-top-color: transparent;
+.szlak-list__btn--active .szlak-arrow {
+  opacity: 0;
 }
 
-//  LIGHT BUTTON
-.szlak-list__btn--light {
-  padding-left: $space-2;
+
+//
+//  SUBLIST
+//
+.szlak-sublist {
+  display: none;
+  background: rgba($dark-btn-hover, 0.9);
+  @include for-tablet-landscape-up {}
 }
 
-.szlak-list__btn--light,
-.szlak-list_btn--light:visited {
-  color: $font-dark;
-  border-top-color: $gray;
-}
-
-.szlak-list__btn--light:focus,
-.szlak-list__btn--light:hover {
+.szlak-sublist__btn,
+.szlak-sublist__btn:visited {
+  display: block;
+  padding: $space $space-4 $space $space-4;
+  margin: 0;
+  border: 1px solid $dark-light;
+  border-width: 1px 0 0;
+  border-radius: 0;
   color: $white;
-  background: rgba($green, 0.9);
+  line-height: $line-0;
+  white-space: normal;
+  text-align: left;
 }
+
+
+.szlak-sublist__btn:focus,
+.szlak-sublist__btn:hover {
+  color: $white;
+  background: rgba($green-hover, 0.9);
+}
+
+
 
 //  SZLAK ICONS
 .szlak-icons {
@@ -197,8 +195,44 @@ Author: Marcin Retecki
   opacity: 0.5;
 }
 
+
+.szlak-sublist__icon-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: $space-4;
+  padding: $space 0;
+  text-align: center;
+}
+
+.szlak-sublist__icon {
+  display: inline-block;
+  width: $space-half;
+  height: $space-half;
+  border-radius: 50%;
+  background: $green-light;
+}
+
+
+
+.szlak-sublist__btn--inactive {
+  opacity: 0.5;
+}
+
+.szlak-sublist__btn--inactive .szlak-sublist__icon {
+  display: none;
+}
+
+.szlak-sublist__btn--current .szlak-sublist__icon {
+  background: $red-light;
+}
+
+
+
 //  ARROW
 .szlak-arrow {
+  @include transition-bezier;
   display: block;
   position: absolute;
   right: 0;
@@ -212,79 +246,7 @@ Author: Marcin Retecki
   content: '';
 }
 
-.szlak-arrow--prev {
-  top: $space-2;
-  right: auto;
-  left: 0;
-  bottom: auto;
-  height: (3 * $space);
-  background-position-x: $space;
-  background-image: url('/las/c/i/icon_prev.png');
-}
 
-//
-//  FX
-//
-//  convert it to velocity
-//
-.szlak-wrapper--faded .szlak-section {
-  opacity: 0;
-  @include for-tablet-landscape-up {
-    opacity: 1;
-    background-color: rgba($dark-btn, 0);
-  }
-}
-
-.szlak-wrapper--faded .szlak-h1 {
-  opacity: 0;
-  @include for-tablet-landscape-up {
-    opacity: 1;
-  }
-}
-
-.szlak-wrapper--faded .szlak-section__nav {
-  @include for-tablet-landscape-up {
-    margin-left: -(3 * $space);
-  }
-}
-
-.szlak-wrapper--faded .szlak-list__btn--nav {
-  @include for-tablet-landscape-up {
-    padding-left: (7 * $space);
-  }
-}
-
-.szlak-wrapper--faded .szlak-section__h,
-.szlak-wrapper--faded .szlak-list__btn--nav,
-.szlak-wrapper--faded .szlak-list__btn--nav:hover {
-  @include for-tablet-landscape-up {
-    color: transparent;
-    border-color: transparent;
-    background-color: transparent;
-  }
-}
-
-.szlak-wrapper--faded .szlak-list__btn--nav::before {
-  @include for-tablet-landscape-up {
-    border-color: $dark-light;
-    color: $white;
-    background: rgba($dark-btn, 0.9);
-  }
-}
-
-.szlak-wrapper--faded .szlak-arrow {
-  @include for-tablet-landscape-up {
-    opacity: 0;
-  }
-}
-
-.szlak-wrapper--faded .szlak-list__btn--active::before {
-  @include for-tablet-landscape-up {
-    background-color: rgba($dark-btn-hover, 0.9);
-    /* border-top-color:$white; */
-    border-right-color: transparent;
-  }
-}
 
 //
 // POPUP
