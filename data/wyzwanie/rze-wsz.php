@@ -1823,7 +1823,7 @@ function LasChatData() {
 
 
     tegn1: {
-      bubbles: ['<q>Znak</q> #emoji-2622; nieokreślony? '],
+      bubbles: ['<q>Znak</q> #emoji-2622; nieokreślony?' ],
       answers: [
         { answer: '<i>et tegn</i>', next: 'tegn2' },
         { answer: '<i>et tegne</i>', next: 'tegn1b' }

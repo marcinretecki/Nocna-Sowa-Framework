@@ -30,40 +30,37 @@
 
 global $post;
 $id = $post->ID;
+$user_progress = las_get_user_progress();
 
 
 //
 //  List Loop
 //
 //  @return all sections at the level
-//  @courses (object) comes from get_posts() in las_get_all_courses()
+//  @sections (object) comes from get_posts() in las_get_all_sections()
 //
-function las_list_loop( $courses, $level ) {
+function las_list_loop( $sections, $level, $user_progress ) {
   global $post; //  needed for setup_postdata
 
-  $user_progress = las_get_user_progress();
   $first_section = true;
-  $sections = '';
+  $main_list = '';
   $j = 1;
 
-  //  echo link sections
-  //echo '<div class="group space-x4">';
-
-  $sections .= '<nav id="section-' . $level . '" class="szlak-section__nav">';
+  $main_list .= '<section id="section-' . $level . '" class="szlak-section__nav">';
 
   if ( $level === 'basic' ) {
-    $sections .= '<h2 class="szlak-section__h centered h1 size-3">Początek drogi</h2>';
+    $main_list .= '<h2 class="szlak-section__h centered h1 size-3">Początek drogi</h2>';
   }
   elseif ( $level === 'advanced' ) {
-    $sections .= '<h2 class="szlak-section__h centered h1 size-3">Daleko w lesie</h2>';
+    $main_list .= '<h2 class="szlak-section__h centered h1 size-3">Daleko w lesie</h2>';
   }
 
-  $sections .= '<ol class="navbar__list szlak-list">';
+  $main_list .= '<ol class="navbar__list szlak-list">';
 
 
 
   //  create content sections
-  foreach ( $courses as $section ) {
+  foreach ( $sections as $section ) {
 
     //  $section check
     //print_r($section);
@@ -84,7 +81,7 @@ function las_list_loop( $courses, $level ) {
     //
     //  Outer li
     //
-    $sections .= '<li style="display:block;">';
+    $main_list .= '<li>';
 
 
     //  Section title
@@ -109,15 +106,15 @@ function las_list_loop( $courses, $level ) {
 
     if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
 
-      $sections .= '<a class="btn szlak-list__btn js-szlak-btn" href="#sublist-' . $level . '-' . $j . '">';
-      $sections .= $new_title;
-      $sections .= '<i class="szlak-arrow"></i></a>';
+      $main_list .= '<a class="btn szlak-list__btn js-szlak-btn" href="#sublist-' . $level . '-' . $j . '">';
+      $main_list .= $new_title;
+      $main_list .= '<i class="szlak-arrow"></i></a>';
 
     }
     else {
 
       //  możemy to zastąpić na link, który prowadzi do upsale
-      $sections .= $new_title;
+      $main_list .= $new_title;
 
     }
 
@@ -128,21 +125,21 @@ function las_list_loop( $courses, $level ) {
       //
       //  Begin sublist
       //
-      $sections .= '<ol id="sublist-' . $level . '-' . $j . '" class="navbar__list szlak-sublist">';
+      $main_list .= '<ol id="sublist-' . $level . '-' . $j . '" class="navbar__list szlak-sublist">';
 
 
 
       $sublist = las_sublist_loop( $chapters, $user_progress );
 
-      $sections .= $sublist;
+      $main_list .= $sublist;
 
       //  close sublist
-      $sections .= '</ol>';
+      $main_list .= '</ol>';
 
     }
 
 
-    $sections .= '</li>';
+    $main_list .= '</li>';
 
     $j++;
 
@@ -152,11 +149,11 @@ function las_list_loop( $courses, $level ) {
 
 
   //  close nav
-  $sections .= '</ol>';
-  $sections .= '</nav>';
+  $main_list .= '</ol>';
+  $main_list .= '</section>';
 
   //  return content sections
-  return $sections;
+  return $main_list;
 
 }
 
@@ -178,8 +175,11 @@ function las_sublist_loop( $chapters, $user_progress ) {
     $title = $post->post_title;
     $slug = $post->post_name;
 
-    if ( $user_progress && ($user_progress[$slug]['wyzwanie-punkty'] && ( $user_progress[$slug]['wyzwanie-punkty'] > 0 ) ) ) {
-      $punkty = $user_progress[$slug]['wyzwanie-punkty'];
+    if (    $user_progress[ $slug ]
+         && ( $user_progress[ $slug ][ 'wyzwanie-suma-ex' ] > 0 ) ) {
+
+      $punkty = $user_progress[ $slug ][ 'wyzwanie-suma-ex' ];
+
     }
     else {
       $punkty = false;
@@ -191,13 +191,15 @@ function las_sublist_loop( $chapters, $user_progress ) {
     //
     //  Inner li
     //
-    $sublist .= '<li><a class="btn szlak-sublist__btn" ';
+    $sublist .= '<li>';
 
     //  if there is wyzwanie and user has done przewodnik
-    if ( $user_progress && ( $user_progress[$slug]['przewodnik'] > 0 ) && !has_category('bez-wyzwania') ) {
+    if (    $user_progress[ $slug ]
+         && ( count( $user_progress[ $slug ][ 'przewodnik' ] ) > 0 )
+         && !has_category( 'bez-wyzwania' ) ) {
 
       //  hash to show choice
-      $sublist .= 'href="#popup" data-szlak-url="' . $link . '" data-szlak-punkty="' . $punkty . '">';
+      $sublist .= '<a class="btn szlak-sublist__btn" href="#popup" data-szlak-url="' . $link . '" data-szlak-punkty="' . $punkty . '">';
 
       $sublist .= $title;
 
@@ -219,10 +221,10 @@ function las_sublist_loop( $chapters, $user_progress ) {
 
     }
     //  if user has not done przewodnik
-    elseif ( $user_progress && !$user_progress[$slug]['przewodnik'] ) {
+    elseif ( !$user_progress[ $slug ][ 'przewodnik' ] || ( count( $user_progress[ $slug ][ 'przewodnik' ] ) === 0 ) ) {
 
       //  direct link
-      $sublist .= 'href="' . $link . 'przewodnik/">';
+      $sublist .= '<a class="btn szlak-sublist__btn szlak-sublist__btn--inactive" href="' . $link . 'przewodnik/">';
 
       $sublist .= $title;
 
@@ -238,8 +240,8 @@ function las_sublist_loop( $chapters, $user_progress ) {
 
     }
     //  there is no wyzwanie but user has done przewodnik
-    elseif ( $user_progress && $user_progress[$slug]['przewodnik'] ) {
-      $sublist .= 'href="' . $link . 'przewodnik/">' . $title;
+    elseif ( $user_progress[ $slug ] && $user_progress[$slug]['przewodnik'] ) {
+      $sublist .= '<a class="btn szlak-sublist__btn" href="' . $link . 'przewodnik/">' . $title;
 
       //  icons
       $sublist .= '<div class="szlak-icons">';
@@ -274,43 +276,44 @@ function las_sublist_loop( $chapters, $user_progress ) {
 
 
 //
-//  Show all courses
-//  Gets all courses lists, and loop through them
+//  Show all sections
+//  Gets all sections lists, and loop through them
 //
-function las_get_all_courses() {
+function las_get_all_sections( $user_progress ) {
 
   // Kursy IDs
-  $basic_courses_parent = 20;
-  $advanced_courses_parent = 24;
+  $basic_sections_parent = 20;
+  $advanced_sections_parent = 24;
   $return = '';
 
-  $courses_args = array(
+  $sections_args = array(
     'post_type'       => 'page',
-    'post_parent'     => $basic_courses_parent,
+    'post_parent'     => $basic_sections_parent,
     'posts_per_page'  => -1,
     'orderby'         => 'menu_order',
     'nopaging'        => true,
     'order'           => 'ASC'
   );
 
-  $basic_courses = get_posts( $courses_args );
+  //  get sections array
+  $basic_sections = get_posts( $sections_args );
 
-  $courses_args['post_parent'] = $advanced_courses_parent;
+  $sections_args['post_parent'] = $advanced_sections_parent;
 
-  $advanced_courses = get_posts( $courses_args );
+  $advanced_sections = get_posts( $sections_args );
 
-  // if there are any courses to display
+  // if there are any sections to display
   //  LOOP them
-  if ( $basic_courses ) {
-    $return = las_list_loop( $basic_courses, 'basic' );
+  if ( $basic_sections ) {
+    $return = las_list_loop( $basic_sections, 'basic', $user_progress );
   }
   else {
     $return .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
   }
 
-  // if there are any advanced courses to display
-  if ( $advanced_courses ) {
-    $return .= $advanced_sections = las_list_loop( $advanced_courses, 'advanced' );
+  // if there are any advanced sections to display
+  if ( $advanced_sections ) {
+    $return .= las_list_loop( $advanced_sections, 'advanced', $user_progress );
   }
   else {
     $return .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
@@ -322,60 +325,12 @@ function las_get_all_courses() {
 
 
 
-//
-//  Check if user finished section
-//
-function las_is_finished_section( $user_progress ) {
-
-}
-
-//
-//  Check if user finished chapter
-//
-function las_is_finished_chapter( $user_progress ) {
-
-}
-
-
-
-//
-//  Get results from last wyzwanie
-//
-function las_get_last_wyzwanie_result() {
-
-  $user_progress = las_get_user_progress();
-
-  //  if the last is empty, don't show anything
-  if ( count( $user_progress['last'] ) === 0 ) {
-    return false;
-  }
-
-  //  these should be in this order
-  $last_chapter = $user_progress['last'][0];
-  $last_type = $user_progress['last'][1];
-  $last_access = $user_progress['last'][2];
-  $first_time = $user_progress['last'][3];
-
-  $last_wyzwanie_result = $user_progress[$last_chapter][$last_type][$last_access];
-  $last_wyzwanie_result['id'] = $user_progress[$last_chapter][ 'id' ];
-
-  if ( $first_time ) {
-    $last_wyzwanie_result[ 'first_time' ] = true;
-  }
-
-  $last_wyzwanie_result['url'] = '';
-
-  return $last_wyzwanie_result;
-
-}
-
-
 
 //
 //  Show result
+//  echos the whole thing
 //
-//
-function las_show_last_wyzwanie_result( $last_wyzwanie_result ) {
+function las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress ) {
 
 
   //
@@ -389,10 +344,15 @@ function las_show_last_wyzwanie_result( $last_wyzwanie_result ) {
   //  if there are no examples
   //  there is nothing to show
   if ( !$last_wyzwanie_result['ex'] ) {
-    return;
+    //return;
   }
 
   $wyzwanie_link = get_permalink( $last_wyzwanie_result['id'] );
+  $img_url = las_get_user_profile_img();
+  $user_exp = las_get_user_exp( $user_progress );
+  $level_array = las_get_user_level_array( $user_exp );
+  $user_level = $level_array[0];
+  $exp_for_next = $level_array[1];
 
   $echo = '';
 
@@ -400,10 +360,21 @@ function las_show_last_wyzwanie_result( $last_wyzwanie_result ) {
   $echo .= '<div id="szlak-result-content" class="szlak-post-popup__content section-content section-6-4">';
   $echo .= '<div class="section-white section-content rounded group centered szlak-post-popup__section">';
 
+  $echo .= '<img src="' . $img_url . '" style="width:8rem !important;height:8rem !important;border-radius:50%;overflow:hidden;display:block;" class="center" />';
+
+  $echo .= 'Doświadczenie: ' . $user_exp;
+  $echo .= '<br />';
+  $echo .= 'Level: ' . $user_level;
+  $echo .= '<br />';
+  $echo .= 'Nastepny level: ' . $exp_for_next;
+  $echo .= '<br />';
+
   //  if there is no time
   //  user has not finished the chapter
   if ( !$last_wyzwanie_result['t'] && $last_wyzwanie_result['first_time'] ) {
-    $echo .= 'Nie zrobiłeś wszystkich przykładów. Może spróbujesz jeszcze raz? Jesli były za trudne, wróć do przedownika albo do poprzednich wyzwań. Jeśli nie zrobiłeś wyzwania, bo wydawało Ci się nudne, daj nam o tym znać.';
+
+    $echo .= 'Nie zrobiłeś wszystkich przykładów. Może spróbujesz jeszcze raz? Jeśli były za trudne, wróć do przewodnika albo do poprzednich wyzwań. Jeśli nie zrobiłeś wyzwania, bo wydawało Ci się nudne, daj nam o tym znać.';
+
   }
   else {
 
@@ -416,8 +387,8 @@ function las_show_last_wyzwanie_result( $last_wyzwanie_result ) {
       $echo .= '<br />';
     }
 
-    $echo .= 'Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.';
-    $echo .= '<br />';
+    //  Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.
+
 
   }
 
@@ -451,14 +422,14 @@ include( 'includes/head.php' );
 
     <?php
 
-      /*$test =  json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true );
+      // $test =  json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true );
 
-      echo '<p style="display:none">';
-      var_dump($test);
-      echo '</p>';*/
+      // echo '<p style="display:none">';
+      // var_dump($test);
+      // echo '</p>';
 
 
-      echo las_get_all_courses();
+      echo las_get_all_sections( $user_progress );
 
     ?>
 
@@ -489,15 +460,17 @@ include( 'includes/head.php' );
 </div>
 
 <?php
-  $last_wyzwanie_result = las_get_last_wyzwanie_result();
+  $last_wyzwanie_result = las_get_last_wyzwanie_result( $user_progress );
 
-  if ( $last_wyzwanie_result ) {
+/*  if ( $last_wyzwanie_result ) {
 
     //  reset the the last, so it doesn't show again
     las_reset_last_wyzwanie_user_meta();
 
-    las_show_last_wyzwanie_result( $last_wyzwanie_result );
-  }
+    las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress );
+  }*/
+
+  las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress );
 ?>
 
 

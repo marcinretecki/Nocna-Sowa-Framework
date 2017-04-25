@@ -19,7 +19,8 @@ Template Name: Profile
 
 
 $user_progress = las_get_user_progress();
-
+$exp = las_get_user_exp( $user_progress );
+$level_array = las_get_user_level_array( $exp );
 
 
 
@@ -38,7 +39,7 @@ include( 'includes/head.php' );
 
     <div class="section-content section-6-4">
 
-      <img src="http://ecowallpapers.net/wp-content/uploads/1041_hearthstone:_rexxar.jpg" style="width:8rem !important;height:8rem !important;border-radius:50%;overflow:hidden;display:block;box-shadow:0 0px 20px 10px rgba(0,0,0,0.5);" class="center" />
+      <img src="<?php echo las_get_user_profile_img(); ?>" style="width:8rem !important;height:8rem !important;border-radius:50%;overflow:hidden;display:block;box-shadow:0 0px 20px 10px rgba(0,0,0,0.5);" class="center" />
 
       <p class="size-2 centered">Harald Hårfagre</p>
 
@@ -79,40 +80,10 @@ include( 'includes/head.php' );
         ?>
 
 
-        <h3>Przykładowe obliczania exp.</h3>
-
-        <p>
-          Przykład: *10<br />
-          Błąd: *-5 (zliczane w ramach ćwiczenia, żeby nie można było być na minusie)<br />
-          Powtórka nagrania: *1<br />
-          Trans: *1<br />
-          More: *2<br />
-          Pierwsze wejscie na przewodnik: *100<br />
-          Każdy dzień nauki: *50<br />
-        </p>
-
-        <p>
-          <?php
-            $sum1 = $user_progress['totals']['ex'] * 10;
-            $sum1 -= $user_progress['totals']['wrong'] * 5;
-            $sum1 += $user_progress['totals']['repeat'];
-            $sum1 += $user_progress['totals']['trans'];
-            $sum1 += $user_progress['totals']['more'] * 2;
-            $sum1 += count($user_progress['totals']['dates']) * 50;
-            $sum1 += ( count($user_progress) - 2 ) * 100;
-
-            echo $sum1;
-          ?>
-        </p>
-
         <h3>Obliczenie levelu z funkcji</h3>
 
         <p>
           <?php
-            $exp = las_get_user_exp( $user_progress );
-
-            $level_array = las_get_user_level_array( $exp );
-
             echo 'Level: ' . $level_array[0];
             echo '<br />';
             echo 'Exp: ' . $exp;

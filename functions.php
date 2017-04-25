@@ -6,6 +6,7 @@
 if ( is_user_logged_in() ) {
   include( stream_resolve_include_path( __DIR__ . '/functions/f_user_meta.php' ) );
   include( stream_resolve_include_path( __DIR__ . '/functions/f_levels.php' ) );
+  include( stream_resolve_include_path( __DIR__ . '/functions/tests.php' ) );
 }
 
 //

@@ -18,7 +18,15 @@ include( 'includes/head.php' );
 
         <?php
 
-          print_r( las_get_cookie_progress() );
+          $user_cookie_progress = las_get_user_cookie_progress();
+
+          echo '<pre class="size-0">';
+          print_r( $user_cookie_progress );
+          echo '</pre>';
+
+
+          echo las_get_exp_from_progress( $user_cookie_progress );
+
 
           echo '<h2 class="h1">User Struct</h2>';
 
