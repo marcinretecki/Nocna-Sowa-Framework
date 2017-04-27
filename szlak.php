@@ -42,7 +42,7 @@ $user_progress = las_get_user_progress();
 function las_list_loop( $sections, $level, $user_progress ) {
   global $post; //  needed for setup_postdata
 
-  $first_section = true;
+  $last_section_done = true;
   $main_list = '';
   $j = 1;
 
@@ -66,25 +66,17 @@ function las_list_loop( $sections, $level, $user_progress ) {
     //print_r($section);
 
 
-    $chapters_args = array(
-      'post_type'       => 'page',
-      'post_parent'     => $section->ID,
-      'posts_per_page'  => -1,
-      'orderby'         => 'menu_order',
-      'nopaging'        => true,
-      'order'           => 'ASC'
-    );
 
-    $chapters = get_posts( $chapters_args );
+    //  advanced user can see all chapters
+    //  basic user can only go from beggining to the end
+    //  maybe a switch for advanced users?
+    //  do you want to go step by step or just explore by your own?
+
 
 
     //
-    //  Outer li
-    //
-    $main_list .= '<li>';
-
-
     //  Section title
+    //
 
     //  remove the number from the title
     $new_title = explode( '. ', $section->post_title );
@@ -98,43 +90,92 @@ function las_list_loop( $sections, $level, $user_progress ) {
     }
 
 
+    //  user has done previous section
+    //  show active link to next section
+    if (     ( $last_section_done && ( $level === 'basic' ) )
+          || ( $last_section_done && current_user_can( 'avanced_user' ) )
+          //|| ( $last_section_done && current_user_can( 'edit_posts' ) )
+        ) {
 
-    //
-    //  trzeba sprawdzić, czy user wykonał cały poprzedni dział
-    //
+      //  li
+      $main_list .= '<li>';
 
-
-    if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
-
-      $main_list .= '<a class="btn szlak-list__btn js-szlak-btn" href="#sublist-' . $level . '-' . $j . '">';
+      //  link
+      $main_list .= '<a class="btn szlak-list__btn" href="#sublist-' . $level . '-' . $j . '">';
       $main_list .= $new_title;
       $main_list .= '<i class="szlak-arrow"></i></a>';
 
     }
+    //  user can see the links
+    //  but hasn't done the previous section
+    //  the link is gray but active so user can see what is inside
+    elseif (     ( $level === 'basic' )
+              || current_user_can( 'avanced_user' )
+              //|| current_user_can( 'edit_posts' )
+            ) {
+
+      //   li
+      $main_list .= '<li style="opacity:0.5">';
+
+      //  link
+      $main_list .= '<a class="btn szlak-list__btn" href="#sublist-' . $level . '-' . $j . '">';
+      $main_list .= $new_title;
+      $main_list .= '</a>';
+
+    }
+    //  user can't see the links to chapters
+    //  show them the upsale link
     else {
 
-      //  możemy to zastąpić na link, który prowadzi do upsale
+      //  li
+      $main_list .= '<li style="opacity:0.5">';
+
+      //  link
+      $main_list .= '<a class="btn szlak-list__btn" href="#upsale">';
       $main_list .= $new_title;
+      $main_list .= '</a>';
 
     }
 
 
-    //  if user can see links to excersises
-    if ( ( $level === 'basic' ) || current_user_can( 'edit_posts' ) || current_user_can( 'avanced_user' ) ) {
+    //
+    //  Begin sublist
+    //
 
-      //
-      //  Begin sublist
-      //
+    //  if user can see links to excersises
+    if (    ( $level === 'basic' )
+         || current_user_can( 'avanced_user' )
+         //|| current_user_can( 'edit_posts' )
+        ) {
+
       $main_list .= '<ol id="sublist-' . $level . '-' . $j . '" class="navbar__list szlak-sublist">';
 
 
+      //  get the chapters for this section
+      $chapters_args = array(
+        'post_type'       => 'page',
+        'post_parent'     => $section->ID,
+        'posts_per_page'  => -1,
+        'orderby'         => 'menu_order',
+        'nopaging'        => true,
+        'order'           => 'ASC'
+      );
 
-      $sublist = las_sublist_loop( $chapters, $user_progress );
+      $chapters = get_posts( $chapters_args );
 
-      $main_list .= $sublist;
+      //  loop over chapters to form the sublist
+      $sublist_array = las_sublist_loop( $chapters, $level, $user_progress, $last_section_done );
 
-      //  close sublist
+      $main_list .= $sublist_array[ 0 ];
+
+      //  assign section done
+      $last_section_done = $sublist_array[ 1 ];
+
       $main_list .= '</ol>';
+
+      //
+      //  End sublist
+      //
 
     }
 
@@ -163,10 +204,12 @@ function las_list_loop( $sections, $level, $user_progress ) {
 //  @return sublist
 //  @children and @user_progress come from las_list_loop()
 //
-function las_sublist_loop( $chapters, $user_progress ) {
+function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done ) {
   global $post; //  needed for setup_postdata
 
   $sublist = '';
+  $previous_chapter_done = true;
+  $wyzwanie = true;
 
   foreach ( $chapters as $post ) {
     setup_postdata( $post );
@@ -175,91 +218,78 @@ function las_sublist_loop( $chapters, $user_progress ) {
     $title = $post->post_title;
     $slug = $post->post_name;
 
-    if (    $user_progress[ $slug ]
-         && ( $user_progress[ $slug ][ 'wyzwanie-suma-ex' ] > 0 ) ) {
 
-      $punkty = $user_progress[ $slug ][ 'wyzwanie-suma-ex' ];
-
-    }
-    else {
-      $punkty = false;
-    }
-
-    //  if it is an editor or advanced user, we can give him a link to advanced courses
-
-
-    //
     //  Inner li
-    //
     $sublist .= '<li>';
 
-    //  if there is wyzwanie and user has done przewodnik
-    if (    $user_progress[ $slug ]
+
+    //  done chapter
+    //  user has done przewodnik
+    //  and wyzwanie or there is no wyzwanie
+    if (    $user_progress[ $slug ][ 'przewodnik' ]
          && ( count( $user_progress[ $slug ][ 'przewodnik' ] ) > 0 )
-         && !has_category( 'bez-wyzwania' ) ) {
+         && ( ( $user_progress[ $slug ][ 'wyzwanie-suma-ex' ] > 0 ) || has_category( 'bez-wyzwania' ) )
+        ) {
 
-      //  hash to show choice
-      $sublist .= '<a class="btn szlak-sublist__btn" href="#popup" data-szlak-url="' . $link . '" data-szlak-punkty="' . $punkty . '">';
-
-      $sublist .= $title;
-
-
-      //  icons
-      $sublist .= '<div class="szlak-icons">';
-
-      // user has done wyzwanie
-      if ( $punkty > 0 ) {
-        $sublist .= '<i class="szlak-icon szlak-icon--mountain"></i>' . $punkty;
+      if ( has_category( 'bez-wyzwania' ) ) {
+        $wyzwanie = false;
+        $punkty = 0;
       }
-      //  user has not done wyzwanie but it is available
       else {
-        $sublist .= '<i class="szlak-icon szlak-icon--mountain szlak-icon--inactive"></i>';
+        $punkty = $user_progress[ $slug ][ 'wyzwanie-suma-ex' ];
       }
 
-      //  close icons
-      $sublist .= '</div>';
-
-    }
-    //  if user has not done przewodnik
-    elseif ( !$user_progress[ $slug ][ 'przewodnik' ] || ( count( $user_progress[ $slug ][ 'przewodnik' ] ) === 0 ) ) {
-
-      //  direct link
-      $sublist .= '<a class="btn szlak-sublist__btn szlak-sublist__btn--inactive" href="' . $link . 'przewodnik/">';
-
+      //  popup
+      $sublist .= '<a class="btn szlak-sublist__btn" href="#popup" data-szlak-url="' . $link . '" data-szlak-punkty="' . $punkty . '" data-szlak-wyzwanie="' . $wyzwanie . '">';
       $sublist .= $title;
 
-      //  icons
-      $sublist .= '<div class="szlak-icons">';
+      if ( $wyzwanie ) {
+        //  icons and points
+        $sublist .= '<div class="szlak-icons">';
+          $sublist .= '<i class="szlak-icon szlak-icon--mountain"></i>' . $punkty;
+        $sublist .= '</div>';
+      }
 
-      //  inactive przewodnik
-      $sublist .= '<i class="szlak-icon szlak-icon--post szlak-icon--inactive"></i>';
-
-      //  close icons
+      //  experimental circles
+      $sublist .= '<div class="szlak-sublist__icon-wrapper">';
+        $sublist .= '<i class="szlak-sublist__icon"></i>';
       $sublist .= '</div>';
-
+      $sublist .= '</a>';
 
     }
-    //  there is no wyzwanie but user has done przewodnik
-    elseif ( $user_progress[ $slug ] && $user_progress[$slug]['przewodnik'] ) {
-      $sublist .= '<a class="btn szlak-sublist__btn" href="' . $link . 'przewodnik/">' . $title;
+    //  user has done the previous section and previous chapter (or it is the first chapter in section)
+    //  or has done previous chapter and is advanced user
+    //  but user has not done the chapter (as checked in previous if)
+    elseif (    ( $last_section_done && $previous_chapter_done )
+             || ( $previous_chapter_done && current_user_can( 'avanced_user' ) )
+            ) {
 
-      //  icons
-      $sublist .= '<div class="szlak-icons">';
+      //  direct link to przewodnik
+      $sublist .= '<a class="btn szlak-sublist__btn szlak-sublist__btn--active" href="' . $link . 'przewodnik/">';
+      $sublist .= $title;
+      $sublist .= '<i class="szlak-arrow"></i>';
+      $sublist .= '</a>';
 
-      //  inactive przewodnik
-      $sublist .= '<i class="szlak-icon szlak-icon--post"></i>';
+      $previous_chapter_done = false;
 
-      //  close icons
+    }
+    //  user has no access to the link
+    else {
+
+      //  span
+      $sublist .= '<span class="btn szlak-sublist__span" style="opacity:0.5">' . $title;
+      $sublist .= '<div class="szlak-sublist__icon-wrapper">';
+        $sublist .= '<i class="szlak-sublist__icon" style="border:2px solid #808080;background:transparent;"></i>';
       $sublist .= '</div>';
+      $sublist .= '</span>';
+
+      $previous_chapter_done = false;
+
     }
 
 
-    //  experimental circles
-    $sublist .= '<div class="szlak-sublist__icon-wrapper">';
-      $sublist .= '<i class="szlak-sublist__icon"></i>';
-    $sublist .= '</div>';
+    $sublist .= '</li>';
 
-    $sublist .= '</a>';
 
   //  end foreach
   }
@@ -269,7 +299,7 @@ function las_sublist_loop( $chapters, $user_progress ) {
   wp_reset_postdata();
 
 
-  return $sublist;
+  return array( $sublist, $previous_chapter_done );
 
 }
 
@@ -344,7 +374,7 @@ function las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress ) 
   //  if there are no examples
   //  there is nothing to show
   if ( !$last_wyzwanie_result['ex'] ) {
-    //return;
+    return;
   }
 
   $wyzwanie_link = get_permalink( $last_wyzwanie_result['id'] );
@@ -382,9 +412,12 @@ function las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress ) 
     $echo .= '<br />';
     $echo .= 'Przykłady: ' . $last_wyzwanie_result['ex'];
     $echo .= '<br />';
-    if ( $last['wrong'] ) {
+
+    if ( $last_wyzwanie_result['wrong'] ) {
+
       $echo .= 'Błędy: ' . $last_wyzwanie_result['wrong'];
       $echo .= '<br />';
+
     }
 
     //  Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.
@@ -462,15 +495,16 @@ include( 'includes/head.php' );
 <?php
   $last_wyzwanie_result = las_get_last_wyzwanie_result( $user_progress );
 
-/*  if ( $last_wyzwanie_result ) {
+  if ( $last_wyzwanie_result ) {
 
     //  reset the the last, so it doesn't show again
     las_reset_last_wyzwanie_user_meta();
 
     las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress );
-  }*/
+  }
 
-  las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress );
+  //  for testing results
+  //las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress );
 ?>
 
 
