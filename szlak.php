@@ -36,7 +36,7 @@ $user_progress = las_get_user_progress();
 //
 //  List Loop
 //
-//  @return all sections at the level
+//  @return array( all sections at the level, sublist_to_open )
 //  @sections (object) comes from get_posts() in las_get_all_sections()
 //
 function las_list_loop( $sections, $level, $user_progress ) {
@@ -45,6 +45,8 @@ function las_list_loop( $sections, $level, $user_progress ) {
   $last_section_done = true;
   $main_list = '';
   $j = 1;
+  $sublist_id = '';
+  $sublist_to_open = '';
 
   $main_list .= '<section id="section-' . $level . '" class="szlak-section__nav">';
 
@@ -90,6 +92,9 @@ function las_list_loop( $sections, $level, $user_progress ) {
     }
 
 
+    $sublist_id = 'sublist-' . $level . '-' . $j;
+
+
     //  user has done previous section
     //  show active link to next section
     if (     ( $last_section_done && ( $level === 'basic' ) )
@@ -101,9 +106,13 @@ function las_list_loop( $sections, $level, $user_progress ) {
       $main_list .= '<li>';
 
       //  link
-      $main_list .= '<a class="btn szlak-list__btn" href="#sublist-' . $level . '-' . $j . '">';
+      $main_list .= '<a id="btn-' . $sublist_id . '" class="btn szlak-list__btn" href="#' . $sublist_id . '">';
       $main_list .= $new_title;
-      $main_list .= '<i class="szlak-arrow"></i></a>';
+      //$main_list .= '<i class="szlak-arrow"></i>';
+      $main_list .= '</a>';
+
+      //  set section to open
+      $sublist_to_open = $sublist_id;
 
     }
     //  user can see the links
@@ -118,7 +127,7 @@ function las_list_loop( $sections, $level, $user_progress ) {
       $main_list .= '<li style="opacity:0.5">';
 
       //  link
-      $main_list .= '<a class="btn szlak-list__btn" href="#sublist-' . $level . '-' . $j . '">';
+      $main_list .= '<a id="btn-' . $sublist_id . '" class="btn szlak-list__btn" href="#' . $sublist_id . '">';
       $main_list .= $new_title;
       $main_list .= '</a>';
 
@@ -148,7 +157,7 @@ function las_list_loop( $sections, $level, $user_progress ) {
          //|| current_user_can( 'edit_posts' )
         ) {
 
-      $main_list .= '<ol id="sublist-' . $level . '-' . $j . '" class="navbar__list szlak-sublist">';
+      $main_list .= '<ol id="' . $sublist_id . '" class="navbar__list szlak-sublist">';
 
 
       //  get the chapters for this section
@@ -194,7 +203,7 @@ function las_list_loop( $sections, $level, $user_progress ) {
   $main_list .= '</section>';
 
   //  return content sections
-  return $main_list;
+  return array( $main_list, $sublist_to_open );
 
 }
 
@@ -245,15 +254,15 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
 
       if ( $wyzwanie ) {
         //  icons and points
-        $sublist .= '<div class="szlak-icons">';
-          $sublist .= '<i class="szlak-icon szlak-icon--mountain"></i>' . $punkty;
-        $sublist .= '</div>';
+        $sublist .= '<span class="szlak-sublist__result">';
+          $sublist .= $punkty;
+        $sublist .= '</span>';
       }
 
       //  experimental circles
-      $sublist .= '<div class="szlak-sublist__icon-wrapper">';
+      $sublist .= '<span class="szlak-sublist__icon-wrapper">';
         $sublist .= '<i class="szlak-sublist__icon"></i>';
-      $sublist .= '</div>';
+      $sublist .= '</span>';
       $sublist .= '</a>';
 
     }
@@ -267,6 +276,9 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
       //  direct link to przewodnik
       $sublist .= '<a class="btn szlak-sublist__btn szlak-sublist__btn--active" href="' . $link . 'przewodnik/">';
       $sublist .= $title;
+      $sublist .= '<div class="szlak-sublist__icon-wrapper">';
+        $sublist .= '<i class="szlak-sublist__icon szlak-sublist__icon--inactive"></i>';
+      $sublist .= '</div>';
       $sublist .= '<i class="szlak-arrow"></i>';
       $sublist .= '</a>';
 
@@ -277,9 +289,10 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
     else {
 
       //  span
-      $sublist .= '<span class="btn szlak-sublist__span" style="opacity:0.5">' . $title;
+      $sublist .= '<span class="btn szlak-sublist__span" style="opacity:0.5">';
+      $sublist .= $title;
       $sublist .= '<div class="szlak-sublist__icon-wrapper">';
-        $sublist .= '<i class="szlak-sublist__icon" style="border:2px solid #808080;background:transparent;"></i>';
+        $sublist .= '<i class="szlak-sublist__icon szlak-sublist__icon--inactive"></i>';
       $sublist .= '</div>';
       $sublist .= '</span>';
 
@@ -308,14 +321,20 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
 //
 //  Show all sections
 //  Gets all sections lists, and loop through them
+//  return array( all sections, section to open )
 //
 function las_get_all_sections( $user_progress ) {
 
   // Kursy IDs
   $basic_sections_parent = 20;
   $advanced_sections_parent = 24;
-  $return = '';
 
+  $all_sections = '';
+  $list_loop_array = array();
+  $adv_list_loop_array = array();
+  $section_top_open = '';
+
+  //  get sections array
   $sections_args = array(
     'post_type'       => 'page',
     'post_parent'     => $basic_sections_parent,
@@ -324,32 +343,45 @@ function las_get_all_sections( $user_progress ) {
     'nopaging'        => true,
     'order'           => 'ASC'
   );
-
-  //  get sections array
   $basic_sections = get_posts( $sections_args );
 
-  $sections_args['post_parent'] = $advanced_sections_parent;
 
-  $advanced_sections = get_posts( $sections_args );
+  //  get advanced sections array
+  $adv_sections_args = $sections_args;
+  $adv_sections_args['post_parent'] = $advanced_sections_parent;
+  $advanced_sections = get_posts( $adv_sections_args );
+
 
   // if there are any sections to display
   //  LOOP them
   if ( $basic_sections ) {
-    $return = las_list_loop( $basic_sections, 'basic', $user_progress );
+    $list_loop_array = las_list_loop( $basic_sections, 'basic', $user_progress );
   }
   else {
-    $return .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
+    $all_sections .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
   }
 
   // if there are any advanced sections to display
   if ( $advanced_sections ) {
-    $return .= las_list_loop( $advanced_sections, 'advanced', $user_progress );
+    $adv_list_loop_array = las_list_loop( $advanced_sections, 'advanced', $user_progress );
   }
   else {
-    $return .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
+    $all_sections .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
   }
 
-  return $return;
+  $all_sections .= $list_loop_array[0];
+  $all_sections .= $adv_list_loop_array[0];
+
+  //  if there is section to open in advanced courses
+  if ( $adv_list_loop_array[1] && ( $adv_list_loop_array[1] !== '' ) ) {
+    $section_top_open = $adv_list_loop_array[1];
+  }
+  //  if there is section to open in basic courses
+  elseif ( $list_loop_array[1] && ( $list_loop_array[1] !== '' ) ) {
+    $section_top_open = $list_loop_array[1];
+  }
+
+  return array( $all_sections, $section_top_open );
 
 }
 
@@ -462,7 +494,9 @@ include( 'includes/head.php' );
       // echo '</p>';
 
 
-      echo las_get_all_sections( $user_progress );
+      $all_sections_array = las_get_all_sections( $user_progress );
+
+      echo $all_sections_array[0];
 
     ?>
 
@@ -512,6 +546,14 @@ include( 'includes/head.php' );
 //  init Szlak
 var las = new LasSzlak();
 las.init();
+
+<?php
+  //  there is a section to open
+  if ( $all_sections_array[1] && ( $all_sections_array[1] !== '' ) ) {
+    echo 'las.openSectionInit(\'' . $all_sections_array[1] . '\');';
+  }
+
+?>
 </script>
 
 
