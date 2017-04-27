@@ -82,13 +82,13 @@ Author: Marcin Retecki
 .szlak-list__btn,
 .szlak-list_btn:visited {
   display: block;
-  padding: $space $space-4 $space $space-4;
+  padding: $space $space-4;
   margin: 0;
   border: 1px solid $dark-light;
   border-width: 1px 0 0;
   border-radius: 0;
   color: $white;
-  line-height: $line-0;
+  line-height: ($space + $space-half);
   white-space: normal;
   text-align: left;
 }
@@ -129,6 +129,10 @@ Author: Marcin Retecki
   opacity: 0;
 }
 
+.szlak-list__btn--inactive {
+  opacity: 0.5;
+}
+
 
 //
 //  SUBLIST
@@ -139,16 +143,17 @@ Author: Marcin Retecki
   @include for-tablet-landscape-up {}
 }
 
+.szlak-sublist__span,
 .szlak-sublist__btn,
 .szlak-sublist__btn:visited {
   display: block;
-  padding: $space $space-4 $space $space-4;
+  padding: $space $space-4;
   margin: 0;
   border: 1px solid $dark-light;
   border-width: 1px 0 0;
   border-radius: 0;
   color: $white;
-  line-height: $line-0;
+  line-height: ($space + $space-half);
   white-space: normal;
   text-align: left;
 }
@@ -162,37 +167,27 @@ Author: Marcin Retecki
 
 
 
-//  SZLAK ICONS
-.szlak-icons {
+.szlak-sublist__result {
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
-  padding: $space-half;
-  font-size: $size-0;
+  width: $space-4;
+  padding: $space 0;
   text-align: center;
+  color: $gray;
+  font-size: $size-0;
+  line-height: ($space + $space-half);
 }
 
-.szlak-icon {
-  display: block;
-  width: 2rem;
-  height: 50%;
-  margin-bottom: $space-half;
-  background-size: 1rem auto;
-  background-position: center 100%;
-  background-repeat: no-repeat;
-}
 
-.szlak-icon--post {
-  background-image: url('/las/c/i/icon_post.png');
-}
 
-.szlak-icon--mountain {
-  background-image: url('/las/c/i/icon_mountain.png');
-}
-
-.szlak-icon--inactive {
+.szlak-sublist__btn--inactive {
   opacity: 0.5;
+}
+
+.szlak-sublist__btn--active {
+
 }
 
 
@@ -214,25 +209,14 @@ Author: Marcin Retecki
   background: $green-light;
 }
 
-
-
-.szlak-sublist__btn--inactive {
-  opacity: 0.5;
+.szlak-sublist__icon--inactive {
+  border: 2px solid #808080;
+  background: transparent;
 }
-
-.szlak-sublist__btn--inactive .szlak-sublist__icon {
-  display: none;
-}
-
-.szlak-sublist__btn--current .szlak-sublist__icon {
-  background: $red-light;
-}
-
 
 
 //  ARROW
 .szlak-arrow {
-  @include transition-bezier;
   display: block;
   position: absolute;
   right: 0;
@@ -243,7 +227,6 @@ Author: Marcin Retecki
   background-size: ($line-0 * $size-1) auto;
   background-position: center center;
   background-repeat: no-repeat;
-  content: '';
 }
 
 

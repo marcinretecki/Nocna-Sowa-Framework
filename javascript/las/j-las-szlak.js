@@ -202,7 +202,42 @@ function LasSzlak() {
   };
 
 
+  //  open section on page load
+  //  show user the next chapter they should do
+  lasSzlak.openSectionInit = function( sectionId ) {
+
+    //  get elements
+    var sectionToMove = document.getElementById( sectionId );
+    var btn = document.getElementById( 'btn-' + sectionId );
+
+    window.console.log(sectionToMove);
+    window.console.log(btn);
+    window.console.log('open section on init');
+
+    //  store level
+    this.clickedLevel = sectionId.split('-')[1];
+
+    //  push element to the proper queue
+    if ( this.clickedLevel ) {
+
+      this.sections[ this.clickedLevel ].push( sectionToMove );
+      this.btns[ this.clickedLevel ].push( btn );
+
+      //  call animation
+      this.toggleSection();
+
+    }
+
+  };
+
+
   lasSzlak.togglePopup = function() {
+
+
+    //  TODO
+    //  show wyzwanie result
+    //  hide wyzwanie if there is none
+    //  think more
 
     var props;
     var options;
@@ -355,6 +390,19 @@ function LasSzlak() {
       this.state.popupUrl = elWithHref.getAttribute('data-szlak-url');
 
       this.togglePopup();
+
+      //  stop eventHandler
+      event.stopPropagation();
+      return;
+    }
+
+
+    //  if it is upsale link
+    if ( elWithHref && ( elWithHref.href.split('#')[1] === 'upsale' ) ) {
+
+      window.console.log('click #upsale');
+
+      //this.togglePopup();
 
       //  stop eventHandler
       event.stopPropagation();
