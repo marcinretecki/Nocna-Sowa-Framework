@@ -24,9 +24,6 @@ function LasLiczby() {
 
   lasLiczby.sequenceType =          'pimp';
 
-  lasLiczby.numAudioStack =         [];
-  lasLiczby.numAudioStackPointer =  0;
-
 
 
   //
@@ -44,7 +41,7 @@ function LasLiczby() {
     //  20 (20-99)
     //  100 (1000-9999)
     if ( this.helper.chapter ) {
-      this.state.level =           parseInt ( this.helper.chapter.split('-')[1] );
+      this.state.level =            parseInt ( this.helper.chapter.split('-')[1] );
     }
 
     //  get Elements
@@ -105,8 +102,8 @@ function LasLiczby() {
         window.console.log('typeof jest liczbą');
 
         //  reset stack
-        this.numAudioStack = [];
-        this.numAudioStackPointer = 0;
+        this.audioStack.stack = [];
+        this.audioStack.pointer = 0;
 
         //  assign current number
         this.currentNum = this.currentBubbleData;
@@ -114,10 +111,10 @@ function LasLiczby() {
         //  create words and audioStack
         this.createWordsFromNum();
 
-        window.console.log( this.numAudioStack[ this.numAudioStackPointer ] );
+        window.console.log( this.audioStack.stack[ this.audioStack.pointer ] );
 
         //  reassign bubbleData
-        this.currentBubbleData = this.lasData.chat[ this.numAudioStack[ this.numAudioStackPointer ] ];
+        this.currentBubbleData = this.lasData.chat[ this.audioStack.stack[ this.audioStack.pointer ] ];
 
       }
 
@@ -133,20 +130,20 @@ function LasLiczby() {
 
       }
       //  if there is audioStack
-      else if ( this.numAudioStack.length > this.numAudioStackPointer ) {
+      else if ( this.audioStack.stack.length > this.audioStack.pointer ) {
 
         //  set new pointer
-        this.numAudioStackPointer += 1;
+        this.audioStack.pointer += 1;
 
         //  set autoNext
-        this.bubbleAutoNext = this.numAudioStack[ this.numAudioStackPointer ];
+        this.bubbleAutoNext = this.audioStack.stack[ this.audioStack.pointer ];
         window.console.log( this.bubbleAutoNext );
 
       }
 
 
       //  if it is the last number from the stack
-      if ( this.numAudioStack.length === this.numAudioStackPointer + 1 ) {
+      if ( this.audioStack.stack.length === this.audioStack.pointer + 1 ) {
 
         //  numbers 0-19
         if ( this.state.level === 0 ) {
@@ -189,7 +186,7 @@ function LasLiczby() {
     }
 
 
-    window.console.log('stack number: ' + this.numAudioStackPointer + ' | length: ' + this.numAudioStack.length);
+    window.console.log('stack number: ' + this.audioStack.pointer + ' | length: ' + this.audioStack.stack.length);
 
 
     //  if there is autoNext
@@ -424,7 +421,7 @@ function LasLiczby() {
         r += 'én, ei, ett<br />zgodnie z rodzajem';
 
         //  push to audio sequence
-        numAudioStackL = this.numAudioStack.push('numEnEiEt');
+        numAudioStackL = this.audioStack.stack.push('numEnEiEt');
 
       }
       else {
@@ -432,7 +429,7 @@ function LasLiczby() {
         r += j[num];
 
         //  push to audio sequence
-        numAudioStackL = this.numAudioStack.push('num' + num);
+        numAudioStackL = this.audioStack.stack.push('num' + num);
 
       }
 
@@ -448,7 +445,7 @@ function LasLiczby() {
       r += d[ti];
 
       //  push to audio sequence
-      numAudioStackL = this.numAudioStack.push('num' + ti + '0');
+      numAudioStackL = this.audioStack.stack.push('num' + ti + '0');
 
       //  większe od 0
       if ( 0 < en ) {
@@ -456,7 +453,7 @@ function LasLiczby() {
         r += j[en];
 
         //  push to audio sequence
-        numAudioStackL = this.numAudioStack.push('num' + en);
+        numAudioStackL = this.audioStack.stack.push('num' + en);
       }
 
     }
@@ -474,18 +471,18 @@ function LasLiczby() {
         r += ' tusen';
 
         //  push to audio sequence
-        numAudioStackL = this.numAudioStack.push('num' + tusen);
+        numAudioStackL = this.audioStack.stack.push('num' + tusen);
       }
       //  jeden tysiąc
       else if ( 1 == tusen ) {
         r += 'ett tusen ';
 
         //  push to audio sequence
-        numAudioStackL = this.numAudioStack.push('numEt');
+        numAudioStackL = this.audioStack.stack.push('numEt');
       }
 
       //  push to audio sequence
-      numAudioStackL = this.numAudioStack.push('num1000');
+      numAudioStackL = this.audioStack.stack.push('num1000');
 
       //  jeśli są setki
       if ( 0 < hundre ) {
@@ -495,18 +492,18 @@ function LasLiczby() {
           r += ' ' + j[hundre] + ' hundre';
 
           //  push to audio sequence
-          numAudioStackL = this.numAudioStack.push('num' + hundre);
+          numAudioStackL = this.audioStack.stack.push('num' + hundre);
         }
         //  jedna setka
         else if ( 1 == hundre ) {
           r += ' ett hundre';
 
           //  push to audio sequence
-          numAudioStackL = this.numAudioStack.push('numEt');
+          numAudioStackL = this.audioStack.stack.push('numEt');
         }
 
         //  push to audio sequence
-        numAudioStackL = this.numAudioStack.push('num100');
+        numAudioStackL = this.audioStack.stack.push('num100');
 
       }
 
@@ -515,7 +512,7 @@ function LasLiczby() {
         r += ' og ';
 
         //  push to audio sequence
-        numAudioStackL = this.numAudioStack.push('og');
+        numAudioStackL = this.audioStack.stack.push('og');
       }
 
       //  od 10 do 19
@@ -523,7 +520,7 @@ function LasLiczby() {
         r += j[10 + en];
 
         //  push to audio sequence
-        numAudioStackL = this.numAudioStack.push('num' + (10 + en) );
+        numAudioStackL = this.audioStack.stack.push('num' + (10 + en) );
       }
       else {
         //  dziesiątki
@@ -531,26 +528,26 @@ function LasLiczby() {
           r += d[ti];
 
           //  push to audio sequence
-          numAudioStackL = this.numAudioStack.push('num' + (ti*10) );
+          numAudioStackL = this.audioStack.stack.push('num' + (ti*10) );
         }
         //  jedności
         if  (0 < en) {
           r += j[en];
 
           //  push to audio sequence
-          numAudioStackL = this.numAudioStack.push('num' + en );
+          numAudioStackL = this.audioStack.stack.push('num' + en );
         }
 
       }
 
     }
 
-    numAudioStackL = this.numAudioStack.push('lastFromStack');
+    numAudioStackL = this.audioStack.stack.push('lastFromStack');
 
     //  assign
     this.currentNumWords = r;
 
-    window.console.log(this.numAudioStack);
+    window.console.log(this.audioStack.stack);
 
   };
 

@@ -137,9 +137,9 @@ function LasAudioTest() {
     this.getBasicElements();
 
     //  Random chat arrays
-    this.randomIntroArray =   this.getRandomArrayOfFirstBubbles( this.lasData.intro );
-    this.randomChatArray =    this.getRandomArrayOfFirstBubbles( this.lasData.chat );
-    this.randomEndArray =     this.getRandomArrayOfFirstBubbles( this.lasData.end );
+    this.randomIntroArray =     this.getRandomArrayOfFirstBubbles( this.lasData.intro );
+    this.randomChatArray =      this.getRandomArrayOfFirstBubbles( this.lasData.chat );
+    this.randomEndArray =       this.getRandomArrayOfFirstBubbles( this.lasData.end );
 
     //  Prepare
     this.addListener();
@@ -1481,7 +1481,7 @@ function LasAudioTest() {
                 answers = bubbleData.answers;
                 answersL = answers.length;
 
-                content += 'Odpowiedzi:<br />';
+                content += '<div style="margin:0.5rem 0;">Odpowiedzi:<br />';
 
 
                 for (i = 0; i < answersL; i++) {
@@ -1496,6 +1496,8 @@ function LasAudioTest() {
                   content += '<br />';
 
                 }
+
+                content += '</div>';
 
               }
               else if ( ( bubbleProp === 'more' ) ) {

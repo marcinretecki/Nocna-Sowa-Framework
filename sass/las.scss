@@ -242,6 +242,7 @@ Author: Marcin Retecki
   right: 0;
   bottom: 0;
   z-index: 300;
+  background-color: rgba(60, 69, 76, 0.75);
   @include scrolling;
 }
 
@@ -304,6 +305,20 @@ Author: Marcin Retecki
 //
 //  WYZWANIE
 //
+
+//
+//  nazewnictwo obmyśl
+//
+.max-32 {
+  width: 34 * $size-1;
+  max-width: 100%;
+  padding-left: $space;
+  padding-right: $space;
+}
+
+
+
+
 //
 //  EMOJI
 //

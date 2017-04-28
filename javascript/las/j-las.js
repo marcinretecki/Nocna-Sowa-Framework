@@ -23,6 +23,14 @@ function LasHelper() {
   var self = this;
 
 
+  //
+  //  Audio Stack
+  //
+  this.audioStack = {
+    stack:                              [],
+    pointer:                            0
+  };
+
 
   //
   //  Get basic elements
@@ -107,12 +115,12 @@ function LasHelper() {
   };
 
 
+  //  Fisher-Yates Shuffle
   this.shuffleArray = function(propArray) {
-    //  Fisher-Yates Shuffle
 
-    var counter = propArray.length,
-        index,
-        temp;
+    var counter = propArray.length;
+    var index;
+    var temp;
 
     //  While there are elements in the propArray
     while (counter > 0) {
@@ -136,6 +144,8 @@ function LasHelper() {
   //  Data bubbles
   //
   this.getRandomBubble = function() {
+    var pop;
+
     window.console.log( 'getRandomBubble');
     window.console.log( this.randomChatArray.length );
 
@@ -146,7 +156,7 @@ function LasHelper() {
       this.cookiePlusOne( 'ex' );
 
       //  pop data and return the object
-      var pop = this.lasData.chat[ this.randomChatArray.pop() ];
+      pop = this.lasData.chat[ this.randomChatArray.pop() ];
       return pop;
 
     }
@@ -162,6 +172,7 @@ function LasHelper() {
 
 
   this.getIntroBubble = function() {
+
     window.console.log( 'getIntroBubble');
     var pop = this.lasData.intro[ this.randomIntroArray.pop() ];
 
@@ -175,8 +186,10 @@ function LasHelper() {
 
 
   this.getEndBubble = function() {
+
     window.console.log( 'getEndBubble' );
     var pop = this.lasData.end[ this.randomEndArray.pop() ];
+
     //  Return bubble
     return pop;
 
@@ -253,6 +266,7 @@ function LasHelper() {
       'fadeOut',
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
     );
+
   };
 
 
@@ -265,6 +279,7 @@ function LasHelper() {
       'fadeIn',
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
     );
+
   };
 
 
@@ -418,11 +433,11 @@ function LasHelper() {
 
   //
   //  Encode special character from the bubble
-  //  it has return
+  //  @return new string
   //
   this.encodeBubble = function( bubbleString ) {
 
-    //  EMOJI
+    //  EMOJI example
     //  <svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f58a"></use></svg>
     //  #emoji-1f58a;
 

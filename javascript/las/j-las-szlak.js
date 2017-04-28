@@ -62,13 +62,14 @@ function LasSzlak() {
     //  get Elements
     this.getBasicElements();
 
+    //  preopen the section
+    this.openSectionInit();
+
     //  prepare
     this.addListener();
     this.hideLoader();
 
-    //
-    //  init powinien wyczajać, która sekcja była otwarta i otwierać ją od razu
-    //
+
   };
 
 
@@ -204,18 +205,22 @@ function LasSzlak() {
 
   //  open section on page load
   //  show user the next chapter they should do
-  lasSzlak.openSectionInit = function( sectionId ) {
+  lasSzlak.openSectionInit = function() {
+
+    if ( !this.helper.sectionTopOpen ) {
+      return;
+    }
 
     //  get elements
-    var sectionToMove = document.getElementById( sectionId );
-    var btn = document.getElementById( 'btn-' + sectionId );
+    var sectionToMove = document.getElementById( this.helper.sectionTopOpen );
+    var btn = document.getElementById( 'btn-' + this.helper.sectionTopOpen );
 
     window.console.log(sectionToMove);
     window.console.log(btn);
     window.console.log('open section on init');
 
     //  store level
-    this.clickedLevel = sectionId.split('-')[1];
+    this.clickedLevel = this.helper.sectionTopOpen.split('-')[1];
 
     //  push element to the proper queue
     if ( this.clickedLevel ) {
@@ -303,9 +308,58 @@ function LasSzlak() {
 
     var szlakResult =  document.getElementById('szlak-result');
     var szlakResultContent =  document.getElementById('szlak-result-content');
+    var sectionToMove;
+    var btn;
+    var chapterToHighlight;
 
-    this.velocity( szlakResult, { backgroundColorAlpha: 0 }, { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' } );
-    this.velocity( szlakResultContent, { scale: 0 }, { duration: 2 * this.helper.speed, easing: this.helper.easingQuart } );
+    if ( this.helper.sectionTopOpen ) {
+      sectionToMove = document.getElementById( this.helper.sectionTopOpen );
+      btn = document.getElementById( 'btn-' + this.helper.sectionTopOpen );
+    }
+
+    if ( las.helper.chapterToHighlight ) {
+      chapterToHighlight = document.getElementById( las.helper.chapterToHighlight );
+    }
+
+    //  hide the popup
+    this.velocity(
+      szlakResult,
+      { backgroundColorAlpha: 0 },
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
+    );
+    this.velocity(
+      szlakResultContent,
+      { scale: 0 },
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+    );
+
+    //  if there is a chapter to hightlight
+    if ( chapterToHighlight ) {
+
+      //  scroll to the next chapter
+      this.velocity(
+        chapterToHighlight,
+        'scroll',
+        { container: this.szlakWrapper, duration: 4 * this.helper.speed, offset: -200, easing: this.helper.easingQuart }
+      );
+
+      //  highlight the chapter
+      this.velocity(
+        chapterToHighlight,
+        { scale: [1.1, 1] },
+        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+      );
+      this.velocity(
+        chapterToHighlight,
+        { scale: 1 },
+        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+      );
+
+
+    }
+
+
+
 
 
   };

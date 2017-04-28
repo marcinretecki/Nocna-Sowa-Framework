@@ -13,6 +13,21 @@
 
 
   //
+  LasHelper.prototype.lastAudioFromStack = function() {
+
+    var stack = this.audioStack.stack;
+    var pointer = this.audioStack.pointer;
+
+    if ( stack.length() === pointer ) {
+      return true;
+    }
+
+    return false;
+
+  };
+
+
+  //
   //  Play Audio
   //  set the autoPause
   //
