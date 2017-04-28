@@ -56,10 +56,8 @@ function LasAudioTest() {
   lasAudioTest.msg =                  '';
   lasAudioTest.trans =                '';
   lasAudioTest.bubbleAutoNext =       '';
-  lasAudioTest.startTime =            -1;
-  lasAudioTest.stopTime =             -1;
-  lasAudioTest.pauseTime =            -1;
-  lasAudioTest.audioTimes =           [];
+
+
 
   //  this will be assigned with assignAnswersData
   lasAudioTest.answersData =          [];
@@ -170,6 +168,8 @@ function LasAudioTest() {
     //  before assign, check the previous bubble
 
     var sequenceTypeData;
+    var audioObject;
+    var audioStackL;
 
 
     //  if it is the first bubble
@@ -218,9 +218,9 @@ function LasAudioTest() {
 
 
     //  reset
-    this.startTime = -1;
-    this.stopTime  = -1;
-    this.pauseTime = -1;
+    this.audioStack.stack = [];
+    this.audioStack.pointer = 0;
+    this.currentAudioObject = {};
     this.bubbleAutoNext = '';
     this.msg = '';
     this.trans = '';
@@ -230,16 +230,18 @@ function LasAudioTest() {
     //  if there is time
     if ( this.currentBubbleData.hasOwnProperty('startTime') ) {
 
-      //  assign playback times
-      this.startTime = this.currentBubbleData.startTime;
-      this.stopTime = this.currentBubbleData.stopTime;
+      //  assign playback times to audioObject
+      //  we will push it to the stack later
+      audioObject = {};
+      audioObject.startTime = this.currentBubbleData.startTime;
+      audioObject.stopTime = this.currentBubbleData.stopTime;
 
       //  fix the problem with time 0
-      if ( this.startTime === 0 ) {
-        this.startTime = 0.01;
+      if ( audioObject.startTime === 0 ) {
+        audioObject.startTime = 0.01;
       }
 
-      window.console.log('Start time: ' + this.startTime + ' Stop time: ' + this.stopTime);
+      window.console.log('Start time: ' + audioObject.startTime + ' Stop time: ' + audioObject.stopTime);
 
     }
 
@@ -248,8 +250,18 @@ function LasAudioTest() {
     if ( this.currentBubbleData.hasOwnProperty('pauseTime') ) {
 
       //  assign it
-      this.pauseTime = this.currentBubbleData.pauseTime;
+      if ( audioObject ) {
+        audioObject.pauseTime = this.currentBubbleData.pauseTime;
+      }
 
+    }
+
+
+    //
+    //  Push new audio object onto the stack
+    //
+    if ( audioObject ) {
+      audioStackL = this.audioStack.stack.push( audioObject );
     }
 
 
@@ -373,7 +385,7 @@ function LasAudioTest() {
 
 
     //  if there is no time (and no score?)
-    if ( this.startTime < 0  ) {
+    if ( this.audioStack.stack.length === 0  ) {
 
       //  show answers and msg
       //  if there was time, they would be showed prePause
@@ -387,12 +399,7 @@ function LasAudioTest() {
       //  allow prePause event
       this.state.prePause = true;
 
-      //  assign times
-      this.audioTimes = [
-        this.startTime,
-        this.stopTime,
-        this.pauseTime
-      ];
+      //  play Audio
       this.playAudio();
 
     }
@@ -1362,11 +1369,9 @@ function LasAudioTest() {
         this.cookiePlusOne( 'more' );
 
         //  assign play times
-        this.audioTimes = [
-          this.more.startTime,
-          this.more.stopTime,
-          -1
-        ];
+        this.currentAudioObject = this.more;
+
+        //  play audio
         this.playAudio();
       }
     }

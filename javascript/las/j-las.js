@@ -25,11 +25,14 @@ function LasHelper() {
 
   //
   //  Audio Stack
+  //  used only for the main audio and repeat
+  //  "more" is seperate
   //
   this.audioStack = {
     stack:                              [],
     pointer:                            0
   };
+  this.currentAudioObject =             {};
 
 
   //

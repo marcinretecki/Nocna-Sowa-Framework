@@ -3,29 +3,6 @@
 //
 (function() {
 
-  //
-  //  Private functions
-  //
-  function private() {
-
-
-  }
-
-
-  //
-  LasHelper.prototype.lastAudioFromStack = function() {
-
-    var stack = this.audioStack.stack;
-    var pointer = this.audioStack.pointer;
-
-    if ( stack.length() === pointer ) {
-      return true;
-    }
-
-    return false;
-
-  };
-
 
   //
   //  Play Audio
@@ -33,9 +10,214 @@
   //
   LasHelper.prototype.playAudio = function() {
 
-    var startTime = this.audioTimes[0];
+    //  already playing or no file
+    if ( this.state.playing || !this.audioFile ) {
+      return;
+    }
 
-    if ( this.state.playing || ( startTime < 0 ) || !this.audioFile ) {
+    //  sinlge audio object
+    if ( this.currentAudioObject.startTime && ( this.currentAudioObject.startTime > 0 ) ) {
+
+      //  play the single object
+      this.playSingleAudio( this.currentAudioObject );
+
+    }
+    //  if there is no object, check the stack
+    else if ( this.audioStack.stack && ( this.audioStack.stack.length > 0 ) && ( this.audioStack.stack[0].startTime > 0 ) ) {
+
+      //  loop the stack
+      this.loopAudioStack();
+
+    }
+    //  no audio data
+    else {
+      return;
+    }
+
+
+  };
+
+
+
+  //
+  //  play audio from single object
+  //
+  LasHelper.prototype.playSingleAudio = function( audioObject ) {
+
+    if ( !audioObject || !audioObject.startTime ) {
+      return;
+    }
+
+    var startTime = audioObject.startTime;
+    var stopTime = audioObject.stopTime;
+    var pauseTime = audioObject.pauseTime;
+
+    //  reset listeners
+    this.resetAudioListeners();
+
+    //  unmute just in case
+    this.audioFile.muted = false;
+
+    window.console.log('prePause: ' + this.state.prePause);
+
+    //  try to set the time and play
+    try {
+
+      //  set the current time
+      this.audioFile.currentTime = startTime;
+
+
+      this.playAudioListener = function() {
+        //  before pause, call prePause
+        //  when the time finishes, pause playback and call atPause
+
+        //  the eventListener guarantees accuracy up to one second,
+        //  but half a second should be enough to begin animation
+        //  so it finishes together with the playback
+
+        //
+        //  if prePause
+        //  half a second before the end of audio
+        //
+        if ( this.state.prePause && ( this.audioFile.currentTime + 0.5 >= stopTime ) ) {
+
+          //  prevent prePause from firing again
+          this.state.prePause = false;
+
+          //  if there is a pause and the prePauseTimer is not yet set
+          if ( ( pauseTime > 0 ) && !this.prePauseTimer ) {
+
+            window.console.log('set prePauseTimer');
+
+            //  set prePauseTimer
+            this.prePauseTimer = window.setTimeout(function() {
+
+              window.clearTimeout(this.prePauseTimer);
+              this.prePauseTimer = undefined;
+              this.prePause();
+
+            }.bind(this), (pauseTime * 1000) );
+
+          }
+          //  if there is no pause
+          else if ( pauseTime < 0 ) {
+
+            this.prePause();
+
+          }
+
+        }
+
+        //  at the end of audio
+        if ( this.audioFile.currentTime >= stopTime ) {
+
+          //  reset listener
+          this.resetAudioListeners();
+
+          // pause
+          this.pauseAudio();
+          window.console.log('auto pause!');
+
+          //  if there is a pause and the atPauseTimer is not yet set
+          if ( ( pauseTime > 0 ) && !this.atPauseTimer ) {
+
+            window.console.log('set atPauseTimer');
+
+            //  set atPauseTimer
+            this.atPauseTimer = window.setTimeout(function() {
+
+              window.clearTimeout(this.atPauseTimer);
+              this.atPauseTimer = undefined;
+              this.atPause();
+
+            }.bind(this), (pauseTime * 1000) );
+
+            //  show skip button
+            this.showSkipButton();
+
+          }
+          //  if there was no pause time
+          else if ( pauseTime < 0 ) {
+
+            this.atPause();
+
+          }
+
+        }
+
+      }.bind(this);
+
+
+      //  add pause listener
+      this.audioFile.addEventListener('timeupdate', this.playAudioListener, false);
+
+      //  show spinner
+      this.showSpinner();
+
+      window.console.log('play ' + this.audioFile.currentTime);
+
+      //  play the file
+      this.state.playing = true;
+      this.audioFile.play();
+    }
+    //  if the audio is not loaded
+    catch (e) {
+      window.console.log('can not set time or play');
+
+      this.loadAudioFile();
+    }
+
+  };
+
+
+
+  //
+  //  loop over audio stack
+  //
+  LasHelper.prototype.loopAudioStack = function() {
+
+    var stack = this.audioStack.stack;
+    var pointer = this.audioStack.pointer;
+
+    //  if no stack or stack is wrong
+    if ( !stack || ( stack.length === 0 ) || !( stack[0].startTime > 0 ) ) {
+      return;
+    }
+
+    window.console.log('audio loop, no: ' + pointer );
+
+    //  is there more in the stack?
+    //  array begin on 0, but length shows 1, therefore +1 on pointer
+    if ( stack.length > pointer + 1 ) {
+
+      this.playAudioFromStack();
+
+    }
+    //  this is the last from the stack
+    //  playSingleAudio to active prePause and atPause
+    else if ( stack.length === pointer + 1 ) {
+
+      this.playSingleAudio( stack[ pointer ] );
+
+    }
+    else {
+      return;
+    }
+
+  };
+
+  //
+  //  Single audio from the stack
+  //  recursive with loopAudioStack()
+  //
+  LasHelper.prototype.playAudioFromStack = function() {
+
+    var stack = this.audioStack.stack;
+    var pointer = this.audioStack.pointer;
+    var audioObject = stack[ pointer ];
+
+    //  no audio
+    if ( !audioObject || !( audioObject.startTime > 0 ) ) {
       return;
     }
 
@@ -47,12 +229,32 @@
 
     //  try to set the time and play
     try {
+
       //  set the current time
-      this.audioFile.currentTime = startTime;
+      this.audioFile.currentTime = audioObject.startTime;
+
 
       this.playAudioListener = function() {
-        this.autoPauseAudio();
+
+        //  time ended
+        if ( this.audioFile.currentTime >= audioObject.stopTime ) {
+
+          //  reset listener
+          this.resetAudioListeners();
+
+          // pause
+          this.pauseAudio();
+
+          //  move the pointer
+          this.audioStack.pointer += 1;
+
+          //  back to loop
+          this.loopAudioStack();
+
+        }
+
       }.bind(this);
+
 
       //  add pause listener
       this.audioFile.addEventListener('timeupdate', this.playAudioListener, false);
@@ -77,6 +279,11 @@
   };
 
 
+
+
+  //
+  //   Rewind the main audio stack
+  //
   LasHelper.prototype.rewindAudio = function() {
     //  If the user want to listen to it again
 
@@ -89,12 +296,11 @@
     //  pause
     this.pauseAudio();
 
-    //  assign times
-    this.audioTimes = [
-      this.startTime,
-      this.stopTime,
-      -1
-    ];
+    //  reset currentAudioObject so it doesn't interfere
+    this.currentAudioObject = {};
+
+    //  reset pointer
+    this.audioStack.pointer = 0;
 
     //  play again
     this.playAudio();
@@ -102,88 +308,6 @@
   };
 
 
-  //  automaticaly pause
-  //  uses @this.audioTimes
-  LasHelper.prototype.autoPauseAudio = function() {
-    //  before pause, call prePause
-    //  when the time finishes, pause playback and call atPause
-
-    //  the eventListener guarantees accuracy up to one second,
-    //  but half a second should be enough to begin animation
-    //  so it finishes together with the playback
-
-    var stopTime = this.audioTimes[1];
-    var pauseTime = this.audioTimes[2];
-
-    //  prePause
-    //  half a second before the end of audio
-    if ( ( this.audioFile.currentTime + 0.5 > stopTime ) && this.state.prePause ) {
-
-      //  prevent prePause from firing too many times
-      this.state.prePause = false;
-
-      //  if there is a pause and the prePauseTimer is not yet set
-      if ( ( pauseTime > 0 ) && !this.prePauseTimer ) {
-
-        window.console.log('set prePauseTimer');
-
-        //  set prePauseTimer
-        this.prePauseTimer = window.setTimeout(function() {
-
-          window.clearTimeout(this.prePauseTimer);
-          this.prePauseTimer = undefined;
-          this.prePause();
-
-        }.bind(this), (pauseTime * 1000) );
-
-      }
-      //  if there is no pause
-      else if ( pauseTime < 0 ) {
-
-        this.prePause();
-
-      }
-
-    }
-
-    //  at the end of audio
-    if ( this.audioFile.currentTime > stopTime ) {
-
-      //  reset listener
-      this.resetAudioListeners();
-
-      // pause
-      this.pauseAudio();
-      window.console.log('auto pause!');
-
-      //  if there is a pause and the atPauseTimer is not yet set
-      if ( ( pauseTime > 0 ) && !this.atPauseTimer ) {
-
-        window.console.log('set atPauseTimer');
-
-        //  set atPauseTimer
-        this.atPauseTimer = window.setTimeout(function() {
-
-          window.clearTimeout(this.atPauseTimer);
-          this.atPauseTimer = undefined;
-          this.atPause();
-
-        }.bind(this), (pauseTime * 1000) );
-
-        //  show skip button
-        this.showSkipButton();
-
-      }
-      //  if there was no pause time
-      else if ( pauseTime < 0 ) {
-
-        this.atPause();
-
-      }
-
-    }
-
-  };
 
 
 
