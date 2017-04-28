@@ -34,6 +34,79 @@ $user_progress = las_get_user_progress();
 
 
 //
+//  Show all sections
+//  Gets all sections lists, and loop through them
+//  return array( all sections, section to open )
+//
+function las_get_all_sections( $user_progress ) {
+
+  // Kursy IDs
+  $basic_sections_parent = 20;
+  $advanced_sections_parent = 24;
+
+  $all_sections         = '';
+  $list_loop_array      = array();
+  $adv_list_loop_array  = array();
+  $section_top_open     = '';
+  $ids                  = array();
+
+  //  get sections array
+  $sections_args = array(
+    'post_type'       => 'page',
+    'post_parent'     => $basic_sections_parent,
+    'posts_per_page'  => -1,
+    'orderby'         => 'menu_order',
+    'nopaging'        => true,
+    'order'           => 'ASC'
+  );
+  $basic_sections = get_posts( $sections_args );
+
+
+  //  get advanced sections array
+  $adv_sections_args = $sections_args;
+  $adv_sections_args['post_parent'] = $advanced_sections_parent;
+  $advanced_sections = get_posts( $adv_sections_args );
+
+
+  // if there are any sections to display
+  //  LOOP them
+  if ( $basic_sections ) {
+    $list_loop_array = las_list_loop( $basic_sections, 'basic', $user_progress );
+  }
+  else {
+    $all_sections .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
+  }
+
+  // if there are any advanced sections to display
+  if ( $advanced_sections ) {
+    $adv_list_loop_array = las_list_loop( $advanced_sections, 'advanced', $user_progress );
+  }
+  else {
+    $all_sections .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
+  }
+
+  $all_sections .= $list_loop_array[0];
+  $all_sections .= $adv_list_loop_array[0];
+
+  //  if there is section to open in advanced courses
+  if ( $adv_list_loop_array[1] && ( $adv_list_loop_array[1] !== '' ) ) {
+    $section_top_open = $adv_list_loop_array[1];
+  }
+  //  if there is section to open in basic courses
+  elseif ( $list_loop_array[1] && ( $list_loop_array[1] !== '' ) ) {
+    $section_top_open = $list_loop_array[1];
+  }
+
+  if ( $list_loop_array[2] && ( count( $list_loop_array[2] ) > 0 ) ) {
+    $ids = $list_loop_array[2];
+  }
+
+  return array( $all_sections, $section_top_open, $ids );
+
+}
+
+
+//
 //  List Loop
 //
 //  @return array( all sections at the level, sublist_to_open )
@@ -42,11 +115,12 @@ $user_progress = las_get_user_progress();
 function las_list_loop( $sections, $level, $user_progress ) {
   global $post; //  needed for setup_postdata
 
-  $last_section_done = true;
-  $main_list = '';
-  $j = 1;
-  $sublist_id = '';
-  $sublist_to_open = '';
+  $last_section_done  = true;
+  $main_list          = '';
+  $j                  = 1;
+  $sublist_id         = '';
+  $sublist_to_open    = '';
+  $ids                = array();
 
   $main_list .= '<section id="section-' . $level . '" class="szlak-section__nav">';
 
@@ -66,15 +140,6 @@ function las_list_loop( $sections, $level, $user_progress ) {
 
     //  $section check
     //print_r($section);
-
-
-
-    //  advanced user can see all chapters
-    //  basic user can only go from beggining to the end
-    //  maybe a switch for advanced users?
-    //  do you want to go step by step or just explore by your own?
-
-
 
     //
     //  Section title
@@ -147,18 +212,17 @@ function las_list_loop( $sections, $level, $user_progress ) {
     }
 
 
-    //
-    //  Begin sublist
-    //
-
     //  if user can see links to excersises
     if (    ( $level === 'basic' )
          || current_user_can( 'avanced_user' )
          //|| current_user_can( 'edit_posts' )
         ) {
 
-      $main_list .= '<ol id="' . $sublist_id . '" class="navbar__list szlak-sublist">';
+      //
+      //  Begin sublist
+      //
 
+      $main_list .= '<ol id="' . $sublist_id . '" class="navbar__list szlak-sublist">';
 
       //  get the chapters for this section
       $chapters_args = array(
@@ -175,10 +239,14 @@ function las_list_loop( $sections, $level, $user_progress ) {
       //  loop over chapters to form the sublist
       $sublist_array = las_sublist_loop( $chapters, $level, $user_progress, $last_section_done );
 
+      //  add all the sections to list
       $main_list .= $sublist_array[ 0 ];
 
       //  assign section done
       $last_section_done = $sublist_array[ 1 ];
+
+      //  assign ids array
+      $ids = array_merge($ids, $sublist_array[ 2 ] );
 
       $main_list .= '</ol>';
 
@@ -203,7 +271,7 @@ function las_list_loop( $sections, $level, $user_progress ) {
   $main_list .= '</section>';
 
   //  return content sections
-  return array( $main_list, $sublist_to_open );
+  return array( $main_list, $sublist_to_open, $ids );
 
 }
 
@@ -219,14 +287,16 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
   $sublist = '';
   $previous_chapter_done = true;
   $wyzwanie = true;
+  $ids = [];
 
   foreach ( $chapters as $post ) {
     setup_postdata( $post );
 
-    $link = get_permalink();
-    $title = $post->post_title;
-    $slug = $post->post_name;
-
+    $link   = get_permalink();
+    $title  = $post->post_title;
+    $slug   = $post->post_name;
+    $id     = 'chapter-' . $post->ID;
+    $ids[]  = $id;
 
     //  Inner li
     $sublist .= '<li>';
@@ -249,7 +319,7 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
       }
 
       //  popup
-      $sublist .= '<a class="btn szlak-sublist__btn" href="#popup" data-szlak-url="' . $link . '" data-szlak-punkty="' . $punkty . '" data-szlak-wyzwanie="' . $wyzwanie . '">';
+      $sublist .= '<a id="' . $id . '" class="btn szlak-sublist__btn" href="#popup" data-szlak-url="' . $link . '" data-szlak-punkty="' . $punkty . '" data-szlak-wyzwanie="' . $wyzwanie . '">';
       $sublist .= $title;
 
       if ( $wyzwanie ) {
@@ -274,7 +344,7 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
             ) {
 
       //  direct link to przewodnik
-      $sublist .= '<a class="btn szlak-sublist__btn szlak-sublist__btn--active" href="' . $link . 'przewodnik/">';
+      $sublist .= '<a id="' . $id . '" class="btn szlak-sublist__btn szlak-sublist__btn--active" href="' . $link . 'przewodnik/">';
       $sublist .= $title;
       $sublist .= '<div class="szlak-sublist__icon-wrapper">';
         $sublist .= '<i class="szlak-sublist__icon szlak-sublist__icon--inactive"></i>';
@@ -312,78 +382,13 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
   wp_reset_postdata();
 
 
-  return array( $sublist, $previous_chapter_done );
+  return array( $sublist, $previous_chapter_done, $ids );
 
 }
 
 
 
-//
-//  Show all sections
-//  Gets all sections lists, and loop through them
-//  return array( all sections, section to open )
-//
-function las_get_all_sections( $user_progress ) {
 
-  // Kursy IDs
-  $basic_sections_parent = 20;
-  $advanced_sections_parent = 24;
-
-  $all_sections = '';
-  $list_loop_array = array();
-  $adv_list_loop_array = array();
-  $section_top_open = '';
-
-  //  get sections array
-  $sections_args = array(
-    'post_type'       => 'page',
-    'post_parent'     => $basic_sections_parent,
-    'posts_per_page'  => -1,
-    'orderby'         => 'menu_order',
-    'nopaging'        => true,
-    'order'           => 'ASC'
-  );
-  $basic_sections = get_posts( $sections_args );
-
-
-  //  get advanced sections array
-  $adv_sections_args = $sections_args;
-  $adv_sections_args['post_parent'] = $advanced_sections_parent;
-  $advanced_sections = get_posts( $adv_sections_args );
-
-
-  // if there are any sections to display
-  //  LOOP them
-  if ( $basic_sections ) {
-    $list_loop_array = las_list_loop( $basic_sections, 'basic', $user_progress );
-  }
-  else {
-    $all_sections .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
-  }
-
-  // if there are any advanced sections to display
-  if ( $advanced_sections ) {
-    $adv_list_loop_array = las_list_loop( $advanced_sections, 'advanced', $user_progress );
-  }
-  else {
-    $all_sections .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
-  }
-
-  $all_sections .= $list_loop_array[0];
-  $all_sections .= $adv_list_loop_array[0];
-
-  //  if there is section to open in advanced courses
-  if ( $adv_list_loop_array[1] && ( $adv_list_loop_array[1] !== '' ) ) {
-    $section_top_open = $adv_list_loop_array[1];
-  }
-  //  if there is section to open in basic courses
-  elseif ( $list_loop_array[1] && ( $list_loop_array[1] !== '' ) ) {
-    $section_top_open = $list_loop_array[1];
-  }
-
-  return array( $all_sections, $section_top_open );
-
-}
 
 
 
@@ -392,7 +397,7 @@ function las_get_all_sections( $user_progress ) {
 //  Show result
 //  echos the whole thing
 //
-function las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress ) {
+function las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result ) {
 
 
   //
@@ -416,31 +421,46 @@ function las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress ) 
   $user_level = $level_array[0];
   $exp_for_next = $level_array[1];
 
+  $formated_t = las_format_t( $last_wyzwanie_result['t'] );
+
   $echo = '';
 
-  $echo .= '<div id="szlak-result" class="szlak-post-popup" style="display:block;background-color:rgba(60, 69, 76, 0.5);">';
+  $echo .= '<div id="szlak-result" class="szlak-post-popup" style="display:block;background-color:rgba(60, 69, 76, 0.75);">';
   $echo .= '<div id="szlak-result-content" class="szlak-post-popup__content section-content section-6-4">';
   $echo .= '<div class="section-white section-content rounded group centered szlak-post-popup__section">';
 
   $echo .= '<img src="' . $img_url . '" style="width:8rem !important;height:8rem !important;border-radius:50%;overflow:hidden;display:block;" class="center" />';
 
-  $echo .= 'Doświadczenie: ' . $user_exp;
+  $echo .= 'Erfaring for chapter: ' . $last_wyzwanie_result['exp'];
   $echo .= '<br />';
-  $echo .= 'Level: ' . $user_level;
+  $echo .= 'Erfaring til sammen: ' . $user_exp;
   $echo .= '<br />';
-  $echo .= 'Nastepny level: ' . $exp_for_next;
+  $echo .= 'Rang: ' . $user_level;
   $echo .= '<br />';
+  $echo .= 'Neste rang: ' . $exp_for_next;
+  $echo .= '<br />';
+
+
+  //  testing
+  $last_wyzwanie_result['exp'] = 0;
 
   //  if there is no time
   //  user has not finished the chapter
-  if ( !$last_wyzwanie_result['t'] && $last_wyzwanie_result['first_time'] ) {
+  if ( ( !$last_wyzwanie_result['t'] && $last_wyzwanie_result['first_time'] ) ) {
 
     $echo .= 'Nie zrobiłeś wszystkich przykładów. Może spróbujesz jeszcze raz? Jeśli były za trudne, wróć do przewodnika albo do poprzednich wyzwań. Jeśli nie zrobiłeś wyzwania, bo wydawało Ci się nudne, daj nam o tym znać.';
+    $echo .= '<br />';
+
+  }
+  elseif ( !$last_wyzwanie_result['exp'] ) {
+
+    $echo .= 'Czy ćwiczenie było za trudne? Miałes problem z zagadnieniem? Wróć do przewodnika.';
+    $echo .= '<br />';
 
   }
   else {
 
-    $echo .= 'Czas: ' . $last_wyzwanie_result['t'];
+    $echo .= 'Czas: ' . $formated_t;
     $echo .= '<br />';
     $echo .= 'Przykłady: ' . $last_wyzwanie_result['ex'];
     $echo .= '<br />';
@@ -532,28 +552,43 @@ include( 'includes/head.php' );
   if ( $last_wyzwanie_result ) {
 
     //  reset the the last, so it doesn't show again
-    las_reset_last_wyzwanie_user_meta();
+    //las_reset_last_wyzwanie_user_meta();
 
-    las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress );
+    //las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result );
   }
 
   //  for testing results
-  //las_show_last_wyzwanie_result( $last_wyzwanie_result, $user_progress );
+  las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result );
 ?>
 
 
 <script>
 //  init Szlak
 var las = new LasSzlak();
-las.init();
 
 <?php
   //  there is a section to open
   if ( $all_sections_array[1] && ( $all_sections_array[1] !== '' ) ) {
-    echo 'las.openSectionInit(\'' . $all_sections_array[1] . '\');';
+    echo 'las.helper.sectionTopOpen = \'' . $all_sections_array[1] . '\';'  . "\r\n";
+  }
+
+  //  for testing
+  //$last_wyzwanie_result[ 'first_time' ] = true;
+
+  if ( $last_wyzwanie_result[ 'first_time' ] ) {
+
+    $ids = $all_sections_array[2];
+
+    $next_id_key = array_search( 'chapter-' . $last_wyzwanie_result['id'], $ids ) + 1;
+
+    $next_id = $ids[ $next_id_key ];
+
+    echo 'las.helper.chapterToHighlight = \'' . $next_id . '\'; ' . "\r\n";
   }
 
 ?>
+
+las.init();
 </script>
 
 

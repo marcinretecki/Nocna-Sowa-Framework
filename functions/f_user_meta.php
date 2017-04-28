@@ -5,7 +5,9 @@
 
 
 //
-//  User Meta Structure
+//  User Progress Structure
+//
+//  las_progress
 //
 //  Array
 //  [
@@ -51,6 +53,27 @@
 //  ]
 
 
+//
+//  User Character Structure
+//
+//  las_character
+//
+//  Array
+//  [
+//    'character'     =>  'type'
+//    'name'          =>  'Marcin'
+//    'title'         =>  'Hårfagre'
+//  ]
+
+
+
+//  here we need a struct for payment
+//  payment info
+//  payments history
+//  current plan
+//  money paid
+
+
 
 //
 //  Get user progress
@@ -63,14 +86,17 @@ function las_get_user_progress() {
   $user_meta = get_user_meta( $current_user->ID, 'las_progress' );
 
   //  if there is any meta
-  if ( $user_meta && is_array($user_meta[0]) ) {
+  if ( $user_meta && is_array( $user_meta[0] ) ) {
+
     return $user_meta[0];
 
   }
   //  if there is no meta, we need to create it
   else {
+
     $user_meta = las_create_user_meta();
     return $user_meta;
+
   }
 
 }
@@ -111,9 +137,28 @@ function las_get_last_wyzwanie_result( $user_progress ) {
 
 //
 //  Get user cookie progress (previous page access)
+//  sanitize all input
 //  @return array [previous page progress, access time, chapter name, progress type]
 //  or false
 //
+//  Example cookie
+//  array(5) {
+//    ["progress"]=>
+//    array(2) {
+//      ["exp"]=>
+//      int(0)
+//      ["ex"]=>
+//      int(2)
+//    }
+//    ["access"]=>
+//    int(1493363680)
+//    ["chapter"]=>
+//    string(4) "test"
+//    ["progress_type"]=>
+//    string(8) "wyzwanie"
+//    ["id"]=>
+//    int(213)
+//  }
 function las_get_user_cookie_progress() {
 
   $user_cookie_progress = json_decode( stripslashes( $_COOKIE["lasChallangeProgress"] ), true );
@@ -131,7 +176,7 @@ function las_get_user_cookie_progress() {
   reset( $user_cookie_progress );
 
   //  get name of the first key of user_cookie_progress
-  $chapter = key( $user_cookie_progress );
+  $chapter = sanitize_file_name( key( $user_cookie_progress ) );
 
   //  if chapter is not an array
   if ( !is_array( $user_cookie_progress[ $chapter ] ) ) {
@@ -139,7 +184,7 @@ function las_get_user_cookie_progress() {
   }
 
   //  get name of the first key of chapter
-  $progress_type = key( $user_cookie_progress[ $chapter ] );
+  $progress_type = sanitize_file_name( key( $user_cookie_progress[ $chapter ] ) );
 
   //  if chapter is not an array
   if ( !is_array( $user_cookie_progress[ $chapter ][ $progress_type ] ) ) {
@@ -149,14 +194,41 @@ function las_get_user_cookie_progress() {
   //  get name of the first key of progress_type
   $access = key( $user_cookie_progress[ $chapter ][ $progress_type ] );
 
+  //  if access is not a number
+  if ( !is_integer( $access ) ) {
+    return false;
+  }
+
   $progress = $user_cookie_progress[ $chapter ][ $progress_type ][ $access ];
+
+  //  if progress is not an array
+  if ( !is_array( $progress ) ) {
+    return false;
+  }
+
+  //  check values
+  foreach ( $progress as $value ) {
+
+    //  if any of the values in progress are not integrs
+    if ( !is_integer( $value ) ) {
+      return false;
+    }
+
+  }
+
+  $id = $user_cookie_progress[ $chapter ][ 'id' ];
+
+  //  if id is not integer
+  if ( !is_integer( $id ) ) {
+    return false;
+  }
 
   return  array(
               'progress'        =>  $progress,
               'access'          =>  $access,
               'chapter'         =>  $chapter,
               'progress_type'   =>  $progress_type,
-              'id'              =>  $user_cookie_progress[ $chapter ][ 'id' ]
+              'id'              =>  $id
           );
 
 }
@@ -168,6 +240,8 @@ function las_get_user_cookie_progress() {
 //  @return url
 //
 function las_get_user_profile_img() {
+
+  //  check the type of character
 
   return 'http://ecowallpapers.net/wp-content/uploads/1041_hearthstone:_rexxar.jpg';
 

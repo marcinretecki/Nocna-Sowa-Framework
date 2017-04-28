@@ -4,6 +4,12 @@ Template Name: Szlak Test
 */
 
 
+//  if not a dev, exit
+if ( !las_is_developer() ) {
+  exit;
+}
+
+
 include( 'includes/head.php' );
 
 
@@ -18,23 +24,30 @@ include( 'includes/head.php' );
 
         <?php
 
-          $user_cookie_progress = las_get_user_cookie_progress();
 
-          echo '<pre class="size-0">';
-          print_r( $user_cookie_progress );
-          echo '</pre>';
+          //  USER STRUCT
+          echo '<div style="height:2rem;overflow:hidden;">';
+            echo '<a href="#" class="a-light" onClick="this.parentNode.style.cssText=\'\';">Pokaż progress ...</a><br /><br />';
+
+            $user_cookie_progress = las_get_user_cookie_progress();
+
+            echo '<pre class="size-0">';
+            var_dump( $user_cookie_progress );
+            echo '</pre>';
 
 
-          echo las_get_exp_from_progress( $user_cookie_progress );
+            echo las_get_exp_from_progress( $user_cookie_progress );
 
 
-          echo '<h2 class="h1">User Struct</h2>';
+            echo '<h2 class="h1">User Struct</h2>';
 
-          $user_progress = las_get_user_progress();
+            $user_progress = las_get_user_progress();
 
-          echo '<pre class="size-0">';
-          print_r( $user_progress );
-          echo '</pre>';
+            echo '<pre class="size-0">';
+            print_r( $user_progress );
+            echo '</pre>';
+
+          echo '</div>';
 
 
 
@@ -149,7 +162,13 @@ include( 'includes/head.php' );
                 }
                 else {
 
-                  $wyzwanie = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $post->post_name . '.php' );
+                  //  WYZWANIE DATA FILE
+                  if ( has_category( 'wyzwanie-liczby' ) ) {
+                    $wyzwanie = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/liczby.php' );
+                  }
+                  else {
+                    $wyzwanie = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $post->post_name . '.php' );
+                  }
 
                   if ( $wyzwanie ) {
                     echo $green_light;

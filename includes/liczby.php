@@ -8,7 +8,7 @@
 <section class="section-trans wrapper" style="background-image: url('/las/c/i/las_test_9.jpg');">
 
   <div class="section-content section-4-2">
-    <div id="audio-test" class="col-10 center">
+    <div id="audio-test" class="max-32 center">
 
       <div id="audio-pause-timer" style="position:fixed;left:0px;top:40%;z-index:1000;width:100%;opacity:0;display:none;" class="">
         <button id="audio-skip-pause" class="btn btn-white btn-nav" style="display:block;margin:0px auto;width:4rem;height:4rem;padding:0;border-radius:50%;background-image:url('/las/c/i/icon_next.png');background-size:26px auto;background-position:center center;background-repeat:no-repeat;box-shadow:0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);">

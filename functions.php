@@ -6,7 +6,7 @@
 if ( is_user_logged_in() ) {
   include( stream_resolve_include_path( __DIR__ . '/functions/f_user_meta.php' ) );
   include( stream_resolve_include_path( __DIR__ . '/functions/f_levels.php' ) );
-  include( stream_resolve_include_path( __DIR__ . '/functions/tests.php' ) );
+  include( stream_resolve_include_path( __DIR__ . '/functions/f_tests.php' ) );
 }
 
 //
@@ -20,6 +20,20 @@ function las_admin_dev_mode() {
     return false;
   }
 }
+
+
+//
+//  Is dev?
+//
+function las_is_developer() {
+  if ( current_user_can( 'delete_users' ) )  {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 
 function ns_auto_ver( $url ){
 
@@ -73,7 +87,7 @@ add_action('template_redirect', 'las_dev_redirect');
 
 
 //
-// Redirect non-editors or non-admins from admin area
+//  Redirect non-editors or non-admins from admin area
 //
 function las_login_redirect() {
   if ( !current_user_can( 'edit_posts' ) ) {
@@ -263,3 +277,93 @@ function las_comment($comment, $args, $depth) {
 <?php
 };
 // end comment custom style
+
+
+
+
+
+//
+//  Format seconds into hours, minutes, seconds
+//  @return string
+//
+function las_format_t( $seconds ) {
+
+  $time = '';
+
+  $minut_array = [ 0, 1, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ];
+  $minuty_array = [ 2, 3, 4 ];
+
+  //  if over an hour
+  if ( $seconds > 3600 ) {
+    $time .= 'ponad godzinę';
+  }
+  else {
+
+    //  floor return a float, I preffer integer
+    $minutes = intval( floor( $seconds / 60 ) );
+    $seconds_rest = $seconds - ( $minutes * 60 );
+
+
+    //  if any minutes
+    if ( $minutes > 0 ) {
+
+      $time .= $minutes;
+
+      //  1 minuta
+      if ( $minutes === 1 ) {
+
+        $time .= ' minuta';
+
+      }
+      //  minut
+      elseif ( in_array( $minutes, $minut_array ) || in_array( substr( $minutes, -1 ), $minut_array ) ) {
+
+        $time .= ' minut';
+
+      }
+      //  minuty
+      elseif ( in_array( $minutes, $minuty_array ) || in_array( substr( $minutes, -1 ), $minuty_array ) ) {
+
+        $time .= ' minuty';
+
+      }
+
+    }
+
+
+    // if there are both minutes and seconds
+    if ( ( $minutes > 0 ) && ( $seconds_rest > 0 ) ) {
+      $time .= ', ';
+    }
+
+
+    //  if any seconds left
+    if ( $seconds_rest > 0 ) {
+
+      $time .= $seconds_rest;
+
+      //  1 sekunda
+      if ( $seconds_rest === 1 ) {
+
+        $time .= ' sekunda';
+
+      }
+      //  sekund
+      elseif ( in_array( $seconds_rest, $minut_array ) || in_array( substr( $seconds_rest, -1 ), $minut_array ) ) {
+
+        $time .= ' sekund';
+
+      }
+      //  sekundy
+      elseif ( in_array( $seconds_rest, $minuty_array ) || in_array( substr( $seconds_rest, -1 ), $minuty_array ) ) {
+
+        $time .= ' sekundy';
+
+      }
+
+    }
+
+  }
+
+  return $time;
+}

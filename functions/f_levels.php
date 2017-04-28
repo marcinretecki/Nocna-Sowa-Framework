@@ -5,6 +5,12 @@
 //
 
 
+
+//  TODO
+//  check if ex number is the same as real number of ex in chapter
+//  before adding exp to the user
+
+
 //
 //  Leveling system multiplicators
 //  @return array
