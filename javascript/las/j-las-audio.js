@@ -85,7 +85,7 @@
           this.state.prePause = false;
 
           //  if there is a pause and the prePauseTimer is not yet set
-          if ( ( pauseTime > 0 ) && !this.prePauseTimer ) {
+          if ( pauseTime && ( pauseTime > 0 ) && !this.prePauseTimer ) {
 
             window.console.log('set prePauseTimer');
 
@@ -100,7 +100,7 @@
 
           }
           //  if there is no pause
-          else if ( pauseTime < 0 ) {
+          else if ( !pauseTime ) {
 
             this.prePause();
 
