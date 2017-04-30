@@ -10,9 +10,12 @@ function LasAudioData() {
 
   this.intro = {
     a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
-      autoNext:   'ENDINTRO'/*,
-      more: { startTime: 0, stopTime: 26 }*/
+      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
+      autoNext:     'ENDINTRO'/*,
+      more: {
+        startTime:  0,
+        duration:   26  -   0,
+      }*/
     }
   };
 
@@ -23,14 +26,14 @@ function LasAudioData() {
     aa1: {
       spokenWord: 'Powiedz: Przepuść mnie!',
       startTime:  0,
-      stopTime:   2,
+      duration:   2 - 0,
       pauseTime:  5,
       autoNext:   'aa2'
     },
     aa2: {
       msg:        'Slipp meg frem!',
       startTime:  3,
-      stopTime:   4.5,
+      duration:   4.5 - 3,
       autoNext:   'RANDOM'
     },
 
@@ -38,14 +41,14 @@ function LasAudioData() {
     ab1: {
       spokenWord: 'Powiedz: Nie dotykaj tego!',
       startTime:  5,
-      stopTime:   7,
+      duration:   7 - 5,
       pauseTime:  5,
       autoNext:   'ab2'
     },
     ab2: {
       msg:        'Ikke rør det!',
       startTime:  8,
-      stopTime:   9,
+      duration:   9 - 8,
       autoNext:   'RANDOM'
     },
 
@@ -53,14 +56,14 @@ function LasAudioData() {
     ac1: {
       spokenWord: 'Powiedz: Słuchaj mnie!',
       startTime:  10,
-      stopTime:   12,
+      duration:   12 - 10,
       pauseTime:  5,
       autoNext:   'ac2'
     },
     ac2: {
       msg:        'Hør på meg!',
       startTime:  13,
-      stopTime:   14,
+      duration:   14 - 13,
       autoNext:   'RANDOM'
     },
 
@@ -68,44 +71,44 @@ function LasAudioData() {
     ad1: {
       spokenWord: 'Powiedz: Usiądź!',
       startTime:  15,
-      stopTime:   16.5,
+      duration:   16.5 - 15,
       pauseTime:  5,
       autoNext:   'ad2'
     },
     ad2: {
       msg:        'Sett deg ned!',
       startTime:  17,
-      stopTime:   18,
+      duration:   18 - 17,
       autoNext:   'RANDOM'
     },
 
 
-    ae1: {
-      spokenWord: 'Powiedz: Bądź cicho!',
-      startTime:  ,
-      stopTime:   ,
-      pauseTime:  5,
-      autoNext:   'ae2'
-    },
-    ae2: {
-      msg:        'Ti stille!',
-      startTime:  22,
-      stopTime:   23,
-      autoNext:   'RANDOM'
-    },
+    //  ae1: {
+    //    spokenWord: 'Powiedz: Bądź cicho!',
+    //    startTime:  ,
+    //    duration:   ,
+    //    pauseTime:  5,
+    //    autoNext:   'ae2'
+    //  },
+    //  ae2: {
+    //    msg:        'Ti stille!',
+    //    startTime:  22,
+    //    duration:   23 - 22,
+    //    autoNext:   'RANDOM'
+    //  },
 
 
     af1: {
       spokenWord: 'Powiedz: Zamknij się!',
       startTime:  24,
-      stopTime:   26,
+      duration:   26 - 24,
       pauseTime:  5,
       autoNext:   'af2'
     },
     af2: {
       msg:        'Hold kjeft!',
       startTime:  27,
-      stopTime:   28,
+      duration:   28 - 27,
       autoNext:   'RANDOM'
     },
 
@@ -113,14 +116,14 @@ function LasAudioData() {
     ag1: {
       spokenWord: 'Powiedz: Nie pal!',
       startTime:  29,
-      stopTime:   30.5,
+      duration:   30.5 - 29,
       pauseTime:  5,
       autoNext:   'ag2'
     },
     ag2: {
       msg:        'Ikke røyk!',
       startTime:  31,
-      stopTime:   32  ,
+      duration:   32   - 31,
       autoNext:   'RANDOM'
     },
 
@@ -128,14 +131,14 @@ function LasAudioData() {
     ah1: {
       spokenWord: 'Powiedz: Nie pij!',
       startTime:  33,
-      stopTime:   34.5,
+      duration:   34.5 - 33,
       pauseTime:  5,
       autoNext:   'ah2'
     },
     ah2: {
       msg:        'Ikke drikk!',
       startTime:  36,
-      stopTime:   37,
+      duration:   37 - 36,
       autoNext:   'RANDOM'
     },
 
@@ -143,14 +146,14 @@ function LasAudioData() {
     aj1: {
       spokenWord: 'Powiedz: Zaczekaj chwilę!',
       startTime:  38,
-      stopTime:   40,
+      duration:   40 - 38,
       pauseTime:  5,
       autoNext:   'aj2'
     },
     aj2: {
       msg:        'Vent litt!',
       startTime:  41,
-      stopTime:   42,
+      duration:   42 - 41,
       autoNext:   'RANDOM'
     },
 
@@ -158,14 +161,14 @@ function LasAudioData() {
     ai1: {
       spokenWord: 'Powiedz: Sprawdź to!',
       startTime:  43,
-      stopTime:   45,
+      duration:   45 - 43,
       pauseTime:  5,
       autoNext:   'ai2'
     },
     ai2: {
       msg:        'Sjekk det!',
       startTime:  46,
-      stopTime:   47,
+      duration:   47 - 46,
       autoNext:   'RANDOM'
     },
 
@@ -173,14 +176,14 @@ function LasAudioData() {
     ak1: {
       spokenWord: 'Powiedz: Trzymaj psa!',
       startTime:  48,
-      stopTime:   50,
+      duration:   50 - 48,
       pauseTime:  5,
       autoNext:   'ak2'
     },
     ak2: {
       msg:        'Hold hunden!',
       startTime:  51,
-      stopTime:   52,
+      duration:   52 - 51,
       autoNext:   'RANDOM'
     },
 
@@ -188,14 +191,14 @@ function LasAudioData() {
     al1: {
       spokenWord: 'Powiedz: Zamknij drzwi!',
       startTime:  53,
-      stopTime:   55,
+      duration:   55 - 53,
       pauseTime:  5,
       autoNext:   'al2'
     },
     al2: {
       msg:        'Lukk døra!',
       startTime:  56,
-      stopTime:   57,
+      duration:   57 - 56,
       autoNext:   'RANDOM'
     },
 
@@ -203,14 +206,14 @@ function LasAudioData() {
     ba1: {
       spokenWord: 'Powiedz: Nie bijcie się!',
       startTime:  58,
-      stopTime:   60,
+      duration:   60 - 58,
       pauseTime:  6,
       autoNext:   'ba2'
     },
     ba2: {
       msg:        'Ikke slå hverandre!',
       startTime:  61,
-      stopTime:   62.5,
+      duration:   62.5 - 61,
       autoNext:   'RANDOM'
     },
 
@@ -218,14 +221,14 @@ function LasAudioData() {
     bb1: {
       spokenWord: 'Powiedz: Przestań krzyczeć!',
       startTime:  64,
-      stopTime:   66,
+      duration:   66 - 64,
       pauseTime:  5,
       autoNext:   'bb2'
     },
     bb2: {
       msg:        'Stopp å skrike!',
       startTime:  67,
-      stopTime:   68.5,
+      duration:   68.5 - 67,
       autoNext:   'RANDOM'
     },
 
@@ -233,14 +236,14 @@ function LasAudioData() {
     bc1: {
       spokenWord: 'Powiedz: Pozwól mi zobaczyć!',
       startTime:  70,
-      stopTime:   72,
+      duration:   72 - 70,
       pauseTime:  5,
       autoNext:   'bc2'
     },
     bc2: {
       msg:        'La meg se!',
       startTime:  73,
-      stopTime:   74,
+      duration:   74 - 73,
       autoNext:   'RANDOM'
     },
 
@@ -248,14 +251,14 @@ function LasAudioData() {
     bd1: {
       spokenWord: 'Powiedz: Pozwól mi coś powiedzieć!',
       startTime:  75,
-      stopTime:   77.5,
+      duration:   77.5 - 75,
       pauseTime:  5,
       autoNext:   'bd2'
     },
     bd2: {
       msg:        'La meg si noe!',
       startTime:  79,
-      stopTime:   80.5,
+      duration:   80.5 - 79,
       autoNext:   'RANDOM'
     },
 
@@ -263,14 +266,14 @@ function LasAudioData() {
     be1: {
       spokenWord: 'Powiedz: Weź to ze spokojem!',
       startTime:  82,
-      stopTime:   84.5,
+      duration:   84.5 - 82,
       pauseTime:  5,
       autoNext:   'be2'
     },
     be2: {
       msg:        'Ta det med ro!',
       startTime:  86,
-      stopTime:   87,
+      duration:   87 - 86,
       autoNext:   'RANDOM'
     },
 
@@ -278,14 +281,14 @@ function LasAudioData() {
     bf1: {
       spokenWord: 'Powiedz: Nie płacz!',
       startTime:  88,
-      stopTime:   90,
+      duration:   90 - 88,
       pauseTime:  5,
       autoNext:   'bf2'
     },
     bf2: {
       msg:        'Ikke gråt!',
       startTime:  91,
-      stopTime:   92.5,
+      duration:   92.5 - 91,
       autoNext:   'RANDOM'
     },
 
@@ -293,14 +296,14 @@ function LasAudioData() {
     bg1: {
       spokenWord: 'Powiedz: Przyjdź!',
       startTime:  94,
-      stopTime:   96,
+      duration:   96 - 94,
       pauseTime:  5,
       autoNext:   'bg2'
     },
     bg2: {
       msg:        'Kom!',
       startTime:  97,
-      stopTime:   98,
+      duration:   98 - 97,
       autoNext:   'RANDOM'
     },
 
@@ -308,14 +311,14 @@ function LasAudioData() {
     bh1: {
       spokenWord: 'Powiedz: Wyluzuj!',
       startTime:  99,
-      stopTime:   101,
+      duration:   101 - 99,
       pauseTime:  5,
       autoNext:   'bh2'
     },
     bh2: {
       msg:        'Slapp av!',
       startTime:  102,
-      stopTime:   103,
+      duration:   103 - 102,
       autoNext:   'RANDOM'
     },
 
@@ -323,14 +326,14 @@ function LasAudioData() {
     bi1: {
       spokenWord: 'Powiedz: Nie spiesz się i nie stresuj!',
       startTime:  104,
-      stopTime:   106.5,
+      duration:   106.5 - 104,
       pauseTime:  5,
       autoNext:   'bi2'
     },
     bi2: {
       msg:        'Ikke stress!',
       startTime:  108,
-      stopTime:   109,
+      duration:   109 - 108,
       autoNext:   'RANDOM'
     },
 
@@ -338,14 +341,14 @@ function LasAudioData() {
     bk1: {
       spokenWord: 'Powiedz: Oddychaj głęboko!',
       startTime:  110,
-      stopTime:   112,
+      duration:   112 - 110,
       pauseTime:  5,
       autoNext:   'bk2'
     },
     bk2: {
       msg:        'Pust dypt!',
       startTime:  113,
-      stopTime:   114,
+      duration:   114 - 113,
       autoNext:   'RANDOM'
     },
 
@@ -353,14 +356,14 @@ function LasAudioData() {
     bl1: {
       spokenWord: 'Powiedz: Uspokój się!',
       startTime:  115,
-      stopTime:   117,
+      duration:   117 - 115,
       pauseTime:  5,
       autoNext:   'bl2'
     },
     bl2: {
       msg:        'Ro deg ned!',
       startTime:  118,
-      stopTime:   119,
+      duration:   119 - 118,
       autoNext:   'RANDOM'
     },
 
@@ -368,14 +371,14 @@ function LasAudioData() {
     bm1: {
       spokenWord: 'Powiedz: Nie zapomnij przyjść!',
       startTime:  120,
-      stopTime:   122.5,
+      duration:   122.5 - 120,
       pauseTime:  5,
       autoNext:   'bm2'
     },
     bm2: {
       msg:        'Ikke glem å komme!',
       startTime:  124,
-      stopTime:   125.5,
+      duration:   125.5 - 124,
       autoNext:   'RANDOM'
     },
 
@@ -383,14 +386,14 @@ function LasAudioData() {
     bn1: {
       spokenWord: 'Powiedz: Bądź ostrożny! Uważaj!',
       startTime:  127,
-      stopTime:   130.5,
+      duration:   130.5 - 127,
       pauseTime:  5,
       autoNext:   'bn2'
     },
     bn2: {
       msg:        'Vær forsiktig!',
       startTime:  132,
-      stopTime:   133,
+      duration:   133 - 132,
       autoNext:   'RANDOM'
     },
 
@@ -398,14 +401,14 @@ function LasAudioData() {
     bp1: {
       spokenWord: 'Powiedz: Pomóż mi!',
       startTime:  134,
-      stopTime:   135.5,
+      duration:   135.5 - 134,
       pauseTime:  5,
       autoNext:   'bp2'
     },
     bp2: {
       msg:        'Hjelp meg!',
       startTime:  137,
-      stopTime:   138,
+      duration:   138 - 137,
       autoNext:   'RANDOM'
     },
 
@@ -413,14 +416,14 @@ function LasAudioData() {
     bo1: {
       spokenWord: 'Powiedz: Bądź tak miły! albo Poproszę.',
       startTime:  139,
-      stopTime:   143,
+      duration:   143 - 139,
       pauseTime:  5,
       autoNext:   'bo2'
     },
     bo2: {
       msg:        'Vær så snill!',
       startTime:  144,
-      stopTime:   145,
+      duration:   145 - 144,
       autoNext:   'RANDOM'
     },
 
@@ -428,14 +431,14 @@ function LasAudioData() {
     br1: {
       spokenWord: 'Powiedz: Zrób to!',
       startTime:  146,
-      stopTime:   147.5,
+      duration:   147.5 - 146,
       pauseTime:  5,
       autoNext:   'br2'
     },
     br2: {
       msg:        'Gjør det!',
       startTime:  149,
-      stopTime:   150,
+      duration:   150 - 149,
       autoNext:   'RANDOM'
     }
 
@@ -449,7 +452,7 @@ function LasAudioData() {
     end1: {
       msg:        'END',
       startTime:  0,
-      stopTime:   0
+      duration:   0,
     }
 
   };

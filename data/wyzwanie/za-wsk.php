@@ -2,6 +2,7 @@
 function LasAudioData() {
 
   this.testNotes = [
+    'nie ma nagrania'
   ];
 
   //  Albo answers
@@ -17,7 +18,10 @@ function LasAudioData() {
     a1: {
       msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
       autoNext:   'ENDINTRO'/*,
-      more: { startTime: 0, stopTime: 26 }*/
+      more: {
+        startTime: 0,
+        duration:   1.5,
+      }*/
     }
   };
 
@@ -36,8 +40,8 @@ function LasAudioData() {
     aa2: {
       msg:        'Hvorfor står denne tigeren foran Oslo S?',
       trans:      'Dlaczego ten tygrys stoi przed Oslo S?',
-//      startTime:  0,
-//      stopTime:   2,
+      startTime:  0,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -54,8 +58,8 @@ function LasAudioData() {
     ab2: {
       msg:        'Disse jentene spiser her hver dag.',
       trans:      'Te dziewczyny jedzą tu codziennie.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -72,8 +76,8 @@ function LasAudioData() {
     ac2: {
       msg:        'Dette huset er ikke til salgs.',
       trans:      'Ten dom nie jest na sprzedaż.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -90,8 +94,8 @@ function LasAudioData() {
     ad2: {
       msg:        'Dette krydderet kommer fra Bangladesh.',
       trans:      'Ta przyprawa pochodzi z Bangladeszu.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -108,8 +112,8 @@ function LasAudioData() {
     ae2: {
       msg:        'Denne roboten kan snakke med deg.',
       trans:      'Ten robot może rozmawiać z Tobą.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -126,8 +130,8 @@ function LasAudioData() {
     af2: {
       msg:        'Det er ikke mulig å åpne disse vinduene.',
       trans:      'Nie jest możliwe otworzenie tych okien.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -144,8 +148,8 @@ function LasAudioData() {
     ag2: {
       msg:        'Denne vaskemaskinen virker ikke.',
       trans:      'Ta pralka nie działa.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -162,8 +166,8 @@ function LasAudioData() {
     ah2: {
       msg:        'Denne dagen kan være pen.',
       trans:      'Ten dzień może być piękny.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -180,8 +184,8 @@ function LasAudioData() {
     ai2: {
       msg:        'Denne krigen kan ikke avsluttes.',
       trans:      'Ta wojna nie może się skończyć.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -198,8 +202,8 @@ function LasAudioData() {
     aj2: {
       msg:        'Denne mannen vil ikke slutte å røyke.',
       trans:      'Ten mężczyzna nie chce rzucić palenia.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -216,8 +220,8 @@ function LasAudioData() {
     ak2: {
       msg:        'Disse lysene er veldig sterke.',
       trans:      'Te światła są bardzo silne.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -234,8 +238,8 @@ function LasAudioData() {
     al2: {
       msg:        'Dette flyet flyr til Dubai.',
       trans:      'Ten samolot leci do Dubaju.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -252,8 +256,8 @@ function LasAudioData() {
     am2: {
       msg:        'Det er morsomt på dette kurset.',
       trans:      'Jest wesoło na tym kursie.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -270,8 +274,8 @@ function LasAudioData() {
     an2: {
       msg:        'Det er koselig på denne hytta.',
       trans:      'Jest przytulnie w tej chatce.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -288,8 +292,8 @@ function LasAudioData() {
     ao2: {
       msg:        'Disse bussene er veldig raske.',
       trans:      'Te autobusy są bardzo szybkie.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -306,8 +310,8 @@ function LasAudioData() {
     ap2: {
       msg:        'Disse gummistøvlene er våte inne.',
       trans:      'Te kalosze są mokre w środku.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -324,8 +328,8 @@ function LasAudioData() {
     ba2: {
       msg:        'Hvorfor ringer denne kvinna fra Aftenposten til oss?',
       trans:      'Dlaczego dzwoni ta kobieta z Aftenposten do nas?',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -342,8 +346,8 @@ function LasAudioData() {
     bb2: {
       msg:        'Hvor kan jeg legge disse pakkene?',
       trans:      'Gdzie mogę położyć te paczki?',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -360,8 +364,8 @@ function LasAudioData() {
     bc2: {
       msg:        'Hvem er sjefen for dette firmaet?',
       trans:      'Gdzie jest szef tej firmy?',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -378,8 +382,8 @@ function LasAudioData() {
     bd2: {
       msg:        'Hva gjør denne hunden her?',
       trans:      'Co robi ten pies tutaj?',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     }
 
@@ -390,9 +394,9 @@ function LasAudioData() {
   this.end = {
 
     end1: {
-      msg: 'END'/*,
-      startTime: 0,
-      stopTime: 0*/
+      msg:        'END',
+      startTime:  0,
+      duration:   1.5
     }
 
   };

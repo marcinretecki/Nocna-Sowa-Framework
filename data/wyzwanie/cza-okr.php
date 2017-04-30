@@ -13,9 +13,12 @@ function LasAudioData() {
 
   this.intro = {
     a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
-      autoNext:   'ENDINTRO'/*,
-      more:       { startTime: 0, stopTime: 26 }*/
+      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
+      autoNext:     'ENDINTRO'/*,
+      more:       {
+        startTime:  0,
+        duration:   26,
+      }*/
     }
   };
 
@@ -37,7 +40,7 @@ function LasAudioData() {
       trans:      'Idziemy na imprezę dziś wieczorem.',
       score:      true,
       startTime:  0,
-      stopTime:   2,
+      duration:   2 - 0,
       autoNext:   'RANDOM'
     },
 
@@ -56,7 +59,7 @@ function LasAudioData() {
       trans:      'Uczę się norweskiego wieczorami.',
       score:      true,
       startTime:  3,
-      stopTime:   5,
+      duration:   5 - 3,
       autoNext:   'RANDOM'
     },
 
@@ -75,7 +78,7 @@ function LasAudioData() {
       trans:      'Idę do pracy jutro.',
       score:      true,
       startTime:  6,
-      stopTime:   8,
+      duration:   8 - 6,
       autoNext:   'RANDOM'
     },
 
@@ -94,7 +97,7 @@ function LasAudioData() {
       trans:      'Zrobię kawę jutro rano.',
       score:      true,
       startTime:  9,
-      stopTime:   12,
+      duration:   12 - 9,
       autoNext:   'RANDOM'
     },
 
@@ -113,7 +116,7 @@ function LasAudioData() {
       trans:      '',
       score:      true,
       startTime:  14,
-      stopTime:   15.5,
+      duration:   15.5 - 14,
       autoNext:   'RANDOM'
     },
 
@@ -132,7 +135,7 @@ function LasAudioData() {
       trans:      'Dzięki za dziś.',
       score:      true,
       startTime:  17,
-      stopTime:   18.5,
+      duration:   18.5 - 17,
       autoNext:   'RANDOM'
     },
 
@@ -151,7 +154,7 @@ function LasAudioData() {
       trans:      'Idą na siłowię jutro wieczorem.',
       score:      true,
       startTime:  20,
-      stopTime:   23,
+      duration:   23 - 20,
       autoNext:   'RANDOM'
     },
 
@@ -170,7 +173,7 @@ function LasAudioData() {
       trans:      'Chcę biegać popołudniami.',
       score:      true,
       startTime:  24,
-      stopTime:   26,
+      duration:   26 - 24,
       autoNext:   'RANDOM'
     },
 
@@ -189,7 +192,7 @@ function LasAudioData() {
       trans:      'Idę do fryzjera dziś popołudniu.',
       score:      true,
       startTime:  27,
-      stopTime:   30,
+      duration:   30 - 27,
       autoNext:   'RANDOM'
     },
 
@@ -208,7 +211,7 @@ function LasAudioData() {
       trans:      'On wychodzi z psem przedpołudniami.',
       score:      true,
       startTime:  31,
-      stopTime:   33.5,
+      duration:   33.5 - 31,
       autoNext:   'RANDOM'
     },
 
@@ -227,7 +230,7 @@ function LasAudioData() {
       trans:      'On nie może spać nocami.',
       score:      true,
       startTime:  35,
-      stopTime:   37,
+      duration:   37 - 35,
       autoNext:   'RANDOM'
     },
 
@@ -246,7 +249,7 @@ function LasAudioData() {
       trans:      'Sąsiedzi imprezują dziś w nocy.',
       score:      true,
       startTime:  38,
-      stopTime:   40,
+      duration:   40 - 38,
       autoNext:   'RANDOM'
     },
 
@@ -265,7 +268,7 @@ function LasAudioData() {
       trans:      'Przyjdę za chwilę.',
       score:      true,
       startTime:  41,
-      stopTime:   42.5,
+      duration:   42.5 - 41,
       autoNext:   'RANDOM'
     },
 
@@ -284,7 +287,7 @@ function LasAudioData() {
       trans:      'Muszę teraz spadać.',
       score:      true,
       startTime:  44,
-      stopTime:   45.5,
+      duration:   45.5 - 44,
       autoNext:   'RANDOM'
     },
 
@@ -303,7 +306,7 @@ function LasAudioData() {
       trans:      'Wyjeżdżamy za godzinę.',
       score:      true,
       startTime:  47,
-      stopTime:   49,
+      duration:   49 - 47,
       autoNext:   'RANDOM'
     },
 
@@ -322,7 +325,7 @@ function LasAudioData() {
       trans:      'Jesteśmy na miejscu za minutę.',
       score:      true,
       startTime:  50,
-      stopTime:   52,
+      duration:   52 - 50,
       autoNext:   'RANDOM'
     },
 
@@ -341,7 +344,7 @@ function LasAudioData() {
       trans:      'On skończy projekt za trzy dni.',
       score:      true,
       startTime:  53,
-      stopTime:   56,
+      duration:   56 - 53,
       autoNext:   'RANDOM'
     },
 
@@ -360,7 +363,7 @@ function LasAudioData() {
       trans:      'Wracam do Norwegii za pięć tygodni.',
       score:      true,
       startTime:  57,
-      stopTime:   60,
+      duration:   60 - 57,
       autoNext:   'RANDOM'
     },
 
@@ -379,7 +382,7 @@ function LasAudioData() {
       trans:      'Otwieram nowy sklep za cztery miesiące.',
       score:      true,
       startTime:  61,
-      stopTime:   64,
+      duration:   64 - 61,
       autoNext:   'RANDOM'
     },
 
@@ -398,7 +401,7 @@ function LasAudioData() {
       trans:      'On chce się odchudzić za pół roku.',
       score:      true,
       startTime:  65,
-      stopTime:   67.5,
+      duration:   67.5 - 65,
       autoNext:   'RANDOM'
     },
 
@@ -417,7 +420,7 @@ function LasAudioData() {
       trans:      'Ona zostanie tu szefem za kilka lat.',
       score:      true,
       startTime:  69,
-      stopTime:   71,
+      duration:   71 - 69,
       autoNext:   'RANDOM'
     },
 
@@ -436,7 +439,7 @@ function LasAudioData() {
       trans:      'Ożenią się w przyszłym roku.',
       score:      true,
       startTime:  72,
-      stopTime:   74,
+      duration:   74 - 72,
       autoNext:   'RANDOM'
     },
 
@@ -455,7 +458,7 @@ function LasAudioData() {
       trans:      'Widzimy się w przyszłym tygodniu.',
       score:      true,
       startTime:  75,
-      stopTime:   77,
+      duration:   77 - 75,
       autoNext:   'RANDOM'
     },
 
@@ -472,7 +475,7 @@ function LasAudioData() {
       msg:        'Jeg begynner et dansekurs neste måned.',
       score:      true,
       startTime:  78,
-      stopTime:   81,
+      duration:   81 - 78,
       autoNext:   'RANDOM'
     },*/
 
@@ -492,7 +495,7 @@ function LasAudioData() {
       trans:      'Nie chcą brać pożyczki następnym razem.',
       score:      true,
       startTime:  82,
-      stopTime:   84.5,
+      duration:   84.5 - 82,
       autoNext:   'RANDOM'
     },
 
@@ -512,7 +515,7 @@ function LasAudioData() {
       trans:      'Uczę się czegoś nowego każdego dnia.',
       score:      true,
       startTime:  86,
-      stopTime:   88,
+      duration:   88 - 86,
       autoNext:   'RANDOM'
     },
 
@@ -532,7 +535,7 @@ function LasAudioData() {
       trans:      'Biegam w parku każdego ranka.',
       score:      true,
       startTime:  89,
-      stopTime:   91.5,
+      duration:   91.5 - 89,
       autoNext:   'RANDOM'
     },
 
@@ -551,7 +554,7 @@ function LasAudioData() {
       trans:      'Sprawdzam telefon co godzinę.',
       score:      true,
       startTime:  93,
-      stopTime:   95.5,
+      duration:   95.5 - 93,
       autoNext:   'RANDOM'
     },
 
@@ -570,7 +573,7 @@ function LasAudioData() {
       trans:      'Ona dzwoni do rodziców co tydzień.',
       score:      true,
       startTime:  97,
-      stopTime:   100,
+      duration:   100 - 97,
       autoNext:   'RANDOM'
     },
 
@@ -589,7 +592,7 @@ function LasAudioData() {
       trans:      'On pracuje rankiem co drugi tydzień.',
       score:      true,
       startTime:  101,
-      stopTime:   104,
+      duration:   104 - 101,
       autoNext:   'RANDOM'
     },
 
@@ -608,7 +611,7 @@ function LasAudioData() {
       trans:      'Latam do Bergen co drugi miesiąc.',
       score:      true,
       startTime:  105,
-      stopTime:   108,
+      duration:   108 - 105,
       autoNext:   'RANDOM'
     },
 
@@ -627,7 +630,7 @@ function LasAudioData() {
       trans:      'On przychodzi spóźniony za każdym razem.',
       score:      true,
       startTime:  109,
-      stopTime:   111.5,
+      duration:   111.5 - 109,
       autoNext:   'RANDOM'
     },
 
@@ -646,7 +649,7 @@ function LasAudioData() {
       trans:      'Płacicie podatek każdego roku.',
       score:      true,
       startTime:  113,
-      stopTime:   115.5,
+      duration:   115.5 - 113,
       autoNext:   'RANDOM'
     },
 
@@ -665,7 +668,7 @@ function LasAudioData() {
       trans:      'Odwiedzają przyjaciół każdego lata.',
       score:      true,
       startTime:  117,
-      stopTime:   119.5,
+      duration:   119.5 - 117,
       autoNext:   'RANDOM'
     },
 
@@ -684,7 +687,7 @@ function LasAudioData() {
       trans:      'Jeżdżą do Hiszpani każdej zimy.',
       score:      true,
       startTime:  121,
-      stopTime:   123.5,
+      duration:   123.5 - 121,
       autoNext:   'RANDOM'
     },
 
@@ -703,7 +706,7 @@ function LasAudioData() {
       trans:      'Nie pada tej jesieni.',
       score:      true,
       startTime:  125,
-      stopTime:   126.5,
+      duration:   126.5 - 125,
       autoNext:   'RANDOM'
     },
 
@@ -722,7 +725,7 @@ function LasAudioData() {
       trans:      'Zmieniają zamek tej wiosny.',
       score:      true,
       startTime:  128,
-      stopTime:   130,
+      duration:   130 - 128,
       autoNext:   'RANDOM'
     },
 
@@ -741,7 +744,7 @@ function LasAudioData() {
       trans:      'Będziemy mieszkali w ',
       score:      true,
       startTime:  131,
-      stopTime:   134,
+      duration:   134 - 131,
       autoNext:   'RANDOM'
     },
 
@@ -760,7 +763,7 @@ function LasAudioData() {
       trans:      'Dostarczą szafki pojutrze.',
       score:      true,
       startTime:  135,
-      stopTime:   137,
+      duration:   137 - 135,
       autoNext:   'RANDOM'
     },
 
@@ -779,7 +782,7 @@ function LasAudioData() {
       trans:      'Jadę z rodzinę do hytty w weekend.',
       score:      true,
       startTime:  138,
-      stopTime:   140.5,
+      duration:   140.5 - 138,
       autoNext:   'RANDOM'
     }
 
@@ -791,7 +794,7 @@ function LasAudioData() {
     end1: {
       msg: 'END',
       startTime: 0,
-      stopTime: 0
+      duration: 0 -  0,
     }
 
   };

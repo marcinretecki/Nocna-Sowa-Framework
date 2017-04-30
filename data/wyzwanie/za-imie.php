@@ -2,7 +2,8 @@
 function LasAudioData() {
 
   this.testNotes = [
-    'nie ma zakończenia'
+    'nie ma zakończenia',
+    'nie ma audio'
   ];
 
 
@@ -10,7 +11,10 @@ function LasAudioData() {
     a1: {
       msg:        'Załóż słuchawki i usiądź wygodnie.<br />Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
       autoNext:   'ENDINTRO'/*,
-      more: { startTime: 0, stopTime: 26 }*/
+      more: {
+        startTime: 0,
+        duration:   1.5,
+      }*/
     }
   };
 
@@ -29,8 +33,8 @@ function LasAudioData() {
     aa2: {
       msg:        'Politikerne vet ikke hvor pengene er.<br />De er overraskede.',
       trans:      'Politycy nie wiedzą gdzie są pieniądze. <br />Oni są zaskoczeni.',
-//      startTime:  0,
-//      stopTime:   2,
+      startTime:  0,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -47,8 +51,8 @@ function LasAudioData() {
     ab2: {
       msg:        'Naboene vil bo på landet.<br />De er 80 år gamle.',
       trans:      'Sąsiedzi chcą mieszkać na wsi. <br />Oni mają 80 lat.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -65,8 +69,8 @@ function LasAudioData() {
     ac2: {
       msg:        'Tom ser etter en ring til kjæresta.<br />Hun heter Anne.',
       trans:      'Tom szuka pierścionka dla dziewczyny. <br />Ona nazywa się Anne.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -83,8 +87,8 @@ function LasAudioData() {
     ad2: {
       msg:        'Jesus går på vannet.<br />Han kan mye.',
       trans:      'Jezus chodzi po wodzie. <br />On może/potrafi dużo.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -101,8 +105,8 @@ function LasAudioData() {
     af2: {
       msg:        'Barna lærer å bruke mobilen. De er flinke.',
       trans:      'Dzieci uczą się używać telefon. <br />One są zdolne.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -119,8 +123,8 @@ function LasAudioData() {
     ag2: {
       msg:        'Henrik Ibsen skriver et drama.<br />Han trenger stillhet.',
       trans:      'Henrik Ibsen pisze dramat. <br />On potrzebuje ciszy.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -137,8 +141,8 @@ function LasAudioData() {
     ah2: {
       msg:        'Edison setter inn ei lyspære.<br />Han skifter dem ofte.',
       trans:      'Edison wkręca żarówkę. <br />On wymienia je często.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -155,8 +159,8 @@ function LasAudioData() {
     ai2: {
       msg:        'Maleren maler veggen.<br />Han blir kunstner.',
       trans:      'Malarz maluje ścianę. <br />On zostanie artystą.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -173,8 +177,8 @@ function LasAudioData() {
     aj2: {
       msg:        'Elvis synger for alle.<br />Han lever fortsatt.',
       trans:      'Elvis śpiewa dla wszystkich. On wciąż żyje.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -191,8 +195,8 @@ function LasAudioData() {
     ah2: {
       msg:        'Pamela soler seg på stranda.<br />Hun har ei rød badedrakt.',
       trans:      'Pamela opala się na plaży. <br />Ona ma czerwony strój kąpielowy.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -209,8 +213,8 @@ function LasAudioData() {
     ak2: {
       msg:        'Amundsen kan ikke komme tilbake hjem.<br />Han er noe sted i nord.',
       trans:      'Amundsen nie może wrócić do domu. <br />On jest gdzieś na północy.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -227,8 +231,8 @@ function LasAudioData() {
     al2: {
       msg:        'Skłodowska jobber i laboratoriet.<br />Hun er den første kvinnelige professoren.',
       trans:      'Skłodowska pracuje w laboratorium. <br />Ona jest pierwszą kobietą profesorem.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -245,8 +249,8 @@ function LasAudioData() {
     am2: {
       msg:        'Folk streiker på gata.<br />De er sinte.',
       trans:      'Ludzie strajkują na ulicy. <br />Oni są źli.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -263,8 +267,8 @@ function LasAudioData() {
     ba2: {
       msg:        'Hvor er Chuck Norris? <br/> Hvor er han?',
       trans:      'Gdzie jest Chuck Norris? <br />Gdzie on jest?',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -281,8 +285,8 @@ function LasAudioData() {
     bb2: {
       msg:        'Hva gjør Scarlett?<br /> Hun sitter ved vinduet.',
       trans:      'Co robi Scarlett? <br />Ona siedzi przy oknie.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -299,8 +303,8 @@ function LasAudioData() {
     bc2: {
       msg:        'Lager Penelope og Woody en film?<br />Ja, de liker å jobbe sammen.',
       trans:      'Czy Penelope i Woody robią film? <br />Tak, oni lubią razem pracować.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -317,8 +321,8 @@ function LasAudioData() {
     bd2: {
       msg:        'Kommer Marilyn Monroe i dag?<br />Hun kan ikke.',
       trans:      'Czy Marilyn Monroe przyjdzie dziś? <br />Ona nie może.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -335,8 +339,8 @@ function LasAudioData() {
     ba2: {
       msg:        'Gutten spiser fort. <br />Han er veldig sulten.',
       trans:      'Chłopiec je szybko. <br />On jest bardzo głodny.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -353,8 +357,8 @@ function LasAudioData() {
     bb2: {
       msg:        'Jeg og kona mi kjøper en sofa. <br />Vi må velge fargen.',
       trans:      'Ja i moja żona kupujemy sofę. <br />Musimy wybrać kolor.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -371,8 +375,8 @@ function LasAudioData() {
     bc2: {
       msg:        'Barna spiser vafler med brunost og syltetøy. <br />De liker søtsaker.',
       trans:      'Dzieci jedzą gofry z brązowym serem i dżemem. <br />One lubią słodycze.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     }
 
@@ -382,9 +386,9 @@ function LasAudioData() {
   this.end = {
 
     end1: {
-      msg: 'END'/*,
-      startTime: 0,
-      stopTime: 0*/
+      msg:        'END',
+      startTime:  0,
+      duration:   1.5
     }
 
   };

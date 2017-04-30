@@ -38,7 +38,7 @@
 
       <div id="audio-test-answers" class="audio-test-answers section-green" style="border-radius:3px;position:relative;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);">
 
-        <div id="audio-msg-wrapper" class="centered pad-2 section-dark" style="border-radius:3px 3px 0 0;cursor:pointer;">
+        <div id="audio-msg-wrapper" class="centered pad-2 section-dark" style="border-radius:3px 3px 0 0;">
           <p id="audio-msg" class="space-0 size-2"></p>
 
           <p id="audio-trans" class="space-0" style="display:none;padding-top:0.5rem;"></p>

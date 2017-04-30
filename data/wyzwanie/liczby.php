@@ -4,6 +4,8 @@ function LasLiczbyData() {
   this.testNotes = [
   ];
 
+  window.console.log()
+
 
   this.intro = {
     a1: {
@@ -14,9 +16,9 @@ function LasLiczbyData() {
 
 
   this.words = {
-    j:                        ['null', 'en', 'to', 'tre', 'fire', 'fem', 'seks', 'sju', 'åtte', 'ni', 'ti',
-                               'elleve', 'tolv', 'tretten', 'fjorten', 'femten', 'seksten', 'sytten', 'atten', 'nitten'],
-    d:                        ['', '', 'tjue', 'tretti', 'førti', 'femti', 'seksti', 'sytti', 'åtti', 'nitti'],
+    j:              [ 'null', 'en', 'to', 'tre', 'fire', 'fem', 'seks', 'sju', 'åtte', 'ni', 'ti',
+                      'elleve', 'tolv', 'tretten', 'fjorten', 'femten', 'seksten', 'sytten', 'atten', 'nitten' ],
+    d:              [ '', '', 'tjue', 'tretti', 'førti', 'femti', 'seksti', 'sytti', 'åtti', 'nitti' ],
   };
 
 
@@ -24,171 +26,167 @@ function LasLiczbyData() {
 
     num0: {
       startTime:  0,
-      stopTime:   1
+      duration:   0.5
     },
 
     num1: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  1,
+      duration:   0.5
     },
 
     numEnEiEt:  {
-      startTime:  0,
-      stopTime:   1
+      startTime:  2,
+      duration:   0.5
     },
 
     numEt:  {
-      startTime:  0,
-      stopTime:   1
+      startTime:  3,
+      duration:   0.5
     },
 
     num2: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  4,
+      duration:   0.5
     },
 
     num3: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  5,
+      duration:   0.5
     },
 
     num4: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  6,
+      duration:   0.5
     },
 
     num5: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  7,
+      duration:   0.5
     },
 
     num6: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  8,
+      duration:   0.5
     },
 
     num7: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  9,
+      duration:   0.5
     },
 
     num8: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  10,
+      duration:   0.5
     },
 
     num9: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  11,
+      duration:   0.5
     },
 
     num10: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  12,
+      duration:   0.5
     },
 
     num11: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  13,
+      duration:   0.5
     },
 
     num12: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  14,
+      duration:   0.5
     },
 
     num13: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  15,
+      duration:   0.5
     },
 
     num14: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  16,
+      duration:   0.5
     },
 
     num15: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  17,
+      duration:   0.5
     },
 
     num16: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  18,
+      duration:   0.5
     },
 
     num17: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  19,
+      duration:   0.5
     },
 
     num18: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  20,
+      duration:   0.5
     },
 
     num19: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  21,
+      duration:   0.5
     },
 
     num20: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  22,
+      duration:   0.5
     },
 
     num30: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  23,
+      duration:   0.5
     },
 
     num40: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  24,
+      duration:   0.5
     },
 
     num50: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  25,
+      duration:   0.5
     },
 
     num60: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  26,
+      duration:   0.5
     },
 
     num70: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  27,
+      duration:   0.5
     },
 
     num80: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  28,
+      duration:   0.5
     },
 
     num90: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  29,
+      duration:   0.5
     },
 
     num100: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  30,
+      duration:   0.5
     },
 
     num1000: {
-      startTime:  0,
-      stopTime:   1
+      startTime:  31,
+      duration:   0.5
     },
 
     og: {
-      startTime:  0,
-      stopTime:   1
-    },
-
-    lastFromStack: {
-      //  this one is used to generate custom msg from numbers
+      startTime:  32,
+      duration:   0.5
     }
 
 

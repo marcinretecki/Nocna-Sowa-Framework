@@ -2,7 +2,8 @@
 function LasAudioData() {
 
   this.testNotes = [
-    'nie ma zakończenia'
+    'nie ma zakończenia',
+    'nie ma nagrania'
   ];
 
   //  Uzupełnij zdania zaimkami: den, det, de.
@@ -11,7 +12,10 @@ function LasAudioData() {
     a1: {
       msg:        'Załóż słuchawki i usiądź wygodnie.<br />Gdy będziesz gotowy, naciśnij <i>play</i>.',
       autoNext:   'ENDINTRO'/*,
-      more: { startTime: 0, stopTime: 26 }*/
+      more: {
+        startTime:  0,
+        duration:   1.5,
+      }*/
     }
   };
 
@@ -30,8 +34,8 @@ function LasAudioData() {
     aa2: {
       msg:        'Harald bor på slottet.<br />Det ligger i Oslo sentrum.',
       trans:      'Harald mieszka w pałacu.<br />On leży w centrum Oslo.',
-//      startTime:  0,
-//      stopTime:   2,
+      startTime:  0,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -48,8 +52,8 @@ function LasAudioData() {
     ab2: {
       msg:        'Arnold trener i skogen.<br />Den er stor og grønn.',
       trans:      'Arnold trenuje w lesie.<br />On jest duży i zielony.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -66,8 +70,8 @@ function LasAudioData() {
     ac2: {
       msg:        'Jeg har ikke briller her.<br />De er hjemme.',
       trans:      'Nie mam tu okularów.<br />One są w domu.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -84,8 +88,8 @@ function LasAudioData() {
     ad2: {
       msg:        'Adam vanner blomstene hver dag.<br />De som er i botanisk hage.',
       trans:      'Adam podlewa kwiaty codziennie.<br />Te, które są w ogrodzie botanicznym.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -102,8 +106,8 @@ function LasAudioData() {
     ae2: {
       msg:        'Mobilen til bestemora ringer hver time.<br />Den er veldig høy.',
       trans:      'Babci telefon dzwoni co godzinę. <br />On jest bardzo głośny.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -120,8 +124,8 @@ function LasAudioData() {
     af2: {
       msg:        'Marius strikker ei lue.<br />Den er rød, blå og hvit.',
       trans:      'Marius robi na drutach czapkę. <br />Ona jest czerwona, niebieska i biała.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -138,8 +142,8 @@ function LasAudioData() {
     ag2: {
       msg:        'Armstrong kjøper en ny sykkel.<br />Den er dyr.',
       trans:      'Armstrong kupuje nowy rower. <br />On jest drogi.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -156,8 +160,8 @@ function LasAudioData() {
     ah2: {
       msg:        'Det er mange biler i byen.<br />De er på alle steder.',
       trans:      'Jest dużo samochodów w mieście. <br />One są wszędzie.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -174,8 +178,8 @@ function LasAudioData() {
     ai2: {
       msg:        'Klara klarer ikke prøven.<br />Den er vanskelig.',
       trans:      'Klara nie zalicza sprawdzianu. <br />On jest trudny.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -192,8 +196,8 @@ function LasAudioData() {
     aj2: {
       msg:        'Trollene sier at treet er gammelt.<br />Det er høyest i hele skogen.',
       trans:      'Trole mówią, że drzewo jest stare. <br />Ono jest najwyższe w całym lesie.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -210,8 +214,8 @@ function LasAudioData() {
     ak2: {
       msg:        'Mennesker går på Opera-taket.<br />Det er hvitt.',
       trans:      'Ludzie idą na dach Opery. <br />On jest biały.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -228,8 +232,8 @@ function LasAudioData() {
     al2: {
       msg:        'Madonna velger sko.<br />De er svarte.',
       trans:      'Madonna wybiera buty. <br />One są czarne.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -246,8 +250,8 @@ function LasAudioData() {
     am2: {
       msg:        'Flyet venter på passasjerer.<br />Det er tomt.',
       trans:      'Samolot czeka na pasażerów. <br />Jest pusty.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -264,8 +268,8 @@ function LasAudioData() {
     ba2: {
       msg:        'Er rommet ferdig?<br />Ja, det er ferdig.',
       trans:      'Czy pokój jest gotowy?<br />Tak, on jest gotowy.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -282,8 +286,8 @@ function LasAudioData() {
     bb2: {
       msg:        'Er toalettet ledig?<br />Er det ledig?',
       trans:      'Czy łazienka jest wolna?<br />Czy ona jest wolna?',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -300,8 +304,8 @@ function LasAudioData() {
     bc2: {
       msg:        'Hvor kan jeg kjøpe en billett?<br />Du kan kjøpe den i kiosken.',
       trans:      'Gdzie mogę kupić bilet? <br />Możesz go kupić w kiosku.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -318,8 +322,8 @@ function LasAudioData() {
     bd2: {
       msg:        'Hvor er nøklene? <br />Hvor er de?',
       trans:      'Gdzie są klucze?<br />Gdzie one są?',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -336,8 +340,8 @@ function LasAudioData() {
     ca2: {
       msg:        'Er kassa åpen? <br />Er den åpen?',
       trans:      'Czy kasa jest otwarta?<br/>Czy ona jest otwarta?',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -354,8 +358,8 @@ function LasAudioData() {
     cb2: {
       msg:        'Er butikken stengt? <br />Ja, den er stengt.',
       trans:      'Czy sklep jest zamknięty?<br />Tak, on jest zamknięty.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     },
 
@@ -372,8 +376,8 @@ function LasAudioData() {
     cc2: {
       msg:        'Er toget komfortabelt?<br />Ja, det er komfortabelt og stille.',
       trans:      'Czy pociąg jest wygodny? Tak, on jest wygodny.',
-//      startTime:  3,
-//      stopTime:   5,
+      startTime:  3,
+      duration:   1.5,
       autoNext:   'RANDOM'
     }
 
@@ -384,9 +388,9 @@ function LasAudioData() {
   this.end = {
 
     end1: {
-      msg: 'END'/*,
-      startTime: 0,
-      stopTime: 0*/
+      msg:        'END',
+      startTime:  0,
+      duration:   1.5
     }
 
   };
