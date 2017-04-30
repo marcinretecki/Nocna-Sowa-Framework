@@ -186,8 +186,21 @@ Author: Marcin Retecki
   opacity: 0.5;
 }
 
-.szlak-sublist__btn--active {
 
+.szlak-sublist__btn--active {
+  //background: rgba($green, 0.05);
+  box-shadow: 0 0 1rem 1px rgba($green, 0.5);
+  border-top-color: rgba($green, 0.5);
+}
+
+.szlak-sublist__btn--active:focus,
+.szlak-sublist__btn--active:hover {
+  box-shadow: 0px 0px 0px 0px rgba(28,115,115,0.5);
+}
+
+.szlak-sublist__btn--active:focus .szlak-sublist__icon--inactive,
+.szlak-sublist__btn--active:hover .szlak-sublist__icon--inactive {
+  border-color: $white;
 }
 
 
@@ -210,9 +223,12 @@ Author: Marcin Retecki
 }
 
 .szlak-sublist__icon--inactive {
+  @include transition;
   border: 2px solid #808080;
   background: transparent;
 }
+
+
 
 
 //  ARROW

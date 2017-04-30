@@ -321,6 +321,12 @@ function LasSzlak() {
       chapterToHighlight = document.getElementById( this.helper.chapterToHighlight );
     }
 
+    //  if there is a chapter to hightlight, hook value
+    if ( chapterToHighlight ) {
+      this.velocity.hook( chapterToHighlight, 'opacity', '0.5');
+      this.velocity.hook( chapterToHighlight, 'boxShadowBlur', '10px');
+    }
+
     //  hide the popup
     this.velocity(
       szlakResult,
@@ -333,27 +339,37 @@ function LasSzlak() {
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
     );
 
-    //  if there is a chapter to hightlight
+    //  if there is a chapter to hightlight, animate
     if ( chapterToHighlight ) {
 
       //  scroll to the next chapter
       this.velocity(
         chapterToHighlight,
         'scroll',
-        { container: this.szlakWrapper, duration: 4 * this.helper.speed, offset: -200, easing: this.helper.easingQuart }
+        {
+          container: this.szlakWrapper,
+          duration: 6 * this.helper.speed,
+          offset: -200,
+          easing: this.helper.easingQuart,
+          delay: this.helper.speed
+        }
       );
 
       //  highlight the chapter
       this.velocity(
         chapterToHighlight,
-        { scale: [1.1, 1] },
-        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+        { opacity: 1 },
+        { duration: 3 * this.helper.speed, easing: this.helper.easingQuart }
       );
+
+      //  highlight the chapter
       this.velocity(
         chapterToHighlight,
-        { scale: 1 },
-        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+        { boxShadowBlur: '20px' },
+        { duration: 8 * this.helper.speed, loop: 10 }
       );
+
+
 
 
     }

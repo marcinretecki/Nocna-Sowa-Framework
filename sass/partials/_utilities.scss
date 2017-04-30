@@ -11,7 +11,7 @@
 * html .group{zoom:1}/*IE6*/
 *:first-child+html .group{zoom:1}/*IE7*/
 
-.velocity-animating{transition:none}
+.velocity-animating{transition:none !important;}
 
 .alignleft{float:left}
 .alignright{float:right}

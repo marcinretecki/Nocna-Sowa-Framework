@@ -1,6 +1,14 @@
 //
 //  COOKIES
 //
+
+//
+//  Ideas
+//  - czy cookiePlusOne powinien dodawać się, przed podaniem poprawnej odpowiedzi?
+//  - popupz pytaniem, czy odświerzyć stronę
+//
+
+
 (function() {
 
   //
@@ -12,7 +20,11 @@
 
     //  if there was no cookie for this key
     if ( !cookie ) {
-      return false;
+
+      //  w tym miejscu można zrobić popup z pytaniem
+      //  nie możemy zapisać Twojego progresu, czy chcesz kontynuować
+      //  czy odświerzyć stronę
+      window.location.reload( false );
     }
 
     return cookie;
@@ -98,6 +110,10 @@
     var access = this.helper.access;
     var type = this.helper.type;
     var cookie = getCookie( chapter );
+
+    if ( !cookie[ chapter ] ) {
+      return;
+    }
 
     Date.now = Date.now || function() { return +new Date; };
 
