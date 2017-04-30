@@ -4,6 +4,98 @@
 (function() {
 
 
+
+  //
+  //  Check if there is a correct audioStack
+  //  @return true or false
+  //
+  LasHelper.prototype.isCorrectAudioStack = function() {
+
+    var stack = this.audioStack.stack;
+    var stackL;
+    var i;
+    var audioObject;
+
+    //  no stack
+    if ( !stack ) {
+      return false;
+    }
+
+    stackL = this.audioStack.stack.length;
+
+    //  stack is empty
+    if ( stackL === 0 ) {
+      return false;
+    }
+
+    //  check each object in stack
+    for ( i = 0; stackL > i; i++ ) {
+
+      audioObject = stack[i]
+
+      this.isCorrectAudioObject( audioObject );
+
+    }
+
+    return true;
+
+  };
+
+
+
+  //
+  //  Check if audio object is correct
+  //  @return true or false
+  //
+  LasHelper.prototype.isCorrectAudioObject = function( audioObject ) {
+
+    if ( !audioObject.hasOwnProperty('startTime') || ( audioObject.startTime < 0 ) ) {
+      return false;
+    }
+
+    if ( !audioObject.hasOwnProperty('duration') || !audioObject.duration || ( audioObject.duration < 0 ) ) {
+      return false;
+    }
+
+    return true;
+
+  };
+
+
+
+  //
+  //  Create new audioObject
+  //  @return audioObject or false
+  //
+  LasHelper.prototype.createNewAudioObject = function( data ) {
+
+    if ( !this.isCorrectAudioObject( data ) ) {
+      return false;
+    }
+
+    var audioObject = {};
+
+    audioObject.startTime = data.startTime;
+    audioObject.duration = data.duration;
+
+    //  fix the problem with time 0
+    if ( audioObject.startTime === 0 ) {
+      audioObject.startTime = 0.01;
+    }
+
+    window.console.log('Start time: ' + audioObject.startTime + ' Duration: ' + audioObject.duration);
+
+    //  if there is pause time
+    if ( data.hasOwnProperty('pauseTime') ) {
+      audioObject.pauseTime = this.currentBubbleData.pauseTime;
+    }
+
+    return audioObject
+
+  };
+
+
+
   //
   //  Play Audio
   //  set the autoPause
@@ -16,14 +108,14 @@
     }
 
     //  sinlge audio object
-    if ( this.currentAudioObject.startTime && ( this.currentAudioObject.startTime > 0 ) ) {
+    if ( this.isCorrectAudioObject( this.currentAudioObject ) ) {
 
       //  play the single object
       this.playSingleAudio( this.currentAudioObject );
 
     }
     //  if there is no object, check the stack
-    else if ( this.audioStack.stack && ( this.audioStack.stack.length > 0 ) && ( this.audioStack.stack[0].startTime > 0 ) ) {
+    else if ( this.isCorrectAudioStack() ) {
 
       //  loop the stack
       this.loopAudioStack();
@@ -34,7 +126,6 @@
       return;
     }
 
-
   };
 
 
@@ -44,13 +135,38 @@
   //
   LasHelper.prototype.playSingleAudio = function( audioObject ) {
 
-    if ( !audioObject || !audioObject.startTime ) {
+    var startTime;
+    var stopTime;
+    var pauseTime;
+
+    //  if no audioObject or start time
+    if ( !this.isCorrectAudioObject( audioObject ) ) {
       return;
     }
 
-    var startTime = audioObject.startTime;
-    var stopTime = audioObject.stopTime;
-    var pauseTime = audioObject.pauseTime;
+    startTime = audioObject.startTime;
+    stopTime = audioObject.startTime + audioObject.duration;
+
+    if ( audioObject.pauseTime ) {
+      pauseTime = audioObject.pauseTime;
+    } else {
+      pauseTime = 0;
+    }
+
+
+    //  assign file duration if it wasn't assigned yet
+    if ( this.helper.audioFileDuration === -1 ) {
+      this.helper.audioFileDuration = this.audioFile.duration;
+    }
+
+    if ( stopTime > this.helper.audioFileDuration ) {
+      window.console.log('stopTime > duration, can not play');
+      return;
+    }
+
+
+    window.console.log('play single audio');
+
 
     //  reset listeners
     this.resetAudioListeners();
@@ -76,34 +192,40 @@
         //  so it finishes together with the playback
 
         //
-        //  if prePause
         //  half a second before the end of audio
         //
-        if ( this.state.prePause && ( this.audioFile.currentTime + 0.5 >= stopTime ) ) {
+        if (  this.audioFile.currentTime + 0.5 >= stopTime ) {
 
-          //  prevent prePause from firing again
-          this.state.prePause = false;
+          //  reset spinner
+          this.resetSpinner();
 
-          //  if there is a pause and the prePauseTimer is not yet set
-          if ( pauseTime && ( pauseTime > 0 ) && !this.prePauseTimer ) {
+          //  if prePause
+          if ( this.state.prePause ) {
 
-            window.console.log('set prePauseTimer');
+            //  prevent prePause from firing again
+            this.state.prePause = false;
 
-            //  set prePauseTimer
-            this.prePauseTimer = window.setTimeout(function() {
+            //  if there is a pause and the prePauseTimer is not yet set
+            if ( pauseTime && ( pauseTime > 0 ) && !this.prePauseTimer ) {
 
-              window.clearTimeout(this.prePauseTimer);
-              this.prePauseTimer = undefined;
+              window.console.log('set prePauseTimer');
+
+              //  set prePauseTimer
+              this.prePauseTimer = window.setTimeout(function() {
+
+                window.clearTimeout(this.prePauseTimer);
+                this.prePauseTimer = undefined;
+                this.prePause();
+
+              }.bind(this), (pauseTime * 1000) );
+
+            }
+            //  if there is no pause
+            else if ( !pauseTime ) {
+
               this.prePause();
 
-            }.bind(this), (pauseTime * 1000) );
-
-          }
-          //  if there is no pause
-          else if ( !pauseTime ) {
-
-            this.prePause();
-
+            }
           }
 
         }
@@ -133,7 +255,7 @@
             }.bind(this), (pauseTime * 1000) );
 
             //  show skip button
-            this.showSkipButton();
+            this.showSkipButton( pauseTime );
 
           }
           //  if there was no pause time
@@ -153,8 +275,6 @@
 
       //  show spinner
       this.showSpinner();
-
-      window.console.log('play ' + this.audioFile.currentTime);
 
       //  play the file
       this.state.playing = true;
@@ -176,26 +296,29 @@
   //
   LasHelper.prototype.loopAudioStack = function() {
 
-    var stack = this.audioStack.stack;
-    var pointer = this.audioStack.pointer;
+    var stack;
+    var pointer;
 
     //  if no stack or stack is wrong
-    if ( !stack || ( stack.length === 0 ) || !( stack[0].startTime > 0 ) ) {
+    if ( !this.isCorrectAudioStack() ) {
       return;
     }
+
+    stack = this.audioStack.stack;
+    pointer = this.audioStack.pointer;
 
     window.console.log('audio loop, no: ' + pointer );
 
     //  is there more in the stack?
     //  array begin on 0, but length shows 1, therefore +1 on pointer
-    if ( stack.length > pointer + 1 ) {
+    if ( stack.length > ( pointer + 1 ) ) {
 
       this.playAudioFromStack();
 
     }
     //  this is the last from the stack
     //  playSingleAudio to active prePause and atPause
-    else if ( stack.length === pointer + 1 ) {
+    else if ( stack.length === ( pointer + 1 ) ) {
 
       this.playSingleAudio( stack[ pointer ] );
 
@@ -206,6 +329,8 @@
 
   };
 
+
+
   //
   //  Single audio from the stack
   //  recursive with loopAudioStack()
@@ -215,11 +340,30 @@
     var stack = this.audioStack.stack;
     var pointer = this.audioStack.pointer;
     var audioObject = stack[ pointer ];
+    var startTime;
+    var stopTime;
 
     //  no audio
-    if ( !audioObject || !( audioObject.startTime > 0 ) ) {
+    if ( !this.isCorrectAudioObject( audioObject ) ) {
       return;
     }
+
+    startTime = audioObject.startTime;
+    stopTime = audioObject.startTime + audioObject.duration;
+
+
+    //  assign file duration if it wasn't assigned yet
+    if ( this.helper.audioFileDuration === -1 ) {
+      this.helper.audioFileDuration = this.audioFile.duration;
+    }
+
+    if ( stopTime > this.helper.audioFileDuration ) {
+      window.console.log('stopTime > duration, can not play');
+      return;
+    }
+
+
+    window.console.log('play audio from stack');
 
     //  reset listeners
     this.resetAudioListeners();
@@ -231,19 +375,29 @@
     try {
 
       //  set the current time
-      this.audioFile.currentTime = audioObject.startTime;
+      this.audioFile.currentTime = startTime;
 
 
       this.playAudioListener = function() {
 
         //  time ended
-        if ( this.audioFile.currentTime >= audioObject.stopTime ) {
+        if ( this.audioFile.currentTime >= stopTime ) {
 
           //  reset listener
           this.resetAudioListeners();
 
-          // pause
-          this.pauseAudio();
+          //
+          //  pause
+          //  do it directly, or spinner will blink
+          //
+          window.console.log('pause');
+
+          //  pause audio
+          this.audioFile.pause();
+
+          //  reset playing state
+          this.state.playing = false;
+
 
           //  move the pointer
           this.audioStack.pointer += 1;
@@ -261,8 +415,6 @@
 
       //  show spinner
       this.showSpinner();
-
-      window.console.log('play ' + this.audioFile.currentTime);
 
       //  play the file
       this.state.playing = true;
@@ -361,14 +513,16 @@
       return;
     }
 
+    window.console.log('pause');
+
     //  pause audio
     this.audioFile.pause();
 
-    //  reset state
-    this.state.playing = false;
-
     //  reset spinner
     this.resetSpinner();
+
+    //  reset state
+    this.state.playing = false;
 
   };
 
@@ -439,6 +593,8 @@
       return false;
     }
 
+    window.console.log('showSpinner');
+
     this.state.spinner = true;
 
     //  spinner's animation queue is controlled by this.velocity
@@ -459,7 +615,7 @@
 
   LasHelper.prototype.resetSpinner = function() {
     //  if there was no spinner
-    if ( !this.state.spinner || ( this.numAudioStack && ( this.numAudioStack.length > this.numAudioStackPointer + 1 ) ) ) {
+    if ( !this.state.spinner || !this.audioSpinner ) {
       return false;
     }
 
@@ -479,12 +635,185 @@
 
 
 
+
+  //
+  //  SKIP BUTTON
+  //  pause timer
+  //
+  LasHelper.prototype.showSkipButton = function( pauseTime ) {
+
+    //  if the timer is already in
+    //  or no pause timer el
+    //  or controls are in
+    //  or there is no pause time
+    if ( this.state.skipButton || !this.audioPauseTimer || this.state.controls || !pauseTime || ( pauseTime < 0 ) ) {
+      return false;
+    }
+
+    this.state.skipButton = true;
+
+    window.console.log('show pause timer');
+
+    //  reset this.velocity queue
+    this.velocity(
+      this.audioPauseTimer,
+      'stop'
+    );
+
+    //  show the timer
+    this.velocity(
+      this.audioPauseTimer,
+      'fadeIn',
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
+    );
+
+    //  start the timer
+    //  we multiply by 1000 because pauseTime is in seconds and the timer in miliseconds
+    this.pauseTimer( pauseTime * 1000 );
+
+  };
+
+
+  LasHelper.prototype.resetSkipButton = function( now ) {
+
+    //  move @now into some state prop ?
+
+    var completeFn;
+    var delayCalc;
+
+    //  if the timer is not active
+    if ( !this.state.skipButton || !this.audioPauseTimer ) {
+      return false;
+    }
+
+    this.state.skipButton = false;
+
+    window.console.log('reset pause timer');
+
+    //  reset this.velocity queue
+    this.velocity(
+      this.audioPauseTimer,
+      'stop'
+    );
+
+    //  if @now arg is true, there is no delay in hiding the
+    if ( now ) {
+      delayCalc = 0;
+    }
+    else {
+      delayCalc = 1000 - this.helper.speed*2;
+    }
+
+    this.velocity(
+      this.audioPauseTimer,
+      'fadeOut',
+      { duration: this.helper.speed*2, easing: this.helper.easingQuart, delay: delayCalc }
+    );
+
+  };
+
+
+  //
+  //  PAUSE TIMER
+  //
+  LasHelper.prototype.pauseTimer = function(duration) {
+
+    /*! SVG Pie Timer 0.9.1 | Anders Grimsrud, grint.no | MIT License | github.com/agrimsrud/svgPieTimer.js */
+    //  Modified
+
+    var loader;
+    var n;
+    var end;
+    var totaldur;
+    var frame;
+
+    if (this.pauseTimerAnimationFrame !== undefined) {
+      cancelAnimationFrame(this.pauseTimerAnimationFrame);
+      this.pauseTimerAnimationFrame = undefined;
+    }
+
+    Date.now = Date.now || function() { return +new Date; };
+
+    loader = document.getElementById('circle');
+    n = 1;
+
+    function draw(rate) {
+        var angle = 360 * rate;
+
+        angle %= 360;
+
+        var rad = (angle * Math.PI / 180),
+            x = Math.sin(rad) * 40,
+            y = Math.cos(rad) * - 40,
+            mid = (angle > 180) ? 1 : 0,
+            shape = 'M 0 0 v -40 A 40 40 1 '
+                   + mid + ' 1 '
+                   +  x  + ' '
+                   +  y  + ' z';
+
+        loader.setAttribute('d', shape);
+    }
+
+
+    end = Date.now() + duration * n;
+    totaldur = duration * n;
+
+    // Animate frame by frame
+
+    frame = function() {
+        var current = Date.now(),
+            remaining = end - current,
+
+            // Now set rotation rate
+            // E.g. 50% of first loop returns 1.5
+            // E.g. 75% of sixth loop returns 6.75
+            // Has to return >0 for SVG to be drawn correctly
+            // If you need the current loop, use Math.floor(rate)
+
+            rate = n + 1 - remaining / duration;
+
+        // As requestAnimationFrame will draw whenever capable,
+        // the animation might end before it reaches 100%.
+        // Let's simulate completeness on the last visual
+        // frame of the loop, regardless of actual progress
+
+        if(remaining < 60) {
+
+            // 1.0 might break, set to slightly lower than 1
+            // Update: Set to slightly lower than n instead
+
+            draw(n - 0.0001);
+
+
+            // Stop animating when we reach n loops (if n is set)
+
+            if ( remaining < totaldur && n ) {
+              return;
+            }
+        }
+
+        // Draw
+
+        draw(rate);
+
+        // Request next frame
+
+       this.pauseTimerAnimationFrame = requestAnimationFrame(frame);
+
+    }.bind(this);
+
+    frame();
+
+  };
+
+
   //
   //  Test mode audio
   //
-  LasHelper.prototype.playAudioTestMode = function(startTime, stopTime) {
+  LasHelper.prototype.playAudioTestMode = function(startTime, duration) {
 
     var pauseTimer;
+    var stopTime;
 
     if ( !this.audioFile ) {
       return;
@@ -493,6 +822,8 @@
     if ( startTime === 0 ) {
       startTime = 0.01;
     }
+
+    stopTime = startTime + duration;
 
     console.log(this);
 

@@ -15,7 +15,7 @@
       return false;
     }
 
-    return cookie
+    return cookie;
   }
 
 
@@ -43,11 +43,21 @@
     var type = this.helper.type;
     var cookie = getCookie( chapter );
     var access;
+    var property;
 
     //  there is no cookie for this chapter and type
     //  user is not accepting cookies
-    if ( !cookie[ chapter ][ type ] ) {
-      console.log('user is not accepting cookies');
+    if ( !cookie[ chapter ] || !cookie[ chapter ][ type ] ) {
+      window.console.log('user is not accepting cookies');
+      window.console.log('or they have two exercises open at once');
+
+
+      //
+      //  think about resolving the problem with multiple exercises
+      //  maybe cookie saving and cleaning should be only on non-ex pages
+      //  if the open another ex, php would simply add one more chapter to the array in cookie?
+      //
+
       return;
     }
 

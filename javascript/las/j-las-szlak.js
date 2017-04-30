@@ -317,8 +317,8 @@ function LasSzlak() {
       btn = document.getElementById( 'btn-' + this.helper.sectionTopOpen );
     }
 
-    if ( las.helper.chapterToHighlight ) {
-      chapterToHighlight = document.getElementById( las.helper.chapterToHighlight );
+    if ( this.helper.chapterToHighlight ) {
+      chapterToHighlight = document.getElementById( this.helper.chapterToHighlight );
     }
 
     //  hide the popup

@@ -17,7 +17,8 @@ function LasHelper() {
     answersTranformValue:               '300%',
     easingSpring:                       [ 200, 20 ],
     easingQuart:                        'easeInOutQuart',
-    currentUrl:                         window.location.href.split('#')[0]
+    currentUrl:                         window.location.href.split('#')[0],
+    audioFileDuration:                  -1
   };
 
   var self = this;
@@ -286,98 +287,7 @@ function LasHelper() {
   };
 
 
-  //
-  //  PAUSE TIMER
-  //
-  this.pauseTimer = function(duration) {
 
-    /*! SVG Pie Timer 0.9.1 | Anders Grimsrud, grint.no | MIT License | github.com/agrimsrud/svgPieTimer.js */
-    //  Modified
-
-    var loader;
-    var n;
-    var end;
-    var totaldur;
-    var frame;
-
-    if (this.pauseTimerAnimationFrame !== undefined) {
-      cancelAnimationFrame(this.pauseTimerAnimationFrame);
-      this.pauseTimerAnimationFrame = undefined;
-    }
-
-    Date.now = Date.now || function() { return +new Date; };
-
-    loader = document.getElementById('circle');
-    n = 1;
-
-    function draw(rate) {
-        var angle = 360 * rate;
-
-        angle %= 360;
-
-        var rad = (angle * Math.PI / 180),
-            x = Math.sin(rad) * 40,
-            y = Math.cos(rad) * - 40,
-            mid = (angle > 180) ? 1 : 0,
-            shape = 'M 0 0 v -40 A 40 40 1 '
-                   + mid + ' 1 '
-                   +  x  + ' '
-                   +  y  + ' z';
-
-        loader.setAttribute('d', shape);
-    }
-
-
-    end = Date.now() + duration * n;
-    totaldur = duration * n;
-
-    // Animate frame by frame
-
-    frame = function() {
-        var current = Date.now(),
-            remaining = end - current,
-
-            // Now set rotation rate
-            // E.g. 50% of first loop returns 1.5
-            // E.g. 75% of sixth loop returns 6.75
-            // Has to return >0 for SVG to be drawn correctly
-            // If you need the current loop, use Math.floor(rate)
-
-            rate = n + 1 - remaining / duration;
-
-        // As requestAnimationFrame will draw whenever capable,
-        // the animation might end before it reaches 100%.
-        // Let's simulate completeness on the last visual
-        // frame of the loop, regardless of actual progress
-
-        if(remaining < 60) {
-
-            // 1.0 might break, set to slightly lower than 1
-            // Update: Set to slightly lower than n instead
-
-            draw(n - 0.0001);
-
-
-            // Stop animating when we reach n loops (if n is set)
-
-            if ( remaining < totaldur && n ) {
-              return;
-            }
-        }
-
-        // Draw
-
-        draw(rate);
-
-        // Request next frame
-
-       this.pauseTimerAnimationFrame = requestAnimationFrame(frame);
-
-    }.bind(this);
-
-    frame();
-
-  };
 
 
   //

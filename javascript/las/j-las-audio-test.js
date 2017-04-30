@@ -160,9 +160,10 @@ function LasAudioTest() {
 
   //
   //  BUBBLE
+  //  check what data is available, assign it and reset those unavailable
   //
   lasAudioTest.assignBubbleData = function(no, data) {
-    //  check what data is available, assign it and reset those unavailable
+
 
     //  new sequence?
     //  before assign, check the previous bubble
@@ -170,7 +171,6 @@ function LasAudioTest() {
     var sequenceTypeData;
     var audioObject;
     var audioStackL;
-
 
     //  if it is the first bubble
     if ( this.state.currentState === 'INTRO' ) {
@@ -227,39 +227,11 @@ function LasAudioTest() {
     this.more = null;
 
 
-    //  if there is time
-    if ( this.currentBubbleData.hasOwnProperty('startTime') ) {
-
-      //  assign playback times to audioObject
-      //  we will push it to the stack later
-      audioObject = {};
-      audioObject.startTime = this.currentBubbleData.startTime;
-      audioObject.stopTime = this.currentBubbleData.stopTime;
-
-      //  fix the problem with time 0
-      if ( audioObject.startTime === 0 ) {
-        audioObject.startTime = 0.01;
-      }
-
-      window.console.log('Start time: ' + audioObject.startTime + ' Stop time: ' + audioObject.stopTime);
-
-    }
-
-
-    //  if there is pause time
-    if ( this.currentBubbleData.hasOwnProperty('pauseTime') ) {
-
-      //  assign it
-      if ( audioObject ) {
-        audioObject.pauseTime = this.currentBubbleData.pauseTime;
-      }
-
-    }
-
-
     //
+    //  Create new audioObject
+    //
+    audioObject = this.createNewAudioObject( this.currentBubbleData );
     //  Push new audio object onto the stack
-    //
     if ( audioObject ) {
       audioStackL = this.audioStack.stack.push( audioObject );
     }
@@ -429,7 +401,7 @@ function LasAudioTest() {
 
     //  stop all animations
     //  is this necessary?
-    this.velocity.pauseAll();
+    //  this.velocity.pauseAll();
 
     //  pause, if user clicked an answer, we need to pause audio, so we can play the next one
     this.pauseAudio();
@@ -442,6 +414,7 @@ function LasAudioTest() {
     this.resetAnswers();
     this.resetControls();
     this.resetAudioListeners();
+    this.resetSpinner();
 
     //  get next bubble
     this.getNextBubble( this.nextBubbleName );
@@ -676,6 +649,15 @@ function LasAudioTest() {
       }
       else {
         this.audioMsg.innerHTML = this.msg;
+
+        //  set the cursor on msg
+        if ( this.trans ) {
+          this.audioMsgWrapper.style.cursor = 'pointer';
+        }
+        else {
+          this.audioMsgWrapper.style.cursor = 'auto';
+        }
+
       }
 
     }.bind(this);
@@ -774,7 +756,7 @@ function LasAudioTest() {
 
 
     //  if it has no audio
-    if ( this.startTime < 0 ) {
+    if ( !this.isCorrectAudioStack() ) {
       window.console.log("try showControls");
       this.showControls();
     }
@@ -834,7 +816,7 @@ function LasAudioTest() {
     //  if controls are already in
     //  or there is no time && no more && it is not before the first play
     if (        this.state.controls
-          || ( !this.more && ( this.startTime < 0 ) && !this.state.beforeFirstPlay && ( this.bubbleAutoNext !== 'RANDOM' ) )
+          || ( !this.more && !this.state.beforeFirstPlay && ( this.bubbleAutoNext !== 'RANDOM' ) && !this.isCorrectAudioStack() )
           || ( !this.msg && !this.answersData.length ) ) {
       return false;
     }
@@ -872,7 +854,7 @@ function LasAudioTest() {
     }
 
     //  if there is time, show REWIND
-    if ( ( this.startTime >= 0 ) && this.audioFile  ) {
+    if ( this.isCorrectAudioStack() && this.audioFile  ) {
       window.console.log('show rewind button');
 
       this.velocity(
@@ -939,79 +921,6 @@ function LasAudioTest() {
   };
 
 
-
-  //
-  //  SKIP BUTTON
-  //  pause timer
-  //
-  lasAudioTest.showSkipButton = function() {
-    //  if the timer is already in
-    //  or there is no pause time
-    if ( this.state.skipButton || ( this.pauseTime < 0 ) ) {
-      return false;
-    }
-
-    this.state.skipButton = true;
-
-    window.console.log('show pause timer');
-
-    //  reset this.velocity queue
-    this.velocity(
-      this.audioPauseTimer,
-      'stop'
-    );
-
-    //  show the timer
-    this.velocity(
-      this.audioPauseTimer,
-      'fadeIn',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart }
-    );
-
-    //  start the timer
-    //  we multiply by 1000 because pauseTime is in seconds and the timer in miliseconds
-    this.pauseTimer( this.pauseTime * 1000 );
-
-  };
-
-
-  lasAudioTest.resetSkipButton = function( now ) {
-
-    //  move @now into some state prop
-
-    var completeFn;
-    var delayCalc;
-
-    //  if the timer is not active
-    if ( !this.state.skipButton ) {
-      return false;
-    }
-
-    this.state.skipButton = false;
-
-    window.console.log('reset pause timer');
-
-    //  reset this.velocity queue
-    this.velocity(
-      this.audioPauseTimer,
-      'stop'
-    );
-
-    //  if @now arg is true, there is no delay in hiding the
-    if ( now ) {
-      delayCalc = 0;
-    }
-    else {
-      delayCalc = 1000 - this.helper.speed*2;
-    }
-
-    this.velocity(
-      this.audioPauseTimer,
-      'fadeOut',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart, delay: delayCalc }
-    );
-
-  };
 
 
   //
@@ -1188,12 +1097,10 @@ function LasAudioTest() {
 
       if ( this.more !== null ) {
         window.console.log('wrong answer has more');
-        //  assign audio times
-        this.audioTimes = [
-          this.more.startTime,
-          this.more.stopTime,
-          -1
-        ];
+        //  assign play times
+        this.currentAudioObject = this.more;
+
+        //  play audio
         this.playAudio();
       }
 
@@ -1321,12 +1228,23 @@ function LasAudioTest() {
 
     if ( ( event.target.id === 'audio-rewind' ) || ( event.target.parentNode.id === 'audio-rewind' ) ) {
 
-      //  tu  możemy rozdzielić state na more i rewind, wtedy każde będzie działało osobono zamiast pauzować drugie
+      //  we are/were playing other file than stack
+      if ( this.state.playing && this.isCorrectAudioObject( this.currentAudioObject ) ) {
 
-      //  if it is playing now, pause it
-      if ( this.state.playing ) {
-        this.pauseAudio();
+        //  add one to progress progress
+        this.cookiePlusOne( 'repeat' );
+
+        this.rewindAudio();
+
       }
+      //  we are (probably playing main stack
+      else if ( this.state.playing ) {
+
+        this.pauseAudio();
+
+
+      }
+      //  nothing is playing, simply rewind
       else {
 
         //  add one to progress progress
@@ -1359,11 +1277,16 @@ function LasAudioTest() {
     else if ( ( event.target.id === 'audio-more' ) || ( event.target.parentNode.id === 'audio-more' ) ) {
       //  play more
 
-      //  if it is playing now, pause it
-      if ( this.state.playing ) {
+      //  if more is playing now, pause it
+      if ( this.state.playing && this.isCorrectAudioObject( this.currentAudioObject ) ) {
+
         this.pauseAudio();
+
       }
+      //  if nothing or something else is playing
       else {
+
+        this.pauseAudio();
 
         //  add one to progress
         this.cookiePlusOne( 'more' );
@@ -1495,7 +1418,7 @@ function LasAudioTest() {
                     content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#dd4b39;display:inline-block;"></span>' + answers[i].answer;
                   }
                   else {
-                    content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#308c8c;display:inline-block;"></span>' + answers[i].answer
+                    content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#308c8c;display:inline-block;"></span>' + answers[i].answer;
                   }
 
                   content += '<br />';
@@ -1531,7 +1454,7 @@ function LasAudioTest() {
               }
 
               if ( ( bubbleProp === 'startTime' ) && this.audioFile ) {
-                content += '<button style="position:absolute;right:0.5rem;top:0.5rem;" class="btn btn-white btn-small" onClick="las.playAudioTestMode(' + bubbleData.startTime +  ', ' + bubbleData.stopTime + ');">TestAudio &raquo;</button>';
+                content += '<button style="position:absolute;right:0.5rem;top:0.5rem;" class="btn btn-white btn-small" onClick="las.playAudioTestMode(' + bubbleData.startTime +  ', ' + bubbleData.duration + ');">TestAudio &raquo;</button>';
               }
 
             }
@@ -1552,7 +1475,7 @@ function LasAudioTest() {
       testNotesEl.lastChild.innerHTML = 'Ilość zestawów pytań: ' + quantity;
 
     //  end if data
-    };
+    }
 
   };
 
