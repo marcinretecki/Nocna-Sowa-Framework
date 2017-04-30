@@ -192,40 +192,34 @@
         //  so it finishes together with the playback
 
         //
+        //  if prePause
         //  half a second before the end of audio
         //
-        if (  this.audioFile.currentTime + 0.5 >= stopTime ) {
+        if ( this.state.prePause && ( this.audioFile.currentTime + 0.5 >= stopTime ) ) {
 
-          //  reset spinner
-          this.resetSpinner();
+          //  prevent prePause from firing again
+          this.state.prePause = false;
 
-          //  if prePause
-          if ( this.state.prePause ) {
+          //  if there is a pause and the prePauseTimer is not yet set
+          if ( pauseTime && ( pauseTime > 0 ) && !this.prePauseTimer ) {
 
-            //  prevent prePause from firing again
-            this.state.prePause = false;
+            window.console.log('set prePauseTimer');
 
-            //  if there is a pause and the prePauseTimer is not yet set
-            if ( pauseTime && ( pauseTime > 0 ) && !this.prePauseTimer ) {
+            //  set prePauseTimer
+            this.prePauseTimer = window.setTimeout(function() {
 
-              window.console.log('set prePauseTimer');
-
-              //  set prePauseTimer
-              this.prePauseTimer = window.setTimeout(function() {
-
-                window.clearTimeout(this.prePauseTimer);
-                this.prePauseTimer = undefined;
-                this.prePause();
-
-              }.bind(this), (pauseTime * 1000) );
-
-            }
-            //  if there is no pause
-            else if ( !pauseTime ) {
-
+              window.clearTimeout(this.prePauseTimer);
+              this.prePauseTimer = undefined;
               this.prePause();
 
-            }
+            }.bind(this), (pauseTime * 1000) );
+
+          }
+          //  if there is no pause
+          else if ( !pauseTime ) {
+
+            this.prePause();
+
           }
 
         }
@@ -474,7 +468,7 @@
     window.console.log('skipPauseTimers');
 
     //  reset the skip button, first arg means NOW
-    this.resetSkipButton( true );
+    this.resetSkipButton();
 
     //  reset pre pause timer
     window.clearTimeout(this.prePauseTimer);
@@ -674,12 +668,7 @@
   };
 
 
-  LasHelper.prototype.resetSkipButton = function( now ) {
-
-    //  move @now into some state prop ?
-
-    var completeFn;
-    var delayCalc;
+  LasHelper.prototype.resetSkipButton = function() {
 
     //  if the timer is not active
     if ( !this.state.skipButton || !this.audioPauseTimer ) {
@@ -696,18 +685,10 @@
       'stop'
     );
 
-    //  if @now arg is true, there is no delay in hiding the
-    if ( now ) {
-      delayCalc = 0;
-    }
-    else {
-      delayCalc = 1000 - this.helper.speed*2;
-    }
-
     this.velocity(
       this.audioPauseTimer,
       'fadeOut',
-      { duration: this.helper.speed*2, easing: this.helper.easingQuart, delay: delayCalc }
+      { duration: this.helper.speed, easing: this.helper.easingQuart }
     );
 
   };
