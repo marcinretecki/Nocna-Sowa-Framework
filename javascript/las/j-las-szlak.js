@@ -9,36 +9,36 @@ function LasSzlak() {
 
   //  get methods from the LasHelper
   //  we can add new methods or overwrite old ones
-  var lasSzlak = new LasHelper();
+  var las = new LasHelper();
 
 
   //
   //  Elements
   //
-  lasSzlak.szlakWrapper =       document.getElementById('szlak-wrapper');
-  lasSzlak.szlakSection =       document.getElementById('szlak-section');
-  lasSzlak.szlakPopUp =         document.getElementById('szlak-post-popup');
-  lasSzlak.szlakPopUpSection =  document.getElementById('szlak-post-popup__section');
-  lasSzlak.navs = {
+  las.szlakWrapper =       document.getElementById('szlak-wrapper');
+  las.szlakSection =       document.getElementById('szlak-section');
+  las.szlakPopUp =         document.getElementById('szlak-post-popup');
+  las.szlakPopUpSection =  document.getElementById('szlak-post-popup__section');
+  las.navs = {
     basic:                      document.getElementById('section-basic'),
     advanced:                   document.getElementById('section-advanced')
   };
 
-  lasSzlak.popupBtns = {
+  las.popupBtns = {
     przewodnik:                 document.getElementById('szlak-btn-przewodnik'),
     wyzwanie:                   document.getElementById('szlak-btn-wyzwanie'),
     sos:                        document.getElementById('szlak-btn-sos')
   };
 
 
-  lasSzlak.clickedLevel =       '';
+  las.clickedLevel =       '';
 
-  lasSzlak.btns = {
+  las.btns = {
     basic:                  [],
     advanced:               []
   };
 
-  lasSzlak.sections = {
+  las.sections = {
     basic:                  [],
     advanced:               []
   };
@@ -48,7 +48,7 @@ function LasSzlak() {
   //  this prohibits some functions from firing more than once
   //  it's also usefull in debugging
   //
-  lasSzlak.state = {
+  las.state = {
     clicked:                  false,
     popupUrl:                 ''
   };
@@ -57,7 +57,7 @@ function LasSzlak() {
   //
   //  Initiate
   //
-  lasSzlak.init = function() {
+  las.init = function() {
 
     //  get Elements
     this.getBasicElements();
@@ -73,7 +73,7 @@ function LasSzlak() {
   };
 
 
-  lasSzlak.toggleSection = function() {
+  las.toggleSection = function() {
 
     var l = this.sections[this.clickedLevel].length;
     var toShow;
@@ -205,7 +205,7 @@ function LasSzlak() {
 
   //  open section on page load
   //  show user the next chapter they should do
-  lasSzlak.openSectionInit = function() {
+  las.openSectionInit = function() {
 
     if ( !this.helper.sectionTopOpen ) {
       return;
@@ -236,7 +236,7 @@ function LasSzlak() {
   };
 
 
-  lasSzlak.togglePopup = function() {
+  las.togglePopup = function() {
 
 
     //  TODO
@@ -302,7 +302,7 @@ function LasSzlak() {
   };
 
 
-  lasSzlak.hideResult = function() {
+  las.hideResult = function() {
 
     //  this should be condensed into the togglePopUp
 
@@ -317,8 +317,14 @@ function LasSzlak() {
       btn = document.getElementById( 'btn-' + this.helper.sectionTopOpen );
     }
 
-    if ( las.helper.chapterToHighlight ) {
-      chapterToHighlight = document.getElementById( las.helper.chapterToHighlight );
+    if ( this.helper.chapterToHighlight ) {
+      chapterToHighlight = document.getElementById( this.helper.chapterToHighlight );
+    }
+
+    //  if there is a chapter to hightlight, hook value
+    if ( chapterToHighlight ) {
+      this.velocity.hook( chapterToHighlight, 'opacity', '0.5');
+      this.velocity.hook( chapterToHighlight, 'boxShadowBlur', '10px');
     }
 
     //  hide the popup
@@ -333,27 +339,37 @@ function LasSzlak() {
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
     );
 
-    //  if there is a chapter to hightlight
+    //  if there is a chapter to hightlight, animate
     if ( chapterToHighlight ) {
 
       //  scroll to the next chapter
       this.velocity(
         chapterToHighlight,
         'scroll',
-        { container: this.szlakWrapper, duration: 4 * this.helper.speed, offset: -200, easing: this.helper.easingQuart }
+        {
+          container: this.szlakWrapper,
+          duration: 6 * this.helper.speed,
+          offset: -200,
+          easing: this.helper.easingQuart,
+          delay: this.helper.speed
+        }
       );
 
       //  highlight the chapter
       this.velocity(
         chapterToHighlight,
-        { scale: [1.1, 1] },
-        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+        { opacity: 1 },
+        { duration: 3 * this.helper.speed, easing: this.helper.easingQuart }
       );
+
+      //  highlight the chapter
       this.velocity(
         chapterToHighlight,
-        { scale: 1 },
-        { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+        { boxShadowBlur: '20px' },
+        { duration: 8 * this.helper.speed, loop: 10 }
       );
+
+
 
 
     }
@@ -365,7 +381,7 @@ function LasSzlak() {
   };
 
 
-  lasSzlak.eventHandler = function( event ) {
+  las.eventHandler = function( event ) {
     //  this decides what happens after each click
     //  @event comes from addListener
 
@@ -489,7 +505,7 @@ function LasSzlak() {
   };
 
 
-  lasSzlak.addListener = function() {
+  las.addListener = function() {
     //  assign click and touchstart events to both sections
 
     window.console.log('add event listener');
@@ -516,7 +532,7 @@ function LasSzlak() {
 
 
   //  return augmented object
-  return lasSzlak;
+  return las;
 
 
 }
