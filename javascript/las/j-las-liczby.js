@@ -16,19 +16,19 @@ function LasLiczby() {
 
   //  get methods from the LasAudioTest
   //  we can add new methods or overwrite old ones
-  var lasLiczby = new LasAudioTest();
+  var las = new LasAudioTest();
 
 
-  lasLiczby.currentNum =            0;
+  las.currentNum =            0;
 
-  lasLiczby.sequenceType =          'pimp';
+  las.sequenceType =          'pimp';
 
 
 
   //
   //  Initiate
   //
-  lasLiczby.init = function() {
+  las.init = function() {
 
     //
     //  Get Data
@@ -67,7 +67,7 @@ function LasLiczby() {
   //
   //  BUBBLE
   //
-  lasLiczby.assignBubbleData = function(no, data) {
+  las.assignBubbleData = function(no, data) {
 
     var audioObject;
     var audioStackL;
@@ -158,7 +158,7 @@ function LasLiczby() {
   };
 
 
-  lasLiczby.assignBubbleDataFromNum = function() {
+  las.assignBubbleDataFromNum = function() {
 
     var stack = this.audioStack.stack;
     var stackL;
@@ -194,8 +194,8 @@ function LasLiczby() {
   };
 
 
-  lasLiczby.getRandomBubble = function() {
-    window.console.log( 'getRandomBubble in lasLiczby');
+  las.getRandomBubble = function() {
+    window.console.log( 'getRandomBubble in las');
 
     if ( this.randomChatArray.length ) {
       //  if there are still chat items to show
@@ -222,7 +222,7 @@ function LasLiczby() {
 
 
   //  Create random array
-  lasLiczby.getRandomArrayOfNumbers = function() {
+  las.getRandomArrayOfNumbers = function() {
 
     var i;
     var tensL;
@@ -322,7 +322,7 @@ function LasLiczby() {
 
   //  Random number
   //  returns a number in chosen span
-  lasLiczby.getRandomNumber = function( option ) {
+  las.getRandomNumber = function( option ) {
 
     var min;
     var max;
@@ -348,7 +348,7 @@ function LasLiczby() {
   //  Number to words
   //  save new msg
   //  fill the audioStack with numbers to read
-  lasLiczby.createWordsFromNum = function() {
+  las.createWordsFromNum = function() {
     var j = this.lasData.words.j;
     var d = this.lasData.words.d;
     var r = '';
@@ -494,6 +494,6 @@ function LasLiczby() {
 
 
   //  return augmented object
-  return lasLiczby;
+  return las;
 
 }

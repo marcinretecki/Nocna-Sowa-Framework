@@ -16,61 +16,61 @@ function LasAudioTest() {
 
   //  get methods from the LasHelper
   //  we can add new methods or overwrite old ones
-  var lasAudioTest = new LasHelper();
+  var las = new LasHelper();
 
 
   //
   //  Elements
   //
-  lasAudioTest.audioFile =            document.getElementById('audio-file');
-  lasAudioTest.wrapper =              document.getElementById('audio-test');
-  lasAudioTest.audioMsgWrapper =      document.getElementById('audio-msg-wrapper');
-  lasAudioTest.audioMsg =             document.getElementById('audio-msg');
-  lasAudioTest.audioTrans =           document.getElementById('audio-trans');
-  lasAudioTest.audioScore =           document.getElementById('audio-score');
-  lasAudioTest.audioScoreNumber =     document.getElementById('audio-score-number');
-  lasAudioTest.audioControls =        document.getElementById('audio-controls');
-  lasAudioTest.audioSpinner =         document.getElementById('audio-spinner');
-  lasAudioTest.audioPauseTimer =      document.getElementById('audio-pause-timer');
-  lasAudioTest.audioMore =            document.getElementById('audio-more');
-  lasAudioTest.audioNext =            document.getElementById('audio-next');
-  lasAudioTest.audioRewind =          document.getElementById('audio-rewind');
+  las.audioFile =            document.getElementById('audio-file');
+  las.wrapper =              document.getElementById('audio-test');
+  las.audioMsgWrapper =      document.getElementById('audio-msg-wrapper');
+  las.audioMsg =             document.getElementById('audio-msg');
+  las.audioTrans =           document.getElementById('audio-trans');
+  las.audioScore =           document.getElementById('audio-score');
+  las.audioScoreNumber =     document.getElementById('audio-score-number');
+  las.audioControls =        document.getElementById('audio-controls');
+  las.audioSpinner =         document.getElementById('audio-spinner');
+  las.audioPauseTimer =      document.getElementById('audio-pause-timer');
+  las.audioMore =            document.getElementById('audio-more');
+  las.audioNext =            document.getElementById('audio-next');
+  las.audioRewind =          document.getElementById('audio-rewind');
 
   //  answers
-  lasAudioTest.answersEl =            document.getElementById('audio-test-answers');
-  lasAudioTest.answersElArray =       [];
-  lasAudioTest.answersElArray[0] =    document.getElementById('answer-one');
-  lasAudioTest.answersElArray[1] =    document.getElementById('answer-two');
-  lasAudioTest.answersElArray[2] =    document.getElementById('answer-three');
-  lasAudioTest.answersElArray[3] =    document.getElementById('answer-four');
+  las.answersEl =            document.getElementById('audio-test-answers');
+  las.answersElArray =       [];
+  las.answersElArray[0] =    document.getElementById('answer-one');
+  las.answersElArray[1] =    document.getElementById('answer-two');
+  las.answersElArray[2] =    document.getElementById('answer-three');
+  las.answersElArray[3] =    document.getElementById('answer-four');
 
   //  we use this to start downloading images earlier
-  lasAudioTest.prefetch =             document.createElement('div');
+  las.prefetch =             document.createElement('div');
 
 
 
 
   //  this will we assigned at assignBubbleData
-  lasAudioTest.currentBubbleData =    null;
-  lasAudioTest.more =                 null;
-  lasAudioTest.msg =                  '';
-  lasAudioTest.trans =                '';
-  lasAudioTest.bubbleAutoNext =       '';
+  las.currentBubbleData =    null;
+  las.more =                 null;
+  las.msg =                  '';
+  las.trans =                '';
+  las.bubbleAutoNext =       '';
 
 
 
   //  this will be assigned with assignAnswersData
-  lasAudioTest.answersData =          [];
+  las.answersData =          [];
 
   //  this comes from the click handler
-  lasAudioTest.nextBubbleName =       '';
+  las.nextBubbleName =       '';
 
 
   //
   //  Sequence type
   //  pimp || quiz || ''
   //
-  lasAudioTest.sequenceType =         '';
+  las.sequenceType =         '';
 
 
   //
@@ -78,7 +78,7 @@ function LasAudioTest() {
   //  this prohibits some functions from firing more than once
   //  it's also usefull in debugging
   //
-  lasAudioTest.state = {
+  las.state = {
     currentState:             '',   // END / INTRO / CHAT
     beforeFirstPlay:          true,
     answers:                  false,
@@ -98,15 +98,15 @@ function LasAudioTest() {
 
 
   //  on case there is no audio file and we have pimp
-  lasAudioTest.audioFileErrorMsg =    '<p class="size-2">';
-  lasAudioTest.audioFileErrorMsg +=   '<svg class="emojione-svg">';
-  lasAudioTest.audioFileErrorMsg +=   '<description>&#x1f622;</description>';
-  lasAudioTest.audioFileErrorMsg +=   '<use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f622"></use>';
-  lasAudioTest.audioFileErrorMsg +=   '</svg>';
-  lasAudioTest.audioFileErrorMsg +=   '<br />Niestety nie udało nam się załadować pliku audio. Spróbuj <a href="#" onClick="window.location.reload(true);">odświerzyć</a> stronę.</p><p class="space-0">Jeśli to nie podziała, napisz do nas. Zaraz zajmiemy się tą sprawą.</p>';
+  las.audioFileErrorMsg =    '<p class="size-2">';
+  las.audioFileErrorMsg +=   '<svg class="emojione-svg">';
+  las.audioFileErrorMsg +=   '<description>&#x1f622;</description>';
+  las.audioFileErrorMsg +=   '<use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f622"></use>';
+  las.audioFileErrorMsg +=   '</svg>';
+  las.audioFileErrorMsg +=   '<br />Niestety nie udało nam się załadować pliku audio. Spróbuj <a href="#" onClick="window.location.reload(true);">odświerzyć</a> stronę.</p><p class="space-0">Jeśli to nie podziała, napisz do nas. Zaraz zajmiemy się tą sprawą.</p>';
 
 
-  lasAudioTest.canNotPlayFn =         null;
+  las.canNotPlayFn =         null;
 
 
 
@@ -116,7 +116,7 @@ function LasAudioTest() {
   //
   //  Initiate
   //
-  lasAudioTest.init = function() {
+  las.init = function() {
 
     window.console.log('init');
 
@@ -162,7 +162,7 @@ function LasAudioTest() {
   //  BUBBLE
   //  check what data is available, assign it and reset those unavailable
   //
-  lasAudioTest.assignBubbleData = function(no, data) {
+  las.assignBubbleData = function(no, data) {
 
 
     //  new sequence?
@@ -290,7 +290,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.assignAnswersData = function() {
+  las.assignAnswersData = function() {
     //  this.answers = [
     //    { answer: '', next: '', wrong: true },
     //    { answer: '', next: '' }
@@ -334,7 +334,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.createBubble = function() {
+  las.createBubble = function() {
     //  here we have audio/quiz logic when the new bubble should appear
 
     //  if it is the end
@@ -389,7 +389,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.answerToBubble = function() {
+  las.answerToBubble = function() {
     //  convert clicked answer into the next bubble
 
     //  this one prevents some glitches
@@ -432,7 +432,7 @@ function LasAudioTest() {
   //  AUDIO PAUSE EVENTS
   //
 
-  lasAudioTest.prePause = function() {
+  las.prePause = function() {
     //  half a second before the end of audio
 
     window.console.log('pre pause');
@@ -451,7 +451,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.atPause = function() {
+  las.atPause = function() {
     //  at the end of audio
 
     window.console.log('at pause');
@@ -482,7 +482,7 @@ function LasAudioTest() {
   //
   //  ANSWERS
   //
-  lasAudioTest.showAnswers = function() {
+  las.showAnswers = function() {
 
     var i;
     var c;
@@ -544,7 +544,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.resetAnswers = function() {
+  las.resetAnswers = function() {
     //  reset the answers
 
     var i;
@@ -625,7 +625,7 @@ function LasAudioTest() {
   //
   //  MESSAGE
   //
-  lasAudioTest.showMsg = function() {
+  las.showMsg = function() {
     var beginFn;
 
     //  we do not check state here, because we want to use Velocity chaining
@@ -676,7 +676,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.resetMsg = function() {
+  las.resetMsg = function() {
     //  hide the msg
 
     var completeFn;
@@ -720,7 +720,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.waitForMsg = function() {
+  las.waitForMsg = function() {
 
     //  if timer is already set
     //  or it is pimp
@@ -764,7 +764,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.showTrans = function() {
+  las.showTrans = function() {
 
     //  if there is no trans to show or it is already showed
     if ( !this.trans || this.state.trans ) {
@@ -787,7 +787,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.resetTrans = function() {
+  las.resetTrans = function() {
 
     if ( !this.state.trans ) {
       return;
@@ -811,7 +811,7 @@ function LasAudioTest() {
   //
   //  CONTROLS
   //
-  lasAudioTest.showControls = function() {
+  las.showControls = function() {
 
     //  if controls are already in
     //  or there is no time && no more && it is not before the first play
@@ -876,7 +876,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.resetControls = function() {
+  las.resetControls = function() {
     var completeFn;
 
     //  if there was no controls
@@ -926,7 +926,7 @@ function LasAudioTest() {
   //
   //  SCORE
   //
-  lasAudioTest.showScore = function() {
+  las.showScore = function() {
     //  this shows that the user made a good decision
 
     var completeFn,
@@ -1011,7 +1011,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.resetScore = function() {
+  las.resetScore = function() {
     //  hide the score
     //  it can be called on showScore (via setTimeout)
 
@@ -1050,7 +1050,7 @@ function LasAudioTest() {
 
 
 
-  lasAudioTest.finish = function() {
+  las.finish = function() {
 
     //  add one to progress
     this.cookieSetT();
@@ -1065,7 +1065,7 @@ function LasAudioTest() {
   //
   //  HELPERS
   //
-  lasAudioTest.clickAnswer = function( target, answerData ) {
+  las.clickAnswer = function( target, answerData ) {
     //  controls the click event logic for answers
     //  @target comes from event handler
     //  @answerData is assigned in assignAnswersData
@@ -1156,7 +1156,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.eventHandler = function( event ) {
+  las.eventHandler = function( event ) {
     //  this decides what happens after each click
     //  @event comes from addListener
 
@@ -1305,7 +1305,7 @@ function LasAudioTest() {
   };
 
 
-  lasAudioTest.addListener = function() {
+  las.addListener = function() {
     //  assign click and touchstart events to the wrapper
 
     window.console.log('add event listener');
@@ -1332,7 +1332,7 @@ function LasAudioTest() {
 
 
 
-  lasAudioTest.test = function() {
+  las.test = function() {
     var property;
     var data = this.lasData.chat;
     var testNotes = this.lasData.testNotes;
@@ -1482,6 +1482,6 @@ function LasAudioTest() {
 
 
   //  return augmented object
-  return lasAudioTest;
+  return las;
 
 }

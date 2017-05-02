@@ -469,3 +469,41 @@ Author: Marcin Retecki
 .chat-flow q {
   font-style: normal;
 }
+
+
+
+
+//
+//  Characters
+//
+
+.char-item {
+  width: 50%;
+  float: left;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  transition: none;
+}
+
+.char-item--active {
+
+}
+
+.char-item--small {
+
+}
+
+.char-item__btn {
+  width:100%;
+  border:3px solid #000;
+  border-radius:3px;
+  background-color: $white;
+}
+
+.char-item__img {
+
+}
+
+.char-item--small .char-item__img {
+
+}
