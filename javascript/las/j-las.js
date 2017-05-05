@@ -104,23 +104,23 @@ function LasHelper() {
     var propArray = [];
 
     //  Push first items
-    for (property in data) {
-      if (data.hasOwnProperty(property) && ( property.slice(-1) === '1' ) ) {
+    for ( property in data ) {
+      if ( data.hasOwnProperty( property ) && ( property.slice(-1) === '1' ) ) {
         // if it is own property and last letter is '1'
 
-        propArray.push(property);
+        propArray.push( property );
 
       }
     }
 
-    propArray = this.shuffleArray(propArray);
+    propArray = this.shuffleArray( propArray );
 
     return propArray;
   };
 
 
   //  Fisher-Yates Shuffle
-  this.shuffleArray = function(propArray) {
+  this.shuffleArray = function( propArray ) {
 
     var counter = propArray.length;
     var index;

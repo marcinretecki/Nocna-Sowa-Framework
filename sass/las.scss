@@ -476,6 +476,14 @@ Author: Marcin Retecki
 //
 //  Characters
 //
+.char-selection{}
+.chars-title{
+  @include transition;
+}
+
+.char-selection--toggle .chars-title{
+  color: transparent;
+}
 
 .char-item {
   width: 50%;
@@ -483,27 +491,74 @@ Author: Marcin Retecki
   padding-left: 1rem;
   padding-right: 1rem;
   transition: none;
+  max-width: 100%;
+  padding-bottom: $space-2;
 }
 
-.char-item--active {
 
-}
+.char-item--active {}
+.char-item--small {}
 
-.char-item--small {
-
-}
 
 .char-item__btn {
-  width:100%;
-  border:3px solid #000;
-  border-radius:3px;
-  background-color: $white;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background-color: transparent;
+  color: $white
 }
 
 .char-item__img {
-
+  margin-bottom: $space-half;
+  border-radius: 50%;
+  border: 3px solid $white;
+}
+.char-item--small .char-item__img {
+  margin-bottom: 0;
 }
 
-.char-item--small .char-item__img {
+.char-item__title {
+  @include font-bariol-reg;
+  font-size: $size-2;
+  overflow: hidden;
+}
 
+.char-item--active .char-item__title {
+  //font-size: $size-3;
+}
+
+.char-item--active .char-item__title,
+.char-item--small .char-item__title {
+  height: 0;
+}
+
+.char-item__desc{
+  display:none;
+  padding: $space $space-2;
+  border-radius: 3px 3px 0 0;
+}
+
+.char-trans {
+  font-size: $size-0;
+  color: $gray-light;
+}
+
+
+//
+//  Form
+//
+.char-form {
+  position: relative;
+  top: -3px;
+  padding: $space $space-2 $space-4;
+  margin: 0;
+  border-radius: 0 0 3px 3px;
+
+}
+.char-form__text {
+  margin: 0 auto;
+  border: 1px solid $green-border;
+  font-size: $size-1;
+  text-align: center;
 }

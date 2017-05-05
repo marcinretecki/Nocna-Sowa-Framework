@@ -13,6 +13,7 @@ function LasProfile() {
   //
   //  Elements
   //
+  las.wrapper =             document.getElementById('wrapper');
   las.charsWrapper =        document.getElementById('chars-wrapper');
   las.charsWrapperRect =    null;
   las.chars = [
@@ -24,10 +25,22 @@ function LasProfile() {
   ];
   las.charsRectArray =      [];
 
-  las.charsRow =            document.getElementById( 'chars-row' );
+  las.charsRow =            document.getElementById('chars-row');
   las.charsRowRect =        null;
+  las.charImgs =            [];
+  las.charTitles =          [];
+  las.charDescs =           [];
+  las.charBacks = [
+                            null,
+                            document.getElementById('char-back-1'),
+                            document.getElementById('char-back-2'),
+                            document.getElementById('char-back-3'),
+                            document.getElementById('char-back-4')
+  ];
 
-
+  las.charForm =            document.getElementById('char-form');
+  las.charFname =           document.getElementById('char-fname');
+  las.charNick =            document.getElementById('char-nick');
 
 
   las.clickedCharNo =       0;
@@ -43,15 +56,26 @@ function LasProfile() {
   //
   las.state = {
     clicked:                false,
-    state:                  ''
+    writing:                false,
+    drawOpen:               false,
+    //  start, toggle, form, accept
+    state:                  'start',
   };
 
+
+  las.timers =              {};
 
 
   //
   //  Initiate
   //
   las.init = function() {
+
+    //
+    //  Get Data
+    //
+    this.lasData =              new LasNicknames();
+
 
     //  get Elements
     this.getBasicElements();
@@ -73,6 +97,7 @@ function LasProfile() {
 
     var charRect;
     var charToMove;
+    var charBack;
     var charsL;
     var i;
     var j;
@@ -93,7 +118,18 @@ function LasProfile() {
     for ( i = 1; i < charsL; i++ ) {
 
       charToMove = this.chars[ i ];
+
+      //  get rect
       this.charsRectArray[ i ] = charToMove.getBoundingClientRect();
+
+      //  get img
+      this.charImgs[ i ] = charToMove.querySelector('.char-item__img');
+
+      //  get title
+      this.charTitles[ i ] = charToMove.querySelector('.char-item__title');
+
+      //  get title
+      this.charDescs[ i ] = charToMove.querySelector('.char-item__desc');
 
     }
 
@@ -106,20 +142,28 @@ function LasProfile() {
     for ( j = 1; j < charsL; j++ ) {
 
       charToMove = this.chars[ j ];
+      charBack = this.charBacks[ j ];
       singleRect = this.charsRectArray[ j ];
 
       this.velocity(
         charToMove,
-        { top: singleRect.top - this.charsWrapperRect.top + 'px',
-          left: singleRect.left - this.charsWrapperRect.left + 'px',
-          width: singleRect.width + 'px'
+        {
+          width:        singleRect.width + 'px',
+          translateY:   singleRect.top - this.charsRowRect.top + 'px',
+          translateX:   singleRect.left - this.charsRowRect.left + 'px'
         },
         { duration: 0,
           begin: function( elements ) {
             elements[0].style.position = 'absolute';
+            charToMove.style.float = 'none';
+            charToMove.style.top = '0';
+            charToMove.style.left = '0';
           }
         }
       );
+
+      //  prepare images
+      this.velocity.hook( charBack, 'opacity', '0' );
 
     }
 
@@ -134,14 +178,17 @@ function LasProfile() {
   //
   las.toggleChar = function() {
 
-    var i;
-    var charsL;
-    var charToMove;
-    var left = 0;
-    var leftP;
     var charsRow = this.charsRow;
-    var finishFn;
+    var charsRowW = this.charsRowRect.width;
+    var left = 0;
+    var charToMove;
+    var charImg;
+    var charBack;
+    var charDesc;
+    var completeFn;
     var beginFn;
+    var charsL;
+    var i;
 
     console.log( 'charAnimation :' + this.state.charAnimation );
 
@@ -156,75 +203,176 @@ function LasProfile() {
     console.log('clickedCharNo :' + this.clickedCharNo);
     console.log('activeCharNo :' + this.activeCharNo);
 
+    //  this can be removed, unnecesary
     //  if clicked is same as active
     if ( this.activeCharNo === this.clickedCharNo ) {
       this.closeChar();
       return;
     }
 
-    //var charToMove = this.chars[ this.clickedCharNo ];
+    if ( this.state.state = 'start' ) {
+
+      //  change state
+      this.state.state = 'toggle';
+
+      //  hide title
+      this.charsWrapper.classList.add( 'char-selection--toggle' );
+
+    }
+
+
+
+    //  prepare form
+    this.velocity( this.charForm, 'stop', true );
+    this.charForm.style.display = 'none';
+
+
 
     charsL = this.chars.length;
 
     //  begin from 1
     //  0 is null
-    for ( i = 1; i <= charsL; i++ ) {
+    for ( i = 1; i < charsL; i++ ) {
 
       charToMove = this.chars[ i ];
+      charImg = this.charImgs[ i ];
+      charDesc = this.charDescs[ i ];
+      charBack = this.charBacks[ i ];
 
       //  stop previous animation
-      this.velocity( charToMove, 'stop');
+      this.velocity( charToMove, 'stop', true );
+      this.velocity( charImg, 'stop', true );
+      this.velocity( charDesc, 'stop', true );
+      this.velocity( charBack, 'stop', true );
+
 
       if ( charToMove ) {
 
-        //  this char is clicked
+        //
+        //  Clicked Char
+        //
         if ( i === this.clickedCharNo ) {
 
-          this.velocity(
-            charToMove,
-            {
-              width:    this.charsRowRect.width  + 'px',
-              left:     this.charsRowRect.left - this.charsWrapperRect.left + 'px',
-              top:      this.charsRowRect.top - this.charsWrapperRect.top + 'px'
-            },
-            { duration: 4 * this.helper.speed, easing: this.helper.easingSpring,
-              complete: function() {
-                charToMove.style.position = 'static';
-                charsRow.style.height = 'auto';
+          //  use IIFE to lock variables
+          (function( charToMove, charsRow, charImg, charBack ) {
+
+            completeFn = function() {
+              charToMove.style.position = 'static';
+              charsRow.style.height = 'auto';
+            }.bind( this );
+
+            charToMove.classList.remove('char-item--small');
+            charToMove.classList.add('char-item--active');
+
+            window.console.log(this.charsRowRect.top);
+
+            this.velocity(
+              charToMove,
+              {
+                width:      '100%',
+                padding:    '0px',
+                translateY: '0px',
+                translateX: '0px',
+
+              },
+              { duration: 4 * this.helper.speed, easing: this.helper.easingSpring,
+                complete: function() {
+                  completeFn();
+                }
               }
-            }
-          );
+            );
+
+            this.velocity(
+              charImg,
+              { width: '50%', borderWidth: '0.5rem' },
+              { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+            );
+
+            this.velocity(
+              charDesc,
+              'slideDown',
+              { duration: 2 * this.helper.speed, easing: this.helper.easingSpring, delay: 2 * this.helper.speed }
+            );
+
+            this.velocity(
+              charBack,
+              { opacity: 1 },
+              { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, delay: this.helper.speed }
+            );
+
+
+          }).bind( this )( charToMove, charsRow, charImg, charBack );
 
         }
+        //
+        //  Other chars
+        //
         else {
 
-          if ( left > 0 ) {
-            leftP = left + '%';
-          }
+          //  use IIFE to lock variables
+          (function( charToMove, charImg, charBack ) {
 
-          this.velocity(
-            charToMove,
-            {
-              left:         leftP,
-              top:          '2rem',
-              padding:      0,
-              width:        '33.33%'
-            },
-            { duration: 4 * this.helper.speed, easing: this.helper.easingSpring,
-              begin: function() {
-                charToMove.style.position = 'absolute';
+            charToMove.classList.remove('char-item--active');
+            charToMove.classList.add('char-item--small');
+
+
+            beginFn = function() {
+              charToMove.style.position = 'absolute';
+            };
+
+            this.velocity(
+              charToMove,
+              {
+                width:        '33.33%',
+                padding:      '0px',
+                translateY:   '-100%',
+                translateX:   left + 'px',
+
+              },
+              { duration: 4 * this.helper.speed, easing: this.helper.easingSpring,
+                begin: function() {
+                  beginFn();
+                }
               }
-            }
-          );
+            );
+
+            this.velocity(
+              charImg,
+              { width: '50%', borderWidth: '3px' },
+              { duration: 1 * this.helper.speed, easing: this.helper.easingQuart }
+            );
+
+            this.velocity(
+              charDesc,
+              'slideUp',
+              { duration: 1 * this.helper.speed, easing: this.helper.easingQuart }
+            );
+
+            this.velocity(
+              charBack,
+              { opacity: 0 },
+              { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, delay: this.helper.speed }
+            );
+
+          }).bind( this )( charToMove, charImg, charBack );
+
 
           //  used to position chars from left to right
-          left += 33.33;
+          left += (charsRowW / 3 );
 
         }
 
       }
 
     }
+
+
+    //  show form
+    this.velocity(
+      this.charForm,
+      'slideDown',
+      { duration: 2 * this.helper.speed, easing: this.helper.easingSpring, delay: 4 * this.helper.speed }
+    );
 
 
     //  set active char
@@ -237,9 +385,77 @@ function LasProfile() {
 
 
   //
-  //  Close Char
+  //  Draw a nickname
   //
-  las.closeChar = function() {
+  las.drawNickname = function() {
+
+    var charNo = this.activeCharNo;
+    var nicknames = this.shuffleArray( this.lasData.nicknames );
+    var nick = nicknames[ 3 ];
+    var beginFn;
+
+    if ( !nick || !this.activeCharNo || !this.charForm || !this.charNick ) {
+      return;
+    }
+
+    if ( this.state.nick ) {
+
+      this.velocity(
+        this.charNick,
+        'slideUp',
+        { duration: 2 * this.helper.speed, easing: this.helper.easingSpring }
+      );
+
+    }
+
+    beginFn = function() {
+      this.charNick.innerHTML = nick;
+    }.bind(this);
+
+
+    this.velocity(
+      this.charNick,
+      'slideDown',
+      { duration: 2 * this.helper.speed, easing: this.helper.easingSpring,
+        begin: function() {
+          beginFn();
+        }
+      }
+    );
+
+
+    window.console.log( nick );
+
+    if ( !this.state.nick ) {
+      this.state.nick = true;
+    }
+
+  };
+
+
+  //
+  //  Open nick drawing button
+  //
+  las.openNicknameDraw = function() {
+
+    var charNo = this.activeCharNo;
+    var charNickWrapper;
+
+    if ( !this.activeCharNo || !this.charForm || this.state.drawOpen ) {
+      return;
+    }
+
+    this.state.drawOpen = true;
+
+    charNickWrapper = document.getElementById( 'char-nick-btn' ).parentNode;
+
+    console.log(charNickWrapper);
+
+    this.velocity(
+      charNickWrapper,
+      'slideDown',
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, delay: this.helper.speed }
+    );
 
   };
 
@@ -275,11 +491,7 @@ function LasProfile() {
     elWithId = this.checkNodeAndParents( event, false, 'id' );
 
 
-    //  char-btn-1
-    //  char-btn-2
-    //  char-btn-3
-    //  char-btn-4
-
+    //  char-btn-1 etc.
     //  if it is char button
     if ( elWithId && ( elWithId.id.split('-btn-')[0] === 'char' ) ) {
 
@@ -293,6 +505,16 @@ function LasProfile() {
     }
 
 
+    //  if it is char nick btn
+    if ( elWithId && ( elWithId.id === 'char-nick-btn' ) ) {
+
+      this.drawNickname();
+
+      //  stop eventHandler
+      event.stopPropagation();
+      return;
+    }
+
 
     //  if it iwas "wróć na szlak" button
     if ( event.target.id === 'close-result' ) {
@@ -303,6 +525,35 @@ function LasProfile() {
       return;
     }
 
+
+  };
+
+
+  //
+  //  Key Even Handler
+  //  this decides what happens after each keyup
+  //  @event comes from addListener
+  //
+  las.keyEventHandler = function( event ) {
+
+    //  if there is timer, remove it
+    if ( this.timers.keyEvent ) {
+      window.clearTimeout( this.timers.keyEvent );
+      this.timers.keyEvent = null;
+    }
+
+    //  add new timer
+    //  it debounces keyup
+    this.timers.keyEvent = window.setTimeout(function() {
+
+      window.console.log('keyup');
+
+      window.clearTimeout( this.timers.keyEvent );
+      this.timers.keyEvent = null;
+
+      this.openNicknameDraw();
+
+    }.bind(this), 1000);
 
   };
 
@@ -319,6 +570,12 @@ function LasProfile() {
         this.eventHandler(event);
 
       }
+
+    }.bind(this), false);
+
+    this.charFname.addEventListener('keyup', function(event) {
+
+      this.keyEventHandler(event);
 
     }.bind(this), false);
 
