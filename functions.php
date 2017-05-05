@@ -4,9 +4,9 @@
 //
 
 if ( is_user_logged_in() ) {
-  include( stream_resolve_include_path( __DIR__ . '/functions/f_user_meta.php' ) );
-  include( stream_resolve_include_path( __DIR__ . '/functions/f_levels.php' ) );
-  include( stream_resolve_include_path( __DIR__ . '/functions/f_tests.php' ) );
+  include( stream_resolve_include_path( __DIR__ . '/functions/f-user-progress.php' ) );
+  include( stream_resolve_include_path( __DIR__ . '/functions/f-user-char.php' ) );
+  include( stream_resolve_include_path( __DIR__ . '/functions/f-tests.php' ) );
 }
 
 //
@@ -74,8 +74,8 @@ $source_url = las_get_source_url();*/
 
 
 //
-// Dev redirect
-// it is actually redirecting all not logged in users, so it can be used for restricting content
+//  Dev redirect
+//  it is actually redirecting all not logged in users, so it can be used for restricting content
 //
 function las_dev_redirect() {
   if ( ( $_SERVER['REQUEST_URI'] !== '/las/' ) && !is_user_logged_in() ) {
@@ -100,7 +100,7 @@ add_action( 'admin_init', 'las_login_redirect' );
 
 
 //
-// Rewrite author's page base
+//  Rewrite author's page base
 //
 function las_rewrite_init() {
   global $wp_rewrite;

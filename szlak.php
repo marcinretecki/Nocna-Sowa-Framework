@@ -426,7 +426,7 @@ function las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result ) 
   $echo = '';
 
   $echo .= '<div id="szlak-result" class="szlak-post-popup" style="display:block;background-color:rgba(60, 69, 76, 0.75);">';
-  $echo .= '<div id="szlak-result-content" class="szlak-post-popup__content section-content section-6-4">';
+  $echo .= '<div id="szlak-result-content" class="szlak-post-popup__content section-content section-4-2">';
   $echo .= '<div class="section-white section-content rounded group centered szlak-post-popup__section">';
 
   $echo .= '<img src="' . $img_url . '" style="width:8rem !important;height:8rem !important;border-radius:50%;overflow:hidden;display:block;" class="center" />';
@@ -440,9 +440,6 @@ function las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result ) 
   $echo .= 'Neste rang: ' . $exp_for_next;
   $echo .= '<br />';
 
-
-  //  testing
-  $last_wyzwanie_result['exp'] = 0;
 
   //  if there is no time
   //  user has not finished the chapter
@@ -552,13 +549,14 @@ include( 'includes/head.php' );
   if ( $last_wyzwanie_result ) {
 
     //  reset the the last, so it doesn't show again
-    //las_reset_last_wyzwanie_user_meta();
+    las_reset_last_wyzwanie_user_meta();
 
-    //las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result );
+    las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result );
   }
 
   //  for testing results
-  las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result );
+  //  $last_wyzwanie_result = test_las_get_last_wyzwanie_result();
+  //  las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result );
 ?>
 
 
