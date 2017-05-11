@@ -30,7 +30,6 @@
 
 global $post;
 $id = $post->ID;
-$user_progress = las_get_user_progress();
 
 
 //
@@ -495,7 +494,7 @@ include( 'includes/head.php' );
 
 ?>
 
-<section id="szlak-wrapper" class="section-trans wrapper group" style="background-image: url('/las/c/i/las_test_8.jpg');">
+<section id="szlak-wrapper" class="section-trans wrapper group preload--hidden" style="background-image: url('/las/c/i/las_test_8.jpg');">
 
   <h1 class="szlak-h1 size-6 centered">Twój Szlak</h1>
 

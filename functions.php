@@ -4,9 +4,22 @@
 //
 
 if ( is_user_logged_in() ) {
+
+  //  include functions
   include( stream_resolve_include_path( __DIR__ . '/functions/f-user-progress.php' ) );
   include( stream_resolve_include_path( __DIR__ . '/functions/f-user-char.php' ) );
   include( stream_resolve_include_path( __DIR__ . '/functions/f-tests.php' ) );
+
+  //  get globals
+
+  //  progress
+  $user_progress = las_get_user_progress();
+  $exp = las_get_user_exp( $user_progress );
+  $level_array = las_get_user_level_array( $exp );
+
+  //  char
+  $user_char = las_get_user_char();
+
 }
 
 //
@@ -295,75 +308,115 @@ function las_format_t( $seconds ) {
 
   //  if over an hour
   if ( $seconds > 3600 ) {
-    $time .= 'ponad godzinę';
+
+    $hours = intval( floor( $seconds / 3600 ) );
+    $seconds_rest = $seconds - ( $hours * 3600 );
+    $minutes = intval( floor( $seconds_rest / 60 ) );
+
+    //$seconds_rest = $seconds_rest - ( $minutes * 60 );
+    //  przy godzinach, nie wyświetlamy sekund
+    $seconds_rest = 0;
+
   }
+  //  if less than an hour
   else {
 
     //  floor return a float, I preffer integer
     $minutes = intval( floor( $seconds / 60 ) );
     $seconds_rest = $seconds - ( $minutes * 60 );
 
+  }
 
-    //  if any minutes
-    if ( $minutes > 0 ) {
+  //  if hours
+  if ( $hours > 0 ) {
 
-      $time .= $minutes;
+    $time .= $hours;
 
-      //  1 minuta
-      if ( $minutes === 1 ) {
+    //  1 godzina
+    if ( $hours === 1 ) {
 
-        $time .= ' minuta';
-
-      }
-      //  minut
-      elseif ( in_array( $minutes, $minut_array ) || in_array( substr( $minutes, -1 ), $minut_array ) ) {
-
-        $time .= ' minut';
-
-      }
-      //  minuty
-      elseif ( in_array( $minutes, $minuty_array ) || in_array( substr( $minutes, -1 ), $minuty_array ) ) {
-
-        $time .= ' minuty';
-
-      }
+      $time .= ' godzina';
 
     }
+    //  godzin
+    elseif ( in_array( $hours, $minut_array ) || in_array( substr( $hours, -1 ), $minut_array ) ) {
 
+      $time .= ' godzin';
 
-    // if there are both minutes and seconds
-    if ( ( $minutes > 0 ) && ( $seconds_rest > 0 ) ) {
-      $time .= ', ';
     }
+    //  godziny
+    elseif ( in_array( $hours, $minuty_array ) || in_array( substr( $hours, -1 ), $minuty_array ) ) {
 
-
-    //  if any seconds left
-    if ( $seconds_rest > 0 ) {
-
-      $time .= $seconds_rest;
-
-      //  1 sekunda
-      if ( $seconds_rest === 1 ) {
-
-        $time .= ' sekunda';
-
-      }
-      //  sekund
-      elseif ( in_array( $seconds_rest, $minut_array ) || in_array( substr( $seconds_rest, -1 ), $minut_array ) ) {
-
-        $time .= ' sekund';
-
-      }
-      //  sekundy
-      elseif ( in_array( $seconds_rest, $minuty_array ) || in_array( substr( $seconds_rest, -1 ), $minuty_array ) ) {
-
-        $time .= ' sekundy';
-
-      }
+      $time .= ' godziny';
 
     }
 
   }
+
+  // if there are both minutes and seconds
+  if ( ( $hours > 0 ) && ( $minutes > 0 ) ) {
+    $time .= ', ';
+  }
+
+  //  if any minutes
+  if ( $minutes > 0 ) {
+
+    $time .= $minutes;
+
+    //  1 minuta
+    if ( $minutes === 1 ) {
+
+      $time .= ' minuta';
+
+    }
+    //  minut
+    elseif ( in_array( $minutes, $minut_array ) || in_array( substr( $minutes, -1 ), $minut_array ) ) {
+
+      $time .= ' minut';
+
+    }
+    //  minuty
+    elseif ( in_array( $minutes, $minuty_array ) || in_array( substr( $minutes, -1 ), $minuty_array ) ) {
+
+      $time .= ' minuty';
+
+    }
+
+  }
+
+
+  // if there are both minutes and seconds
+  if ( ( $minutes > 0 ) && ( $seconds_rest > 0 ) ) {
+    $time .= ', ';
+  }
+
+
+  //  if any seconds left
+  if ( $seconds_rest > 0 ) {
+
+    $time .= $seconds_rest;
+
+    //  1 sekunda
+    if ( $seconds_rest === 1 ) {
+
+      $time .= ' sekunda';
+
+    }
+    //  sekund
+    elseif ( in_array( $seconds_rest, $minut_array ) || in_array( substr( $seconds_rest, -1 ), $minut_array ) ) {
+
+      $time .= ' sekund';
+
+    }
+    //  sekundy
+    elseif ( in_array( $seconds_rest, $minuty_array ) || in_array( substr( $seconds_rest, -1 ), $minuty_array ) ) {
+
+      $time .= ' sekundy';
+
+    }
+
+  }
+
 
   return $time;
 }

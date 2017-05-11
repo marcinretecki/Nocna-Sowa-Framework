@@ -9,41 +9,10 @@
 //  - redirect to first chapter
 
 
+
 function las_show_chars() {
 
-  $chars = [
-
-    [],
-
-    [
-      'name'  => 'Vedhugger',
-      'nameT' => 'Drwal',
-      'img'   => '/las/c/i/chars/char_1.jpg',
-      'desc'  => ''
-    ],
-
-    [
-      'name'  => 'Forsker',
-      'nameT' => 'Naukowiec',
-      'img'   => '/las/c/i/chars/char_2.jpg',
-      'desc'  => ''
-    ],
-
-    [
-      'name'  => 'Fiskejente',
-      'nameT' => 'Rybaczka',
-      'img'   => '/las/c/i/chars/char_3.jpg',
-      'desc'  => ''
-    ],
-
-    [
-      'name'  => 'Noaide',
-      'nameT' => 'Szaman, Sjaman, Gandfinn',
-      'img'   => '/las/c/i/chars/char_4.jpg',
-      'desc'  => ''
-    ]
-
-  ];
+  $chars = las_get_chars_data();
 
 
   //  Desc One
@@ -155,7 +124,7 @@ function las_show_chars() {
 
     </div>
 
-    <div id="char-form" class="max-32 center relative group" style="padding:0;display:none;">
+    <div id="char-form" class="max-32 center" style="padding:0;display:none;">
 
       <form class="char-form section-white centered" action="" method="post" name="char-form">
 
@@ -163,11 +132,22 @@ function las_show_chars() {
 
         <p class="centered size-0 space-2">Możesz podać tylko imię, a my dodamy mu przydomek.</p>
 
-        <input id="char-fname" class="char-form__text" type="text" value="" name="FNAME" required="" placeholder="Wpisz imię" />
+        <div class="hidden-input">
+          <input id="char-type" type="hidden" name="CHAR" value="" />
+        </div>
 
-        <div class="pad" style="display:none;">
-          <p id="char-nick" class="centered size-3" style="display:none;"></p>
-          <button id="char-nick-btn" class="btn btn-green" type="button">Nadaj przydomek</button>
+        <div class="char-form__names group space-2">
+          <input id="char-fname" class="char-form__text" type="text" value="" name="FNAME" required="" placeholder="Wpisz imię" autocomplete="off" inputmode="latin-name" autocorrect="off" />
+
+          <input id="char-nick" class="char-form__text char-form__text--hidden" type="text" readonly="" value="" name="NICK"  autocomplete="off" autocorrect="off" />
+
+          <div id="char-blocker" class="char-form__blocker"></div>
+        </div>
+
+        <div style="display:none;">
+                   <button id="char-form-submit" class="btn btn-green" style="min-width: 40%;" type="submit">Stwórz bohatera
+          </button><button id="char-nick-btn" class="btn btn-dark" style="min-width: 40%;" type="button">Inny przydomek
+          </button>
         </div>
 
       </form>
@@ -179,3 +159,8 @@ function las_show_chars() {
 </section>
 
 
+<script>
+//  init Las
+var las = new LasCreateProfile();
+las.init();
+</script>

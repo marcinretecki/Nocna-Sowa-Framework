@@ -3,25 +3,19 @@
 Template Name: Profile
 */
 
+//  there was no user
+//  and there is post data
+if ( !$user_char && isset( $_POST["FNAME"] ) && isset( $_POST["NICK"] ) && isset( $_POST["CHAR"] ) )  {
 
+  //  create new user
+  $create_new_char = las_create_user_char( [ $_POST["FNAME"], $_POST["NICK"], $_POST["CHAR"] ] );
 
-//  tu będzie potrzebny pełny profil łącznie z opcjami:
-//  - reset progress
-//  - stop payments
-//  - etc
+  if ( $created_new_char ) {
+    wp_redirect( '/las/szlak/' );
+    exit;
+  }
 
-
-
-//
-//  for now only reset data
-//
-//print_r( las_reset_user_meta() );
-
-
-$user_progress = las_get_user_progress();
-$exp = las_get_user_exp( $user_progress );
-$level_array = las_get_user_level_array( $exp );
-$user_char = las_get_user_char();
+}
 
 
 
@@ -37,25 +31,18 @@ include( 'includes/head.php' );
 //  if not, create it
 //
 if ( $user_char ) {
+
   include( stream_resolve_include_path( __DIR__ . '/includes/char-display.php' ) );
+
 }
 else {
+
   include( stream_resolve_include_path( __DIR__ . '/includes/char-create.php' ) );
   include( stream_resolve_include_path( __DIR__ . '/data/las-nicknames.php' ) );
+
 }
 
-?>
 
 
-
-
-<script>
-//  init Szlak
-var las = new LasProfile();
-las.init();
-</script>
-
-
-<?php
 
 include( 'includes/footer.php' );

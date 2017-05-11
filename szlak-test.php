@@ -10,6 +10,9 @@ if ( !las_is_developer() ) {
 }
 
 
+
+
+
 include( 'includes/head.php' );
 
 
@@ -41,7 +44,7 @@ include( 'includes/head.php' );
 
             echo '<h2 class="h1">User Struct</h2>';
 
-            $user_progress = las_get_user_progress();
+
 
             echo '<pre class="size-0">';
             print_r( $user_progress );

@@ -213,20 +213,6 @@ function las_get_user_cookie_progress() {
 
 
 //
-//  Get profile picture
-//  @return url
-//
-function las_get_user_profile_img() {
-
-  //  check the type of character
-
-  return 'http://ecowallpapers.net/wp-content/uploads/1041_hearthstone:_rexxar.jpg';
-
-}
-
-
-
-//
 //  Update user meta
 //  Called on template_redirect
 //  At this moment there is access to both user and cookie
@@ -601,7 +587,6 @@ function las_get_leveling_system_multi() {
 //  pass user_progress to avoid additional calls to same function
 //  @return exp
 //
-
 function las_get_exp_from_progress( $user_cookie_progress ) {
 
   $exp              = 0;
@@ -653,10 +638,11 @@ function las_get_exp_from_progress( $user_cookie_progress ) {
 
 
 
-
+//
 //  Get user's experience
 //  pass args to avoid additional calls to same function
 //  @return integer
+//
 function las_get_user_exp( $user_progress ) {
 
   if ( $user_progress['totals']['exp'] ) {
@@ -669,8 +655,10 @@ function las_get_user_exp( $user_progress ) {
 }
 
 
+//
 //  Get user level
-//  return array(level, exp for next level)
+//  @return array(level, exp for next level)
+//
 function las_get_user_level_array( $user_exp ) {
 
   //  create array of levels
@@ -684,23 +672,25 @@ function las_get_user_level_array( $user_exp ) {
   $levels_multiplier = 1.1;
   $user_level = 0;
   $exp_for_next = 0;
+  $exp_for_previous = 0;
 
   for ( ; $levels_i <= $levels_max; $levels_i++ ) {
 
     $levels_exp_array[$levels_i] = round( ( ( $levels_exp_array[$levels_i - 1] * $levels_multiplier ) + $levels_add ), 0 );
 
-    $exp_for_next = $levels_exp_array[$levels_i];
+    $exp_for_next = $levels_exp_array[ $levels_i ];
 
-    if ( $levels_exp_array[$levels_i] > $user_exp ) {
+    if ( $exp_for_next > $user_exp ) {
 
       $user_level = $levels_i - 1;
+      $exp_for_previous = $levels_exp_array[ $levels_i -1 ];
       break;
 
     }
 
   }
 
-  return array( $user_level, $exp_for_next );
+  return array( $user_level, $exp_for_next, $exp_for_previous );
 
 }
 

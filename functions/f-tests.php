@@ -39,7 +39,7 @@ function test_las_format_t() {
 
   for ( $i = 0;  $i < 20; $i++ ) {
 
-    $no = mt_rand( 1, 6000 );
+    $no = mt_rand( 1, 20000 );
 
     echo $no . ': ';
     echo las_format_t( $no );

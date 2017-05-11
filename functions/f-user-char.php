@@ -12,9 +12,9 @@
 //
 //  Array
 //  [
-//    'character'     =>  'type'
+//    'char'          =>  'type'
 //    'name'          =>  'Marcin'
-//    'title'         =>  'Hårfagre'
+//    'nick'          =>  'Hårfagre'
 //  ]
 
 
@@ -85,10 +85,125 @@ function las_get_user_char() {
 }
 
 
+//
+//  Get char full name
+//  @return Name Nick
+//
+function las_get_user_char_name_nick( $user_char ) {
+
+  return $user_char[ 'name' ] . ' ' . $user_char[ 'nick' ];
+
+}
+
+
+//
+//  Get char type
+//  @return Name Nick
+//
+function las_get_user_char_type( $user_char ) {
+
+  $no = $user_char[ 'char' ];
+
+  if ( !$no || ( $no === 0 ) ) {
+    return false;
+  }
+
+  $chars_data = las_get_chars_data();
+
+  return $chars_data[ $no ][ 'name' ];
+
+}
+
+
+//
+//  Get char image
+//  @return url
+//
+function las_get_user_profile_img( $user_char ) {
+
+  $no = $user_char[ 'char' ];
+
+  if ( !$no || ( $no === 0 ) ) {
+    return false;
+  }
+
+  $chars_data = las_get_chars_data();
+
+  return $chars_data[ $no ][ 'img' ];
+
+}
+
+
+
+//
+//  Get user background image for profile
+//
+function las_get_user_profile_back( $user_char ) {
+
+  $no = $user_char[ 'char' ];
+
+  if ( !$no || ( $no === 0 ) ) {
+    return false;
+  }
+
+  $chars_data = las_get_chars_data();
+
+  return $chars_data[ $no ][ 'back' ];
+
+}
+
+
+//
+//  Chars Data
+//
+function las_get_chars_data() {
+
+  $chars = [
+
+    [],
+
+    [
+      'name'  => 'Vedhugger',
+      'nameT' => 'Drwal',
+      'img'   => '/las/c/i/chars/char_1.jpg',
+      'back'  => '/las/c/i/las_test.jpg',
+      'desc'  => ''
+    ],
+
+    [
+      'name'  => 'Forsker',
+      'nameT' => 'Naukowiec',
+      'img'   => '/las/c/i/chars/char_2.jpg',
+      'back'  => '/las/c/i/las_test_8.jpg',
+      'desc'  => ''
+    ],
+
+    [
+      'name'  => 'Fiskejente',
+      'nameT' => 'Rybaczka',
+      'img'   => '/las/c/i/chars/char_3.jpg',
+      'back'  => '/las/c/i/las_test_9.jpg',
+      'desc'  => ''
+    ],
+
+    [
+      'name'  => 'Noaide',
+      'nameT' => 'Szaman, Sjaman, Gandfinn',
+      'img'   => '/las/c/i/chars/char_4.jpg',
+      'back'  => '/las/c/i/las_test_4.jpg',
+      'desc'  => ''
+    ]
+
+  ];
+
+  return $chars;
+
+}
 
 
 //
 //  Create user character if they are missing
+//  @struct is [NAME, NICK, CHAR]
 //  @return true or false
 //
 function las_create_user_char( $struct ) {
@@ -103,11 +218,9 @@ function las_create_user_char( $struct ) {
   $clean_struct = [];
 
   //  sanitize all input
-  foreach ( $struct as $key => $value ) {
-
-    $clean_struct[ $key ] = sanitize_text_field( $value );
-
-  }
+  $clean_struct[ 'name' ] = sanitize_text_field( $_POST["FNAME"] );
+  $clean_struct[ 'nick' ] = sanitize_text_field( $_POST["NICK"] );
+  $clean_struct[ 'char' ] = sanitize_text_field( $_POST["CHAR"] );
 
   //  update meta
   $update = update_user_meta( $current_user->ID, 'las_char', $clean_struct );
