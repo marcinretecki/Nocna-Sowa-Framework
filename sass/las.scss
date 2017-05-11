@@ -3,12 +3,16 @@ Threme Name: Las
 Threme URI: http://las.nocnasowa.pl
 Description: Custom
 Author: Marcin Retecki
-
 */
+
+
 
 // Variables
 @import "partials/variables";
 @import "partials/mixins";
+
+
+
 //
 //  NAVBAR
 //
@@ -16,6 +20,31 @@ Author: Marcin Retecki
   background: transparent url("/las/c/i/icon_feather.png") no-repeat scroll center center / auto 100%;
   text-indent: -9999px;
 }
+
+
+.las-nav-user-img {
+  position:relative;
+  float:left;
+  width: $space-2;
+  height: $space;
+}
+
+.las-nav-user-img__i {
+  display:block;
+  position:absolute;
+  left:0;
+  top:-0.25rem;
+  width:1.5rem;
+  height:1.5rem;
+  border:0;
+  border-radius:50%;
+  overflow:hidden;
+  //  doecelowo będzie 1.5rem 1.5rem
+  background-size:2rem 2rem;
+  background-position: center center;
+}
+
+
 
 //
 //  SZLAK
@@ -188,14 +217,13 @@ Author: Marcin Retecki
 
 
 .szlak-sublist__btn--active {
-  //background: rgba($green, 0.05);
-  box-shadow: 0 0 1rem 1px rgba($green, 0.5);
+  box-shadow: inset 0 -1rem 1rem -1rem rgba(48,140,140,0.5);
   border-top-color: rgba($green, 0.5);
 }
 
 .szlak-sublist__btn--active:focus,
 .szlak-sublist__btn--active:hover {
-  box-shadow: 0px 0px 0px 0px rgba(28,115,115,0.5);
+  //box-shadow: inset 0px 0px 0px 0px rgba(28,115,115,0.5);
 }
 
 .szlak-sublist__btn--active:focus .szlak-sublist__icon--inactive,
@@ -556,9 +584,309 @@ Author: Marcin Retecki
   border-radius: 0 0 3px 3px;
 
 }
+
+
+.char-form__names {
+  overflow:hidden;
+  position:relative;
+}
+
 .char-form__text {
-  margin: 0 auto;
+  float: left;
+  width: 100%;
   border: 1px solid $green-border;
-  font-size: $size-1;
+  border-width: 0 0 3px;
+  border-radius: 1px;
+  margin: 0 auto;
+  font-size: $size-2;
   text-align: center;
+  transition: none;
+  -webkit-appearence: none;
+}
+
+.char-form__text--hidden {
+  width: 0%;
+  display: none;
+}
+
+.char-form__text--name {
+  width: 50%;
+  text-align: right;
+}
+
+.char-form__text--nick {
+  width: 50%;
+  text-align: left;
+  font-style: italic;
+  color: $green-border;
+  pointer-events: none;
+}
+
+.char-form__blocker {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  border-radius: 1px;
+  background: $green;
+  transition: none;
+}
+
+
+
+//
+//  Profile
+//
+.profile-back {
+  background-color: $dark;
+}
+
+
+.profile-header {
+  padding: $space-6 $space $space-4;
+  margin: 0;
+  @include for-tablet-landscape-up {
+    float: left;
+    width: 50%;
+  }
+}
+
+//  this needs max-width
+.profile-header__img {
+  display: block;
+  width: 50%;
+  margin-bottom: $space-half;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+.profile-section {
+  background: rgba( $dark-btn, 0.9 );
+  @include for-tablet-landscape-up {
+    float: right;
+    width: 50%;
+    min-height: 100%;
+  }
+}
+
+.profile-section__data {
+  margin: 0 auto;
+  width: 34rem;
+  max-width: 100%;
+  padding: $space-2 0;
+  @include for-tablet-landscape-up {
+    margin: 0;
+    padding-top: $space-4;
+  }
+}
+
+.profile-level {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  @include font-bariol-thin;
+  font-size: $size-2;
+  line-height: $space-2 + $space;
+  text-align: center;
+}
+
+.profile-level__line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-radius: 3px;
+  background: $green-hover;
+}
+
+
+.profile-badges {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  height: $space-2 + $space;
+  padding: $space;
+  text-align: center;
+}
+
+.profile-badges__badge {
+  display: inline-block;
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: -0.25rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  background: rgba(255,255,255,0.2);
+}
+
+
+
+//
+//  Profile Table
+//
+.profile-table {
+  width: 100%;
+  overflow: hidden;
+  line-height: 1.5rem;
+}
+
+.profile-table tr {
+  border-top:1px solid $dark-light;
+}
+
+.profile-table th {
+  position: relative;
+  padding:$space 0 $space $space-4;
+  font-size: $size-1;
+  font-weight: 400;
+  text-align: left;
+}
+
+.profile-table__no {
+  padding:$space $space-2 $space 0;
+  @include font-bariol-thin;
+  font-size: $size-2;
+  font-feature-settings: "tnum";
+  text-align: right;
+}
+
+.profile-table__icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  background-size: 1.25rem auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.profile-table__icon--ico {
+  background-image: url('/las/c/i/icon_post.png');
+}
+
+
+
+//
+//  FX
+//
+.preload--hidden > * {
+  opacity: 0;
+  transform: translateY( $space-half );
+}
+
+.las-loader {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: $white;
+}
+
+
+
+
+//
+//  TREE
+//
+.tree-wrapper {
+  position: relative;
+  top: 40%;
+  width: 8rem;
+  height: 6rem;
+  overflow: hidden;
+  margin: 0 auto;
+  background: $white;
+}
+
+.tree-land {
+  position:absolute;
+  left: 0;
+  bottom: -3rem;
+  width: 8rem;
+  height: 4rem;
+  border-radius: 100%;
+  background: $green-light;
+}
+
+.tree {
+  position: absolute;
+  width: 2rem;
+  height: 4rem;
+  transform-origin: bottom;
+}
+
+.tree--front {
+  left: 3rem; bottom: 1rem;
+}
+.tree--left {
+  left: 1.5rem;
+  bottom: 0.75rem;
+  transform: scale(0.8);
+  opacity:0.8;
+}
+.tree--right {
+  right: 1.5rem;
+  bottom: 0.75rem;
+  transform: scale(0.7);
+  opacity:0.7;
+}
+
+.tree__bottom {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: $green-light;
+}
+
+.tree__branch {
+  position:
+  absolute;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-color: $green-light;
+  transform-origin: bottom;
+}
+
+.tree__branch--one {
+  left: 0;
+  bottom: 0.5rem;
+  border-width: 0rem 1rem 2rem;
+}
+.tree__branch--two {
+  left: -0.75rem;
+  bottom: -1rem;
+  border-width: 0rem 0.75rem 1.5rem;
+}
+.tree__branch--three {
+  left: -0.5rem;
+  bottom: -0.5rem;
+  border-width: 0rem 0.5rem 1rem;
+}
+
+.tree-wind {
+  position:absolute;
+  left: 12rem;
+  bottom: 2rem;
+  height: 1px;
+  width: 1rem;
+  opacity: 0.5;
+  background: $green-light;
+}
+
+.tree-wind--two {
+  bottom: 4rem;
+  left: 8rem;
 }

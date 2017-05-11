@@ -67,9 +67,8 @@ function LasSzlak() {
 
     //  prepare
     this.addListener();
-    this.hideLoader();
 
-
+    this.preloadShow();
   };
 
 

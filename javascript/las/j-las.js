@@ -278,15 +278,84 @@ function LasHelper() {
 
     window.console.log('show loader');
 
+    var t1 = document.querySelectorAll('.tree__branch--one');
+    var t2 = document.querySelectorAll('.tree__branch--two');
+    var t3 = document.querySelectorAll('.tree__branch--three');
+    var w = document.querySelectorAll( '.tree-wind' );
+
+    var i = 0;
+    var max = 10;
+
     this.velocity(
       this.loader,
       'fadeIn',
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
     );
 
+    for ( ; i < max; i++ ) {
+
+      Velocity(
+        t1,
+        { skewX: [4, 0] },
+        { duration: 4 * this.helper.speed, easing: 'easeInOutQuad', delay: 2 * this.helper.speed }
+      );
+      Velocity(
+        t2,
+        { skewX: [8, 0] },
+        { duration: 4 * this.helper.speed, easing: 'easeInOutQuad', delay: 2 * this.helper.speed }
+      );
+      Velocity(
+        t3,
+        { skewX: [8, 0] },
+        { duration: 4 * this.helper.speed, easing: 'easeInOutQuad', delay: 2 * this.helper.speed }
+      );
+
+      Velocity(
+        w,
+        { translateX: ['-13rem', 0] },
+        { duration: 6 * this.helper.speed, easing: 'easeInOutQuad', delay: this.helper.speed }
+      );
+
+      Velocity(
+        t1,
+        { skewX: [0, 4] },
+        { duration: 6 * this.helper.speed, easing: 'easeOutSine', delay: this.helper.speed }
+      );
+      Velocity(
+        t2,
+        { skewX: [0, 8] },
+        { duration: 6 * this.helper.speed, easing: 'easeOutSine', delay: this.helper.speed }
+      );
+      Velocity(
+        t3,
+        { skewX: [0, 8] },
+        { duration: 6 * this.helper.speed, easing: 'easeOutSine', delay: this.helper.speed }
+      );
+
+      Velocity(
+        w,
+        { translateX: [0, 0] },
+        { duration: this.helper.speed, easing: 'easeInOutSine', delay: 5 * this.helper.speed }
+      );
+    }
   };
 
 
+
+  //
+  //  Preload show
+  //
+  this.preloadShow = function() {
+
+    var preload = document.querySelectorAll('.preload--hidden > *');
+
+    this.velocity(
+      preload,
+      { opacity: [1, 0], translateY: [0, '1rem'] },
+      { duration: 4 * this.helper.speed, easing: this.helper.easingQuart }
+    );
+
+  };
 
 
 

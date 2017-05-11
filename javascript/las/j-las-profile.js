@@ -3,7 +3,7 @@
 //
 
 
-function LasProfile() {
+function LasCreateProfile() {
   "use strict";
 
   //  get methods from the LasHelper
@@ -39,8 +39,10 @@ function LasProfile() {
   ];
 
   las.charForm =            document.getElementById('char-form');
+  las.charType =            document.getElementById('char-type');
   las.charFname =           document.getElementById('char-fname');
   las.charNick =            document.getElementById('char-nick');
+  las.charBlocker =         document.getElementById('char-blocker');
 
 
   las.clickedCharNo =       0;
@@ -58,6 +60,7 @@ function LasProfile() {
     clicked:                false,
     writing:                false,
     drawOpen:               false,
+    animatingDraw:          false,
     //  start, toggle, form, accept
     state:                  'start',
   };
@@ -203,10 +206,13 @@ function LasProfile() {
     console.log('clickedCharNo :' + this.clickedCharNo);
     console.log('activeCharNo :' + this.activeCharNo);
 
+    //  change the type
+    this.charType.value = this.clickedCharNo;
+
     //  this can be removed, unnecesary
     //  if clicked is same as active
     if ( this.activeCharNo === this.clickedCharNo ) {
-      this.closeChar();
+      //this.closeChar();
       return;
     }
 
@@ -389,48 +395,139 @@ function LasProfile() {
   //
   las.drawNickname = function() {
 
-    var charNo = this.activeCharNo;
-    var nicknames = this.shuffleArray( this.lasData.nicknames );
-    var nick = nicknames[ 3 ];
-    var beginFn;
+    var completeFn;
+    var nicknames;
+    var nick;
 
-    if ( !nick || !this.activeCharNo || !this.charForm || !this.charNick ) {
+    if ( this.state.animatingDraw || !this.activeCharNo || !this.charForm || !this.charNick ) {
       return;
     }
 
-    if ( this.state.nick ) {
+    this.state.animatingDraw = true;
 
-      this.velocity(
-        this.charNick,
-        'slideUp',
-        { duration: 2 * this.helper.speed, easing: this.helper.easingSpring }
-      );
 
-    }
+    //  zasłaniamy blocker od lewej
+    //  jeśli pirwszy raz, trzeba dodać classy do input
+    //  losujemy nick
+    //  odsłaniamy blocker od lewej
+    //  pokazujemy przyciski
+    //  resetujemy blocker
 
-    beginFn = function() {
-      this.charNick.innerHTML = nick;
+
+    completeFn = function() {
+
+      //  first time
+      //  add new classes
+      if ( !this.state.nick ) {
+
+        this.charFname.classList.add('char-form__text--name');
+        this.charNick.classList.add('char-form__text--nick');
+        this.charNick.classList.remove('char-form__text--hidden');
+
+        this.openNicknameDraw();
+
+      }
+
+      //  add nick
+      nicknames = this.shuffleArray( this.lasData.nicknames );
+      nick = nicknames[ 3 ].trim();
+      this.charNick.value = nick;
+
+      this.state.animatingDraw = false;
+
     }.bind(this);
 
-
+    //  show blocker from left
     this.velocity(
-      this.charNick,
-      'slideDown',
-      { duration: 2 * this.helper.speed, easing: this.helper.easingSpring,
-        begin: function() {
-          beginFn();
+      this.charBlocker,
+      { translateX: ['100%', '0%'] },
+      { duration: 4 * this.helper.speed, easing: this.helper.easingQuart,
+        complete: function() {
+          completeFn();
+        }
+      }
+    );
+
+    //  hide blocker from left
+    this.velocity(
+      this.charBlocker,
+      { translateX: ['200%', '100%'] },
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart,
+        complete: function( elements ) {
+          elements[0].style.cssText = '';
         }
       }
     );
 
 
-    window.console.log( nick );
-
-    if ( !this.state.nick ) {
-      this.state.nick = true;
-    }
-
   };
+
+
+
+
+  //  this function creates an array of spans for each letter in a string
+  //  then animates each span
+  //  las.loopNameCharacteres = function() {
+
+  //    var nicknames;
+  //    var nick;
+  //    var fname;
+  //    var fullName;
+  //    var charactersArray;
+  //    var charactersArrayL;
+  //    var i;
+  //    var characterElsArray = [];
+  //    var charactersWrapper;
+
+  //    nicknames = this.shuffleArray( this.lasData.nicknames );
+  //    nick = nicknames[ 3 ].trim();
+  //    fname = this.charFname.value.trim();
+  //    fullName = fname + ' ' +  nick;
+
+  //    //  split the name
+  //    charactersArray = fullName.split( '' );
+  //    charactersArrayL = charactersArray.length;
+
+  //    //  create wrapper
+  //    charactersWrapper = document.createElement('span');
+
+  //    //  loop over characters and add spans
+  //    for ( i = 0; i < charactersArrayL; i++ ) {
+
+  //      //  create
+  //      characterElsArray[ i ] = document.createElement('span');
+  //      characterElsArray[ i ].style.opacity = 0;
+  //      if ( charactersArray[ i ] !== ' ' ) {
+  //        characterElsArray[ i ].style.display = 'inline-block';
+  //      }
+  //      characterElsArray[ i ].innerHTML = charactersArray[ i ];
+
+  //      //  append to wrapper
+  //      charactersWrapper.appendChild( characterElsArray[ i ] );
+
+  //    }
+
+
+  //    //  append wrapper onto the
+  //    this.charNick.appendChild( charactersWrapper );
+
+  //    //  loop over characters and animate
+  //    for ( i = 0; i < charactersArrayL; i++ ) {
+
+  //      this.velocity(
+  //        characterElsArray[ i ],
+  //        { opacity: [1, 0], scale: [1, '0.5'], translateX: [0, '-5px'] },
+  //        { duration: 2* this.helper.speed, easing: this.helper.easingQuart, delay: i * 0.25 * this.helper.speed }
+  //      );
+
+  //      if ( i + 1 === charactersArrayL ) {
+  //        this.state.animatingDraw = false;
+  //      }
+
+  //    }
+
+
+  //  };
 
 
   //
@@ -551,7 +648,7 @@ function LasProfile() {
       window.clearTimeout( this.timers.keyEvent );
       this.timers.keyEvent = null;
 
-      this.openNicknameDraw();
+      this.drawNickname();
 
     }.bind(this), 1000);
 
@@ -579,6 +676,38 @@ function LasProfile() {
 
     }.bind(this), false);
 
+
+  };
+
+
+  //  return augmented object
+  return las;
+
+
+}
+
+
+
+function LasDisplayProfile() {
+  "use strict";
+
+  //  get methods from the LasHelper
+  //  we can add new methods or overwrite old ones
+  var las = new LasHelper();
+
+
+
+  //
+  //  Initiate
+  //
+  las.init = function() {
+
+    //  get Elements
+    this.getBasicElements();
+
+    //  prepare
+    //this.addListener();
+    this.preloadShow();
 
   };
 
