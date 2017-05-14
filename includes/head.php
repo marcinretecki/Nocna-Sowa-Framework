@@ -88,9 +88,9 @@
         <ul class="navbar__list">
                    <li><a href="/las/profil/" class="btn btn-dark-outline btn-nav">
                           <div class="las-nav-user-img" style="">
-                            <i class="las-nav-user-img__i" style="background-image:url('<?php echo las_get_user_profile_img( $user_char ); ?>');"></i>
+                            <i class="las-nav-user-img__i" style="background-image:url('<?php echo $user_img_url; ?>');"></i>
                           </div>
-                          <?php echo las_get_user_char_name_nick( $user_char ); ?>
+                          <?php echo $user_nick; ?>
           </a></li>
         </ul>
       </nav>

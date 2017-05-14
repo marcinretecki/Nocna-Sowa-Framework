@@ -1,13 +1,14 @@
 <?php
 //
-// Page template
-// used as a general wrapper for course pages
+//  Page template
+//  used as a general wrapper for course pages
 //
 
 
-
+//  GLOBALS
 global $post;
 $id = $post->ID;
+include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
 
 
 

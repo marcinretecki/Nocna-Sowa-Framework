@@ -4,7 +4,6 @@
 //
 
 
-//  - zamiast col-10 trzeba zrobić max-width
 ?>
 
 

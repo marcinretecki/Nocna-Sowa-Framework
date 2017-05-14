@@ -10,16 +10,6 @@ if ( is_user_logged_in() ) {
   include( stream_resolve_include_path( __DIR__ . '/functions/f-user-char.php' ) );
   include( stream_resolve_include_path( __DIR__ . '/functions/f-tests.php' ) );
 
-  //  get globals
-
-  //  progress
-  $user_progress = las_get_user_progress();
-  $exp = las_get_user_exp( $user_progress );
-  $level_array = las_get_user_level_array( $exp );
-
-  //  char
-  $user_char = las_get_user_char();
-
 }
 
 //
@@ -419,4 +409,23 @@ function las_format_t( $seconds ) {
 
 
   return $time;
+}
+
+
+
+
+function las_get_clean_title( $title ) {
+
+  $new_title = explode( '. ', $title );
+
+  //  check if there was a number in the title
+  if ( $new_title[1] ) {
+    $new_title = $new_title[1];
+  }
+  else {
+    $new_title = $new_title[0];
+  }
+
+  return $new_title;
+
 }

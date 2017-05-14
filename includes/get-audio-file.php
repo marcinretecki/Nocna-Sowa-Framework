@@ -1,4 +1,7 @@
 <?php
+//
+// Includes – Get audio files
+//
 
 if ( has_category( 'wyzwanie-liczby' ) ) {
   $audio_file_m4a = stream_resolve_include_path( '/las/c/s/wyzwanie/liczby.m4a' );

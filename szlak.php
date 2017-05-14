@@ -28,8 +28,8 @@
 
 
 
-global $post;
-$id = $post->ID;
+//  GLOBALS
+include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
 
 
 //
@@ -145,15 +145,7 @@ function las_list_loop( $sections, $level, $user_progress ) {
     //
 
     //  remove the number from the title
-    $new_title = explode( '. ', $section->post_title );
-
-    //  check if there was a number in the title
-    if ( $new_title[1] ) {
-      $new_title = $new_title[1];
-    }
-    else {
-      $new_title = $new_title[0];
-    }
+    $new_title = las_get_clean_title( $section->post_title );
 
 
     $sublist_id = 'sublist-' . $level . '-' . $j;
@@ -390,102 +382,6 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
 
 
 
-
-
-//
-//  Show result
-//  echos the whole thing
-//
-function las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result ) {
-
-
-  //
-  //  TODO
-  //  jeśli było dużo błędów, albo ćwiczenie nie było zrobione całe, pytamy, czy chce spróbować jeszcze raz, albo wrócić do przewodnika
-  //  jeśli nie było błędów, to sugestia, żeby wrócić na szlak
-  //  animacja, która odkryje nastepny chapter
-  //
-
-
-  //  if there are no examples
-  //  there is nothing to show
-  if ( !$last_wyzwanie_result['ex'] ) {
-    return;
-  }
-
-  $wyzwanie_link = get_permalink( $last_wyzwanie_result['id'] );
-  $img_url = las_get_user_profile_img();
-  $user_exp = las_get_user_exp( $user_progress );
-  $level_array = las_get_user_level_array( $user_exp );
-  $user_level = $level_array[0];
-  $exp_for_next = $level_array[1];
-
-  $formated_t = las_format_t( $last_wyzwanie_result['t'] );
-
-  $echo = '';
-
-  $echo .= '<div id="szlak-result" class="szlak-post-popup" style="display:block;background-color:rgba(60, 69, 76, 0.75);">';
-  $echo .= '<div id="szlak-result-content" class="szlak-post-popup__content section-content section-4-2">';
-  $echo .= '<div class="section-white section-content rounded group centered szlak-post-popup__section">';
-
-  $echo .= '<img src="' . $img_url . '" style="width:8rem !important;height:8rem !important;border-radius:50%;overflow:hidden;display:block;" class="center" />';
-
-  $echo .= 'Erfaring for chapter: ' . $last_wyzwanie_result['exp'];
-  $echo .= '<br />';
-  $echo .= 'Erfaring til sammen: ' . $user_exp;
-  $echo .= '<br />';
-  $echo .= 'Rang: ' . $user_level;
-  $echo .= '<br />';
-  $echo .= 'Neste rang: ' . $exp_for_next;
-  $echo .= '<br />';
-
-
-  //  if there is no time
-  //  user has not finished the chapter
-  if ( ( !$last_wyzwanie_result['t'] && $last_wyzwanie_result['first_time'] ) ) {
-
-    $echo .= 'Nie zrobiłeś wszystkich przykładów. Może spróbujesz jeszcze raz? Jeśli były za trudne, wróć do przewodnika albo do poprzednich wyzwań. Jeśli nie zrobiłeś wyzwania, bo wydawało Ci się nudne, daj nam o tym znać.';
-    $echo .= '<br />';
-
-  }
-  elseif ( !$last_wyzwanie_result['exp'] ) {
-
-    $echo .= 'Czy ćwiczenie było za trudne? Miałes problem z zagadnieniem? Wróć do przewodnika.';
-    $echo .= '<br />';
-
-  }
-  else {
-
-    $echo .= 'Czas: ' . $formated_t;
-    $echo .= '<br />';
-    $echo .= 'Przykłady: ' . $last_wyzwanie_result['ex'];
-    $echo .= '<br />';
-
-    if ( $last_wyzwanie_result['wrong'] ) {
-
-      $echo .= 'Błędy: ' . $last_wyzwanie_result['wrong'];
-      $echo .= '<br />';
-
-    }
-
-    //  Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.
-
-
-  }
-
-  $echo .= '<a href="' . $wyzwanie_link . 'wyzwanie/" class="btn btn-green">Powtórz Wyzwanie</a>';
-  $echo .= '<button id="close-result" class="btn btn-green">Wróć na Szlak</button>';
-
-  $echo .= '</div>';
-  $echo .= '</div>';
-  $echo .= '</div>';
-
-  echo $echo;
-
-}
-
-
-
 //
 //  Begin HTML
 //
@@ -543,19 +439,18 @@ include( 'includes/head.php' );
 </div>
 
 <?php
-  $last_wyzwanie_result = las_get_last_wyzwanie_result( $user_progress );
-
-  if ( $last_wyzwanie_result ) {
-
-    //  reset the the last, so it doesn't show again
-    las_reset_last_wyzwanie_user_meta();
-
-    las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result );
-  }
+  //  $last_wyzwanie_result = las_get_last_wyzwanie_result( $user_progress );
 
   //  for testing results
-  //  $last_wyzwanie_result = test_las_get_last_wyzwanie_result();
-  //  las_show_last_wyzwanie_result( $user_progress, $last_wyzwanie_result );
+  $last_wyzwanie_result = test_las_get_last_wyzwanie_result();
+
+  if ( $last_wyzwanie_result && $last_wyzwanie_result['ex'] ) {
+
+    //las_reset_last_wyzwanie_user_meta();
+
+    include( stream_resolve_include_path( __DIR__ . '/includes/results.php' ) );
+
+  }
 ?>
 
 
@@ -569,10 +464,8 @@ var las = new LasSzlak();
     echo 'las.helper.sectionTopOpen = \'' . $all_sections_array[1] . '\';'  . "\r\n";
   }
 
-  //  for testing
-  //$last_wyzwanie_result[ 'first_time' ] = true;
 
-  if ( $last_wyzwanie_result[ 'first_time' ] ) {
+  if ( $last_wyzwanie_result && $last_wyzwanie_result[ 'first_time' ] ) {
 
     $ids = $all_sections_array[2];
 
@@ -581,6 +474,12 @@ var las = new LasSzlak();
     $next_id = $ids[ $next_id_key ];
 
     echo 'las.helper.chapterToHighlight = \'' . $next_id . '\'; ' . "\r\n";
+  }
+
+  if ( $last_wyzwanie_result && $last_wyzwanie_result['ex'] ) {
+
+    echo 'las.state.results = true;';
+
   }
 
 ?>

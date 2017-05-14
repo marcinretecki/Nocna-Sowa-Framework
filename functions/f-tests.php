@@ -64,14 +64,14 @@ function test_las_format_t() {
 function test_las_get_last_wyzwanie_result() {
 
   $last_wyzwanie_result = [
-    'exp'         => 320,
+    'exp'         => 800,
     'ex'          => 16,
     't'           => 544,
     'repeat'      => 23,
     'more'        => 3,
     'wrong'       => 17,
     'trans'       => 12,
-    'id'          => 16,
+    'id'          => 36,
     'first_time'  => true
   ];
 

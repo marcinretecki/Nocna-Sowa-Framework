@@ -89,18 +89,7 @@ function las_profile_show_data_table( $user_progress ) {
 }
 
 
-function las_get_level_percent( $exp, $level_array ) {
 
-  $prev_level = $level_array[2];
-  $next_level = $level_array[1];
-
-  $exp_diff = $next_level - $prev_level;
-  $exp_needed = $next_level - $exp;
-
-  $percent = floor( ( ( $exp_diff - $exp_needed ) / $exp_diff ) * 100) . '%';
-
-  return $percent;
-}
 
 
 function las_profile_show_last_dates( $user_progress ) {
@@ -155,12 +144,12 @@ function las_profile_show_last_dates( $user_progress ) {
             <div class="row space centered">
               <div class="col-8">
                 <div id="profile-level" class="profile-level section-green space">
-                  <div class="profile-level__line" style="width:<?php echo las_get_level_percent( $exp, $level_array ); ?>"></div>
+                  <div class="profile-level__line" style="width:<?php echo las_get_level_percent( $user_exp, $level_array ); ?>"></div>
                   <span class="relative"><?php echo 'Rang ' . $level_array[0]; ?></span>
                 </div>
                 <p>
                   <?php
-                    echo '<i>Erfaring</i>: ' . $exp;
+                    echo '<i>Erfaring</i>: ' . $user_exp;
                     echo '<br />';
                     echo '<i>Neste rang</i>: ' . $level_array[1];
                   ?>

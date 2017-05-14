@@ -20,7 +20,7 @@ function LasAudioData() {
   this.chat = {
 
     aa1: {
-      spokenWord: 'Powiedz: Oni chcą ugotować obiad.',
+      spokenWord: 'Powiedz: "Oni chcą ugotować obiad".',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
@@ -36,7 +36,7 @@ function LasAudioData() {
 
 
     ab1: {
-      spokenWord: 'Powiedz: Ona chce kupić mieszkanie.',
+      spokenWord: 'Powiedz: "Ona chce kupić mieszkanie".',
       startTime:  8,
       duration:   1.5,
       pauseTime:  6,
@@ -52,7 +52,7 @@ function LasAudioData() {
 
 
     ac1: {
-      spokenWord: 'Powiedz: Chcę leżeć na plaży.',
+      spokenWord: 'Powiedz: "Chcę leżeć na plaży".',
       startTime:  15,
       duration:   1.5,
       pauseTime:  6,
@@ -68,7 +68,7 @@ function LasAudioData() {
 
 
     ae1: {
-      spokenWord: 'Powiedz: Chcemy lecieć na Svalbard.',
+      spokenWord: 'Powiedz: "Chcemy lecieć na Svalbard".',
       startTime:  29,
       duration:   1.5,
       pauseTime:  5,
@@ -84,7 +84,7 @@ function LasAudioData() {
 
 
     af1: {
-      spokenWord: 'Powiedz: Muszę zrobić zakupy.',
+      spokenWord: 'Powiedz: "Muszę zrobić zakupy".',
       startTime:  36,
       duration:   1.5,
       pauseTime:  6,
@@ -100,7 +100,7 @@ function LasAudioData() {
 
 
     ah1: {
-      spokenWord: 'Powiedz: Oni muszą się zastanowić.',
+      spokenWord: 'Powiedz: "Oni muszą się zastanowić".',
       startTime:  43,
       duration:   1.5,
       pauseTime:  6,
@@ -116,7 +116,7 @@ function LasAudioData() {
 
 
     aj1: {
-      spokenWord: 'Powiedz: My musimy uczyć się dużo.',
+      spokenWord: 'Powiedz: "My musimy uczyć się dużo".',
       startTime:  50,
       duration:   1.5,
       pauseTime:  6,
@@ -132,7 +132,7 @@ function LasAudioData() {
 
 
     ai1: {
-      spokenWord: 'Powiedz: Musicie tu posprzątać.',
+      spokenWord: 'Powiedz: "Musicie tu posprzątać".',
       startTime:  57,
       duration:   1.5,
       pauseTime:  5,
@@ -148,7 +148,7 @@ function LasAudioData() {
 
 
     ak1: {
-      spokenWord: 'Powiedz: On musi dużo jeść.',
+      spokenWord: 'Powiedz: "On musi dużo jeść".',
       startTime:  63,
       duration:   1.5,
       pauseTime:  5,
@@ -164,7 +164,7 @@ function LasAudioData() {
 
 
     al1: {
-      spokenWord: 'Powiedz: On umie pływać.',
+      spokenWord: 'Powiedz: "On umie pływać".',
       startTime:  70,
       duration:   1.5,
       pauseTime:  6,
@@ -180,7 +180,7 @@ function LasAudioData() {
 
 
     ba1: {
-      spokenWord: 'Powiedz: Ona może jechać. albo Umie jechać.',
+      spokenWord: 'Powiedz: "Ona może jechać". albo "Umie jechać".',
       startTime:  77,
       duration:   1.5,
       pauseTime:  8,
@@ -212,7 +212,7 @@ function LasAudioData() {
 
 
     bc1: {
-      spokenWord: 'Powiedz: To może zaczekać.',
+      spokenWord: 'Powiedz: "To może zaczekać".',
       startTime:  92,
       duration:   1.5,
       pauseTime:  6,
@@ -228,7 +228,7 @@ function LasAudioData() {
 
 
     bd1: {
-      spokenWord: 'Powiedz: Mogę zostać w domu.',
+      spokenWord: 'Powiedz: "Mogę zostać w domu".',
       startTime:  98,
       duration:   1.5,
       pauseTime:  8,
@@ -244,7 +244,7 @@ function LasAudioData() {
 
 
     bf1: {
-      spokenWord: 'Powiedz: Oni zamierzają pójść na wycieczkę.',
+      spokenWord: 'Powiedz: "Oni zamierzają pójść na wycieczkę".',
       startTime:  113,
       duration:   1.5,
       pauseTime:  6,
@@ -260,7 +260,7 @@ function LasAudioData() {
 
 
     bh1: {
-      spokenWord: 'Powiedz: On planuje zmienić pracę.',
+      spokenWord: 'Powiedz: "On planuje zmienić pracę".',
       startTime:  126,
       duration:   1.5,
       pauseTime:  6,
@@ -276,7 +276,7 @@ function LasAudioData() {
 
 
     bi1: {
-      spokenWord: 'Powiedz: My zamierzamy uczyć się cierpliwości.',
+      spokenWord: 'Powiedz: "My zamierzamy uczyć się cierpliwości".',
       startTime:  133,
       duration:   1.5,
       pauseTime:  5,
@@ -292,7 +292,7 @@ function LasAudioData() {
 
 
     bj1: {
-      spokenWord: 'Powiedz: Oni planują ćwiczyć więcej.',
+      spokenWord: 'Powiedz: "Oni planują ćwiczyć więcej".',
       startTime:  139,
       duration:   1.5,
       pauseTime:  5,
@@ -308,7 +308,7 @@ function LasAudioData() {
 
 
     bk1: {
-      spokenWord: 'Powiedz: Ona zamierza czytać więcej.',
+      spokenWord: 'Powiedz: "Ona zamierza czytać więcej".',
       startTime:  145,
       duration:   1.5,
       pauseTime:  5,

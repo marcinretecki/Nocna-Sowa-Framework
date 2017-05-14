@@ -58,11 +58,15 @@
 //  Get user progress
 //  @return array or false
 //
-function las_get_user_progress() {
+function las_get_user_progress( $id = 0 ) {
 
-  $current_user = wp_get_current_user();
+  if ( $id === 0 ) {
+    $current_user = wp_get_current_user();
+    $id = $current_user->ID;
+  }
 
-  $user_meta = get_user_meta( $current_user->ID, 'las_progress' );
+
+  $user_meta = get_user_meta( $id, 'las_progress' );
 
   //  if there is any meta
   if ( $user_meta && is_array( $user_meta[0] ) ) {
@@ -652,6 +656,23 @@ function las_get_user_exp( $user_progress ) {
     return 0;
   }
 
+}
+
+
+//
+//  Get level percent for the next
+//
+function las_get_level_percent( $user_exp, $level_array ) {
+
+  $prev_level = $level_array[2];
+  $next_level = $level_array[1];
+
+  $exp_diff = $next_level - $prev_level;
+  $exp_needed = $next_level - $user_exp;
+
+  $percent = floor( ( ( $exp_diff - $exp_needed ) / $exp_diff ) * 100) . '%';
+
+  return $percent;
 }
 
 

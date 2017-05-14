@@ -10,6 +10,8 @@ if ( !las_is_developer() ) {
 }
 
 
+//  GLOBALS
+include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
 
 
 

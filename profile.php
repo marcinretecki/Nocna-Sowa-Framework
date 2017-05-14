@@ -3,6 +3,10 @@
 Template Name: Profile
 */
 
+//  GLOBALS
+include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
+
+
 //  there was no user
 //  and there is post data
 if ( !$user_char && isset( $_POST["FNAME"] ) && isset( $_POST["NICK"] ) && isset( $_POST["CHAR"] ) )  {
@@ -37,8 +41,8 @@ if ( $user_char ) {
 }
 else {
 
-  include( stream_resolve_include_path( __DIR__ . '/includes/char-create.php' ) );
   include( stream_resolve_include_path( __DIR__ . '/data/las-nicknames.php' ) );
+  include( stream_resolve_include_path( __DIR__ . '/includes/char-create.php' ) );
 
 }
 
