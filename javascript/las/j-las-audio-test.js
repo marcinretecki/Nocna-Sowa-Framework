@@ -145,11 +145,11 @@ function LasAudioTest() {
 
     //  to remove
     //  add css for audio-test-clue
-    var style = document.createElement('style');
-    style.type = 'text/css';
-    style.appendChild(document.createTextNode('.audio-test-clue{background: #60B3B3 none repeat scroll 0 0;border-radius:3px;font-style:italic;padding:0.25rem 0.5rem;display:inline-block;}'));
-    var head = document.getElementsByTagName('head')[0];
-    head.appendChild(style);
+    //  var style = document.createElement('style');
+    //  style.type = 'text/css';
+    //  style.appendChild(document.createTextNode(''));
+    //  var head = document.getElementsByTagName('head')[0];
+    //  head.appendChild(style);
 
     //  Get the intro
     this.getNextBubble( 'INTRO' );
@@ -346,7 +346,7 @@ function LasAudioTest() {
     }
 
     //  if there is no audio file, we need to inform the user
-    if ( !this.audioFile ) {
+    if ( !this.audioFile && ( this.sequenceType === 'pimp' ) ) {
       window.console.log('no way to do pimp with no audio');
 
       //  get error msg

@@ -49,6 +49,10 @@
   //
   LasHelper.prototype.isCorrectAudioObject = function( audioObject ) {
 
+    if ( !audioObject ) {
+      return false;
+    }
+
     if ( !audioObject.hasOwnProperty('startTime') || ( audioObject.startTime < 0 ) ) {
       return false;
     }

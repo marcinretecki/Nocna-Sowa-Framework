@@ -294,45 +294,45 @@ function LasHelper() {
 
     for ( ; i < max; i++ ) {
 
-      Velocity(
+      this.velocity(
         t1,
         { skewX: [4, 0] },
         { duration: 4 * this.helper.speed, easing: 'easeInOutQuad', delay: 2 * this.helper.speed }
       );
-      Velocity(
+      this.velocity(
         t2,
         { skewX: [8, 0] },
         { duration: 4 * this.helper.speed, easing: 'easeInOutQuad', delay: 2 * this.helper.speed }
       );
-      Velocity(
+      this.velocity(
         t3,
         { skewX: [8, 0] },
         { duration: 4 * this.helper.speed, easing: 'easeInOutQuad', delay: 2 * this.helper.speed }
       );
 
-      Velocity(
+      this.velocity(
         w,
         { translateX: ['-13rem', 0] },
         { duration: 6 * this.helper.speed, easing: 'easeInOutQuad', delay: this.helper.speed }
       );
 
-      Velocity(
+      this.velocity(
         t1,
         { skewX: [0, 4] },
         { duration: 6 * this.helper.speed, easing: 'easeOutSine', delay: this.helper.speed }
       );
-      Velocity(
+      this.velocity(
         t2,
         { skewX: [0, 8] },
         { duration: 6 * this.helper.speed, easing: 'easeOutSine', delay: this.helper.speed }
       );
-      Velocity(
+      this.velocity(
         t3,
         { skewX: [0, 8] },
         { duration: 6 * this.helper.speed, easing: 'easeOutSine', delay: this.helper.speed }
       );
 
-      Velocity(
+      this.velocity(
         w,
         { translateX: [0, 0] },
         { duration: this.helper.speed, easing: 'easeInOutSine', delay: 5 * this.helper.speed }
@@ -345,14 +345,27 @@ function LasHelper() {
   //
   //  Preload show
   //
-  this.preloadShow = function() {
+  this.preloadShow = function( completeFn ) {
 
     var preload = document.querySelectorAll('.preload--hidden > *');
+
+    if ( typeof completeFn !== 'undefined'  ) {
+      completeFn = completeFn.bind(this);
+    }
+    //  prevent error if the function is not provided
+    else {
+      completeFn = Function.prototype;
+    }
 
     this.velocity(
       preload,
       { opacity: [1, 0], translateY: [0, '1rem'] },
-      { duration: 4 * this.helper.speed, easing: this.helper.easingQuart }
+      { duration: 4 * this.helper.speed, easing: this.helper.easingQuart,
+        complete: function() {
+          completeFn();
+          window.console.log('preloadShow complete');
+        }
+      }
     );
 
   };

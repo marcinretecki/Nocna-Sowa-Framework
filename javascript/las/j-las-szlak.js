@@ -15,32 +15,32 @@ function LasSzlak() {
   //
   //  Elements
   //
-  las.szlakWrapper =       document.getElementById('szlak-wrapper');
-  las.szlakSection =       document.getElementById('szlak-section');
-  las.szlakPopUp =         document.getElementById('szlak-post-popup');
-  las.szlakPopUpSection =  document.getElementById('szlak-post-popup__section');
+  las.szlakWrapper =          document.getElementById('szlak-wrapper');
+  las.szlakSection =          document.getElementById('szlak-section');
+  las.szlakPopUp =            document.getElementById('szlak-post-popup');
+  las.szlakPopUpSection =     document.getElementById('szlak-post-popup__section');
   las.navs = {
-    basic:                      document.getElementById('section-basic'),
-    advanced:                   document.getElementById('section-advanced')
+    basic:                    document.getElementById('section-basic'),
+    advanced:                 document.getElementById('section-advanced')
   };
 
   las.popupBtns = {
-    przewodnik:                 document.getElementById('szlak-btn-przewodnik'),
-    wyzwanie:                   document.getElementById('szlak-btn-wyzwanie'),
-    sos:                        document.getElementById('szlak-btn-sos')
+    przewodnik:               document.getElementById('szlak-btn-przewodnik'),
+    wyzwanie:                 document.getElementById('szlak-btn-wyzwanie'),
+    sos:                      document.getElementById('szlak-btn-sos')
   };
 
 
-  las.clickedLevel =       '';
+  las.clickedLevel =          '';
 
   las.btns = {
-    basic:                  [],
-    advanced:               []
+    basic:                    [],
+    advanced:                 []
   };
 
   las.sections = {
-    basic:                  [],
-    advanced:               []
+    basic:                    [],
+    advanced:                 []
   };
 
   //
@@ -68,138 +68,9 @@ function LasSzlak() {
     //  prepare
     this.addListener();
 
-    this.preloadShow();
+    this.preloadShow( this.animateResults );
   };
 
-
-  las.toggleSection = function() {
-
-    var l = this.sections[this.clickedLevel].length;
-    var toShow;
-    var toHide;
-    var showFn;
-    var hideFn;
-    var btnToShow;
-    var btnToHide;
-    var navOutFn;
-    var navInFn;
-
-    var width = document.body.getBoundingClientRect().width;
-
-    //  there is nothing to do
-    if ( l === 0 ) {
-      window.console.log('nothing to show');
-      return;
-    }
-
-    window.console.log(l);
-
-    //  if there is something to hide
-    if ( l > 1 ) {
-      toHide = this.sections[this.clickedLevel].shift();
-      btnToHide = this.btns[this.clickedLevel].shift();
-    }
-    //  only show
-    else {
-      toHide = false;
-      window.console.log('nothing to hide');
-    }
-
-    //  get the element to show, but don't remove it from array
-    toShow =  this.sections[this.clickedLevel][0];
-    btnToShow =  this.btns[this.clickedLevel][0];
-    window.console.log(toShow);
-
-
-    showFn = function() {
-
-      //  change the btn
-      btnToShow.classList.add('szlak-list__btn--active');
-      btnToShow.blur();
-
-      //  animate section
-      this.velocity(
-        toShow,
-        'slideDown',
-        { duration: this.helper.speed*2, easing: this.helper.easingQuart, display: 'block', queue: false }
-      );
-
-    }.bind(this);
-
-
-    hideFn = function() {
-
-      //  reverse change on btn
-      btnToHide.classList.remove('szlak-list__btn--active');
-      btnToHide.blur();
-
-      //  animatio section
-      this.velocity(
-        toHide,
-        'slideUp',
-        { duration: 2 * this.helper.speed*2, easing: this.helper.easingQuart, display: 'none' }
-      );
-
-    }.bind(this);
-
-
-    navOutFn = function() {
-
-      //this.szlakWrapper.classList.add('szlak-wrapper--faded');
-
-    }.bind(this);
-
-
-    navInFn = function() {
-
-      //this.szlakWrapper.classList.remove('szlak-wrapper--faded');
-
-    }.bind(this);
-
-    window.console.log(toShow.id.split('-')[2]);
-
-
-    //  only hide
-    if ( ( toHide && ( toShow === toHide ) ) || ( !toShow.id.split('-')[2] ) ) {
-
-      window.console.log('only hide');
-
-      //  move nav back
-      navInFn();
-
-      //  hide section
-      hideFn();
-
-      //  clear the queue
-      this.sections[this.clickedLevel] = [];
-      this.btns[this.clickedLevel] = [];
-
-    }
-    //  both hide and show
-    else if ( toHide ) {
-
-      window.console.log('both show and hide');
-
-      //  hide section and queue show section
-      hideFn();
-      showFn();
-
-    }
-    //  only show
-    else {
-
-      window.console.log('only show');
-
-      //  move nav out
-      navOutFn();
-
-      //  show section
-      showFn();
-
-
-    }
-
-  };
 
 
   //  open section on page load
@@ -235,13 +106,133 @@ function LasSzlak() {
   };
 
 
+
+  //
+  //  Toggle section with chapter links
+  //
+  las.toggleSection = function() {
+
+    var l = this.sections[this.clickedLevel].length;
+    var toShow;
+    var toHide;
+    var showFn;
+    var hideFn;
+    var btnToShow;
+    var btnToHide;
+    var duration;
+
+    var width = document.body.getBoundingClientRect().width;
+
+    //  there is nothing to do
+    if ( l === 0 ) {
+      window.console.log('nothing to show');
+      return;
+    }
+
+    window.console.log(l);
+
+    //  if there is something to hide
+    if ( l > 1 ) {
+      toHide = this.sections[this.clickedLevel].shift();
+      btnToHide = this.btns[this.clickedLevel].shift();
+    }
+    //  only show
+    else {
+      toHide = false;
+      window.console.log('nothing to hide');
+    }
+
+    //  get the element to show, but don't remove it from array
+    toShow =  this.sections[this.clickedLevel][0];
+    btnToShow =  this.btns[this.clickedLevel][0];
+
+
+    //  if there are results, no need for animation
+    if ( las.state.results ) {
+      duration = 0;
+    }
+    else {
+      duration = 2 * this.helper.speed;
+    }
+
+
+    showFn = function() {
+
+      //  change the btn
+      btnToShow.classList.add('szlak-list__btn--active');
+      btnToShow.blur();
+
+      //  animate section
+      this.velocity(
+        toShow,
+        'slideDown',
+        { duration: duration, easing: this.helper.easingQuart, display: 'block', queue: false }
+      );
+
+    }.bind(this);
+
+
+    hideFn = function() {
+
+      //  reverse change on btn
+      btnToHide.classList.remove('szlak-list__btn--active');
+      btnToHide.blur();
+
+      //  animatio section
+      this.velocity(
+        toHide,
+        'slideUp',
+        { duration: duration, easing: this.helper.easingQuart, display: 'none' }
+      );
+
+    }.bind(this);
+
+
+    window.console.log(toShow.id.split('-')[2]);
+
+
+    //  only hide
+    if ( ( toHide && ( toShow === toHide ) ) || ( !toShow.id.split('-')[2] ) ) {
+
+      window.console.log('only hide');
+
+      //  hide section
+      hideFn();
+
+      //  clear the queue
+      this.sections[this.clickedLevel] = [];
+      this.btns[this.clickedLevel] = [];
+
+    }
+    //  both hide and show
+    else if ( toHide ) {
+
+      window.console.log('both show and hide');
+
+      //  hide section and queue show section
+      hideFn();
+      showFn();
+
+    }
+    //  only show
+    else {
+
+      window.console.log('only show');
+
+      //  show section
+      showFn();
+
+    }
+
+  };
+
+
+
+
+  //
+  //  Popup
+  //
   las.togglePopup = function() {
-
-
-    //  TODO
-    //  show wyzwanie result
-    //  hide wyzwanie if there is none
-    //  think more
 
     var props;
     var options;
@@ -301,15 +292,169 @@ function LasSzlak() {
   };
 
 
-  las.hideResult = function() {
+  //
+  //  Results
+  //
+  las.animateResults = function() {
 
-    //  this should be condensed into the togglePopUp
+    if ( !las.state.results ) {
+      return;
+    }
+
+    this.animateResultsEls = [];
+
+    this.animateResultsEls.levelEl = document.getElementById( 'results-level' );
+    this.animateResultsEls.levelLineEl = document.getElementById( 'results-level__line' );
+    this.animateResultsEls.percentBefore = this.animateResultsEls.levelLineEl.getAttribute('data-percent-before');
+    this.animateResultsEls.percentNow = this.animateResultsEls.levelLineEl.getAttribute('data-percent-now');
+
+    console.log('% before:' + this.animateResultsEls.percentBefore);
+    console.log('% now:' + this.animateResultsEls.percentNow);
+
+    this.animateResultsEls.levelNoEl = document.getElementById( 'results-level__no' );
+    this.animateResultsEls.levelBefore = parseInt( this.animateResultsEls.levelNoEl.getAttribute('data-level-before') );
+    this.animateResultsEls.levelNow = parseInt( this.animateResultsEls.levelNoEl.getAttribute('data-level-now') );
+
+    this.animateResultsEls.addedExpEl = document.getElementById( 'results-added-exp' );
+    this.animateResultsEls.addedExp = this.animateResultsEls.addedExpEl.getAttribute( 'data-added-exp' );
+
+    this.animateResultsEls.levelHighlight = document.getElementById( 'results-level__highlight' );
+
+
+    //  the level is same
+
+    if ( this.animateResultsEls.levelNow === this.animateResultsEls.levelBefore ) {
+
+      //  animate %
+      this.animateResultsPercent( this.animateResultsEls.percentNow, this.animateResultsEls.percentBefore );
+
+    }
+    //  user got level up
+    else if ( this.animateResultsEls.levelNow > this.animateResultsEls.levelBefore ) {
+
+      //  animate to 100%
+      this.animateResultsPercent( '100%', this.animateResultsEls.percentBefore, this.animateLevelChange );
+
+    }
+
+
+    //  animate number
+    window.requestAnimationFrame( this.animateExpCount.bind(this) );
+
+
+  };
+
+  las.animateResultsPercent = function( now, before, completeFn ) {
+
+    if ( typeof completeFn !== 'undefined'  ) {
+      completeFn = completeFn.bind(this);
+    }
+    //  prevent error if the function is not provided
+    else {
+      completeFn = Function.prototype;
+    }
+
+    this.velocity(
+      this.animateResultsEls.levelLineEl,
+      { width: [now ,before ] },
+      { duration: 8 * this.helper.speed, easing: this.helper.easingQuart,
+        complete: function() {
+          completeFn();
+        }
+      }
+    );
+
+  };
+
+  las.animateExpCount = function( timestamp ) {
+
+    //  the same as @animateResultsPercent
+    var duration = 8 * this.helper.speed;
+    var expToShow;
+    var animStateFraction;
+
+    var easeInOutQuart = function(t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t };
+
+    //  check if start time was previously saved
+    if ( !this.helper.startAnimateExpCount ) {
+      this.helper.startAnimateExpCount = timestamp;
+    }
+
+    //  if the time has not finished, repeat
+    if ( ( timestamp - this.helper.startAnimateExpCount ) < duration ) {
+
+      window.requestAnimationFrame( this.animateExpCount.bind(this) );
+
+    }
+
+    animStateFraction = ( timestamp - this.helper.startAnimateExpCount ) / duration;
+
+    //  change by easing
+    animStateFraction = easeInOutQuart( animStateFraction );
+
+    //  how much exp to animate now
+    expToShow = Math.ceil( animStateFraction * this.animateResultsEls.addedExp );
+
+    //  change inner HTML
+    this.animateResultsEls.addedExpEl.innerHTML = '+' + expToShow;
+
+    //  time ended, so set it to proper number
+    if ( ( timestamp - this.helper.startAnimateExpCount ) >= duration ) {
+      this.animateResultsEls.addedExpEl.innerHTML = '+' + this.animateResultsEls.addedExp;
+    }
+
+  };
+
+  las.animateLevelChange = function() {
+
+    //  set new x%
+    var completeFn = function() {
+      this.animateResultsEls.levelLineEl.style.width = this.animateResultsEls.percentNow;
+      this.animateResultsEls.levelNoEl.innerHTML = 'Rang ' + this.animateResultsEls.levelNow;
+    }.bind( this );
+
+    console.log('level change!');
+
+    //  highlight level up
+    this.velocity(
+      this.animateResultsEls.levelHighlight,
+      { opacity: [ 1, 0 ] },
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'block',
+        complete: function() {
+          completeFn();
+        }
+      }
+    );
+
+
+    //  remove highlight
+    this.velocity(
+      this.animateResultsEls.levelHighlight,
+      { opacity: [ 0, 1 ] },
+      { duration: 6 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
+    );
+
+
+  };
+
+
+  //
+  //  Hide Results
+  //
+  las.hideResult = function() {
 
     var szlakResult =  document.getElementById('szlak-result');
     var szlakResultContent =  document.getElementById('szlak-result-content');
     var sectionToMove;
     var btn;
     var chapterToHighlight;
+
+    var highlightWrapper;
+    var highlightOne;
+    var highlightTwo;
+
+    var highlightFn;
+
 
     if ( this.helper.sectionTopOpen ) {
       sectionToMove = document.getElementById( this.helper.sectionTopOpen );
@@ -322,14 +467,34 @@ function LasSzlak() {
 
     //  if there is a chapter to hightlight, hook value
     if ( chapterToHighlight ) {
-      this.velocity.hook( chapterToHighlight, 'opacity', '0.5');
-      this.velocity.hook( chapterToHighlight, 'boxShadowBlur', '10px');
+
+      //  create highlight
+      highlightWrapper = document.createElement('div');
+      highlightOne = document.createElement('div');
+      highlightTwo = document.createElement('div');
+
+      highlightWrapper.className = 'highlight';
+      highlightOne.className = 'highlight__one';
+      highlightTwo.className = 'highlight__two';
+
+      highlightWrapper.appendChild( highlightOne );
+      highlightWrapper.appendChild( highlightTwo );
+      chapterToHighlight.appendChild( highlightWrapper );
+
+      //  hook velocity
+      this.velocity.hook( chapterToHighlight, 'colorRed', '255');
+      this.velocity.hook( chapterToHighlight, 'colorBlue', '255');
+      this.velocity.hook( chapterToHighlight, 'colorGree', '255');
+      this.velocity.hook( chapterToHighlight, 'colorAlpha', '0.5');
+
+      //  hide shadow and arrow
+      chapterToHighlight.classList.add( 'szlak-sublist__btn--highlight' );
     }
 
     //  hide the popup
     this.velocity(
       szlakResult,
-      { backgroundColorAlpha: 0 },
+      { opacity: [0, 1] },
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
     );
     this.velocity(
@@ -354,32 +519,52 @@ function LasSzlak() {
         }
       );
 
-      //  highlight the chapter
-      this.velocity(
-        chapterToHighlight,
-        { opacity: 1 },
-        { duration: 3 * this.helper.speed, easing: this.helper.easingQuart }
-      );
+      //  move the highlight
+      highlightFn = function() {
+
+        this.velocity(
+          highlightWrapper,
+          { left: ['110%', '-20%'] },
+          { duration: 3 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
+        );
+
+      }.bind( this );
 
       //  highlight the chapter
       this.velocity(
         chapterToHighlight,
-        { boxShadowBlur: '20px' },
-        { duration: 8 * this.helper.speed, loop: 10 }
+        { backgroundColorAlpha: ['0.9', '0'] },
+        { duration: 3 * this.helper.speed, easing: this.helper.easingQuart,
+          begin: function() {
+            highlightFn();
+          },
+          complete: function() {
+            chapterToHighlight.classList.remove( 'szlak-sublist__btn--highlight' );
+          }
+        }
       );
 
-
-
+      //  remove highlight
+      this.velocity(
+        chapterToHighlight,
+        { backgroundColorAlpha: '0', colorAlpha: '1' },
+        { duration: 6 * this.helper.speed, easing: this.helper.easingQuart,
+          complete: function() {
+            //  clean css
+            chapterToHighlight.style.cssText = '';
+          }
+        }
+      );
 
     }
-
-
-
-
 
   };
 
 
+
+  //
+  //  Events
+  //
   las.eventHandler = function( event ) {
     //  this decides what happens after each click
     //  @event comes from addListener
@@ -504,6 +689,10 @@ function LasSzlak() {
   };
 
 
+
+  //
+  //  Listeners
+  //
   las.addListener = function() {
     //  assign click and touchstart events to both sections
 

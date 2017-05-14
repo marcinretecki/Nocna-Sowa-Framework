@@ -221,6 +221,13 @@ Author: Marcin Retecki
   border-top-color: rgba($green, 0.5);
 }
 
+.szlak-sublist__btn--highlight {
+  box-shadow: inset 0 -1rem 0rem -1rem rgba(48,140,140,0.5);
+}
+.szlak-sublist__btn--highlight .szlak-arrow {
+  opacity: 0;
+}
+
 .szlak-sublist__btn--active:focus,
 .szlak-sublist__btn--active:hover {
   //box-shadow: inset 0px 0px 0px 0px rgba(28,115,115,0.5);
@@ -274,6 +281,33 @@ Author: Marcin Retecki
 }
 
 
+//  Highlight
+.highlight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20%;
+}
+.highlight__one {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1rem;
+  background: $white;
+  transform: skew(30deg);
+}
+.highlight__two {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2rem;
+  width: 3rem;
+  background: $white;
+  transform: skew(30deg);
+}
+
+
 
 //
 // POPUP
@@ -285,7 +319,7 @@ Author: Marcin Retecki
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 300;
+  z-index: 50;
   background-color: rgba(60, 69, 76, 0.75);
   @include scrolling;
 }
@@ -358,6 +392,20 @@ Author: Marcin Retecki
   max-width: 100%;
   padding-left: $space;
   padding-right: $space;
+}
+
+
+
+//
+//  Audio Test
+//
+.audio-test-clue {
+  background: #60B3B3 none repeat scroll 0 0;
+  border-radius:3px;
+  //  should it be italic?
+  //font-style:italic;
+  padding:$space-quarter $space-half;
+  display:inline-block;
 }
 
 
@@ -768,6 +816,23 @@ Author: Marcin Retecki
 
 .profile-table__icon--ico {
   background-image: url('/las/c/i/icon_post.png');
+}
+
+
+//
+//  Results
+//
+.results-level__highlight {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 $space-half 0 $white;
+  background: $white;
 }
 
 
