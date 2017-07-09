@@ -38,6 +38,7 @@
 
 .p-10 > p:last-child{margin-bottom:0;}
 
+
 .col-9,.p-9 > p{width:$col-9;}
 .col-8,.p-8 > p{width:$col-8;;
   @media #{$m640} {

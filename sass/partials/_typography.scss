@@ -95,10 +95,22 @@ dd {
 
 
 
+///
+////    TESTOWE
+////    TRZEBA PRZESTESTOWAĆ NA WSZYSTKIVH POSTACH
+//      Problem z ćwiczeniami, które mają lang="no"
+///
+//p i:lang(no), li i:lang(no), dt i:lang(no){padding:1px 6px;border-radius:3px;background:$beige;}
+
+
 
 // 201604
 // New example format
-.post .dl-eg{padding-left:$space-2;}
+.post .dl-eg {
+  padding-left:$space-2;
+  margin-top: $space-2;
+  margin-bottom: $space-2;
+}
 .dl-eg dt{font-weight:400;font-style:italic;}
 .dl-eg dd{margin:0 0 0 1.25rem;font-size:$size-0;color:$font-light;}
 .dl-eg dd + dt{margin-top:$space-half;}
@@ -301,3 +313,17 @@ h4 a,h4 a:visited {
 
 .bariol-reg { @include font-bariol-reg; }
 .bariol-thin { @include font-bariol-thin; }
+
+
+//
+//  special markings for letters and words
+//
+.mark {
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: $beige;
+}
+
+.mark--table {
+  background-color: $beige-hover;
+}

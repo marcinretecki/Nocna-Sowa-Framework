@@ -1,23 +1,43 @@
 //
-// SECTIONS
+//  SECTIONS
 //
 
-// To jest najważniejszy element gridu....
-.section-content{position:relative;width:1064px;max-width:100%;padding:$space-4 $space $space-4;margin:0 auto;}
 
 .wrapper{height:100%;position:relative;
   @include scrolling;
 }
 
 
+// To jest najważniejszy element gridu
+.section-content{position:relative;width:1064px;max-width:100%;padding:$space-4 $space $space-4;margin:0 auto;}
+
+//  where is this used?
 .section {
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
 
+
 //
-// Colors
+//  NEW
+//  not sure about padding, it is already in section-content
+//  check in LAS
+//
+.main-column {
+  width: 34 * $space;
+  max-width: 100%;
+  //padding-left: $space;
+  //padding-right: $space;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+//
+//  Colors
 //
 .section-black ,.black {background-color:$outer-space;}
 .section-white ,.white {background-color:$white}

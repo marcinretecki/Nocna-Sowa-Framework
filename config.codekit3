@@ -7,13 +7,23 @@
 		"uuidString": "5E0C8142-B278-40C2-A052-5B80A4F7EF50"
 		}
 	],
-"creatorBuild": "25813",
+"creatorBuild": "25849",
 "files": {
 	"\/.gitignore": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/.gitignore",
 		"oF": 0
+		},
+	"\/_images.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_images-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"\/javascript\/j-chat.js": {
 		"ft": 64,
@@ -341,6 +351,32 @@
 		"oA": 0,
 		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/ie.css",
 		"oF": 6,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/sass\/las-partials\/_przewodnik.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/livecopy\/c\/_przewodnik.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/sass\/las-partials\/_szlak.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/livecopy\/c\/_szlak.css",
+		"oF": 0,
 		"oS": 3,
 		"uL": 1
 		},
@@ -2564,6 +2600,7 @@
 			"fileExtension": "php"
 			}
 		],
+	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules, \/themes",
 	"sourceFolderName": "source",

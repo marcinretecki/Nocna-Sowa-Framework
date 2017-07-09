@@ -247,11 +247,11 @@ function trackLinksHandler(event) {
     return;
   }
 
-  var currentUrlSplit = window.location.href.split('#'),
-      targetSplit = target.href.split('#'),
-      category,
-      action,
-      label = document.title.split(' | Nocna Sowa')[0];
+  var currentUrlSplit = window.location.href.split('#');
+  var targetSplit = target.href.split('#');
+  var category;
+  var action;
+  var label = document.title.split(' | Nocna Sowa')[0];
 
   // Action
   if ( ( target.getAttribute('data-ga-action') !== null ) && ( target.getAttribute('data-ga-action') !== '' ) ) {

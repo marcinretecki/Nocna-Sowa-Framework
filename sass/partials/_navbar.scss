@@ -156,22 +156,15 @@ a:hover .caret,
 }
 
 // old navs code
-nav {
-  margin: 0;
-  padding: 0;
-  z-index: 99
-}
-
 nav ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+ margin-left: 0;
+ list-style-type: none;
 }
 
 nav li {
-  margin: 0;
-  padding: 0;
-  display: inline;
+ margin: 0;
+ padding: 0;
+ display: inline;
 }
 
 nav li:before {
@@ -196,6 +189,7 @@ nav a:focus {}
 
 .nav-tabs-list {
   margin-top: -1px;
+  margin-bottom: 0px;
   text-align: left;
 }
 
