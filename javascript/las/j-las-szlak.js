@@ -16,7 +16,7 @@ function LasSzlak() {
   //  Elements
   //
   las.szlakWrapper =          document.getElementById('szlak-wrapper');
-  las.szlakSection =          document.getElementById('szlak-section');
+  las.szlak =                 document.getElementById('szlak');
   las.szlakPopUp =            document.getElementById('szlak-post-popup');
   las.szlakPopUpSection =     document.getElementById('szlak-post-popup__section');
   las.navs = {

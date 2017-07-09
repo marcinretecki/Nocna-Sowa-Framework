@@ -1,0 +1,148 @@
+//
+//  Przewodnik CSS
+//
+
+
+.przewodnik-h1 {
+  padding: $space-8 $space $space-6;
+  margin: 0;
+
+  color: $font-dark;
+  font-size: $size-5;
+  text-align: center;
+
+  @include for-tablet-landscape-up {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    width: 50%;
+    margin-top: -($size-6);
+    padding: $space;
+    pointer-events: none;
+
+    font-size: $size-6;
+  }
+}
+
+.przewodnik {
+  @include for-tablet-landscape-up {
+    float: right;
+    width: 50%;
+  }
+}
+
+.przewodnik__section {
+  padding-top: 0;
+  padding-bottom: $space-4;
+
+  background: rgba($white, 0.9);
+  color: $font-dark;
+
+  @include for-tablet-landscape-up {
+    padding-top: $space-4;
+  }
+}
+
+.przewodnik__section-h {
+  padding: $space-2;
+  margin: 0;
+
+  font-size: $size-4;
+  text-align: center;
+
+  @include for-tablet-landscape-up {
+    padding: $space;
+  }
+}
+
+.przewodnik__main-column {
+  @include for-tablet-landscape-up {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: $space-2;
+    padding-right: $space-2;
+  }
+}
+
+.przewodnik__main-column p:last-child {
+  margin-bottom: 0;
+}
+
+
+.przewodnik__action-btn {
+  @include font-bariol-thin;
+
+  display: block;
+
+  padding: $space-4;
+  width: 100%;
+  border-radius: 0;
+
+  background: rgba($green, 0.9);
+
+  font-size: $size-2;
+  text-decoration: none;
+  text-align: center;
+  color: $white;
+}
+.przewodnik__action-btn:hover {
+  background: rgba($green-hover, 0.9);
+
+  color: $white;
+}
+
+
+//
+//  Tables
+//
+.przewodnik-table-wrapper {
+  margin: $space (-$space) $space-2;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.przewodnik-table {
+  width: 100%;
+  margin: 0;
+  border-radius: 3px;
+  border-collapse: collapse;
+
+  background: $beige;
+}
+.przewodnik-table td,
+.przewodnik-table th {
+  padding: $space-half $space;
+  margin: 0;
+  vertical-align: middle;
+  text-align: left;
+}
+.przewodnik-table th {
+  margin: 0;
+  background: $green;
+  font-weight: 400;
+  color: $white;
+}
+.przewodnik-table tr {
+  margin: 0;
+}
+.przewodnik-table tr:hover {
+  background: rgba( $white, 0.2);
+}
+.przewodnik-table tr + tr th,
+.przewodnik-table tr + tr td {
+  border-top: 1px solid $white;
+}
+
+.przewodnik-table-np td {
+  font-style: italic;
+  white-space: nowrap;
+}
+
+
+.przewodnik-table__audio-row td:first-child {
+  padding-left: $space-4;
+  background-image: url('/las/c/i/icon_play.png');
+  background-size: $space auto;
+  background-position: 1rem center;
+  background-repeat: no-repeat;
+}

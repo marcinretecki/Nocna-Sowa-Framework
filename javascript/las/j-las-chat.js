@@ -86,7 +86,7 @@ function LasChat() {
     chatWrapper.setAttribute('role', 'main');
     chatWindow.className = 'section-content chat-window';
     chatRow.className = 'row';
-    chatFlow.className = 'max-32 center chat-flow nodots group';
+    chatFlow.className = 'main-column center chat-flow nodots group';
 
     chatRow.appendChild(chatFlow);
     chatWindow.appendChild(chatRow);
