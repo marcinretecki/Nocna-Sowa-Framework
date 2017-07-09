@@ -121,14 +121,18 @@ function las_list_loop( $sections, $level, $user_progress ) {
   $sublist_to_open    = '';
   $ids                = array();
 
-  $main_list .= '<section id="section-' . $level . '" class="szlak-section__nav">';
+  $main_list .= '<section id="section-' . $level . '" class="szlak__section">';
+
+  $main_list .= '<h2 class="h1 szlak__section-h">';
 
   if ( $level === 'basic' ) {
-    $main_list .= '<h2 class="szlak-section__h centered h1 size-3">Początek drogi</h2>';
+    $main_list .= 'Początek drogi';
   }
   elseif ( $level === 'advanced' ) {
-    $main_list .= '<h2 class="szlak-section__h centered h1 size-3">Daleko w lesie</h2>';
+    $main_list .= 'Daleko w lesie';
   }
+
+  $main_list .= '</h2>';
 
   $main_list .= '<ol class="navbar__list szlak-list">';
 
@@ -392,10 +396,10 @@ include( 'includes/head.php' );
 
 <section id="szlak-wrapper" class="section-trans wrapper group preload--hidden" style="background-image: url('/las/c/i/las_test_8.jpg');">
 
-  <h1 class="szlak-h1 size-6 centered">Twój Szlak</h1>
+  <h1 class="szlak-h1">Twój Szlak</h1>
 
 
-  <div id="szlak-section" class="szlak-section">
+  <div id="szlak" class="szlak">
 
     <?php
 

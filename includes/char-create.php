@@ -105,7 +105,7 @@ function las_show_chars() {
   <div id="chars-wrapper" class="char-selection section-content section-6-4" style="">
 
     <div class="row">
-      <div class="max-32 center centered">
+      <div class="main-column center centered">
 
         <h1 class="chars-title size-5 space-half">Wybierz bohatera</h1>
         <p class="chars-title space-2">Jakieś lekkie wytłumaczenie co to i dlaczego.</p>
@@ -113,7 +113,7 @@ function las_show_chars() {
       </div>
     </div>
 
-    <div id="chars-row" class="max-32 center relative group" style="padding:0;">
+    <div id="chars-row" class="main-column center relative group" style="padding:0;">
 
       <?php
 
@@ -124,7 +124,7 @@ function las_show_chars() {
 
     </div>
 
-    <div id="char-form" class="max-32 center" style="padding:0;display:none;">
+    <div id="char-form" class="main-column center" style="padding:0;display:none;">
 
       <form class="char-form section-white centered" action="" method="post" name="char-form">
 

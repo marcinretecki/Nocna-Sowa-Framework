@@ -44,7 +44,7 @@
 
   <div id="szlak-result-content" class="section-content section-4-2">
 
-    <div class="max-32 center section-dark rounded section-2-2">
+    <div class="main-column center section-dark rounded section-2-2">
 
       <div class="group">
 

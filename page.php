@@ -9,7 +9,7 @@
 global $post;
 $id = $post->ID;
 include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
-
+$heading = las_get_heading();
 
 
 //
@@ -17,6 +17,9 @@ include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
 //
 function las_show_normal_page() {
   global $post;
+  global $heading;
+
+  $przewodnik = stream_resolve_include_path( __DIR__ . '/data/przewodnik/' . $post->post_name . '.php' );
 
   //  Get przewodnik
   include( stream_resolve_include_path( __DIR__ . '/includes/przewodnik.php' ) );
@@ -29,10 +32,11 @@ function las_show_normal_page() {
 //
 function las_show_comment_section() {
   global $post;
+  global $heading;
 
   echo '<div class="section-content">';
   echo '<h1>';
-    the_title();
+  echo $heading;
   echo '</h1>';
 
   echo '<h2>Pytania i odpowiedzi</h2>';

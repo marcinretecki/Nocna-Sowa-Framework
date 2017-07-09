@@ -27,7 +27,7 @@ include( 'includes/head.php' );
   <div class="section-content section-6-4">
 
     <div class="row">
-      <div class="max-32 center">
+      <div class="main-column center">
 
         <?php
 

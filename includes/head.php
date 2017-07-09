@@ -72,7 +72,7 @@
       ?>
       <nav class="section-white" style="width:100%;">
         <?php if ( !is_page('profil') ) { ?>
-        <ul class="nabar__list alignright">
+        <ul class="navbar__list alignright">
                    <li><a id="las-nav-btn-sos" href="#" class="btn btn-dark-outline btn-nav">SOS
           </a></li>
         </ul>

@@ -60,6 +60,21 @@ function ns_auto_ver( $url ){
 }
 
 
+//
+//  Get heading (h1 in articles)
+//
+function las_get_heading() {
+  global $post;
+  $id = $post->ID;
+
+  $heading = get_post_meta($id, 'heading', true);
+  if ( '' == $heading ) {
+    $heading = get_the_title();
+  }
+  return $heading;
+}
+
+
 
 /*//
 // Get source url for development
