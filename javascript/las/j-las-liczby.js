@@ -9,6 +9,9 @@ TODO
 - check if there is a Stack (or autoNext pimp) so the spinner won't hide
 - last of stack doesn't show msg after pauseTime
 
+- move data to liczby.php
+- don't hard code "hundre" osv in hre
+
 */
 
 function LasLiczby() {
@@ -351,6 +354,7 @@ function LasLiczby() {
   las.createWordsFromNum = function() {
     var j = this.lasData.words.j;
     var d = this.lasData.words.d;
+    var e = this.lasData.words.e;
     var r = '';
     var num = this.currentNum.toString();
     var numAudioStackL, tusen, hundre, ti, en;
@@ -360,7 +364,7 @@ function LasLiczby() {
 
       if ( 1 == num ) {
 
-        r += 'én, ei, ett<br />zgodnie z rodzajem';
+        r += e['numEnEiEt'];
 
         //  push to audio sequence
         numAudioStackL = this.audioStack.stack.push('numEnEiEt');
@@ -408,14 +412,14 @@ function LasLiczby() {
       //  kilka tysięcy
       if ( 1 < tusen ) {
         r += j[tusen];
-        r += ' tusen';
+        r += e['tusen'];
 
         //  push to audio sequence
         numAudioStackL = this.audioStack.stack.push('num' + tusen);
       }
       //  jeden tysiąc
       else if ( 1 == tusen ) {
-        r += 'ett tusen ';
+        r += e['ett'] + ' ' + e['tusen'];
 
         //  push to audio sequence
         numAudioStackL = this.audioStack.stack.push('numEt');
@@ -429,14 +433,14 @@ function LasLiczby() {
 
         //  kilka setek
         if ( 1 < hundre ) {
-          r += ' ' + j[hundre] + ' hundre';
+          r += ' ' + j[hundre] + ' ' + e['hundre'];
 
           //  push to audio sequence
           numAudioStackL = this.audioStack.stack.push('num' + hundre);
         }
         //  jedna setka
         else if ( 1 == hundre ) {
-          r += ' ett hundre';
+          r += ' ' + e['ett'] + ' ' + e['hundre'];
 
           //  push to audio sequence
           numAudioStackL = this.audioStack.stack.push('numEt');
@@ -449,7 +453,7 @@ function LasLiczby() {
 
       //  jeśli są dziesiątki lub jedności
       if ( (0 < ti) || (0 < en) ) {
-        r += ' og ';
+        r += ' ' + e['og'] + ' ';
 
         //  push to audio sequence
         numAudioStackL = this.audioStack.stack.push('og');
