@@ -59,10 +59,32 @@
 </div>
 
 
+<?php
+
+  //  get the audio file
+  include( stream_resolve_include_path( __DIR__ . '/get-audio-file.php' ) );
+
+?>
+
+
 
 <script>
-  var lasHelper = new LasHelper();
+  var las = new LasPrzewodnik();
 
-  lasHelper.getBasicElements();
-  lasHelper.preloadShow( lasHelper.animateResults );
+  <?php
+  //  there is no file
+  //  @audio_file_xxx is defined in get-audio-file
+  if ( !$audio_file_m4a && !$audio_file_opus ) {
+    echo 'las.audioFile = false;';
+  }
+  ?>
+
+  //  init las on load
+  window.addEventListener('load', function() {
+
+    las.init();
+
+  }, false);
+
+
 </script>

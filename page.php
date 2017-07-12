@@ -20,6 +20,7 @@ function las_show_normal_page() {
   global $heading;
 
   $przewodnik = stream_resolve_include_path( __DIR__ . '/data/przewodnik/' . $post->post_name . '.php' );
+  $type = 'przewodnik';
 
   //  Get przewodnik
   include( stream_resolve_include_path( __DIR__ . '/includes/przewodnik.php' ) );

@@ -99,8 +99,11 @@ if ( $file ) {
   }
   ?>
 
+  //  init las on load
   window.addEventListener('load', function() {
+
     las.init();
+
   }, false);
 
   </script>
