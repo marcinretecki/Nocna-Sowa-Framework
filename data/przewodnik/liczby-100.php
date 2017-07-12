@@ -12,22 +12,22 @@
 <div class="przewodnik-table-wrapper">
   <table class="przewodnik-table">
     <tbody>
-      <tr class="przewodnik-table__audio-row">
+      <tr class="przewodnik-table__audio-row" data-audioStartTime="56.5" data-audioDuration="1">
         <td>100</td>
         <td><i class="no-break">(et) hundre</i></td>
         <td>Wymawiamy przez miękkie <i class="mark mark--table">u</i>.</td>
       </tr>
-      <tr class="przewodnik-table__audio-row">
+      <tr class="przewodnik-table__audio-row" data-audioStartTime="58" data-audioDuration="1.1">
         <td>1000</td>
         <td><i class="no-break">(et) tusen</i></td>
         <td>Miękkie <i class="mark mark--table">u</i> i zjedzone <i class="mark mark--table">e</i> w końcówce.</td>
       </tr>
-      <tr class="przewodnik-table__audio-row">
+      <tr class="przewodnik-table__audio-row" data-audioStartTime="60" data-audioDuration="1">
         <td>1000000</td>
         <td><i class="no-break">(en) million</i></td>
         <td>Czytamy przez polskie [ó].</td>
       </tr>
-      <tr class="przewodnik-table__audio-row">
+      <tr class="przewodnik-table__audio-row" data-audioStartTime="61.5" data-audioDuration="1">
         <td>1000000000</td>
         <td><i class="no-break">(en) milliard</i></td>
         <td>Wymawiamy, jak piszemy.</td>
@@ -42,7 +42,7 @@
 <div class="przewodnik-table-wrapper">
   <table class="przewodnik-table">
     <tbody>
-      <tr class="przewodnik-table__audio-row">
+      <tr class="przewodnik-table__audio-row" data-audioStartTime="63" data-audioDuration="2.1">
         <td>1500</td>
         <td><i class="no-break">(et) et tusen fem hundre</i></td>
       </tr>
@@ -57,9 +57,9 @@
 <div class="przewodnik-table-wrapper">
   <table class="przewodnik-table">
     <tbody>
-      <tr class="przewodnik-table__audio-row">
+      <tr class="przewodnik-table__audio-row" data-audioStartTime="66" data-audioDuration="3.2">
         <td>1599</td>
-        <td><i class="no-break">et tusen to hundre og nitti</i></td>
+        <td><i class="no-break">et tusen fem hundre og nittini</i></td>
       </tr>
     </tbody>
   </table>

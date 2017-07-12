@@ -141,17 +141,17 @@ function LasLiczbyData() {
 
     num20: {
       startTime:  31.5,
-      duration:   0.7
+      duration:   0.65
     },
 
     num30: {
       startTime:  33,
-      duration:   0.75
+      duration:   0.68
     },
 
     num40: {
       startTime:  34.5,
-      duration:   0.75
+      duration:   0.7
     },
 
     num50: {
@@ -161,37 +161,37 @@ function LasLiczbyData() {
 
     num60: {
       startTime:  37.5,
-      duration:   0.75
+      duration:   0.73
     },
 
     num70: {
       startTime:  39,
-      duration:   0.75
+      duration:   0.7
     },
 
     num80: {
       startTime:  40.5,
-      duration:   0.7
+      duration:   0.63
     },
 
     num90: {
       startTime:  42,
-      duration:   0.7
+      duration:   0.6
     },
 
     num100: {
       startTime:  43.5,
-      duration:   0.75
+      duration:   0.65
     },
 
     num1000: {
       startTime:  45,
-      duration:   0.75
+      duration:   0.71
     },
 
     og: {
       startTime:  46.5,
-      duration:   0.5
+      duration:   0.3
     }
 
 
