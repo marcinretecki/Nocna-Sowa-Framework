@@ -22,7 +22,11 @@ if ( !las_is_developer() ) {
 
 <?php
 
+  test_las_seconds_to_time_array();
+
   test_las_format_t();
+
+  test_las_format_t_short();
 
 
 ?>

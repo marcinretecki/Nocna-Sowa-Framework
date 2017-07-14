@@ -30,6 +30,34 @@ function test_las_get_exp_from_progress() {
 
 
 //
+//  Test las_seconds_to_time_array()
+//
+function test_las_seconds_to_time_array() {
+
+  las_test_echo_function_name( __FUNCTION__ );
+
+
+  for ( $i = 0;  $i < 20; $i++ ) {
+
+    $no = mt_rand( 1, 20000 );
+
+    echo $no . ': ';
+    print_r( las_seconds_to_time_array( $no ) );
+    echo '<br />';
+
+  }
+
+
+  //  absurdalna liczba
+  echo '457451230987' . ': ';
+  print_r( las_seconds_to_time_array( 457451230987 ) );
+  echo '<br />';
+
+
+}
+
+
+//
 //  Test las_format_t()
 //
 function test_las_format_t() {
@@ -51,6 +79,32 @@ function test_las_format_t() {
   //  absurdalna liczba
   echo '457451230987' . ': ';
   echo las_format_t( 457451230987 );
+  echo '<br />';
+
+
+}
+//
+//  Test las_format_t()
+//
+function test_las_format_t_short() {
+
+  las_test_echo_function_name( __FUNCTION__ );
+
+
+  for ( $i = 0;  $i < 20; $i++ ) {
+
+    $no = mt_rand( 1, 20000 );
+
+    echo $no . ': ';
+    echo las_format_t_short( $no );
+    echo '<br />';
+
+  }
+
+
+  //  absurdalna liczba
+  echo '457451230987' . ': ';
+  echo las_format_t_short( 457451230987 );
   echo '<br />';
 
 

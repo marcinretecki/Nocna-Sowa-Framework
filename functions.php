@@ -301,15 +301,15 @@ function las_comment($comment, $args, $depth) {
 
 
 //
-//  Format seconds into hours, minutes, seconds
-//  @return string
+//  Time formating
 //
-function las_format_t( $seconds ) {
 
-  $time = '';
+//  @return array( hours, minutes, seconds )
+function las_seconds_to_time_array( $seconds ) {
 
-  $minut_array = [ 0, 1, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ];
-  $minuty_array = [ 2, 3, 4 ];
+  $hours = 0;
+  $minutes = 0;
+  $seconds_rest = 0;
 
   //  if over an hour
   if ( $seconds > 3600 ) {
@@ -318,7 +318,7 @@ function las_format_t( $seconds ) {
     $seconds_rest = $seconds - ( $hours * 3600 );
     $minutes = intval( floor( $seconds_rest / 60 ) );
 
-    //$seconds_rest = $seconds_rest - ( $minutes * 60 );
+    //  $seconds_rest = $seconds_rest - ( $minutes * 60 );
     //  przy godzinach, nie wyświetlamy sekund
     $seconds_rest = 0;
 
@@ -331,6 +331,30 @@ function las_format_t( $seconds ) {
     $seconds_rest = $seconds - ( $minutes * 60 );
 
   }
+
+  return [ $hours, $minutes, $seconds_rest ];
+
+}
+
+//
+//  Format seconds into hours, minutes, seconds
+//  @return string
+//
+function las_format_t( $seconds ) {
+
+  $time = '';
+
+  $minut_array = [ 0, 1, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ];
+  $minuty_array = [ 2, 3, 4 ];
+
+  //  change seconds into an array
+  $time_array = las_seconds_to_time_array( $seconds );
+
+  //  assign
+  $hours =    $time_array[0];
+  $minutes =  $time_array[1];
+  $seconds =  $time_array[2];
+
 
   //  if hours
   if ( $hours > 0 ) {
@@ -391,30 +415,30 @@ function las_format_t( $seconds ) {
 
 
   // if there are both minutes and seconds
-  if ( ( $minutes > 0 ) && ( $seconds_rest > 0 ) ) {
+  if ( ( $minutes > 0 ) && ( $seconds > 0 ) ) {
     $time .= ', ';
   }
 
 
   //  if any seconds left
-  if ( $seconds_rest > 0 ) {
+  if ( $seconds > 0 ) {
 
-    $time .= $seconds_rest;
+    $time .= $seconds;
 
     //  1 sekunda
-    if ( $seconds_rest === 1 ) {
+    if ( $seconds === 1 ) {
 
       $time .= ' sekunda';
 
     }
     //  sekund
-    elseif ( in_array( $seconds_rest, $minut_array ) || in_array( substr( $seconds_rest, -1 ), $minut_array ) ) {
+    elseif ( in_array( $seconds, $minut_array ) || in_array( substr( $seconds, -1 ), $minut_array ) ) {
 
       $time .= ' sekund';
 
     }
     //  sekundy
-    elseif ( in_array( $seconds_rest, $minuty_array ) || in_array( substr( $seconds_rest, -1 ), $minuty_array ) ) {
+    elseif ( in_array( $seconds, $minuty_array ) || in_array( substr( $seconds, -1 ), $minuty_array ) ) {
 
       $time .= ' sekundy';
 
@@ -424,6 +448,54 @@ function las_format_t( $seconds ) {
 
 
   return $time;
+}
+
+
+function las_format_t_short( $seconds ) {
+
+  $time = '';
+
+  //  change seconds into an array
+  $time_array = las_seconds_to_time_array( $seconds );
+
+  //  assign
+  $hours =    $time_array[0];
+  $minutes =  $time_array[1];
+  $seconds =  $time_array[2];
+
+  if ( ( $hours <= 0 ) && ( $minutes <= 0 ) ) {
+
+    $time .= $seconds;
+    $time .= 's';
+
+  }
+  else {
+
+    if ( $hours > 0 ) {
+
+      $time .= $hours;
+      $time .= ' godz. ';
+      $time .= $minutes;
+      $time .= ' min.';
+
+    }
+    else {
+
+      $time .= $minutes;
+      $time .= ' min. ';
+      $time .= $seconds;
+      $time .= ' sek.';
+
+    }
+
+
+
+  }
+
+
+
+  return $time;
+
 }
 
 
