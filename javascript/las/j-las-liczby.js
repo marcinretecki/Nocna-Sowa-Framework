@@ -411,8 +411,7 @@ function LasLiczby() {
 
       //  kilka tysięcy
       if ( 1 < tusen ) {
-        r += j[tusen];
-        r += e['tusen'];
+        r += j[tusen] + ' ' + e['tusen'];
 
         //  push to audio sequence
         numAudioStackL = this.audioStack.stack.push('num' + tusen);

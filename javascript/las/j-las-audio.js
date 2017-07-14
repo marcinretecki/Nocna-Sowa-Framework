@@ -1,9 +1,8 @@
 //
 //  AUDIO
 //
+
 (function() {
-
-
 
   //
   //  Check if there is a correct audioStack
@@ -53,11 +52,11 @@
       return false;
     }
 
-    if ( !audioObject.hasOwnProperty('startTime') || ( audioObject.startTime < 0 ) ) {
+    if ( !audioObject.hasOwnProperty('startTime') || ( typeof audioObject.startTime !== 'number' ) || ( audioObject.startTime < 0 ) ) {
       return false;
     }
 
-    if ( !audioObject.hasOwnProperty('duration') || !audioObject.duration || ( audioObject.duration < 0 ) ) {
+    if ( !audioObject.hasOwnProperty('duration') || !audioObject.duration || ( typeof audioObject.startTime !== 'number' ) || ( audioObject.duration < 0 ) ) {
       return false;
     }
 
@@ -111,7 +110,7 @@
       return;
     }
 
-    //  sinlge audio object
+    //  single audio object
     if ( this.isCorrectAudioObject( this.currentAudioObject ) ) {
 
       //  play the single object
@@ -257,7 +256,7 @@
 
           }
           //  if there was no pause time
-          else if ( pauseTime < 0 ) {
+          else if ( !pauseTime || ( pauseTime < 0 ) ) {
 
             this.atPause();
 

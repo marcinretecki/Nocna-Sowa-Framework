@@ -283,8 +283,13 @@
 
 
 //
-// POPUP
+//  POPUP
 //
+
+//
+//  nazewnictwo tego jest dziwne
+//
+
 .szlak-post-popup {
   display: none;
   position: fixed;
@@ -325,4 +330,70 @@
   padding-top: 100%;
   background: $beige;
   margin-bottom: $space-half;
+}
+
+
+
+//
+//  Results
+//
+.results {}
+
+
+
+//
+//  Results
+//
+.results-level__highlight {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 $space-half 0 $white;
+  background: $white;
+}
+
+
+.results__action-btn {
+  @include font-bariol-thin;
+
+  display: block;
+  float: right;
+
+  padding: $space-4;
+  width: 50%;
+  border-radius: 0 3px 3px 0;
+  border: 0;
+
+  background: rgba($green, 0.9);
+
+  font-size: $size-2;
+  text-decoration: none;
+  text-align: center;
+  color: $white;
+}
+.results__action-btn:hover {
+  background: rgba( $green-hover, 0.9 );
+
+  color: $white;
+}
+
+.results__action-btn--left {
+  float: left;
+
+  border-radius: 3px 0 0 3px;
+
+  background: rgba( $white, 0.9 );
+
+  color: $font-dark;
+}
+
+.results__action-btn:hover {
+  background: rgba( $white, 1 );
+
+  color: $font-dark;
 }

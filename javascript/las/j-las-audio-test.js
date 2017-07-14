@@ -22,7 +22,6 @@ function LasAudioTest() {
   //
   //  Elements
   //
-  las.audioFile =            document.getElementById('audio-file');
   las.wrapper =              document.getElementById('audio-test');
   las.audioMsgWrapper =      document.getElementById('audio-msg-wrapper');
   las.audioMsg =             document.getElementById('audio-msg');

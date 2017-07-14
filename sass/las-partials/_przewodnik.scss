@@ -77,6 +77,7 @@
   padding: $space-4;
   width: 100%;
   border-radius: 0;
+  border: 0;
 
   background: rgba($green, 0.9);
 
@@ -139,10 +140,20 @@
 }
 
 
+.przewodnik-table__audio-row {
+  cursor: pointer;
+}
+
 .przewodnik-table__audio-row td:first-child {
   padding-left: $space-4;
   background-image: url('/las/c/i/icon_play.png');
   background-size: $space auto;
   background-position: 1rem center;
   background-repeat: no-repeat;
+}
+
+.przewodnik-table__audio-row--playing td:first-child {
+
+  background-image: url('/las/c/i/icon_pause.png');
+
 }

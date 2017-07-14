@@ -396,11 +396,11 @@ function LasSzlak() {
     expToShow = Math.ceil( animStateFraction * this.animateResultsEls.addedExp );
 
     //  change inner HTML
-    this.animateResultsEls.addedExpEl.innerHTML = '+' + expToShow;
+    this.animateResultsEls.addedExpEl.innerHTML = expToShow;
 
     //  time ended, so set it to proper number
     if ( ( timestamp - this.helper.startAnimateExpCount ) >= duration ) {
-      this.animateResultsEls.addedExpEl.innerHTML = '+' + this.animateResultsEls.addedExp;
+      this.animateResultsEls.addedExpEl.innerHTML = this.animateResultsEls.addedExp;
     }
 
   };

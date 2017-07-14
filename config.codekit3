@@ -97,6 +97,15 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/javascript\/las\/j-las-helper.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/j-las-helper-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/javascript\/las\/j-las-liczby.js": {
 		"ft": 64,
 		"mi": 1,
@@ -111,6 +120,15 @@
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/j-las-profile-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/las\/j-las-przewodnik.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/j-las-przewodnik-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
