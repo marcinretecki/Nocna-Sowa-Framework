@@ -31,17 +31,17 @@ function LasLiczbyData() {
 
     num0: {
       startTime:  0.5,
-      duration:   0.5
+      duration:   0.45
     },
 
     num1: {
       startTime:  1.5,
-      duration:   0.5
+      duration:   0.45
     },
 
     numEnEiEt:  {
       startTime:  2.5,
-      duration:   2.5
+      duration:   2.3
     },
 
     numEt:  {
@@ -61,7 +61,7 @@ function LasLiczbyData() {
 
     num4: {
       startTime:  8.5,
-      duration:   1
+      duration:   0.7
     },
 
     num5: {
@@ -71,17 +71,17 @@ function LasLiczbyData() {
 
     num6: {
       startTime:  11.5,
-      duration:   0.9
+      duration:   0.75
     },
 
     num7: {
       startTime:  13,
-      duration:   0.7
+      duration:   0.6
     },
 
     num8: {
       startTime:  14.5,
-      duration:   0.75
+      duration:   0.6
     },
 
     num9: {
@@ -91,12 +91,12 @@ function LasLiczbyData() {
 
     num10: {
       startTime:  17.5,
-      duration:   0.5
+      duration:   0.45
     },
 
     num11: {
       startTime:  18.5,
-      duration:   0.75
+      duration:   0.62
     },
 
     num12: {
@@ -106,37 +106,37 @@ function LasLiczbyData() {
 
     num13: {
       startTime:  21,
-      duration:   0.75
+      duration:   0.72
     },
 
     num14: {
       startTime:  22.5,
-      duration:   0.75
+      duration:   0.7
     },
 
     num15: {
       startTime:  24,
-      duration:   1
+      duration:   0.8
     },
 
     num16: {
       startTime:  25.5,
-      duration:   1
+      duration:   0.82
     },
 
     num17: {
       startTime:  27,
-      duration:   0.75
+      duration:   0.7
     },
 
     num18: {
       startTime:  28.5,
-      duration:   0.75
+      duration:   0.6
     },
 
     num19: {
       startTime:  30,
-      duration:   0.75
+      duration:   0.7
     },
 
     num20: {

@@ -6,16 +6,6 @@
 ?>
 
 
-<p>Ćwiczenia na liczby rozbiliśmy na trzy zakresy:</p>
-
-<ul>
-<li>od 0 do 19</li>
-<li>od 20 do 99</li>
-<li>i powyżej 100</li>
-</ul>
-
-<h3>Zacznijmy od cyfr.</h3>
-
 <p>Przy każdej liczbie zapisaliśmy, co się dzieje z jej wymową. Czasem nie będziemy wymawiali jakiejś litery, a czasem dwie litery połączą się w jeden dźwięk. </p>
 
 <p>Obok każdej cyfry jest nagranie. Nie wystarczy, że go posłuchasz, musisz samemu przećwiczyć wymowę na głos.</p>
@@ -81,8 +71,6 @@
 
 <p>Jeśli pierwszy raz uczysz się liczb, przećwicz najpierw te powyżej, zanim przejdziesz do dziesiątek.</p>
 
-
-<h3>Od 10 do 19</h3>
 
 <div class="przewodnik-table-wrapper">
   <table class="przewodnik-table">
