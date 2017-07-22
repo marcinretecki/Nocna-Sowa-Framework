@@ -443,8 +443,8 @@ function LasSzlak() {
   //
   las.hideResult = function() {
 
-    var szlakResult =  document.getElementById('szlak-result');
-    var szlakResultContent =  document.getElementById('szlak-result-content');
+    var resultsWrapper =  document.getElementById('results-wrapper');
+    var results =  document.getElementById('results');
     var sectionToMove;
     var btn;
     var chapterToHighlight;
@@ -493,12 +493,12 @@ function LasSzlak() {
 
     //  hide the popup
     this.velocity(
-      szlakResult,
+      resultsWrapper,
       { opacity: [0, 1] },
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
     );
     this.velocity(
-      szlakResultContent,
+      results,
       { scale: 0 },
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
     );

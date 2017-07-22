@@ -8,10 +8,6 @@
 TODO
 - check if there is a Stack (or autoNext pimp) so the spinner won't hide
 - last of stack doesn't show msg after pauseTime
-
-- move data to liczby.php
-- don't hard code "hundre" osv in hre
-
 */
 
 function LasLiczby() {
@@ -139,6 +135,8 @@ function LasLiczby() {
     //  it can be end
     else if ( this.state.currentState === 'END' ) {
       //  we will show finish
+
+      window.console.log('END');
     }
 
 
@@ -362,7 +360,7 @@ function LasLiczby() {
     //  do 20
     if ( 20 > num ) {
 
-      if ( 1 == num ) {
+      if ( 1 === num ) {
 
         r += e['numEnEiEt'];
 
@@ -417,7 +415,7 @@ function LasLiczby() {
         numAudioStackL = this.audioStack.stack.push('num' + tusen);
       }
       //  jeden tysiąc
-      else if ( 1 == tusen ) {
+      else if ( 1 === tusen ) {
         r += e['ett'] + ' ' + e['tusen'];
 
         //  push to audio sequence
@@ -438,7 +436,7 @@ function LasLiczby() {
           numAudioStackL = this.audioStack.stack.push('num' + hundre);
         }
         //  jedna setka
-        else if ( 1 == hundre ) {
+        else if ( 1 === hundre ) {
           r += ' ' + e['ett'] + ' ' + e['hundre'];
 
           //  push to audio sequence
@@ -459,7 +457,7 @@ function LasLiczby() {
       }
 
       //  od 10 do 19
-      if ( 1 == ti ) {
+      if ( 1 === ti ) {
         r += j[10 + en];
 
         //  push to audio sequence

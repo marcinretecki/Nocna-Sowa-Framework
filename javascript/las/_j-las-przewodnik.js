@@ -6,7 +6,7 @@
 //
 //  limitations!
 //  - the play event is only suited for the table element
-//  - next change it to be more universal
+//  - change it to be more universal
 
 
 function LasPrzewodnik() {

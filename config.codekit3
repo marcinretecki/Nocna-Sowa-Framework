@@ -61,25 +61,25 @@
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-audio-test.js": {
+	"\/javascript\/las\/_j-las-audio-test.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/j-las-audio-test-min.js",
+		"oAP": "\/_j-las-audio-test-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-audio.js": {
+	"\/javascript\/las\/_j-las-audio.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/j-las-audio-min.js",
+		"oAP": "\/_j-las-audio-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-chat.js": {
+	"\/javascript\/las\/_j-las-chat.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
@@ -88,65 +88,74 @@
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-cookie.js": {
+	"\/javascript\/las\/_j-las-cookie.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/j-las-cookie-min.js",
+		"oAP": "\/_j-las-cookie-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-helper.js": {
+	"\/javascript\/las\/_j-las-helper.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/j-las-helper-min.js",
+		"oAP": "\/_j-las-helper-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-liczby.js": {
+	"\/javascript\/las\/_j-las-liczby.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/j-las-liczby-min.js",
+		"oAP": "\/_j-las-liczby-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-profile.js": {
+	"\/javascript\/las\/_j-las-log.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/j-las-profile-min.js",
+		"oAP": "\/_j-las-log-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-przewodnik.js": {
+	"\/javascript\/las\/_j-las-profile.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/j-las-przewodnik-min.js",
+		"oAP": "\/_j-las-profile-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-setninger.js": {
+	"\/javascript\/las\/_j-las-przewodnik.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/j-las-setninger-min.js",
+		"oAP": "\/_j-las-przewodnik-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
-	"\/javascript\/las\/j-las-szlak.js": {
+	"\/javascript\/las\/_j-las-setninger.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/j-las-szlak-min.js",
+		"oAP": "\/_j-las-setninger-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/las\/_j-las-szlak.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/_j-las-szlak-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -372,6 +381,32 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/sass\/las-partials\/_emoji.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/livecopy\/c\/_emoji.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/sass\/las-partials\/_navbar.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/livecopy\/c\/_navbar.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"\/sass\/las-partials\/_przewodnik.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -489,9 +524,9 @@
 		"dS": 0,
 		"ft": 4,
 		"ma": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/_images.css",
-		"oF": 0,
+		"oF": 1,
 		"oS": 3,
 		"uL": 1
 		},
@@ -2297,7 +2332,7 @@
 			"flagValue": -1
 			},
 		"sub": {
-			"active": 0,
+			"active": 1,
 			"flagValue": -1
 			},
 		"supernew": {

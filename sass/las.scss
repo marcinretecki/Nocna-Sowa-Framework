@@ -12,7 +12,20 @@ Author: Marcin Retecki
 @import "partials/mixins";
 
 
+p {
+  margin: 0;
+}
 
+p + p {
+  margin-top: $space;
+}
+
+
+//  Elements
+@import "las-partials/emoji";
+@import "las-partials/navbar";
+@import "las-partials/szlak";
+@import "las-partials/przewodnik";
 
 
 //
@@ -20,6 +33,7 @@ Author: Marcin Retecki
 //
 //  should it have padding?
 //  only if inside row?
+//  should main-column be in the row at all?
 //
 
 .main-column {
@@ -32,39 +46,10 @@ Author: Marcin Retecki
   margin-right: auto;
 }
 
-
-
-//
-//  NAVBAR
-//
-.navbar-logo--las {
-  background: transparent url("/las/c/i/icon_feather.png") no-repeat scroll center center / auto 100%;
-  text-indent: -9999px;
+.main-column--back {
+  padding-left: 0;
+  padding-right: 0;
 }
-
-
-.las-nav-user-img {
-  position:relative;
-  float:left;
-  width: $space-2;
-  height: $space;
-}
-
-.las-nav-user-img__i {
-  display:block;
-  position:absolute;
-  left:0;
-  top:-0.25rem;
-  width:1.5rem;
-  height:1.5rem;
-  border:0;
-  border-radius:50%;
-  overflow:hidden;
-  //  doecelowo będzie 1.5rem 1.5rem
-  background-size:2rem 2rem;
-  background-position: center center;
-}
-
 
 
 
@@ -124,27 +109,7 @@ Author: Marcin Retecki
 
 
 
-//
-//  EMOJI
-//
-.emojione-svg {
-  position: relative;
-  top: -3px;
 
-  display: inline-block;
-  height: $space-4;
-  width: $space-4;
-  margin: 0 3px;
-
-  vertical-align: middle;
-  font-size: inherit;
-}
-
-.emojione-svg--text {
-  height: ($size-1 * $line-1);
-  width: ($size-1 * $line-1);
-  transform: scale(1.2);
-}
 
 //
 //  CHATBOT
@@ -447,10 +412,16 @@ Author: Marcin Retecki
 }
 
 .profile-level {
+  @include font-bariol-thin;
+
   position: relative;
+
   border: 1px solid transparent;
   border-radius: 3px;
-  @include font-bariol-thin;
+
+  background: $green;
+
+  color: $white;
   font-size: $size-2;
   line-height: $space-2 + $space;
   text-align: center;
@@ -464,6 +435,13 @@ Author: Marcin Retecki
   width: 0;
   border-radius: 3px;
   background: $green-hover;
+}
+
+.profile-level--small {
+  @include font-bariol-reg;
+
+  font-size: $size-1;
+  line-height: $space-2;
 }
 
 
@@ -659,5 +637,15 @@ Author: Marcin Retecki
 
 
 
-@import "las-partials/szlak";
-@import "las-partials/przewodnik";
+//
+//  Backgrounds
+//
+.las-green,
+.las-orange,
+.las-red { color: $white; }
+
+.las-green { background: rgba( $green, 0.9 ); }
+.las-orange { background: rgba( $orange, 0.9 ); }
+.las-red { background: rgba( $red, 0.9 ); }
+
+

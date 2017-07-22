@@ -92,7 +92,8 @@ function LasAudioTest() {
     spinner:                  false,
     clicked:                  false,
     prePause:                 false,
-    exNumber:                 0
+    exNumber:                 0,
+    testmode:                 false
   };
 
 
@@ -142,18 +143,13 @@ function LasAudioTest() {
     this.addListener();
     this.hideLoader();
 
-    //  to remove
-    //  add css for audio-test-clue
-    //  var style = document.createElement('style');
-    //  style.type = 'text/css';
-    //  style.appendChild(document.createTextNode(''));
-    //  var head = document.getElementsByTagName('head')[0];
-    //  head.appendChild(style);
-
+    //  If not test mode, begin
     //  Get the intro
-    this.getNextBubble( 'INTRO' );
-    this.showMsg();
-    this.showControls();
+    if ( !las.state.testmode ) {
+      this.getNextBubble( 'INTRO' );
+      this.showMsg();
+      this.showControls();
+    }
   };
 
 
@@ -292,7 +288,7 @@ function LasAudioTest() {
   las.assignAnswersData = function() {
     //  this.answers = [
     //    { answer: '', next: '', wrong: true },
-    //    { answer: '', next: '' }
+    //    { answer: '', next: '', correct: true }
     //  ]
 
     var i;
@@ -302,6 +298,13 @@ function LasAudioTest() {
 
     //  shuffle answers
     this.currentBubbleData.answers = this.shuffleArray( this.currentBubbleData.answers );
+
+
+    //
+    //  TODO
+    //
+    //  poniższy loop nie potrzebuje if, bo robimy pełny assign, jak w chat
+    //
 
     //  loop over answers to create array
     for ( i = 0; i < c; i++ ) {
@@ -333,6 +336,7 @@ function LasAudioTest() {
   };
 
 
+  //  Create Bubble
   las.createBubble = function() {
     //  here we have audio/quiz logic when the new bubble should appear
 
@@ -1089,7 +1093,7 @@ function LasAudioTest() {
     else if ( answerData.hasOwnProperty('wrong') && answerData.wrong ) {
 
       //  add one to progress progress
-      this.cookiePlusOne( 'wrong' );
+      this.addScore( 'wrong' );
 
 
       window.console.log('wrong!');
@@ -1215,7 +1219,7 @@ function LasAudioTest() {
       //  show trans
 
       //  add one to progress
-      this.cookiePlusOne( 'trans' );
+      this.addScore( 'trans' );
 
       this.showTrans();
     }
@@ -1231,7 +1235,7 @@ function LasAudioTest() {
       if ( this.state.playing && this.isCorrectAudioObject( this.currentAudioObject ) ) {
 
         //  add one to progress progress
-        this.cookiePlusOne( 'repeat' );
+        this.addScore( 'repeat' );
 
         this.rewindAudio();
 
@@ -1247,7 +1251,7 @@ function LasAudioTest() {
       else {
 
         //  add one to progress progress
-        this.cookiePlusOne( 'repeat' );
+        this.addScore( 'repeat' );
 
         this.rewindAudio();
       }
@@ -1288,7 +1292,7 @@ function LasAudioTest() {
         this.pauseAudio();
 
         //  add one to progress
-        this.cookiePlusOne( 'more' );
+        this.addScore( 'more' );
 
         //  assign play times
         this.currentAudioObject = this.more;
@@ -1349,6 +1353,7 @@ function LasAudioTest() {
     var moreProp;
     var moreData;
     var quantity = 0;
+
 
     //  clean wrapper
     this.wrapper.innerHTML = '';

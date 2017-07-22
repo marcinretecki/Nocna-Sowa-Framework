@@ -1,51 +1,75 @@
 //
-//  Przewodnik CSS
+//  PRZEWODNIK scss
 //
 
 
-.przewodnik-h1 {
-  padding: $space-8 $space $space-6;
-  margin: 0;
+// .przewodnik-h1 {
+//   @include text-shadow;
 
-  color: $font-dark;
-  font-size: $size-5;
-  text-align: center;
+//   padding: $space-8 $space $space-6;
+//   margin: 0;
 
-  @include for-tablet-landscape-up {
-    position: fixed;
-    left: 0;
-    top: 50%;
-    width: 50%;
-    margin-top: -($size-6);
-    padding: $space;
-    pointer-events: none;
+//   color: $white;
+//   font-size: $size-5;
+//   text-align: center;
 
-    font-size: $size-6;
-  }
-}
+//   @include for-tablet-landscape-up {
+//     position: fixed;
+//     left: 0;
+//     top: 50%;
+//     width: 50%;
+//     margin-top: -($size-6);
+//     padding: $space;
+//     pointer-events: none;
+
+//     font-size: $size-6;
+//   }
+// }
 
 .przewodnik {
-  @include for-tablet-landscape-up {
-    float: right;
-    width: 50%;
-  }
+
+  padding-top: $space-2;
+
 }
 
+
+
+.przewodnik__media {
+  background: #000;
+}
+
+.przewodnik__media-content {
+  width: 1064px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.przewodnik__video {
+  position: relative;
+
+  //  16:9
+  padding-bottom: 56.25%;
+}
+
+
+//  this should be changed into class
+.przewodnik__video iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+
 .przewodnik__section {
-  padding-top: 0;
-  padding-bottom: $space-4;
-
-  background: rgba($white, 0.9);
+  background: rgba( $white, 0.9 );
   color: $font-dark;
-
-  @include for-tablet-landscape-up {
-    padding-top: $space-4;
-  }
 }
 
 .przewodnik__section-h {
-  padding: $space-2;
-  margin: 0;
+  margin-bottom: 2rem;
 
   font-size: $size-4;
   text-align: center;
@@ -55,18 +79,7 @@
   }
 }
 
-.przewodnik__main-column {
-  @include for-tablet-landscape-up {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: $space-2;
-    padding-right: $space-2;
-  }
-}
 
-.przewodnik__main-column p:last-child {
-  margin-bottom: 0;
-}
 
 
 .przewodnik__action-btn {
@@ -74,14 +87,14 @@
 
   display: block;
 
-  padding: $space-4;
+  padding: $space-4 $space-2;
   width: 100%;
   border-radius: 0;
   border: 0;
 
   background: rgba($green, 0.9);
 
-  font-size: $size-2;
+  font-size: $size-3;
   text-decoration: none;
   text-align: center;
   color: $white;
@@ -93,22 +106,39 @@
 }
 
 
+
+
+
+
+//
+//  Examples
+//
+
+
+.przewodnik-eg {
+  padding:$space-half $space;
+  margin-top: $space-2;
+  margin-bottom: $space-2;
+  border-radius: 3px;
+
+  background: rgba( $beige, 0.66 );
+}
+
+
 //
 //  Tables
 //
 .przewodnik-table-wrapper {
-  margin: $space (-$space) $space-2;
-
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 .przewodnik-table {
   width: 100%;
-  margin: 0;
+  margin: $space 0 $space-2;
   border-radius: 3px;
   border-collapse: collapse;
 
-  background: $beige;
+  background: rgba( $beige, 0.66 );
 }
 .przewodnik-table td,
 .przewodnik-table th {

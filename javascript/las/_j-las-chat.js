@@ -3,6 +3,11 @@
 //
 
 
+
+//
+//  problem ze znikaniem poprzedniej odpowiedzi, jeśli w następnej jest tylko jedna
+//
+
 function LasChat() {
   "use strict";
 
@@ -36,7 +41,8 @@ function LasChat() {
   //
   las.state = {
     answersWaiting:           false,
-    currentState:             ''              // END / INTRO / CHAT
+    currentState:             '',             // END / INTRO / CHAT
+    testmode:                 false
   };
 
   las.scrollFn =             function(){};
@@ -66,11 +72,13 @@ function LasChat() {
     this.addListener();
     this.resetAnswers();
 
-    this.hideLoader();
+    if ( !las.state.testmode ) {
+      this.hideLoader();
 
-    //  get the intro
-    this.getNextBubble( 'INTRO' );
-    this.createBubble();
+      //  get the intro
+      this.getNextBubble( 'INTRO' );
+      this.createBubble();
+    }
   };
 
 
@@ -129,8 +137,68 @@ function LasChat() {
 
 
   //
-  //  BUBBLES
+  //  BUBBLE
+  //  check what data is available, assign it and reset those unavailable
   //
+  las.assignBubbleData = function(no, data) {
+    var i;
+    var l;
+
+    //  assign
+    this.currentBubble = no;
+    this.currentBubbleData = data;
+    this.bubbleArray = this.currentBubbleData.bubbles;
+
+    //  reset
+    this.bubbleAutoNext = '';
+    this.answersArray = [];
+
+    if ( this.currentBubbleData.hasOwnProperty('autoNext') ) {
+
+      //  assign autonext
+      this.bubbleAutoNext = this.currentBubbleData.autoNext;
+
+    }
+    else if ( this.currentBubbleData.hasOwnProperty('answers') ) {
+
+      this.assignAnswersData();
+
+    }//  it can be end
+    else if ( this.state.currentState === 'END' ) {
+      //  we will show finish
+    }
+    else {
+      throw "There is no autoNext or answers – can't work";
+    }
+
+  };
+
+
+  las.assignAnswersData = function() {
+    //  this.answers = [
+    //    { answer: '', next: '', wrong: true },
+    //    { answer: '', next: '', correct: true }
+    //  ]
+
+    var i;
+    var c = this.currentBubbleData.answers.length;
+
+    window.console.log('assignAnswersData');
+
+    //  shuffle answers
+    this.currentBubbleData.answers = this.shuffleArray( this.currentBubbleData.answers );
+
+    //  loop over answers to create array
+    for ( i = 0; i < c; i++ ) {
+
+      this.answersArray[i] = this.currentBubbleData.answers[i];
+
+    }
+
+  };
+
+
+  //  Create Bubble
   las.createBubble = function() {
     if (this.state.answersWaiting) {
       return false;
@@ -181,13 +249,13 @@ function LasChat() {
     //  Show bubble with loader
     this.velocity(bubble,
       { right: [0, '100%'] },
-      { duration: 5 * las.helper.speed, easing: [ 200, 20 ]}
+      { duration: 5 * las.helper.speed, easing: las.helper.easingSpring }
     );
 
     //  Hide bubble and swap content
     this.velocity(bubble,
       { translateX: '-130%' },
-      { duration: this.helper.speed, easing: [ 200, 20 ], delay: this.helper.speed,
+      { duration: this.helper.speed, easing: las.helper.easingSpring, delay: this.helper.speed,
         complete: function() {
           if (content.indexOf('<img') !== -1 ) {
             bubble.className += ' chat-bubble-img';
@@ -203,7 +271,7 @@ function LasChat() {
     //  Show bubble with content
     this.velocity(bubble,
       { translateX: 0 },
-      { duration: 5 * las.helper.speed, easing: [ 200, 20 ], delay: 0.5 * las.helper.speed,
+      { duration: 5 * las.helper.speed, easing: las.helper.easingSpring, delay: 0.5 * las.helper.speed,
         complete: function() { nextFunction(); }
       }
     );
@@ -241,7 +309,7 @@ function LasChat() {
     las.scrollAfterChange();
 
     //  show answers
-    this.velocity(this.answersWrapper, { translateY: 0 }, { duration: 5 * las.helper.speed, easing: [ 200, 20 ], queue: false } );
+    this.velocity(this.answersWrapper, { translateY: 0 }, { duration: 5 * las.helper.speed, easing: las.helper.easingSpring, queue: false } );
 
     //  animate sequential answers
     for ( i=0; i<l; i++ ) {
@@ -364,41 +432,7 @@ function LasChat() {
   };
 
 
-  //
-  //  ASSIGN data from bubble
-  //
-  las.assignBubbleData = function(no, data) {
-    var i;
-    var l;
 
-    this.currentBubble = no;
-    this.currentBubbleData = data;
-
-    this.bubbleArray = this.currentBubbleData.bubbles;
-
-    if ( this.currentBubbleData.autoNext ) {
-
-      //  assign autonext
-      this.bubbleAutoNext = this.currentBubbleData.autoNext;
-
-    }
-    else {
-
-      //  reset auto next
-      this.bubbleAutoNext = '';
-
-      l = this.currentBubbleData.answers.length;
-
-      //  loop over answers
-      for ( i=0; i<l; i++ ) {
-
-        this.answersArray[i] = this.currentBubbleData.answers[i];
-
-      }
-
-    }
-
-  };
 
 
   //
@@ -497,61 +531,72 @@ function LasChat() {
 
   las.test = function() {
     var property;
-    var data = this.lasData.chat;
     var bubble;
     var content;
     var i;
     var l;
     var liEl;
+    var line;
+    var loopDataFn;
 
-    this.showLoader();
+    window.console.log('testmode');
 
     this.state.answersWaiting = true;
     this.resetAnswers();
     this.state.answersWaiting = true;
     this.bubbleArray = [];
-    this.velocity(las.answersWrapper, 'stop', true);
+    this.velocity(this.answersWrapper, 'stop', true);
     this.chatFlow.innerHTML = '';
     this.chatFlow.style.display = 'none';
 
-    for (property in data) {
-      if (data.hasOwnProperty(property)) {
+    loopDataFn = function ( data ) {
+      for (property in data) {
+        if (data.hasOwnProperty(property)) {
 
-        data[property].bubbles.forEach(function(item, index, array) {
-          bubble = document.createElement('li');
-          content = this.encodeBubble( item );
+          data[property].bubbles.forEach( function(item, index, array) {
+            bubble = document.createElement('li');
+            content = this.encodeBubble( item );
 
-          bubble.className = 'white chat-bubble';
-          bubble.style.right = '0';
-          bubble.innerHTML = content;
+            bubble.className = 'white chat-bubble';
+            bubble.style.right = '0';
+            bubble.innerHTML = content;
 
-          las.chatFlow.appendChild(bubble);
-        }.bind(this));
+            this.chatFlow.appendChild(bubble);
+          }.bind(this) );
 
-        //  if there are answers
-        if ( data[property].answers ) {
+          //  if there are answers
+          if ( data[property].answers ) {
 
-          l = data[property].answers.length;
+            l = data[property].answers.length;
 
-          for ( i=0; i<l; i++) {
+            for ( i=0; i<l; i++) {
 
-            liEl = document.createElement('li');
-            liEl.className = 'chat-bubble-answer';
-            liEl.style.opacity = '1';
-            liEl.innerHTML = data[property].answers[i].answer;
-            las.chatFlow.appendChild( liEl );
+              liEl = document.createElement('li');
+              liEl.className = 'chat-bubble-answer';
+              liEl.style.opacity = '1';
+              liEl.innerHTML = this.encodeBubble( data[property].answers[i].answer );
+              this.chatFlow.appendChild( liEl );
+
+            }
 
           }
 
-        }
+        line = document.createElement('li');
+        line.style.cssText = 'width:100%;height:3px;background:#fff;margin:2.5rem 0;clear:both;';
 
-      var line = document.createElement('li');
-      line.style.cssText = 'width:100%;height:3px;background:#fff;margin:2.5rem 0;clear:both;';
+        this.chatFlow.appendChild(line);
 
-      this.chatFlow.appendChild(line);
+        } // end if has property
+      } // end loop
+    }.bind(this);
 
-      } // end if has property
-    } // end loop
+
+
+    loopDataFn( this.lasData.intro );
+    loopDataFn( this.lasData.chat );
+    loopDataFn( this.lasData.end );
+
+
 
     this.chatFlow.style.display = 'block';
 

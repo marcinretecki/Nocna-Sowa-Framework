@@ -24,6 +24,20 @@ function LasHelper() {
 
 
   //
+  //  Leveling system
+  //  same as in f-user-progress.php
+  //
+  this.levelingSystemMulti = {
+    chapter:                            200,
+    ex:                                 10,
+    repeat:                             2,
+    trans:                              2,
+    more:                               5,
+    wrong:                             -5
+  };
+
+
+  //
   //  Audio Stack
   //  used only for the main audio and repeat
   //  "more" is seperate
@@ -40,10 +54,11 @@ function LasHelper() {
   //
   this.getBasicElements = function() {
 
-    this.audioFile =                    document.getElementById('audio-file');
+    this.audioFile =                    document.getElementById( 'audio-file' );
 
-    this.loader =                       document.getElementById('loader');
-    this.nav =                          document.getElementById('las-nav');
+    this.loader =                       document.getElementById( 'loader' );
+    this.nav =                          document.getElementById( 'las-nav' );
+    this.navCharLog =                   document.getElementById( 'las-nav-char-log' );
 
     //  Velocity
     this.velocity =                     Velocity;
@@ -78,20 +93,40 @@ function LasHelper() {
 
     window.console.log('navEventHandler');
 
-    var elWithHref;
-
     //  traverse up to find the element with href
-    elWithHref = this.checkNodeAndParents( event, false, 'href' );
+    var elWithId = this.checkNodeAndParents( event, false, 'id' );
 
-    if ( ( elWithHref.id === 'las-nav-btn-sos' ) || ( elWithHref.id === 'las-nav-btn-szlak' ) ) {
+    console.log(elWithId);
+
+    if ( elWithId.id === 'las-nav-btn-szlak' ) {
 
       //  show loader
       this.showLoader();
 
     }
 
+    if ( elWithId.id === 'las-nav-char' ) {
+
+      //  show char nav log
+      this.toggleNavCharLog();
+
+      elWithId.classList.toggle( 'btn-dark-outline--active' );
+
+    }
+
   };
 
+
+  //
+  //  Toggle visibility of nav-char-log
+  //
+  this.toggleNavCharLog = function() {
+
+    window.console.log( 'toggleNavCharLog' );
+
+    this.navCharLog.classList.toggle( 'las-nav-char-log--visible' );
+
+  };
 
 
 
@@ -158,7 +193,7 @@ function LasHelper() {
     if ( this.randomChatArray.length > 0 ) {
 
       //  add one to progress
-      this.cookiePlusOne( 'ex' );
+      this.addScore( 'ex' );
 
       //  pop data and return the object
       pop = this.lasData.chat[ this.randomChatArray.pop() ];
@@ -376,6 +411,7 @@ function LasHelper() {
   //
   //  DATA
   //
+  //  expando
   this.expando = "las" + ( new Date().getTime() );
 
   this.data = function(node, key, value) {
@@ -580,7 +616,7 @@ function LasHelper() {
 
     return parent;
 
-  }
+  };
 
 
 

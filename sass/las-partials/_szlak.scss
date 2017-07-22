@@ -1,5 +1,5 @@
 //
-//  SZLAK
+//  SZLAK scss
 //
 
 
@@ -339,11 +339,40 @@
 //
 .results {}
 
+.results__section {
+
+  padding: $space-2;
+  border-radius: 3px 3px 0 0;
+
+  background: rgba($dark-btn-hover, 0.9);
+
+  color: $white;
+}
 
 
-//
-//  Results
-//
+.results-header {}
+
+.result-header__img {
+  position: relative;
+
+  display: block;
+  width: 8rem;
+  margin-top: -6rem;
+  margin-right: auto;
+  margin-left: auto;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+
+}
+
+.results-header__name {}
+.results-header__user-char {}
+
+
+//  czy to jest to samo co w profile? (char-display)
+.results-level {}
+
 .results-level__highlight {
   display: none;
   opacity: 0;
@@ -362,16 +391,15 @@
   @include font-bariol-thin;
 
   display: block;
-  float: right;
 
-  padding: $space-4;
-  width: 50%;
-  border-radius: 0 3px 3px 0;
+  padding: $space-4 $space-2;
+  width: 100%;
+  border-radius: 0 0 3px 3px;
   border: 0;
 
-  background: rgba($green, 0.9);
+  background: rgba( $green, 0.9 );
 
-  font-size: $size-2;
+  font-size: $size-3;
   text-decoration: none;
   text-align: center;
   color: $white;
@@ -382,18 +410,18 @@
   color: $white;
 }
 
-.results__action-btn--left {
-  float: left;
 
-  border-radius: 3px 0 0 3px;
+// ????
+//  czy to będzie potrzebe?
+//  w tej chwili nie uzywamy
+.results__action-btn--secondary {
 
-  background: rgba( $white, 0.9 );
+  //padding: $space-2;
+  border-radius: 0;
 
-  color: $font-dark;
+  background: rgba( $dark, 0.9 );
 }
 
-.results__action-btn:hover {
-  background: rgba( $white, 1 );
-
-  color: $font-dark;
+.results__action-btn--secondary:hover {
+  background: rgba( $dark-btn-hover, 0.9 );
 }
