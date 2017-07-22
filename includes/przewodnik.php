@@ -3,46 +3,88 @@
 //  Includes - Przewodnik
 //
 
-//  @przewodnik comes from page.php
+//  @przewodnik_data comes from page.php
+
+
+function las_przewodnik_get_media( $post_name ) {
+
+  $media_array = [
+
+    'test' =>     '<iframe src="https://player.vimeo.com/video/122803133?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+
+  ];
+
+  return $media_array[ $post_name ];
+
+}
+
+
+//  show video, audio or other media assiociated with przewodnik
+function las_przewodnik_show_media() {
+  global $post;
+
+  $media = las_przewodnik_get_media( $post->post_name );
+
+  if ( $media ) {
+
+    echo '<div class="przewodnik__media">';
+      echo '<div class="przewodnik__media-content">';
+
+        echo '<div class="przewodnik__video">';
+          echo $media;
+        echo '</div>';
+
+      echo '</div>';
+    echo '</div>';
+
+  }
+
+}
+
+
 ?>
 
 
 <section id="przewodnik-wrapper" class="section-trans wrapper group preload--hidden" style="background-image: url('/las/c/i/las_test_9.jpg');">
 
-  <h1 class="przewodnik-h1">Przewodnik</h1>
-
   <div id="przewodnik" class="przewodnik">
+
+    <?php
+
+      //  show video, audio or other media assiociated with przewodnik
+      las_przewodnik_show_media();
+
+    ?>
 
     <div class="przewodnik__section">
 
-      <div class="main-column przewodnik__main-column">
+      <div class="section-content">
 
-        <h2 class="h1 przewodnik__section-h"><?php echo $heading; ?></h2>
+        <h1 class="h1 przewodnik__section-h"><?php echo $heading; ?></h1>
 
-        <?php
+        <div class="main-column main-column--back">
 
-          //  check if there is custom Przewodnik file
+          <?php
 
-          if ( $przewodnik ) {
+            //  check if there is custom Przewodnik file
 
-            include( $przewodnik );
+            if ( $przewodnik_data ) {
 
-          }
-          else {
+              include( $przewodnik_data );
 
-            the_content();
+            }
+            else {
 
-          }
+              echo '<p>Coś poszło nie tak.</p>';
+              echo '<p>Nie mamy pliku z przewodnikiem.</p>';
 
-        ?>
+            }
 
+          ?>
 
+        </div>
 
       </div>
-
-
-
-
 
     </div>
 
@@ -54,7 +96,7 @@
 
     ?>
 
-    <a href="../wyzwanie/" class="przewodnik__action-btn">Przejdź do Wyzwania &raquo;</a>
+    <a href="../wyzwanie/" class="przewodnik__action-btn">Przejdź do wyzwania &raquo;</a>
   </div>
 </div>
 

@@ -143,7 +143,7 @@ function las_profile_show_last_dates( $user_progress ) {
           <div class="pad-2">
             <div class="row space centered">
               <div class="col-8">
-                <div id="profile-level" class="profile-level section-green space">
+                <div id="profile-level" class="profile-level space">
                   <div class="profile-level__line" style="width:<?php echo las_get_level_percent( $user_exp, $level_array ); ?>"></div>
                   <span class="relative"><?php echo 'Rang ' . $level_array[0]; ?></span>
                 </div>

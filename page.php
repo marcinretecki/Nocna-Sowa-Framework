@@ -8,7 +8,14 @@
 //  GLOBALS
 global $post;
 $id = $post->ID;
-include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
+
+//  Get przewodnik
+$globals = stream_resolve_include_path( __DIR__ . '/includes/globals.php' );
+
+if ( $globals ) {
+  include( $globals );
+}
+
 $heading = las_get_heading();
 
 
@@ -19,11 +26,17 @@ function las_show_normal_page() {
   global $post;
   global $heading;
 
-  $przewodnik = stream_resolve_include_path( __DIR__ . '/data/przewodnik/' . $post->post_name . '.php' );
   $type = 'przewodnik';
 
+  //  Get data
+  $przewodnik_data = stream_resolve_include_path( __DIR__ . '/data/przewodnik/' . $post->post_name . '.php' );
+
   //  Get przewodnik
-  include( stream_resolve_include_path( __DIR__ . '/includes/przewodnik.php' ) );
+  $przewodnik = stream_resolve_include_path( __DIR__ . '/includes/przewodnik.php' );
+
+  if ( $przewodnik ) {
+    include( $przewodnik );
+  }
 }
 
 
@@ -88,23 +101,29 @@ function las_course_router() {
       return;
     }
 
-    //  Get data file
-    if ( has_category( 'wyzwanie-liczby' ) ) {
-      $file = stream_resolve_include_path( __DIR__ . '/data/' . $type . '/liczby.php' );
-    }
-    else {
-      $file = stream_resolve_include_path( __DIR__ . '/data/' . $type . '/' . $post->post_name . '.php' );
-    }
-
-
-    if ( $file ) {
-      include( $file );
-    }
-
     //
     //  Route page types
     //
     if ( $type === 'wyzwanie' ) {
+
+      //  Get data for wyzwanie
+      if ( has_category( 'wyzwanie-liczby' ) ) {
+        $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/liczby.php' );
+      }
+      else {
+        $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $post->post_name . '.php' );
+      }
+
+
+      if ( $wyzwanie_data ) {
+        include( $wyzwanie_data );
+      }
+      else {
+        echo '<p>Nie znaleźlismy pliku z wyzwaniem.';
+
+        return;
+      }
+
 
       if ( has_category( 'wyzwanie-audio' ) ) {
         //  Audio Test
@@ -142,6 +161,7 @@ function las_course_router() {
 
         include( stream_resolve_include_path( __DIR__ . '/includes/testmode.php' ) );
       }
+
     }
     //  if it is not wyzwanie
     else {
@@ -157,13 +177,13 @@ function las_course_router() {
 
 
 //
-// Begin HTML
+//  Begin HTML
 //
 
 include( 'includes/head.php' );
 
 //
-// Loop
+//  Loop
 //
 if ( have_posts() ) : while ( have_posts() ) : the_post();
 

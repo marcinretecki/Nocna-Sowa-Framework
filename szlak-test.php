@@ -72,6 +72,7 @@ include( 'includes/head.php' );
 
           $children = get_posts( $children_args );
 
+          //  sections
           foreach ( $children as $post ) {
             setup_postdata( $post );
 
@@ -88,6 +89,7 @@ include( 'includes/head.php' );
 
             $children_2 = get_posts( $children_args_2 );
 
+            //  chapters
             foreach ( $children_2 as $post ) {
               setup_postdata( $post );
 
@@ -138,12 +140,15 @@ include( 'includes/head.php' );
                 //  PRZEWODNIK
                 echo '<p class="size-0">';
 
-                if ( strlen($post->post_content) > 5 ) {
+                //  PRZEWODNIK DATA FILE
+                $przewodnik = stream_resolve_include_path( __DIR__ . '/data/przewodnik/' . $post->post_name . '.php' );
+
+                if ( $przewodnik ) {
                   echo $green_light;
                   echo 'Treść Przewodnika <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $url . 'przewodnik/">' . $short_url . 'przewodnik/</a>';
                 }
                 else {
-                  echo $red_light . 'Treść Przewodnika';
+                  echo $red_light . 'Nie ma przewodnika';
                 }
 
                 echo '<br />';

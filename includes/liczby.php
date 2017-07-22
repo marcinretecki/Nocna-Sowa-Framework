@@ -79,28 +79,22 @@
 //  get the audio file
 include( stream_resolve_include_path( __DIR__ . '/get-audio-file.php' ) );
 
-
-//  @file is defined in page.php
-if ( $file ) {
 ?>
-  <script>
-  var las = new LasLiczby();
-  las.helper.chapter = "<?php echo $post->post_name; ?>";
 
-  <?php
-  //  there is no audio file
-  //  @audio_file_xxx is defined in get-audio-file
-  if ( !$audio_file_m4a && !$audio_file_opus ) {
-    echo 'las.audioFile = false;';
-  }
-  ?>
+<script>
+var las = new LasLiczby();
+las.helper.chapter = "<?php echo $post->post_name; ?>";
 
-  window.addEventListener('load', function() {
-    las.init();
-  }, false);
-
-  </script>
-<?php }
-else {
-  echo '<p>Nie znaleźliśmy pliku z ćwiczeniem.</p>';
+<?php
+//  there is no audio file
+//  @audio_file_xxx is defined in get-audio-file
+if ( !$audio_file_m4a && !$audio_file_opus ) {
+  echo 'las.audioFile = false;';
 }
+?>
+
+window.addEventListener('load', function() {
+  las.init();
+}, false);
+
+</script>

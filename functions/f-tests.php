@@ -117,6 +117,8 @@ function test_las_format_t_short() {
 //
 function test_las_get_last_wyzwanie_result() {
 
+  las_test_echo_function_name( __FUNCTION__ );
+
   $last_wyzwanie_result = [
     'exp'         => 800,
     'ex'          => 16,
@@ -132,3 +134,7 @@ function test_las_get_last_wyzwanie_result() {
   return $last_wyzwanie_result;
 
 }
+
+
+
+

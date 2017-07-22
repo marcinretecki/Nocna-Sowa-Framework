@@ -62,41 +62,57 @@
 </div>
 
 <div id="las-nav" class="section-white header-top header-top--shadowed header-top--fixed">
-  <div class="section-nav">
+  <div class="section-nav" style="position: relative;">
     <span class="btn btn-nav navbar-logo--centered navbar-logo--las">Las</span>
 
 
     <?php
     if ( $user_char ) {
-      if ( !is_page('szlak') ) {
       ?>
       <nav class="section-white" style="width:100%;">
-        <?php if ( !is_page('profil') ) { ?>
-        <ul class="navbar__list alignright">
-                   <li><a id="las-nav-btn-sos" href="#" class="btn btn-dark-outline btn-nav">SOS
+        <ul class="navbar__list">
+          <?php
+            if ( !is_page('szlak') ) {
+          ?>
+                   <li><a id="las-nav-btn-szlak" href="/las/szlak/" class="btn btn-dark-outline btn-nav">Twój Szlak
           </a></li>
-        </ul>
-        <?php } ?>
+          <?php
+            }
+          ?>
 
-        <ul class="navbar__list">
-                   <li><a id="las-nav-btn-szlak" href="/las/szlak/" class="btn btn-dark-outline btn-nav">&laquo; Twój Szlak
-          </a></li>
+          <li><div id="las-nav-char" class="btn btn-dark-outline btn-nav alignright las-nav-char--active">
+                <div class="las-nav-char__img">
+                  <i class="las-nav-char__img-i" style="background-image:url('<?php echo $user_img_url; ?>');"></i>
+                </div>
+                <?php echo $user_nick; ?>
+
+                <div id="las-nav-char-extra" class="las-nav-char-extra">
+                  <svg class="emojione-svg emojione-svg--size-1"><use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f333"></use></svg>
+                </div>
+
+                <div id="las-nav-char-log" class="las-nav-char-log">
+                  <div class="profile-level profile-level--small space">
+                    <div class="profile-level__line" style="width:<?php echo las_get_level_percent( $user_exp, $level_array ); ?>"></div>
+                    <span class="relative"><?php echo 'Rang ' . $level_array[0]; ?></span>
+                  </div>
+
+                  <a href="/las/profil/" class="btn btn-white btn-block">Twój bohater</a>
+
+                  <a href="/las/konto/" class="btn btn-white btn-block">Twoje konto</a>
+                </div>
+
+                <div id="las-nav-char-exp" class="las-nav-char-exp">20</div>
+
+
+          </div></li>
         </ul>
       </nav>
-      <?php } else { ?>
-      <nav class="section-white" style="width:100%;">
-        <ul class="navbar__list">
-                   <li><a href="/las/profil/" class="btn btn-dark-outline btn-nav">
-                          <div class="las-nav-user-img" style="">
-                            <i class="las-nav-user-img__i" style="background-image:url('<?php echo $user_img_url; ?>');"></i>
-                          </div>
-                          <?php echo $user_nick; ?>
-          </a></li>
-        </ul>
-      </nav>
+
+
+
+
 
     <?php
-      }
     }
     ?>
 

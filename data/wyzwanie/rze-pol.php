@@ -6,34 +6,26 @@ function LasChatData() {
 
   this.intro = {
     a1: {
-      bubbles: [ '' ],
+      bubbles: [
+        '<i>Halla!</i>',
+        '<img src="/las/c/i/rze-pol/fvzQtgBkrEgLK.gif" />'
+      ],
       answers: [
-       { answer: '', next: 'a2' }
+       { answer: '<i>halla!</i>', next: 'a2' },
+       { answer: '<i>hei, hei!</i>', next: 'a2' }
       ]
     },
     a2: {
-      bubbles: [ '' ],
+      bubbles: [
+        'Dzisiaj będzie ważna rozmowa między nami. W cztery oczy. Tylko Ty i ja. ',
+        'Wiesz, bo niektórzy boją się myśleć na trudne tematy i odkładają je na później. A tu nie ma już na co czekać.',
+        'Jak zwykle, mam do Ciebie trochę pytań, bo uważam, że jeśli sam znajdziesz na nie odpowiedź, to będziesz mądrzejszym podróżnikiem.',
+        'To co, ruszamy?',
+        '<img src="/las/c/i/rze-pol/3oz8xEpseMV1isTuJq.gif" />'
+      ],
       answers: [
-       { answer: '', next: 'a3' },
-       { answer: '', next: 'a3' }
+        { answer: '<i>jøss!</i>', next: 'ENDINTRO' }
       ]
-    },
-    a3: {
-      bubbles: [ '' ],
-      answers: [
-        { answer: '', next: 'a5' },
-        { answer: '', next: 'a4' }
-      ]
-    },
-    a4: {
-      bubbles: [ '' ],
-      answers: [
-        { answer: '', next: 'a5' }
-      ]
-    },
-    a5: {
-      bubbles: [ '' ],
-      autoNext: 'ENDINTRO'
     }
 
   };
@@ -44,7 +36,7 @@ function LasChatData() {
     aa1: {
       bubbles: [ 'Czy drzewa są policzalne?' ],
       answers: [
-        { answer: 'tak', next: 'aa2' },
+        { answer: 'tak', next: 'aa2', correct: true },
         { answer: 'nie', next: 'aa1b' }
       ]
     },
@@ -54,7 +46,7 @@ function LasChatData() {
         'Zobacz da się je policzyć: <i>et tre, to trær, tre trær</i>...'
       ],
       answers:  [
-        { answer: 'OK. Są policzalne.', next: 'aa2'}
+        { answer: 'OK. Są policzalne.', next: 'aa2', correct: true }
       ]
     },
     aa2:  {
@@ -67,15 +59,15 @@ function LasChatData() {
     aa3: {
       bubbles: [ 'Czy drewno jest policzalne?' ],
       answers: [
-        { answer: 'nie', next: 'aa4' },
+        { answer: 'nie', next: 'aa4', correct: true },
         { answer: 'tak', next: 'aa4' }
       ]
     },
     aa4:  {
       bubbles: [ 'To jak powiesz: Gdzie jest drewno?' ],
       answers:  [
-        { answer: '<i>Hvor er tre?</i>', next: 'aa5'},
-        { answer: '<i>Hvor er et tre?</i>', next: 'aa4b'}
+        { answer: '<i>Hvor er tre?</i>', next: 'aa5', correct: true },
+        { answer: '<i>Hvor er et tre?</i>', next: 'aa4b' }
       ]
     },
     aa4b:  {
@@ -96,7 +88,7 @@ function LasChatData() {
       ]
     },
     aa6:  {
-      bubbles:  [ '#emoji-1f60e;' ],
+      bubbles:  [ '#emoji-1f920;' ],
       autoNext: 'RANDOM'
     },
 
@@ -108,7 +100,7 @@ function LasChatData() {
         'Czy ten piasek, którym sypie miły pan jest policzalny?'
       ],
       answers: [
-        { answer: 'nie', next: 'ab2' },
+        { answer: 'nie', next: 'ab2', correct: true },
         { answer: 'tak', next: 'ab1b' }
       ]
     },
@@ -125,7 +117,7 @@ function LasChatData() {
       ],
       answers:  [
         { answer: '<i>en sand</i>', next: 'ab2b' },
-        { answer: '<i>sand</i>', next: 'ab3' }
+        { answer: '<i>sand</i>', next: 'ab3', correct: true }
       ]
     },
     ab2b:  {
@@ -143,12 +135,17 @@ function LasChatData() {
         'Dobrze!',
         '#emoji-1f3dc; #emoji-1f3d6; #emoji-1f3dd;'
       ],
-      autoNext: 'ab4'
+      answers: [
+        { answer: 'no raczej #emoji-1f60e;', next: 'ab4' }
+      ]
     },
     ab4: {
-      bubbles: [ 'Co w takim razie ze śniegiem? Które zdanie jest poprawne?' ],
+      bubbles: [
+        '<img src="/las/c/i/rze-pol/OjB9Akf2ZXN7i.gif" />',
+        'Co w takim razie ze śniegiem? Które zdanie jest poprawne?'
+      ],
       answers: [
-        { answer: '<i>det er mye snø</i>', next: 'ab5' },
+        { answer: '<i>det er mye snø</i>', next: 'ab5', correct: true },
         { answer: '<i>det er mange snøer</i>', next: 'ab4b' }
       ]
     },
@@ -179,7 +176,7 @@ function LasChatData() {
         'Zgodnie z tą zasadą, powiedz: Jest bardzo niewielu ludzi.'
       ],
       answers: [
-        { answer: '<i>det er veldig lite folk</i>', next: 'ac2' },
+        { answer: '<i>det er veldig lite folk</i>', next: 'ac2', correct: true },
         { answer: '<i>det er veldig få folk</i>', next: 'ac1b' }
       ]
     },
@@ -192,8 +189,8 @@ function LasChatData() {
     ac2: {
       bubbles: [ 'Jak jest człowiek?' ],
       answers: [
-        { answer: '<i>et menneske<.i>', next: 'ac3' },
-        { answer: '<i>(et) folk<.i>', next: 'ac2b' }
+        { answer: '<i>et menneske</i>', next: 'ac3', correct: true },
+        { answer: '<i>(et) folk</i>', next: 'ac2b' }
       ]
     },
     ac2b: {
@@ -203,9 +200,12 @@ function LasChatData() {
       ]
     },
     ac3: {
-      bubbles: [ 'Czy ludzie są policzalni?' ],
+      bubbles: [
+        'Czy ludzie są policzalni?',
+        '<img src="/las/c/i/rze-pol/vcAd8Fgt5yjvi.gif" />'
+      ],
       answers: [
-        { answer: 'tak (<i>mennesker/menneskene</i>)', next: 'ac4' },
+        { answer: 'tak (<i>mennesker/menneskene</i>)', next: 'ac4', correct: true },
         { answer: 'nigdy', next: 'ac3b' }
       ]
     },
@@ -218,7 +218,7 @@ function LasChatData() {
     ac4: {
       bubbles: [ 'A osoby?' ],
       answers: [
-        { answer: 'policzalne', next: 'ac5' },
+        { answer: 'policzalne', next: 'ac5', correct: true },
         { answer: 'niepoliczalne', next: 'ac4b' }
       ]
     },
@@ -229,7 +229,7 @@ function LasChatData() {
       ]
     },
     ac5:  {
-      bubbles: [ '#emoji-1f57a-1f3fb;' ],
+      bubbles: [ '#emoji-1f574;#emoji-1f574;' ],
       autoNext: 'RANDOM'
     },
 
@@ -248,7 +248,7 @@ function LasChatData() {
     ad2: {
       bubbles: [ 'Czy ta miłość może być policzalna?' ],
       answers: [
-        { answer: 'nie', next: 'ad3' },
+        { answer: 'nie', next: 'ad3', correct: true },
         { answer: 'tak', next: 'ad2b' }
       ]
     },
@@ -264,27 +264,27 @@ function LasChatData() {
     ad3:  {
       bubbles: [
         '<i>Pent!</i>',
-        'Jak zapiszesz sobie na fiszce słowo miłość?'
+        'Jak zanotujesz sobie słowo miłość? #emoji-1f49f;'
       ],
       answers:  [
-        { answer: '<i>(ei) kjærlighet</i>', next: 'ad4'},
-        { answer: '<i>ei kjærlighet</i>', next: 'ad3b'},
-        { answer: '<i>kjærlighet</i>', next: 'ad3b'}
+        { answer: '<i>(ei) kjærlighet</i>', next: 'ad4', correct: true },
+        { answer: '<i>ei kjærlighet</i>', next: 'ad3b' },
+        { answer: '<i>kjærlighet</i>', next: 'ad3b' }
       ]
     },
     ad3b:  {
       bubbles:  [
-        'My proponujemy wersje z nawiasem. Rodzajnik trzeba zawsze znać, bo czasem będziesz potrzebować użyć słowa w formie określonej.',
-        'Np. Ich miłość jest zakazana.',
-        '<i>Kjærligheta deres er forbudt.</i>'
+        'My proponujemy wersje z nawiasem. Rodzajnik trzeba zawsze znać, bo czasem przyda Ci się słowo w formie określonej.',
+        'Np. Ich miłość jest trudna.',
+        '<i>Kjærligheta deres er vanskelig.</i> #emoji-1f470-1f3fc; #emoji-1f474-1f3fc;'
       ],
       answers: [
-        { answer: 'słusznie', next: 'ad4' }
+        { answer: 'OK, <i>(ei) kjærlighet</i>', next: 'ad4' }
       ]
     },
     ad4:  {
       bubbles:  [
-        '#emoji-1f498; #emoji-1f6ab; #emoji-1f494;'
+        '<img src="/las/c/i/rze-pol/26hitWmUPUGneG3Is.gif" />'
       ],
       autoNext: 'ad5'
     },
@@ -292,11 +292,11 @@ function LasChatData() {
       bubbles: [ 'A radość, szczęście albo smutek?' ],
       answers: [
         { answer: 'policzalne', next: 'ad5b' },
-        { answer: 'niepoliczalne', next: 'ad6' }
+        { answer: 'niepoliczalne', next: 'ad6', correct: true }
       ]
     },
     ad5b:  {
-      bubbles: [ 'Tak jak z miłością, uczucia są niepoliczlne.' ],
+      bubbles: [ 'Tak jak z miłością, uczucia są niepoliczalne.' ],
       answers:  [
         { answer: 'no tak!', next: 'ad6'}
       ]
@@ -316,27 +316,27 @@ function LasChatData() {
         '<img src="/las/c/i/rze-pol/wZsnJfRdIN5Dy.gif" />',
         'Możesz oczywiście policzyć litry wody, ale nie samą wodę.',
         'Możesz policzyć butelki wody, ale nie sam płyn.',
-        'Jak powiedzieć, że on lubi pić dużo wody.',
+        'Jak powiedzieć, że on lubi pić dużo wody. #emoji-1f6b0;',
         '<i>Han liker å drikke...</i>'
       ],
       answers: [
-        { answer: '<i>mye vann</i>', next: 'ae2' },
+        { answer: '<i>mye vann</i>', next: 'ae2', correct: true },
         { answer: '<i>mye et vann</i>', next: 'ae1b' }
       ]
     },
     ae1b:  {
-      bubbles: [ 'Dużo jednej wody? Napewno... #emoji-1f914;' ],
+      bubbles: [ 'Dużo jednej wody? Na pewno? #emoji-1f914;' ],
       answers:  [
         { answer: 'OK, bez rodzajnika', next: 'ae2'}
       ]
     },
     ae2: {
       bubbles: [
-        'Zgadza się, ale <i>et vann</i> ma także drugie znaczenie. To jezioro. #emoji-26f0;',
+        'Zgadza się, ale <i>et vann</i> ma także drugie znaczenie – jezioro.',
         'Czy jeziora mogą być policzalne?'
       ],
       answers: [
-        { answer: 'tak', next: 'ae3' },
+        { answer: 'tak', next: 'ae3', correct: true },
         { answer: 'nie', next: 'ae2b' }
       ]
     },
@@ -346,23 +346,17 @@ function LasChatData() {
         'Pamiętasz dlaczego nie dodaliśmy końcówki <i>-er</i> w liczbie mnogiej?'
       ],
       answers: [
-        { answer: 'pamiętam', next: 'ae3' },
+        { answer: 'pamiętam', next: 'ae4' },
         { answer: 'nie za bardzo', next: 'ae2c' }
       ]
     },
     ae2c:  {
-      bubbles:  [ 'To koniecznie wróć do ćwiczenia liczby mnogiej.' ],
-      answers: [
-        { answer: 'OK', next: 'ae' }
-      ]
-    },
-    ae3: {
-      bubbles: [
-        'Dobrze.',
-        'Czyli jeziora są policzalne?'
+      bubbles:  [
+        'To słow jest jednosylabowe rodzaju <i>et</i>.',
+        'Koniecznie wróć do wyzwania na liczbę mnogą.'
       ],
       answers: [
-        { answer: 'jak najbardziej sowo!', next: 'ae4' }
+        { answer: 'OK', next: 'ae4' }
       ]
     },
     ae4: {
@@ -371,25 +365,60 @@ function LasChatData() {
         'Czy woda może być w formie określonej? <i>Vannet</i>?'
       ],
       answers: [
-        { answer: 'pewnie', next: 'ae5' },
+        { answer: 'pewnie', next: 'ae5', correct: true },
         { answer: 'raczej nie', next: 'ae5' }
       ]
     },
     ae5:  {
       bubbles: [
-        'Oczywiście. Np. w zdaniu: Woda (ta konkretna) jest zimna.',
+        'Oczywiście, że tak. Np. w zdaniu: Woda (ta konkretna) jest zimna.',
         '<i>Vannet er kaldt.</i> #emoji-1f4a6; #emoji-2744;',
+      ],
+      autoNext: 'ae6'
+    },
+    ae6: {
+      bubbles: [
+        '<i>Gløgg, saft, vin?</i>'
+      ],
+      answers: [
+        { answer: 'niepoliczalne', next: 'ae7', correct: true },
+        { answer: 'policzalne', next: 'ae6b' },
+        { answer: '<i>gløgg, saft??</i>', next: 'ae6c' }
+      ]
+    },
+    ae6b: {
+      bubbles: [
+        '<i>Gløgg</i> to taki grzaniec. Przed świętami Bożego Narodzenia we wszystkich sklepach sprzedają taką gotową miksturę do rozcieńczenia z wodą albo winem. Do tego wrzucasz mix orzechów i rodzynek. Słodkie jak nie wiem, ale za to koselig.',
+        '<img src="/las/c/i/rze-pol/14pIkLtojn1S2A.gif" />',
+        '<i>Saft</i> to skoncentrowany syrop owocowy, do rozcieńczania z wodą. Też słodki, zwłaszcza, że zawiera często cukier.',
+        'Czyli policzalne czy nie?'
+      ],
+      answers: [
+        { answer: 'niepoliczalne', next: 'ae7', correct: true },
+        { answer: 'policzalne', next: 'ae6b' },
+      ]
+    },
+    ae6c: {
+      bubbles: [
+        'Zobacz, przecież płyny są niepoliczalne.',
+        '<img src="/las/c/i/rze-pol/S8pg2cWArWgg0.gif" />'
+      ],
+      answers: [
+        { answer: 'OK', next: 'ae7' }
+      ]
+    },
+    ae7: {
+      bubbles: [
+        '#emoji-1f377;'
       ],
       autoNext: 'RANDOM'
     },
 
 
-
-
     af1: {
       bubbles: [ 'Czy jedzenie jest policzalne?' ],
       answers: [
-        { answer: 'nie', next: 'af2' },
+        { answer: 'nie', next: 'af2', correct: true },
         { answer: 'tak', next: 'af2' }
       ]
     },
@@ -404,24 +433,24 @@ function LasChatData() {
       ]
     },
     af3: {
-      bubbles: [ 'A mąka, cukier, żwir?' ],
+      bubbles: [ 'A mąka, cukier, cynamon?' ],
       answers: [
-        { answer: 'niepoliczalne', next: 'af4' },
+        { answer: 'niepoliczalne', next: 'af4', correct: true },
         { answer: 'policzalne', next: 'af3b' }
       ]
     },
     af3b:  {
       bubbles: [
-        'Tak jak i jedzenie, maki nie policzysz.',
+        'Tak jak i jedzenia, mąki nie policzysz.',
         'Możesz policzyć kilogramy mąki, paczki albo typy, ale samej substancji nie.'
       ],
       answers:  [
-        { answer: 'no tak', next: 'af4'}
+        { answer: 'no tak', next: 'af4' }
       ]
     },
     af4:  {
       bubbles:  [
-        '<i>(et) mel, (et) sukker, (en) grus</i>',
+        '<i>(et) mel, (et) sukker, (en) kanel</i>',
         '#emoji-1f35e;#emoji-1f95e;#emoji-1f36a;'
       ],
       autoNext: 'af5'
@@ -433,7 +462,7 @@ function LasChatData() {
         'Czy pająk to:'
       ],
       answers: [
-        { answer: '<i>en edderkopp</i>', next: 'af6' },
+        { answer: '<i>en edderkopp</i>', next: 'af6', correct: true },
         { answer: '<i>edderkopp</i>', next: 'af5b' }
       ]
     },
@@ -456,7 +485,7 @@ function LasChatData() {
     af7: {
       bubbles: [ 'Zmieńmy scenerię.' ],
       answers: [
-        { answer: 'poproszę.', next: 'af8' }
+        { answer: 'poproszę', next: 'af8' }
       ]
     },
     af8: {
@@ -465,13 +494,13 @@ function LasChatData() {
         'Czy kamienie mogą być policzalne?'
       ],
       answers: [
-        { answer: 'tak', next: 'af9' },
+        { answer: 'tak', next: 'af9', correct: true },
         { answer: 'nie', next: 'af8b' }
       ]
     },
     af8b:  {
       bubbles: [
-        'Jeśli ktoś użyje określenia <i>mye stein</i>, które znaczy, że chodzi mu o "dużo kamienia/skały".',
+        'Jeśli ktoś użyje określenia <i>mye stein</i>, to znaczy, że chodzi mu o "dużo kamienia/skały".',
         'Materiału, którego nie da się policzyć.',
         'Jednak śmiało możesz policzyć pojedyncze kamienie: <i>en stein, to steiner, tre steiner</i>.'
       ],
@@ -481,8 +510,8 @@ function LasChatData() {
     },
     af9: {
       bubbles: [
-        '<i>steinkul!</i>',
-        'jakieś emoty???'
+        '<i>Steinkul!</i>',
+        '#emoji-1f5ff;'
       ],
       autoNext: 'RANDOM'
     },
@@ -492,30 +521,30 @@ function LasChatData() {
       bubbles: [
         'Załóżmy, że chcesz powiedzieć: Ona ma piękne włosy.',
         '<img src="/las/c/i/rze-pol/WyJ5xM2FJ5frO.gif" />',
-        '<i>Hun har pent hår.</i><br />czy<br /><i>Hun har et pent hår.</i>',
         'Użyjesz rodzajnika?'
       ],
       answers: [
-        { answer: 'nie', next: 'ag' },
-        { answer: 'tak', next: 'ag' }
+        { answer: '<i>Hun har pent hår.</i>', next: 'ag2', correct: true },
+        { answer: '<i>Hun har et pent hår.</i>', next: 'ag1b' }
       ]
     },
     ag1b:  {
       bubbles: [
         'Kiedy mówisz o włosach to pamiętaj, że jest ich tak dużo, że nie da się policzyć.',
-        'Czyli są niepoliczalne. Używasz w liczbie pojedynczej i nie dodajesz rodzajnika.'
+        'Czyli są niepoliczalne. Używasz w liczbie pojedynczej i nie dodajesz rodzajnika. #emoji-1f487-1f3fb;'
       ],
       answers:  [
-        { answer: 'rozumiem', next: 'ag2'}
+        { answer: 'rozumiem', next: 'ag2' }
       ]
     },
     ag2:  {
       bubbles:  [ '<i>Greit!</i>' ],
       answers: [
-        { answer: 'sowo, jak powiedzieć w takim razie jeden włos?', next: 'ag3' }
+        { answer: 'sowo, jak powiedzieć w takim razie jeden włos?', next: 'ag3' },
+        { answer: 'dalej', next: 'RANDOM' }
       ]
     },
-    ag4:  {
+    ag3:  {
       bubbles: [
         'Jeden włos to: <i>et hårstrå</i>. Zapamiętaj źdźbło włosa, bo <i>et strå</i> to źdźbło.',
         '<img src="/las/c/i/rze-pol/tumblr_oc9hvlRcIe1r4or01o1_500.gif" />'
@@ -531,7 +560,7 @@ function LasChatData() {
     ah1: {
       bubbles: [ 'Co oznacza określenie: <i>mye lys</i>?' ],
       answers: [
-        { answer: 'dużo światła', next: 'ah2' },
+        { answer: 'dużo światła', next: 'ah2', correct: true },
         { answer: 'wiele świateł', next: 'ah1b' }
       ]
     },
@@ -543,7 +572,7 @@ function LasChatData() {
         'Dlatego:<br /><i>mye lys</i> – dużo światła<br /><i>mange lys</i> – wiele świateł'
       ],
       answers:  [
-        { answer: 'zanotuję', next: 'ah2'}
+        { answer: 'zanotuję #emoji-1f4dc;', next: 'ah2'}
       ]
     },
 
@@ -556,7 +585,7 @@ function LasChatData() {
         'Użyjesz rodzajnika czy nie?'
       ],
       answers: [
-        { answer: '<i>lokal tåke</i>', next: 'aj2' },
+        { answer: '<i>lokal tåke</i>', next: 'aj2', correct: true },
         { answer: '<i>ei lokal tåke</i>', next: 'aj1b' }
       ]
     },
@@ -576,7 +605,7 @@ function LasChatData() {
       ],
       answers: [
         { answer: 'policzalny', next: 'aj3b' },
-        { answer: 'niepoliczalny', next: 'aj' }
+        { answer: 'niepoliczalny', next: 'aj4', correct: true }
       ]
     },
     aj3b:  {
@@ -585,18 +614,18 @@ function LasChatData() {
         '<img src="/las/c/i/rze-pol/2xdzNrPE50WLC.gif" />'
       ],
       answers:  [
-        { answer: 'a, no to OK', next: 'aj2'}
+        { answer: 'a, no to OK #emoji-1f622;', next: 'aj2'}
       ]
     },
     aj4:  {
-      bubbles:  [ '<i>Flott!</i>' ],
+      bubbles:  [ 'Dobrze.' ],
       autoNext: 'aj5'
     },
     aj5: {
       bubbles: [ 'Jest mało deszczu tej jesieni.' ],
       answers: [
         { answer: '<i>det er få regn i høst</i>', next: 'aj5b' },
-        { answer: '<i>det er lite regn i høst</i>', next: 'aj6' }
+        { answer: '<i>det er lite regn i høst</i>', next: 'aj6', correct: true }
       ]
     },
     aj5b:  {
@@ -611,56 +640,6 @@ function LasChatData() {
       ],
       autoNext: 'aj7'
     },
-    aj7: {
-      bubbles: [ '<i>Gløgg, saft, cola?</i>' ],
-      answers: [
-        { answer: 'niepoliczalne', next: 'aj8' },
-        { answer: 'policzalne', next: 'aj7b' }
-      ]
-    },
-    aj7b:  {
-      bubbles: [ '' ],
-      answers:  [
-        { answer: '', next: 'aj8'}
-      ]
-    },
-    aj8:  {
-      bubbles:  [ '' ],
-      autoNext: ''
-    },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ao1: {
-      bubbles: [ 'A śmieci?' ],
-      answers: [
-        { answer: 'niepoliczalne', next: 'ao2' },
-        { answer: 'policzalne', next: 'ao1b' }
-      ]
-    },
-    ao1b:  {
-      bubbles: [ 'Śmieci to: (et) avfall lub (et) søppel. Oba niepoliczalne!' ],
-      answers:  [
-        { answer: '', next: 'ao2'}
-      ]
-    },
-    ao2:  {
-      bubbles:  [ '' ],
-      autoNext: ''
-    },
-
 
 
 
@@ -671,12 +650,22 @@ function LasChatData() {
     a1: {
       bubbles: [
         'Brawo! Kawał dobrej roboty!',
-        'To był trudny odcinek trasy, ale wróć do niego koniecznie.',
-        'No i pamiętaj, że zawsze Ci pomogę.',
-        '<img src="/las/c/i/rze-pol/vLmtj4W2vDirS.gif" />',
-        'Twoja Sowa.'
+        '<img src="/las/c/i/rze-pol/l0IylyD2fD515YRS8.gif" />'
       ],
-      autoNext: 'END'
+      answers:  [
+        { answer: 'dzięki', next: 'a2'},
+        { answer: 'jeszcze tu wrócę', next: 'a2'}
+      ]
+    },
+    a2: {
+      bubbles: [
+        'Mam nadzieję, że rozumiesz teraz co to są słowa policzalne i niepoliczalne. I że nie każdy rzeczownik z pełną odmianą w słowniku, musi w zdaniu mieć rodzajnik lub liczbę mnogą. Kieruj się logiką.',
+        'Do zobaczenia w lesie! <i>Vi sees!</i>',
+        '<img src="/las/c/i/rze-pol/hCA7B450D.gif" />'
+      ],
+      answers:  [
+        { answer: '<i>Ha det!</i>', next: 'END'}
+      ]
     }
   };
 
