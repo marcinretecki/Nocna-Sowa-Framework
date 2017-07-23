@@ -6,7 +6,7 @@ function LasAudioData() {
   ];
 
   this.intro = {
-    a1: {
+    _a1: {
       msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
       autoNext:     'ENDINTRO'/*,
       more: {
@@ -19,27 +19,27 @@ function LasAudioData() {
 
   this.chat = {
 
-    aa1: {
+    _aa1: {
       spokenWord: 'Czytać po norwesku to: å lese. Jak powiesz: “Ela czyta.”?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'aa2'
+      autoNext:   '_aa2'
     },
-    aa2: {
+    _aa2: {
       spokenWord: 'Ela leser.',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'aa3'
+      autoNext:   '_aa3'
     },
-    aa3: {
+    _aa3: {
       spokenWord: 'Ela czyta książkę.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'aa4'
+      autoNext:   '_aa4'
     },
-    aa4: {
+    _aa4: {
       msg:        'Ela leser ei bok.',
       trans:      'Ela czyta książkę.',
       startTime:  0,
@@ -48,27 +48,27 @@ function LasAudioData() {
     },
 
 
-    ab1: {
+    _ab1: {
       spokenWord: 'Przychodzić, przybywać to: å komme. Powiedz po norwesku: Przyjdę.',
       startTime:  8,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'ab2'
+      autoNext:   '_ab2'
     },
-    ab2: {
+    _ab2: {
       spokenWord: 'Jeg kommer.',
       startTime:  12,
       duration:   1.5,
-      autoNext:   'ab3'
+      autoNext:   '_ab3'
     },
-    ab3: {
+    _ab3: {
       spokenWord: 'Przyjdę do Ciebie.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'ab4'
+      autoNext:   '_ab4'
     },
-    ab4: {
+    _ab4: {
       msg:        'Jeg kommer til deg.',
       trans:      'Przyjdę do Ciebie.',
       startTime:  0,
@@ -77,27 +77,27 @@ function LasAudioData() {
     },
 
 
-    ac1: {
+    _ac1: {
       spokenWord: 'Pić to: å drikke. Powiedz: Pijemy. ',
       startTime:  15,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'ac2'
+      autoNext:   '_ac2'
     },
-    ac2: {
+    _ac2: {
       spokenWord: 'Vi drikker.',
       startTime:  19,
       duration:   1.5,
-      autoNext:   'ac3'
+      autoNext:   '_ac3'
     },
-    ac3: {
+    _ac3: {
       spokenWord: 'My pijemy wodę.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'ac4'
+      autoNext:   '_ac4'
     },
-    ac4: {
+    _ac4: {
       msg:        'Vi drikker vann.',
       trans:      'My pijemy wodę.',
       startTime:  0,
@@ -106,27 +106,27 @@ function LasAudioData() {
     },
 
 
-    ae1: {
+    _ae1: {
       spokenWord: 'Mieć to: å ha. Jak powiedzieć: Wy macie.',
       startTime:  29,
       duration:   1.5,
       pauseTime:  5,
-      autoNext:   'ae2'
+      autoNext:   '_ae2'
     },
-    ae2: {
+    _ae2: {
       spokenWord: 'Dere har.',
       startTime:  33,
       duration:   1.5,
-      autoNext:   'ae3'
+      autoNext:   '_ae3'
     },
-    ae3: {
+    _ae3: {
       spokenWord: 'Wy macie dzieci.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'ae4'
+      autoNext:   '_ae4'
     },
-    ae4: {
+    _ae4: {
       msg:        'Dere har barn.',
       trans:      'Wy macie dzieci.',
       startTime:  0,
@@ -135,27 +135,27 @@ function LasAudioData() {
     },
 
 
-    af1: {
+    _af1: {
       spokenWord: 'Brać po norwesku to: å ta. Jak powiesz w sklepie: Biorę.',
       startTime:  36,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'af2'
+      autoNext:   '_af2'
     },
-    af2: {
+    _af2: {
       spokenWord: 'Jeg tar.',
       startTime:  40,
       duration:   1.5,
-      autoNext:   'af3'
+      autoNext:   '_af3'
     },
-    af3: {
+    _af3: {
       spokenWord: 'Wezmę to.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'af4'
+      autoNext:   '_af4'
     },
-    af4: {
+    _af4: {
       msg:        'Jeg tar det.',
       trans:      'Wezmę to.',
       startTime:  0,
@@ -164,27 +164,27 @@ function LasAudioData() {
     },
 
 
-    ah1: {
+    _ah1: {
       spokenWord: 'Dostać to: å få. Powiedz: Olaf dostaje.',
       startTime:  43,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'ah2'
+      autoNext:   '_ah2'
     },
-    ah2: {
+    _ah2: {
       spokenWord: 'Olaf får.',
       startTime:  47,
       duration:   1.5,
-      autoNext:   'ah3'
+      autoNext:   '_ah3'
     },
-    ah3: {
+    _ah3: {
       spokenWord: 'Olaf dostaje prezenty.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'ah4'
+      autoNext:   '_ah4'
     },
-    ah4: {
+    _ah4: {
       msg:        'Olaf får gaver.',
       trans:      'Olaf dostaje prezenty.',
       startTime:  0,
@@ -193,27 +193,27 @@ function LasAudioData() {
     },
 
 
-    aj1: {
+    _aj1: {
       spokenWord: 'Iść to: å gå. Powiedz: Idziemy.',
       startTime:  50,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'aj2'
+      autoNext:   '_aj2'
     },
-    aj2: {
+    _aj2: {
       spokenWord: 'Vi går.',
       startTime:  54,
       duration:   1.5,
-      autoNext:   'aj3'
+      autoNext:   '_aj3'
     },
-    aj3: {
+    _aj3: {
       spokenWord: 'Idziemy do lasu.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'aj4'
+      autoNext:   '_aj4'
     },
-    aj4: {
+    _aj4: {
       msg:        'Vi går til skogen.',
       trans:      'Idziemy do lasu.',
       startTime:  0,
@@ -222,27 +222,27 @@ function LasAudioData() {
     },
 
 
-    ai1: {
+    _ai1: {
       spokenWord: 'Å bli znaczy stać się lub zostać. Powiedz: Zostaję.',
       startTime:  57,
       duration:   1.5,
       pauseTime:  5,
-      autoNext:   'ai2'
+      autoNext:   '_ai2'
     },
-    ai2: {
+    _ai2: {
       spokenWord: 'Jeg blir.',
       startTime:  60,
       duration:   1.5,
-      autoNext:   'ai3'
+      autoNext:   '_ai3'
     },
-    ai3: {
+    _ai3: {
       spokenWord: 'Zostaję w domu.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'ai4'
+      autoNext:   '_ai4'
     },
-    ai4: {
+    _ai4: {
       msg:        'Jeg blir hjemme.',
       trans:      'Zostaję w domu.',
       startTime:  0,
@@ -251,27 +251,27 @@ function LasAudioData() {
     },
 
 
-    ak1: {
+    _ak1: {
       spokenWord: 'Dać to: å gi. Sklep daje.',
       startTime:  63,
       duration:   1.5,
       pauseTime:  5,
-      autoNext:   'ak2'
+      autoNext:   '_ak2'
     },
-    ak2: {
+    _ak2: {
       spokenWord: 'Butikken gir.',
       startTime:  67,
       duration:   1.5,
-      autoNext:   'ak3'
+      autoNext:   '_ak3'
     },
-    ak3: {
+    _ak3: {
       spokenWord: 'Sklep daje rabat.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'ak4'
+      autoNext:   '_ak4'
     },
-    ak4: {
+    _ak4: {
       msg:        'Butikken gir rabatt.',
       trans:      'Sklep daje rabat.',
       startTime:  0,
@@ -280,27 +280,27 @@ function LasAudioData() {
     },
 
 
-    al1: {
+    _al1: {
       spokenWord: 'Potrzebować to: å trenge. Powiedz: Ona potrzebuje.',
       startTime:  70,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'al2'
+      autoNext:   '_al2'
     },
-    al2: {
+    _al2: {
       spokenWord: 'Hun trenger.',
       startTime:  74,
       duration:   1.5,
-      autoNext:   'al3'
+      autoNext:   '_al3'
     },
-    al3: {
+    _al3: {
       spokenWord: 'Ona potrzebuje klucza.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'al4'
+      autoNext:   '_al4'
     },
-    al4: {
+    _al4: {
       msg:        'Hun trenger nøkkelen.',
       trans:      'Ona potrzebuje klucza.',
       startTime:  0,
@@ -309,27 +309,27 @@ function LasAudioData() {
     },
 
 
-    ba1: {
+    _ba1: {
       spokenWord: 'Czekać to: å vente. Powiedz: Czekam albo zaczekam. ',
       startTime:  77,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ba2'
+      autoNext:   '_ba2'
     },
-    ba2: {
+    _ba2: {
       spokenWord: 'Jeg venter.',
       startTime:  81,
       duration:   1.5,
-      autoNext:   'ba3'
+      autoNext:   '_ba3'
     },
-    ba3: {
+    _ba3: {
       spokenWord: 'Czekam na Ciebie, albo Zaczekam na Ciebie.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'ba4'
+      autoNext:   '_ba4'
     },
-    ba4: {
+    _ba4: {
       msg:        'Jeg venter på deg.',
       trans:      'Czekam na Ciebie. / Zaczekam na Ciebie.',
       startTime:  0,
@@ -338,27 +338,27 @@ function LasAudioData() {
     },
 
 
-    bb1: {
+    _bb1: {
       spokenWord: 'Rozmawiać to: å snakke. Powiedz: Oni rozmawiają. ',
       startTime:  85,
       duration:   1.5,
       pauseTime:  5,
-      autoNext:   'bb2'
+      autoNext:   '_bb2'
     },
-    bb2: {
+    _bb2: {
       spokenWord: 'De snakker.',
       startTime:  89,
       duration:   1.5,
-      autoNext:   'bb3'
+      autoNext:   '_bb3'
     },
-    bb3: {
+    _bb3: {
       spokenWord: 'Oni rozmawiają z policją.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'bb4'
+      autoNext:   '_bb4'
     },
-    bb4: {
+    _bb4: {
       msg:        'De snakker med politi.',
       trans:      'Oni rozmawiają z policją.',
       startTime:  0,
@@ -367,27 +367,27 @@ function LasAudioData() {
     },
 
 
-    bc1: {
+    _bc1: {
       spokenWord: 'Lubić to: å like. Powiedz: On lubi.',
       startTime:  92,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'bc2'
+      autoNext:   '_bc2'
     },
-    bc2: {
+    _bc2: {
       spokenWord: 'Han liker.',
       startTime:  95,
       duration:   1.5,
-      autoNext:   'bc3'
+      autoNext:   '_bc3'
     },
-    bc3: {
+    _bc3: {
       spokenWord: 'On lubi dziewczynę, lub podoba mu się dziewczyna.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'bc4'
+      autoNext:   '_bc4'
     },
-    bc4: {
+    _bc4: {
       msg:        'Han liker jenta.',
       trans:      'On lubi dziewczynę. / Podoba mu się dziewczyna.',
       startTime:  0,
@@ -396,30 +396,30 @@ function LasAudioData() {
     },
 
 
-    bd1: {
+    _bd1: {
       spokenWord: 'Podróżować, jeździć to: å reise. Powiedz: Jedziemy.',
       startTime:  98,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'bd2'
+      autoNext:   '_bd2'
     },
-    bd2: {
+    _bd2: {
       spokenWord: 'Vi reiser.',
       startTime:  102,
       duration:   1.5,
       more:       {
         spokenWord: 'Synonimem å reise jest å dra. Dlatego możesz też powiedzieć: Vi drar.'
       },
-      autoNext:   'bd3'
+      autoNext:   '_bd3'
     },
-    bd3: {
+    _bd3: {
       spokenWord: 'Jedziemy na wakacje.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'bd4'
+      autoNext:   '_bd4'
     },
-    bd4: {
+    _bd4: {
       msg:        'Vi reiser på ferie.',
       trans:      'Jedziemy na wakacje.',
       startTime:  0,
@@ -428,27 +428,27 @@ function LasAudioData() {
     },
 
 
-    bf1: {
+    _bf1: {
       spokenWord: 'Å elske znaczy kochać. Powiedz: Oni kochają.',
       startTime:  113,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'bf2'
+      autoNext:   '_bf2'
     },
-    bf2: {
+    _bf2: {
       spokenWord: 'De elsker.',
       startTime:  116,
       duration:   1.5,
-      autoNext:   'bf3'
+      autoNext:   '_bf3'
     },
-    bf3: {
+    _bf3: {
       spokenWord: 'Oni kochają góry.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'bf4'
+      autoNext:   '_bf4'
     },
-    bf4: {
+    _bf4: {
       msg:        'De elsker fjell.',
       trans:      'Oni kochają góry.',
       startTime:  0,
@@ -457,30 +457,30 @@ function LasAudioData() {
     },
 
 
-    bh1: {
+    _bh1: {
       spokenWord: 'Rozumieć to å forstå. Powiedz: Rozumiem. ',
       startTime:  126,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'bh2'
+      autoNext:   '_bh2'
     },
-    bh2: {
+    _bh2: {
       spokenWord: 'Jeg forstår.',
       startTime:  130,
       duration:   1.5,
       more:       {
         spokenWord: 'Synonimem å forstå jest å skjønne. Dlatego możesz też powiedzieć: Jeg skjønner.'
       },
-      autoNext:   'bh3'
+      autoNext:   '_bh3'
     },
-    bh3: {
+    _bh3: {
       spokenWord: 'Rozumiem wszystko.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'bh4'
+      autoNext:   '_bh4'
     },
-    bh4: {
+    _bh4: {
       msg:        'Jeg forstår alt.',
       trans:      'Rozumiem wszystko.',
       startTime:  0,
@@ -489,27 +489,27 @@ function LasAudioData() {
     },
 
 
-    bi1: {
+    _bi1: {
       spokenWord: 'Å tro to wierzeć. Powiedz: On wierzy. ',
       startTime:  133,
       duration:   1.5,
       pauseTime:  5,
-      autoNext:   'bi2'
+      autoNext:   '_bi2'
     },
-    bi2: {
+    _bi2: {
       spokenWord: 'Han tror.',
       startTime:  136,
       duration:   1.5,
-      autoNext:   'bi3'
+      autoNext:   '_bi3'
     },
-    bi3: {
+    _bi3: {
       spokenWord: 'On wierzy w siebie.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'bi4'
+      autoNext:   '_bi4'
     },
-    bi4: {
+    _bi4: {
       msg:        'Han tror i seg selv.',
       trans:      'On wierzy w siebie.',
       startTime:  0,
@@ -518,27 +518,27 @@ function LasAudioData() {
     },
 
 
-    bj1: {
+    _bj1: {
       spokenWord: 'Å høre på znaczy słuchać. Powiedz: Oni słuchają. ',
       startTime:  139,
       duration:   1.5,
       pauseTime:  5,
-      autoNext:   'bj2'
+      autoNext:   '_bj2'
     },
-    bj2: {
+    _bj2: {
       spokenWord: 'De hører på.',
       startTime:  142,
       duration:   1.5,
-      autoNext:   'bj3'
+      autoNext:   '_bj3'
     },
-    bj3: {
+    _bj3: {
       spokenWord: 'Oni słuchają black metalu.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'bj4'
+      autoNext:   '_bj4'
     },
-    bj4: {
+    _bj4: {
       msg:        'De hører på black metal.',
       trans:      'Oni słuchają black metalu.',
       startTime:  0,
@@ -547,27 +547,27 @@ function LasAudioData() {
     },
 
 
-    bk1: {
+    _bk1: {
       spokenWord: 'Å fortelle to opowiadać. Powiedz: Wy opowiadacie.',
       startTime:  145,
       duration:   1.5,
       pauseTime:  5,
-      autoNext:   'bk2'
+      autoNext:   '_bk2'
     },
-    bk2: {
+    _bk2: {
       spokenWord: 'Dere forteller.',
       startTime:  148,
       duration:   1.5,
-      autoNext:   'bk3'
+      autoNext:   '_bk3'
     },
-    bk3: {
+    _bk3: {
       spokenWord: 'Opowiadacie bajki.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'bk4'
+      autoNext:   '_bk4'
     },
-    bk4: {
+    _bk4: {
       msg:        'Dere forteller eventyr.',
       trans:      'Opowiadacie bajki.',
       startTime:  0,
@@ -576,14 +576,14 @@ function LasAudioData() {
     },
 
 
-    bm1: {
+    _bm1: {
       spokenWord: 'Znaczyć to å bety. Powiedz: To coś znaczy.',
       startTime:  158,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'bm2'
+      autoNext:   '_bm2'
     },
-    bm2: {
+    _bm2: {
       msg:        'Det betyr noe.',
       trans:      'To coś znaczy.',
       startTime:  0,
@@ -592,14 +592,14 @@ function LasAudioData() {
     },
 
 
-    bo1: {
+    _bo1: {
       spokenWord: 'Å klare to dawać radę. Powiedz: Daję radę. Albo: Radzę sobie z tym.',
       startTime:  178,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'bo2'
+      autoNext:   '_bo2'
     },
-    bo4: {
+    _bo4: {
       msg:        'Jeg klarer det.',
       trans:      'Daję radę. / Radzę sobie z tym.',
       startTime:  0,
@@ -608,27 +608,27 @@ function LasAudioData() {
     },
 
 
-    ca1: {
+    _ca1: {
       spokenWord: 'Å be znaczy prosić. Powiedz: On prosi. ',
       startTime:  185,
       duration:   1.5,
       pauseTime:  7,
-      autoNext:   'ca2'
+      autoNext:   '_ca2'
     },
-    ca2: {
+    _ca2: {
       spokenWord: 'Han ber.',
       startTime:  189,
       duration:   1.5,
-      autoNext:   'ca3'
+      autoNext:   '_ca3'
     },
-    ca3: {
+    _ca3: {
       spokenWord: 'On prosi o pomoc.',
       startTime:  190,
       duration:   1.5,
       pause:      6,
-      autoNext:   'ca4'
+      autoNext:   '_ca4'
     },
-    ca4: {
+    _ca4: {
       msg:        'Han ber om hjelp.',
       trans:      'On prosi o pomoc.',
       startTime:  192,
@@ -637,27 +637,27 @@ function LasAudioData() {
     },
 
 
-    cb1: {
+    _cb1: {
       spokenWord: 'Dzwonić to: å ringe. Powiedz: One dzwonią.',
       startTime:  192,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'cb2'
+      autoNext:   '_cb2'
     },
-    cb2: {
+    _cb2: {
       spokenWord: 'De ringer.',
       startTime:  196,
       duration:   1.5,
-      autoNext:   'cb3'
+      autoNext:   '_cb3'
     },
-    cb3: {
+    _cb3: {
       spokenWord: 'One dzwonią po karetkę.',
       startTime:  0,
       duration:   1.5,
       pause:      6,
-      autoNext:   'cb4'
+      autoNext:   '_cb4'
     },
-    cb4: {
+    _cb4: {
       msg:        'De ringer etter ambulansen.',
       trans:      'One dzwonią po karetkę.',
       startTime:  0,
@@ -666,27 +666,27 @@ function LasAudioData() {
     },
 
 
-    ccb1: {
+    _ccb1: {
       spokenWord: 'Mieszakć to: å bo. Powiedz: Oni mieszkają.',
       startTime:  199,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'ccb2'
+      autoNext:   '_ccb2'
     },
-    ccb2: {
+    _ccb2: {
       spokenWord: 'De bor.',
       startTime:  203,
       duration:   1.5,
-      autoNext:   'ccb3'
+      autoNext:   '_ccb3'
     },
-    ccb3: {
+    _ccb3: {
       spokenWord: 'Oni mieszkają razem.',
       startTime:  205,
       duration:   1.5,
       pause:      6,
-      autoNext:   'ccb4'
+      autoNext:   '_ccb4'
     },
-    ccb4: {
+    _ccb4: {
       msg:        'De bor sammen.',
       trans:      'Oni mieszkają razem.',
       startTime:  207,
@@ -695,27 +695,27 @@ function LasAudioData() {
     },
 
 
-    cc1: {
+    _cc1: {
       spokenWord: 'Leżeć to: å ligge. Powiedz: Telefon leży.',
       startTime:  199,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'cc2'
+      autoNext:   '_cc2'
     },
-    cc2: {
+    _cc2: {
       spokenWord: 'Mobilen ligger.',
       startTime:  203,
       duration:   1.5,
-      autoNext:   'cc3'
+      autoNext:   '_cc3'
     },
-    cc3: {
+    _cc3: {
       spokenWord: 'Telefon leży na stole.',
       startTime:  205,
       duration:   1.5,
       pause:      6,
-      autoNext:   'cc4'
+      autoNext:   '_cc4'
     },
-    cc4: {
+    _cc4: {
       msg:        'Mobilen ligger på bordet.',
       trans:      'Telefon leży na stole.',
       startTime:  207,
@@ -724,27 +724,27 @@ function LasAudioData() {
     },
 
 
-    cd1: {
+    _cd1: {
       spokenWord: 'Myśleć to: å tenke. Powiedz: Ona myśli.',
       startTime:  206,
       duration:   1.5,
       pauseTime:  6,
-      autoNext:   'cd2'
+      autoNext:   '_cd2'
     },
-    cd2: {
+    _cd2: {
       spokenWord: 'Hun tenker.',
       startTime:  209,
       duration:   1.5,
-      autoNext:   'cd3'
+      autoNext:   '_cd3'
     },
-    cd3: {
+    _cd3: {
       spokenWord: 'Ona myśli dużo.',
       startTime:  210,
       duration:   1.5,
       pause:      6,
-      autoNext:   'cd4'
+      autoNext:   '_cd4'
     },
-    cd4: {
+    _cd4: {
       msg:        'Hun tenker mye.',
       trans:      'Ona myśli dużo.',
       startTime:  210,
@@ -759,8 +759,8 @@ function LasAudioData() {
 
   this.end = {
 
-    end1: {
-      msg:        '',
+    _end1: {
+      msg:        'END',
       /*startTime:  0,
       duration:   1.5,
     }

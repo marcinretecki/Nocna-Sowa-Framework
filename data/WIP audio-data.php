@@ -16,7 +16,7 @@ function LasAudioData() {
 
 
   this.intro = {
-    a1: {
+    _a1: {
       msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
       autoNext:     'ENDINTRO'/*,
       more: {
@@ -29,16 +29,16 @@ function LasAudioData() {
 
   this.chat = {
 
-    aa1: {
+    _aa1: {
       msg:        ' <span class="audio-test-clue"></span>.',
       answers: [
-        { answer: '',   next: 'aa2' },
+        { answer: '',   next: '_aa2' },
         { answer: '',   wrong: true },
         { answer: '',   wrong: true },
         { answer: '',   wrong: true }
       ]
     },
-    aa2: {
+    _aa2: {
       msg:        '',
       startTime:  0,
       duration:   1.5,
@@ -46,16 +46,16 @@ function LasAudioData() {
     },
 
 
-    ab1: {
+    _ab1: {
       msg:        ' <span class="audio-test-clue"></span>.',
       answers: [
-        { answer: '',   next: 'ab2' },
+        { answer: '',   next: '_ab2' },
         { answer: '',   wrong: true },
         { answer: '',   wrong: true },
         { answer: '',   wrong: true }
       ]
     },
-    ab2: {
+    _ab2: {
       msg:        '',
       startTime:  3,
       duration:   1.5,
@@ -67,7 +67,7 @@ function LasAudioData() {
 
   this.end = {
 
-    end1: {
+    _end1: {
       msg:        'END',
       startTime:  0,
       duration:   1.5,

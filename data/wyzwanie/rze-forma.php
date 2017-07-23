@@ -8,7 +8,7 @@ function LasAudioData() {
   ];
 
   this.intro = {
-    a1: {
+    _a1: {
       msg: 'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
       autoNext: 'ENDINTRO'/*,
       more: {
@@ -21,12 +21,12 @@ function LasAudioData() {
 
   this.chat = {
 
-    buss1: {
+    _buss1: {
       spokenWord: 'Powiedz "jakiś autobus".',
       startTime:  27,
       duration:   30 - 27,
       answers: [
-        { answer: 'en buss', next: 'buss2' },
+        { answer: 'en buss', next: '_buss2', correct: true },
         { answer: 'bussen', wrong: true }
       ],
       more:       {
@@ -35,7 +35,7 @@ function LasAudioData() {
         duration:   40 - 34
       }
     },
-    buss2: {
+    _buss2: {
       msg:        '<i>en buss</i>',
       score:      true,
       startTime:  31,
@@ -45,12 +45,12 @@ function LasAudioData() {
 
 
 
-    speil1: {
+    _speil1: {
       spokenWord: 'Powiedz "to lustro"',
       startTime:  41,
       duration:   43 - 41,
       answers: [
-        { answer: 'speilet', next: 'speil2' },
+        { answer: 'speilet', next: '_speil2', correct: true },
         { answer: 'et speil', wrong: true }
       ],
       more:       {
@@ -59,7 +59,7 @@ function LasAudioData() {
         duration:   56 - 47
       }
     },
-    speil2: {
+    _speil2: {
       msg:        '<i>speilet</i>',
       score:      true,
       startTime:  44,
@@ -69,12 +69,12 @@ function LasAudioData() {
 
 
 
-    mann1: {
+    _mann1: {
       spokenWord: 'Powiedz "ten mężczyzna" albo "mąż":',
       startTime:  57,
       duration:   61 - 57,
       answers: [
-        { answer: 'mannen', next: 'mann2' },
+        { answer: 'mannen', next: '_mann2', correct: true },
         { answer: 'en mann', wrong: true }
       ],
       more:       {
@@ -83,7 +83,7 @@ function LasAudioData() {
         duration:   75 - 65
       }
     },
-    mann2: {
+    _mann2: {
       msg:        '<i>mannen</i>',
       score:      true,
       startTime:  62,
@@ -93,12 +93,12 @@ function LasAudioData() {
 
 
 
-    kvinne1: {
+    _kvinne1: {
       spokenWord: 'Powiedz "jakaś kobieta":',
       startTime:  76,
       duration:   79 - 76,
       answers: [
-        { answer: 'ei kvinne', next: 'kvinne2' },
+        { answer: 'ei kvinne', next: '_kvinne2', correct: true },
         { answer: 'kvinna', wrong: true }
       ],
       more:       {
@@ -107,7 +107,7 @@ function LasAudioData() {
         duration:   89 - 83
       }
     },
-    kvinne2: {
+    _kvinne2: {
       msg:        '<i>ei kvinne</i>',
       score:      true,
       startTime:  80,
@@ -117,12 +117,12 @@ function LasAudioData() {
 
 
 
-    gutt1: {
+    _gutt1: {
       spokenWord: 'Powiedz "ten chłopiec":',
       startTime:  90,
       duration:   92 - 90,
       answers: [
-        { answer: 'gutten', next: 'gutt2' },
+        { answer: 'gutten', next: '_gutt2', correct: true },
         { answer: 'en gutt', wrong: true }
       ],
       more:       {
@@ -131,7 +131,7 @@ function LasAudioData() {
         duration:   106 - 96
       }
     },
-    gutt2: {
+    _gutt2: {
       msg:        '<i>gutten</i>',
       score:      true,
       startTime:  93,
@@ -141,12 +141,12 @@ function LasAudioData() {
 
 
 
-    jente1: {
+    _jente1: {
       spokenWord: 'Powiedz "jakaś dziewczyna" albo "dziewczynka":',
       startTime:  107,
       duration:   111 - 107,
       answers: [
-        { answer: 'ei jente', next: 'jente2' },
+        { answer: 'ei jente', next: '_jente2', correct: true },
         { answer: 'jenta', wrong: true }
       ],
       more:       {
@@ -155,7 +155,7 @@ function LasAudioData() {
         duration:   121 - 115
       }
     },
-    jente2: {
+    _jente2: {
       msg:        '<i>ei jente</i>',
       score:      true,
       startTime:  112,
@@ -165,12 +165,12 @@ function LasAudioData() {
 
 
 
-    barn1: {
+    _barn1: {
       spokenWord: 'Powiedz "to dziecko":',
       startTime:  123,
       duration:   125 - 123,
       answers: [
-        { answer: 'barnet', next: 'barn2' },
+        { answer: 'barnet', next: '_barn2', correct: true },
         { answer: 'et barn', wrong: true }
       ],
       more:       {
@@ -179,7 +179,7 @@ function LasAudioData() {
         duration:   138 - 129
       }
     },
-    barn2: {
+    _barn2: {
       msg:        '<i>barnet</i>',
       score:      true,
       startTime:  126,
@@ -189,12 +189,12 @@ function LasAudioData() {
 
 
 
-    kone1: {
+    _kone1: {
       spokenWord: 'Jak powiesz "żona" w formie określonej?',
       startTime:  139,
       duration:   142 - 139,
       answers: [
-        { answer: 'kona', next: 'kone2' },
+        { answer: 'kona', next: '_kone2', correct: true },
         { answer: 'ei kone', wrong: true }
       ],
       more:       {
@@ -203,7 +203,7 @@ function LasAudioData() {
         duration:   156 - 146
       }
     },
-    kone2: {
+    _kone2: {
       msg:        '<i>kona</i>',
       score:      true,
       startTime:  143,
@@ -213,12 +213,12 @@ function LasAudioData() {
 
 
 
-    land1: {
+    _land1: {
       spokenWord: 'Powiedz "ten kraj":',
       startTime:  157,
       duration:   159 - 157,
       answers: [
-        { answer: 'landet', next: 'land2' },
+        { answer: 'landet', next: '_land2', correct: true },
         { answer: 'et land', wrong: true }
       ],
       more:       {
@@ -227,7 +227,7 @@ function LasAudioData() {
         duration:   172 - 163
       }
     },
-    land2: {
+    _land2: {
       msg: '<i>landet</i>',
       score: true,
       startTime:  160,
@@ -237,12 +237,12 @@ function LasAudioData() {
 
 
 
-    hytte1: {
+    _hytte1: {
       spokenWord: 'Powiedz "jakiś domek letniskowy" albo "chatka":',
       startTime:  173,
       duration:   177 - 173,
       answers: [
-        { answer: 'ei hytte', next: 'hytte2' },
+        { answer: 'ei hytte', next: '_hytte2', correct: true },
         { answer: 'hytta', wrong: true }
       ],
       more:       {
@@ -251,14 +251,14 @@ function LasAudioData() {
         duration:   187 - 181
       }
     },
-    hytte2: {
+    _hytte2: {
       msg: '<i>ei hytte</i>',
       score: true,
       startTime:  178,
       duration:   180 - 178,
       autoNext:   'RANDOM',
       more:       {
-        spokenWord: '/ei hytte/ może oznaczać tradycyjną norweską chatkę z drewna. Norwedzy często wynajmują je na weekend, żeby pobyć bliżej natury. Niektórzy mówiąc /hytte/ mają na myśli jakikolwiek dom nad wodą lub w lesie.',
+        spokenWord: '/ei hytte/ może oznaczać tradycyjną norweską chatkę z drewna. Norwedzy często wynajmują je na week_END, żeby pobyć bliżej natury. Niektórzy mówiąc /hytte/ mają na myśli jakikolwiek dom nad wodą lub w lesie.',
         startTime:  188,
         duration:   201 - 188
       }
@@ -266,12 +266,12 @@ function LasAudioData() {
 
 
 
-    hylle1: {
+    _hylle1: {
       spokenWord: 'Powiedz "ta półka":',
       startTime:  202,
       duration:   204 - 202,
       answers: [
-        { answer: 'hylla', next: 'hylle2' },
+        { answer: 'hylla', next: '_hylle2', correct: true },
         { answer: 'ei hylle', wrong: true }
       ],
       more:       {
@@ -280,7 +280,7 @@ function LasAudioData() {
         duration:   217 - 208
       }
     },
-    hylle2: {
+    _hylle2: {
       msg: '<i>hylla</i>',
       score: true,
       startTime:  205,
@@ -290,12 +290,12 @@ function LasAudioData() {
 
 
 
-    vindu1: {
+    _vindu1: {
       spokenWord: 'Powiedz "jakieś okno":',
       startTime:  218,
       duration:   220 - 218,
       answers: [
-        { answer: 'et vindu', next: 'vindu2' },
+        { answer: 'et vindu', next: '_vindu2', correct: true },
         { answer: 'vinduet', wrong: true }
       ],
       more:       {
@@ -304,7 +304,7 @@ function LasAudioData() {
         duration:   230 - 224
       }
     },
-    vindu2: {
+    _vindu2: {
       msg: '<i>et vindu</i>',
       score: true,
       startTime:  221,
@@ -314,12 +314,12 @@ function LasAudioData() {
 
 
 
-    gulv1: {
+    _gulv1: {
       spokenWord: 'Jak powiesz "podłoga" w formie określonej?',
       startTime:  231,
       duration:   234 - 231,
       answers: [
-        { answer: 'gulvet', next: 'gulv2' },
+        { answer: 'gulvet', next: '_gulv2', correct: true },
         { answer: 'et gulv', wrong: true }
       ],
       more:       {
@@ -328,7 +328,7 @@ function LasAudioData() {
         duration:   248 - 238
       }
     },
-    gulv2: {
+    _gulv2: {
       msg: '<i>gulvet</i>',
       score: true,
       startTime:  235,
@@ -338,12 +338,12 @@ function LasAudioData() {
 
 
 
-    bord1: {
+    _bord1: {
       spokenWord: 'Jak powiesz "stół" w formie nieokreślonej?',
       startTime:  249,
       duration:   252 - 249,
       answers: [
-        { answer: 'et bord', next: 'bord2' },
+        { answer: 'et bord', next: '_bord2', correct: true },
         { answer: 'bordet', wrong: true }
       ],
       more:       {
@@ -352,7 +352,7 @@ function LasAudioData() {
         duration:   262 - 256
       }
     },
-    bord2: {
+    _bord2: {
       msg: '<i>et bord</i>',
       score: true,
       startTime:  253,
@@ -362,12 +362,12 @@ function LasAudioData() {
 
 
 
-    skap1: {
+    _skap1: {
       spokenWord: 'Powiedz "ta szafka":',
       startTime:  263,
       duration:   265 - 263,
       answers: [
-        { answer: 'skapet', next: 'skap2' },
+        { answer: 'skapet', next: '_skap2', correct: true },
         { answer: 'et skap', wrong: true }
       ],
       more:       {
@@ -376,7 +376,7 @@ function LasAudioData() {
         duration:   279 - 269
       }
     },
-    skap2: {
+    _skap2: {
       msg: '<i>skapet</i>',
       score: true,
       startTime:  266,
@@ -386,12 +386,12 @@ function LasAudioData() {
 
 
 
-    stol1: {
+    _stol1: {
       spokenWord: 'Jak powiesz "krzesło", jakieś dowolne?',
       startTime:  280,
       duration:   283 - 280,
       answers: [
-        { answer: 'en stol', next: 'stol2' },
+        { answer: 'en stol', next: '_stol2', correct: true },
         { answer: 'stolen', wrong: true }
       ],
       more:       {
@@ -400,7 +400,7 @@ function LasAudioData() {
         duration:   294 - 287
       }
     },
-    stol2: {
+    _stol2: {
       msg: '<i>en stol</i>',
       score: true,
       startTime:  284,
@@ -410,12 +410,12 @@ function LasAudioData() {
 
 
 
-    mobil1: {
+    _mobil1: {
       spokenWord: 'Powiedz "ten telefon":',
       startTime:  295,
       duration:   297 - 295,
       answers: [
-        { answer: 'mobilen', next: 'mobil2' },
+        { answer: 'mobilen', next: '_mobil2', correct: true },
         { answer: 'en mobil', wrong: true }
       ],
       more:       {
@@ -424,7 +424,7 @@ function LasAudioData() {
         duration:   311 - 301
       }
     },
-    mobil2: {
+    _mobil2: {
       msg: '<i>mobilen</i>',
       score: true,
       startTime:  298,
@@ -439,12 +439,12 @@ function LasAudioData() {
     },
 
 
-    melding1: {
+    _melding1: {
       spokenWord: 'Powiedz "jakaś wiadomość":',
       startTime:  323,
       duration:   325 - 323,
       answers: [
-        { answer: 'en melding', next: 'melding2' },
+        { answer: 'en melding', next: '_melding2', correct: true },
         { answer: 'meldingen', wrong: true }
       ],
       more:       {
@@ -453,7 +453,7 @@ function LasAudioData() {
         duration:   335 - 329
       }
     },
-    melding2: {
+    _melding2: {
       msg: '<i>en melding</i>',
       score: true,
       startTime:  326,
@@ -468,12 +468,12 @@ function LasAudioData() {
 
 
 
-    tog1: {
+    _tog1: {
       spokenWord: 'Powiedz "ten pociąg":',
       startTime:  343,
       duration:   345 - 343,
       answers: [
-        { answer: 'toget', next: 'tog2' },
+        { answer: 'toget', next: '_tog2', correct: true },
         { answer: 'et tog', wrong: true }
       ],
       more:       {
@@ -482,7 +482,7 @@ function LasAudioData() {
         duration:   358 - 349
       }
     },
-    tog2: {
+    _tog2: {
       msg: '<i>toget</i>',
       score: true,
       startTime:  346,
@@ -492,12 +492,12 @@ function LasAudioData() {
 
 
 
-    hus1: {
+    _hus1: {
       spokenWord: 'Powiedz "jakiś dom":',
       startTime:  359,
       duration:   361 - 359,
       answers: [
-        { answer: 'et hus', next: 'hus2' },
+        { answer: 'et hus', next: '_hus2', correct: true },
         { answer: 'huset', wrong: true }
       ],
       more:       {
@@ -506,7 +506,7 @@ function LasAudioData() {
         duration:   371 - 365
       }
     },
-    hus2: {
+    _hus2: {
       msg: '<i>et hus</i>',
       score: true,
       startTime:  362,
@@ -516,12 +516,12 @@ function LasAudioData() {
 
 
 
-    seng1: {
+    _seng1: {
       spokenWord: 'Powiedz "to łóżko":',
       startTime:  372,
       duration:   374 - 372,
       answers: [
-        { answer: 'senga', next: 'seng2' },
+        { answer: 'senga', next: '_seng2', correct: true },
         { answer: 'ei seng', wrong: true }
       ],
       more:       {
@@ -530,7 +530,7 @@ function LasAudioData() {
         duration:   387 - 378
       }
     },
-    seng2: {
+    _seng2: {
       msg: '<i>senga</i>',
       score: true,
       startTime:  375,
@@ -540,12 +540,12 @@ function LasAudioData() {
 
 
 
-    kontakt1: {
+    _kontakt1: {
       spokenWord: 'Jak powiesz "kontakt", jakiś dowolny?',
       startTime:  388,
       duration:   391 - 388,
       answers: [
-        { answer: 'en kontakt', next: 'kontakt2' },
+        { answer: 'en kontakt', next: '_kontakt2', correct: true },
         { answer: 'kontakten', wrong: true }
       ],
       more:       {
@@ -554,7 +554,7 @@ function LasAudioData() {
         duration:   401 - 395
       }
     },
-    kontakt2: {
+    _kontakt2: {
       msg: '<i>en kontakt</i>',
       score: true,
       startTime:  392,
@@ -564,12 +564,12 @@ function LasAudioData() {
 
 
 
-    menneske1: {
+    _menneske1: {
       spokenWord: 'Powiedz "człowiek", w formie nieokreślonej:',
       startTime:  402,
       duration:   405 - 402,
       answers: [
-        { answer: 'et menneske', next: 'menneske2' },
+        { answer: 'et menneske', next: '_menneske2', correct: true },
         { answer: 'mennesket', wrong: true }
       ],
       more:       {
@@ -578,7 +578,7 @@ function LasAudioData() {
         duration:   415 - 409
       }
     },
-    menneske2: {
+    _menneske2: {
       msg: '<i>et menneske</i>',
       score: true,
       startTime:  406,
@@ -588,12 +588,12 @@ function LasAudioData() {
 
 
 
-    fly1: {
+    _fly1: {
       spokenWord: 'Powiedz "ten samolot":',
       startTime:  416,
       duration:   418 - 416,
       answers: [
-        { answer: 'flyet', next: 'fly2' },
+        { answer: 'flyet', next: '_fly2', correct: true },
         { answer: 'et fly', wrong: true }
       ],
       more:       {
@@ -602,7 +602,7 @@ function LasAudioData() {
         duration:   431 - 422
       }
     },
-    fly2: {
+    _fly2: {
       msg: '<i>flyet</i>',
       score: true,
       startTime:  419,
@@ -612,12 +612,12 @@ function LasAudioData() {
 
 
 
-    hund1: {
+    _hund1: {
       spokenWord: 'Powiedz "jeden pies", nieokreślony:',
       startTime:  432,
       duration:   435 - 432,
       answers: [
-        { answer: 'en hund', next: 'hund2' },
+        { answer: 'en hund', next: '_hund2', correct: true },
         { answer: 'hunden', wrong: true }
       ],
       more:       {
@@ -626,7 +626,7 @@ function LasAudioData() {
         duration:   445 - 439
       }
     },
-    hund2: {
+    _hund2: {
       msg: '<i>en hund</i>',
       score: true,
       startTime:  436,
@@ -636,12 +636,12 @@ function LasAudioData() {
 
 
 
-    avtale1: {
+    _avtale1: {
       spokenWord: 'Jak powiesz "umowa" w formie określonej?',
       startTime:  446,
       duration:   449 - 446,
       answers: [
-        { answer: 'avtalen', next: 'avtale2' },
+        { answer: 'avtalen', next: '_avtale2', correct: true },
         { answer: 'en avtale', wrong: true }
       ],
       more:       {
@@ -650,7 +650,7 @@ function LasAudioData() {
         duration:   463 - 453
       }
     },
-    avtale2: {
+    _avtale2: {
       msg: '<i>avtalen</i>',
       score: true,
       startTime:  450,
@@ -660,12 +660,12 @@ function LasAudioData() {
 
 
 
-    by1: {
+    _by1: {
       spokenWord: 'Powiedz "miasto" w formie nieokreślonej:',
       startTime:  464,
       duration:   467 - 464,
       answers: [
-        { answer: 'en by', next: 'by2' },
+        { answer: 'en by', next: '_by2', correct: true },
         { answer: 'byen', wrong: true }
       ],
       more:       {
@@ -674,7 +674,7 @@ function LasAudioData() {
         duration:   476 - 471
       }
     },
-    by2: {
+    _by2: {
       msg: '<i>en by</i>',
       score: true,
       startTime:  468,
@@ -684,12 +684,12 @@ function LasAudioData() {
 
 
 
-    firma1: {
+    _firma1: {
       spokenWord: 'Powiedz "firma" w formie nieokreślonej:',
       startTime:  477,
       duration:   480 - 477,
       answers: [
-        { answer: 'et firma', next: 'firma2' },
+        { answer: 'et firma', next: '_firma2', correct: true },
         { answer: 'firmaet', wrong: true }
       ],
       more:       {
@@ -698,7 +698,7 @@ function LasAudioData() {
         duration:   490 - 484
       }
     },
-    firma2: {
+    _firma2: {
       msg: '<i>et firma</i>',
       score: true,
       startTime:  481,
@@ -708,12 +708,12 @@ function LasAudioData() {
 
 
 
-    skog1: {
+    _skog1: {
       spokenWord: 'Powiedz "ten las":',
       startTime:  491,
       duration:   493 - 491,
       answers: [
-        { answer: 'skogen', next: 'skog2' },
+        { answer: 'skogen', next: '_skog2', correct: true },
         { answer: 'en skog', wrong: true }
       ],
       more:       {
@@ -722,7 +722,7 @@ function LasAudioData() {
         duration:   505 - 497
       }
     },
-    skog2: {
+    _skog2: {
       msg: '<i>skogen</i>',
       score: true,
       startTime:  494,
@@ -736,10 +736,10 @@ function LasAudioData() {
 
   this.end = {
 
-    end1: {
+    _end1: {
       msg: 'END',
       startTime: 506,
-      duration: 511 -  506,
+      duration: 511 - 506,
     }
 
   };

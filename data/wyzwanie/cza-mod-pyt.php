@@ -6,7 +6,7 @@ function LasAudioData() {
   ];
 
   this.intro = {
-    a1: {
+    _a1: {
       msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
       autoNext:     'ENDINTRO'/*,
       more: {
@@ -19,28 +19,28 @@ function LasAudioData() {
 
   this.chat = {
 
-    aa1: {
+    _aa1: {
       spokenWord: 'Zapytaj: Czy możesz otworzyć drzwi?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'aa2'
+      autoNext:   '_aa2'
     },
-    aa2: {
+    _aa2: {
       msg:        'Kan du åpne døra?',
       trans:      'Czy możesz otworzyć drzwi?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'aa3'
+      autoNext:   '_aa3'
     },
-    aa3: {
+    _aa3: {
       spokenWord: 'Odpowiedz: Tak, mogę otworzyć drzwi.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'aa4'
+      autoNext:   '_aa4'
     },
-    aa4: {
+    _aa4: {
       msg:        'Ja, jeg kan åpne døra.',
       trans:      'Tak, mogę otworzyć drzwi.',
       startTime:  4,
@@ -49,28 +49,28 @@ function LasAudioData() {
     },
 
 
-    ab1: {
+    _ab1: {
       spokenWord: 'Zapytaj: Czy mogę zamknąć okno?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ab2'
+      autoNext:   '_ab2'
     },
-    ab2: {
+    _ab2: {
       msg:        'Kan jeg lukke vinduet?',
       trans:      'Czy mogę zamknąć okno?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'ab3'
+      autoNext:   '_ab3'
     },
-    ab3: {
+    _ab3: {
       spokenWord: 'Odpowiedz: Tak, możesz zamknąć okno.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ab4'
+      autoNext:   '_ab4'
     },
-    ab4: {
+    _ab4: {
       msg:        'Ja, du kan lukke vinduet.',
       trans:      'Tak, możesz zamknąć okno.',
       startTime:  4,
@@ -79,28 +79,28 @@ function LasAudioData() {
     },
 
 
-    ac1: {
+    _ac1: {
       spokenWord: 'Zapytaj: Czy możesz wysłać mi wiadomość z adresem?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ac2'
+      autoNext:   '_ac2'
     },
-    ac2: {
+    _ac2: {
       msg:        'Kan du sende meg en melding med adressa?',
       trans:      'Czy możesz wysłać mi wiadomość z adresem?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'ac3'
+      autoNext:   '_ac3'
     },
-    ac3: {
+    _ac3: {
       spokenWord: 'Odpowiedz: Oczywiście. Wyślę Ci adres.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ac4'
+      autoNext:   '_ac4'
     },
-    ac4: {
+    _ac4: {
       msg:        'Selvfølgelig. Jeg sender deg adressa.',
       trans:      'Oczywiście. Wyślę Ci adres.',
       startTime:  4,
@@ -109,28 +109,28 @@ function LasAudioData() {
     },
 
 
-    ad1: {
+    _ad1: {
       spokenWord: 'Zapytaj: Czy mogę przyjść z moim mężem?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ad2'
+      autoNext:   '_ad2'
     },
-    ad2: {
+    _ad2: {
       msg:        'Kan jeg komme med mannen min?',
       trans:      'Czy mogę przyjść z moim mężem?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'ad3'
+      autoNext:   '_ad3'
     },
-    ad3: {
+    _ad3: {
       spokenWord: 'Odpowiedz: Oczywiście. Możesz przyjść z mężem.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ad4'
+      autoNext:   '_ad4'
     },
-    ad4: {
+    _ad4: {
       msg:        'Selvfølgelig. Du kan komme med mannen.',
       trans:      'Oczywiście. Możesz przyjść z mężem.',
       startTime:  4,
@@ -139,28 +139,28 @@ function LasAudioData() {
     },
 
 
-    ae1: {
+    _ae1: {
       spokenWord: 'Zapytaj: Czy możesz dać mi maila?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ae2'
+      autoNext:   '_ae2'
     },
-    ae2: {
+    _ae2: {
       msg:        'Kan du gi meg e-posten?',
       trans:      'Czy możesz dać mi maila?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'ae3'
+      autoNext:   '_ae3'
     },
-    ae3: {
+    _ae3: {
       spokenWord: 'Odpowiedz: Tak, mogę napisać go tu.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ae4'
+      autoNext:   '_ae4'
     },
-    ae4: {
+    _ae4: {
       msg:        'Ja, jeg kan skrive den her.',
       trans:      'Tak, mogę napisać go tu.',
       startTime:  4,
@@ -169,28 +169,28 @@ function LasAudioData() {
     },
 
 
-    af1: {
+    _af1: {
       spokenWord: 'Zapytaj: Czy możesz dać mi klucz?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'af2'
+      autoNext:   '_af2'
     },
-    af2: {
+    _af2: {
       msg:        'Kan du gi meg nøkkelen?',
       trans:      'Czy możesz dać mi klucz?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'af3'
+      autoNext:   '_af3'
     },
-    af3: {
+    _af3: {
       spokenWord: 'Odpowiedz: Tak. Proszę.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'af4'
+      autoNext:   '_af4'
     },
-    af4: {
+    _af4: {
       msg:        'Ja. Vær så god.',
       trans:      'Tak. Proszę.',
       startTime:  4,
@@ -199,33 +199,33 @@ function LasAudioData() {
     },
 
 
-    ah1: {
+    _ah1: {
       spokenWord: 'Zapytaj: Chcesz iść w góry?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ah2'
+      autoNext:   '_ah2'
     },
-    ah2: {
+    _ah2: {
       msg:        'Vil du gå på fjellet?',
       trans:      'Chcesz iść w góry?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'ah3',
+      autoNext:   '_ah3',
       more:       {
         spokenWord: 'Po polsku mówimy iść w góry w liczbie mnogiej. Po norwesku najczęściej mówi się “gå på fjellet” – czyli iść na jedną określoną górę.',
         startTime:  4,
         duration:   1.5
       }
     },
-    ah3: {
+    _ah3: {
       spokenWord: 'Odpowiedz: Chętnie pójdę w góry.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ah4'
+      autoNext:   '_ah4'
     },
-    ah4: {
+    _ah4: {
       msg:        'Jeg vil gjerne gå på fjellet.',
       trans:      'Chętnie pójdę w góry.',
       startTime:  4,
@@ -234,28 +234,28 @@ function LasAudioData() {
     },
 
 
-    ag1: {
+    _ag1: {
       spokenWord: 'Zapytaj: Czy chcesz kawę?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ag2'
+      autoNext:   '_ag2'
     },
-    ag2: {
+    _ag2: {
       msg:        'Vil du ha kaffe?',
       trans:      'Czy chcesz kawę?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'ag3'
+      autoNext:   '_ag3'
     },
-    ag3: {
+    _ag3: {
       spokenWord: 'Odpowiedz: Poproszę kawę.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ag4'
+      autoNext:   '_ag4'
     },
-    ag4: {
+    _ag4: {
       msg:        'Jeg vil gjerne ha kaffe.',
       trans:      'Poproszę kawę.',
       startTime:  4,
@@ -269,28 +269,28 @@ function LasAudioData() {
     },
 
 
-    aj1: {
+    _aj1: {
       spokenWord: 'Zapytaj: Czy chcesz kupić samolot?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'aj2'
+      autoNext:   '_aj2'
     },
-    aj2: {
+    _aj2: {
       msg:        'Vil du kjøpe et fly?',
       trans:      'Czy chcesz kupić samolot?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'aj3'
+      autoNext:   '_aj3'
     },
-    aj3: {
+    _aj3: {
       spokenWord: 'Odpowiedz: Nie, muszę kupić najpierw domek letniskowy.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'aj4'
+      autoNext:   '_aj4'
     },
-    aj4: {
+    _aj4: {
       msg:        'Nei, jeg må kjøpe ei hytte først.',
       trans:      'Nie, muszę kupić najpierw domek letniskowy.',
       startTime:  4,
@@ -299,28 +299,28 @@ function LasAudioData() {
     },
 
 
-    ak1: {
+    _ak1: {
       spokenWord: 'Zapytaj: Czy musimy kupić dom?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ak2'
+      autoNext:   '_ak2'
     },
-    ak2: {
+    _ak2: {
       msg:        'Må vi kjøpe et hus?',
       trans:      'Czy musimy kupić dom?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'ak3'
+      autoNext:   '_ak3'
     },
-    ak3: {
+    _ak3: {
       spokenWord: 'Odpowiedz: Nie musimy. Możemy go wynająć.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ak4'
+      autoNext:   '_ak4'
     },
-    ak4: {
+    _ak4: {
       msg:        'Vi trenger ikke. Vi kan leie det.',
       trans:      'Nie musimy. Możemy wynająć.',
       startTime:  4,
@@ -329,28 +329,28 @@ function LasAudioData() {
     },
 
 
-    al1: {
+    _al1: {
       spokenWord: 'Zapytaj: Czy ona może odebrać dziecko z przedszkola?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'al2'
+      autoNext:   '_al2'
     },
-    al2: {
+    _al2: {
       msg:        'Kan hun hente barnet fra barnehagen?',
       trans:      'Czy ona może odebrać dziecko z przedszkola?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'al3'
+      autoNext:   '_al3'
     },
-    al3: {
+    _al3: {
       spokenWord: 'Odpowiedz: Tak, może to zrobić.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'al4'
+      autoNext:   '_al4'
     },
-    al4: {
+    _al4: {
       msg:        'Ja, hun kan gjøre det.',
       trans:      'Tak, może to zrobić.',
       startTime:  4,
@@ -359,28 +359,28 @@ function LasAudioData() {
     },
 
 
-    am1: {
+    _am1: {
       spokenWord: 'Zapytaj: Czy ona może zawieźć dziecko do szkoły?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'am2'
+      autoNext:   '_am2'
     },
-    am2: {
+    _am2: {
       msg:        'Kan hun levere barnet til skolen?',
       trans:      'Czy ona może zawieźć dziecko do szkoły?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'am3'
+      autoNext:   '_am3'
     },
-    am3: {
+    _am3: {
       spokenWord: 'Odpowiedz: Tak, ona może zawieźć dziecko do szkoły.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'am4'
+      autoNext:   '_am4'
     },
-    am4: {
+    _am4: {
       msg:        'Ja, hun kan levere barnet til skolen.',
       trans:      'Tak, ona może zawieźć dziecko do szkoły.',
       startTime:  4,
@@ -389,28 +389,28 @@ function LasAudioData() {
     },
 
 
-    an1: {
+    _an1: {
       spokenWord: 'Zapytaj: Czy zamierzasz zmienić opony?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'an2'
+      autoNext:   '_an2'
     },
-    an2: {
+    _an2: {
       msg:        'Skal du skifte dekk?',
       trans:      'Czy zamierzasz zmienić opony?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'an3'
+      autoNext:   '_an3'
     },
-    an3: {
+    _an3: {
       spokenWord: 'Odpowiedz: Zamierzam zmienić opony.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'an4'
+      autoNext:   '_an4'
     },
-    an4: {
+    _an4: {
       msg:        'Jeg skal skifte dekk.',
       trans:      'Zamierzam zmienić opony.',
       startTime:  4,
@@ -419,28 +419,28 @@ function LasAudioData() {
     },
 
 
-    ao1: {
+    _ao1: {
       spokenWord: 'Zapytaj: Czy planujesz wejść na szczyt?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ao2'
+      autoNext:   '_ao2'
     },
-    ao2: {
+    _ao2: {
       msg:        'Skal du gå på toppen?',
       trans:      'Czy planujesz wejść na szczyt?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'ao3'
+      autoNext:   '_ao3'
     },
-    ao3: {
+    _ao3: {
       spokenWord: 'Odpowiedz: Planuję wejść na szczyt.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ao4'
+      autoNext:   '_ao4'
     },
-    ao4: {
+    _ao4: {
       msg:        'Jeg skal gå på toppen.',
       trans:      'Planuję wejść na szczyt.',
       startTime:  4,
@@ -449,14 +449,14 @@ function LasAudioData() {
     },
 
 
-    ap1: {
+    _ap1: {
       spokenWord: 'Zapytaj: Czy chcesz przymierzyć sweter?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ap2'
+      autoNext:   '_ap2'
     },
-    ap2: {
+    _ap2: {
       msg:        'Vil du prøve genseren?',
       trans:      'Czy chcesz przymierzyć sweter?',
       startTime:  4,
@@ -466,16 +466,16 @@ function LasAudioData() {
         startTime:  4,
         duration:   1.5
       },
-      autoNext:   'ap3'
+      autoNext:   '_ap3'
     },
-    ap3: {
+    _ap3: {
       spokenWord: 'Odpowiedz: Nie, nie chcę czekać w kolejce do przymierzalni.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ap4'
+      autoNext:   '_ap4'
     },
-    ap4: {
+    _ap4: {
       msg:        'Nei, jeg vil ikke vente i køen til prøverommet.',
       trans:      'Nie, nie chcę czekać w kolejce do przymierzalni.',
       startTime:  4,
@@ -484,28 +484,28 @@ function LasAudioData() {
     },
 
 
-    ar1: {
+    _ar1: {
       spokenWord: 'Zapytaj: Czy możesz do mnie przyjść?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ar2'
+      autoNext:   '_ar2'
     },
-    ar2: {
+    _ar2: {
       msg:        'Kan du komme til meg?',
       trans:      'Czy możesz do mnie przyjść?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'ar3'
+      autoNext:   '_ar3'
     },
-    ar3: {
+    _ar3: {
       spokenWord: 'Odpowiedz: Nie mogę do Ciebie przyjść.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ar4'
+      autoNext:   '_ar4'
     },
-    ar4: {
+    _ar4: {
       msg:        'Jeg kan ikke komme til deg.',
       trans:      'Nie mogę do Ciebie przyjść.',
       startTime:  4,
@@ -514,28 +514,28 @@ function LasAudioData() {
     },
 
 
-    as1: {
+    _as1: {
       spokenWord: 'Zapytaj: Czy oni chcę zjeść w domu?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'as2'
+      autoNext:   '_as2'
     },
-    as2: {
+    _as2: {
       msg:        'Vil de spise hjemme?',
       trans:      'Czy oni chcę zjeść w domu?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'as3'
+      autoNext:   '_as3'
     },
-    as3: {
+    _as3: {
       spokenWord: 'Odpowiedz: Oni nie chcą jeść w domu.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'as4'
+      autoNext:   '_as4'
     },
-    as4: {
+    _as4: {
       msg:        'De vil ikke spise hjemme.',
       trans:      'Oni nie chcą jeść w domu.',
       startTime:  4,
@@ -544,28 +544,28 @@ function LasAudioData() {
     },
 
 
-    at1: {
+    _at1: {
       spokenWord: 'Zapytaj: Czy chcesz lecieć na północ Norwegii?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'at2'
+      autoNext:   '_at2'
     },
-    at2: {
+    _at2: {
       msg:        'Vil du fly til Nord-Norge?',
       trans:      'Czy chcesz lecieć na północ Norwegii?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'at3'
+      autoNext:   '_at3'
     },
-    at3: {
+    _at3: {
       spokenWord: 'Odpowiedz: Nie chcę lecieć na północ Norwegii.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'at4'
+      autoNext:   '_at4'
     },
-    at4: {
+    _at4: {
       msg:        'Jeg vil ikke fly til Nord-Norge.',
       trans:      'Nie chcę lecieć na północ Norwegii.',
       startTime:  4,
@@ -574,14 +574,14 @@ function LasAudioData() {
     },
 
 
-    ax1: {
+    _ax1: {
       spokenWord: 'Zapytaj: Czy musicie sprzątać?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ax2'
+      autoNext:   '_ax2'
     },
-    ax2: {
+    _ax2: {
       msg:        'Må dere rydde?',
       trans:      'Czy musicie sprzątać?',
       startTime:  4,
@@ -591,16 +591,16 @@ function LasAudioData() {
         startTime:  4,
         duration:   1
       },
-      autoNext:   'ax3'
+      autoNext:   '_ax3'
     },
-    ax3: {
+    _ax3: {
       spokenWord: 'Odpowiedz: Nie musimy sprzątać.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ax4'
+      autoNext:   '_ax4'
     },
-    ax4: {
+    _ax4: {
       msg:        'Vi trenger ikke å rydde.',
       trans:      'Nie musimy sprzątać.',
       startTime:  4,
@@ -609,28 +609,28 @@ function LasAudioData() {
     },
 
 
-    ay1: {
+    _ay1: {
       spokenWord: 'Zapytaj: Czy to nie może zaczekać?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ay2'
+      autoNext:   '_ay2'
     },
-    ay2: {
+    _ay2: {
       msg:        'Kan det ikke vente?',
       trans:      'Czy to nie może zaczekać?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'ay3'
+      autoNext:   '_ay3'
     },
-    ay3: {
+    _ay3: {
       spokenWord: 'Odpowiedz: To nie może czekać.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'ay4'
+      autoNext:   '_ay4'
     },
-    ay4: {
+    _ay4: {
       msg:        'Det kan ikke vente.',
       trans:      'To nie może czekać.',
       startTime:  4,
@@ -639,28 +639,28 @@ function LasAudioData() {
     },
 
 
-    az1: {
+    _az1: {
       spokenWord: 'Zapytaj: Czy planujesz zmienić pracę?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'az2'
+      autoNext:   '_az2'
     },
-    az2: {
+    _az2: {
       msg:        'Skal du bytte jobb?',
       trans:      'Czy planujesz zmienić pracę?',
       startTime:  4,
       duration:   1.5,
-      autoNext:   'az3'
+      autoNext:   '_az3'
     },
-    az3: {
+    _az3: {
       spokenWord: 'Powiedz: Nie planuję zmieniać pracy.',
       startTime:  4,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'az4'
+      autoNext:   '_az4'
     },
-    az4: {
+    _az4: {
       msg:        'Jeg skal ikke bytte jobb.',
       trans:      'Nie planuję zmieniać pracy.',
       startTime:  4,
@@ -673,7 +673,7 @@ function LasAudioData() {
 
   this.end = {
 
-    end1: {
+    _end1: {
       msg: 'END',
       startTime: 0,
       duration: 1

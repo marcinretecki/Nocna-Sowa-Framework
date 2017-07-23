@@ -5,7 +5,7 @@ function LasAudioData() {
   ];
 
   this.intro = {
-    a1: {
+    _a1: {
       msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
       autoNext:     'ENDINTRO'/*,
       more: {
@@ -18,14 +18,14 @@ function LasAudioData() {
 
   this.chat = {
 
-    aa1: {
+    _aa1: {
       spokenWord: 'Powiedz: Jutro mam iść do pracy. Użyj skal.',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'aa2'
+      autoNext:   '_aa2'
     },
-    aa2: {
+    _aa2: {
       msg:        'Jeg skal på jobb i morgen.',
       trans:      'Jutro mam iść do pracy.',
       startTime:  4,
@@ -34,14 +34,14 @@ function LasAudioData() {
     },
 
 
-    ab1: {
+    _ab1: {
       spokenWord: 'Powiedz: Jutro idę do pracy. Bez użycia skal.',
       startTime:  8,
       duration:   10.5 - 8,
       pauseTime:  6,
-      autoNext:   'ab2'
+      autoNext:   '_ab2'
     },
-    ab2: {
+    _ab2: {
       msg:        'Jeg går på jobb i morgen.',
       trans:      'Jutro idę do pracy.',
       startTime:  12,
@@ -50,14 +50,14 @@ function LasAudioData() {
     },
 
 
-    ac1: {
+    _ac1: {
       spokenWord: 'Powiedz: Przyjdę do Ciebie. Użyj skal.',
       startTime:  15,
       duration:   18 - 15,
       pauseTime:  6,
-      autoNext:   'ac2'
+      autoNext:   '_ac2'
     },
-    ac2: {
+    _ac2: {
       msg:        'Jeg skal komme til deg.',
       trans:      'Przyjdę do Ciebie.',
       startTime:  19,
@@ -66,14 +66,14 @@ function LasAudioData() {
     },
 
 
-    ae1: {
+    _ae1: {
       spokenWord: 'Powiedz: Przyjdę do Ciebie. Bez użycia skal.',
       startTime:  29,
       duration:   31.5 - 29,
       pauseTime:  5,
-      autoNext:   'ae2'
+      autoNext:   '_ae2'
     },
-    ae2: {
+    _ae2: {
       msg:        'Jeg kommer til deg.',
       trans:      'Przyjdę do Ciebie.',
       startTime:  33,
@@ -82,14 +82,14 @@ function LasAudioData() {
     },
 
 
-    af1: {
+    _af1: {
       spokenWord: 'Powiedz: Napiszę do Ciebie maila. Użyj skal.',
       startTime:  36,
       duration:   39 - 36,
       pauseTime:  6,
-      autoNext:   'af2'
+      autoNext:   '_af2'
     },
-    af2: {
+    _af2: {
       msg:        'Jeg skal skrive e-posten til deg.',
       trans:      'Napiszę do Ciebie maila.',
       startTime:  40,
@@ -98,14 +98,14 @@ function LasAudioData() {
     },
 
 
-    ah1: {
+    _ah1: {
       spokenWord: 'Powiedz: Napiszę do Ciebie maila. Bez użycia skal.',
       startTime:  43,
       duration:   45.5 - 43,
       pauseTime:  6,
-      autoNext:   'ah2'
+      autoNext:   '_ah2'
     },
-    ah2: {
+    _ah2: {
       msg:        'Jeg skriver e-posten til deg.',
       trans:      'Napiszę do Ciebie maila.',
       startTime:  47,
@@ -114,14 +114,14 @@ function LasAudioData() {
     },
 
 
-    aj1: {
+    _aj1: {
       spokenWord: 'Powiedz: On ma odebrać paczkę z poczty. Użyj skal.',
       startTime:  50,
       duration:   52.5 - 50,
       pauseTime:  6,
-      autoNext:   'aj2'
+      autoNext:   '_aj2'
     },
-    aj2: {
+    _aj2: {
       msg:        'Han skal hente pakka på posten.',
       trans:      'On ma odebrać paczkę z poczty.',
       startTime:  54,
@@ -130,14 +130,14 @@ function LasAudioData() {
     },
 
 
-    ai1: {
+    _ai1: {
       spokenWord: 'Powiedz: On odbierze paczkę z poczty. Bez użycia skal.',
       startTime:  57,
       duration:   59 - 57,
       pauseTime:  5,
-      autoNext:   'ai2'
+      autoNext:   '_ai2'
     },
-    ai2: {
+    _ai2: {
       msg:        'Han henter pakka på posten.',
       trans:      'On odbierze paczkę z poczty.',
       startTime:  60,
@@ -146,14 +146,14 @@ function LasAudioData() {
     },
 
 
-    ak1: {
+    _ak1: {
       spokenWord: 'Powiedz: Zamierzam przeczytać tę książkę w przyszłym miesiącu. Użyj skal.',
       startTime:  63,
       duration:   65.5 - 63,
       pauseTime:  5,
-      autoNext:   'ak2'
+      autoNext:   '_ak2'
     },
-    ak2: {
+    _ak2: {
       msg:        'Jeg skal lese denne boka neste måned.',
       trans:      'Zamierzam przeczytać tę książkę w przyszłym miesiącu.',
       startTime:  67,
@@ -162,14 +162,14 @@ function LasAudioData() {
     },
 
 
-    al1: {
+    _al1: {
       spokenWord: 'Powiedz: Przeczytam tę książkę w przyszłym miesiącu. Bez użycia skal.',
       startTime:  70,
       duration:   72.5 - 70,
       pauseTime:  6,
-      autoNext:   'al2'
+      autoNext:   '_al2'
     },
-    al2: {
+    _al2: {
       msg:        'Jeg leser denne boka neste måned.',
       trans:      'Przeczytam tę książkę w przyszłym miesiącu.',
       startTime:  74,
@@ -178,14 +178,14 @@ function LasAudioData() {
     },
 
 
-    ba1: {
+    _ba1: {
       spokenWord: 'Powiedz: Planuję zrobić zakupy w drodze do domu. Użyj skal.',
       startTime:  77,
       duration:   79.5 - 77,
       pauseTime:  8,
-      autoNext:   'ba2'
+      autoNext:   '_ba2'
     },
-    ba2: {
+    _ba2: {
       msg:        'Jeg skal handle på vei hjem.',
       trans:      'Planuję zrobić zakupy w drodze do domu.',
       startTime:  81,
@@ -194,14 +194,14 @@ function LasAudioData() {
     },
 
 
-    bb1: {
+    _bb1: {
       spokenWord: 'Powiedz: Zrobię zakupy w drodze do domu. Bez użycia skal.',
       startTime:  85,
       duration:   87.5 - 85,
       pauseTime:  5,
-      autoNext:   'bb2'
+      autoNext:   '_bb2'
     },
-    bb2: {
+    _bb2: {
       msg:        'Jeg handler på vei hjem.',
       trans:      'Zrobię zakupy w drodze do domu.',
       startTime:  89,
@@ -210,14 +210,14 @@ function LasAudioData() {
     },
 
 
-    bc1: {
+    _bc1: {
       spokenWord: 'Powiedz: Zamierzam sprzedać samochód w tym roku. Użyj skal.',
       startTime:  92,
       duration:   94 - 92,
       pauseTime:  6,
-      autoNext:   'bc2'
+      autoNext:   '_bc2'
     },
-    bc2: {
+    _bc2: {
       msg:        'Jeg skal selge bilen i år.',
       trans:      'Zamierzam sprzedać samochód w tym roku.',
       startTime:  95,
@@ -226,14 +226,14 @@ function LasAudioData() {
     },
 
 
-    bd1: {
+    _bd1: {
       spokenWord: 'Powiedz: Sprzedam samochód w tym roku. Bez użycia skal.',
       startTime:  98,
       duration:   100.5 - 98,
       pauseTime:  8,
-      autoNext:   'bd2'
+      autoNext:   '_bd2'
     },
-    bd2: {
+    _bd2: {
       msg:        'Jeg selger bilen i år.',
       trans:      'Sprzedam samochód w tym roku.',
       startTime:  102,
@@ -242,14 +242,14 @@ function LasAudioData() {
     },
 
 
-    bf1: {
+    _bf1: {
       spokenWord: 'Powiedz: Zamierzam otworzyć konto w banku. Użyj skal.',
       startTime:  113,
       duration:   115 - 113,
       pauseTime:  6,
-      autoNext:   'bf2'
+      autoNext:   '_bf2'
     },
-    bf2: {
+    _bf2: {
       msg:        'Jeg skal åpne en konto i banken.',
       trans:      'Zamierzam otworzyć konto w banku.',
       startTime:  116,
@@ -258,14 +258,14 @@ function LasAudioData() {
     },
 
 
-    bh1: {
+    _bh1: {
       spokenWord: 'Powiedz: Otworzę konto w banku. Bez użycia skal.',
       startTime:  126,
       duration:   128.5 - 126,
       pauseTime:  6,
-      autoNext:   'bh2'
+      autoNext:   '_bh2'
     },
-    bh2: {
+    _bh2: {
       msg:        'Jeg åpner en konto i banken.',
       trans:      'Otworzę konto w banku.',
       startTime:  130,
@@ -274,14 +274,14 @@ function LasAudioData() {
     },
 
 
-    bi1: {
+    _bi1: {
       spokenWord: 'Powiedz: Jutro będę rozmawiał z szefem. Użyj skal.',
       startTime:  133,
       duration:   134.5 - 133,
       pauseTime:  5,
-      autoNext:   'bi2'
+      autoNext:   '_bi2'
     },
-    bi2: {
+    _bi2: {
       msg:        'Jeg skal snakke med sjefen i morgen.',
       trans:      'Jutro będę rozmawiał z szefem.',
       startTime:  136,
@@ -290,14 +290,14 @@ function LasAudioData() {
     },
 
 
-    bj1: {
+    _bj1: {
       spokenWord: 'Powiedz: Jutro porozmawiam z szefem. Bez użycia skal.',
       startTime:  139,
       duration:   140.5 - 139,
       pauseTime:  5,
-      autoNext:   'bj2'
+      autoNext:   '_bj2'
     },
-    bj2: {
+    _bj2: {
       msg:        'Jeg snakker med sjefen i morgen.',
       trans:      'Jutro porozmawiam z szefem.',
       startTime:  142,
@@ -306,14 +306,14 @@ function LasAudioData() {
     },
 
 
-    bk1: {
+    _bk1: {
       spokenWord: 'Powiedz: W czwartek idę do fizjoterapeuty. Użyj skal. [fysioterapøyt]',
       startTime:  145,
       duration:   147 - 145,
       pauseTime:  5,
-      autoNext:   'bk2'
+      autoNext:   '_bk2'
     },
-    bk2: {
+    _bk2: {
       msg:        'Jeg skal gå til fysioterapeut.',
       trans:      'W czwartek idę do fizjoterapeuty.',
       startTime:  148,
@@ -322,14 +322,14 @@ function LasAudioData() {
     },
 
 
-    bl1: {
+    _bl1: {
       spokenWord: 'Powiedz: W czwartek idę do fizjoterapeuty. Bez użycia skal. [fysioterapøyt]',
       startTime:  145,
       duration:   147 - 145,
       pauseTime:  5,
-      autoNext:   'bl2'
+      autoNext:   '_bl2'
     },
-    bl2: {
+    _bl2: {
       msg:        'Jeg går til fysjoteraput.',
       trans:      'W czwartek idę do fizjoterapeuty.',
       startTime:  148,
@@ -344,7 +344,7 @@ function LasAudioData() {
 
   this.end = {
 
-    end1: {
+    _end1: {
       msg:        'END',
       startTime:  0,
       duration:   0,

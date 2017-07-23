@@ -5,629 +5,781 @@ function LasChatData() {
   ];
 
   this.intro = {
-    a1: {
-      bubbles: ['Cześć, tu Sowa.'],
+    _a1: {
+      bubbles: [
+        '<img src="/las/c/i/rze-lm/XZFbojt.gif" />',
+        'O jeny!',
+        'To ty?',
+        'Rwiesz się tak do nauki, że nawet na chwilę nie mogłam zmrużyć oka.'
+      ],
       answers: [
-        { answer: 'Co masz tam Sowo na dziś?', next: 'a2' }
+        { answer: 'Pragnę się pouczyć norweskiego Sowo.', next: '_a2' },
+        { answer: 'Wstawaj Sowo, jest impreza!', next: '_a2' }
       ]
     },
-    a2: {
-      bubbles: ['Liczbę mnogą rzeczownika w czasie jednej imprezy.', '<img src="/las/c/i/rze-lm/tumblr_o08353uHDA1sblcs4o1_500.gif" />', 'Wchodzisz w to?'],
+    _a2: {
+      bubbles: [
+        'O, na to nie trzeba mnie namawiać. ',
+        'Działam nawet nocami, dlatego znajomi mówią na mnie Nocna.',
+        'Ale mniejsza z tym. Mam coś dla Ciebie. Czysty kosmos. Tylko najpierw Spock wylosuje dla Ciebie słowa, OK?'
+      ],
       answers: [
-        { answer: 'Pewnie!', next: 'a3' }
+        { answer: 'Pewnie!', next: '_a3' },
+        { answer: 'Jasne! Chcę zobaczyć, jak to robi.', next: '_a3' }
       ]
     },
-    a3: {
-      bubbles: ['OK. To zaczynamy!'],
-      autoNext: 'ENDINTRO'
-    },
-
-    b1: {
-      bubbles: ['Hej, tu Sowa.', 'Gotowy na liczbę mnogą rzeczownika? #emoji-1f575-1f3fc;'],
+    _a3: {
+      bubbles: [
+        '<img src="/las/c/i/rze-lm/tumblr_maqfseZRIf1qj4b9to1_r1_500.gif" />',
+        'OK. Gotowe.',
+        'Mam dla Ciebie wyzwanie z tworzenia liczby mnogiej. Skoncentruj się i postaraj szybko udzielać odpowiedzi. Ale nie zgaduj, dobra?'
+      ],
       answers: [
-        { answer: 'Pewnie! #emoji-1f493;', next: 'b2' }
+        { answer: 'No dobra.', next: '_a4' }
       ]
     },
-    b2: {
-      bubbles: ['<img src="/las/c/i/rze-lm/Countdown-321.gif" />', 'To zaczynamy!'],
+    _a4: {
+      bubbles: [
+        '<img src="/las/c/i/rze-lm/Countdown-321.gif" />',
+      ],
       autoNext: 'ENDINTRO'
     }
   };
 
 
   this.chat = {
-    hytte1: {
-      bubbles: ['<i>Ei hytte</i> to jedna <q>hatka</q>. Jak powiesz o kilku nieokreślonych?'],
+    _hytte1: {
+      bubbles: [
+        '<i>Ei hytte</i> to <q>chatka</q>, albo <q>domek letniskowy</q>. Jak powiesz o kilku nieokreślonych?'
+      ],
       answers: [
-        { answer: '<i>hytter</i>', next: 'hytte2' },
-        { answer: '<i>hytten</i>', next: 'hytte1b' }
+        { answer: '<i>hytter</i>', next: '_hytte2', correct: true },
+        { answer: '<i>hytten</i>', next: '_hytte1b', wrong: true }
       ]
 
     },
-    hytte1b: {
-      bubbles: ['Końcówkę <i>-en</i> dodajemy w formie określonej liczby pojedynczej. Pamiętasz?', 'Np. <i>en bygning – bygningen</i>'],
+    _hytte1b: {
+      bubbles: [
+        'Końcówkę <i>-en</i> dodajesz w formie określonej liczby pojedynczej. Pamiętasz?',
+        'Np. <i>en bygning – bygningen</i>'
+      ],
       answers: [
-        { answer: 'OK, już wiem: <i>hytter</i>', next: 'hytte2' }
+        { answer: 'OK, już wiem: <i>hytter</i>', next: '_hytte2' }
       ]
     },
 
-    hytte2: {
-      bubbles: ['Joł men, ziom!', '<img src="/las/c/i/rze-lm/3b3d047d7f7b5a9eb3b656d548e81570fa6e1aa1-m.gif" />'],
+    _hytte2: {
+      bubbles: [
+        '<i>Veldig bra!</i>',
+        '<img src="/las/c/i/rze-lm/NIrQexy9Pv93a.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    hylle1: {
-      bubbles: ['<i>Hyllene</i> to <q>półki</q> w formie:'],
+    _hylle1: {
+      bubbles: [
+        '<i>Hyllene</i> to <q>półki</q> w formie:'
+      ],
       answers: [
-        { answer: 'określonej', next: 'hylle2' },
-        { answer: 'nieokreślonej', next: 'hylle1b' }
+        { answer: 'określonej', next: '_hylle2', correct: true },
+        { answer: 'nieokreślonej', next: '_hylle1b', wrong: true }
       ]
 
     },
-    hylle1b: {
-      bubbles: ['Końcówka <i>-ene</i> jest zawsze w formie określonej liczby mnogiej.'],
+    _hylle1b: {
+      bubbles: [
+        'Końcówka <i>-ene</i> jest zawsze w formie określonej liczby mnogiej.'
+      ],
       answers: [
-        { answer: 'OK', next: 'hylle2' }
+        { answer: 'OK', next: '_hylle2' }
       ]
     },
-    hylle2: {
+    _hylle2: {
       bubbles: ['<i>Fint!</i> #emoji-1f36d;'],
       autoNext: 'RANDOM'
     },
 
 
-    vindu1: {
-      bubbles: ['<i>Vinduer</i> to <q>okna</q> w formie:'],
+    _vindu1: {
+      bubbles: [
+        '<i>Vinduer</i> to <q>okna</q> w formie:'
+      ],
       answers: [
-        { answer: 'określonej', next: 'vindu1b' },
-        { answer: 'nieokreślonej', next: 'vindu2' }
+        { answer: 'określonej', next: '_vindu1b', wrong: true },
+        { answer: 'nieokreślonej', next: '_vindu2', correct: true },
+        { answer: 'yyy nie mam pewności', next: '_vindu1b' }
       ]
 
     },
-    vindu1b: {
-      bubbles: ['Końcówka <i>-er</i> jest w formie nieokreślonej.'],
+    _vindu1b: {
+      bubbles: [
+        'Końcówka <i>-er</i> jest w formie nieokreślonej.'
+      ],
       answers: [
-        { answer: 'dobra, już wiem', next: 'vindu2' }
+        { answer: 'dobra, już wiem', next: '_vindu2' }
       ]
     },
-    vindu2: {
-      bubbles: ['<i>Så bra!</i>', '<img src="/las/c/i/rze-lm/aurora-aksnes-auroraaksnes-13L5a20CR7NxUA.gif" />'],
+    _vindu1c: {
+      bubbles: [
+        'Dasz radę. Możesz to zrobić! ',
+        '<img src="/las/c/i/rze-lm/f6e94ec71e4793db94fa14b5097c8459acdf4f33.gif" />'
+      ],
+      answers: [
+        { answer: 'określonej', next: '_vindu1b', wrong: true },
+        { answer: 'nieokreślonej', next: '_vindu2', correct: true },
+      ]
+    },
+    _vindu2: {
+      bubbles: [
+        '<i>Bra!</i>',
+        '<img src="/las/c/i/rze-lm/6sef6Q51v5IuA.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    gulv1: {
-      bubbles: ['<q>Podłogi</q> nieokreślone?'],
+    _gulv1: {
+      bubbles: [
+        '<q>Podłogi</q> nieokreślone to:'
+      ],
       answers: [
-        { answer: '<i>gulver</i>', next: 'gulv1b' },
-        { answer: '<i>gulv</i>', next: 'gulv2' }
+        { answer: '<i>gulver</i>', next: '_gulv1b', wrong: true },
+        { answer: '<i>gulv</i>', next: '_gulv2', correct: true }
       ]
 
     },
-    gulv1b: {
-      bubbles: ['Pamiętasz rodzajnik? Podpowiem: <i>et</i>. A co się robi z jednosylabowymi rodzaju et? Nie dodaje końcówki <i>-er</i>.'],
+    _gulv1b: {
+      bubbles: [
+        'Pamiętasz rodzajnik? Podpowiem: <i>et</i>. A co się robi z jednosylabowymi rodzaju <i>et</i>? Nie dodaje końcówki <i>-er</i>.'
+      ],
       answers: [
-        { answer: 'no tak, <i>gulv</i>', next: 'gulv2' }
+        { answer: 'no tak, <i>gulv</i>', next: '_gulv2' }
       ]
     },
-    gulv2: {
-      bubbles: ['Na błysk!', '<img src="/las/c/i/rze-lm/tumblr-m3j9b02nnt1qedb29o1-500.gif" />'],
+    _gulv2: {
+      bubbles: [
+        '<i>Korrekt.</i>',
+        '<img src="/las/c/i/rze-lm/tumblr-m3j9b02nnt1qedb29o1-500.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
 
-    bord1: {
-      bubbles: ['Jak będą określone <q>stoły</q>?'],
+    _bord1: {
+      bubbles: [
+        'Jak będą określone <q>stoły</q>?'
+      ],
       answers: [
-        { answer: '<i>bord</i>', next: 'bord1b' },
-        { answer: '<i>bordene</i>', next: 'bord2' }
+        { answer: '<i>bord</i>', next: '_bord1b', wrong: true },
+        { answer: '<i>bordene</i>', next: '_bord2', correct: true }
       ]
 
     },
-    bord1b: {
-      bubbles: ['Nieokreślone to: <i>bord</i>. Oczywiście bez końcówki <i>-er</i>, bo to jednosylabowy rodzaju <i>-et</i>. A określone zawsze dostają końcówkę <i>-ene</i>.'],
+    _bord1b: {
+      bubbles: [
+        'Nieokreślone to: <i>bord</i>. Oczywiście bez końcówki <i>-er</i>, bo to jednosylabowy rodzaju <i>-et</i>. A określone zawsze dostają końcówkę <i>-ene</i>.'],
       answers: [
-        { answer: '<i>bordene</i>', next: 'bord2' }
+        { answer: '<i>bordene</i>', next: '_bord2' }
       ]
     },
-    bord2: {
-      bubbles: ['<i>Veldig godt! Det smaker bra.</i>', '<img src="/las/c/i/rze-lm/tumblr-m5rmpyxg9d1r3dfmuo3-250.gif" />'],
+    _bord2: {
+      bubbles: [
+        '<i>Veldig godt! Det smaker bra.</i>',
+        '<img src="/las/c/i/rze-lm/tumblr-m5rmpyxg9d1r3dfmuo3-250.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
-    skap1: {
+    _skap1: {
       bubbles: ['Nieokreślone <q>szafki</q>, to:'],
       answers: [
-        { answer: '<i>skap</i>', next: 'skap2' },
-        { answer: '<i>skaper</i>', next: 'skap1b' }
+        { answer: '<i>skap</i>', next: '_skap2' },
+        { answer: '<i>skaper</i>', next: '_skap1b' }
       ]
 
     },
-    skap1b: {
-      bubbles: ['A pamiętasz rodzajnik? No właśnie: <i>et</i>. Nie dodajemy <i>-er</i>. Dlatego <q>szafki</q> to:'],
+    _skap1b: {
+      bubbles: [
+        'A pamiętasz rodzajnik? No właśnie: <i>et</i>. Nie dodajemy <i>-er</i>. Dlatego <q>szafki</q> to:'
+      ],
       answers: [
-        { answer: '<i>skap</i>', next: 'skap2' }
+        { answer: '<i>skap</i>', next: '_skap2' }
       ]
     },
-    skap2: {
-      bubbles: ['Bra-wo!', '<img src="/las/c/i/rze-lm/orson-welles-citizen-20kane-appl-xilv.gif" />'],
+    _skap2: {
+      bubbles: [
+        'Bra-wo!', '<img src="/las/c/i/rze-lm/orson-welles-citizen-20kane-appl-xilv.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    kskap1: {
-      bubbles: ['Jak będą nieokreślone <q>lodówki</q>? Podpowiem, że to chłodzące szafy.'],
+    _kskap1: {
+      bubbles: [
+        'Jak będą nieokreślone <q>lodówki</q>? Podpowiem, że to chłodzące szafy.'
+      ],
       answers: [
-        { answer: '<i>kjøleskap</i>', next: 'kskap2' },
-        { answer: '<i>kjøleskaper</i>', next: 'kskap1b' }
+        { answer: '<i>kjøleskap</i>', next: '_kskap2' },
+        { answer: '<i>kjøleskaper</i>', next: '_kskap1b' }
       ]
 
     },
-    kskap1b: {
-      bubbles: ['Odmieniasz zgodnie z ostatnim członem, czyli tak, jak słowo: <i>et skap</i>. Jednosylabowe <i>-et</i> nie dostają końcówki <i>-er</i>. Nawet jeśli na pierwszy rzut oka to dłuższe słowo, musisz je rozdzielić.'],
+    _kskap1b: {
+      bubbles: [
+        'Odmieniasz zgodnie z ostatnim członem, czyli tak, jak słowo: <i>et skap</i>. Jednosylabowe <i>-et</i> nie dostają końcówki <i>-er</i>. Nawet jeśli na pierwszy rzut oka to dłuższe słowo, musisz je rozdzielić.'
+      ],
       answers: [
-        { answer: 'OK, <i>kjøleskap</i>', next: 'kskap2' }
+        { answer: 'OK, <i>kjøleskap</i>', next: '_kskap2' }
       ]
     },
-    kskap2: {
-      bubbles: ['<i>Du har overrasket meg!</i> (Zaskoczyłeś mnie!)', '<img src="/las/c/i/rze-lm/audrey-hepburn-breakfast-at-tiffanys-filmedit-qKN4EGv44HQ4g.gif" />'],
+    _kskap2: {
+      bubbles: [
+        '<i>Du har overrasket meg!</i> (Zaskoczyłeś/aś mnie!)',
+        '<img src="/las/c/i/rze-lm/audrey-hepburn-breakfast-at-tiffanys-filmedit-qKN4EGv44HQ4g.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    stol1: {
+    _stol1: {
       bubbles: ['<q>Krzesła</q> nieokreślone to:'],
       answers: [
-        { answer: '<i>stoler</i>', next: 'stol2' },
-        { answer: '<i>stolen</i>', next: 'stol1b' }
+        { answer: '<i>stoler</i>', next: '_stol2' },
+        { answer: '<i>stolen</i>', next: '_stol1b' }
       ]
 
     },
-    stol1b: {
+    _stol1b: {
       bubbles: ['W liczbie mnogiej radzę jednak użyć końcówki <i>-er</i>, jeśli tylko nie jest to słowo jednosylabowe <i>-et</i>. A jakiego rodzaju jest krzesło?'],
       answers: [
-        { answer: '<i>en</i>, dlatego: <i>stoler</i>', next: 'stol2' }
+        { answer: '<i>en</i>, dlatego: <i>stoler</i>', next: '_stol2' }
       ]
     },
-    stol2: {
-      bubbles: ['Brawo! #emoji-1f44f-1f3fb; #emoji-1f36b;'],
+    _stol2: {
+      bubbles: ['<i>Flott!</i> #emoji-1f44f-1f3fb;'],
       autoNext: 'RANDOM'
     },
 
 
-    lampe1: {
-      bubbles: ['<q>Lampy</q> nieokreślone to:'],
+    _lampe1: {
+      bubbles: [
+        '<q>Lampy</q> nieokreślone to:'
+      ],
       answers: [
-        { answer: '<i>lampa</i>', next: 'lampe1b' },
-        { answer: '<i>lamper</i>', next: 'lampe2' }
+        { answer: '<i>lampa</i>', next: '_lampe1b' },
+        { answer: '<i>lamper</i>', next: '_lampe2' }
       ]
 
     },
-    lampe1b: {
-      bubbles: ['<i>Lampa</i> to jedna określona. Nieokreślone odmieniają się regularnie. Dodajesz <i>-er</i>.'],
+    _lampe1b: {
+      bubbles: [
+        '<i>Lampa</i> to jedna określona. Nieokreślone odmieniają się regularnie. Dodajesz <i>-er</i>.'
+      ],
       answers: [
-        { answer: '<i>lamper</i>', next: 'lampe2' }
+        { answer: '<i>lamper</i>', next: '_lampe2' }
       ]
     },
-    lampe2: {
-      bubbles: ['Świecisz!', '<img src="/las/c/i/rze-lm/tumblr-mlnzx84ur21qzw1qyo1-500.gif" />'],
+    _lampe2: {
+      bubbles: [
+        'Dobrze! Widzisz, jest impreza!', '<img src="/las/c/i/rze-lm/tumblr-mlnzx84ur21qzw1qyo1-500.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    mobil1: {
+    _mobil1: {
       bubbles: ['<i>Mobiler</i> znaczy:'],
       answers: [
-        { answer: 'samochody', next: 'mobil1b' },
-        { answer: 'telefony', next: 'mobil2' }
+        { answer: 'samochody', next: '_mobil1b', wrong: true },
+        { answer: 'telefony', next: '_mobil2', correct: true }
       ]
 
     },
-    mobil1b: {
-      bubbles: ['<img src="/las/c/i/rze-lm/bfm80.gif" />', 'Uuu... <q>samochody</q> to <i>biler</i>. <i>Mobiler</i> to <q>telefony komórkowe</q>.'],
+    _mobil1b: {
+      bubbles: [
+        'Uuu... <q>samochody</q> to <i>biler</i>. Jedno niewłaściwe spojrzenie i no wiesz...',
+        '<img src="/las/c/i/rze-lm/816def61eb94d9d2b7af764297975d23adaf34fb.gif" />'
+      ],
       answers: [
-        { answer: 'OK, zapamiętam', next: 'mobil2' }
+        { answer: 'OK, bardziej się skoncentruję', next: '_RANDOM' }
       ]
     },
-    mobil2: {
-      bubbles: ['Dobrze! Możemy świętować?', '<img src="/las/c/i/rze-lm/the-blues-brothers-whisky-though-DpxPL8FXbccM0.gif" />'],
+    _mobil2: {
+      bubbles: [
+        'Dobrze. Możemy więc świętować.',
+        '<img src="/las/c/i/rze-lm/the-blues-brothers-whisky-though-DpxPL8FXbccM0.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    melding1: {
+    _melding1: {
       bubbles: ['<q>Mam dwie wiadomości.</q> Jak to powiesz po norwesku? <i>Jeg har to...</i>'],
       answers: [
-        { answer: '<i>meldinge</i>', next: 'melding1b' },
-        { answer: '<i>meldinger</i>', next: 'melding2' }
+        { answer: '<i>meldinge</i>', next: '_melding1b', wrong: true },
+        { answer: '<i>meldinger</i>', next: '_melding2', correct: true }
       ]
 
     },
-    melding1b: {
+    _melding1b: {
       bubbles: ['Jedna <q>wiadomość</q>, to <i>en melding</i>. W liczbie mnogiej dodajesz <i>-er</i>. To takie proste.'],
       answers: [
-        { answer: '<i>meldinger</i>', next: 'melding2' }
+        { answer: '<i>meldinger</i>', next: '_melding2' }
       ]
     },
-    melding2: {
+    _melding2: {
       bubbles: ['Pierwsza, że dobrze teraz odpowiedziałeś. Druga, że ktoś nas chyba śledzi.', '<img src="/las/c/i/rze-lm/tumblr-mhtlawoisq1qcay1ao1-500.gif" />', 'Jedziemy dalej?'],
       answers: [
-        { answer: '<i>ja, vi kjører videre</i>', next: 'RANDOM' }
+        { answer: '<i>ja, vi kjører videre</i>', next: '_RANDOM' }
       ]
     },
 
 
-    speil1: {
+    _speil1: {
       bubbles: ['<q>Lustra</q> nieokreślone to:'],
       answers: [
-        { answer: '<i>speil</i>', next: 'speil2' },
-        { answer: '<i>speiler</i>', next: 'speil1b' }
+        { answer: '<i>speil</i>', next: '_speil2', correct: true },
+        { answer: '<i>speiler</i>', next: '_speil1b', wrong: true }
       ]
 
     },
-    speil1b: {
-      bubbles: ['A ile to słowo ma sylab? Jedną.', 'Jakiego jest rodzaju? <i>Et</i>. Czyli?'],
+    _speil1b: {
+      bubbles: [
+        'A ile to słowo ma sylab?'
+      ],
       answers: [
-        { answer: 'nie dodaję końcówki <i>-er</i>', next: 'speil2' }
+        { answer: 'Jedną', next: '_speil1c' }
       ]
     },
-    speil2: {
-      bubbles: ['Uff, dobrze.'  , '<img src="/las/c/i/rze-lm/tumblr_nrwenu8TfZ1s2yegdo1_500.gif" />'],
+    _speil1c: {
+      bubbles: [
+        'Jakiego jest rodzaju <i>speil</i>?'
+      ],
+      answers: [
+        { answer: '<i>et</i>', next: '_speil1d' }
+      ]
+    },
+    _speil1d: {
+      bubbles: [
+        'Czyli?'
+      ],
+      answers: [
+        { answer: 'nie dodajemy końcówki <i>-er</i>', next: '_speil2' }
+      ]
+    },
+    _speil2: {
+      bubbles: [
+        'Uff, dobrze.'  ,
+        '<img src="/las/c/i/rze-lm/tumblr_nrwenu8TfZ1s2yegdo1_500.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    buss1: {
-      bubbles: ['<q>Autobusy</q> nieokreślone to:'],
+    _buss1: {
+      bubbles: [
+        '<q>Autobusy</q> nieokreślone to:'
+      ],
       answers: [
-        { answer: '<i>busser</i>', next: 'buss2' },
-        { answer: '<i>buss</i>', next: 'buss1b' }
+        { answer: '<i>busser</i>', next: '_buss2', correct: true },
+        { answer: '<i>buss</i>', next: '_buss1b', wrong: true }
       ]
 
     },
-    buss1b: {
-      bubbles: ['<q>Autobus</q> to <i>en buss</i>. Nie ma znaczenia, że ma jedną sylabę. Dodajesz normalnie <i>-er</i>.'],
+    _buss1b: {
+      bubbles: [
+        '<q>Autobus</q> to <i>en buss</i>. Nie ma znaczenia, że ma jedną sylabę. Dodajesz normalnie <i>-er</i>.'
+      ],
       answers: [
-        { answer: '<i>busser</i>', next: 'buss2' }
+        { answer: '<i>busser</i>', next: '_buss2' }
       ]
     },
-    buss2: {
-      bubbles: ['Prosto z trasy...', '<img src="/las/c/i/rze-lm/hard-trying-catch-bus-sometimes.gif" />'],
+    _buss2: {
+      bubbles: [
+        '<i>Svært godt!</i>'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    tog1: {
+    _tog1: {
       bubbles: ['<q>Pociągi</q> nieokreślone to:'],
       answers: [
-        { answer: '<i>toger</i>', next: 'tog1b' },
-        { answer: '<i>tog</i>', next: 'tog2' }
+        { answer: '<i>toger</i>', next: '_tog1b', wrong: true },
+        { answer: '<i>tog</i>', next: '_tog2', correct: true }
       ]
 
     },
-    tog1b: {
+    _tog1b: {
       bubbles: ['<q>Pociąg</q> to <i>et tog</i>. Jednosylabowy nijaki. Dlatego nie dodajemy końcówki <i>-er</i> w l.mn. Więc...'],
       answers: [
-        { answer: '<i>tog</i>', next: 'tog2' }
+        { answer: '<i>tog</i>', next: '_tog2' }
       ]
     },
-    tog2: {
-      bubbles: ['<i>Fint!</i> <span class="no-break">#emoji-1f682;#emoji-1f683;#emoji-1f683;</span>', 'A określone?'],
+    _tog2: {
+      bubbles: ['<i>Fint!</i> <span class="no-break">#emoji-1f682;#emoji-1f683;#emoji-1f683;</span>', 'Określone <q>pociągi</q> to:'],
       answers: [
-        { answer: '<i>tog</i>', next: 'tog2b' },
-        { answer: '<i>togene</i>', next: 'tog3' }
+        { answer: '<i>tog</i>', next: '_tog2b', wrong: true },
+        { answer: '<i>togene</i>', next: '_tog3', correct: true }
       ]
 
     },
-    tog2b: {
+    _tog2b: {
       bubbles: ['W formie określonej liczby mnogiej zawsze dodajesz <i>-ene</i>.'],
       answers: [
-        { answer: '<i>togene</i>', next: 'tog2' }
+        { answer: '<i>togene</i>', next: '_tog2' }
       ]
     },
-    tog3: {
-      bubbles: ['<i>Supert!</i>', '<img src="/las/c/i/rze-lm/vintage-train-animated-gif-3.gif" />'],
+    _tog3: {
+      bubbles: [
+        '<i>Supert!</i>',
+        '<img src="/las/c/i/rze-lm/gpaSUlq15zHpK.gif" />',
+        '<img src="/las/c/i/rze-lm/vintage-train-animated-gif-3.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    blomst1: {
+    _blomst1: {
       bubbles: ['<q>Kwiaty</q> określone to:'],
       answers: [
-        { answer: '<i>blomster</i>', next: 'blomst1b' },
-        { answer: '<i>blomstene</i>', next: 'blomst2' }
+        { answer: '<i>blomster</i>', next: '_blomst1b', wrong: true },
+        { answer: '<i>blomstene</i>', next: '_blomst2', correct: true }
       ]
 
     },
-    blomst1b: {
-      bubbles: ['<i>Blomster</i> to na kwiaciarniach piszą, bo tam są różne nieokreślone kwiaty. Te konkretne to:'],
+    _blomst1b: {
+      bubbles: [
+        '<i>Blomster</i> to na kwiaciarniach piszą, bo tam są różne nieokreślone kwiaty. Codziennie inne, mówię Ci.',
+        'Te konkretne to:'
+      ],
       answers: [
-        { answer: '<i>blomstene</i>', next: 'blomst2' }
+        { answer: '<i>blomstene</i>', next: '_blomst2' }
       ]
     },
-    blomst2: {
-      bubbles: ['<i>Pent!</i> #emoji-1f33b;#emoji-1f33b;#emoji-1f33b;'],
+    _blomst2: {
+      bubbles: [
+        '<i>Pent!</i> Jak masz w domu kwiaty, to pewnie są takie konkret. Kryją historię. Wywołują głębokie emocje.',
+        '<img src="/las/c/i/rze-lm/3o7TKtfnCqdCPLilUs.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    hus1: {
+    _hus1: {
       bubbles: ['<q>Domy</q>, takie dowolne, to:'],
       answers: [
-        { answer: '<i>hus</i>', next: 'hus2' },
-        { answer: '<i>husene</i>', next: 'hus1b' }
+        { answer: '<i>hus</i>', next: '_hus2', correct: true },
+        { answer: '<i>husene</i>', next: '_hus1b', wrong: true }
       ]
 
     },
-    hus1b: {
-      bubbles: ['<i>Husene</i> to określone domy, takie o których Twój rozmówca wie. Nieokreślone są bez końcówki <i>-er</i>, bo jeden to <i>et hus</i>, a dwa lub więcej to:'],
+    _hus1b: {
+      bubbles: [
+        '<i>Husene</i> to określone domy, takie o których Twój kumpel wie.',
+        'Nieokreślone są bez końcówki <i>-er</i>, bo jeden to <i>et hus</i>, a dwa lub więcej to:'
+      ],
       answers: [
-        { answer: '<i>hus</i>', next: 'hus2' }
+        { answer: '<i>hus</i>', next: '_hus2' }
       ]
     },
-    hus2: {
-      bubbles: ['Stare norweskie domy kryją wiele tajemnic...', '<img src="/las/c/i/rze-lm/tumblr-lxxcf8koi41qlh9eeo1-500.gif" />'],
+    _hus2: {
+      bubbles: [
+        'Stare norweskie domy kryją wiele tajemnic...',
+        '<img src="/las/c/i/rze-lm/tumblr-lxxcf8koi41qlh9eeo1-500.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    seng1: {
-      bubbles: ['<q>Łóżka</q> nieokreślone?'],
+    _seng1: {
+      bubbles: ['<q>Łóżka</q> określone?'],
       answers: [
-        { answer: '<i>sengene</i>', next: 'seng1b' },
-        { answer: '<i>senger</i>', next: 'seng2' }
+        { answer: '<i>sagene</i>', next: '_seng1b', wrong: true },
+        { answer: '<i>sengene</i>', next: '_seng2', correct: true }
       ]
 
     },
-    seng1b: {
-      bubbles: ['Końcówka <i>-ene</i> tylko w określonej. Więc:'],
+    _seng1b: {
+      bubbles: [
+        '<i>Sagene</i> to określone <q>piły</q>. I jeszcze taka dzielnica w Oslo. Sowa tam nawet kiedyś zajęcia prowadziła. Co tam się działo...',
+        'Ale wracając, łóżka to:'
+      ],
       answers: [
-        { answer: '<i>senger</i>', next: 'seng2' }
+        { answer: '<i>sengene</i>', next: '_seng2' }
       ]
     },
-    seng2: {
+    _seng2: {
       bubbles: ['Ta daaam!', '<img src="/las/c/i/rze-lm/tumblr-n89kkc8dkc1qcd94wo1-500.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
-    munn1: {
-      bubbles: ['<i>En munn</i> to <q>usta</q>. Jedne, bo jest rodzajnik. A kilka dowolnych?'],
+    _munn1: {
+      bubbles: [
+        '<i>En munn</i> to <q>usta</q>. Jedne, bo jest rodzajnik. A kilka dowolnych?'
+      ],
       answers: [
-        { answer: '<i>munner</i>', next: 'munn2' },
-        { answer: '<i>munnene</i>', next: 'munn1b' }
+        { answer: '<i>munner</i>', next: '_munn2', correct: true },
+        { answer: '<i>munnene</i>', next: '_munn1b', wrong: true }
       ]
 
     },
-    munn1b: {
-      bubbles: ['<i>Munnene</i> to określone usta w liczbie mnogiej. Nieokreślone to:'],
+    _munn1b: {
+      bubbles: [
+        '<i>Munnene</i> to określone usta w liczbie mnogiej. Nieokreślone to:'
+      ],
       answers: [
-        { answer: '<i>munner</i>', next: 'munn2' }
+        { answer: '<i>munner</i>', next: '_munn2' }
       ]
     },
-    munn2: {
+    _munn2: {
       bubbles: ['<img src="/las/c/i/rze-lm/12NHUUk5iS6kDe.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
-    kontakt1: {
-      bubbles: ['Jak powiesz: <q>On ma wiele kontaktów</q>?', '<i>Han har mange...</i>'],
+    _kontakt1: {
+      bubbles: [
+        'Jak powiesz: <q>On ma wiele kontaktów</q>?',
+        '<i>Han har mange...</i>'
+      ],
       answers: [
-        { answer: '<i>kontakter</i>', next: 'kontakt2' },
-        { answer: '<i>kontaktene</i>', next: 'kontakt1b' }
+        { answer: '<i>kontakter</i>', next: '_kontakt2', correct: true },
+        { answer: '<i>kontaktene</i>', next: '_kontakt1b', wrong: true }
       ]
 
     },
-    kontakt1b: {
-      bubbles: ['To mogło być trudniejsze. Wiem. Jeśli ma czegoś wiele to zazwyczaj będzie to w formie nieokreślonej. Wyczujesz to z czasem.'],
+    _kontakt1b: {
+      bubbles: [
+        'To mogło być trudniejsze. Wiem. Jeśli ma czegoś wiele to zazwyczaj będzie to w formie nieokreślonej. Wyczujesz to z czasem.'
+      ],
       answers: [
-        { answer: 'OK, <i>kontakter</i>', next: 'kontakt2' }
+        { answer: 'OK, <i>kontakter</i>', next: '_kontakt2' }
       ]
     },
-    kontakt2: {
+    _kontakt2: {
       bubbles: ['Tak jest. #emoji-260e;#emoji-1f4de;#emoji-1f4e0;#emoji-1f50c;'],
       autoNext: 'RANDOM'
     },
 
 
-    menneske1: {
-      bubbles: ['Nieokreśleni <q>ludzie</q>?'],
+    _menneske1: {
+      bubbles: ['Nieokreśleni <q>ludzie</q> to:'],
       answers: [
-        { answer: '<i>folkene</i>', next: 'menneske1b' },
-        { answer: '<i>mennesker</i>', next: 'menneske2' }
+        { answer: '<i>folkene</i>', next: '_menneske1b', wrong: true },
+        { answer: '<i>mennesker</i>', next: '_menneske2', correct: true }
       ]
 
     },
-    menneske1b: {
-      bubbles: ['<i>Folkene</i> to już określona <q>ludność</q>. Nieokreśleni ludzie to:'],
+    _menneske1b: {
+      bubbles: [
+        '<i>Folkene</i> to już określona <q>ludność</q>. Nieokreśleni ludzie to:'
+      ],
       answers: [
-        { answer: '<i>mennesker</i>', next: 'menneske2' }
+        { answer: '<i>mennesker</i>', next: '_menneske2' }
       ]
     },
-    menneske2: {
-      bubbles: ['<img src="/las/c/i/rze-lm/a0h7sAqON67nO.gif" />'],
+    _menneske2: {
+      bubbles: [
+        '<i>Ja!</i>',
+        '<img src="/las/c/i/rze-lm/tumblr_n1fnd9ztwT1qg4blro1_250.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
-    skip1: {
+    _skip1: {
       bubbles: ['Kilka nieokreślonych <q>statków</q> na fiordzie, to...'],
       answers: [
-        { answer: '<i>skip</i>', next: 'skip2' },
-        { answer: '<i>skiper</i>', next: 'skip1b' }
+        { answer: '<i>skip</i>', next: '_skip2', correct: true },
+        { answer: '<i>skiper</i>', next: '_skip1b', wrong: true }
       ]
-
     },
-    skip1b: {
+    _skip1b: {
       bubbles: ['Jedna sylaba i <i>et</i>. Co to znaczy? Nie dodajemy <i>-er</i>.'],
       answers: [
-        { answer: 'jasne, <i>skip</i>', next: 'skip2' }
+        { answer: 'jasne, <i>skip</i>', next: '_skip2' }
       ]
     },
-    skip2: {
-      bubbles: ['<i>Bra!</i> #emoji-1f6f3;'],
+    _skip2: {
+      bubbles: [
+        '<i>Bra!</i>',
+        '<img src="/las/c/i/rze-lm/acid-april-gifdump-o5RW6QGVTm0g0.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    dyr1: {
+    _dyr1: {
       bubbles: ['Określone <q>zwierzęta</q>? #emoji-1f429;#emoji-1f415;#emoji-1f408;'],
       answers: [
-        { answer: '<i>dyr</i>', next: 'dyr1b' },
-        { answer: '<i>dyrene</i>', next: 'dyr2' }
+        { answer: '<i>dyr</i>', next: '_dyr1b', wrong: true },
+        { answer: '<i>dyrene</i>', next: '_dyr2', correct: true }
       ]
 
     },
-    dyr1b: {
+    _dyr1b: {
       bubbles: ['<i>Dyr</i> to nieokreślone <q>zwierzęta</q>. Określone mają końcówkę <i>-ene</i>.'],
       answers: [
-        { answer: 'OK, <i>dyrene</i>', next: 'dyr2' }
+        { answer: 'OK, <i>dyrene</i>', next: '_dyr2' }
       ]
     },
-    dyr2: {
+    _dyr2: {
       bubbles: ['<i>Yes</i>! A teraz uwaga! Wchodzą:', '<img src="/las/c/i/rze-lm/c2OEMfj.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
-    avtale1: {
+    _avtale1: {
       bubbles: ['Jedna <q>umowa</q> to: <i>en avtale</i>. Kilka określonych to...'],
       answers: [
-        { answer: '<i>avtalene</i>', next: 'avtale2' },
-        { answer: '<i>avtala</i>', next: 'avtale1b' }
+        { answer: '<i>avtalene</i>', next: '_avtale2', correct: true },
+        { answer: '<i>avtala</i>', next: '_avtale1b', wrong: true }
       ]
 
     },
-    avtale1b: {
-      bubbles: ['Nie ma takiego słowa. W liczbie mnogiej dodajesz przecież <i>-ene</i>.'],
+    _avtale1b: {
+      bubbles: [
+       'Nie ma takiego słowa. W liczbie mnogiej dodajesz przecież <i>-ene</i>.'
+      ],
       answers: [
-        { answer: 'OK, <i>avtalene</i>', next: 'avtale2' }
+        { answer: 'OK, <i>avtalene</i>', next: '_avtale2' }
       ]
     },
-    avtale2: {
-      bubbles: ['<i>Skål!</i> #emoji-1f943;'],
+    _avtale2: {
+      bubbles: ['<i>Godt!</i> #emoji-1f943;'],
       autoNext: 'RANDOM'
     },
 
 
-    topp1: {
-      bubbles: ['Nieokreślone <q>szczyty</q>? <span class="no-break">#emoji-1f3d4;#emoji-1f3d4;</span>'],
+    _topp1: {
+      bubbles: [
+        'Nieokreślone <q>szczyty</q>? <span class="no-break">#emoji-1f3d4;#emoji-1f3d4;</span>'
+      ],
       answers: [
-        { answer: '<i>topp</i>', next: 'topp1b' },
-        { answer: '<i>topper</i>', next: 'topp2' }
+        { answer: '<i>topp</i>', next: '_topp1b', wrong: true },
+        { answer: '<i>topper</i>', next: '_topp2', correct: true }
       ]
 
     },
-    topp1b: {
-      bubbles: ['Jednak <i>topper</i>, bo jeden <q>szczyt</q> to <i>en topp</i>.'],
+    _topp1b: {
+      bubbles: [
+        '<i>Topper</i>, bo jeden <q>szczyt</q> to <i>en topp</i>.'
+      ],
       answers: [
-        { answer: 'OK', next: 'topp2' }
+        { answer: 'OK, regularnie się odmienia', next: '_topp2' }
       ]
     },
-    topp2: {
+    _topp2: {
       bubbles: ['Dajesz radę!'],
       autoNext: 'RANDOM'
     },
 
 
-    oy1: {
+    _oy1: {
       bubbles: ['<q>Wyspy</q> określone to...'],
       answers: [
-        { answer: '<i>øyer</i>', next: 'oy1b' },
-        { answer: '<i>øyene</i>', next: 'oy2' }
+        { answer: '<i>øyer</i>', next: '_oy1b', wrong: true },
+        { answer: '<i>øyene</i>', next: '_oy2', correct: true }
       ]
 
     },
-    oy1b: {
+    _oy1b: {
       bubbles: ['To były nieokreślone. Dlatego:'],
       answers: [
-        { answer: '<i>øyene</i>', next: 'oy2' }
+        { answer: '<i>øyene</i>', next: '_oy2' }
       ]
     },
-    oy2: {
-      bubbles: ['<i>Grattis!</i>', '<img src="/las/c/i/rze-lm/tumblr_nt3kawqCC61s2wio8o4_500.gif" />'],
+    _oy2: {
+      bubbles: ['<i>Pent!</i>', '<img src="/las/c/i/rze-lm/tumblr_nt3kawqCC61s2wio8o4_500.gif" />'],
       autoNext: 'RANDOM'
     },
 
 
-    dekk1: {
+    _dekk1: {
       bubbles: ['<q>Zmienić opony</q> (nieokreślone) to: <i>skifte ...</i>'],
       answers: [
-        { answer: '<i>dekk</i>', next: 'dekk2' },
-        { answer: '<i>dekker</i>', next: 'dekk1b' }
+        { answer: '<i>dekk</i>', next: '_dekk2', correct: true },
+        { answer: '<i>dekker</i>', next: '_dekk1b', wrong: true }
       ]
 
     },
-    dekk1b: {
+    _dekk1b: {
       bubbles: ['Jedna <q>opona</q> to <i>et dekk</i>. Jednosylabowy nijaki nie dostaje końcówki <i>-er</i>.'],
       answers: [
-        { answer: '<i>dekk</i>', next: 'dekk2' }
+        { answer: '<i>dekk</i>', next: '_dekk2' }
       ]
     },
-    dekk2: {
-      bubbles: ['OK, jedziemy. #emoji-1f69c;'],
+    _dekk2: {
+      bubbles: ['<i>Velgjort!</i>'],
       autoNext: 'RANDOM'
     },
 
 
-    spill1: {
+    _spill1: {
       bubbles: ['Jak będą nieokreślone <q>gry</q> po norwesku?'],
       answers: [
-        { answer: '<i>spill</i>', next: 'spill2' },
-        { answer: '<i>spiller</i>', next: 'spill1b' }
+        { answer: '<i>spill</i>', next: '_spill2', correct: true },
+        { answer: '<i>spiller</i>', next: '_spill1b', wrong: true }
       ]
 
     },
-    spill1b: {
+    _spill1b: {
       bubbles: ['Jednosylabowy rodzaju <i>et</i>. Nie dodajemy wtedy końcówki <i>-er</i>.'],
       answers: [
-        { answer: 'Pamiętam!', next: 'spill2' }
+        { answer: 'Pamiętam!', next: '_spill2' }
       ]
     },
-    spill2: {
-      bubbles: ['Gra muzyka!', '<img src="/las/c/i/rze-lm/dhg-kb23.gif" />'],
+    _spill2: {
+      bubbles: [
+        'Gra muzyka!',
+        '<img src="/las/c/i/rze-lm/dhg-kb23.gif" />',
+        '<img src="/las/c/i/rze-lm/cats-j1ZZQpQ6SGDiU.gif" />',
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    by1: {
+    _by1: {
       bubbles: ['<q>Miasta</q> #emoji-1f3d9;#emoji-1f3d9; określone to:'],
       answers: [
-        { answer: '<i>byen</i>', next: 'by1b' },
-        { answer: '<i>byene</i>', next: 'by2' }
+        { answer: '<i>byen</i>', next: '_by1b', correct: true },
+        { answer: '<i>byene</i>', next: '_by2', wrong: true }
       ]
 
     },
-    by1b: {
+    _by1b: {
       bubbles: ['<i>Byen</i> to jedno określone miasto. W liczbie mnogiej dodajemy <i>-ene</i>.'],
       answers: [
-        { answer: '<i>byene</i>', next: 'by2' }
+        { answer: '<i>byene</i>', next: '_by2' }
       ]
     },
-    by2: {
-      bubbles: ['<i>Nydelig!</i> #emoji-1f36c;'],
+    _by2: {
+      bubbles: [
+        '<i>Riktig!</i> Jesteś uważnym obserwatorem.',
+        '<img src="/las/c/i/rze-lm/demolizione_palazzo.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
 
-    vits1: {
+    _vits1: {
       bubbles: ['Jeden <q>żart</q> to <i>en vits</i>. <q>Dowcipy</q> to...'],
       answers: [
-        { answer: '<i>vitser</i>', next: 'vits2' },
-        { answer: '<i>vitsen</i>', next: 'vits1b' }
+        { answer: '<i>vitser</i>', next: '_vits2', correct: true },
+        { answer: '<i>vitsen</i>', next: '_vits1b', wrong: true }
       ]
 
     },
-    vits1b: {
+    _vits1b: {
       bubbles: ['<i>Vitsen</i> to jeden określony. Kilka to już zależy czy określonych czy nie, ale miałeś do wyboru jedynie:'],
       answers: [
-        { answer: '<i>vitser</i>', next: 'vits2' }
+        { answer: '<i>vitser</i>', next: '_vits2' }
       ]
     },
-    vits2: {
+    _vits2: {
       bubbles: ['A teraz prawdziwa historia.', '<img src="/las/c/i/rze-lm/CN9OTYkCHlb2g.gif" />'],
       autoNext: 'RANDOM'
     }
@@ -638,13 +790,36 @@ function LasChatData() {
 
 
   this.end = {
-    a1: {
-      bubbles: ['To koniec na dziś, ale możesz zawsze tu wrócić i przećwiczyć te słowa w innej kolejności.', 'Ale czekaj. Zrobimy Ci jeszcze pamiątkową fotografię.', '<img src="/las/c/i/rze-lm/tumblr-lxl3cv0ulu1qe0eclo1-r1-500.gif" />', 'Jesteś piękny!'],
-      autoNext: 'END'
+    _a1: {
+      bubbles: [
+        'Ok. To by było tyle na dziś. Jednak radzę Ci tu wracać, aż poczujesz, że jesteś mistrzem liczby mnogiej.',
+        'Zrobię Ci jeszcze mały zabieg wygrywania norweskich słów prosto do mózgu, jak chcesz.'
+      ],
+      answers: [
+        { answer: 'Nie bardzo łapię, ale okeej.', next: '_a2' },
+        { answer: 'Wgrywaj wszystko. Oddam za to nerkę.', next: '_a2' }
+      ]
     },
-    b1: {
-      bubbles: ['To koniec na dziś, ale możesz zawsze tu wrócić i przećwiczyć te słowa w innej kolejności.', 'God natt!', '<img src="/las/c/i/rze-lm/j3vao.gif" />'],
-      autoNext: 'END'
+    _a2: {
+      bubbles: [
+        'Spoko. Mamy jeszcze kilku ochotników. Nie powinno boleć.',
+        '<img src="/las/c/i/rze-lm/the-gamma-people2.gif" />',
+        'Wyśpij się dzisiaj dobrze. To wpłynie korzystnie na naukę. <i>Det er sant!</i> (To prawda!)'
+      ],
+      answers: [
+        { answer: '<i>Ha det!</i>', next: 'END' }
+      ]
+    },
+
+    _b1: {
+      bubbles: [
+        'To koniec na dziś, ale możesz zawsze tu wrócić i przećwiczyć te słowa w innej kolejności.',
+        'God natt!',
+        '<img src="/las/c/i/rze-lm/j3vao.gif" />'
+      ],
+      answers: [
+        { answer: '<i>God natt!</i>', next: 'END' }
+      ]
     }
   };
 

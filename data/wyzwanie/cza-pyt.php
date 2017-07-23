@@ -5,7 +5,7 @@ function LasAudioData() {
   ];
 
   this.intro = {
-    a1: {
+    _a1: {
       msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
       autoNext:   'ENDINTRO'/*,
       more: {
@@ -18,28 +18,28 @@ function LasAudioData() {
 
   this.chat = {
 
-    aa1: {
+    _aa1: {
       spokenWord: 'Zapytaj: Czy Tom mieszka w Bergen?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'aa2'
+      autoNext:   '_aa2'
     },
-    aa2: {
+    _aa2: {
       msg:        'Bor Tom i Bergen?',
       trans:      'Czy Tom mieszka w Bergen?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'aa3'
+      autoNext:   '_aa3'
     },
-    aa3: {
+    _aa3: {
       spokenWord: 'Odpowiedz: Nie, Tom nie mieszka w Bergen. On mieszka w Bodø.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'aa4'
+      autoNext:   '_aa4'
     },
-    aa4: {
+    _aa4: {
       msg:        'Nei, Tom bor ikke i Bergen. Han bor i Bodø.',
       trans:      'Nie, Tom nie mieszka w Bergen. On mieszka w Bodø.',
       startTime:  4,
@@ -48,28 +48,28 @@ function LasAudioData() {
     },
 
 
-    ab1: {
+    _ab1: {
       spokenWord: 'Zapytaj: Czy pochodzisz z Norwegii?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ab2'
+      autoNext:   '_ab2'
     },
-    ab2: {
+    _ab2: {
       msg:        'Kommer du fra Norge?',
       trans:      'Czy pochodzisz z Norwegii?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ab3'
+      autoNext:   '_ab3'
     },
-    ab3: {
+    _ab3: {
       spokenWord: 'Odpowiedz: Nie, nie pochodzę z Norwegii. Pochodzę z Polski.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ab4'
+      autoNext:   '_ab4'
     },
-    ab4: {
+    _ab4: {
       msg:        'Nei, jeg kommer ikke fra Norge. Jeg kommer fra Polen.',
       trans:      'Nie, nie pochodzę z Norwegii. Pochodzę z Polski.',
       startTime:  4,
@@ -78,28 +78,28 @@ function LasAudioData() {
     },
 
 
-    ac1: {
+    _ac1: {
       spokenWord: 'Zapytaj: Czy masz dzieci?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ac2'
+      autoNext:   '_ac2'
     },
-    ac2: {
+    _ac2: {
       msg:        'Har du barn?',
       trans:      'Czy masz dzieci?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ac3'
+      autoNext:   '_ac3'
     },
-    ac3: {
+    _ac3: {
       spokenWord: 'Odpowiedz: Tak, mam dwoje dzieci.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ac4'
+      autoNext:   '_ac4'
     },
-    ac4: {
+    _ac4: {
       msg:        'Ja, jeg har to barn.',
       trans:      'Tak, mam dwoje dzieci.',
       startTime:  4,
@@ -108,28 +108,28 @@ function LasAudioData() {
     },
 
 
-    ad1: {
+    _ad1: {
       spokenWord: 'Zapytaj: Czy masz samochód?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ad2'
+      autoNext:   '_ad2'
     },
-    ad2: {
+    _ad2: {
       msg:        'Har du en bil?',
       trans:      'Czy masz samochód?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ad3'
+      autoNext:   '_ad3'
     },
-    ad3: {
+    _ad3: {
       spokenWord: 'Odpowiedz: Nie, nie mam samochodu. Mam rower.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ad4'
+      autoNext:   '_ad4'
     },
-    ad4: {
+    _ad4: {
       msg:        'Nei, jeg har ikke en bil. Jeg har en sykkel.',
       trans:      'Nie, nie mam samochodu. Mam rower.',
       startTime:  4,
@@ -138,28 +138,28 @@ function LasAudioData() {
     },
 
 
-    ae1: {
+    _ae1: {
       spokenWord: 'Zapytaj: Czy lubisz kupować buty?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ae2'
+      autoNext:   '_ae2'
     },
-    ae2: {
+    _ae2: {
       msg:        'Liker du å kjøpe sko?',
       trans:      'Czy lubisz kupować buty?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ae3'
+      autoNext:   '_ae3'
     },
-    ae3: {
+    _ae3: {
       spokenWord: 'Odpowiedz: Tak, lubię kupować buty.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ae4'
+      autoNext:   '_ae4'
     },
-    ae4: {
+    _ae4: {
       msg:        'Ja, jeg liker å kjøpe sko.',
       trans:      'Tak, lubię kupować buty.',
       startTime:  4,
@@ -168,28 +168,28 @@ function LasAudioData() {
     },
 
 
-    af1: {
+    _af1: {
       spokenWord: 'Zapytaj: Czy często rozmawiasz z ojcem?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'af2'
+      autoNext:   '_af2'
     },
-    af2: {
+    _af2: {
       msg:        'Snakker du ofte med faren?',
       trans:      'Czy często rozmawiasz z ojcem?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'af3'
+      autoNext:   '_af3'
     },
-    af3: {
+    _af3: {
       spokenWord: 'Odpowiedz: Tak, rozmawiam z nim codziennie.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'af4'
+      autoNext:   '_af4'
     },
-    af4: {
+    _af4: {
       msg:        'Ja, jeg snakker med ham hver dag.',
       trans:      'Tak, rozmawiam z nim codziennie.',
       startTime:  4,
@@ -198,28 +198,28 @@ function LasAudioData() {
     },
 
 
-    ah1: {
+    _ah1: {
       spokenWord: 'Zapytaj: Czy masz dużo energii?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ah2'
+      autoNext:   '_ah2'
     },
-    ah2: {
+    _ah2: {
       msg:        'Har du mye energi?',
       trans:      'Czy masz dużo energii?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ah3'
+      autoNext:   '_ah3'
     },
-    ah3: {
+    _ah3: {
       spokenWord: 'Odpowiedz: Tak, mam dużo energii.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ah4'
+      autoNext:   '_ah4'
     },
-    ah4: {
+    _ah4: {
       msg:        'Ja, jeg har mye energi.',
       trans:      'Tak, mam dużo energii.',
       startTime:  4,
@@ -228,28 +228,28 @@ function LasAudioData() {
     },
 
 
-    ag1: {
+    _ag1: {
       spokenWord: 'Zapytaj: Czy masz wielu przyjaciół?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ag2'
+      autoNext:   '_ag2'
     },
-    ag2: {
+    _ag2: {
       msg:        'Har du mange venner?',
       trans:      'Czy masz wielu przyjaciół?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ag3'
+      autoNext:   '_ag3'
     },
-    ag3: {
+    _ag3: {
       spokenWord: 'Odpowiedz: Tak, mam wielu przyjaciół.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ag4'
+      autoNext:   '_ag4'
     },
-    ag4: {
+    _ag4: {
       msg:        'Ja, jeg har mange venner.',
       trans:      'Tak, mam wielu przyjaciół.',
       startTime:  4,
@@ -258,28 +258,28 @@ function LasAudioData() {
     },
 
 
-    aj1: {
+    _aj1: {
       spokenWord: 'Zapytaj: Czy jest dużo piasku na plaży?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'aj2'
+      autoNext:   '_aj2'
     },
-    aj2: {
+    _aj2: {
       msg:        'Er det mye sand på stranda?',
       trans:      'Czy jest dużo piasku na plaży?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'aj3'
+      autoNext:   '_aj3'
     },
-    aj3: {
+    _aj3: {
       spokenWord: 'Odpowiedz: Nie, nie ma dużo piasku. Tylko kamienie.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'aj4'
+      autoNext:   '_aj4'
     },
-    aj4: {
+    _aj4: {
       msg:        'Nei, det er ikke mye sand. Bare steiner.',
       trans:      'Nie, nie ma dużo piasku. Tylko kamienie.',
       startTime:  4,
@@ -288,28 +288,28 @@ function LasAudioData() {
     },
 
 
-    ak1: {
+    _ak1: {
       spokenWord: 'Zapytaj: Czy masz wiele ubrań?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ak2'
+      autoNext:   '_ak2'
     },
-    ak2: {
+    _ak2: {
       msg:        'Har du mange klær?',
       trans:      'Czy masz wiele ubrań?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ak3'
+      autoNext:   '_ak3'
     },
-    ak3: {
+    _ak3: {
       spokenWord: 'Odpowiedz: Nie, nie potrzebuję wielu ubrań.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ak4'
+      autoNext:   '_ak4'
     },
-    ak4: {
+    _ak4: {
       msg:        'Nei, jeg trenger ikke mange klær.',
       trans:      'Nie, nie potrzebuję wielu ubrań.',
       startTime:  4,
@@ -318,28 +318,28 @@ function LasAudioData() {
     },
 
 
-    al1: {
+    _al1: {
       spokenWord: 'Zapytaj: Czy boli Cię kolano?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'al2'
+      autoNext:   '_al2'
     },
-    al2: {
+    _al2: {
       msg:        'Har du vondt i kneet?',
       trans:      'Czy boli Cię kolano?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'al3'
+      autoNext:   '_al3'
     },
-    al3: {
+    _al3: {
       spokenWord: 'Odpowiedz: Tak, boli mnie kolano.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'al4'
+      autoNext:   '_al4'
     },
-    al4: {
+    _al4: {
       msg:        'Ja, jeg har vondt i kneet.',
       trans:      'Tak, boli mnie kolano.',
       startTime:  4,
@@ -348,28 +348,28 @@ function LasAudioData() {
     },
 
 
-    am1: {
+    _am1: {
       spokenWord: 'Zapytaj: Czy masz łódkę w Norwegii?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'am2'
+      autoNext:   '_am2'
     },
-    am2: {
+    _am2: {
       msg:        'Har du en båt i Norge?',
       trans:      'Czy masz łódkę w Norwegii?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'am3'
+      autoNext:   '_am3'
     },
-    am3: {
+    _am3: {
       spokenWord: 'Odpowiedz: Nie mam. Mogę pożyczyć łódź.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'am4'
+      autoNext:   '_am4'
     },
-    am4: {
+    _am4: {
       msg:        'Jeg har ikke. Jeg kan låne en båt.',
       trans:      'Nie mam. Mogę pożyczyć łódź.',
       startTime:  4,
@@ -378,28 +378,28 @@ function LasAudioData() {
     },
 
 
-    an1: {
+    _an1: {
       spokenWord: 'Zapytaj: Czy widzisz tych mężczyzn?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'an2'
+      autoNext:   '_an2'
     },
-    an2: {
+    _an2: {
       msg:        'Ser du disse mennene?',
       trans:      'Czy widzisz tych mężczyzn?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'an3'
+      autoNext:   '_an3'
     },
-    an3: {
+    _an3: {
       spokenWord: 'Odpowiedz: Tak, widzę tych mężczyzn.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'an4'
+      autoNext:   '_an4'
     },
-    an4: {
+    _an4: {
       msg:        'Ja, jeg ser disse mennene.',
       trans:      'Tak, widzę tych mężczyzn.',
       startTime:  4,
@@ -408,28 +408,28 @@ function LasAudioData() {
     },
 
 
-    ao1: {
+    _ao1: {
       spokenWord: 'Zapytaj: Czy używasz dużo cukru?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ao2'
+      autoNext:   '_ao2'
     },
-    ao2: {
+    _ao2: {
       msg:        'Bruker du mye sukker?',
       trans:      'Czy używasz dużo cukru?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ao3'
+      autoNext:   '_ao3'
     },
-    ao3: {
+    _ao3: {
       spokenWord: 'Odpowiedz: Nie tak dużo.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ao4'
+      autoNext:   '_ao4'
     },
-    ao4: {
+    _ao4: {
       msg:        'Ikke så mye.',
       trans:      'Nie tak dużo.',
       startTime:  4,
@@ -438,28 +438,28 @@ function LasAudioData() {
     },
 
 
-    ap1: {
+    _ap1: {
       spokenWord: 'Zapytaj: Czy dostajesz wiele prezentów na urodziny?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ap2'
+      autoNext:   '_ap2'
     },
-    ap2: {
+    _ap2: {
       msg:        'Får du mange gaver til bursdag?',
       trans:      'Czy dostajesz wiele prezentów na urodziny?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ap3'
+      autoNext:   '_ap3'
     },
-    ap3: {
+    _ap3: {
       spokenWord: 'Odpowiedz: Tak, dostaję wiele prezentów na urodziny.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ap4'
+      autoNext:   '_ap4'
     },
-    ap4: {
+    _ap4: {
       msg:        'Ja, jeg får mange gaver til bursdag.',
       trans:      'Tak, dostaję wiele prezentów na urodziny.',
       startTime:  4,
@@ -468,28 +468,28 @@ function LasAudioData() {
     },
 
 
-    ar1: {
+    _ar1: {
       spokenWord: 'Zapytaj: Czy on lubi oglądać mecze piłki nożnej?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ar2'
+      autoNext:   '_ar2'
     },
-    ar2: {
+    _ar2: {
       msg:        'Liker han å se på fotballkamper?',
       trans:      'Czy on lubi oglądać mecze piłki nożnej?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ar3'
+      autoNext:   '_ar3'
     },
-    ar3: {
+    _ar3: {
       spokenWord: 'Odpowiedz: Tak, on lubi oglądać mecze.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ar4'
+      autoNext:   '_ar4'
     },
-    ar4: {
+    _ar4: {
       msg:        'Ja, han liker å se på fotballkamper.',
       trans:      'Tak, on lubi oglądać mecze.',
       startTime:  4,
@@ -498,28 +498,28 @@ function LasAudioData() {
     },
 
 
-    as1: {
+    _as1: {
       spokenWord: 'Zapytaj: Czy Twoja żona jest teraz w pracy?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'as2'
+      autoNext:   '_as2'
     },
-    as2: {
+    _as2: {
       msg:        'Er kona di på jobben nå?',
       trans:      'Czy Twoja żona jest teraz w pracy?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'as3'
+      autoNext:   '_as3'
     },
-    as3: {
+    _as3: {
       spokenWord: 'Odpowiedz: Nie, ona ma dzisiaj wolne.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'as4'
+      autoNext:   '_as4'
     },
-    as4: {
+    _as4: {
       msg:        'Nei, hun har fri i dag.',
       trans:      'Nie, ona ma dzisiaj wolne.',
       startTime:  4,
@@ -528,28 +528,28 @@ function LasAudioData() {
     },
 
 
-    at1: {
+    _at1: {
       spokenWord: 'Zapytaj: Czy nie ma tu światła?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'at2'
+      autoNext:   '_at2'
     },
-    at2: {
+    _at2: {
       msg:        'Er det ikke lys her?',
       trans:      'Czy nie ma tu światła?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'at3'
+      autoNext:   '_at3'
     },
-    at3: {
+    _at3: {
       spokenWord: 'Odpowiedz: Niestety. Nie ma tu światła.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'at4'
+      autoNext:   '_at4'
     },
-    at4: {
+    _at4: {
       msg:        'Dessverre. Det er ikke lys her.',
       trans:      'Niestety. Nie ma tu światła.',
       startTime:  4,
@@ -558,28 +558,28 @@ function LasAudioData() {
     },
 
 
-    ax1: {
+    _ax1: {
       spokenWord: 'Zapytaj: Czy jest dużo ludzi na kursie?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ax2'
+      autoNext:   '_ax2'
     },
-    ax2: {
+    _ax2: {
       msg:        'Er det mange mennesker på kurset?',
       trans:      'Czy jest dużo ludzi na kursie?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ax3'
+      autoNext:   '_ax3'
     },
-    ax3: {
+    _ax3: {
       spokenWord: 'Odpowiedz: Tak, jest dużo ludzi na kursie.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ax4'
+      autoNext:   '_ax4'
     },
-    ax4: {
+    _ax4: {
       msg:        'Ja, det er mange mennesker på kurset.',
       trans:      'Tak, jest dużo ludzi na kursie.',
       startTime:  4,
@@ -588,28 +588,28 @@ function LasAudioData() {
     },
 
 
-    ay1: {
+    _ay1: {
       spokenWord: 'Zapytaj: Czy ciocia ma dużo psów?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ay2'
+      autoNext:   '_ay2'
     },
-    ay2: {
+    _ay2: {
       msg:        'Har tanta mange hunder?',
       trans:      'Czy ciocia ma dużo psów?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ay3'
+      autoNext:   '_ay3'
     },
-    ay3: {
+    _ay3: {
       spokenWord: 'Odpowiedz: Nie, ona ma tylko jednego psa.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ay4'
+      autoNext:   '_ay4'
     },
-    ay4: {
+    _ay4: {
       msg:        'Nei, hun har bare en hund.',
       trans:      'Nie, ona ma tylko jednego psa.',
       startTime:  4,
@@ -618,28 +618,28 @@ function LasAudioData() {
     },
 
 
-    az1: {
+    _az1: {
       spokenWord: 'Zapytaj: Czy jest dużo śniegu?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'az2'
+      autoNext:   '_az2'
     },
-    az2: {
+    _az2: {
       msg:        'Er det mye snø?',
       trans:      'Czy jest dużo śniegu?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'az3'
+      autoNext:   '_az3'
     },
-    az3: {
+    _az3: {
       spokenWord: 'Odpowiedz: Tak, jest dużo śniegu.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'az4'
+      autoNext:   '_az4'
     },
-    az4: {
+    _az4: {
       msg:        'Ja, det er mye snø.',
       trans:      'Tak, jest dużo śniegu.',
       startTime:  4,
@@ -648,28 +648,28 @@ function LasAudioData() {
     },
 
 
-    ba1: {
+    _ba1: {
       spokenWord: 'Zapytaj: Czy oni mieszkają na wyspie?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'ba2'
+      autoNext:   '_ba2'
     },
-    ba2: {
+    _ba2: {
       msg:        'Bor de på øya?',
       trans:      'Czy oni mieszkają na wyspie?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'ba3'
+      autoNext:   '_ba3'
     },
-    ba3: {
+    _ba3: {
       spokenWord: 'Odpowiedz: Tak, oni mieszkają na wyspie.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'ba4'
+      autoNext:   '_ba4'
     },
-    ba4: {
+    _ba4: {
       msg:        'Ja, de bor på øya.',
       trans:      'Tak, oni mieszkają na wyspie.',
       startTime:  4,
@@ -678,28 +678,28 @@ function LasAudioData() {
     },
 
 
-    bb1: {
+    _bb1: {
       spokenWord: 'Zapytaj: Czy słyszysz mnie?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'bb2'
+      autoNext:   '_bb2'
     },
-    bb2: {
+    _bb2: {
       msg:        'Hører du meg?',
       trans:      'Czy słyszysz mnie?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'bb3'
+      autoNext:   '_bb3'
     },
-    bb3: {
+    _bb3: {
       spokenWord: 'Odpowiedz: Nie słyszę Cię. Czy możesz powtórzyć?',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'bb4'
+      autoNext:   '_bb4'
     },
-    bb4: {
+    _bb4: {
       msg:        'Jeg hører deg ikke. Kan du gjenta?',
       trans:      'Nie słyszę Cię. Czy możesz powtórzyć?',
       startTime:  4,
@@ -708,28 +708,28 @@ function LasAudioData() {
     },
 
 
-    bc1: {
+    _bc1: {
       spokenWord: 'Zapytaj: Czy lubisz dostawać kwiaty?',
       startTime:  0,
       duration:   2.5 - 0,
       pauseTime:  8,
-      autoNext:   'bc2'
+      autoNext:   '_bc2'
     },
-    bc2: {
+    _bc2: {
       msg:        'Liker du å få blomster?',
       trans:      'Czy lubisz dostawać kwiaty?',
       startTime:  4,
       duration:   6.5 - 4,
-      autoNext:   'bc3'
+      autoNext:   '_bc3'
     },
-    bc3: {
+    _bc3: {
       spokenWord: 'Odpowiedz: Bardzo lubię dostawać kwiaty.',
       startTime:  4,
       duration:   6.5 - 4,
       pauseTime:  8,
-      autoNext:   'bc4'
+      autoNext:   '_bc4'
     },
-    bc4: {
+    _bc4: {
       msg:        'Jeg liker å få blomster veldig mye.',
       trans:      'Bardzo lubię dostawać kwiaty.',
       startTime:  4,
@@ -742,7 +742,7 @@ function LasAudioData() {
 
   this.end = {
 
-    end1: {
+    _end1: {
       msg: 'END',
       startTime: 0,
       duration: 0 -  0,

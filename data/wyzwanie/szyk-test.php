@@ -5,7 +5,7 @@ function LasSetningerData() {
   ];
 
   this.intro = {
-    a1: {
+    _a1: {
       msg:        'Ułuż pytania z podanych słów.',
       autoNext:   'ENDINTRO'
     }
@@ -14,7 +14,7 @@ function LasSetningerData() {
 
   this.chat = {
 
-    aa1: {
+    _aa1: {
       set: [
                   ['er', 'adam', 'fra', 'Norge', '?']
       ],
@@ -22,7 +22,7 @@ function LasSetningerData() {
       autoNext:   'RANDOM'
     },
 
-    aa2: {
+    _aa2: {
       set: [
                   ['kommer', 'du', 'og', 'din', 'kone', 'fra', 'Norge', '?'],
                   ['kommer', 'din', 'kone', 'og', 'du', 'fra', 'Norge', '?']
@@ -36,7 +36,7 @@ function LasSetningerData() {
 
   this.end = {
 
-    end1: {
+    _end1: {
       msg:        'END',
       startTime:  0,
       stopTime:   0

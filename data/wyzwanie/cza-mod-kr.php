@@ -7,7 +7,7 @@ function LasAudioData() {
 
 
   this.intro = {
-    a1: {
+    _a1: {
       msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
       autoNext:   'ENDINTRO',
       more: {
@@ -20,14 +20,14 @@ function LasAudioData() {
 
   this.chat = {
 
-    aa1: {
+    _aa1: {
       spokenWord: 'Kan du snakke norsk?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  8,
-      autoNext:   'aa2'
+      autoNext:   '_aa2'
     },
-    aa2: {
+    _aa2: {
       msg:        'Ja, det kan jeg.<br />Nei, det kan jeg ikke.',
       trans:      'Tak, potrafię.<br />Nie, niepotrafię.',
       startTime:  4,
@@ -37,14 +37,14 @@ function LasAudioData() {
 
 
 
-    ab1: {
+    _ab1: {
       spokenWord: 'Kan du trene mer?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ab2'
+      autoNext:   '_ab2'
     },
-    ab2: {
+    _ab2: {
       msg:        'Ja, det kan jeg.<br />Nei, det kan jeg ikke.',
       trans:      'Tak, mogę.<br />Nie, nie mogę.',
       startTime:  0,
@@ -53,14 +53,14 @@ function LasAudioData() {
     },
 
 
-    ac1: {
+    _ac1: {
       spokenWord: 'Kan hun synge noen sanger?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ac2'
+      autoNext:   '_ac2'
     },
-    ac2: {
+    _ac2: {
       msg:        'Ja, det kan hun.<br />Nei, det kan hun ikke.',
       trans:      'Tak, może.<br />Nie, nie może.',
       startTime:  0,
@@ -69,14 +69,14 @@ function LasAudioData() {
     },
 
 
-    ad1: {
+    _ad1: {
       spokenWord: 'Kan du lese fort?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ad2'
+      autoNext:   '_ad2'
     },
-    ad2: {
+    _ad2: {
       msg:        'Ja, det kan jeg.<br />Nei, det kan jeg ikke.',
       trans:      'Tak, umiem.<br />Nie, nie umiem.',
       startTime:  0,
@@ -85,14 +85,14 @@ function LasAudioData() {
     },
 
 
-    ae1: {
+    _ae1: {
       spokenWord: 'Kan du fortelle noe om deg selv?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ae2'
+      autoNext:   '_ae2'
     },
-    ae2: {
+    _ae2: {
       msg:        'Ja, det kan jeg.<br />Nei, det kan jeg ikke.',
       trans:      'Tak, mogę.<br />Nie, nie mogę.',
       startTime:  0,
@@ -101,14 +101,14 @@ function LasAudioData() {
     },
 
 
-    af1: {
+    _af1: {
       spokenWord: 'Kan du svømme i havet om vinteren?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'af2'
+      autoNext:   '_af2'
     },
-    af2: {
+    _af2: {
       msg:        'Ja, det kan jeg.<br />Nei, det kan jeg ikke.',
       trans:      'Tak, mogę.<br />Nie, nie mogę.',
       startTime:  0,
@@ -117,14 +117,14 @@ function LasAudioData() {
     },
 
 
-    ag1: {
+    _ag1: {
       spokenWord: 'Vil du spise noe?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ag2'
+      autoNext:   '_ag2'
     },
-    ag2: {
+    _ag2: {
       msg:        'Ja, det vil jeg.<br />Nei, det vil jeg ikke.',
       trans:      'Tak, chcę.<br />Nie, nie chcę.',
       startTime:  0,
@@ -133,14 +133,14 @@ function LasAudioData() {
     },
 
 
-    ah1: {
+    _ah1: {
       spokenWord: 'Vil du bli med?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ah2'
+      autoNext:   '_ah2'
     },
-    ah2: {
+    _ah2: {
       msg:        'Ja, det vil jeg.<br />Nei, det vil jeg ikke.',
       trans:      'Tak, chcę.<br />Nie, nie chcę.',
       startTime:  0,
@@ -149,14 +149,14 @@ function LasAudioData() {
     },
 
 
-    ai1: {
+    _ai1: {
       spokenWord: 'Vil du besøke Tromsø?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ai2'
+      autoNext:   '_ai2'
     },
-    ai2: {
+    _ai2: {
       msg:        'Ja, det vil jeg.<br />Nei, det vil jeg ikke.',
       trans:      'Tak, chce.<br />Nie, nie chcę.',
       startTime:  0,
@@ -165,14 +165,14 @@ function LasAudioData() {
     },
 
 
-    aj1: {
+    _aj1: {
       spokenWord: 'Vil du strikke ei lue?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'aj2'
+      autoNext:   '_aj2'
     },
-    aj2: {
+    _aj2: {
       msg:        'Ja, det vil jeg.<br />Nei, det vil jeg ikke.',
       trans:      'Tak, chcę.<br />Nie, nie chcę.',
       startTime:  0,
@@ -181,14 +181,14 @@ function LasAudioData() {
     },
 
 
-    ak1: {
+    _ak1: {
       spokenWord: 'Vil du bli statsminister?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ak2'
+      autoNext:   '_ak2'
     },
-    ak2: {
+    _ak2: {
       msg:        'Ja, det vil jeg.<br />Nei, det vil jeg ikke.',
       trans:      'Tak, chcę.<br />Nie, nie chcę.',
       startTime:  0,
@@ -197,14 +197,14 @@ function LasAudioData() {
     },
 
 
-    al1: {
+    _al1: {
       spokenWord: 'Vil dere bli hjemme?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'al2'
+      autoNext:   '_al2'
     },
-    al2: {
+    _al2: {
       msg:        'Ja, det vil vi.<br />Nei, det vil vi ikke.',
       trans:      'Tak, chcemy.<br />Nie, nie chcemy.',
       startTime:  0,
@@ -213,14 +213,14 @@ function LasAudioData() {
     },
 
 
-    am1: {
+    _am1: {
       spokenWord: 'Skal vi hente nøkkelen?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'am2'
+      autoNext:   '_am2'
     },
-    am2: {
+    _am2: {
       msg:        'Ja, det skal vi.<br />Nei, det skal vi ikke.',
       trans:      'Tak, (pójdziemy po niego).<br />Nie, (nie pójdziemy po niego).',
       startTime:  0,
@@ -229,14 +229,14 @@ function LasAudioData() {
     },
 
 
-    an1: {
+    _an1: {
       spokenWord: 'Skal du møte venner?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'an2'
+      autoNext:   '_an2'
     },
-    an2: {
+    _an2: {
       msg:        'Ja, det skal jeg.<br />Nei, det skal jeg ikke.',
       trans:      'Tak, (spotkam się z nimi).<br />Nie, (nie spotkam się z nimi).',
       startTime:  0,
@@ -245,14 +245,14 @@ function LasAudioData() {
     },
 
 
-    ao1: {
+    _ao1: {
       spokenWord: 'Skal du være med?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ao2'
+      autoNext:   '_ao2'
     },
-    ao2: {
+    _ao2: {
       msg:        'Ja, det skal jeg.<br />Nei, det skal jeg ikke.',
       trans:      'Tak, (dołączę).<br />Nie, nie (dołączę).',
       startTime:  0,
@@ -261,14 +261,14 @@ function LasAudioData() {
     },
 
 
-    ap1: {
+    _ap1: {
       spokenWord: 'Skal du jobbe hjemme?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ap2'
+      autoNext:   '_ap2'
     },
-    ap2: {
+    _ap2: {
       msg:        'Ja, det skal jeg.<br />Nei, det skal jeg ikke.',
       trans:      'Tak, (zamierzam pracować w domu).<br />Nie, nie (zamierzam pracować w domu).',
       startTime:  0,
@@ -277,14 +277,14 @@ function LasAudioData() {
     },
 
 
-    aq1: {
+    _aq1: {
       spokenWord: 'Skal du lese det?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'aq2'
+      autoNext:   '_aq2'
     },
-    aq2: {
+    _aq2: {
       msg:        'Ja, det skal jeg.<br />Nei, det skal jeg ikke.',
       trans:      'Tak, (przeczytam to).<br />Nie, nie (przeczytam tego).',
       startTime:  0,
@@ -293,14 +293,14 @@ function LasAudioData() {
     },
 
 
-    ar1: {
+    _ar1: {
       spokenWord: 'Må han sortere avfallet?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'ar2'
+      autoNext:   '_ar2'
     },
-    ar2: {
+    _ar2: {
       msg:        'Ja, det må han.<br />Nei, det trenger han ikke.',
       trans:      'Tak, musi.<br />Nie, nie musi (nie ma takiej potrzeby).',
       startTime:  0,
@@ -309,14 +309,14 @@ function LasAudioData() {
     },
 
 
-    as1: {
+    _as1: {
       spokenWord: 'Må du kjøpe tomater?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'as2'
+      autoNext:   '_as2'
     },
-    as2: {
+    _as2: {
       msg:        'Ja, det må jeg.<br />Nei, det trenger jeg ikke.',
       trans:      'Tak, muszę.<br />Nie, nie muszę (nie ma takiej potrzeby).',
       startTime:  0,
@@ -325,14 +325,14 @@ function LasAudioData() {
     },
 
 
-    at1: {
+    _at1: {
       spokenWord: 'Må du skrive kontrakt?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'at2'
+      autoNext:   '_at2'
     },
-    at2: {
+    _at2: {
       msg:        'Ja, det må jeg.<br />Nei, det trenger jeg ikke.',
       trans:      'Tak, muszę.<br />Nie, nie muszę (nie ma takiej potrzeby).',
       startTime:  0,
@@ -341,14 +341,14 @@ function LasAudioData() {
     },
 
 
-    au1: {
+    _au1: {
       spokenWord: 'Må de gå på skolen?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'au2'
+      autoNext:   '_au2'
     },
-    au2: {
+    _au2: {
       msg:        'Ja, det må de.<br />Nei, det trenger de ikke.',
       trans:      'Tak, muszą.<br />Nie, nie muszą (nie ma takiej potrzeby).',
       startTime:  0,
@@ -357,14 +357,14 @@ function LasAudioData() {
     },
 
 
-    av1: {
+    _av1: {
       spokenWord: 'Må vi vaske bilen?',
       startTime:  0,
       duration:   1.5,
       pauseTime:  3,
-      autoNext:   'av2'
+      autoNext:   '_av2'
     },
-    av2: {
+    _av2: {
       msg:        'Ja, det må vi.<br />Nei, det trenger vi ikke.',
       trans:      'Tak, musimy.<br />Nie, nie musimy (nie ma takiej potrzeby).',
       startTime:  0,
@@ -380,7 +380,7 @@ function LasAudioData() {
 
   this.end = {
 
-    end1: {
+    _end1: {
       msg: 'END',
       startTime: 0,
       duration:   0 + 0
