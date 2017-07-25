@@ -129,6 +129,28 @@ function LasHelper() {
   };
 
 
+  //
+  //  Finish
+  //
+  this.finish = function() {
+
+    if ( this.state.currentState !== 'END') {
+      window.console.log('Wrong state. Can not finish now.');
+      return;
+    }
+
+    window.console.log('Finish');
+
+    //  show loader
+    this.showLoader();
+
+    //  redirect to Szlak
+    window.location.href = "/las/szlak/";
+
+
+  };
+
+
 
   //
   //  Function to create array of bubbles with '1'
@@ -489,32 +511,37 @@ function LasHelper() {
     //  start from 1, becuae 0 has no emoji
     for ( i = 1; i < bubbleArrayL; i++ ) {
 
-      //  check if it is emoji
-      if ( bubbleArray[i].indexOf('emoji') !== -1 ) {
+      //  split again to get only code
+      subArray = bubbleArray[i].split(';');
 
-        //  split again to get only emoji
-        subArray = bubbleArray[i].split(';');
+      //  check if there was ';'
+      if ( 1 < subArray.length ) {
 
-        //  check if there was ';'
-        if ( 1 < subArray.length ) {
+        //  check if it is emoji
+        if ( bubbleArray[i].indexOf('emoji') !== -1 ) {
 
           //  replace this part with svg
           subArray[0] = '<svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#' + subArray[0] + '"></use></svg>';
 
         }
+        //  check if it is fill-space
+        else if ( bubbleArray[i].indexOf('fill-space') !== -1 ) {
 
-        //  join back subArray
-        bubbleArray[i] = subArray.join('');
+          //  replace with u element
+          subArray[0] = '<u class="fill-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>';
+
+        }
 
       }
-      //  there is no emoji
-      else {
-        //  join back subArray and put back #
-        bubbleArray[i] = subArray.join('#');
-      }
 
+
+      //  join back subArray
+      bubbleArray[i] = subArray.join('');
 
     }
+
+    //  problem occurs if there is no emoji
+    //  the joined string will have lacking #
 
     //  join all parts back
     newString = bubbleArray.join('');
@@ -632,6 +659,36 @@ function LasHelper() {
     else {
       return false;
     }
+
+  };
+
+
+
+  //
+  //  Throttle clicks
+  //  true if still waiting
+  //  false if there was no click in last 150 ms
+  this.checkClickState = function() {
+
+    var throttleTimer;
+
+    window.console.log('Throttle');
+
+    //  throttle clicks
+    if ( this.state.clicked ) {
+      return true;
+    }
+
+    this.state.clicked = true;
+
+    window.console.log('Click');
+
+    throttleTimer = window.setTimeout(function() {
+      this.state.clicked = false;
+      window.clearTimeout( throttleTimer );
+    }.bind(this), 150);
+
+    return false;
 
   };
 
