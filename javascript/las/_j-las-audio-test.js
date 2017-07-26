@@ -722,29 +722,11 @@ function LasAudioTest() {
 
     //  jest msg i autoNext
     //  lub są odpowiedzi i audio
-
-    window.console.log( 'msg ' + this.currentBubbleData.msg);
-    window.console.log( 'autoNext ' + this.currentBubbleData.autoNext);
-    window.console.log( 'answers ' + this.currentBubbleData.answers);
-    window.console.log( 'isCorrectAudioStack ' + this.isCorrectAudioStack());
-
-    if (   ( !this.currentBubbleData.msg && !this.currentBubbleData.autoNext )
-        && ( !this.currentBubbleData.answers && !this.isCorrectAudioStack() ) ) {
+    if ( !(    ( this.currentBubbleData.msg && this.currentBubbleData.autoNext )
+            || ( this.currentBubbleData.answers && this.isCorrectAudioStack() ) ) ) {
       return;
     }
 
-
-    //  if controls are already in
-    //  or there is no time && no more && it is not before the first play
-    //  if (     this.state.controls
-    //        || (    !this.currentBubbleData.more
-    //             && !this.state.beforeFirstPlay
-    //             && this.currentBubbleData.autoNext
-    //             && ( this.currentBubbleData.autoNext !== 'RANDOM' ) && !this.isCorrectAudioStack() )
-    //        || (    !this.currentBubbleData.msg
-    //             && !this.currentBubbleData.answers.length ) ) {
-    //    return false;
-    //  }
 
     this.state.controls = true;
 

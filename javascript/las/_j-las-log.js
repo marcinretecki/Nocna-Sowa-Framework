@@ -43,16 +43,26 @@
 
   LasHelper.prototype.addScoreAnswer = function() {
 
+    //  no score prop
+    if ( !this.clickedAnswer.hasOwnProperty('score') ) {
+      return;
+    }
+
     //  Correct answer
-    if ( this.clickedAnswer.hasOwnProperty('correct') && this.clickedAnswer.correct ) {
+    if ( this.clickedAnswer.score === 'correct' ) {
 
       this.addScore( 'ex' );
 
     }
     //  Wrong answer
-    else if ( this.clickedAnswer.hasOwnProperty('wrong') && this.clickedAnswer.wrong ) {
+    else if ( this.clickedAnswer.score === 'wrong' ) {
 
       this.addScore( 'wrong' );
+
+    }//  More
+    else if ( this.clickedAnswer.score === 'more' ) {
+
+      this.addScore( 'more' );
 
     }
 
