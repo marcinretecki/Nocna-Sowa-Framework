@@ -174,13 +174,16 @@ include( 'includes/head.php' );
 
                   //  WYZWANIE DATA FILE
                   if ( has_category( 'wyzwanie-liczby' ) ) {
-                    $wyzwanie = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/liczby.php' );
+                    $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/liczby.php' );
+                  }
+                  elseif ( has_category( 'misja' ) ) {
+                    $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/misja/' . $post->post_name . '.php' );
                   }
                   else {
-                    $wyzwanie = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $post->post_name . '.php' );
+                    $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $post->post_name . '.php' );
                   }
 
-                  if ( $wyzwanie ) {
+                  if ( $wyzwanie_data ) {
                     echo $green_light;
                     echo 'Wyzwanie Data File <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $url . 'wyzwanie/">Wyzwanie</a> <a class="a-light" style="margin-left:0.5rem;display:inline-block;" href="' . $url . 'testmode/">Testmode</a>';
                   }

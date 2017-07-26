@@ -110,6 +110,9 @@ function las_course_router() {
       if ( has_category( 'wyzwanie-liczby' ) ) {
         $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/liczby.php' );
       }
+      elseif ( has_category( 'misja' ) ) {
+        $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/misja/' . $post->post_name . '.php' );
+      }
       else {
         $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $post->post_name . '.php' );
       }
