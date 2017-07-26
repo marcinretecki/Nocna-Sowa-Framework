@@ -56,6 +56,11 @@ function LasChat() {
   //
   las.init = function() {
 
+    //
+    //  Get Data
+    //
+    this.lasData =              new LasChatData();
+
     //  get Elements
     this.getBasicElements();
 
@@ -138,6 +143,8 @@ function LasChat() {
   //  check what data is available, assign it and reset those unavailable
   //
   las.assignBubbleData = function(no, data) {
+    var i;
+    var l;
 
     //  assign
     this.currentBubble = no;

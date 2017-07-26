@@ -9,12 +9,6 @@ function LasHelper() {
   "use strict";
 
   //
-  //  Get Data
-  //
-  this.lasData =                        new LasData();
-
-
-  //
   //  Helper
   //
   this.helper = {
@@ -27,6 +21,7 @@ function LasHelper() {
   };
 
   var self = this;
+
 
 
   //
