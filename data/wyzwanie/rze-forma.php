@@ -1,5 +1,5 @@
 <script>
-function LasAudioData() {
+function LasData() {
 
   this.testNotes = [
     'czy w "more" powinniśmy czytać poprawną odpowiedź?',

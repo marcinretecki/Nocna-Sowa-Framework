@@ -1,5 +1,5 @@
 <script>
-function LasChatData() {
+function LasData() {
 
   this.testNotes = [
     'oczy mają druga odmianę, można by ją też podać'

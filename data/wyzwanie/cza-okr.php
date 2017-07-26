@@ -1,5 +1,5 @@
 <script>
-function LasAudioData() {
+function LasData() {
 
   this.testNotes = [
     'De leverer skapene i overmorgen. - nie ma quizu :(',

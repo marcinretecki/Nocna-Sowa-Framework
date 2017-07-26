@@ -1,5 +1,5 @@
 <script>
-function LasChatData() {
+function LasData() {
 
   //  _aa1: {
   //    bubbles: [

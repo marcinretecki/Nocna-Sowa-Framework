@@ -1,5 +1,5 @@
 <script>
-function LasAudioData() {
+function LasData() {
 
   this.testNotes = [
     'nie ma nagrania ani czasów'

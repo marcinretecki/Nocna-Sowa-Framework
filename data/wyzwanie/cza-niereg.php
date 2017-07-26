@@ -1,5 +1,5 @@
 <script>
-function LasChatData() {
+function LasData() {
 
   this.testNotes = [
     'ag1b – nie ma odpowiedzi od sowy',

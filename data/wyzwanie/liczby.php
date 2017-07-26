@@ -1,5 +1,5 @@
 <script>
-function LasLiczbyData() {
+function LasData() {
 
   this.testNotes = [
   ];

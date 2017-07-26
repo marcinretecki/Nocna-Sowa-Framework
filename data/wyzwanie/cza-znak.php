@@ -1,5 +1,5 @@
 <script>
-function LasAudioData() {
+function LasData() {
 
   this.testNotes = [
     'Jenta stopper å spise søtsaker. Może dodać więcej: godteri - bo niektórzy znają to słowo',

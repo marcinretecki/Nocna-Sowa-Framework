@@ -1,5 +1,5 @@
 <script>
-function LasAudioData() {
+function LasData() {
 
   var newMsg = function( word ) {
     var a = ''
