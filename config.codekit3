@@ -28,36 +28,36 @@
 	"\/javascript\/j-chat.js": {
 		"ft": 64,
 		"mi": 1,
-		"oA": 0,
-		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-chat-min.js",
-		"oF": 6,
+		"oA": 1,
+		"oAP": "\/j-chat-min.js",
+		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
 	"\/javascript\/j-pisanie.js": {
 		"ft": 64,
 		"mi": 1,
-		"oA": 0,
-		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-pisanie-min.js",
-		"oF": 6,
+		"oA": 1,
+		"oAP": "\/j-pisanie-min.js",
+		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
 	"\/javascript\/j-zmien-bieg-wydarzen.js": {
 		"ft": 64,
 		"mi": 1,
-		"oA": 0,
-		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-zmien-bieg-wydarzen-min.js",
-		"oF": 6,
+		"oA": 1,
+		"oAP": "\/j-zmien-bieg-wydarzen-min.js",
+		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
 	"\/javascript\/j.js": {
 		"ft": 64,
 		"mi": 1,
-		"oA": 0,
-		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-min.js",
-		"oF": 6,
+		"oA": 1,
+		"oAP": "\/j-min.js",
+		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
@@ -83,8 +83,8 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-las-chat-min.js",
-		"oF": 6,
+		"oAP": "\/_j-las-chat-min.js",
+		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
@@ -364,7 +364,7 @@
 		"ma": 0,
 		"oA": 0,
 		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/chat-bot-rzeczownik.css",
-		"oF": 7,
+		"oF": 6,
 		"oS": 3,
 		"uL": 1
 		},
@@ -454,7 +454,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/norweskagramatyka\/norweskagramatyka.css",
+		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/norweskagramatyka.css",
 		"oF": 6,
 		"oS": 3,
 		"uL": 1
@@ -538,7 +538,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_media.css",
+		"oAP": "\/livecopy\/c\/_media.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -590,7 +590,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_scaffolding.css",
+		"oAP": "\/livecopy\/c\/_scaffolding.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -603,7 +603,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_sections.css",
+		"oAP": "\/livecopy\/c\/_sections.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -616,7 +616,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_shame.css",
+		"oAP": "\/livecopy\/c\/_shame.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -629,7 +629,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_typography.css",
+		"oAP": "\/livecopy\/c\/_typography.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -655,7 +655,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_variables.css",
+		"oAP": "\/livecopy\/c\/_variables.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1

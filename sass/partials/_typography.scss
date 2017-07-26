@@ -33,6 +33,7 @@ b,strong{font-weight:700}
 abbr{border:none;text-decoration:underline;text-decoration-style:dashed;text-decoration-color:$gray;font-variant:small-caps;text-transform:uppercase;cursor:help;}
 q,i,em{font-style:italic;}
 cite{}
+u { text-decoration-line: underline; text-decoration-style: solid; }
 
 
 ul,ol,p,dl{padding:0;font-size:$size-1;line-height:$line-1;}
