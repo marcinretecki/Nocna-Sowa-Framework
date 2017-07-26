@@ -32,10 +32,10 @@ function LasAudioData() {
     _aa1: {
       msg:        ' <span class="audio-test-clue"></span>.',
       answers: [
-        { answer: '',   next: '_aa2' },
-        { answer: '',   wrong: true },
-        { answer: '',   wrong: true },
-        { answer: '',   wrong: true }
+        { answer: '', score: 'correct', next: '_aa2' },
+        { answer: '', score: 'wrong' },
+        { answer: '', score: 'wrong' },
+        { answer: '', score: 'wrong' }
       ]
     },
     _aa2: {
@@ -49,10 +49,10 @@ function LasAudioData() {
     _ab1: {
       msg:        ' <span class="audio-test-clue"></span>.',
       answers: [
-        { answer: '',   next: '_ab2' },
-        { answer: '',   wrong: true },
-        { answer: '',   wrong: true },
-        { answer: '',   wrong: true }
+        { answer: '', score: 'correct', next: '_ab2' },
+        { answer: '', score: 'wrong' },
+        { answer: '', score: 'wrong' },
+        { answer: '', score: 'wrong' }
       ]
     },
     _ab2: {

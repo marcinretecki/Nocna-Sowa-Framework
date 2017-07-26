@@ -9,7 +9,7 @@ function LasChatData() {
     _a1: {
       bubbles: [
         '<i>Hallo, er det noen der?</i> (Czy ktoś tu jest?)',
-        '<img src="/las/c/i/rze-wsz/HetvlijUZmKic.gif" />'
+        '<img src="/las/c/i/rze-wsz/h6535FA2E.gif" />'
       ],
       answers: [
         { answer: 'jestem, jestem', next: '_a2' }
@@ -62,17 +62,17 @@ function LasChatData() {
         'Jak powiedzieć <q>samochody</q> #emoji-1f698; #emoji-1f696;, kiedy masz na myśli jakieś dowolne, nieokreślone?'
       ],
       answers: [
-        { answer: '<i>bilen</i>', next: '_bil1b', wrong: true },
-        { answer: '<i>biler</i>', next: '_bil2', correct: true }
+        { answer: '<i>bilen</i>', next: '_bil1b', score: 'wrong' },
+        { answer: '<i>biler</i>', next: '_bil2', score: 'correct' }
       ]
 
     },
     _bil1b: {
       bubbles: [
-        '<i>Bilen</i> to jeden określony samochód. Skąd wiedzieć, że dodajemy końcówkę <i>-en</i>?',
+        '<i class="mark">Bilen</i> to jeden określony samochód. Skąd wiedzieć, że dodajemy końcówkę <i class="mark">-en</i>?',
         '<i>en bil – bilen</i>',
-        'W liczbie mnogiej dodajemy końcówkę <i>-er</i> lub <i>-ene</i>',
-        'Dlatego <i>biler</i> (nieokreślone samochody), <i>bilene</i> (określone).'
+        'W liczbie mnogiej dodajemy końcówkę <i class="mark">-er</i> lub <i class="mark">-ene</i>',
+        'Dlatego <i class="mark">biler</i> (nieokreślone samochody), <i class="mark">bilene</i> (określone).'
       ],
       answers: [
         { answer: 'OK, <i>biler</i>', next: '_bil2' }
@@ -92,14 +92,14 @@ function LasChatData() {
         'Jak powiedzieć <q>murugnięcie okiem</q> albo <q>chwila</q>?'
       ],
       answers: [
-        { answer: '<i>et øyeblikk</i>',  next: '_blikk2', correct: true },
-        { answer: '<i>ei øyeblikk</i>',  next: '_blikk1b', wrong: true }
+        { answer: '<i>et øyeblikk</i>',  next: '_blikk2', score: 'correct' },
+        { answer: '<i>ei øyeblikk</i>',  next: '_blikk1b', score: 'wrong' }
       ]
 
     },
     _blikk1b: {
       bubbles: [
-        '<i>Øyeblikk</i> jest rodzaju <i>et</i>. Zapamiętasz?'
+        '<i class="mark">Øyeblikk</i> jest rodzaju <i class="mark">et</i>. Zapamiętasz?'
       ],
       answers: [
         { answer: 'zapamiętam', next: '_blikk2' }
@@ -119,14 +119,14 @@ function LasChatData() {
         '<q>Oczy</q> #emoji-1f441;#emoji-1f441; w formie określonej?'
       ],
       answers: [
-        { answer: '<i>øyene</i>',  next: '_oye2', correct: true },
-        { answer: '<i>øyet</i>',  next: '_oye1b', wrong: true }
+        { answer: '<i>øyene</i>',  next: '_oye2', score: 'correct' },
+        { answer: '<i>øyet</i>',  next: '_oye1b', score: 'wrong' }
       ]
 
     },
     _oye1b: {
       bubbles: [
-        '<i>Øyet</i> to jedno określone oko. W liczbie mnogiej określonej dodajemy zawsze końcówkę <i>-ene</i>. Dlatego prawidłowo będzie...'
+        '<i class="mark">Øyet</i> to jedno określone oko. W liczbie mnogiej określonej dodajemy zawsze końcówkę <i class="mark">-ene</i>. Dlatego prawidłowo będzie...'
       ],
       answers: [
         { answer: '<i>øyene</i>', next: '_oye2' }
@@ -147,14 +147,14 @@ function LasChatData() {
         'Przypominam, że jest to słowo niepoliczalne.'
       ],
       answers: [
-        { answer: '<i>(ei) moro</i>', next: '_moro2', correct: true },
-        { answer: '<i>moroer</i>', next: '_moro1b', wrong: true }
+        { answer: '<i>(ei) moro</i>', next: '_moro2', score: 'correct' },
+        { answer: '<i>moroer</i>', next: '_moro1b', score: 'wrong' }
       ]
 
     },
     _moro1b: {
       bubbles: [
-        'Końcówkę <i>-er</i> dodajemy w liczbie mnogiej, ale tylko do słów policzalnych. Rozrywki po norwesku nie można policzyć: jedna rozrywka, dwie rozrywki... nie pasuje. OK?'
+        'Końcówkę <i class="mark">-er</i> dodajemy w liczbie mnogiej, ale tylko do słów policzalnych. Rozrywki po norwesku nie można policzyć: jedna rozrywka, dwie rozrywki... nie pasuje. OK?'
       ],
       answers: [
         { answer: 'OK', next: '_moro2' }
@@ -174,14 +174,14 @@ function LasChatData() {
         'A <q>prezenty</q>? Określone?'
       ],
       answers: [
-        { answer: '<i>gavene</i>', next: '_gave2', correct: true },
-        { answer: '<i>gaver</i>', next: '_gave1b', wrong: true }
+        { answer: '<i>gavene</i>', next: '_gave2', score: 'correct' },
+        { answer: '<i>gaver</i>', next: '_gave1b', score: 'wrong' }
       ]
 
     },
     _gave1b: {
       bubbles: [
-        'W formie określonej liczby mnogiej zawsze jest końcówka <i>-ene</i>. Proste.'
+        'W formie określonej liczby mnogiej zawsze jest końcówka <i class="mark">-ene</i>. Proste.'
       ],
       answers: [
         { answer: '<i>gavene</i>', next: '_2' }
@@ -214,17 +214,17 @@ function LasChatData() {
     },
     _idiot2: {
       bubbles: [
-        'W jakiej formie jest słowo <q>idioten</q>?'
+        'W jakiej formie jest słowo <i class="mark">idioten</i>?'
       ],
       answers: [
-        { answer: 'określonej pojedynczej', next: '_idiot3', correct: true },
-        { answer: 'nieokreślonej pojedynczej', next: '_idiot2b', wrong: true }
+        { answer: 'określonej pojedynczej', next: '_idiot3', score: 'correct' },
+        { answer: 'nieokreślonej pojedynczej', next: '_idiot2b', score: 'wrong' }
       ]
 
     },
     _idiot2b: {
       bubbles: [
-        'en idiot (jakiś idiota) – idioten (określony idiota)'
+        '<i>en idiot</i> (jakiś idiota) – idioten (określony idiota)'
       ],
       answers: [
         { answer: 'OK', next: 'RANDOM' }
@@ -243,14 +243,14 @@ function LasChatData() {
         'Jak powiedzieć <q>para</q>? No wiesz, para butów <span class="no-break">#emoji-1f45e;#emoji-1f45e;</span> albo ludzi #emoji-1f46b;. Najprościej, <span class="no-break">w nieokreślonej</span> formie.'
       ],
       answers: [
-        { answer: '<i>et par</i>', next: '_par2', correct: true },
-        { answer: '<i>pæra</i>', next: '_par1b', wrong: true }
+        { answer: '<i>et par</i>', next: '_par2', score: 'correct' },
+        { answer: '<i>pæra</i>', next: '_par1b', score: 'wrong' }
       ]
 
     },
     _par1b: {
       bubbles: [
-        '<i>Pæra</i> to określona gruszka. #emoji-1f350;',
+        '<i class="mark">Pæra</i> to określona gruszka. #emoji-1f350;',
         'Więc?'
       ],
       answers: [
@@ -291,14 +291,14 @@ function LasChatData() {
         'Określony <q>ogień</q> #emoji-1f525; to:'
       ],
       answers: [
-        { answer: '<i>fyren</i>', next: '_fyr2', correct: true },
-        { answer: '<i>fyr</i>', next: '_fyr1b', wrong: true }
+        { answer: '<i>fyren</i>', next: '_fyr2', score: 'correct' },
+        { answer: '<i>fyr</i>', next: '_fyr1b', score: 'wrong' }
       ]
 
     },
     _fyr1b: {
       bubbles: [
-        '<i>(En) fyr</i> to forma nieokreślona. W nawiasie rodzajnik, żebyś pamiętał, że ogień jest niepoliczalny. Także określony ogień to:'
+        '<i class="mark">(En) fyr</i> to forma nieokreślona. W nawiasie rodzajnik, żeby zapamiętać, że ogień jest niepoliczalny. Także określony <q>ogień</q> to:'
       ],
       answers: [
         { answer: '<i>fyren</i>', next: '_fyr2' }
@@ -318,14 +318,14 @@ function LasChatData() {
         'Jak jest <q>facet</q>? Nie znasz gościa, dopiero wchodzi.'
       ],
       answers: [
-        { answer: '<i>en fyr</i>', next: '_enfyr2', correct: true },
-        { answer: '<i>karen</i>', next: '_enfyr1b', wrong: true }
+        { answer: '<i>en fyr</i>', next: '_enfyr2', score: 'correct' },
+        { answer: '<i>karen</i>', next: '_enfyr1b', score: 'wrong' }
       ]
 
     },
     _enfyr1b: {
       bubbles: [
-        '<i>En kar</i> to jakiś facet, mężczyzna. Ale tu było <i>karen</i> – określony facet. Dlatego miało być...'
+        '<i class="mark">En kar</i> to jakiś facet, mężczyzna. Ale tu było <i class="mark">karen</i> – określony facet. Dlatego miało być...'
       ],
       answers: [
         { answer: '<i>en fyr</i>', next: '_enfyr2' }
@@ -342,11 +342,11 @@ function LasChatData() {
 
     _dor1: {
       bubbles: [
-        'Jak będą drzwi w liczbie mnogiej?'
+        'Jak będą <q>drzwi</q> w liczbie mnogiej?'
       ],
       answers: [
-        { answer: '<i>dører, dørene</i>', next: '_dor2', correct: true },
-        { answer: '<i>døren, døra</i>', next: '_dor1b', wrong: true }
+        { answer: '<i>dører, dørene</i>', next: '_dor2', score: 'correct' },
+        { answer: '<i>døren, døra</i>', next: '_dor1b', score: 'wrong' }
       ]
 
     },
@@ -372,14 +372,14 @@ function LasChatData() {
         '<q>Pies</q> #emoji-1f429; określony?'
       ],
       answers: [
-        { answer: '<i>hunden</i>', next: '_hund2', correct: true },
-        { answer: '<i>hunder</i>', next: '_hund1b', wrong: true }
+        { answer: '<i>hunden</i>', next: '_hund2', score: 'correct' },
+        { answer: '<i>hunder</i>', next: '_hund1b', score: 'wrong' }
       ]
 
     },
     _hund1b: {
       bubbles: [
-        'Końcówka <i>-er</i> jest przecież w liczbie mnogiej. #emoji-1f609; Dlatego...'
+        'Końcówka <i class="mark">-er</i> jest przecież w liczbie mnogiej. #emoji-1f609; Dlatego...'
       ],
       answers: [
         { answer: '<i>hunden</i>', next: '_hund2' }
@@ -399,14 +399,14 @@ function LasChatData() {
         '<q>Woda</q> okeślona, np. taka w basenie?'
       ],
       answers: [
-        { answer: '<i>vannet</i>', next: '_vann2', correct: true },
-        { answer: '<i>vannene</i>', next: '_vann1b', wrong: true }
+        { answer: '<i>vannet</i>', next: '_vann2', score: 'correct' },
+        { answer: '<i>vannene</i>', next: '_vann1b', score: 'wrong' }
       ]
 
     },
     _vann1b: {
       bubbles: [
-        '<i>Vannene</i> to określone wody albo jeziora. Określona woda to...'
+        '<i class="mark">Vannene</i> to określone wody albo jeziora. Określona woda to...'
       ],
       answers: [
         { answer: 'Aha, <i>vannet</i>', next: '_vann2' }
@@ -426,8 +426,8 @@ function LasChatData() {
         'Jak są <q>dzieci</q> w liczbie mnogiej nieokreślonej?'
       ],
       answers: [
-        { answer: '<i>barn</i>', next: '_barn2', correct: true },
-        { answer: '<i>barna</i>', next: '_barn1b', wrong: true }
+        { answer: '<i>barn</i>', next: '_barn2', score: 'correct' },
+        { answer: '<i>barna</i>', next: '_barn1b', score: 'wrong' }
       ]
 
     },
@@ -456,14 +456,14 @@ function LasChatData() {
         '<i>Han har...</i>'
       ],
       answers: [
-        { answer: '<i>en sønn</i>', next: '_syn2', correct: true },
-        { answer: '<i>sønner</i>', next: '_syn1b', wrong: true }
+        { answer: '<i>en sønn</i>', next: '_syn2', score: 'correct' },
+        { answer: '<i>sønner</i>', next: '_syn1b', score: 'wrong' }
       ]
 
     },
     _syn1b: {
       bubbles: [
-        '<i>Sønner</i> to liczba mnoga. Więc...'
+        '<i class="mark">Sønner</i> to liczba mnoga. Więc...'
       ],
       answers: [
         { answer: '<i>en sønn</i>', next: '_syn2' }
@@ -505,14 +505,14 @@ function LasChatData() {
         '<q>Jedzenie</q> określone? #emoji-1f373;#emoji-1f953;'
       ],
       answers: [
-        { answer: '<i>mat</i>', next: '_mat1b', wrong: true },
-        { answer: '<i>maten</i>', next: '_mat2', correct: true }
+        { answer: '<i>mat</i>', next: '_mat1b', score: 'wrong' },
+        { answer: '<i>maten</i>', next: '_mat2', score: 'correct' }
       ]
 
     },
     _mat1b: {
       bubbles: [
-        'Pełna odmiana to: <i>(en) mat – maten</i>, bo jedzenie jest niepoliczalne. Określone to...'
+        'Pełna odmiana to: <i class="mark">(en) mat – maten</i>, bo jedzenie jest niepoliczalne. Określone to...'
       ],
       answers: [
         { answer: '<i>maten</i>', next: '_mat2' }
@@ -532,8 +532,8 @@ function LasChatData() {
         '<q>Noga</q> określona?'
       ],
       answers: [
-        { answer: '<i>bein</i>', next: '_ben1b', wrong: true },
-        { answer: '<i>beinet</i>', next: '_ben2', correct: true }
+        { answer: '<i>bein</i>', next: '_ben1b', score: 'wrong' },
+        { answer: '<i>beinet</i>', next: '_ben2', score: 'correct' }
       ]
 
     },
@@ -560,14 +560,15 @@ function LasChatData() {
         '<q>Dłonie</q> nieokreślone?'
       ],
       answers: [
-        { answer: '<i>hender</i>', next: '_hand2', correct: true },
-        { answer: '<i>hendene</i>', next: '_hand1b', wrong: true }
+        { answer: '<i>hender</i>', next: '_hand2', score: 'correct' },
+        { answer: '<i>hendene</i>', next: '_hand1b', score: 'wrong' }
       ]
 
     },
     _hand1b: {
       bubbles: [
-        'Ach, bo to nieregularne słowo:','<i>ei hånd – hånda – hender – hendene</i>',
+        'Ach, bo to nieregularne słowo:',
+        '<i>ei hånd – hånda – hender – hendene</i>',
         'Nieokreślone dłonie to...'
       ],
       answers: [
@@ -588,14 +589,14 @@ function LasChatData() {
         'Jedna <q>kawa</q> nieokreślona? W domyśle jako kubek kawy.'
       ],
       answers: [
-        { answer: '<i>en kaffe</i>', next: '_kaffe2', correct: true },
-        { answer: '<i>en kafé</i>', next: '_kaffe1b', wrong: true }
+        { answer: '<i>en kaffe</i>', next: '_kaffe2', score: 'correct' },
+        { answer: '<i>en kafé</i>', next: '_kaffe1b', score: 'wrong' }
       ]
 
     },
     _kaffe1b: {
       bubbles: [
-        '<i>En kafé</i> to kawiarnia. Wymawiamy długo. Kawę za to krótko:'
+        '<i class="mark">En kafé</i> to kawiarnia. Wymawiamy długo. Kawę za to krótko:'
       ],
       answers: [
         { answer: '<i>en kaffe</i>', next: '_kaffe2' }
@@ -603,7 +604,7 @@ function LasChatData() {
     },
     _kaffe2: {
       bubbles: [
-        'Ammm',
+        '<i>Ammm</i>',
         '<img src="/las/c/i/rze-wsz/xT9DPJcpQqpR6icVCE.gif" />'
       ],
       autoNext: 'RANDOM'
@@ -615,8 +616,8 @@ function LasChatData() {
         '<q>Książki</q> nieokreślone?'
       ],
       answers: [
-        { answer: '<i>boker</i>', next: '_bok1b', wrong: true },
-        { answer: '<i>bøker</i>', next: '_bok2', correct: true }
+        { answer: '<i>boker</i>', next: '_bok1b', score: 'wrong' },
+        { answer: '<i>bøker</i>', next: '_bok2', score: 'correct' }
       ]
 
     },
@@ -643,14 +644,14 @@ function LasChatData() {
         '<q>Tor</q> albo <q>ślad</q> nieokreślony to:'
       ],
       answers: [
-        { answer: '<i>et spor</i>', next: '_spor2', correct: true },
-        { answer: '<i>ei spor</i>', next: '_spor1b', wrong: true }
+        { answer: '<i>et spor</i>', next: '_spor2', score: 'correct' },
+        { answer: '<i>ei spor</i>', next: '_spor1b', score: 'wrong' }
       ]
 
     },
     _spor1b: {
       bubbles: [
-        '<i>Spor</i> jest rodzaju <i>et</i>. Więc?'
+        '<i class="mark">Spor</i> jest rodzaju <i class="mark">et</i>. Więc?'
       ],
       answers: [
         { answer: '<i>et spor</i>', next: '_spor2' }
@@ -670,14 +671,14 @@ function LasChatData() {
         '<q>Kobieta</q>? Jakaś na ulicy, której nie znasz.'
       ],
       answers: [
-        { answer: '<i>kvinna</i>', next: '_kvinne1b', wrong: true },
-        { answer: '<i>ei kvinne</i>', next: '_kvinne2', correct: true }
+        { answer: '<i>kvinna</i>', next: '_kvinne1b', score: 'wrong' },
+        { answer: '<i>ei kvinne</i>', next: '_kvinne2', score: 'correct' }
       ]
 
     },
     _kvinne1b: {
       bubbles: [
-        '<i>Kvinna</i> to określona kobieta.',
+        '<i class="mark">Kvinna</i> to określona kobieta.',
         '<i>ei kvinne – kvinna</i>',
         'Co proponujesz?'
       ],
@@ -699,8 +700,8 @@ function LasChatData() {
         '<q>Przyjaciel</q> określony?'
       ],
       answers: [
-        { answer: '<i>venner</i>', next: '_venn1b', wrong: true },
-        { answer: '<i>vennen</i>', next: '_venn2', correct: true }
+        { answer: '<i>venner</i>', next: '_venn1b', score: 'wrong' },
+        { answer: '<i>vennen</i>', next: '_venn2', score: 'correct' }
       ]
 
     },
@@ -728,8 +729,8 @@ function LasChatData() {
         '<q>Samoloty</q> nieokreślone? #emoji-1f6eb; #emoji-1f6ec;'
       ],
       answers: [
-        { answer: '<i>fly</i>', next: '_fly2', correct: true },
-        { answer: '<i>flyer</i>', next: '_fly1b', wrong: true }
+        { answer: '<i>fly</i>', next: '_fly2', score: 'correct' },
+        { answer: '<i>flyer</i>', next: '_fly1b', score: 'wrong' }
       ]
 
     },
@@ -745,8 +746,8 @@ function LasChatData() {
     },
     _fly2: {
       bubbles: [
-        '<i>Kjempebra!</i>',
-        '<img src="/las/c/i/rze-wsz/32bird.gif" />'
+        '<i>Kjempebra!</i> Lubisz latać?',
+        '<img src="/las/c/i/rze-wsz/IsP5aBUEjaxcQ_opt.gif" />'
       ],
       autoNext: 'RANDOM'
     },
@@ -757,14 +758,14 @@ function LasChatData() {
         '<q>Telefony</q> określone? #emoji-1f4f1;#emoji-1f4f1;#emoji-1f4f1;'
       ],
       answers: [
-        { answer: '<i>mobiler</i>', next: '_tele1b', wrong: true },
-        { answer: '<i>telefonene</i>', next: '_tele2', correct: true }
+        { answer: '<i>mobiler</i>', next: '_tele1b', score: 'wrong' },
+        { answer: '<i>telefonene</i>', next: '_tele2', score: 'correct' }
       ]
 
     },
     _tele1b: {
       bubbles: [
-        'Jedne i drugie to telefony, ale nieokreślone mają końcówkę <i>-er</i>, a określone <i>-ene</i>. Dlatego...'
+        'Jedne i drugie to telefony, ale nieokreślone mają końcówkę <i class="mark">-er</i>, a określone <i class="mark">-ene</i>. Dlatego...'
       ],
       answers: [
         { answer: '<i>telefonene</i>', next: '_tele2' }
@@ -773,7 +774,7 @@ function LasChatData() {
     _tele2: {
       bubbles: [
         '<i>Bra!</i>',
-        '<img src="/las/c/i/rze-wsz/ESpe7v3ZSleec.gif" />'
+        '<img src="/las/c/i/rze-wsz/BVStb13YiR5Qs.gif" />'
       ],
       autoNext: 'RANDOM'
     },
@@ -784,8 +785,8 @@ function LasChatData() {
         '<q>Brat</q> #emoji-1f938; określony?'
       ],
       answers: [
-        { answer: '<i>en bror</i>', next: '_bror1b', wrong: true },
-        { answer: '<i>broren</i>', next: '_bror2', correct: true }
+        { answer: '<i>en bror</i>', next: '_bror1b', score: 'wrong' },
+        { answer: '<i>broren</i>', next: '_bror2', score: 'correct' }
       ]
 
     },
@@ -811,14 +812,14 @@ function LasChatData() {
         '<q>Światła</q> nieokreślone?'
       ],
       answers: [
-        { answer: '<i>lys</i>', next: '_lys2', correct: true },
-        { answer: '<i>lyset</i>', next: '_lys1b', wrong: true }
+        { answer: '<i>lys</i>', next: '_lys2', score: 'correct' },
+        { answer: '<i>lyset</i>', next: '_lys1b', score: 'wrong' }
       ]
 
     },
     _lys1b: {
       bubbles: [
-        '<i>Lyset</i> to określone światło. Przecież wiesz. W liczbie mnogiej nie dodajemy końcówki <i>-er</i>, bo <i>et lys</i> ma tylko jedną sylabę i jest rodzaju <i>et</i> #emoji-1f609;'
+        '<i class="mark">Lyset</i> to określone światło. Przecież wiesz. W liczbie mnogiej nie dodajemy końcówki <i class="mark">-er</i>, bo <i class="mark">et lys</i> ma tylko jedną sylabę i jest rodzaju <i class="mark">et</i> #emoji-1f609;'
       ],
       answers: [
         { answer: 'OK, <i>lys</i>', next: '_lys2' }
@@ -838,8 +839,8 @@ function LasChatData() {
         '<q>Wujek</q> określony?'
       ],
       answers: [
-        { answer: '<i>onkel</i>', next: '_onkel1b', wrong: true },
-        { answer: '<i>onkelen</i>', next: '_onkel2', correct: true }
+        { answer: '<i>onkel</i>', next: '_onkel1b', score: 'wrong' },
+        { answer: '<i>onkelen</i>', next: '_onkel2', score: 'correct' }
       ]
 
     },
@@ -867,8 +868,8 @@ function LasChatData() {
         '<q>Żona</q> określona?'
       ],
       answers: [
-        { answer: '<i>kone</i>', next: '_kone1b', wrong: true },
-        { answer: '<i>kona</i>', next: '_kone2', correct: true }
+        { answer: '<i>kone</i>', next: '_kone1b', score: 'wrong' },
+        { answer: '<i>kona</i>', next: '_kone2', score: 'correct' }
       ]
 
     },
@@ -896,14 +897,14 @@ function LasChatData() {
         'Określone <q>walki</q>, <q>bitwy</q> #emoji-2694; lub <q>mecze</q>?'
       ],
       answers: [
-        { answer: '<i>kamp</i>', next: '_kamp1b', wrong: true },
-        { answer: '<i>kampene</i>', next: '_kamp2', correct: true }
+        { answer: '<i>kamp</i>', next: '_kamp1b', score: 'wrong' },
+        { answer: '<i>kampene</i>', next: '_kamp2', score: 'correct' }
       ]
 
     },
     _kamp1b: {
       bubbles: [
-        'Forma określona w liczbie mnogiej ma zawsze końcówkę <i>-ene</i>. Tak więc...'
+        'Forma określona w liczbie mnogiej ma zawsze końcówkę <i class="mark">-ene</i>. Tak więc...'
       ],
       answers: [
         { answer: '<i>kampene</i>', next: '_kamp2' }
@@ -911,7 +912,7 @@ function LasChatData() {
     },
     _kamp2: {
       bubbles: [
-        'O tak!',
+        '<i>Greit!</i>',
         '<img src="/las/c/i/rze-wsz/X60jpxh.gif" />'
       ],
       autoNext: 'RANDOM'
@@ -923,14 +924,14 @@ function LasChatData() {
         'Określone <q>kobiety</q>?'
       ],
       answers: [
-        { answer: '<i>damer</i>', next: '_dame1b', wrong: true },
-        { answer: '<i>kvinnene</i>', next: '_dame2', correct: true }
+        { answer: '<i>damer</i>', next: '_dame1b', score: 'wrong' },
+        { answer: '<i>kvinnene</i>', next: '_dame2', score: 'correct' }
       ]
 
     },
     _dame1b: {
       bubbles: [
-        '<i>Damer</i> to nieokreślone kobiety. Określone to <i>damene</i>, albo...'
+        '<i class="mark">Damer</i> to nieokreślone kobiety. Określone to <i class="mark">damene</i>, albo...'
       ],
       answers: [
         { answer: '<i>kvinnene</i>', next: '_dame2' }
@@ -950,14 +951,14 @@ function LasChatData() {
         '<q>Miasto</q> nieokreślone?'
       ],
       answers: [
-        { answer: '<i>et by</i>', next: '_by1b', wrong: true },
-        { answer: '<i>en by</i>', next: '_by2', correct: true }
+        { answer: '<i>et by</i>', next: '_by1b', score: 'wrong' },
+        { answer: '<i>en by</i>', next: '_by2', score: 'correct' }
       ]
 
     },
     _by1b: {
       bubbles: [
-        'Nie będę się sprzeczać, ale w słowniku jest <i>en by</i>. Zgoda?'
+        'Nie będę się sprzeczać, ale w słowniku jest <i class="mark">en by</i>. Zgoda?'
       ],
       answers: [
         { answer: 'no dobra, <i>en by</i>', next: '_by2' }
@@ -977,14 +978,14 @@ function LasChatData() {
         '<q>Życie</q> określone?'
       ],
       answers: [
-        { answer: '<i>livet</i>', next: '_liv2', correct: true },
-        { answer: '<i>liva</i>', next: '_liv1b', wrong: true }
+        { answer: '<i>livet</i>', next: '_liv2', score: 'correct' },
+        { answer: '<i>liva</i>', next: '_liv1b', score: 'wrong' }
       ]
 
     },
     _liv1b: {
       bubbles: [
-        '<i>et liv – livet – liv – livene</i> (el <i>liva</i>)',
+        '<i>et liv – livet – liv – livene (el <i>liva</i>)',
         'Jednak w formie określonej pojedynczej jest tylko jedna opcja:'
       ],
       answers: [
@@ -1004,7 +1005,7 @@ function LasChatData() {
         'Jakiś <q>film</q> to:'
       ],
       answers: [
-        { answer: '<i>en film</i>', next: '_film2', correct: true },
+        { answer: '<i>en film</i>', next: '_film2', score: 'correct' },
         { answer: '<i>en movie</i>', next: '_film1b', rong: true }
       ]
 
@@ -1030,14 +1031,14 @@ function LasChatData() {
         'Jakieś <q>okno</q>?'
       ],
       answers: [
-        { answer: '<i>et vindu</i>', next: '_vindu2', correct: true },
-        { answer: '<i>en vindu</i>', next: '_vindu1b', wrong: true }
+        { answer: '<i>et vindu</i>', next: '_vindu2', score: 'correct' },
+        { answer: '<i>en vindu</i>', next: '_vindu1b', score: 'wrong' }
       ]
 
     },
     _vindu1b: {
       bubbles: [
-        'Sorry, rodzajnik <i>et</i>. A w całości regularnie:',
+        'Sorry, rodzajnik <i class="mark">et</i>. A w całości regularnie:',
         '<i>et vindu – vinduet – vinduer – vinduene</i>',
         'To jak było to określone okno?'
       ],
@@ -1047,8 +1048,8 @@ function LasChatData() {
     },
     _vindu2: {
       bubbles: [
-        '<i>Jøss!</i>',
-        '<img src="/las/c/i/rze-wsz/cab-window-429.gif" />'
+        '<i>Ganske bra!</i> nie ma gifa',
+        '<img src="/las/c/i/rze-wsz/.gif" />'
       ],
       autoNext: 'RANDOM'
     },
@@ -1059,14 +1060,14 @@ function LasChatData() {
         '<q>Przyjaciele</q>?'
       ],
       answers: [
-        { answer: '<i>friends</i>', next: '_venn1b', wrong: true },
-        { answer: '<i>venner</i>', next: '_venn2', correct: true }
+        { answer: '<i>friends</i>', next: '_venn1b', score: 'wrong' },
+        { answer: '<i>venner</i>', next: '_venn2', score: 'correct' }
       ]
 
     },
     _venn1b: {
       bubbles: [
-        'To nie ten serial. #emoji-1f609; W liczbie mnogiej przecież końcówka <i>-er</i> lub <i>-ene</i>. W nieokreślonej będzie...'
+        'To nie ten serial. #emoji-1f609; W liczbie mnogiej przecież końcówka <i class="mark">-er</i> lub <i class="mark">-ene</i>. W nieokreślonej będzie...'
       ],
       answers: [
         { answer: '<i>venner</i>', next: '_venn2' }
@@ -1093,8 +1094,8 @@ function LasChatData() {
     },
     _stol1b: {
       bubbles: [
-        '<i>Et bord</i> to stół.',
-        'Krzesło to <i>en stol</i>. Więc?'
+        '<i class="mark">Et bord</i> to stół.',
+        'Krzesło to <i class="mark">en stol</i>. Więc?'
       ],
       answers: [
         { answer: '<i>stoler</i>', next: '_stol2' }
@@ -1114,8 +1115,8 @@ function LasChatData() {
         'Określone <q>wycieczki</q>?'
       ],
       answers: [
-        { answer: '<i>tur</i>', next: '_tur1b', wrong: true },
-        { answer: '<i>turene</i>', next: '_tur2', correct: true }
+        { answer: '<i>tur</i>', next: '_tur1b', score: 'wrong' },
+        { answer: '<i>turene</i>', next: '_tur2', score: 'correct' }
       ]
 
     },
@@ -1142,14 +1143,14 @@ function LasChatData() {
         'Określone <q>niemowlę</q>?'
       ],
       answers: [
-        { answer: '<i>babyen</i>', next: '_baby2', correct: true },
-        { answer: '<i>baby</i>', next: '_baby1b', wrong: true }
+        { answer: '<i>babyen</i>', next: '_baby2', score: 'correct' },
+        { answer: '<i>baby</i>', next: '_baby1b', score: 'wrong' }
       ]
 
     },
     _baby1b: {
       bubbles: [
-        'Końcóweczka <i>-en</i> śmiało może być dodana. Tak się robi norweski. #emoji-1f609;'
+        'Końcóweczka <i class="mark">-en</i> śmiało może być dodana. Tak się robi norweski. #emoji-1f609;'
       ],
       answers: [
         { answer: '<i>babyen</i>', next: '_baby2' }
@@ -1168,14 +1169,14 @@ function LasChatData() {
         'Jak będzie <q>dziewczyna</q> w formie nieokreślonej?'
       ],
       answers: [
-        { answer: '<i>ei jenta</i>', next: '_jente1b', wrong: true },
-        { answer: '<i>ei jente</i>', next: '_jente2', correct: true }
+        { answer: '<i>ei jenta</i>', next: '_jente1b', score: 'wrong' },
+        { answer: '<i>ei jente</i>', next: '_jente2', score: 'correct' }
       ]
 
     },
     _jente1b: {
       bubbles: [
-        'Mała podpowiedź: <i>ei jente – jenta</i>, więc będzie...'
+        'Mała podpowiedź: <i class="mark">ei jente – jenta</i>, więc będzie...'
       ],
       answers: [
         { answer: '<i>ei jente</i>', next: '_jente2' }
@@ -1184,7 +1185,7 @@ function LasChatData() {
     _jente2: {
       bubbles: [
         '<i>Lurt!</i>',
-        '<img src="/las/c/i/rze-wsz/12hair.gif" />'
+        '<img src="/las/c/i/rze-wsz/O47cgZVbKt1DO.gif" />'
       ],
       autoNext: 'RANDOM'
     },
@@ -1195,15 +1196,15 @@ function LasChatData() {
         '<q>Kontrola</q>, <q>sprawdzenie</q> #emoji-1f575; w nieokreślonej formie?'
       ],
       answers: [
-        { answer: '<i>en kontroll</i>', next: '_kontroll2', correct: true },
-        { answer: '<i>en kontrol</i>', next: '_kontroll1b', wrong: true }
+        { answer: '<i>en kontroll</i>', next: '_kontroll2', score: 'correct' },
+        { answer: '<i>en kontrol</i>', next: '_kontroll1b', score: 'wrong' }
       ]
 
     },
     _kontroll1b: {
       bubbles: [
         '<img src="/las/c/i/rze-wsz/bkKvvzE9PEcTK.gif" />',
-        'Jednak przez dwa <q>ll</q>:',
+        'Jednak przez dwa <i class="mark">ll</i>:',
         '<i>en kontroll – kontrollen – kontroller – kontrollene</i>'
       ],
       answers: [
@@ -1232,14 +1233,14 @@ function LasChatData() {
         '<q>Chłopiec</q> #emoji-1f466-1f3fc; nieokreślony?'
       ],
       answers: [
-        { answer: '<i>gutten</i>', next: '_gutt1b', wrong: true },
-        { answer: '<i>en gutt</i>', next: '_gutt2', correct: true }
+        { answer: '<i>gutten</i>', next: '_gutt1b', score: 'wrong' },
+        { answer: '<i>en gutt</i>', next: '_gutt2', score: 'correct' }
       ]
 
     },
     _gutt1b: {
       bubbles: [
-        '<i>Gutten</i> to określony chłopak. Nieokreślony to ten z rodzajnikiem:'
+        '<i class="mark">Gutten</i> to określony chłopak. Nieokreślony to ten z rodzajnikiem:'
       ],
       answers: [
         { answer: 'no tak, <i>en gutt</i>', next: '_gutt2' }
@@ -1259,14 +1260,14 @@ function LasChatData() {
         '<q>Łódka</q> #emoji-1f6a4; określona?'
       ],
       answers: [
-        { answer: '<i>båten</i>', next: '_baat2', correct: true },
-        { answer: '<i>båter</i>', next: '_baat1b', wrong: true }
+        { answer: '<i>båten</i>', next: '_baat2', score: 'correct' },
+        { answer: '<i>båter</i>', next: '_baat1b', score: 'wrong' }
       ]
 
     },
     _baat1b: {
       bubbles: [
-        'Końcówka <i>-er</i> jest w liczbie mnogiej.',
+        'Końcówka <i class="mark">-er</i> jest w liczbie mnogiej.',
         '<i>en båt – båten</i>'
       ],
       answers: [
@@ -1287,8 +1288,8 @@ function LasChatData() {
         'Określona <q>rodzina</q>?'
       ],
       answers: [
-        { answer: '<i>familien</i>', next: '_famielien2', correct: true },
-        { answer: '<i>familia</i>', next: '_famielien1b', wrong: true }
+        { answer: '<i>familien</i>', next: '_famielien2', score: 'correct' },
+        { answer: '<i>familia</i>', next: '_famielien1b', score: 'wrong' }
       ]
 
     },
@@ -1315,14 +1316,14 @@ function LasChatData() {
         '<q>Noce</q> nieokreślone?'
       ],
       answers: [
-        { answer: '<i>netter</i>', next: '_netter2', correct: true },
-        { answer: '<i>nøtter</i>', next: '_netter1b', wrong: true }
+        { answer: '<i>netter</i>', next: '_netter2', score: 'correct' },
+        { answer: '<i>nøtter</i>', next: '_netter1b', score: 'wrong' }
       ]
 
     },
     _netter1b: {
       bubbles: [
-        '<i>Nøtter</i> to orzeszki. Noc jest nieregularna, zobacz:',
+        '<i class="mark">Nøtter</i> to orzeszki. Noc jest nieregularna, zobacz:',
         '<i>ei natt – natta – netter – nettene</i>',
         'Dlatego...'
       ],
@@ -1344,14 +1345,14 @@ function LasChatData() {
         '<q>Kumpel</q>, <q>kolega</q> nieokreślony?'
       ],
       answers: [
-        { answer: '<i>en kompis</i>', next: '_kompis2', correct: true },
-        { answer: '<i>kameraten</i>', next: '_kompis1b', wrong: true }
+        { answer: '<i>en kompis</i>', next: '_kompis2', score: 'correct' },
+        { answer: '<i>kameraten</i>', next: '_kompis1b', score: 'wrong' }
       ]
 
     },
     _kompis1b: {
       bubbles: [
-        '<i>Kameraten</i> to określony kolega. Nieokreślony jest z rodzajnikiem:'
+        '<i class="mark">Kameraten</i> to określony kolega. Nieokreślony jest z rodzajnikiem:'
       ],
       answers: [
         { answer: '<i>en kompis</i>', next: '_kompis2' }
@@ -1371,8 +1372,8 @@ function LasChatData() {
         '<q>Nauczyciel</q> określony?'
       ],
       answers: [
-        { answer: '<i>læreren</i>', next: '_laerer2', correct: true },
-        { answer: '<i>lærer</i>', next: '_laerer1b', wrong: true }
+        { answer: '<i>læreren</i>', next: '_laerer2', score: 'correct' },
+        { answer: '<i>lærer</i>', next: '_laerer1b', score: 'wrong' }
       ]
 
     },
@@ -1398,14 +1399,14 @@ function LasChatData() {
         '<q>Policja</q> #emoji-1f694; #emoji-1f52b; określona to:'
       ],
       answers: [
-        { answer: '<i>politi</i>', next: '_politi1b', wrong: true },
-        { answer: '<i>politiet</i>', next: '_politi2', correct: true }
+        { answer: '<i>politi</i>', next: '_politi1b', score: 'wrong' },
+        { answer: '<i>politiet</i>', next: '_politi2', score: 'correct' }
       ]
 
     },
     _politi1b: {
       bubbles: [
-        'Musi być z końcówką odpowiednią dla rodzaju <i>et</i>, czyli...'
+        'Musi być z końcówką odpowiednią dla rodzaju <i class="mark">et</i>, czyli...'
       ],
       answers: [
         { answer: '<i>politiet</i>', next: '_politi2' }
@@ -1424,14 +1425,14 @@ function LasChatData() {
         '<q>Historia</q> nieokreślona?'
       ],
       answers: [
-        { answer: '<i>ei historie</i>', next: '_historie2', correct: true },
-        { answer: '<i>ei historia</i>', next: '_historie1b', wrong: true }
+        { answer: '<i>ei historie</i>', next: '_historie2', score: 'correct' },
+        { answer: '<i>ei historia</i>', next: '_historie1b', score: 'wrong' }
       ]
 
     },
     _historie1b: {
       bubbles: [
-        '<i>Historia</i> to jedna, określona. W nieokreślonej będzie...'
+        '<i class="mark">Historia</i> to jedna, określona. W nieokreślonej będzie...'
       ],
       answers: [
         { answer: '<i>ei historie</i>', next: '_historie2' }
@@ -1451,14 +1452,14 @@ function LasChatData() {
         '<q>Zwycięzca</q> #emoji-1f3c5; określony?'
       ],
       answers: [
-        { answer: '<i>vinner</i>', next: '_vinner1b', wrong: true },
-        { answer: '<i>vinneren</i>', next: '_vinner2', correct: true }
+        { answer: '<i>vinner</i>', next: '_vinner1b', score: 'wrong' },
+        { answer: '<i>vinneren</i>', next: '_vinner2', score: 'correct' }
       ]
 
     },
     _vinner1b: {
       bubbles: [
-        'Końcówka <i>-er</i> jest w liczbie mnogiej. W pojedynczej zwycięzca jest tylko jeden:'
+        'Końcówka <i class="mark">-er</i> jest w liczbie mnogiej. W pojedynczej zwycięzca jest tylko jeden:'
       ],
       answers: [
         { answer: '<i>vinneren</i>', next: '_vinner2' }
@@ -1472,30 +1473,13 @@ function LasChatData() {
     },
 
 
-    _finalen1: {
-      bubbles: [
-        'Jesteś tu jeszcze?',
-        '<img src="/las/c/i/rze-wsz/GxRJqOTR2vv0Y.gif" />'
-      ],
-      answers: [
-        { answer: 'jestem', next: '_finalen2' }
-      ]
-    },
-    _finalen2: {
-      bubbles: [
-        'To dobrze, bo teraz kolejny etap. Zbliżamy się do finału.'
-      ],
-      autoNext: 'RANDOM'
-    },
-
-
     _gang1: {
       bubbles: [
         'Jeden <q>korytarz</q> albo <q>raz</q>?'
       ],
       answers: [
-        { answer: '<i>en gang</i>', next: '_gang2', correct: true },
-        { answer: '<i>ei gang</i>', next: '_gang1b', wrong: true }
+        { answer: '<i>en gang</i>', next: '_gang2', score: 'correct' },
+        { answer: '<i>ei gang</i>', next: '_gang1b', score: 'wrong' }
       ]
 
     },
@@ -1510,7 +1494,7 @@ function LasChatData() {
     },
     _gang2: {
       bubbles: [
-        '<i>Veldig godt!</i> Tylko w którą stronę pójdziesz?',
+        '<i>Veldig godt!</i>',
         '<img src="/las/c/i/rze-wsz/KnXkh8WI2WCJO.gif" />'
       ],
       autoNext: 'RANDOM'
@@ -1522,15 +1506,15 @@ function LasChatData() {
         '<q>Czas</q> #emoji-23f1; określony?'
       ],
       answers: [
-        { answer: '<i>tid</i>', next: '_tid1b', wrong: true },
-        { answer: '<i>tida</i>', next: '_tid2', correct: true }
+        { answer: '<i>tid</i>', next: '_tid1b', score: 'wrong' },
+        { answer: '<i>tida</i>', next: '_tid2', score: 'correct' }
       ]
 
     },
     _tid1b: {
       bubbles: [
-        '<i>Tid</i> to nieokreślony czas. Np. <i>tid til å tenke</i> – czas na myślenie.',
-        'Ale: <i>tida flyr!</i> – czas leci.'
+        '<i class="mark">Tid</i> to nieokreślony czas. Np. <i class="mark">tid til å tenke</i> – czas na myślenie.',
+        'Ale: <i class="mark">Tida flyr!</i> – czas leci.'
       ],
       answers: [
         { answer: 'OK, <i>tida</i>', next: '_tid2' }
@@ -1549,8 +1533,8 @@ function LasChatData() {
         'Jak będą określone <q>poranki</q>?'
       ],
       answers: [
-        { answer: '<i>morgenene</i>', next: '_morgen2', correct: true },
-        { answer: '<i>morgene</i>', next: '_morgen1b', wrong: true }
+        { answer: '<i>morgenene</i>', next: '_morgen2', score: 'correct' },
+        { answer: '<i>morgene</i>', next: '_morgen1b', score: 'wrong' }
       ]
 
     },
@@ -1577,8 +1561,8 @@ function LasChatData() {
         '<q>Matki</q> nieokreślone? #emoji-1f469-1f469-1f467-1f466;'
       ],
       answers: [
-        { answer: '<i>mødre</i>', next: '_modre2', correct: true },
-        { answer: '<i>mødrene</i>', next: '_modre1b', wrong: true }
+        { answer: '<i>mødre</i>', next: '_modre2', score: 'correct' },
+        { answer: '<i>mødrene</i>', next: '_modre1b', score: 'wrong' }
       ]
 
     },
@@ -1605,8 +1589,8 @@ function LasChatData() {
         '<q>Ojcowie</q> #emoji-1f468-2764-1f468; określeni?'
       ],
       answers: [
-        { answer: '<i>fedre</i>', next: '_fedrene1b', wrong: true },
-        { answer: '<i>fedrene</i>', next: '_fedrene2', correct: true }
+        { answer: '<i>fedre</i>', next: '_fedrene1b', score: 'wrong' },
+        { answer: '<i>fedrene</i>', next: '_fedrene2', score: 'correct' }
       ]
 
     },
@@ -1621,7 +1605,7 @@ function LasChatData() {
     },
     _fedrene2: {
       bubbles: [
-        '<i>Jøss!</i>'
+        '<i>Bra jobba!</i>'
       ],
       autoNext: 'RANDOM'
     },
@@ -1632,14 +1616,14 @@ function LasChatData() {
         'Nieokreślone <q>wieczory</q>?'
       ],
       answers: [
-        { answer: '<i>kvelder</i>', next: '_kvelder2', correct: true },
-        { answer: '<i>kveld</i>', next: '_kvelder1b', wrong: true }
+        { answer: '<i>kvelder</i>', next: '_kvelder2', score: 'correct' },
+        { answer: '<i>kveld</i>', next: '_kvelder1b', score: 'wrong' }
       ]
 
     },
     _kvelder1b: {
       bubbles: [
-        'Jest <i>en kveld</i>, więc śmiało dodajemy końcówkę <i>-er</i> w liczbie mnogiej.'
+        'Jest <i class="mark">en kveld</i>, więc śmiało dodajemy końcówkę <i class="mark">-er</i> w liczbie mnogiej.'
       ],
       answers: [
         { answer: 'OK, <i>kvelder</i>', next: '_kvelder2' }
@@ -1659,14 +1643,14 @@ function LasChatData() {
         '<q>Wiele miejsc</q> #emoji-1f5fa; to:'
       ],
       answers: [
-        { answer: '<i>mange steder</i>', next: '_steder2', correct: true },
-        { answer: '<i>mye steder</i>', next: '_steder1b', wrong: true }
+        { answer: '<i>mange steder</i>', next: '_steder2', score: 'correct' },
+        { answer: '<i>mye steder</i>', next: '_steder1b', score: 'wrong' }
       ]
 
     },
     _steder1b: {
       bubbles: [
-        'Kiedy masz końcówkę <i>-er</i>, to z pewnością jest to coś policzalnego: 1, 2, 3... miejsca. Dla policzalnych jest <i>mange</i>. Dla niepoliczalnych <i>mye</i>.'
+        'Kiedy masz końcówkę <i class="mark">-er</i>, to z pewnością jest to coś policzalnego: 1, 2, 3... miejsca. Dla policzalnych jest <i class="mark">mange</i>. Dla niepoliczalnych <i class="mark">mye</i>.'
       ],
       answers: [
         { answer: '<i>mange steder</i>', next: '_steder2' }
@@ -1685,8 +1669,8 @@ function LasChatData() {
         'Nieokreśleni <q>bogowie</q>?'
       ],
       answers: [
-        { answer: '<i>guder</i>', next: '_guder2', correct: true },
-        { answer: '<i>Gud</i>', next: '_guder1b', wrong: true }
+        { answer: '<i>guder</i>', next: '_guder2', score: 'correct' },
+        { answer: '<i>Gud</i>', next: '_guder1b', score: 'wrong' }
       ]
 
     },
@@ -1713,16 +1697,16 @@ function LasChatData() {
         'Jak powiedzieć <q>kilka błędów</q>?'
       ],
       answers: [
-        { answer: '<i>noen feil</i>', next: '_feil2', correct: true },
-        { answer: '<i>noen feils</i>', next: '_feil1b', wrong: true }
+        { answer: '<i>noen feil</i>', next: '_feil2', score: 'correct' },
+        { answer: '<i>noen feils</i>', next: '_feil1b', score: 'wrong' }
       ]
 
     },
     _feil1b: {
       bubbles: [
-        '<i>-s</i> dodajemy po angielsku, jak w...',
+        '<i class="mark">-s</i> dodajemy po angielsku, jak w...',
         '<img src="/las/c/i/rze-wsz/abf918a8d7e74da0cd8280037171f277.gif" />',
-        'A norweskie <i>feil</i> jest wyjątkiem:',
+        'A norweskie <i class="mark">feil</i> jest wyjątkiem:',
         '<i>en feil – feilen – feil – feilene</i>'
       ],
       answers: [
@@ -1743,8 +1727,8 @@ function LasChatData() {
         'Nieokreślone #emoji-1f6e3; <q>drogi</q>?'
       ],
       answers: [
-        { answer: '<i>vei</i>', next: '_veier1b', wrong: true },
-        { answer: '<i>veier</i>', next: '_veier2', correct: true }
+        { answer: '<i>vei</i>', next: '_veier1b', score: 'wrong' },
+        { answer: '<i>veier</i>', next: '_veier2', score: 'correct' }
       ]
 
     },
@@ -1772,14 +1756,14 @@ function LasChatData() {
         '<q>Nazwa</q> lub <q>imię</q>?'
       ],
       answers: [
-        { answer: '<i>en navn</i>', next: '_navn1b', wrong: true },
-        { answer: '<i>et navn</i>', next: '_navn2', correct: true }
+        { answer: '<i>en navn</i>', next: '_navn1b', score: 'wrong' },
+        { answer: '<i>et navn</i>', next: '_navn2', score: 'correct' }
       ]
 
     },
     _navn1b: {
       bubbles: [
-        'Jednosylabowy <i>et</i>:',
+        'Jednosylabowy <i class="mark">et</i>:',
         '<i>et navn – navnet – navn – navnene</i>'
       ],
       answers: [
@@ -1800,14 +1784,14 @@ function LasChatData() {
         'Określone <q>morze</q> albo <q>ocean</q>?'
       ],
       answers: [
-        { answer: '<i>havet</i>', next: '_hav2', correct: true },
-        { answer: '<i>hava</i>', next: '_hav1b', wrong: true }
+        { answer: '<i>havet</i>', next: '_hav2', score: 'correct' },
+        { answer: '<i>hava</i>', next: '_hav1b', score: 'wrong' }
       ]
 
     },
     _hav1b: {
       bubbles: [
-        'Jednosylabowy <i>et</i>:',
+        'Jednosylabowy <i class="mark">et</i>:',
         '<i>et hav – havet – hav – havene</i>',
         'W formie określonej po prostu...'
       ],
@@ -1829,8 +1813,8 @@ function LasChatData() {
         'Określona <q>praca</q>?'
       ],
       answers: [
-        { answer: '<i>jobben</i>', next: '_jobb2', correct: true },
-        { answer: '<i>et arbeid</i>', next: '_jobb1b', wrong: true }
+        { answer: '<i>jobben</i>', next: '_jobb2', score: 'correct' },
+        { answer: '<i>et arbeid</i>', next: '_jobb1b', score: 'wrong' }
       ]
 
     },
@@ -1856,8 +1840,8 @@ function LasChatData() {
         'Nieokreślone <q>części</q>?'
       ],
       answers: [
-        { answer: '<i>deler</i>', next: '_del2', correct: true },
-        { answer: '<i>dealer</i>', next: '_del1b', wrong: true }
+        { answer: '<i>deler</i>', next: '_del2', score: 'correct' },
+        { answer: '<i>dealer</i>', next: '_del1b', score: 'wrong' }
       ]
 
     },
@@ -1874,7 +1858,7 @@ function LasChatData() {
     },
     _del2: {
       bubbles: [
-        '<i>Så lurt!</i>'
+        '<i>Velgjort!</i>'
       ],
       autoNext: 'RANDOM'
     },
@@ -1885,14 +1869,14 @@ function LasChatData() {
         'Nieokreślone <q>słowo</q>?'
       ],
       answers: [
-        { answer: '<i>et ord</i>', next: '_ord2', correct: true },
-        { answer: '<i>ei ord</i>', next: '_ord1b', wrong: true }
+        { answer: '<i>et ord</i>', next: '_ord2', score: 'correct' },
+        { answer: '<i>ei ord</i>', next: '_ord1b', score: 'wrong' }
       ]
 
     },
     _ord1b: {
       bubbles: [
-        'Jednak <i>et</i>. I na dodatek jednosylabowy.',
+        'Jednak <i class="mark">et</i>. I na dodatek jednosylabowy.',
         '<i>et ord – ordet – ord – ordene</i>'
       ],
       answers: [
@@ -1912,14 +1896,14 @@ function LasChatData() {
         'Jedna <q>godzina</q> #emoji-1f570; to:'
       ],
       answers: [
-        { answer: '<i>en time</i>', next: '_time2', correct: true },
-        { answer: '<i>ei tid</i>', next: '_time1b', wrong: true }
+        { answer: '<i>en time</i>', next: '_time2', score: 'correct' },
+        { answer: '<i>ei tid</i>', next: '_time1b', score: 'wrong' }
       ]
 
     },
     _time1b: {
       bubbles: [
-        '<i>(Ei) tid</i> to czas. Jedna godzina to: <i>en time</i>, a dwie godziny: <i>to timer</i>.'
+        '<i class="mark">(Ei) tid</i> to czas. Jedna godzina to: <i class="mark">en time</i>, a dwie godziny: <i class="mark">to timer</i>.'
       ],
       answers: [
         { answer: 'OK, <i>en time</i>', next: '_time2' }
@@ -1938,14 +1922,14 @@ function LasChatData() {
         'Nieokreślone <q>spotkanie</q>, <q>zebranie</q>?'
       ],
       answers: [
-        { answer: '<i>et møte</i>', next: '_moete2', correct: true },
-        { answer: '<i>en måte</i>', next: '_moete1b', wrong: true }
+        { answer: '<i>et møte</i>', next: '_moete2', score: 'correct' },
+        { answer: '<i>en måte</i>', next: '_moete1b', score: 'wrong' }
       ]
 
     },
     _moete1b: {
       bubbles: [
-        '<i>En måte</i> to sposób. Spotkanie to:'
+        '<i class="mark">En måte</i> to sposób. Spotkanie to:'
       ],
       answers: [
         { answer: '<i>et møte</i>', next: '_moete2' }
@@ -1965,14 +1949,14 @@ function LasChatData() {
         '<q>Problem</q>, jakiś dowolny? #emoji-1f415;#emoji-1f4a9;'
       ],
       answers: [
-        { answer: '<i>et problem</i>', next: '_problem2', correct: true },
-        { answer: '<i>ei problem</i>', next: '_problem1b', wrong: true }
+        { answer: '<i>et problem</i>', next: '_problem2', score: 'correct' },
+        { answer: '<i>ei problem</i>', next: '_problem1b', score: 'wrong' }
       ]
 
     },
     _problem1b: {
       bubbles: [
-        'Jednak <i>et</i>. Nie zapominaj o rodzajniku.'
+        'Jednak <i class="mark">et</i>. Nie zapominaj o rodzajniku.'
       ],
       answers: [
         { answer: '<i>et problem</i>', next: '_problem2' }
@@ -1992,16 +1976,16 @@ function LasChatData() {
         'Określony <q>pokój</q> #emoji-1f6cb; lub <q>przestrzeń</q>? #emoji-1f6f0;'
       ],
       answers: [
-        { answer: '<i>romet</i>', next: '_rom1b', wrong: true },
-        { answer: '<i>rommet</i>', next: '_rom2', correct: true }
+        { answer: '<i>romet</i>', next: '_rom1b', score: 'wrong' },
+        { answer: '<i>rommet</i>', next: '_rom2', score: 'correct' }
       ]
 
     },
     _rom1b: {
       bubbles: [
-        'Podwajamy <i>m</i> w formie określonej.',
+        'Podwajamy <i class="mark">m</i> w formie określonej.',
         '<i>et rom – rommet</i>',
-        'Takich słów spotkasz więcej. Np. kałuża: <i>en dam – dammen</i>.',
+        'Takich słów spotkasz więcej. Np. kałuża: <i class="mark">en dam – dammen</i>.',
         'Dlatego określony pokój to...'
       ],
       answers: [
@@ -2022,14 +2006,14 @@ function LasChatData() {
         'Określone <q>tygodnie</q>?'
       ],
       answers: [
-        { answer: '<i>ukene</i>', next: '_uke2', correct: true },
-        { answer: '<i>veker</i>', next: '_uke1b', wrong: true }
+        { answer: '<i>ukene</i>', next: '_uke2', score: 'correct' },
+        { answer: '<i>veker</i>', next: '_uke1b', score: 'wrong' }
       ]
 
     },
     _uke1b: {
       bubbles: [
-        'W określonej mnogiej zawsze końcówka <i>-ene</i>'
+        'W określonej mnogiej zawsze końcówka <i class="mark">-ene</i>'
       ],
       answers: [
         { answer: '<i>ukene</i>', next: '_uke2' }
@@ -2051,8 +2035,8 @@ function LasChatData() {
         'Jakaś dowolna <q>szkoła</q>?'
       ],
       answers: [
-        { answer: '<i>en skole</i>', next: '_skole2', correct: true },
-        { answer: '<i>en skolen</i>', next: '_skole1b', wrong: true }
+        { answer: '<i>en skole</i>', next: '_skole2', score: 'correct' },
+        { answer: '<i>en skolen</i>', next: '_skole1b', score: 'wrong' }
       ]
 
     },
@@ -2078,8 +2062,8 @@ function LasChatData() {
         'Określony <q>miesiąc</q>? #emoji-1f315;'
       ],
       answers: [
-        { answer: '<i>månen</i>', next: '_maaned1b', wrong: true },
-        { answer: '<i>måneden</i>', next: '_maaned2', correct: true }
+        { answer: '<i>månen</i>', next: '_maaned1b', score: 'wrong' },
+        { answer: '<i>måneden</i>', next: '_maaned2', score: 'correct' }
       ]
 
     },
@@ -2106,14 +2090,14 @@ function LasChatData() {
         '<q>Broń</q> #emoji-1f52b;#emoji-1f5e1;#emoji-26cf; w liczbie mnogiej nieokreślonej?'
       ],
       answers: [
-        { answer: '<i>våpen</i>', next: '_vaapen2', correct: true },
-        { answer: '<i>våpnene</i>', next: '_vaapen1b', wrong: true }
+        { answer: '<i>våpen</i>', next: '_vaapen2', score: 'correct' },
+        { answer: '<i>våpnene</i>', next: '_vaapen1b', score: 'wrong' }
       ]
 
     },
     _vaapen1b: {
       bubbles: [
-        'To było trudniejsze, co? <i>-ene</i> odpada, bo to forma określona, ale czemu nie ma <i>-er</i>? Dobre pytanie.',
+        'To było trudniejsze, co? <i class="mark">-ene</i> odpada, bo to forma określona, ale czemu nie ma <i class="mark">-er</i>? Dobre pytanie.',
         '<i>en våpen – våpenet – våpen – våpnene</i>'
       ],
       answers: [
@@ -2134,8 +2118,8 @@ function LasChatData() {
         'Norwegowie lubią długie przemowy na uroczystościach. Jak są określone <q>przemowy</q>?'
       ],
       answers: [
-        { answer: '<i>taler</i>', next: '_tale1b', wrong: true },
-        { answer: '<i>talene</i>', next: '_tale2', correct: true }
+        { answer: '<i>taler</i>', next: '_tale1b', score: 'wrong' },
+        { answer: '<i>talene</i>', next: '_tale2', score: 'correct' }
       ]
 
     },
@@ -2159,11 +2143,11 @@ function LasChatData() {
 
     _blod1: {
       bubbles: [
-        'Czy możemy zrobić liczbę mnogą od słowa <q>krew</q>, czyli <i>blod</i>? #emoji-1f489;'
+        'Czy możemy zrobić liczbę mnogą od słowa <q>krew</q>, czyli <i class="mark">blod</i>? #emoji-1f489;'
       ],
       answers: [
-        { answer: 'tak', next: '_blod1b', wrong: true },
-        { answer: 'nie', next: '_blod2', correct: true }
+        { answer: 'tak', next: '_blod1b', score: 'wrong' },
+        { answer: 'nie', next: '_blod2', score: 'correct' }
       ]
 
     },
@@ -2188,15 +2172,15 @@ function LasChatData() {
         'Jak są po norwesku <q>kraje</q>, nieokreślone?'
       ],
       answers: [
-        { answer: '<i>land</i>', next: '_land2', correct: true },
-        { answer: '<i>lander</i>', next: '_land1b', wrong: true }
+        { answer: '<i>land</i>', next: '_land2', score: 'correct' },
+        { answer: '<i>lander</i>', next: '_land1b', score: 'wrong' }
       ]
 
     },
     _land1b: {
       bubbles: [
         '<i>et land – landet – land – landene</i>',
-        'Jak widzisz to słowo jest jednosylabowe rodzaju <i>et</i> i dlatego nie otrzymuje już końcówki <i>-er</i>.'
+        'Jak widzisz to słowo jest jednosylabowe rodzaju <i class="mark">et</i> i dlatego nie otrzymuje już końcówki <i class="mark">-er</i>.'
       ],
       answers: [
         { answer: 'OK, <i>land</i>', next: '_land2' }
@@ -2205,7 +2189,7 @@ function LasChatData() {
     _land2: {
       bubbles: [
         'Dobrze.',
-        'A przy okazji, <q>kraje nordyckie</q> to po norwesku <i>Norden</i>.',
+        'A przy okazji, <q>kraje nordyckie</q> to po norwesku <i class="mark">Norden</i>.',
         '#emoji-1f1e7-1f1fb;#emoji-1f1e9-1f1f0;#emoji-1f1f8-1f1ea;#emoji-1f1e9-1f1f0;#emoji-1f1eb-1f1ee;#emoji-1f1eb-1f1f4;#emoji-1f1ee-1f1f8;#emoji-1f1e6-1f1fd;#emoji-1f1ec-1f1f1;'
       ],
       autoNext: 'RANDOM'
@@ -2217,14 +2201,14 @@ function LasChatData() {
         'Jak jest nieokreślony <q>stół</q>?'
       ],
       answers: [
-        { answer: '<i>et bord</i>', next: '_bord2', correct: true },
-        { answer: '<i>en stol</i>', next: '_bord1b', wrong: true }
+        { answer: '<i>et bord</i>', next: '_bord2', score: 'correct' },
+        { answer: '<i>en stol</i>', next: '_bord1b', score: 'wrong' }
       ]
 
     },
     _bord1b: {
       bubbles: [
-        '<i>En stol</i> to krzesło, a stół?'
+        '<i class="mark">En stol</i> to krzesło, a stół?'
       ],
       answers: [
         { answer: '<i>et bord</i>', next: '_bord2' }
@@ -2244,14 +2228,14 @@ function LasChatData() {
         'Na świecie jest teraz wiele wojen. Jak są <q>wojny</q>, nieokreślone?'
       ],
       answers: [
-        { answer: '<i>kriger</i>', next: '_krig2', correct: true },
-        { answer: '<i>krigene</i>', next: '_krig1b', wrong: true }
+        { answer: '<i>kriger</i>', next: '_krig2', score: 'correct' },
+        { answer: '<i>krigene</i>', next: '_krig1b', score: 'wrong' }
       ]
 
     },
     _krig1b: {
       bubbles: [
-        '<i>Krigene</i> to określone wojny. Niestety. Nieokreślone to...'
+        '<i class="mark">Krigene</i> to określone wojny. Niestety. Nieokreślone to...'
       ],
       answers: [
         { answer: '<i>kriger</i>', next: '_krig2' }
@@ -2271,15 +2255,15 @@ function LasChatData() {
         'Jak są określone ceny?'
       ],
       answers: [
-        { answer: '<i>priser</i>', next: '_pris1b', wrong: true },
-        { answer: '<i>prisene</i>', next: '_pris2', correct: true }
+        { answer: '<i>priser</i>', next: '_pris1b', score: 'wrong' },
+        { answer: '<i>prisene</i>', next: '_pris2', score: 'correct' }
       ]
 
     },
     _pris1b: {
       bubbles: [
         '<i>en pris – prisen – priser – prisene</i>',
-        'W liczbie mnogiej określonej zawsze <i>-ene</i>.'
+        'W liczbie mnogiej określonej zawsze <i class="mark">-ene</i>.'
       ],
       answers: [
         { answer: '<i>prisene</i>', next: '_pris2' }
@@ -2298,14 +2282,14 @@ function LasChatData() {
         'Jak jest <q>serce</q>? Określone.'
       ],
       answers: [
-        { answer: '<i>hjertet</i>', next: '_hjerte2', correct: true },
-        { answer: '<i>hjernen</i>', next: '_hjerte1b', wrong: true }
+        { answer: '<i>hjertet</i>', next: '_hjerte2', score: 'correct' },
+        { answer: '<i>hjernen</i>', next: '_hjerte1b', score: 'wrong' }
       ]
 
     },
     _hjerte1b: {
       bubbles: [
-        '<i>En hjerne</i> to mózg. <i>Et hjerte</i> to serce. A określone?'
+        '<i class="mark">En hjerne</i> to mózg. <i class="mark">Et hjerte</i> to serce. A określone?'
       ],
       answers: [
         { answer: '<i>hjertet</i>', next: '_hjerte2' }
@@ -2313,7 +2297,7 @@ function LasChatData() {
     },
     _hjerte2: {
       bubbles: [
-        '#emoji-2764; #emoji-2764; #emoji-2764;',
+        '#emoji-2764;',
         '<img src="/las/c/i/rze-wsz/szCjFvyBhXPYk.gif" />'
       ],
       autoNext: 'RANDOM'
@@ -2325,14 +2309,15 @@ function LasChatData() {
         '<q>Zegar</q>, <q>zegarek</q> #emoji-231a; nieokreślony to:'
       ],
       answers: [
-        { answer: '<i>ei klokka</i>', next: '_klokke1b', wrong: true },
-        { answer: '<i>ei klokke</i>', next: '_klokke2', correct: true }
+        { answer: '<i>ei klokka</i>', next: '_klokke1b', score: 'wrong' },
+        { answer: '<i>ei klokke</i>', next: '_klokke2', score: 'correct' }
       ]
 
     },
     _klokke1b: {
       bubbles: [
-        'Zobacz: <i>ei klokke – klokka – klokker – klokkene</i>',
+        'Zobacz:',
+        '<i>ei klokke – klokka – klokker – klokkene</i>',
         'Dlatego...'
       ],
       answers: [
@@ -2353,15 +2338,15 @@ function LasChatData() {
         'Określona <q>osoba</q>? #emoji-1f470-1f3fb; #emoji-1f448-1f3fc;'
       ],
       answers: [
-        { answer: '<i>personer</i>', next: '_person1b', wrong: true },
-        { answer: '<i>personen</i>', next: '_person2', correct: true }
+        { answer: '<i>personer</i>', next: '_person1b', score: 'wrong' },
+        { answer: '<i>personen</i>', next: '_person2', score: 'correct' }
       ]
 
     },
     _person1b: {
       bubbles: [
-        '<i>Personer</i> to osoby, bo w liczbie mnogiej jest końcówka <i>-er</i>.',
-        'W pojedynczej masz do wyboru: <i>en person – personen</i>. Która jest określona?'
+        '<i class="mark">Personer</i> to osoby, bo w liczbie mnogiej jest końcówka <i class="mark">-er</i>.',
+        'W pojedynczej masz do wyboru: <i class="mark">en person – personen</i>. Która jest określona?'
       ],
       answers: [
         { answer: '<i>personen</i>', next: '_person2' }
@@ -2381,14 +2366,14 @@ function LasChatData() {
         'Kiedy zamawiasz jedno <q>piwo</q>, to mówisz:'
       ],
       answers: [
-        { answer: '<i>en øl</i>', next: '_oel2', correct: true },
-        { answer: '<i>øl</i>', next: '_oel2', wrong: true }
+        { answer: '<i>en øl</i>', next: '_oel2', score: 'correct' },
+        { answer: '<i>øl</i>', next: '_oel2', score: 'wrong' }
       ]
 
     },
     _oel1b: {
       bubbles: [
-        'Rodzajniki <i>en, ei, et</i> oznaczają jedną sztukę. Dlatego...'
+        'Rodzajniki <i class="mark">en, ei, et</i> oznaczają jedną sztukę. Dlatego...'
       ],
       answers: [
         { answer: '<i>en øl</i>', next: '_oel2' }
@@ -2407,8 +2392,8 @@ function LasChatData() {
         '<q>Rzeczy</q> bliżej nieokreślone #emoji-1f459;#emoji-1f452;#emoji-1f48d; to:'
       ],
       answers: [
-        { answer: '<i>ting</i>', next: '_ting2', correct: true },
-        { answer: '<i>tinger</i>', next: '_ting1b', wrong: true }
+        { answer: '<i>ting</i>', next: '_ting2', score: 'correct' },
+        { answer: '<i>tinger</i>', next: '_ting1b', score: 'wrong' }
       ]
 
     },
@@ -2435,8 +2420,8 @@ function LasChatData() {
         '<q>Król</q> #emoji-1f451; określony?'
       ],
       answers: [
-        { answer: '<i>kongen</i>', next: '_konge2', correct: true },
-        { answer: '<i>King Kong</i>', next: '_konge1b', wrong: true }
+        { answer: '<i>kongen</i>', next: '_konge2', score: 'correct' },
+        { answer: '<i>King Kong</i>', next: '_konge1b', score: 'wrong' }
       ]
 
     },
@@ -2462,8 +2447,8 @@ function LasChatData() {
         '<q>Właściciele</q> określeni?'
       ],
       answers: [
-        { answer: '<i>eiere</i>', next: '_eier1b', wrong: true },
-        { answer: '<i>eierne</i>', next: '_eier2', correct: true }
+        { answer: '<i>eiere</i>', next: '_eier1b', score: 'wrong' },
+        { answer: '<i>eierne</i>', next: '_eier2', score: 'correct' }
       ]
 
     },
@@ -2489,8 +2474,8 @@ function LasChatData() {
         '<q>Mózg</q> nieokreślony?'
       ],
       answers: [
-        { answer: '<i>en hjerne</i>', next: '_hjerne2', correct: true },
-        { answer: '<i>en hjern</i>', next: '_hjerne1b', wrong: true }
+        { answer: '<i>en hjerne</i>', next: '_hjerne2', score: 'correct' },
+        { answer: '<i>en hjern</i>', next: '_hjerne1b', score: 'wrong' }
       ]
 
     },
@@ -2514,11 +2499,11 @@ function LasChatData() {
 
     _tegn1: {
       bubbles: [
-        '<q>Znak</q> #emoji-2622; nieokreślony?'
+        '<q>Znak</q> nieokreślony?'
       ],
       answers: [
-        { answer: '<i>et tegn</i>', next: '_tegn2', correct: true },
-        { answer: '<i>et tegne</i>', next: '_tegn1b', wrong: true }
+        { answer: '<i>et tegn</i>', next: '_tegn2', score: 'correct' },
+        { answer: '<i>et tegne</i>', next: '_tegn1b', score: 'wrong' }
       ]
 
     },
@@ -2532,7 +2517,7 @@ function LasChatData() {
     },
     _tegn2: {
       bubbles: [
-        '<i>Godt.</i>'
+        '<i>Godt!</i> #emoji-2622;'
       ],
       autoNext: 'RANDOM'
     },
@@ -2540,11 +2525,11 @@ function LasChatData() {
 
     _svin1: {
       bubbles: [
-        '<q>Świnia</q> #emoji-1f43d; nieokreślona? No co, też popularne słowo.'
+        '<q>Świnia</q> #emoji-1f43d; nieokreślona?'
       ],
       answers: [
-        { answer: '<i>et svin</i>', next: '_svin2', correct: true },
-        { answer: '<i>et svina</i>', next: '_svin1b', wrong: true }
+        { answer: '<i>et svin</i>', next: '_svin2', score: 'correct' },
+        { answer: '<i>et svina</i>', next: '_svin1b', score: 'wrong' }
       ]
 
     },
@@ -2552,7 +2537,7 @@ function LasChatData() {
       bubbles: [
         '<i>et svin – svinet – svin – svinene</i>',
         'To jak będą dwie świnie?',
-        '<i>To svin</i>.',
+        '<i>to svin</i>.',
         'A jedna?'
       ],
       answers: [
@@ -2562,7 +2547,7 @@ function LasChatData() {
     _svin2: {
       bubbles: [
         '<img src="/las/c/i/rze-wsz/U8Mn2NSL6OR0Y.gif" />',
-        'Dobrze. A <i>et pinnsvin</i>? To oczywiście:',
+        'Dobrze. A <i class="mark">et pinnsvin</i>? To oczywiście:',
         '<img src="/las/c/i/rze-wsz/hedgehog476r-2.gif" />'
       ],
       autoNext: 'RANDOM'
@@ -2574,8 +2559,8 @@ function LasChatData() {
         'Jak będą <q>dachy</q> lub <q>sufity</q> w formie nieokreślonej?'
       ],
       answers: [
-        { answer: '<i>takk</i>', next: '_tak1b', wrong: true },
-        { answer: '<i>tak</i>', next: '_tak2', correct: true }
+        { answer: '<i>takk</i>', next: '_tak1b', score: 'wrong' },
+        { answer: '<i>tak</i>', next: '_tak2', score: 'correct' }
       ]
 
     },
@@ -2602,8 +2587,8 @@ function LasChatData() {
         '<q>Łazienka</q> lub <q>kąpiel</q> określona? #emoji-1f6c1;'
       ],
       answers: [
-        { answer: '<i>et bad</i>', next: '_bad1b', wrong: true },
-        { answer: '<i>badet</i>', next: '_bad2', correct: true }
+        { answer: '<i>et bad</i>', next: '_bad1b', score: 'wrong' },
+        { answer: '<i>badet</i>', next: '_bad2', score: 'correct' }
       ]
 
     },
@@ -2629,8 +2614,8 @@ function LasChatData() {
         'Nieokreślone <q>szpitale</q>?'
       ],
       answers: [
-        { answer: '<i>sykehuser</i>', next: '_sykehus1b', wrong: true },
-        { answer: '<i>sykehus</i>', next: '_sykehus2', correct: true }
+        { answer: '<i>sykehuser</i>', next: '_sykehus1b', score: 'wrong' },
+        { answer: '<i>sykehus</i>', next: '_sykehus2', score: 'correct' }
       ]
 
     },
@@ -2638,7 +2623,7 @@ function LasChatData() {
       bubbles: [
         'Pamiętasz jak odmieniamy dom?',
         '<i>et hus – huset – hus – husene</i>',
-        'Szpital odmieniamy tak samo. Ostatni człon jest jednosylabowy, rodzaju <i>et</i> i dlatego nie otrzymuje koncówki <i>-er</i>.'
+        'Szpital odmieniamy tak samo. Ostatni człon jest jednosylabowy, rodzaju <i>et</i> i dlatego nie otrzymuje koncówki <i class="mark">-er</i>.'
       ],
       answers: [
         { answer: '<i>sykehus</i>', next: '_sykehus2' }
@@ -2658,15 +2643,15 @@ function LasChatData() {
         '<q>Ciało</q> w formie określonej?'
       ],
       answers: [
-        { answer: '<i>koppen</i>', next: '_kropp1b', wrong: true },
-        { answer: '<i>kroppen</i>', next: '_kropp2', correct: true }
+        { answer: '<i>koppen</i>', next: '_kropp1b', score: 'wrong' },
+        { answer: '<i>kroppen</i>', next: '_kropp2', score: 'correct' }
       ]
 
     },
     _kropp1b: {
       bubbles: [
         'Wybrałeś #emoji-2615;',
-        'Ciało to <i>en kropp</i>, a w formie określonej...'
+        'Ciało to <i class="mark">en kropp</i>, a w formie określonej...'
       ],
       answers: [
         { answer: '<i>kroppen</i>', next: '_kropp2' }
@@ -2686,14 +2671,14 @@ function LasChatData() {
         '<q>Ziemia</q> #emoji-1f30d;, <q>gleba</q> określona?'
       ],
       answers: [
-        { answer: '<i>jorda</i>', next: '_jorda2', correct: true },
-        { answer: '<i>jord</i>', next: '_jorda1b', wrong: true }
+        { answer: '<i>jorda</i>', next: '_jorda2', score: 'correct' },
+        { answer: '<i>jord</i>', next: '_jorda1b', score: 'wrong' }
       ]
 
     },
     _jorda1b: {
       bubbles: [
-        'Zabrakło końcówki odpowiedniej dla rodzaju <i>ei</i> Czyli?'
+        'Zabrakło końcówki odpowiedniej dla rodzaju <i class="mark">ei</i> Czyli?'
       ],
       answers: [
         { answer: '<i>jorda</i>', next: '_jorda2' }
@@ -2713,8 +2698,8 @@ function LasChatData() {
         '<q>Szansa</q> określona?'
       ],
       answers: [
-        { answer: '<i>sjansen</i>', next: '_sjanse2', correct: true },
-        { answer: '<i>sjansa</i>', next: '_sjanse1b', wrong: true }
+        { answer: '<i>sjansen</i>', next: '_sjanse2', score: 'correct' },
+        { answer: '<i>sjansa</i>', next: '_sjanse1b', score: 'wrong' }
       ]
 
     },
@@ -2742,14 +2727,14 @@ function LasChatData() {
         '<q>Rodzic</q> nieokreślony?'
       ],
       answers: [
-        { answer: '<i>en forelder</i>', next: '_forelder2', correct: true },
-        { answer: '<i>fordeler</i>', next: '_forelder1b', wrong: true }
+        { answer: '<i>en forelder</i>', next: '_forelder2', score: 'correct' },
+        { answer: '<i>fordeler</i>', next: '_forelder1b', score: 'wrong' }
       ]
 
     },
     _forelder1b: {
       bubbles: [
-        '<i>Fordeler</i> to <q>zalety</q>. A rodzic?'
+        '<i class="mark">Fordeler</i> to <q>zalety</q>. A rodzic?'
       ],
       answers: [
         { answer: '<i>en forelder</i>', next: '_forelder2' }
@@ -2769,8 +2754,8 @@ function LasChatData() {
         '<q>Lekarz</q> określony?'
       ],
       answers: [
-        { answer: '<i>en lege</i>', next: '_lege1b', wrong: true },
-        { answer: '<i>legen</i>', next: '_lege2', correct: true }
+        { answer: '<i>en lege</i>', next: '_lege1b', score: 'wrong' },
+        { answer: '<i>legen</i>', next: '_lege2', score: 'correct' }
       ]
 
     },
@@ -2797,14 +2782,14 @@ function LasChatData() {
         '<q>Sprawy</q> nieokreślone?'
       ],
       answers: [
-        { answer: '<i>saken</i>', next: '_saker1b', wrong: true },
-        { answer: '<i>saker</i>', next: '_saker2', correct: true }
+        { answer: '<i>saken</i>', next: '_saker1b', score: 'wrong' },
+        { answer: '<i>saker</i>', next: '_saker2', score: 'correct' }
       ]
 
     },
     _saker1b: {
       bubbles: [
-        'W liczbie mnogiej końcówka <i>-er</i>.'
+        'W liczbie mnogiej końcówka <i class="mark">-er</i>.'
       ],
       answers: [
         { answer: '<i>saker</i>', next: '_saker2' }
@@ -2824,14 +2809,14 @@ function LasChatData() {
         '<q>Krzywdy</q>, <q>rany</q>, <q>szkody</q> określone?'
       ],
       answers: [
-        { answer: '<i>skadene</i>', next: '_skade2', correct: true },
-        { answer: '<i>skader</i>', next: '_skade1b', wrong: true }
+        { answer: '<i>skadene</i>', next: '_skade2', score: 'correct' },
+        { answer: '<i>skader</i>', next: '_skade1b', score: 'wrong' }
       ]
 
     },
     _skade1b: {
       bubbles: [
-        'Końcówka <i>-er</i> jest dla nieokreślsonej. Dla określonej jest <i>-ene</i>. Dlatego...'
+        'Końcówka <i class="mark">-er</i> jest dla nieokreślsonej. Dla określonej jest <i class="mark">-ene</i>. Dlatego...'
       ],
       answers: [
         { answer: '<i>skadene</i>', next: '_skade2' }
@@ -2850,14 +2835,14 @@ function LasChatData() {
         '<q>Kiełbasy</q>, <q>parówki</q> nieokreślone?'
       ],
       answers: [
-        { answer: '<i>pølsa</i>', next: '_peolse1b', wrong: true },
-        { answer: '<i>pølser</i>', next: '_peolse2', correct: true }
+        { answer: '<i>pølsa</i>', next: '_peolse1b', score: 'wrong' },
+        { answer: '<i>pølser</i>', next: '_peolse2', score: 'correct' }
       ]
 
     },
     _peolse1b: {
       bubbles: [
-        '<i>Pølsa</i> to jedna, konkret parówa. Jeśli chcesz kilka, to mówisz...'
+        '<i class="mark">Pølsa</i> to jedna, konkret parówa. Jeśli chcesz kilka, to mówisz...'
       ],
       answers: [
         { answer: '<i>pølser</i>', next: '_peolse2' }
@@ -2876,8 +2861,8 @@ function LasChatData() {
         '<q>Więzienie</q> nieokreślone?'
       ],
       answers: [
-        { answer: '<i>et fengsel</i>', next: '_fengsel2', correct: true },
-        { answer: '<i>fengsler</i>', next: '_fengsel1b', wrong: true }
+        { answer: '<i>et fengsel</i>', next: '_fengsel2', score: 'correct' },
+        { answer: '<i>fengsler</i>', next: '_fengsel1b', score: 'wrong' }
       ]
 
     },
@@ -2927,16 +2912,19 @@ function LasChatData() {
       bubbles: [
         'Gładko Ci poszło!',
         '<img src="/las/c/i/rze-wsz/When-Gang-Does-Group-Dance-Too.gif" />',
-        ''
       ],
-      autoNext: 'END'
+      answers: [
+        { answer: 'KONIEC', next: 'END' }
+      ]
     },
     _b1: {
       bubbles: [
         'To były najczęściej używane rzeczowniki w potocznym języku. Jeśli opanowałeś zasady tworzenia wszystkich czterech form, to na tej zasadzie będziesz już tworzyć kolejne!',
         '<img src="/las/c/i/rze-wsz/Bi6FcO7UoutWM.gif" />'
       ],
-      autoNext: 'END'
+      answers: [
+        { answer: 'KONIEC', next: 'END' }
+      ]
     },
     _c1: {
       bubbles: [
@@ -2944,7 +2932,9 @@ function LasChatData() {
         '<img src="/las/c/i/rze-wsz/vjnLzg78di4wM.gif" />',
         'Trzymaj się!'
       ],
-      autoNext: 'END'
+      answers: [
+        { answer: 'KONIEC', next: 'END' }
+      ]
     }
   };
 

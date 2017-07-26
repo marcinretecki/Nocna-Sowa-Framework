@@ -1,9 +1,10 @@
 <script>
 function LasAudioData() {
 
-  this.newMsg = function( word ) {
+  var newMsg = function( word ) {
+    var a = ''
 
-    var a = '<span class="audio-test-clue">';
+    a += '<span class="audio-test-clue">';
 
     a += word;
     a += '</span>';
@@ -31,7 +32,7 @@ function LasAudioData() {
 
 
   this.intro = {
-    a1: {
+    _a1: {
       msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
       autoNext:     'ENDINTRO'
     }
@@ -40,271 +41,207 @@ function LasAudioData() {
 
   this.chat = {
 
-    barn1: {
-      msg:        this.newMsg( 'barn' ),
+    _barn1: {
+      msg:        newMsg( 'barn' ),
       answers: [
-        { answer: '<i>et</i>',   next: 'barn2' },
-        { answer: '<i>en/ei</i>',   wrong: true },
-        { answer: '<i>en</i>',   wrong: true },
+        { answer: '<i>et</i>',   next: '_barn2', score: 'correct' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>en</i>',   score: 'wrong' },
       ]
     },
-   barn2: {
+   _barn2: {
       msg:        '<i>et barn</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    hand1: {
-      msg:        this.newMsg( 'hånd' ),
+    _hand1: {
+      msg:        newMsg( 'hånd' ),
       answers: [
-        { answer: '<i>en/ei</i>',   next: 'hand2' },
-        { answer: '<i>en</i>',   wrong: true },
-        { answer: '<i>et</i>',   wrong: true },
+        { answer: '<i>en/ei</i>',   next: '_hand2', score: 'correct' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
       ]
     },
-    hand2: {
+    _hand2: {
       msg:        '<i>ei hånd</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    spor1: {
-      msg:        this.newMsg( 'spor' ),
+    _spor1: {
+      msg:        newMsg( 'spor' ),
       answers: [
-        { answer: '<i>et</i>',   next: 'spor2' },
-        { answer: '<i>en</i>',   wrong: true },
-        { answer: '<i>en/ei</i>',   wrong: true },
+        { answer: '<i>et</i>',   next: '_spor2', score: 'correct' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
       ]
     },
-    spor2: {
+    _spor2: {
       msg:        '<i>et spor</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    lys1: {
-      msg:        this.newMsg( 'lys' ),
+    _lys1: {
+      msg:        newMsg( 'lys' ),
       answers: [
-        { answer: '<i>et</i>',   next: 'lys2' },
-        { answer: '<i>en</i>',   wrong: true },
-        { answer: '<i>en/ei</i>',   wrong: true },
+        { answer: '<i>et</i>',   next: '_lys2', score: 'correct' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
       ]
     },
-    lys2: {
+    _lys2: {
       msg:        '<i>et lys</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    kamp1: {
-      msg:        this.newMsg( 'kamp' ),
+    _kamp1: {
+      msg:        newMsg( 'kamp' ),
       answers: [
-        { answer: '<i>en</i>',   next: 'kamp2' },
-        { answer: '<i>en/ei</i>',   wrong: true },
-        { answer: '<i>et</i>',   wrong: true },
+        { answer: '<i>en</i>',   next: '_kamp2', score: 'correct' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
       ]
     },
-    kamp2: {
+    _kamp2: {
       msg:        '<i>en kamp</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    bat1: {
-      msg:        this.newMsg( 'båt' ),
+    _bat1: {
+      msg:        newMsg( 'båt' ),
       answers: [
-        { answer: '<i>en</i>',   next: 'bat2' },
-        { answer: '<i>en/ei</i>',   wrong: true },
-        { answer: '<i>et</i>',   wrong: true },
+        { answer: '<i>en</i>',   next: '_bat2', score: 'correct' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
       ]
     },
-    bat2: {
+    _bat2: {
       msg:        '<i>en båt</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    morgen1: {
-      msg:        this.newMsg( 'morgen' ),
+    _morgen1: {
+      msg:        newMsg( 'morgen' ),
       answers: [
-        { answer: '<i>en</i>',   next: 'morgen2' },
-        { answer: '<i>en/ei</i>',   wrong: true },
-        { answer: '<i>et</i>',   wrong: true },
+        { answer: '<i>en</i>',   next: '_morgen2', score: 'correct' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
       ]
     },
-    morgen2: {
+    _morgen2: {
       msg:        '<i>en morgen</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    helg1: {
-      msg:        this.newMsg( 'helg' ),
+    _helg1: {
+      msg:        newMsg( 'helg' ),
       answers: [
-        { answer: '<i>en/ei</i>',   next: 'helg2' },
-        { answer: '<i>en</i>',   wrong: true },
-        { answer: '<i>et</i>',   wrong: true },
+        { answer: '<i>en/ei</i>',   next: '_helg2', score: 'correct' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
       ]
     },
-    helg2: {
+    _helg2: {
       msg:        '<i>ei helg</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    navn1: {
-      msg:        this.newMsg( 'navn' ),
+    _navn1: {
+      msg:        newMsg( 'navn' ),
       answers: [
-        { answer: '<i>et</i>',   next: 'navn2' },
-        { answer: '<i>en/ei</i>',   wrong: true },
-        { answer: '<i>en</i>',   wrong: true },
+        { answer: '<i>et</i>',   next: '_navn2', score: 'correct' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>en</i>',   score: 'wrong' },
       ]
     },
-    navn2: {
+    _navn2: {
       msg:        '<i>et navn</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    moete1: {
-      msg:        this.newMsg( 'møte' ),
+    _moete1: {
+      msg:        newMsg( 'møte' ),
       answers: [
-        { answer: '<i>et</i>',   next: 'moete2' },
-        { answer: '<i>en</i>',   wrong: true },
-        { answer: '<i>en/ei</i>',   wrong: true },
+        { answer: '<i>et</i>',   next: '_moete2', score: 'correct' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
       ]
     },
-    moete2: {
+    _moete2: {
       msg:        '<i>et møte</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    land1: {
-      msg:        this.newMsg( 'land' ),
+    _land1: {
+      msg:        newMsg( 'land' ),
       answers: [
-        { answer: '<i>et</i>',   next: 'land2' },
-        { answer: '<i>en</i>',   wrong: true },
-        { answer: '<i>en/ei</i>',   wrong: true },
+        { answer: '<i>et</i>',   next: '_land2', score: 'correct' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
       ]
     },
-    land2: {
+    _land2: {
       msg:        '<i>et land</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    jord1: {
-      msg:        this.newMsg( 'jord' ),
+    _jord1: {
+      msg:        newMsg( 'jord' ),
       answers: [
-        { answer: '<i>en/ei</i>',   next: 'jord2' },
-        { answer: '<i>en</i>',   wrong: true },
-        { answer: '<i>et</i>',   wrong: true },
+        { answer: '<i>en/ei</i>',   next: '_jord2', score: 'correct' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
       ]
     },
-    jord2: {
+    _jord2: {
       msg:        '<i>ei jord</i>',
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
 
-    //  xx1: {
-    //    msg:        this.newMsg( '' ),
+    //  _xx1: {
+    //    msg:        newMsg( '' ),
     //    answers: [
-    //      { answer: '<i>en/ei</i>',   next: 'xx2' },
-    //      { answer: '<i>en</i>',   wrong: true },
-    //      { answer: '<i>et</i>',   wrong: true },
+    //      { answer: '<i>en/ei</i>',   next: '_xx2', score: 'correct' },
+    //      { answer: '<i>en</i>',   score: 'wrong' },
+    //      { answer: '<i>et</i>',   score: 'wrong' },
     //    ]
     //  },
-    //  xx2: {
+    //  _xx2: {
     //    msg:        '<i></i>',
     //    //  startTime:  0,
     //    //  duration:   1.5,
     //    autoNext:   'RANDOM'
     //  },
-
-    //  xx1: {
-    //    msg:        this.newMsg( '' ),
-    //    answers: [
-    //      { answer: '<i>en/ei</i>',   next: 'xx2' },
-    //      { answer: '<i>en</i>',   wrong: true },
-    //      { answer: '<i>et</i>',   wrong: true },
-    //    ]
-    //  },
-    //  xx2: {
-    //    msg:        '<i></i>',
-    //    //  startTime:  0,
-    //    //  duration:   1.5,
-    //    autoNext:   'RANDOM'
-    //  },
-
-    //  xx1: {
-    //    msg:        this.newMsg( '' ),
-    //    answers: [
-    //      { answer: '<i>en/ei</i>',   next: 'xx2' },
-    //      { answer: '<i>en</i>',   wrong: true },
-    //      { answer: '<i>et</i>',   wrong: true },
-    //    ]
-    //  },
-    //  xx2: {
-    //    msg:        '<i></i>',
-    //    //  startTime:  0,
-    //    //  duration:   1.5,
-    //    autoNext:   'RANDOM'
-    //  },
-
-    //  xx1: {
-    //    msg:        this.newMsg( '' ),
-    //    answers: [
-    //      { answer: '<i>en/ei</i>',   next: 'xx2' },
-    //      { answer: '<i>en</i>',   wrong: true },
-    //      { answer: '<i>et</i>',   wrong: true },
-    //    ]
-    //  },
-    //  xx2: {
-    //    msg:        '<i></i>',
-    //    //  startTime:  0,
-    //    //  duration:   1.5,
-    //    autoNext:   'RANDOM'
-    //  },
-
-    //  xx1: {
-    //    msg:        this.newMsg( '' ),
-    //    answers: [
-    //      { answer: '<i>en/ei</i>',   next: 'xx2' },
-    //      { answer: '<i>en</i>',   wrong: true },
-    //      { answer: '<i>et</i>',   wrong: true },
-    //    ]
-    //  },
-    //  xx2: {
-    //    msg:        '<i></i>',
-    //    //  startTime:  0,
-    //    //  duration:   1.5,
-    //    autoNext:   'RANDOM'
-    //  }
-
-
-
-
 
   };
 
 
   this.end = {
 
-    end1: {
+    _end1: {
       msg:        'END'
     }
 

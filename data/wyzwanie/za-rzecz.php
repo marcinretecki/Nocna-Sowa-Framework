@@ -26,9 +26,9 @@ function LasAudioData() {
       msg:        'Harald bor på slottet.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> ligger i Oslo sentrum.',
       trans:      'Harald mieszka w pałacu.<br />On leży w centrum Oslo.',
       answers: [
-        { answer: 'det',   next: '_aa2' },
-        { answer: 'den',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'det',  score: 'correct', next: '_aa2' },
+        { answer: 'den',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _aa2: {
@@ -44,9 +44,9 @@ function LasAudioData() {
       msg:        'Arnold trener i skogen.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er stor og grønn.',
       trans:      'Arnold trenuje w lesie.<br />On jest duży i zielony.',
       answers: [
-        { answer: 'den',   next: '_ab2' },
-        { answer: 'det',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'den',  score: 'correct', next: '_ab2' },
+        { answer: 'det',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _ab2: {
@@ -62,9 +62,9 @@ function LasAudioData() {
       msg:        'Jeg har ikke briller her.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er hjemme.',
       trans:      'Nie mam tu okularów.<br />One są w domu.',
       answers: [
-        { answer: 'de',   next: '_ac2' },
-        { answer: 'det',   wrong: true },
-        { answer: 'den',   wrong: true }
+        { answer: 'de',    score: 'correct', next: '_ac2' },
+        { answer: 'det',   score: 'wrong' },
+        { answer: 'den',   score: 'wrong' }
       ]
     },
     _ac2: {
@@ -80,9 +80,9 @@ function LasAudioData() {
       msg:        'Adam vanner blomstene hver dag.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> som er i botanisk hage.',
       trans:      'Adam podlewa kwiaty codziennie.<br />Te, które są w ogrodzie botanicznym.',
       answers: [
-        { answer: 'de',   next: '_ad2' },
-        { answer: 'det',   wrong: true },
-        { answer: 'den',   wrong: true }
+        { answer: 'de',    score: 'correct', next: '_ad2' },
+        { answer: 'det',   score: 'wrong' },
+        { answer: 'den',   score: 'wrong' }
       ]
     },
     _ad2: {
@@ -98,9 +98,9 @@ function LasAudioData() {
       msg:        'Mobilen til bestemora ringer hver time.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er veldig høy.',
       trans:      'Babci telefon dzwoni co godzinę. <br />On jest bardzo głośny.',
       answers: [
-        { answer: 'den',   next: '_ae2' },
-        { answer: 'det',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'den',  score: 'correct', next: '_ae2' },
+        { answer: 'det',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _ae2: {
@@ -116,9 +116,9 @@ function LasAudioData() {
       msg:        'Marius strikker ei lue.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er rød, blå og hvit.',
       trans:      'Marius robi na drutach czapkę. <br />Ona jest czerwona, niebieska i biała.',
       answers: [
-        { answer: 'den',   next: '_af2' },
-        { answer: 'det',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'den',  score: 'correct', next: '_af2' },
+        { answer: 'det',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _af2: {
@@ -134,9 +134,9 @@ function LasAudioData() {
       msg:        'Armstrong kjøper en ny sykkel.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er dyr.',
       trans:      'Armstrong kupuje nowy rower. <br />On jest drogi.',
       answers: [
-        { answer: 'den',   next: '_ag2' },
-        { answer: 'det',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'den',  score: 'correct', next: '_ag2' },
+        { answer: 'det',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _ag2: {
@@ -152,9 +152,9 @@ function LasAudioData() {
       msg:        'Det er mange biler i byen.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er på alle steder.',
       trans:      'Jest dużo samochodów w mieście. <br />One są wszędzie.',
       answers: [
-        { answer: 'de',   next: '_ah2' },
-        { answer: 'det',   wrong: true },
-        { answer: 'den',   wrong: true }
+        { answer: 'de',    score: 'correct', next: '_ah2' },
+        { answer: 'det',   score: 'wrong' },
+        { answer: 'den',   score: 'wrong' }
       ]
     },
     _ah2: {
@@ -170,9 +170,9 @@ function LasAudioData() {
       msg:        'Klara klarer ikke prøven.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er vanskelig.',
       trans:      'Klara nie zalicza sprawdzianu. <br />On jest trudny.',
       answers: [
-        { answer: 'den',   next: '_ai2' },
-        { answer: 'det',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'den',  score: 'correct', next: '_ai2' },
+        { answer: 'det',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _ai2: {
@@ -188,9 +188,9 @@ function LasAudioData() {
       msg:        'Trollene sier at treet er gammelt.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er høyest i hele skogen.',
       trans:      'Trole mówią, że drzewo jest stare. <br />Ono jest najwyższe w całym lesie.',
       answers: [
-        { answer: 'det',   next: '_aj2' },
-        { answer: 'den',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'det',  score: 'correct', next: '_aj2' },
+        { answer: 'den',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _aj2: {
@@ -206,9 +206,9 @@ function LasAudioData() {
       msg:        'Mennesker går på Opera-taket.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er hvitt.',
       trans:      'Ludzie idą na dach Opery. <br />On jest biały.',
       answers: [
-        { answer: 'det',   next: '_ak2' },
-        { answer: 'den',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'det',  score: 'correct', next: '_ak2' },
+        { answer: 'den',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _ak2: {
@@ -224,9 +224,9 @@ function LasAudioData() {
       msg:        'Madonna velger sko.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er svarte.',
       trans:      'Madonna wybiera buty. <br />One są czarne.',
       answers: [
-        { answer: 'de',   next: '_al2' },
-        { answer: 'det',   wrong: true },
-        { answer: 'den',   wrong: true }
+        { answer: 'de',    score: 'correct', next: '_al2' },
+        { answer: 'det',   score: 'wrong' },
+        { answer: 'den',   score: 'wrong' }
       ]
     },
     _al2: {
@@ -242,9 +242,9 @@ function LasAudioData() {
       msg:        'Flyet venter på passasjerer.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er tomt.',
       trans:      'Samolot czeka na pasażerów. <br />Jest pusty.',
       answers: [
-        { answer: 'det',   next: '_am2' },
-        { answer: 'den',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'det',  score: 'correct', next: '_am2' },
+        { answer: 'den',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _am2: {
@@ -260,9 +260,9 @@ function LasAudioData() {
       msg:        'Er rommet ferdig?<br /> Ja, <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er ferdig.',
       trans:      'Czy pokój jest gotowy?<br />Tak, on jest gotowy.',
       answers: [
-        { answer: 'det',   next: '_ba2' },
-        { answer: 'den',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'det',  score: 'correct', next: '_ba2' },
+        { answer: 'den',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _ba2: {
@@ -278,9 +278,9 @@ function LasAudioData() {
       msg:        'Er toalettet ledig? <br />Er <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> ledig?',
       trans:      'Czy łazienka jest wolna?<br />Czy ona jest wolna?',
       answers: [
-        { answer: 'det',   next: '_bb2' },
-        { answer: 'den',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'det',  score: 'correct', next: '_bb2' },
+        { answer: 'den',  score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _bb2: {
@@ -296,9 +296,9 @@ function LasAudioData() {
       msg:        'Hvor kan jeg kjøpe en billett?<br />Du kan kjøpe <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> i kiosken.',
       trans:      'Gdzie mogę kupić bilet? <br />Możesz go kupić w kiosku.',
       answers: [
-        { answer: 'den',   next: '_bc2' },
-        { answer: 'de',   wrong: true },
-        { answer: 'det',   wrong: true }
+        { answer: 'den',  score: 'correct', next: '_bc2' },
+        { answer: 'de',   score: 'wrong' },
+        { answer: 'det',  score: 'wrong' }
       ]
     },
     _bc2: {
@@ -314,9 +314,9 @@ function LasAudioData() {
       msg:        'Hvor er nøklene? <br />Hvor er <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span>?',
       trans:      'Gdzie są klucze?<br />Gdzie one są?',
       answers: [
-        { answer: 'de',   next: '_bd2' },
-        { answer: 'den',   wrong: true },
-        { answer: 'det',   wrong: true }
+        { answer: 'de',    score: 'correct', next: '_bd2' },
+        { answer: 'den',   score: 'wrong' },
+        { answer: 'det',   score: 'wrong' }
       ]
     },
     _bd2: {
@@ -332,9 +332,9 @@ function LasAudioData() {
       msg:        'Er kassa åpen? <br /> Er <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> åpen?',
       trans:      'Czy kasa jest otwarta?<br />Czy ona jest otwarta?',
       answers: [
-        { answer: 'den',   next: '_ca2' },
-        { answer: 'de',   wrong: true },
-        { answer: 'det',   wrong: true }
+        { answer: 'den',  score: 'correct', next: '_ca2' },
+        { answer: 'de',   score: 'wrong' },
+        { answer: 'det',  score: 'wrong' }
       ]
     },
     _ca2: {
@@ -350,9 +350,9 @@ function LasAudioData() {
       msg:        'Er butikken stengt? <br />Ja, <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er stengt.',
       trans:      'Czy sklep jest zamknięty?<br />Tak, on jest zamknięty.',
       answers: [
-        { answer: 'den',   next: '_cb2' },
-        { answer: 'de',   wrong: true },
-        { answer: 'det',   wrong: true }
+        { answer: 'den',  score: 'correct', next: '_cb2' },
+        { answer: 'de',   score: 'wrong' },
+        { answer: 'det',  score: 'wrong' }
       ]
     },
     _cb2: {
@@ -368,9 +368,9 @@ function LasAudioData() {
       msg:        'Er toget komfortabelt?<br />Ja, <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er komfortabelt og stille.',
       trans:      'Czy pociąg jest wygodny? Tak, on jest wygodny.',
       answers: [
-        { answer: 'det',   next: '_cc2' },
-        { answer: 'de',   wrong: true },
-        { answer: 'den',   wrong: true }
+        { answer: 'det',  score: 'correct', next: '_cc2' },
+        { answer: 'de',   score: 'wrong' },
+        { answer: 'den',  score: 'wrong' }
       ]
     },
     _cc2: {

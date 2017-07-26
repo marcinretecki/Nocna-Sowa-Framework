@@ -24,7 +24,7 @@ function LasChatData() {
         '<img src="/las/c/i/rze-pol/3oz8xEpseMV1isTuJq.gif" />'
       ],
       answers: [
-        { answer: '<i>jøss!</i>', next: 'ENDINTRO' }
+        { answer: '<i>yes!</i>', next: 'ENDINTRO' }
       ]
     }
 
@@ -36,8 +36,8 @@ function LasChatData() {
     _aa1: {
       bubbles: [ 'Czy drzewa są policzalne?' ],
       answers: [
-        { answer: 'tak', next: '_aa2', correct: true },
-        { answer: 'nie', next: '_aa1b' }
+        { answer: 'tak', next: '_aa2', score: 'correct' },
+        { answer: 'nie', next: '_aa1b', score: 'wrong' }
       ]
     },
     _aa1b:  {
@@ -46,7 +46,7 @@ function LasChatData() {
         'Zobacz da się je policzyć: <i>et tre, to trær, tre trær</i>...'
       ],
       answers:  [
-        { answer: 'OK. Są policzalne.', next: '_aa2', correct: true }
+        { answer: 'OK. Są policzalne.', next: '_aa2' }
       ]
     },
     _aa2:  {
@@ -59,15 +59,15 @@ function LasChatData() {
     _aa3: {
       bubbles: [ 'Czy drewno jest policzalne?' ],
       answers: [
-        { answer: 'nie', next: '_aa4', correct: true },
-        { answer: 'tak', next: '_aa4' }
+        { answer: 'nie', next: '_aa4', score: 'correct' },
+        { answer: 'tak', next: '_aa4', score: 'wrong' }
       ]
     },
     _aa4:  {
       bubbles: [ 'To jak powiesz: Gdzie jest drewno?' ],
       answers:  [
-        { answer: '<i>Hvor er tre?</i>', next: '_aa5', correct: true },
-        { answer: '<i>Hvor er et tre?</i>', next: '_aa4b' }
+        { answer: '<i>Hvor er tre?</i>', next: '_aa5', score: 'correct' },
+        { answer: '<i>Hvor er et tre?</i>', next: '_aa4b', score: 'wrong' }
       ]
     },
     _aa4b:  {
@@ -100,8 +100,8 @@ function LasChatData() {
         'Czy ten piasek, którym sypie miły pan jest policzalny?'
       ],
       answers: [
-        { answer: 'nie', next: '_ab2', correct: true },
-        { answer: 'tak', next: '_ab1b' }
+        { answer: 'nie', next: '_ab2', score: 'correct' },
+        { answer: 'tak', next: '_ab1b', score: 'wrong' }
       ]
     },
     _ab1b:  {
@@ -116,8 +116,8 @@ function LasChatData() {
         'Dlatego w zdaniu będziesz używać:'
       ],
       answers:  [
-        { answer: '<i>en sand</i>', next: '_ab2b' },
-        { answer: '<i>sand</i>', next: '_ab3', correct: true }
+        { answer: '<i>en sand</i>', next: '_ab2b', score: 'wrong' },
+        { answer: '<i>sand</i>', next: '_ab3', score: 'correct' }
       ]
     },
     _ab2b:  {
@@ -145,8 +145,8 @@ function LasChatData() {
         'Co w takim razie ze śniegiem? Które zdanie jest poprawne?'
       ],
       answers: [
-        { answer: '<i>det er mye snø</i>', next: '_ab5', correct: true },
-        { answer: '<i>det er mange snøer</i>', next: '_ab4b' }
+        { answer: '<i>det er mye snø</i>', next: '_ab5', score: 'correct' },
+        { answer: '<i>det er mange snøer</i>', next: '_ab4b', score: 'wrong' }
       ]
     },
     _ab4b: {
@@ -176,8 +176,8 @@ function LasChatData() {
         'Zgodnie z tą zasadą, powiedz: Jest bardzo niewielu ludzi.'
       ],
       answers: [
-        { answer: '<i>det er veldig lite folk</i>', next: '_ac2', correct: true },
-        { answer: '<i>det er veldig få folk</i>', next: '_ac1b' }
+        { answer: '<i>det er veldig lite folk</i>', next: '_ac2', score: 'correct' },
+        { answer: '<i>det er veldig få folk</i>', next: '_ac1b', score: 'wrong' }
       ]
     },
     _ac1b: {
@@ -189,8 +189,8 @@ function LasChatData() {
     _ac2: {
       bubbles: [ 'Jak jest człowiek?' ],
       answers: [
-        { answer: '<i>et menneske</i>', next: '_ac3', correct: true },
-        { answer: '<i>(et) folk</i>', next: '_ac2b' }
+        { answer: '<i>et menneske</i>', next: '_ac3', score: 'correct' },
+        { answer: '<i>(et) folk</i>', next: '_ac2b', score: 'wrong' }
       ]
     },
     _ac2b: {
@@ -205,8 +205,8 @@ function LasChatData() {
         '<img src="/las/c/i/rze-pol/vcAd8Fgt5yjvi.gif" />'
       ],
       answers: [
-        { answer: 'tak (<i>mennesker/menneskene</i>)', next: '_ac4', correct: true },
-        { answer: 'nigdy', next: '_ac3b' }
+        { answer: 'tak (<i>mennesker/menneskene</i>)', next: '_ac4', score: 'correct' },
+        { answer: 'nigdy', next: '_ac3b', score: 'wrong' }
       ]
     },
     _ac3b: {
@@ -218,7 +218,7 @@ function LasChatData() {
     _ac4: {
       bubbles: [ 'A osoby?' ],
       answers: [
-        { answer: 'policzalne', next: '_ac5', correct: true },
+        { answer: 'policzalne', next: '_ac5', score: 'correct' },
         { answer: 'niepoliczalne', next: '_ac4b' }
       ]
     },
@@ -248,8 +248,8 @@ function LasChatData() {
     _ad2: {
       bubbles: [ 'Czy ta miłość może być policzalna?' ],
       answers: [
-        { answer: 'nie', next: '_ad3', correct: true },
-        { answer: 'tak', next: '_ad2b' }
+        { answer: 'nie', next: '_ad3', score: 'correct' },
+        { answer: 'tak', next: '_ad2b', score: 'wrong' }
       ]
     },
     _ad2b: {
@@ -267,9 +267,9 @@ function LasChatData() {
         'Jak zanotujesz sobie słowo miłość? #emoji-1f49f;'
       ],
       answers:  [
-        { answer: '<i>(ei) kjærlighet</i>', next: '_ad4', correct: true },
-        { answer: '<i>ei kjærlighet</i>', next: '_ad3b' },
-        { answer: '<i>kjærlighet</i>', next: '_ad3b' }
+        { answer: '<i>(ei) kjærlighet</i>', next: '_ad4', score: 'correct' },
+        { answer: '<i>ei kjærlighet</i>', next: '_ad3b', score: 'wrong' },
+        { answer: '<i>kjærlighet</i>', next: '_ad3b', score: 'wrong' }
       ]
     },
     _ad3b:  {
@@ -291,8 +291,8 @@ function LasChatData() {
     _ad5: {
       bubbles: [ 'A radość, szczęście albo smutek?' ],
       answers: [
-        { answer: 'policzalne', next: '_ad5b' },
-        { answer: 'niepoliczalne', next: '_ad6', correct: true }
+        { answer: 'policzalne', next: '_ad5b', score: 'wrong' },
+        { answer: 'niepoliczalne', next: '_ad6', score: 'correct' }
       ]
     },
     _ad5b:  {
@@ -320,8 +320,8 @@ function LasChatData() {
         '<i>Han liker å drikke...</i>'
       ],
       answers: [
-        { answer: '<i>mye vann</i>', next: '_ae2', correct: true },
-        { answer: '<i>mye et vann</i>', next: '_ae1b' }
+        { answer: '<i>mye vann</i>', next: '_ae2', score: 'correct' },
+        { answer: '<i>mye et vann</i>', next: '_ae1b', score: 'wrong' }
       ]
     },
     _ae1b:  {
@@ -336,8 +336,8 @@ function LasChatData() {
         'Czy jeziora mogą być policzalne?'
       ],
       answers: [
-        { answer: 'tak', next: '_ae3', correct: true },
-        { answer: 'nie', next: '_ae2b' }
+        { answer: 'tak', next: '_ae3', score: 'correct' },
+        { answer: 'nie', next: '_ae2b', score: 'wrong' }
       ]
     },
     _ae2b:  {
@@ -352,7 +352,7 @@ function LasChatData() {
     },
     _ae2c:  {
       bubbles:  [
-        'To słow jest jednosylabowe rodzaju <i>et</i>.',
+        'To słowo jest jednosylabowe rodzaju <i>et</i>.',
         'Koniecznie wróć do wyzwania na liczbę mnogą.'
       ],
       answers: [
@@ -365,8 +365,8 @@ function LasChatData() {
         'Czy woda może być w formie określonej? <i>Vannet</i>?'
       ],
       answers: [
-        { answer: 'pewnie', next: '_ae5', correct: true },
-        { answer: 'raczej nie', next: '_ae5' }
+        { answer: 'pewnie', next: '_ae5', score: 'correct' },
+        { answer: 'raczej nie', next: '_ae5', score: 'wrong' }
       ]
     },
     _ae5:  {
@@ -381,9 +381,9 @@ function LasChatData() {
         '<i>Gløgg, saft, vin?</i>'
       ],
       answers: [
-        { answer: 'niepoliczalne', next: '_ae7', correct: true },
-        { answer: 'policzalne', next: '_ae6b' },
-        { answer: '<i>gløgg, saft??</i>', next: '_ae6c' }
+        { answer: 'niepoliczalne', next: '_ae7', score: 'correct' },
+        { answer: 'policzalne', next: '_ae6b', score: 'wrong' },
+        { answer: '<i>gløgg, saft??</i>', next: '_ae6c', score: 'more' }
       ]
     },
     _ae6b: {
@@ -394,8 +394,8 @@ function LasChatData() {
         'Czyli policzalne czy nie?'
       ],
       answers: [
-        { answer: 'niepoliczalne', next: '_ae7', correct: true },
-        { answer: 'policzalne', next: '_ae6b' },
+        { answer: 'niepoliczalne', next: '_ae7', score: 'correct' },
+        { answer: 'policzalne', next: '_ae6b', score: 'wrong' },
       ]
     },
     _ae6c: {
@@ -418,8 +418,8 @@ function LasChatData() {
     _af1: {
       bubbles: [ 'Czy jedzenie jest policzalne?' ],
       answers: [
-        { answer: 'nie', next: '_af2', correct: true },
-        { answer: 'tak', next: '_af2' }
+        { answer: 'nie', next: '_af2', score: 'correct' },
+        { answer: 'tak', next: '_af2', score: 'wrong' }
       ]
     },
     _af2:  {
@@ -435,8 +435,8 @@ function LasChatData() {
     _af3: {
       bubbles: [ 'A mąka, cukier, cynamon?' ],
       answers: [
-        { answer: 'niepoliczalne', next: '_af4', correct: true },
-        { answer: 'policzalne', next: '_af3b' }
+        { answer: 'niepoliczalne', next: '_af4', score: 'correct' },
+        { answer: 'policzalne', next: '_af3b', score: 'wrong' }
       ]
     },
     _af3b:  {
@@ -462,8 +462,8 @@ function LasChatData() {
         'Czy pająk to:'
       ],
       answers: [
-        { answer: '<i>en edderkopp</i>', next: '_af6', correct: true },
-        { answer: '<i>edderkopp</i>', next: '_af5b' }
+        { answer: '<i>en edderkopp</i>', next: '_af6', score: 'correct' },
+        { answer: '<i>edderkopp</i>', next: '_af5b', score: 'wrong' }
       ]
     },
     _af5b:  {
@@ -494,8 +494,8 @@ function LasChatData() {
         'Czy kamienie mogą być policzalne?'
       ],
       answers: [
-        { answer: 'tak', next: '_af9', correct: true },
-        { answer: 'nie', next: '_af8b' }
+        { answer: 'tak', next: '_af9', score: 'correct' },
+        { answer: 'nie', next: '_af8b', score: 'wrong' }
       ]
     },
     _af8b:  {
@@ -524,8 +524,8 @@ function LasChatData() {
         'Użyjesz rodzajnika?'
       ],
       answers: [
-        { answer: '<i>Hun har pent hår.</i>', next: '_ag2', correct: true },
-        { answer: '<i>Hun har et pent hår.</i>', next: '_ag1b' }
+        { answer: '<i>Hun har pent hår.</i>', next: '_ag2', score: 'correct' },
+        { answer: '<i>Hun har et pent hår.</i>', next: '_ag1b', score: 'wrong' }
       ]
     },
     _ag1b:  {
@@ -540,7 +540,7 @@ function LasChatData() {
     _ag2:  {
       bubbles:  [ '<i>Greit!</i>' ],
       answers: [
-        { answer: 'sowo, jak powiedzieć w takim razie jeden włos?', next: '_ag3' },
+        { answer: 'sowo, jak powiedzieć w takim razie jeden włos?', next: '_ag3', score: 'more' },
         { answer: 'dalej', next: 'RANDOM' }
       ]
     },
@@ -560,8 +560,8 @@ function LasChatData() {
     _ah1: {
       bubbles: [ 'Co oznacza określenie: <i>mye lys</i>?' ],
       answers: [
-        { answer: 'dużo światła', next: '_ah2', correct: true },
-        { answer: 'wiele świateł', next: '_ah1b', wrong: true }
+        { answer: 'dużo światła', next: '_ah2', score: 'correct' },
+        { answer: 'wiele świateł', next: '_ah1b', score: 'wrong' }
       ]
     },
     _ah1b:  {
@@ -585,8 +585,8 @@ function LasChatData() {
         'Użyjesz rodzajnika czy nie?'
       ],
       answers: [
-        { answer: '<i>lokal tåke</i>', next: '_aj2', correct: true },
-        { answer: '<i>ei lokal tåke</i>', next: '_aj1b', wrong: true }
+        { answer: '<i>lokal tåke</i>', next: '_aj2', score: 'correct' },
+        { answer: '<i>ei lokal tåke</i>', next: '_aj1b', score: 'wrong' }
       ]
     },
     _aj1b:  {
@@ -604,8 +604,8 @@ function LasChatData() {
         'Czy deszcz jest policzalny?'
       ],
       answers: [
-        { answer: 'policzalny', next: '_aj3b' },
-        { answer: 'niepoliczalny', next: '_aj4', correct: true }
+        { answer: 'policzalny', next: '_aj3b', score: 'wrong' },
+        { answer: 'niepoliczalny', next: '_aj4', score: 'correct' }
       ]
     },
     _aj3b:  {
@@ -624,8 +624,8 @@ function LasChatData() {
     _aj5: {
       bubbles: [ 'Jest mało deszczu tej jesieni.' ],
       answers: [
-        { answer: '<i>det er få regn i høst</i>', next: '_aj5b' },
-        { answer: '<i>det er lite regn i høst</i>', next: '_aj6', correct: true }
+        { answer: '<i>det er få regn i høst</i>', next: '_aj5b', score: 'wrong' },
+        { answer: '<i>det er lite regn i høst</i>', next: '_aj6', score: 'correct' }
       ]
     },
     _aj5b:  {

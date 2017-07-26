@@ -25,9 +25,9 @@ function LasAudioData() {
       msg:        'Politikerne vet ikke hvor pengene er.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er overraskede.',
       trans:      'Politycy nie wiedzą gdzie są pieniądze. <br />Oni są zaskoczeni.',
       answers: [
-        { answer: 'de',   next: '_aa2', correct: true },
-        { answer: 'den',   wrong: true },
-        { answer: 'han',   wrong: true }
+        { answer: 'de',   next: '_aa2', score: 'correct' },
+        { answer: 'den',   score: 'wrong' },
+        { answer: 'han',   score: 'wrong' }
       ]
     },
     _aa2: {
@@ -43,9 +43,9 @@ function LasAudioData() {
       msg:        'Naboene vil bo på landet.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er 80 år gamle.',
       trans:      'Sąsiedzi chcą mieszkać na wsi. <br />Oni mają 80 lat.',
       answers: [
-        { answer: 'de',   next: '_ab2', correct: true },
-        { answer: 'den',   wrong: true },
-        { answer: 'hun',   wrong: true }
+        { answer: 'de',   next: '_ab2', score: 'correct' },
+        { answer: 'den',   score: 'wrong' },
+        { answer: 'hun',   score: 'wrong' }
       ]
     },
     _ab2: {
@@ -61,9 +61,9 @@ function LasAudioData() {
       msg:        'Tom ser etter en ring til kjæresta.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> heter Anne.',
       trans:      'Tom szuka pierścionka dla dziewczyny. <br />Ona nazywa się Anne.',
       answers: [
-        { answer: 'hun',   next: '_ac2', correct: true },
-        { answer: 'de',   wrong: true },
-        { answer: 'den',   wrong: true }
+        { answer: 'hun',   next: '_ac2', score: 'correct' },
+        { answer: 'de',   score: 'wrong' },
+        { answer: 'den',   score: 'wrong' }
       ]
     },
     _ac2: {
@@ -79,9 +79,9 @@ function LasAudioData() {
       msg:        'Jesus går på vannet.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> kan mye.',
       trans:      'Jezus chodzi po wodzie. <br />On może/potrafi dużo.',
       answers: [
-        { answer: 'han',   next: '_ad2', correct: true },
-        { answer: 'det',   wrong: true },
-        { answer: 'hun',   wrong: true }
+        { answer: 'han',   next: '_ad2', score: 'correct' },
+        { answer: 'det',   score: 'wrong' },
+        { answer: 'hun',   score: 'wrong' }
       ]
     },
     _ad2: {
@@ -97,9 +97,9 @@ function LasAudioData() {
       msg:        'Barna lærer å bruke mobilen.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er flinke.',
       trans:      'Dzieci uczą się używać telefon. <br />One są zdolne.',
       answers: [
-        { answer: 'de',   next: '_af2', correct: true },
-        { answer: 'det',   wrong: true },
-        { answer: 'den',   wrong: true }
+        { answer: 'de',   next: '_af2', score: 'correct' },
+        { answer: 'det',   score: 'wrong' },
+        { answer: 'den',   score: 'wrong' }
       ]
     },
     _af2: {
@@ -115,9 +115,9 @@ function LasAudioData() {
       msg:        'Henrik Ibsen skriver et drama.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> trenger stillhet.',
       trans:      'Henrik Ibsen pisze dramat. <br />On potrzebuje ciszy.',
       answers: [
-        { answer: 'han',   next: '_ag2', correct: true },
-        { answer: 'hun',   wrong: true },
-        { answer: 'vi',   wrong: true }
+        { answer: 'han',   next: '_ag2', score: 'correct' },
+        { answer: 'hun',   score: 'wrong' },
+        { answer: 'vi',   score: 'wrong' }
       ]
     },
     _ag2: {
@@ -133,9 +133,9 @@ function LasAudioData() {
       msg:        'Edison setter inn ei lyspære.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> skifter dem ofte.',
       trans:      'Edison wkręca żarówkę. <br />On wymienia je często.',
       answers: [
-        { answer: 'han',   next: '_ah2', correct: true },
-        { answer: 'det',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'han',   next: '_ah2', score: 'correct' },
+        { answer: 'det',   score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _ah2: {
@@ -151,9 +151,9 @@ function LasAudioData() {
       msg:        'Maleren maler veggen.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> blir kunstner.',
       trans:      'Malarz maluje ścianę. <br />On zostanie artystą.',
       answers: [
-        { answer: 'han',   next: '_ai2', correct: true },
-        { answer: 'det',   wrong: true },
-        { answer: 'dere',   wrong: true }
+        { answer: 'han',   next: '_ai2', score: 'correct' },
+        { answer: 'det',   score: 'wrong' },
+        { answer: 'dere',   score: 'wrong' }
       ]
     },
     _ai2: {
@@ -169,9 +169,9 @@ function LasAudioData() {
       msg:        'Elvis synger for alle.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> lever fortsatt.',
       trans:      'Elvis śpiewa dla wszystkich. On wciąż żyje.',
       answers: [
-        { answer: 'han',   next: '_aj2', correct: true },
-        { answer: 'hun',   wrong: true },
-        { answer: 'den',   wrong: true }
+        { answer: 'han',   next: '_aj2', score: 'correct' },
+        { answer: 'hun',   score: 'wrong' },
+        { answer: 'den',   score: 'wrong' }
       ]
     },
     _aj2: {
@@ -187,9 +187,9 @@ function LasAudioData() {
       msg:        'Pamela soler seg på stranda.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> har ei rød badedrakt.',
       trans:      'Pamela opala się na plaży. <br />Ona ma czerwony strój kąpielowy.',
       answers: [
-        { answer: 'hun',   next: '_ah2', correct: true },
-        { answer: 'det',   wrong: true },
-        { answer: 'han',   wrong: true }
+        { answer: 'hun',   next: '_ah2', score: 'correct' },
+        { answer: 'det',   score: 'wrong' },
+        { answer: 'han',   score: 'wrong' }
       ]
     },
     _ah2: {
@@ -205,9 +205,9 @@ function LasAudioData() {
       msg:        'Amundsen kan ikke komme tilbake hjem.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er noe sted i nord.',
       trans:      'Amundsen nie może wrócić do domu. <br />On jest gdzieś na północy.',
       answers: [
-        { answer: 'han',   next: '_ak2', correct: true },
-        { answer: 'jeg',   wrong: true },
-        { answer: 'du',   wrong: true }
+        { answer: 'han',   next: '_ak2', score: 'correct' },
+        { answer: 'jeg',   score: 'wrong' },
+        { answer: 'du',   score: 'wrong' }
       ]
     },
     _ak2: {
@@ -223,9 +223,9 @@ function LasAudioData() {
       msg:        'Skłodowska jobber i laboratoriet.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er den første kvinnelige professoren.',
       trans:      'Skłodowska pracuje w laboratorium. <br />Ona jest pierwszą kobietą profesorem.',
       answers: [
-        { answer: 'hun',   next: '_al2', correct: true },
-        { answer: 'han',   wrong: true },
-        { answer: 'henne',   wrong: true }
+        { answer: 'hun',   next: '_al2', score: 'correct' },
+        { answer: 'han',   score: 'wrong' },
+        { answer: 'henne',   score: 'wrong' }
       ]
     },
     _al2: {
@@ -241,9 +241,9 @@ function LasAudioData() {
       msg:        'Folk streiker på gata.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er sinte.',
       trans:      'Ludzie strajkują na ulicy. <br />Oni są źli.',
       answers: [
-        { answer: 'de',   next: '_am2', correct: true },
-        { answer: 'den',   wrong: true },
-        { answer: 'han',   wrong: true }
+        { answer: 'de',   next: '_am2', score: 'correct' },
+        { answer: 'den',   score: 'wrong' },
+        { answer: 'han',   score: 'wrong' }
       ]
     },
     _am2: {
@@ -259,9 +259,9 @@ function LasAudioData() {
       msg:        'Hvor er Chuck Norris? <br/> Hvor er <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span>?',
       trans:      'Gdzie jest Chuck Norris? <br />Gdzie on jest?',
       answers: [
-        { answer: 'han',   next: '_ba2', correct: true },
-        { answer: 'hun',   wrong: true },
-        { answer: 'du',   wrong: true }
+        { answer: 'han',   next: '_ba2', score: 'correct' },
+        { answer: 'hun',   score: 'wrong' },
+        { answer: 'du',   score: 'wrong' }
       ]
     },
     _ba2: {
@@ -277,9 +277,9 @@ function LasAudioData() {
       msg:        'Hva gjør Scarlett?<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> sitter ved vinduet.',
       trans:      'Co robi Scarlett? <br />Ona siedzi przy oknie.',
       answers: [
-        { answer: 'hun',   next: '_bb2', correct: true },
-        { answer: 'han',   wrong: true },
-        { answer: 'jeg',   wrong: true }
+        { answer: 'hun',   next: '_bb2', score: 'correct' },
+        { answer: 'han',   score: 'wrong' },
+        { answer: 'jeg',   score: 'wrong' }
       ]
     },
     _bb2: {
@@ -295,9 +295,9 @@ function LasAudioData() {
       msg:        'Lager Penelope og Woody en film?<br />Ja, <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> liker å jobbe sammen.',
       trans:      'Czy Penelope i Woody robią film? <br />Tak, oni lubią razem pracować.',
       answers: [
-        { answer: 'de',   next: '_bc2', correct: true },
-        { answer: 'hun',   wrong: true },
-        { answer: 'han',   wrong: true }
+        { answer: 'de',   next: '_bc2', score: 'correct' },
+        { answer: 'hun',   score: 'wrong' },
+        { answer: 'han',   score: 'wrong' }
       ]
     },
     _bc2: {
@@ -313,9 +313,9 @@ function LasAudioData() {
       msg:        'Kommer Marilyn Monroe i dag?<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> kan ikke.',
       trans:      'Czy Marilyn Monroe przyjdzie dziś? <br />Ona nie może.',
       answers: [
-        { answer: 'hun',   next: '_bd2', correct: true },
-        { answer: 'han',   wrong: true },
-        { answer: 'dere',   wrong: true }
+        { answer: 'hun',   next: '_bd2', score: 'correct' },
+        { answer: 'han',   score: 'wrong' },
+        { answer: 'dere',   score: 'wrong' }
       ]
     },
     _bd2: {
@@ -331,9 +331,9 @@ function LasAudioData() {
       msg:        'Gutten spiser fort. <br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er veldig sulten.',
       trans:      'Chłopiec je szybko. <br />On jest bardzo głodny.',
       answers: [
-        { answer: 'han',   next: '_ba2', correct: true },
-        { answer: 'hun',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'han',   next: '_ba2', score: 'correct' },
+        { answer: 'hun',   score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _ba2: {
@@ -349,9 +349,9 @@ function LasAudioData() {
       msg:        'Jeg og kona mi kjøper en sofa. <br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> må velge fargen.',
       trans:      'Ja i moja żona kupujemy sofę. <br />Musimy wybrać kolor.',
       answers: [
-        { answer: 'vi',   next: '_bb2', correct: true },
-        { answer: 'dere',   wrong: true },
-        { answer: 'de',   wrong: true }
+        { answer: 'vi',   next: '_bb2', score: 'correct' },
+        { answer: 'dere',   score: 'wrong' },
+        { answer: 'de',   score: 'wrong' }
       ]
     },
     _bb2: {
@@ -367,9 +367,9 @@ function LasAudioData() {
       msg:        'Barna spiser vafler med brunost og syltetøy. <br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> liker søtsaker.',
       trans:      'Dzieci jedzą gofry z brązowym serem i dżemem. <br />One lubią słodycze.',
       answers: [
-        { answer: 'de',   next: '_bc2', correct: true },
-        { answer: 'vi',   wrong: true },
-        { answer: 'han',   wrong: true }
+        { answer: 'de',   next: '_bc2', score: 'correct' },
+        { answer: 'vi',   score: 'wrong' },
+        { answer: 'han',   score: 'wrong' }
       ]
     },
     _bc2: {

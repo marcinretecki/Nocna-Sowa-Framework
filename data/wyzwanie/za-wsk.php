@@ -32,9 +32,9 @@ function LasAudioData() {
       msg:        'Hvorfor står  <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> tigeren foran Oslo S?',
       trans:      'Dlaczego ten tygrys stoi przed Oslo S?',
       answers: [
-        { answer: 'denne',   next: '_aa2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'denne',   score: 'correct', next: '_aa2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _aa2: {
@@ -50,9 +50,9 @@ function LasAudioData() {
       msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> jentene spiser her hver dag.',
       trans:      'Te dziewczyny jedzą tu codziennie.',
       answers: [
-        { answer: 'disse',   next: '_aa2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'denne',   wrong: true }
+        { answer: 'disse',   score: 'correct', next: '_aa2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'denne',   score: 'wrong' }
       ]
     },
     _ab2: {
@@ -68,9 +68,9 @@ function LasAudioData() {
       msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> huset er ikke til salgs.',
       trans:      'Ten dom nie jest na sprzedaż.',
       answers: [
-        { answer: 'dette',   next: '_ac2' },
-        { answer: 'denne',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'dette',   score: 'correct', next: '_ac2' },
+        { answer: 'denne',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _ac2: {
@@ -86,9 +86,9 @@ function LasAudioData() {
       msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> krydderet kommer fra Bangladesh.',
       trans:      'Ta przyprawa pochodzi z Bangladeszu.',
       answers: [
-        { answer: 'dette',   next: '_ad2' },
-        { answer: 'denne',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'dette',   score: 'correct', next: '_ad2' },
+        { answer: 'denne',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _ad2: {
@@ -104,9 +104,9 @@ function LasAudioData() {
       msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> roboten kan snakke med deg.',
       trans:      'Ten robot może rozmawiać z Tobą.',
       answers: [
-        { answer: 'denne',   next: '_ae2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'denne',   score: 'correct', next: '_ae2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _ae2: {
@@ -122,9 +122,9 @@ function LasAudioData() {
       msg:        'Det er ikke mulig å åpne  <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> vinduene.',
       trans:      'Nie jest możliwe otworzenie tych okien.',
       answers: [
-        { answer: 'disse',   next: '_af2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'denne',   wrong: true }
+        { answer: 'disse',   score: 'correct', next: '_af2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'denne',   score: 'wrong' }
       ]
     },
     _af2: {
@@ -140,9 +140,9 @@ function LasAudioData() {
       msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> vaskemaskinen virker ikke.',
       trans:      'Ta pralka nie działa.',
       answers: [
-        { answer: 'denne',   next: '_ag2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'denne',   score: 'correct', next: '_ag2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _ag2: {
@@ -158,9 +158,9 @@ function LasAudioData() {
       msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> dagen kan være pen.',
       trans:      'Ten dzień może być piękny.',
       answers: [
-        { answer: 'denne',   next: '_ah2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'denne',   score: 'correct', next: '_ah2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _ah2: {
@@ -176,9 +176,9 @@ function LasAudioData() {
       msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> krigen kan ikke avsluttes.',
       trans:      'Ta wojna nie może się skończyć.',
       answers: [
-        { answer: 'denne',   next: '_ai2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'denne',   score: 'correct', next: '_ai2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _ai2: {
@@ -194,9 +194,9 @@ function LasAudioData() {
       msg:        '<span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> mannen vil ikke slutte å røyke.',
       trans:      'Ten mężczyzna nie chce rzucić palenia.',
       answers: [
-        { answer: 'denne',   next: '_aj2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'denne',   score: 'correct', next: '_aj2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _aj2: {
@@ -212,9 +212,9 @@ function LasAudioData() {
       msg:        '<span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> lysene er veldig sterke.',
       trans:      'Te światła są bardzo silne.',
       answers: [
-        { answer: 'disse',   next: '_ak2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'denne',   wrong: true }
+        { answer: 'disse',   score: 'correct', next: '_ak2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'denne',   score: 'wrong' }
       ]
     },
     _ak2: {
@@ -230,9 +230,9 @@ function LasAudioData() {
       msg:        '<span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> flyet flyr til Dubai.',
       trans:      'Ten samolot leci do Dubaju.',
       answers: [
-        { answer: 'dette',   next: '_al2' },
-        { answer: 'denne',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'dette',   score: 'correct', next: '_al2' },
+        { answer: 'denne',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _al2: {
@@ -248,9 +248,9 @@ function LasAudioData() {
       msg:        'Det er morsomt på  <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> kurset.',
       trans:      'Jest wesoło na tym kursie.',
       answers: [
-        { answer: 'dette',   next: '_am2' },
-        { answer: 'denne',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'dette',   score: 'correct', next: '_am2' },
+        { answer: 'denne',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _am2: {
@@ -266,9 +266,9 @@ function LasAudioData() {
       msg:        'Det er koselig på <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> hytta.',
       trans:      'Jest przytulnie w tej chatce.',
       answers: [
-        { answer: 'denne',   next: '_an2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'denne',   score: 'correct', next: '_an2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _an2: {
@@ -284,9 +284,9 @@ function LasAudioData() {
       msg:        '<span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> bussene er veldig raske.',
       trans:      'Te autobusy są bardzo szybkie.',
       answers: [
-        { answer: 'disse',   next: '_ao2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'denne',   wrong: true }
+        { answer: 'disse',   score: 'correct', next: '_ao2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'denne',   score: 'wrong' }
       ]
     },
     _ao2: {
@@ -302,9 +302,9 @@ function LasAudioData() {
       msg:        '<span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> gummistøvlene er våte inne.',
       trans:      'Te kalosze są mokre w środku.',
       answers: [
-        { answer: 'disse',   next: '_ap2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'denne',   wrong: true }
+        { answer: 'disse',   score: 'correct', next: '_ap2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'denne',   score: 'wrong' }
       ]
     },
     _ap2: {
@@ -320,9 +320,9 @@ function LasAudioData() {
       msg:        'Hvorfor ringer <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> kvinna fra Aftenposten til oss?',
       trans:      'Dlaczego dzwoni ta kobieta z Aftenposten do nas?',
       answers: [
-        { answer: 'denne',   next: '_ba2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'denne',   score: 'correct', next: '_ba2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _ba2: {
@@ -338,9 +338,9 @@ function LasAudioData() {
       msg:        'Hvor kan jeg legge <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> pakkene?',
       trans:      'Gdzie mogę położyć te paczki?',
       answers: [
-        { answer: 'disse',   next: '_bb2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'denne',   wrong: true }
+        { answer: 'disse',   score: 'correct', next: '_bb2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'denne',   score: 'wrong' }
       ]
     },
     _bb2: {
@@ -356,9 +356,9 @@ function LasAudioData() {
       msg:        'Hvem er sjefen for <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> firmaet?',
       trans:      'Gdzie jest szef tej firmy?',
       answers: [
-        { answer: 'dette',   next: '_bc2' },
-        { answer: 'disse',   wrong: true },
-        { answer: 'denne',   wrong: true }
+        { answer: 'dette',   score: 'correct', next: '_bc2' },
+        { answer: 'disse',   score: 'wrong' },
+        { answer: 'denne',   score: 'wrong' }
       ]
     },
     _bc2: {
@@ -374,9 +374,9 @@ function LasAudioData() {
       msg:        'Hva gjør <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> hunden her?',
       trans:      'Co robi ten pies tutaj?',
       answers: [
-        { answer: 'denne',   next: '_bd2' },
-        { answer: 'dette',   wrong: true },
-        { answer: 'disse',   wrong: true }
+        { answer: 'denne',   score: 'correct', next: '_bd2' },
+        { answer: 'dette',   score: 'wrong' },
+        { answer: 'disse',   score: 'wrong' }
       ]
     },
     _bd2: {

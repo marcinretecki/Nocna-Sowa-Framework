@@ -31,8 +31,8 @@ function LasAudioData() {
       startTime:  0,
       duration:   1.5,
       answers: [
-        { answer: 'barnet', next: '_aa2' },
-        { answer: 'et barn', wrong: true }
+        { answer: 'barnet', next: '_aa2', score: 'correct' },
+        { answer: 'et barn', score: 'wrong' }
       ],
       more:       {
         startTime:  5,
@@ -56,8 +56,8 @@ function LasAudioData() {
     _bb1: {
       msg:        'Powiedz <span class="audio-test-clue">ta żona</span>. (no audio on q)',
       answers: [
-        { answer: 'kona', next: '_bb2' },
-        { answer: 'ei kone', wrong: true }
+        { answer: 'kona', next: '_bb2', score: 'correct' },
+        { answer: 'ei kone', score: 'wrong' }
       ]
     },
     _bb2: {
@@ -75,8 +75,8 @@ function LasAudioData() {
     _bd1: {
       msg:        'Powiedz <span class="audio-test-clue">ta żona</span>. (no audio on q&a)',
       answers: [
-        { answer: 'kona', next: '_bd2' },
-        { answer: 'ei kone', wrong: true }
+        { answer: 'kona', next: '_bd2', score: 'correct' },
+        { answer: 'ei kone', score: 'wrong' }
       ]
     },
     _bd2: {
@@ -114,8 +114,8 @@ function LasAudioData() {
       startTime:  0,
       duration:   1.5 - 0,
       answers: [
-        { answer: 'barnet', next: '_dd2' },
-        { answer: 'et barn', wrong: true }
+        { answer: 'barnet', next: '_dd2', score: 'correct' },
+        { answer: 'et barn', score: 'wrong' }
       ],
 
     },

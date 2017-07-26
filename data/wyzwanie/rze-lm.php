@@ -53,8 +53,8 @@ function LasChatData() {
         '<i>Ei hytte</i> to <q>chatka</q>, albo <q>domek letniskowy</q>. Jak powiesz o kilku nieokreślonych?'
       ],
       answers: [
-        { answer: '<i>hytter</i>', next: '_hytte2', correct: true },
-        { answer: '<i>hytten</i>', next: '_hytte1b', wrong: true }
+        { answer: '<i>hytter</i>', next: '_hytte2', score: 'correct' },
+        { answer: '<i>hytten</i>', next: '_hytte1b', score: 'wrong' }
       ]
 
     },
@@ -82,8 +82,8 @@ function LasChatData() {
         '<i>Hyllene</i> to <q>półki</q> w formie:'
       ],
       answers: [
-        { answer: 'określonej', next: '_hylle2', correct: true },
-        { answer: 'nieokreślonej', next: '_hylle1b', wrong: true }
+        { answer: 'określonej', next: '_hylle2', score: 'correct' },
+        { answer: 'nieokreślonej', next: '_hylle1b', score: 'wrong' }
       ]
 
     },
@@ -106,8 +106,8 @@ function LasChatData() {
         '<i>Vinduer</i> to <q>okna</q> w formie:'
       ],
       answers: [
-        { answer: 'określonej', next: '_vindu1b', wrong: true },
-        { answer: 'nieokreślonej', next: '_vindu2', correct: true },
+        { answer: 'określonej', next: '_vindu1b', score: 'wrong' },
+        { answer: 'nieokreślonej', next: '_vindu2', score: 'correct' },
         { answer: 'yyy nie mam pewności', next: '_vindu1b' }
       ]
 
@@ -126,8 +126,8 @@ function LasChatData() {
         '<img src="/las/c/i/rze-lm/f6e94ec71e4793db94fa14b5097c8459acdf4f33.gif" />'
       ],
       answers: [
-        { answer: 'określonej', next: '_vindu1b', wrong: true },
-        { answer: 'nieokreślonej', next: '_vindu2', correct: true },
+        { answer: 'określonej', next: '_vindu1b', score: 'wrong' },
+        { answer: 'nieokreślonej', next: '_vindu2', score: 'correct' },
       ]
     },
     _vindu2: {
@@ -144,8 +144,8 @@ function LasChatData() {
         '<q>Podłogi</q> nieokreślone to:'
       ],
       answers: [
-        { answer: '<i>gulver</i>', next: '_gulv1b', wrong: true },
-        { answer: '<i>gulv</i>', next: '_gulv2', correct: true }
+        { answer: '<i>gulver</i>', next: '_gulv1b', score: 'wrong' },
+        { answer: '<i>gulv</i>', next: '_gulv2', score: 'correct' }
       ]
 
     },
@@ -172,8 +172,8 @@ function LasChatData() {
         'Jak będą określone <q>stoły</q>?'
       ],
       answers: [
-        { answer: '<i>bord</i>', next: '_bord1b', wrong: true },
-        { answer: '<i>bordene</i>', next: '_bord2', correct: true }
+        { answer: '<i>bord</i>', next: '_bord1b', score: 'wrong' },
+        { answer: '<i>bordene</i>', next: '_bord2', score: 'correct' }
       ]
 
     },
@@ -292,8 +292,8 @@ function LasChatData() {
     _mobil1: {
       bubbles: ['<i>Mobiler</i> znaczy:'],
       answers: [
-        { answer: 'samochody', next: '_mobil1b', wrong: true },
-        { answer: 'telefony', next: '_mobil2', correct: true }
+        { answer: 'samochody', next: '_mobil1b', score: 'wrong' },
+        { answer: 'telefony', next: '_mobil2', score: 'correct' }
       ]
 
     },
@@ -318,8 +318,8 @@ function LasChatData() {
     _melding1: {
       bubbles: ['<q>Mam dwie wiadomości.</q> Jak to powiesz po norwesku? <i>Jeg har to...</i>'],
       answers: [
-        { answer: '<i>meldinge</i>', next: '_melding1b', wrong: true },
-        { answer: '<i>meldinger</i>', next: '_melding2', correct: true }
+        { answer: '<i>meldinge</i>', next: '_melding1b', score: 'wrong' },
+        { answer: '<i>meldinger</i>', next: '_melding2', score: 'correct' }
       ]
 
     },
@@ -340,8 +340,8 @@ function LasChatData() {
     _speil1: {
       bubbles: ['<q>Lustra</q> nieokreślone to:'],
       answers: [
-        { answer: '<i>speil</i>', next: '_speil2', correct: true },
-        { answer: '<i>speiler</i>', next: '_speil1b', wrong: true }
+        { answer: '<i>speil</i>', next: '_speil2', score: 'correct' },
+        { answer: '<i>speiler</i>', next: '_speil1b', score: 'wrong' }
       ]
 
     },
@@ -383,8 +383,8 @@ function LasChatData() {
         '<q>Autobusy</q> nieokreślone to:'
       ],
       answers: [
-        { answer: '<i>busser</i>', next: '_buss2', correct: true },
-        { answer: '<i>buss</i>', next: '_buss1b', wrong: true }
+        { answer: '<i>busser</i>', next: '_buss2', score: 'correct' },
+        { answer: '<i>buss</i>', next: '_buss1b', score: 'wrong' }
       ]
 
     },
@@ -407,8 +407,8 @@ function LasChatData() {
     _tog1: {
       bubbles: ['<q>Pociągi</q> nieokreślone to:'],
       answers: [
-        { answer: '<i>toger</i>', next: '_tog1b', wrong: true },
-        { answer: '<i>tog</i>', next: '_tog2', correct: true }
+        { answer: '<i>toger</i>', next: '_tog1b', score: 'wrong' },
+        { answer: '<i>tog</i>', next: '_tog2', score: 'correct' }
       ]
 
     },
@@ -421,8 +421,8 @@ function LasChatData() {
     _tog2: {
       bubbles: ['<i>Fint!</i> <span class="no-break">#emoji-1f682;#emoji-1f683;#emoji-1f683;</span>', 'Określone <q>pociągi</q> to:'],
       answers: [
-        { answer: '<i>tog</i>', next: '_tog2b', wrong: true },
-        { answer: '<i>togene</i>', next: '_tog3', correct: true }
+        { answer: '<i>tog</i>', next: '_tog2b', score: 'wrong' },
+        { answer: '<i>togene</i>', next: '_tog3', score: 'correct' }
       ]
 
     },
@@ -445,8 +445,8 @@ function LasChatData() {
     _blomst1: {
       bubbles: ['<q>Kwiaty</q> określone to:'],
       answers: [
-        { answer: '<i>blomster</i>', next: '_blomst1b', wrong: true },
-        { answer: '<i>blomstene</i>', next: '_blomst2', correct: true }
+        { answer: '<i>blomster</i>', next: '_blomst1b', score: 'wrong' },
+        { answer: '<i>blomstene</i>', next: '_blomst2', score: 'correct' }
       ]
 
     },
@@ -471,8 +471,8 @@ function LasChatData() {
     _hus1: {
       bubbles: ['<q>Domy</q>, takie dowolne, to:'],
       answers: [
-        { answer: '<i>hus</i>', next: '_hus2', correct: true },
-        { answer: '<i>husene</i>', next: '_hus1b', wrong: true }
+        { answer: '<i>hus</i>', next: '_hus2', score: 'correct' },
+        { answer: '<i>husene</i>', next: '_hus1b', score: 'wrong' }
       ]
 
     },
@@ -497,8 +497,8 @@ function LasChatData() {
     _seng1: {
       bubbles: ['<q>Łóżka</q> określone?'],
       answers: [
-        { answer: '<i>sagene</i>', next: '_seng1b', wrong: true },
-        { answer: '<i>sengene</i>', next: '_seng2', correct: true }
+        { answer: '<i>sagene</i>', next: '_seng1b', score: 'wrong' },
+        { answer: '<i>sengene</i>', next: '_seng2', score: 'correct' }
       ]
 
     },
@@ -522,8 +522,8 @@ function LasChatData() {
         '<i>En munn</i> to <q>usta</q>. Jedne, bo jest rodzajnik. A kilka dowolnych?'
       ],
       answers: [
-        { answer: '<i>munner</i>', next: '_munn2', correct: true },
-        { answer: '<i>munnene</i>', next: '_munn1b', wrong: true }
+        { answer: '<i>munner</i>', next: '_munn2', score: 'correct' },
+        { answer: '<i>munnene</i>', next: '_munn1b', score: 'wrong' }
       ]
 
     },
@@ -543,12 +543,12 @@ function LasChatData() {
 
     _kontakt1: {
       bubbles: [
-        'Jak powiesz: <q>On ma wiele kontaktów</q>?',
-        '<i>Han har mange...</i>'
+        'Jak powiesz: <q>Ona ma wiele kontaktów</q>?',
+        '<i>Hun har mange...</i>'
       ],
       answers: [
-        { answer: '<i>kontakter</i>', next: '_kontakt2', correct: true },
-        { answer: '<i>kontaktene</i>', next: '_kontakt1b', wrong: true }
+        { answer: '<i>kontakter</i>', next: '_kontakt2', score: 'correct' },
+        { answer: '<i>kontaktene</i>', next: '_kontakt1b', score: 'wrong' }
       ]
 
     },
@@ -561,7 +561,10 @@ function LasChatData() {
       ]
     },
     _kontakt2: {
-      bubbles: ['Tak jest. #emoji-260e;#emoji-1f4de;#emoji-1f4e0;#emoji-1f50c;'],
+      bubbles: [
+        '<i>Bra jobba!</i>',
+        '<img src="/las/c/i/rze-lm/xT5LMAuwtyatXjME3m.gif" />'
+      ],
       autoNext: 'RANDOM'
     },
 
@@ -569,8 +572,8 @@ function LasChatData() {
     _menneske1: {
       bubbles: ['Nieokreśleni <q>ludzie</q> to:'],
       answers: [
-        { answer: '<i>folkene</i>', next: '_menneske1b', wrong: true },
-        { answer: '<i>mennesker</i>', next: '_menneske2', correct: true }
+        { answer: '<i>folkene</i>', next: '_menneske1b', score: 'wrong' },
+        { answer: '<i>mennesker</i>', next: '_menneske2', score: 'correct' }
       ]
 
     },
@@ -593,8 +596,8 @@ function LasChatData() {
     _skip1: {
       bubbles: ['Kilka nieokreślonych <q>statków</q> na fiordzie, to...'],
       answers: [
-        { answer: '<i>skip</i>', next: '_skip2', correct: true },
-        { answer: '<i>skiper</i>', next: '_skip1b', wrong: true }
+        { answer: '<i>skip</i>', next: '_skip2', score: 'correct' },
+        { answer: '<i>skiper</i>', next: '_skip1b', score: 'wrong' }
       ]
     },
     _skip1b: {
@@ -615,8 +618,8 @@ function LasChatData() {
     _dyr1: {
       bubbles: ['Określone <q>zwierzęta</q>? #emoji-1f429;#emoji-1f415;#emoji-1f408;'],
       answers: [
-        { answer: '<i>dyr</i>', next: '_dyr1b', wrong: true },
-        { answer: '<i>dyrene</i>', next: '_dyr2', correct: true }
+        { answer: '<i>dyr</i>', next: '_dyr1b', score: 'wrong' },
+        { answer: '<i>dyrene</i>', next: '_dyr2', score: 'correct' }
       ]
 
     },
@@ -635,8 +638,8 @@ function LasChatData() {
     _avtale1: {
       bubbles: ['Jedna <q>umowa</q> to: <i>en avtale</i>. Kilka określonych to...'],
       answers: [
-        { answer: '<i>avtalene</i>', next: '_avtale2', correct: true },
-        { answer: '<i>avtala</i>', next: '_avtale1b', wrong: true }
+        { answer: '<i>avtalene</i>', next: '_avtale2', score: 'correct' },
+        { answer: '<i>avtala</i>', next: '_avtale1b', score: 'wrong' }
       ]
 
     },
@@ -659,8 +662,8 @@ function LasChatData() {
         'Nieokreślone <q>szczyty</q>? <span class="no-break">#emoji-1f3d4;#emoji-1f3d4;</span>'
       ],
       answers: [
-        { answer: '<i>topp</i>', next: '_topp1b', wrong: true },
-        { answer: '<i>topper</i>', next: '_topp2', correct: true }
+        { answer: '<i>topp</i>', next: '_topp1b', score: 'wrong' },
+        { answer: '<i>topper</i>', next: '_topp2', score: 'correct' }
       ]
 
     },
@@ -681,8 +684,8 @@ function LasChatData() {
     _oy1: {
       bubbles: ['<q>Wyspy</q> określone to...'],
       answers: [
-        { answer: '<i>øyer</i>', next: '_oy1b', wrong: true },
-        { answer: '<i>øyene</i>', next: '_oy2', correct: true }
+        { answer: '<i>øyer</i>', next: '_oy1b', score: 'wrong' },
+        { answer: '<i>øyene</i>', next: '_oy2', score: 'correct' }
       ]
 
     },
@@ -701,8 +704,8 @@ function LasChatData() {
     _dekk1: {
       bubbles: ['<q>Zmienić opony</q> (nieokreślone) to: <i>skifte ...</i>'],
       answers: [
-        { answer: '<i>dekk</i>', next: '_dekk2', correct: true },
-        { answer: '<i>dekker</i>', next: '_dekk1b', wrong: true }
+        { answer: '<i>dekk</i>', next: '_dekk2', score: 'correct' },
+        { answer: '<i>dekker</i>', next: '_dekk1b', score: 'wrong' }
       ]
 
     },
@@ -721,8 +724,8 @@ function LasChatData() {
     _spill1: {
       bubbles: ['Jak będą nieokreślone <q>gry</q> po norwesku?'],
       answers: [
-        { answer: '<i>spill</i>', next: '_spill2', correct: true },
-        { answer: '<i>spiller</i>', next: '_spill1b', wrong: true }
+        { answer: '<i>spill</i>', next: '_spill2', score: 'correct' },
+        { answer: '<i>spiller</i>', next: '_spill1b', score: 'wrong' }
       ]
 
     },
@@ -745,8 +748,8 @@ function LasChatData() {
     _by1: {
       bubbles: ['<q>Miasta</q> #emoji-1f3d9;#emoji-1f3d9; określone to:'],
       answers: [
-        { answer: '<i>byen</i>', next: '_by1b', correct: true },
-        { answer: '<i>byene</i>', next: '_by2', wrong: true }
+        { answer: '<i>byen</i>', next: '_by1b', score: 'correct' },
+        { answer: '<i>byene</i>', next: '_by2', score: 'wrong' }
       ]
 
     },
@@ -768,8 +771,8 @@ function LasChatData() {
     _vits1: {
       bubbles: ['Jeden <q>żart</q> to <i>en vits</i>. <q>Dowcipy</q> to...'],
       answers: [
-        { answer: '<i>vitser</i>', next: '_vits2', correct: true },
-        { answer: '<i>vitsen</i>', next: '_vits1b', wrong: true }
+        { answer: '<i>vitser</i>', next: '_vits2', score: 'correct' },
+        { answer: '<i>vitsen</i>', next: '_vits1b', score: 'wrong' }
       ]
 
     },
