@@ -15,7 +15,7 @@ function LasData() {
 
   this.intro = {
     _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
+      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2-w las-icon-size-2"></i>.',
       autoNext:   'ENDINTRO'
     }
   };
@@ -27,12 +27,12 @@ function LasData() {
     //  more
     //  Powiedz to dziecko
     _aa1: {
-      msg:        'Powiedz <span class="audio-test-clue">to dziecko</span>.',
+      msg:        'Powiedz <span class="mark mark--green">to dziecko</span>.',
       startTime:  0,
       duration:   1.5,
       answers: [
-        { answer: 'barnet', next: '_aa2', score: 'correct' },
-        { answer: 'et barn', score: 'wrong' }
+        { answer: '<i>barnet</i>', score: 'correct', next: '_aa2' },
+        { answer: '<i>et barn</i>', score: 'wrong' }
       ],
       more:       {
         startTime:  5,
@@ -54,10 +54,10 @@ function LasData() {
     //  no more
     //  Powiedz ta żona
     _bb1: {
-      msg:        'Powiedz <span class="audio-test-clue">ta żona</span>. (no audio on q)',
+      msg:        'Powiedz <span class="mark mark--green">ta żona</span>. (no audio on q)',
       answers: [
-        { answer: 'kona', next: '_bb2', score: 'correct' },
-        { answer: 'ei kone', score: 'wrong' }
+        { answer: '<i>kona</i>', score: 'correct', next: '_bb2' },
+        { answer: '<i>ei kone</i>', score: 'wrong' }
       ]
     },
     _bb2: {
@@ -73,10 +73,10 @@ function LasData() {
     //  no more
     //  Powiedz ta żona
     _bd1: {
-      msg:        'Powiedz <span class="audio-test-clue">ta żona</span>. (no audio on q&a)',
+      msg:        'Powiedz <span class="mark mark--green">ta żona</span>. (no audio on q&a)',
       answers: [
-        { answer: 'kona', next: '_bd2', score: 'correct' },
-        { answer: 'ei kone', score: 'wrong' }
+        { answer: '<i>kona</i>', score: 'correct', next: '_bd2' },
+        { answer: '<i>ei kone</i>', score: 'wrong' }
       ]
     },
     _bd2: {
@@ -114,8 +114,8 @@ function LasData() {
       startTime:  0,
       duration:   1.5 - 0,
       answers: [
-        { answer: 'barnet', next: '_dd2', score: 'correct' },
-        { answer: 'et barn', score: 'wrong' }
+        { answer: '<i>barnet', next: '_dd2</i>', score: 'correct' },
+        { answer: '<i>et barn</i>', score: 'wrong' }
       ],
 
     },

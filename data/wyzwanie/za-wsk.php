@@ -16,7 +16,7 @@ function LasData() {
 
   this.intro = {
     _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
+      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
       autoNext:   'ENDINTRO'/*,
       more: {
         startTime: 0,
@@ -29,7 +29,7 @@ function LasData() {
   this.chat = {
 
     _aa1: {
-      msg:        'Hvorfor står  <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> tigeren foran Oslo S?',
+      msg:        'Hvorfor står  #fill-space; tigeren foran Oslo S?',
       trans:      'Dlaczego ten tygrys stoi przed Oslo S?',
       answers: [
         { answer: 'denne',   score: 'correct', next: '_aa2' },
@@ -47,7 +47,7 @@ function LasData() {
 
 
     _ab1: {
-      msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> jentene spiser her hver dag.',
+      msg:        ' #fill-space; jentene spiser her hver dag.',
       trans:      'Te dziewczyny jedzą tu codziennie.',
       answers: [
         { answer: 'disse',   score: 'correct', next: '_aa2' },
@@ -65,7 +65,7 @@ function LasData() {
 
 
     _ac1: {
-      msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> huset er ikke til salgs.',
+      msg:        ' #fill-space; huset er ikke til salgs.',
       trans:      'Ten dom nie jest na sprzedaż.',
       answers: [
         { answer: 'dette',   score: 'correct', next: '_ac2' },
@@ -83,7 +83,7 @@ function LasData() {
 
 
     _ad1: {
-      msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> krydderet kommer fra Bangladesh.',
+      msg:        ' #fill-space; krydderet kommer fra Bangladesh.',
       trans:      'Ta przyprawa pochodzi z Bangladeszu.',
       answers: [
         { answer: 'dette',   score: 'correct', next: '_ad2' },
@@ -101,7 +101,7 @@ function LasData() {
 
 
     _ae1: {
-      msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> roboten kan snakke med deg.',
+      msg:        ' #fill-space; roboten kan snakke med deg.',
       trans:      'Ten robot może rozmawiać z Tobą.',
       answers: [
         { answer: 'denne',   score: 'correct', next: '_ae2' },
@@ -119,7 +119,7 @@ function LasData() {
 
 
     _af1: {
-      msg:        'Det er ikke mulig å åpne  <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> vinduene.',
+      msg:        'Det er ikke mulig å åpne  #fill-space; vinduene.',
       trans:      'Nie jest możliwe otworzenie tych okien.',
       answers: [
         { answer: 'disse',   score: 'correct', next: '_af2' },
@@ -137,7 +137,7 @@ function LasData() {
 
 
     _ag1: {
-      msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> vaskemaskinen virker ikke.',
+      msg:        ' #fill-space; vaskemaskinen virker ikke.',
       trans:      'Ta pralka nie działa.',
       answers: [
         { answer: 'denne',   score: 'correct', next: '_ag2' },
@@ -155,7 +155,7 @@ function LasData() {
 
 
     _ah1: {
-      msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> dagen kan være pen.',
+      msg:        ' #fill-space; dagen kan være pen.',
       trans:      'Ten dzień może być piękny.',
       answers: [
         { answer: 'denne',   score: 'correct', next: '_ah2' },
@@ -173,7 +173,7 @@ function LasData() {
 
 
     _ai1: {
-      msg:        ' <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> krigen kan ikke avsluttes.',
+      msg:        ' #fill-space; krigen kan ikke avsluttes.',
       trans:      'Ta wojna nie może się skończyć.',
       answers: [
         { answer: 'denne',   score: 'correct', next: '_ai2' },
@@ -191,7 +191,7 @@ function LasData() {
 
 
     _aj1: {
-      msg:        '<span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> mannen vil ikke slutte å røyke.',
+      msg:        '#fill-space; mannen vil ikke slutte å røyke.',
       trans:      'Ten mężczyzna nie chce rzucić palenia.',
       answers: [
         { answer: 'denne',   score: 'correct', next: '_aj2' },
@@ -209,7 +209,7 @@ function LasData() {
 
 
     _ak1: {
-      msg:        '<span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> lysene er veldig sterke.',
+      msg:        '#fill-space; lysene er veldig sterke.',
       trans:      'Te światła są bardzo silne.',
       answers: [
         { answer: 'disse',   score: 'correct', next: '_ak2' },
@@ -227,7 +227,7 @@ function LasData() {
 
 
     _al1: {
-      msg:        '<span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> flyet flyr til Dubai.',
+      msg:        '#fill-space; flyet flyr til Dubai.',
       trans:      'Ten samolot leci do Dubaju.',
       answers: [
         { answer: 'dette',   score: 'correct', next: '_al2' },
@@ -245,7 +245,7 @@ function LasData() {
 
 
     _am1: {
-      msg:        'Det er morsomt på  <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> kurset.',
+      msg:        'Det er morsomt på  #fill-space; kurset.',
       trans:      'Jest wesoło na tym kursie.',
       answers: [
         { answer: 'dette',   score: 'correct', next: '_am2' },
@@ -263,7 +263,7 @@ function LasData() {
 
 
     _an1: {
-      msg:        'Det er koselig på <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> hytta.',
+      msg:        'Det er koselig på #fill-space; hytta.',
       trans:      'Jest przytulnie w tej chatce.',
       answers: [
         { answer: 'denne',   score: 'correct', next: '_an2' },
@@ -281,7 +281,7 @@ function LasData() {
 
 
     _ao1: {
-      msg:        '<span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> bussene er veldig raske.',
+      msg:        '#fill-space; bussene er veldig raske.',
       trans:      'Te autobusy są bardzo szybkie.',
       answers: [
         { answer: 'disse',   score: 'correct', next: '_ao2' },
@@ -299,7 +299,7 @@ function LasData() {
 
 
     _ap1: {
-      msg:        '<span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> gummistøvlene er våte inne.',
+      msg:        '#fill-space; gummistøvlene er våte inne.',
       trans:      'Te kalosze są mokre w środku.',
       answers: [
         { answer: 'disse',   score: 'correct', next: '_ap2' },
@@ -317,7 +317,7 @@ function LasData() {
 
 
     _ba1: {
-      msg:        'Hvorfor ringer <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> kvinna fra Aftenposten til oss?',
+      msg:        'Hvorfor ringer #fill-space; kvinna fra Aftenposten til oss?',
       trans:      'Dlaczego dzwoni ta kobieta z Aftenposten do nas?',
       answers: [
         { answer: 'denne',   score: 'correct', next: '_ba2' },
@@ -335,7 +335,7 @@ function LasData() {
 
 
     _bb1: {
-      msg:        'Hvor kan jeg legge <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> pakkene?',
+      msg:        'Hvor kan jeg legge #fill-space; pakkene?',
       trans:      'Gdzie mogę położyć te paczki?',
       answers: [
         { answer: 'disse',   score: 'correct', next: '_bb2' },
@@ -353,7 +353,7 @@ function LasData() {
 
 
     _bc1: {
-      msg:        'Hvem er sjefen for <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> firmaet?',
+      msg:        'Hvem er sjefen for #fill-space; firmaet?',
       trans:      'Gdzie jest szef tej firmy?',
       answers: [
         { answer: 'dette',   score: 'correct', next: '_bc2' },
@@ -371,7 +371,7 @@ function LasData() {
 
 
     _bd1: {
-      msg:        'Hva gjør <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> hunden her?',
+      msg:        'Hva gjør #fill-space; hunden her?',
       trans:      'Co robi ten pies tutaj?',
       answers: [
         { answer: 'denne',   score: 'correct', next: '_bd2' },

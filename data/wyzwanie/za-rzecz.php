@@ -23,7 +23,7 @@ function LasData() {
   this.chat = {
 
     _aa1: {
-      msg:        'Harald bor på slottet.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> ligger i Oslo sentrum.',
+      msg:        'Harald bor på slottet.<br />#fill-space; ligger i Oslo sentrum.',
       trans:      'Harald mieszka w pałacu.<br />On leży w centrum Oslo.',
       answers: [
         { answer: 'det',  score: 'correct', next: '_aa2' },
@@ -41,7 +41,7 @@ function LasData() {
 
 
     _ab1: {
-      msg:        'Arnold trener i skogen.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er stor og grønn.',
+      msg:        'Arnold trener i skogen.<br />#fill-space; er stor og grønn.',
       trans:      'Arnold trenuje w lesie.<br />On jest duży i zielony.',
       answers: [
         { answer: 'den',  score: 'correct', next: '_ab2' },
@@ -59,7 +59,7 @@ function LasData() {
 
 
     _ac1: {
-      msg:        'Jeg har ikke briller her.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er hjemme.',
+      msg:        'Jeg har ikke briller her.<br />#fill-space; er hjemme.',
       trans:      'Nie mam tu okularów.<br />One są w domu.',
       answers: [
         { answer: 'de',    score: 'correct', next: '_ac2' },
@@ -77,7 +77,7 @@ function LasData() {
 
 
     _ad1: {
-      msg:        'Adam vanner blomstene hver dag.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> som er i botanisk hage.',
+      msg:        'Adam vanner blomstene hver dag.<br />#fill-space; som er i botanisk hage.',
       trans:      'Adam podlewa kwiaty codziennie.<br />Te, które są w ogrodzie botanicznym.',
       answers: [
         { answer: 'de',    score: 'correct', next: '_ad2' },
@@ -95,7 +95,7 @@ function LasData() {
 
 
     _ae1: {
-      msg:        'Mobilen til bestemora ringer hver time.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er veldig høy.',
+      msg:        'Mobilen til bestemora ringer hver time.<br />#fill-space; er veldig høy.',
       trans:      'Babci telefon dzwoni co godzinę. <br />On jest bardzo głośny.',
       answers: [
         { answer: 'den',  score: 'correct', next: '_ae2' },
@@ -113,7 +113,7 @@ function LasData() {
 
 
     _af1: {
-      msg:        'Marius strikker ei lue.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er rød, blå og hvit.',
+      msg:        'Marius strikker ei lue.<br />#fill-space; er rød, blå og hvit.',
       trans:      'Marius robi na drutach czapkę. <br />Ona jest czerwona, niebieska i biała.',
       answers: [
         { answer: 'den',  score: 'correct', next: '_af2' },
@@ -131,7 +131,7 @@ function LasData() {
 
 
     _ag1: {
-      msg:        'Armstrong kjøper en ny sykkel.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er dyr.',
+      msg:        'Armstrong kjøper en ny sykkel.<br />#fill-space; er dyr.',
       trans:      'Armstrong kupuje nowy rower. <br />On jest drogi.',
       answers: [
         { answer: 'den',  score: 'correct', next: '_ag2' },
@@ -149,7 +149,7 @@ function LasData() {
 
 
     _ah1: {
-      msg:        'Det er mange biler i byen.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er på alle steder.',
+      msg:        'Det er mange biler i byen.<br />#fill-space; er på alle steder.',
       trans:      'Jest dużo samochodów w mieście. <br />One są wszędzie.',
       answers: [
         { answer: 'de',    score: 'correct', next: '_ah2' },
@@ -167,7 +167,7 @@ function LasData() {
 
 
     _ai1: {
-      msg:        'Klara klarer ikke prøven.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er vanskelig.',
+      msg:        'Klara klarer ikke prøven.<br />#fill-space; er vanskelig.',
       trans:      'Klara nie zalicza sprawdzianu. <br />On jest trudny.',
       answers: [
         { answer: 'den',  score: 'correct', next: '_ai2' },
@@ -185,7 +185,7 @@ function LasData() {
 
 
     _aj1: {
-      msg:        'Trollene sier at treet er gammelt.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er høyest i hele skogen.',
+      msg:        'Trollene sier at treet er gammelt.<br />#fill-space; er høyest i hele skogen.',
       trans:      'Trole mówią, że drzewo jest stare. <br />Ono jest najwyższe w całym lesie.',
       answers: [
         { answer: 'det',  score: 'correct', next: '_aj2' },
@@ -203,7 +203,7 @@ function LasData() {
 
 
     _ak1: {
-      msg:        'Mennesker går på Opera-taket.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er hvitt.',
+      msg:        'Mennesker går på Opera-taket.<br />#fill-space; er hvitt.',
       trans:      'Ludzie idą na dach Opery. <br />On jest biały.',
       answers: [
         { answer: 'det',  score: 'correct', next: '_ak2' },
@@ -221,7 +221,7 @@ function LasData() {
 
 
     _al1: {
-      msg:        'Madonna velger sko.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er svarte.',
+      msg:        'Madonna velger sko.<br />#fill-space; er svarte.',
       trans:      'Madonna wybiera buty. <br />One są czarne.',
       answers: [
         { answer: 'de',    score: 'correct', next: '_al2' },
@@ -239,7 +239,7 @@ function LasData() {
 
 
     _am1: {
-      msg:        'Flyet venter på passasjerer.<br /><span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er tomt.',
+      msg:        'Flyet venter på passasjerer.<br />#fill-space; er tomt.',
       trans:      'Samolot czeka na pasażerów. <br />Jest pusty.',
       answers: [
         { answer: 'det',  score: 'correct', next: '_am2' },
@@ -257,7 +257,7 @@ function LasData() {
 
 
     _ba1: {
-      msg:        'Er rommet ferdig?<br /> Ja, <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er ferdig.',
+      msg:        'Er rommet ferdig?<br /> Ja, #fill-space; er ferdig.',
       trans:      'Czy pokój jest gotowy?<br />Tak, on jest gotowy.',
       answers: [
         { answer: 'det',  score: 'correct', next: '_ba2' },
@@ -275,7 +275,7 @@ function LasData() {
 
 
     _bb1: {
-      msg:        'Er toalettet ledig? <br />Er <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> ledig?',
+      msg:        'Er toalettet ledig? <br />Er #fill-space; ledig?',
       trans:      'Czy łazienka jest wolna?<br />Czy ona jest wolna?',
       answers: [
         { answer: 'det',  score: 'correct', next: '_bb2' },
@@ -293,7 +293,7 @@ function LasData() {
 
 
     _bc1: {
-      msg:        'Hvor kan jeg kjøpe en billett?<br />Du kan kjøpe <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> i kiosken.',
+      msg:        'Hvor kan jeg kjøpe en billett?<br />Du kan kjøpe #fill-space; i kiosken.',
       trans:      'Gdzie mogę kupić bilet? <br />Możesz go kupić w kiosku.',
       answers: [
         { answer: 'den',  score: 'correct', next: '_bc2' },
@@ -311,7 +311,7 @@ function LasData() {
 
 
     _bd1: {
-      msg:        'Hvor er nøklene? <br />Hvor er <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span>?',
+      msg:        'Hvor er nøklene? <br />Hvor er #fill-space;?',
       trans:      'Gdzie są klucze?<br />Gdzie one są?',
       answers: [
         { answer: 'de',    score: 'correct', next: '_bd2' },
@@ -329,7 +329,7 @@ function LasData() {
 
 
     _ca1: {
-      msg:        'Er kassa åpen? <br /> Er <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> åpen?',
+      msg:        'Er kassa åpen? <br /> Er #fill-space; åpen?',
       trans:      'Czy kasa jest otwarta?<br />Czy ona jest otwarta?',
       answers: [
         { answer: 'den',  score: 'correct', next: '_ca2' },
@@ -347,7 +347,7 @@ function LasData() {
 
 
     _cb1: {
-      msg:        'Er butikken stengt? <br />Ja, <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er stengt.',
+      msg:        'Er butikken stengt? <br />Ja, #fill-space; er stengt.',
       trans:      'Czy sklep jest zamknięty?<br />Tak, on jest zamknięty.',
       answers: [
         { answer: 'den',  score: 'correct', next: '_cb2' },
@@ -365,7 +365,7 @@ function LasData() {
 
 
     _cc1: {
-      msg:        'Er toget komfortabelt?<br />Ja, <span class="audio-test-clue">&nbsp;&hellip;&nbsp;</span> er komfortabelt og stille.',
+      msg:        'Er toget komfortabelt?<br />Ja, #fill-space; er komfortabelt og stille.',
       trans:      'Czy pociąg jest wygodny? Tak, on jest wygodny.',
       answers: [
         { answer: 'det',  score: 'correct', next: '_cc2' },

@@ -17,7 +17,7 @@ function LasData() {
 
   this.intro = {
     _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
+      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
       autoNext:     'ENDINTRO'/*,
       more: {
         startTime:  0,
@@ -30,7 +30,7 @@ function LasData() {
   this.chat = {
 
     _aa1: {
-      msg:        ' <span class="audio-test-clue"></span>.',
+      msg:        ' <span class="mark mark--green"></span>.',
       answers: [
         { answer: '', score: 'correct', next: '_aa2' },
         { answer: '', score: 'wrong' },
@@ -47,7 +47,7 @@ function LasData() {
 
 
     _ab1: {
-      msg:        ' <span class="audio-test-clue"></span>.',
+      msg:        ' <span class="mark mark--green"></span>.',
       answers: [
         { answer: '', score: 'correct', next: '_ab2' },
         { answer: '', score: 'wrong' },

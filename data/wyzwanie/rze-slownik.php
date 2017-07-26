@@ -4,7 +4,7 @@ function LasData() {
   var newMsg = function( word ) {
     var a = ''
 
-    a += '<span class="audio-test-clue">';
+    a += '<span class="mark mark--green">';
 
     a += word;
     a += '</span>';
@@ -33,7 +33,7 @@ function LasData() {
 
   this.intro = {
     _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
+      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
       autoNext:     'ENDINTRO'
     }
   };

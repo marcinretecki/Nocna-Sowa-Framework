@@ -11,7 +11,7 @@ function LasData() {
 
   this.intro = {
     _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next"></i>.',
+      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
       autoNext:     'ENDINTRO'/*,
       more: {
         startTime:  0,
