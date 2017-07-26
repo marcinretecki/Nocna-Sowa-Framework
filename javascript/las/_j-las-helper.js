@@ -211,9 +211,6 @@ function LasHelper() {
     }
     //  no more random bubbles
     else {
-      //  Set state
-      this.state.currentState = 'END';
-
       return this.getEndBubble();
     }
 
@@ -237,6 +234,10 @@ function LasHelper() {
   this.getEndBubble = function() {
 
     window.console.log( 'getEndBubble' );
+
+    //  Set state
+    this.state.currentState = 'END';
+
     var pop = this.lasData.end[ this.randomEndArray.pop() ];
 
     //  Return bubble
@@ -245,6 +246,8 @@ function LasHelper() {
   };
 
 
+
+  //  ta funkcja powinna mieć return zamiast call do assign
   this.getNextBubble = function(no) {
 
     var data;
@@ -274,7 +277,8 @@ function LasHelper() {
 
     }
     else if ( ( this.state.currentState === 'CHAT' ) && ( no === 'RANDOM' ) ) {
-      //  if we are at the chat, move one
+      //  if we are at the CHAT, get random
+      //  if there is no random, it will return random from END
       window.console.log('if we are at the chat, move one');
       data = this.getRandomBubble();
 
@@ -299,6 +303,8 @@ function LasHelper() {
     //  Assign data
     //  Method available at subObject
     this.assignBubbleData(no, data);
+
+    //  return data;
 
   };
 

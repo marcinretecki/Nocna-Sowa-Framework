@@ -22,53 +22,43 @@ function LasAudioTest() {
   //
   //  Elements
   //
-  las.wrapper =              document.getElementById('audio-test');
-  las.audioMsgWrapper =      document.getElementById('audio-msg-wrapper');
-  las.audioMsg =             document.getElementById('audio-msg');
-  las.audioTrans =           document.getElementById('audio-trans');
-  las.audioControls =        document.getElementById('audio-controls');
-  las.audioSpinner =         document.getElementById('audio-spinner');
-  las.audioPauseTimer =      document.getElementById('audio-pause-timer');
-  las.audioMore =            document.getElementById('audio-more');
-  las.audioNext =            document.getElementById('audio-next');
-  las.audioRewind =          document.getElementById('audio-rewind');
+  las.wrapper =               document.getElementById('audio-test');
+  las.audioMsgWrapper =       document.getElementById('audio-test-msg');
+  las.audioMsg =              document.getElementById('audio-test-msg-main');
+  las.audioTrans =            document.getElementById('audio-test-msg-trans');
+  las.audioControls =         document.getElementById('audio-controls');
+  las.audioSpinner =          document.getElementById('audio-spinner');
+  las.audioPauseTimer =       document.getElementById('audio-pause-timer');
+  las.audioMore =             document.getElementById('audio-more');
+  las.audioNext =             document.getElementById('audio-next');
+  las.audioRewind =           document.getElementById('audio-rewind');
 
 
   //  answers
-  las.answersWrapper =       document.getElementById('audio-test-answers');
-  las.answerElements =       [];
-  las.answerElements[0] =    document.getElementById('answer-0');
-  las.answerElements[1] =    document.getElementById('answer-1');
-  las.answerElements[2] =    document.getElementById('answer-2');
-  las.answerElements[3] =    document.getElementById('answer-3');
+  las.answersWrapper =        document.getElementById('audio-test-answers');
+  las.answerElements =        [];
+  las.answerElements[0] =     document.getElementById('answer-0');
+  las.answerElements[1] =     document.getElementById('answer-1');
+  las.answerElements[2] =     document.getElementById('answer-2');
+  las.answerElements[3] =     document.getElementById('answer-3');
 
   //  we use this to start downloading images earlier
-  las.prefetch =             document.createElement('div');
+  las.prefetch =              document.createElement('div');
 
 
-
-
+  //
+  //  Data
+  //
   //  this will we assigned at assignBubbleData
-  las.currentBubbleData =    null;
-  las.more =                 null;
-  las.msg =                  '';
-  las.trans =                '';
-  las.bubbleAutoNext =       '';
-
-
-
-  //  this will be assigned with assignAnswersData
-  las.answersData =          [];
-
-  //  this comes from the click handler
-  las.nextBubbleName =       '';
+  //
+  las.currentBubbleData =     null;
 
 
   //
-  //  Sequence type
-  //  pimp || quiz || ''
+  //  Clicked Answer
   //
-  las.sequenceType =         '';
+  las.clickedAnswer =         0;
+  las.clickedAnswerEl =       null;
 
 
   //
@@ -90,21 +80,21 @@ function LasAudioTest() {
     spinner:                  false,
     clicked:                  false,
     prePause:                 false,
-    exNumber:                 0,
     testmode:                 false
   };
 
 
+  //  this should go to egen function
   //  on case there is no audio file and we have pimp
-  las.audioFileErrorMsg =    '<p class="size-2">';
-  las.audioFileErrorMsg +=   '<svg class="emojione-svg">';
-  las.audioFileErrorMsg +=   '<description>&#x1f622;</description>';
-  las.audioFileErrorMsg +=   '<use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f622"></use>';
-  las.audioFileErrorMsg +=   '</svg>';
-  las.audioFileErrorMsg +=   '<br />Niestety nie udało nam się załadować pliku audio. Spróbuj <a href="#" onClick="window.location.reload(true);">odświerzyć</a> stronę.</p><p class="space-0">Jeśli to nie podziała, napisz do nas. Zaraz zajmiemy się tą sprawą.</p>';
+  las.audioFileErrorMsg =     '<p class="size-2">';
+  las.audioFileErrorMsg +=    '<svg class="emojione-svg">';
+  las.audioFileErrorMsg +=    '<description>&#x1f622;</description>';
+  las.audioFileErrorMsg +=    '<use xlink:href="/las/c/i/emojione.sprites.svg#emoji-1f622"></use>';
+  las.audioFileErrorMsg +=    '</svg>';
+  las.audioFileErrorMsg +=    '<br />Niestety nie udało nam się załadować pliku audio. Spróbuj <a href="#" onClick="window.location.reload(true);">odświerzyć</a> stronę.</p><p class="space-0">Jeśli to nie podziała, napisz do nas. Zaraz zajmiemy się tą sprawą.</p>';
 
 
-  las.canNotPlayFn =         null;
+  las.canNotPlayFn =          null;
 
 
 
@@ -126,7 +116,7 @@ function LasAudioTest() {
     //
     //  Get Data
     //
-    this.lasData =              new LasAudioData();
+    this.lasData =              new LasData();
 
 
     //  get Elements
@@ -153,54 +143,19 @@ function LasAudioTest() {
 
   //
   //  BUBBLE
-  //  check what data is available, assign it and reset those unavailable
+  //  check what data is available, assign it
+  //
+  //  answers = [
+  //    { answer: '', next: '', score: 'wrong' },
+  //    { answer: '', next: '', score: 'correct' },
+  //    { answer: '', next: '', score: 'partial' },
+  //    { answer: '', next: '', score: 'more' }
+  //  ]
   //
   las.assignBubbleData = function(no, data) {
 
-
-    //  new sequence?
-    //  before assign, check the previous bubble
-
-    var sequenceTypeData;
     var audioObject;
     var audioStackL;
-
-    //  if it is the first bubble
-    if ( this.state.currentState === 'INTRO' ) {
-      //  intro has no sequence type
-      sequenceTypeData = false;
-    }
-    // if there is previous bubble and it was random, we have a new sequence
-    else if ( this.currentBubbleData && ( ( this.currentBubbleData.autoNext === "RANDOM" ) || ( this.currentBubbleData.autoNext === "ENDINTRO" ) ) ) {
-      sequenceTypeData = data;
-    }
-    else {
-      sequenceTypeData = false;
-    }
-
-    //  if there is any data
-    if ( sequenceTypeData ) {
-
-      window.console.log('check sequence');
-
-      //  if the new bubble has answers, it is a quiz
-      if ( sequenceTypeData.hasOwnProperty( 'answers' ) ) {
-        this.sequenceType = 'quiz';
-
-        window.console.log('quiz');
-      }
-      //  if the new bubble has autoNext and pause, it is a pimp
-      else if ( sequenceTypeData.hasOwnProperty( 'autoNext' ) && sequenceTypeData.hasOwnProperty( 'pauseTime' ) ) {
-        this.sequenceType = 'pimp';
-
-        window.console.log('pimp');
-      }
-      else {
-        window.console.log('wtf is this?');
-        window.console.log('not a pimp or a quiz');
-      }
-
-    }
 
     window.console.log('Assign bubble data');
 
@@ -209,15 +164,13 @@ function LasAudioTest() {
     this.currentBubble = no;
     this.currentBubbleData = data;
 
+    window.console.log(data);
 
-    //  reset
+
+    //  reset audio stack
     this.audioStack.stack = [];
     this.audioStack.pointer = 0;
     this.currentAudioObject = {};
-    this.bubbleAutoNext = '';
-    this.msg = '';
-    this.trans = '';
-    this.more = null;
 
 
     //
@@ -232,46 +185,10 @@ function LasAudioTest() {
 
     //  there is either autoNext or answers, never both
 
-    //  if there is autoNext
-    if ( this.currentBubbleData.hasOwnProperty('autoNext') ) {
+    //  if there is no autoNext or answers
+    if ( !( this.currentBubbleData.hasOwnProperty('autoNext') || this.currentBubbleData.hasOwnProperty('answers') ) ) {
 
-      this.bubbleAutoNext = this.currentBubbleData.autoNext;
-
-    }
-    //  if there are answers
-    else if ( this.currentBubbleData.hasOwnProperty('answers') ) {
-
-      //  loop over all available answers
-      this.assignAnswersData();
-
-
-    }
-    else {
       throw "There is no autoNext or answers – audio test can't work";
-    }
-
-    //  if there is msg
-    if ( this.currentBubbleData.hasOwnProperty('msg') ) {
-
-      //  assign the msg
-      this.msg = this.currentBubbleData.msg;
-
-    }
-
-    //  if there is trans
-    if ( this.currentBubbleData.hasOwnProperty('trans') ) {
-
-      //  assign the trans
-      this.trans = this.currentBubbleData.trans;
-
-    }
-
-
-    //  if there is more
-    if ( this.currentBubbleData.hasOwnProperty('more') ) {
-
-      //  assign more
-      this.more = this.currentBubbleData.more;
 
     }
 
@@ -280,49 +197,25 @@ function LasAudioTest() {
 
 
 
-  //  do usunięcia
-  las.assignAnswersData = function() {
-    //  this.answers = [
-    //    { answer: '', next: '', score: 'wrong' },
-    //    { answer: '', next: '', score: 'correct' },
-    //    { answer: '', next: '', score: 'partial' },
-    //    { answer: '', next: '', score: 'more' }
-    //  ]
-
-    var i;
-    var c = this.currentBubbleData.answers.length;
-
-    //  reset
-    this.answersData = [];
-
-    window.console.log('assignAnswersData');
-
-    //  shuffle answers
-    this.currentBubbleData.answers = this.shuffleArray( this.currentBubbleData.answers );
-
-    //  loop over answers to create array
-    for ( i = 0; i < c; i++ ) {
-
-      this.answersData[i] = this.currentBubbleData.answers[i];
-
-    }
-
-  };
-
-
+  //
   //  Create Bubble
+  //
   las.createBubble = function() {
     //  here we have audio/quiz logic when the new bubble should appear
 
     //  if there is no audio file, we need to inform the user
-    if ( !this.audioFile && ( this.sequenceType === 'pimp' ) ) {
-      window.console.log('no way to do pimp with no audio');
+    //  if ( !this.audioFile ) {
+    //    window.console.log('no way to do pimp with no audio');
 
-      //  get error msg
-      this.msg = this.audioFileErrorMsg;
+    //    //  get error msg
 
-      this.showMsg();
-    }
+    //    //
+    //    //  Add special function just to show error msgs
+    //    //
+    //    this.currentBubbleData.msg = this.audioFileErrorMsg;
+
+    //    this.showMsg();
+    //  }
 
 
     //  if there is no time
@@ -331,6 +224,7 @@ function LasAudioTest() {
       //  show answers and msg
       //  if there was time, they would be showed prePause
       this.waitForMsg();
+      return;
 
     }
     //  there is time, so we can play it
@@ -345,15 +239,6 @@ function LasAudioTest() {
 
     }
 
-
-    //  if it is a pimp, we need to show msg earlier, it is blocked at waitForMsg
-    //  if it is quiz, showMsg will be called at resetAnswers
-    //  I added waitForMsg earlier, so this one should be useless now
-/*    if ( this.sequenceType === 'pimp' ) {
-
-      this.showMsg();
-
-    }*/
 
   };
 
@@ -445,10 +330,10 @@ function LasAudioTest() {
     window.console.log('at pause');
 
     //  if there is autoNext but not random one
-    if ( ( this.bubbleAutoNext !== '' ) && ( this.bubbleAutoNext !== 'RANDOM' ) ) {
+    if ( this.currentBubbleData.autoNext && ( this.currentBubbleData.autoNext !== 'RANDOM' ) ) {
 
       //  get next bubble
-      this.getNextBubble( this.bubbleAutoNext );
+      this.getNextBubble( this.currentBubbleData.autoNext );
 
       //  create new bubble
       this.createBubble();
@@ -467,11 +352,11 @@ function LasAudioTest() {
   las.showAnswers = function() {
 
     var i;
-    var c;
+    var l;
     var completeFn;
 
     //  answers are waiting or the timer is set or there is no answers to show
-    if ( this.state.answers || !this.answersData.length ) {
+    if ( this.state.answers || !this.currentBubbleData.answers ) {
 
       window.console.log('answers waitin or no answers');
 
@@ -482,17 +367,17 @@ function LasAudioTest() {
 
     window.console.log('show answers');
 
-    c = this.answersData.length;
+    l = this.currentBubbleData.answers.length;
 
     //  Loop over answers
     for ( i = 0; i < 4; i++ ) {
 
       //  if there is such answer
-      if ( i < c ) {
+      if ( i < l ) {
 
         //  we use IIFE to lock the variable i
         (function( i ) {
-          this.answerElements[i].innerHTML = this.answersData[i].answer;
+          this.answerElements[i].innerHTML = this.currentBubbleData.answers[i].answer;
 
           //  animate size
           this.velocity(
@@ -547,7 +432,7 @@ function LasAudioTest() {
 
     }.bind(this);
 
-    c = this.answersData.length;
+    c = this.currentBubbleData.answers.length;
 
     //  Loop over answers
     for (i = 0; i < 4; i++) {
@@ -656,7 +541,7 @@ function LasAudioTest() {
 
     //  we do not check state here, because we want to use Velocity chaining
     //  but we need to check if there is a msg to show
-    if ( !this.msg ) {
+    if ( !this.currentBubbleData.msg ) {
       return false;
     }
 
@@ -670,21 +555,18 @@ function LasAudioTest() {
     //  the innerHTML would update before reset animation would finish
     beginFn = function() {
 
-      if ( ( this.msg.substr(0, 3) === '<p>' ) && !this.audioFile ) {
-        this.audioMsg.parentNode.innerHTML = this.msg;
+      window.console.log('begin velocity show msg');
+
+      this.audioMsg.innerHTML = this.currentBubbleData.msg;
+
+      //  set the cursor on msg
+      if ( this.currentBubbleData.trans ) {
+        this.audioMsgWrapper.style.cursor = 'pointer';
       }
       else {
-        this.audioMsg.innerHTML = this.msg;
-
-        //  set the cursor on msg
-        if ( this.trans ) {
-          this.audioMsgWrapper.style.cursor = 'pointer';
-        }
-        else {
-          this.audioMsgWrapper.style.cursor = 'auto';
-        }
-
+        this.audioMsgWrapper.style.cursor = 'auto';
       }
+
 
     }.bind(this);
 
@@ -751,7 +633,7 @@ function LasAudioTest() {
     //  if timer is already set
     //  or it is pimp
     //  in the second case, msg is showed earlier
-    if ( this.waitForMsgTimer /*|| ( this.sequenceType === 'pimp' )*/ ) {
+    if ( this.waitForMsgTimer ) {
       return false;
     }
 
@@ -793,7 +675,7 @@ function LasAudioTest() {
   las.showTrans = function() {
 
     //  if there is no trans to show or it is already showed
-    if ( !this.trans || this.state.trans ) {
+    if ( !this.currentBubbleData.trans || this.state.trans ) {
       return false;
     }
 
@@ -801,7 +683,7 @@ function LasAudioTest() {
 
     window.console.log('show trans');
 
-    this.audioTrans.innerHTML = '<i>' + this.trans + '</i>';
+    this.audioTrans.innerHTML = '<i>' + this.currentBubbleData.trans + '</i>';
 
     //  animate
     this.velocity(
@@ -826,8 +708,6 @@ function LasAudioTest() {
       { duration: 0 }
     );
 
-    this.audioTrans.innerHTML = '';
-
     this.state.trans = false;
 
   };
@@ -839,37 +719,60 @@ function LasAudioTest() {
   //
   las.showControls = function() {
 
+
+    //  jest msg i autoNext
+    //  lub są odpowiedzi i audio
+
+    window.console.log( 'msg ' + this.currentBubbleData.msg);
+    window.console.log( 'autoNext ' + this.currentBubbleData.autoNext);
+    window.console.log( 'answers ' + this.currentBubbleData.answers);
+    window.console.log( 'isCorrectAudioStack ' + this.isCorrectAudioStack());
+
+    if (   ( !this.currentBubbleData.msg && !this.currentBubbleData.autoNext )
+        && ( !this.currentBubbleData.answers && !this.isCorrectAudioStack() ) ) {
+      return;
+    }
+
+
     //  if controls are already in
     //  or there is no time && no more && it is not before the first play
-    if (        this.state.controls
-          || ( !this.more && !this.state.beforeFirstPlay && ( this.bubbleAutoNext !== 'RANDOM' ) && !this.isCorrectAudioStack() )
-          || ( !this.msg && !this.answersData.length ) ) {
-      return false;
-    }
+    //  if (     this.state.controls
+    //        || (    !this.currentBubbleData.more
+    //             && !this.state.beforeFirstPlay
+    //             && this.currentBubbleData.autoNext
+    //             && ( this.currentBubbleData.autoNext !== 'RANDOM' ) && !this.isCorrectAudioStack() )
+    //        || (    !this.currentBubbleData.msg
+    //             && !this.currentBubbleData.answers.length ) ) {
+    //    return false;
+    //  }
 
     this.state.controls = true;
 
     window.console.log('show controls');
 
-    //  if there are answers, we want to match the color to them
+    //  reset color
+    this.audioControls.classList.remove( 'section-green' );
+    this.audioControls.classList.remove( 'section-dark' );
+
+    //  match the color to answers or msg
     if ( this.state.answers ) {
-      this.audioControls.className = 'section-green';
+      this.audioControls.classList.add( 'section-green' );
     }
     else {
-      this.audioControls.className = 'section-dark';
+      this.audioControls.classList.add( 'section-dark' );
     }
 
     //  show the whole controls bar
     this.velocity(
       this.audioControls,
       'slideDown',
-      { duration: this.helper.speed*2, easing: this.helper.easingSpring }
+      { duration: 2 * this.helper.speed, easing: this.helper.easingSpring }
     );
 
     //  below, each this.velocity call need display: block, or buttons will be showed as inline-block
 
     //  if there is more audio, show MORE button
-    if ( ( this.more !== null ) && this.audioFile ) {
+    if ( this.currentBubbleData.more && this.audioFile ) {
       window.console.log('show more button');
 
       this.velocity(
@@ -891,7 +794,8 @@ function LasAudioTest() {
     }
 
     //  if there are no answers, we need NEXT button
-    if ( !this.answersData.length ) {
+    if ( !this.currentBubbleData.answers ) {
+      window.console.log('show next button');
       this.velocity(
         this.audioNext,
         'fadeIn',
@@ -981,7 +885,7 @@ function LasAudioTest() {
         answerNo = answerSplit[1];
 
         //  assign clicked answer
-        this.clickedAnswer = this.answersData[ answerNo ];
+        this.clickedAnswer = this.currentBubbleData.answers[ answerNo ];
         this.clickedAnswerEl = this.answerElements[ answerNo ];
 
 
@@ -1019,10 +923,11 @@ function LasAudioTest() {
         this.state.beforeFirstPlay = false;
       }
 
-      if ( this.state.currentState === 'END' ) {
-        this.finish();
-        return;
-      }
+      //  prawdopodobnie i tak by nic nie dało
+      //  if ( this.state.currentState === 'END' ) {
+      //    this.finish();
+      //    return;
+      //  }
 
       this.nextToBubble();
 
@@ -1110,7 +1015,7 @@ function LasAudioTest() {
         this.addScore( 'more' );
 
         //  assign play times
-        this.currentAudioObject = this.more;
+        this.currentAudioObject = this.currentBubbleData.more;
 
         //  play audio
         this.playAudio();

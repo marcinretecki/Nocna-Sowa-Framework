@@ -29,10 +29,12 @@ function LasLiczby() {
   //
   las.init = function() {
 
+    window.console.log('init');
+
     //
     //  Get Data
     //
-    this.lasData =                  new LasLiczbyData();
+    this.lasData =                  new LasData();
 
     //  there are 3 levels
     //  0 (0-19)
@@ -72,6 +74,9 @@ function LasLiczby() {
     var audioStackL;
 
 
+    window.console.log('assignBubbleData');
+
+
     //  assign
     this.currentBubble = no;
     this.currentBubbleData = data;
@@ -81,22 +86,18 @@ function LasLiczby() {
     this.audioStack.stack = [];
     this.audioStack.pointer = 0;
     this.currentAudioObject = {};
-    this.bubbleAutoNext = '';
-    this.msg = '';
-    this.trans = '';
-    this.more = null;
 
 
     //  if it is chat, manipulate some stuff
     if ( this.state.currentState === 'CHAT' ) {
 
       //  if the bubble is a new number
-      if ( typeof this.currentBubbleData === 'number' ) {
+      if ( typeof this.currentBubbleData.no === 'number' ) {
 
         window.console.log('typeof jest liczbą');
 
         //  assign current number
-        this.currentNum = this.currentBubbleData;
+        this.currentNum = this.currentBubbleData.no;
 
         //  create words and audioStack
         //  this also saves new msg
@@ -106,7 +107,7 @@ function LasLiczby() {
         this.assignBubbleDataFromNum();
 
         //  reasign autoNext
-        this.bubbleAutoNext = 'RANDOM';
+        this.currentBubbleData.autoNext = 'RANDOM';
 
       }
 
@@ -116,43 +117,12 @@ function LasLiczby() {
     //
     //  Create new audioObject
     //
-    audioObject = this.createNewAudioObject( this.currentBubbleData );
+    audioObject = this.createNewAudioObject( this.currentBubbleData.no );
 
     //  Push new audio object onto the stack
     if ( audioObject ) {
 
       audioStackL = this.audioStack.stack.push( audioObject );
-
-    }
-
-
-    //  if there is autoNext
-    if ( this.currentBubbleData.hasOwnProperty('autoNext') ) {
-
-      this.bubbleAutoNext = this.currentBubbleData.autoNext;
-
-    }
-    //  it can be end
-    else if ( this.state.currentState === 'END' ) {
-      //  wis it needed here?
-
-      window.console.log('END');
-    }
-
-
-    //  if there is msg
-    if ( this.currentBubbleData.hasOwnProperty('msg') ) {
-
-      //  assign the msg
-      this.msg = this.currentBubbleData.msg;
-
-    }
-
-    //  if there is more
-    if ( this.currentBubbleData.hasOwnProperty('more') ) {
-
-      //  assign more
-      this.more = this.currentBubbleData.more;
 
     }
 
@@ -196,7 +166,7 @@ function LasLiczby() {
 
 
   las.getRandomBubble = function() {
-    window.console.log( 'getRandomBubble in las');
+    window.console.log( 'getRandomBubble');
 
     if ( this.randomChatArray.length ) {
       //  if there are still chat items to show
@@ -226,10 +196,12 @@ function LasLiczby() {
   las.getRandomArrayOfNumbers = function() {
 
     var i;
+    var l;
     var tensL;
     var num;
     var tens;
     var newArray = [];
+    var newArrayObjects = [];
 
     window.console.log('Level: ' + this.state.level);
 
@@ -237,8 +209,6 @@ function LasLiczby() {
     if ( this.state.level === 0 ) {
 
       newArray = this.shuffleArray( [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] );
-
-      window.console.log(newArray);
 
     }
     //  bigger numbers
@@ -316,7 +286,21 @@ function LasLiczby() {
 
     window.console.log( newArray );
 
-    return newArray;
+    l = newArray.length;
+
+    //  change numbers into objects for data cohesion
+    for ( i=0; i < l; i++ ) {
+
+      newArrayObjects[ i ] = {
+        no: newArray[ i ]
+      };
+
+    }
+
+    window.console.log( newArrayObjects );
+
+
+    return newArrayObjects;
 
   };
 
@@ -485,7 +469,7 @@ function LasLiczby() {
 
 
     //  assign msg
-    this.msg = '<span class="h1 size-6">' + num + '</span><br />' + r;
+    this.currentBubbleData.msg = '<span class="h1 size-6">' + num + '</span><br />' + r;
 
     window.console.log(this.audioStack.stack);
 
