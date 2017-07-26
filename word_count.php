@@ -23,40 +23,60 @@ include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
 //
 //  Count all words used in wyzwania
 //
-function las_count_all_words_in_wyzwania( $path ) {
+function las_count_all_words_in_wyzwania() {
 
-  //  new iterator
-  $dir = new FilesystemIterator( $path );
-
-  $file_paths = [];
   $file_words = [];
   $all_words_with_no = [];
 
   $numbers_to_remove = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' ];
   $words_to_remove = [ 'endintro', 'intro', 'end', 'random', 'emoji-', '&nbsp;', '&hellip;', '\'', '-' ];
   $words_to_remove_seconds_pass = [
-    ' en ', ' ei ', ' et ',
-    ' aa ', ' ab ', ' ac ', ' ad ', ' ae ', ' af ', ' ag ', ' ah ', ' ai ', ' aj ', ' ak ', ' al ', ' am ', ' ao ', ' ap ', ' ar ', ' as ', ' aw ', ' aq ', ' ax ', ' xx ', ' az ', ' bb ', ' bc ', ' bd ', ' be ', ' bf ', ' bg ', ' bh ', ' bi ', ' bj ', ' bk ', ' bl ', ' bm ', ' bn ', ' bp ', ' br ', ' bs ', ' bt ', ' bw ', ' bq ', ' bx ', ' xx ', ' bz ', 'xxx', ' dd ', ' cc ', ' ac ', ' bc ', ' ca ', ' cb ', ' cd ', ' ce ',
     ' a ', ' b ', ' c ', ' d ', ' e ', ' f ', ' g ', ' h ', ' i ', ' j ', ' k ', ' l ', ' m ', ' n ', ' o ', ' p ', ' r ', ' s ', ' t ', ' u ', ' w ', ' v ', ' x ', ' y ', ' z ',
     'nbsp'
   ];
 
   //  get paths of all files
-  foreach ( $dir as $fileinfo ) {
+  $file_paths = [
+    'rze-rodz',
+    'rze-slownik',
+    'rze-forma,',
+    'rze-lm',
+    'rze-wyj',
+    'rze-pol',
+    'rze-wsz',
+    'cza-ter',
+    'cza-znak',
+    'cza-prze',
+    'cza-pyt',
+    'cza-niereg',
+    'cza-modalne',
+    //  tu chyba dojdzie jeszcze mod-prze
+    'cza-mod-pyt',
+    'cza-przy',
+    'cza-okr',
+    'cza-roz',
+    'cza-mod-kr',
+    'za-imie',
+    'za-rzecz',
+    'za-wsk'
 
-    $file_paths[] = $fileinfo->getPathname();
-
-  }
+  ];
 
   // get content of each file
   foreach ( $file_paths as $file ) {
 
     $new_content = '';
 
+    $file_contents = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' .  $file . '.php' );
+
+    if ( !$file_contents ) {
+      continue;
+    }
+
     //  get file content
     //  strip tags
     //  get to lower case
-    $content = strtolower( strip_tags( file_get_contents( $file ) ) );
+    $content = strtolower( strip_tags( file_get_contents( $file_contents ) ) );
 
     //  strtolower omits Å
     $content = str_replace( 'Å', 'å', $content );
@@ -70,7 +90,7 @@ function las_count_all_words_in_wyzwania( $path ) {
     foreach ( $matches[0] as $match ) {
 
       //  omit matches that contain polish characters
-      if ( ( preg_match( '(ą|ś|ż|ź|ć|ó|ę|ń|ł|w|z)', $match ) === 0 ) ) {
+      if ( ( preg_match( '(ą|ś|ż|ź|ć|ó|ę|ń|ł|w|z|_)', $match ) === 0 ) ) {
 
         $new_content .= $match;
 
@@ -171,7 +191,7 @@ function las_count_all_words_in_wyzwania( $path ) {
   <h1><?php the_title(); ?></h1>
 
   <?php
-    las_count_all_words_in_wyzwania( __DIR__ . '/data/wyzwanie/' );
+    las_count_all_words_in_wyzwania();
   ?>
 
 
