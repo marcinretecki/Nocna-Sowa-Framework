@@ -23,19 +23,6 @@ function LasHelper() {
   var self = this;
 
 
-  //
-  //  Leveling system
-  //  same as in f-user-progress.php
-  //
-  this.levelingSystemMulti = {
-    chapter:                            200,
-    ex:                                 10,
-    repeat:                             2,
-    trans:                              2,
-    more:                               5,
-    wrong:                             -5
-  };
-
 
   //
   //  Audio Stack
@@ -672,10 +659,9 @@ function LasHelper() {
 
     var throttleTimer;
 
-    window.console.log('Throttle');
-
     //  throttle clicks
     if ( this.state.clicked ) {
+      window.console.log('Throttled');
       return true;
     }
 

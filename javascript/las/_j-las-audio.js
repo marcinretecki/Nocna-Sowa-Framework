@@ -30,7 +30,7 @@
     //  check each object in stack
     for ( i = 0; stackL > i; i++ ) {
 
-      audioObject = stack[i]
+      audioObject = stack[i];
 
       this.isCorrectAudioObject( audioObject );
 
@@ -93,7 +93,7 @@
       audioObject.pauseTime = this.currentBubbleData.pauseTime;
     }
 
-    return audioObject
+    return audioObject;
 
   };
 

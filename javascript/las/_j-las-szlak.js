@@ -373,7 +373,9 @@ function LasSzlak() {
     var expToShow;
     var animStateFraction;
 
-    var easeInOutQuart = function(t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t };
+    var easeInOutQuart = function(t) {
+      return t < 0.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t
+    };
 
     //  check if start time was previously saved
     if ( !this.helper.startAnimateExpCount ) {

@@ -134,7 +134,7 @@ function LasLiczby() {
     }
     //  it can be end
     else if ( this.state.currentState === 'END' ) {
-      //  we will show finish
+      //  wis it needed here?
 
       window.console.log('END');
     }

@@ -33,7 +33,8 @@ function LasChat() {
   //
   las.currentBubbleData =    null;
   las.bubbleArray =          [];
-  las.answersArray =         [];
+  //  this will be assigned with assignAnswersData
+  las.answersData =         [];
   las.bubbleAutoNext =       '';
 
   //
@@ -42,7 +43,8 @@ function LasChat() {
   las.state = {
     answersWaiting:           false,
     currentState:             '',             // END / INTRO / CHAT
-    testmode:                 false
+    testmode:                 false,
+    bubbling:                 false
   };
 
   las.scrollFn =             function(){};
@@ -151,21 +153,24 @@ function LasChat() {
 
     //  reset
     this.bubbleAutoNext = '';
-    this.answersArray = [];
 
+
+    //
+    //  tu dojdzie audio....
+    //
+
+    //  if there is autoNext
     if ( this.currentBubbleData.hasOwnProperty('autoNext') ) {
 
-      //  assign autonext
       this.bubbleAutoNext = this.currentBubbleData.autoNext;
 
     }
+    //  if there are answers
     else if ( this.currentBubbleData.hasOwnProperty('answers') ) {
 
+      //  loop over all available answers
       this.assignAnswersData();
 
-    }//  it can be end
-    else if ( this.state.currentState === 'END' ) {
-      //  we will show finish
     }
     else {
       throw "There is no autoNext or answers – can't work";
@@ -173,15 +178,20 @@ function LasChat() {
 
   };
 
-
+  //  do usunięcia
   las.assignAnswersData = function() {
     //  this.answers = [
-    //    { answer: '', next: '', wrong: true },
-    //    { answer: '', next: '', correct: true }
+    //    { answer: '', next: '', score: 'wrong' },
+    //    { answer: '', next: '', score: 'correct' },
+    //    { answer: '', next: '', score: 'partial' },
+    //    { answer: '', next: '', score: 'more' }
     //  ]
 
     var i;
     var c = this.currentBubbleData.answers.length;
+
+    //  reset
+    this.answersData = [];
 
     window.console.log('assignAnswersData');
 
@@ -191,14 +201,16 @@ function LasChat() {
     //  loop over answers to create array
     for ( i = 0; i < c; i++ ) {
 
-      this.answersArray[i] = this.currentBubbleData.answers[i];
+      this.answersData[i] = this.currentBubbleData.answers[i];
 
     }
 
   };
 
 
+  //
   //  Create Bubble
+  //
   las.createBubble = function() {
     if (this.state.answersWaiting) {
       return false;
@@ -222,14 +234,6 @@ function LasChat() {
       // if there are more bubbles in the array
 
       nextFunction = function() { las.createBubble(); };
-
-    }
-    else if (this.bubbleAutoNext === 'END') {
-      // if it is the end of chat
-
-      nextFunction = function() {
-        las.finish();
-      };
 
     }
     else if (this.bubbleAutoNext !== '') {
@@ -280,60 +284,16 @@ function LasChat() {
 
 
   //
-  //  ANSWERS
+  //  Answer to Bubble
   //
-  las.showAnswers = function() {
-    var i;
-    var l = this.answersArray.length;
-
-    this.state.answersWaiting = true;
-
-    //  loop over answers
-    for ( i=0; i<l; i++ ) {
-
-      //  check if answer has text
-      if ( this.answersArray[i].answer && ( this.answersArray[i].answer !== '' ) ) {
-
-        this.answerElements[i].innerHTML = this.encodeBubble( this.answersArray[i].answer );
-        this.answerElements[i].style.display = 'inline-block';
-
-      }
-
-    }
-
-    //  Adjust padding
-    this.velocity(this.chatFlow,
-      { paddingBottom: las.answersWrapper.offsetHeight + 5 + 'px' },
-      { duration: 1 * las.helper.speed, easing: 'easeInOutQuart' }
-    );
-    las.scrollAfterChange();
-
-    //  show answers
-    this.velocity(this.answersWrapper, { translateY: 0 }, { duration: 5 * las.helper.speed, easing: las.helper.easingSpring, queue: false } );
-
-    //  animate sequential answers
-    for ( i=0; i<l; i++ ) {
-
-      //  check if answer has text
-      if ( this.answersArray[i].answer && ( this.answersArray[i].answer !== '' ) ) {
-
-        //  use IIFE to lock the variable i
-        (function( i ) {
-          this.velocity(
-            this.answerElements[i],
-            { translateY: 0 },
-            { duration: 3 * las.helper.speed, easing: 'easeInOutQuart', /*delay: 3*las.helper.speed*/ }
-          );
-        }).bind( this )( i );
-
-      }
-
-    }
-
-  };
-
-
   las.answerToBubble = function() {
+
+    //  this one prevents some glitches
+    if ( this.state.bubbling ) {
+      return false;
+    }
+
+    this.state.bubbling = true;
 
     var answerBubble = document.createElement('li');
     var clickedAnswerRect;
@@ -342,7 +302,7 @@ function LasChat() {
     var newTop;
     var completeFn;
 
-    answerBubble.innerHTML = this.clickedAnswer.answer;
+    answerBubble.innerHTML = this.encodeBubble( this.clickedAnswer.answer );
     answerBubble.className = 'chat-bubble-answer';
 
     // Append answer
@@ -354,8 +314,7 @@ function LasChat() {
     newLeft = clickedAnswerRect.left - answerBubbleRect.left + 'px';
     newTop = clickedAnswerRect.top - answerBubbleRect.top + 'px';
 
-    // Hide answers
-    this.clickedAnswerEl.style.visibility = 'hidden';
+    //  Reset
     this.resetAnswers();
 
     // Adjust padding
@@ -387,6 +346,63 @@ function LasChat() {
       }
     );
 
+    //  reset bubbling state
+    this.state.bubbling = false;
+
+  };
+
+
+  //
+  //  ANSWERS
+  //
+  las.showAnswers = function() {
+    var i;
+    var l = this.answersData.length;
+
+    this.state.answersWaiting = true;
+
+    //  loop over answers
+    for ( i=0; i<l; i++ ) {
+
+      //  check if answer has text
+      if ( this.answersData[i].answer && ( this.answersData[i].answer !== '' ) ) {
+
+        this.answerElements[i].innerHTML = this.encodeBubble( this.answersData[i].answer );
+        this.answerElements[i].style.display = 'inline-block';
+
+      }
+
+    }
+
+    //  Adjust padding
+    this.velocity(this.chatFlow,
+      { paddingBottom: las.answersWrapper.offsetHeight + 5 + 'px' },
+      { duration: 1 * las.helper.speed, easing: 'easeInOutQuart' }
+    );
+    las.scrollAfterChange();
+
+    //  show answers
+    this.velocity(this.answersWrapper, { translateY: 0 }, { duration: 5 * las.helper.speed, easing: las.helper.easingSpring, queue: false } );
+
+    //  animate sequential answers
+    for ( i=0; i<l; i++ ) {
+
+      //  check if answer has text
+      if ( this.answersData[i].answer && ( this.answersData[i].answer !== '' ) ) {
+
+        //  use IIFE to lock the variable i
+        (function( i ) {
+          this.velocity(
+            this.answerElements[i],
+            { translateY: 0 },
+            { duration: 3 * las.helper.speed, easing: 'easeInOutQuart', /*delay: 3*las.helper.speed*/ }
+          );
+        }).bind( this )( i );
+
+      }
+
+    }
+
   };
 
 
@@ -396,6 +412,10 @@ function LasChat() {
     var completeFn;
 
     this.state.answersWaiting = false;
+
+    if ( this.clickedAnswerEl ) {
+      this.clickedAnswerEl.style.visibility = 'hidden';
+    }
 
     // testing whole answers animation
     this.velocity(
@@ -459,30 +479,56 @@ function LasChat() {
 
   las.eventHandler = function(event) {
 
-    if ( ( event.target.id === 'answer-0' ) || ( event.target.parentNode.id === 'answer-0' ) ) {
-      this.clickedAnswer = this.answersArray[ 0 ];
-      this.clickedAnswerEl = this.answerElements[ 0 ];
-      this.answerToBubble();
+    var elWithId;
+    var answerSplit;
+    var answerNo;
+
+    //  throttle clicks
+    if ( this.checkClickState() ) {
+      return;
     }
-    else if ( ( event.target.id === 'answer-1' ) || ( event.target.parentNode.id === 'answer-1' ) ) {
-      this.clickedAnswer = this.answersArray[ 1 ];
-      this.clickedAnswerEl = this.answerElements[ 1 ];
-      this.answerToBubble();
-    }
-    else if ( ( event.target.id === 'answer-2' ) || ( event.target.parentNode.id === 'answer-2' ) ) {
-      this.clickedAnswer = this.answersArray[ 2 ];
-      this.clickedAnswerEl = this.answerElements[ 2 ];
-      this.answerToBubble();
-    }
-    else if ( ( event.target.id === 'answer-3' ) || ( event.target.parentNode.id === 'answer-3' ) ) {
-      this.clickedAnswer = this.answersArray[ 3 ];
-      this.clickedAnswerEl = this.answerElements[ 3 ];
-      this.answerToBubble();
+
+    //  traverse up to find the element with ID
+    elWithId = this.checkNodeAndParents( event, false, 'id' );
+
+    //  this is an answer
+    if ( elWithId && ( elWithId.id.indexOf('answer-') !== -1 ) ) {
+
+      answerSplit = elWithId.id.split('-');
+
+      //  answer has number
+      if ( answerSplit.length > 1 ) {
+
+        answerNo = answerSplit[1];
+
+        //  assign clicked answer
+        this.clickedAnswer = this.answersData[ answerNo ];
+        this.clickedAnswerEl = this.answerElements[ answerNo ];
+
+
+        //  Answer to Bubble
+        this.answerToBubble();
+
+        //  Add score by answer
+        this.addScoreAnswer( this.clickedAnswer );
+
+
+        //  If this is the END
+        if ( this.clickedAnswer.hasOwnProperty('next') && ( this.clickedAnswer.next === 'END' ) ) {
+
+          this.finish();
+
+        }
+
+        //  stop eventHandler
+        event.stopPropagation();
+        return;
+      }
+
     }
 
     event.preventDefault();
     return false;
-
   };
 
 
@@ -507,28 +553,9 @@ function LasChat() {
 
 
 
-
-  las.finish = function() {
-
-    var finish = document.createElement('li');
-
-    finish.className = 'nocnasowa centered size-1';
-    finish.style.cssText = 'display:block;clear:both;margin:0;padding:2.5rem 0 0;opacity:0;';
-    finish.innerHTML = '<span>Nocna</span> Sowa';
-
-    this.scrollFn = function() { las.chatFlow.insertBefore(finish, las.chatFlow.lastChild); };
-    this.scrollAfterChange();
-
-    this.velocity(finish,
-        { opacity: [1, 0] },
-        { duration: 6 * las.helper.speed, easing: 'easeInOutQuart' }
-      );
-
-    window.console.log('END');
-
-  };
-
-
+  //
+  //  Testmode
+  //
   las.test = function() {
     var property;
     var bubble;
@@ -537,7 +564,10 @@ function LasChat() {
     var l;
     var liEl;
     var line;
+    var lineIntro;
+    var lineChat;
     var loopDataFn;
+    var bigLineCss = 'width:100%;padding-top:2.5rem;padding-bottom:2.5rem;background: rgba(0,0,0,0.15);color: #fff;text-align:center;clear:both;';
 
     window.console.log('testmode');
 
@@ -565,7 +595,7 @@ function LasChat() {
           }.bind(this) );
 
           //  if there are answers
-          if ( data[property].answers ) {
+          if ( data[property].hasOwnProperty('answers') ) {
 
             l = data[property].answers.length;
 
@@ -581,10 +611,17 @@ function LasChat() {
 
           }
 
-        line = document.createElement('li');
-        line.style.cssText = 'width:100%;height:3px;background:#fff;margin:2.5rem 0;clear:both;';
+          line = document.createElement('li');
 
-        this.chatFlow.appendChild(line);
+          if ( data[property].autoNext === 'RANDOM' ) {
+            line.style.cssText = bigLineCss;
+            line.innerHTML = 'Koniec sekcji<br /><span class="size-0">W ramach sekcji, kolejność jest stała. Sekcje są wybierane losowo.</span>';
+          }
+          else {
+            line.style.cssText = 'width:100%;height:3px;background:#fff;margin:2.5rem 0;clear:both;';
+          }
+
+          this.chatFlow.appendChild(line);
 
         } // end if has property
       } // end loop
@@ -593,7 +630,16 @@ function LasChat() {
 
 
     loopDataFn( this.lasData.intro );
+    lineIntro = document.createElement('li');
+    lineIntro.style.cssText = bigLineCss;
+    lineIntro.innerHTML = 'Koniec INTRO';
+    this.chatFlow.appendChild(lineIntro);
+
     loopDataFn( this.lasData.chat );
+    lineChat = document.createElement('li');
+    lineChat.style.cssText = bigLineCss;
+    this.chatFlow.appendChild(lineChat);
+
     loopDataFn( this.lasData.end );
 
 

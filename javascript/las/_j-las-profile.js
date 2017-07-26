@@ -565,20 +565,14 @@ function LasCreateProfile() {
   //
   las.eventHandler = function( event ) {
 
-    var throttleTimer;
     var elWithId;
 
     //  throttle clicks
-    if ( this.state.clicked ) {
+    var wasClicked = checkClickState();
+
+    if ( wasClicked ) {
       return;
     }
-
-    this.state.clicked = true;
-
-    throttleTimer = window.setTimeout(function() {
-      this.state.clicked = false;
-      window.clearTimeout( throttleTimer );
-    }.bind(this), 150);
 
 
     window.console.log('click');

@@ -14,6 +14,20 @@
   "use strict";
 
   //
+  //  Leveling system
+  //  same as in f-user-progress.php
+  //
+  var levelingSystemMulti = {
+    chapter:                            200,
+    correct:                            10,
+    repeat:                             2,
+    trans:                              2,
+    more:                               5,
+    wrong:                             -5
+  };
+
+
+  //
   //  Public functions
   //
 
@@ -21,8 +35,26 @@
   //
   //  Extra Info
   //
-  LasHelper.prototype.showExtraInfoIcon = function( prop ) {
+  LasHelper.prototype.showExtraInfoIcon = function(  ) {
 
+
+  };
+
+
+  LasHelper.prototype.addScoreAnswer = function() {
+
+    //  Correct answer
+    if ( this.clickedAnswer.hasOwnProperty('correct') && this.clickedAnswer.correct ) {
+
+      this.addScore( 'ex' );
+
+    }
+    //  Wrong answer
+    else if ( this.clickedAnswer.hasOwnProperty('wrong') && this.clickedAnswer.wrong ) {
+
+      this.addScore( 'wrong' );
+
+    }
 
   };
 
@@ -38,10 +70,10 @@
     this.cookiePlusOne( prop );
 
     //  if the prop is in the leveling system
-    if ( this.levelingSystemMulti[ prop ] ) {
+    if ( levelingSystemMulti[ prop ] ) {
 
       //  show exp
-      this.showScoreExp( this.levelingSystemMulti[ prop ] );
+      this.showScoreExp( levelingSystemMulti[ prop ] );
 
     }
 
@@ -67,12 +99,12 @@
 
     this.velocity( navExpEl,
       { translateY: ['1rem', '2rem'], opacity: [0.9, 0] },
-      { duration: 2 * las.helper.speed, easing: this.helper.easingQuart, display: 'block'  }
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'block'  }
     );
 
     this.velocity( navExpEl,
       { translateY: ['0.5rem', '1rem'], opacity: 0 },
-      { duration: 8 * las.helper.speed, easing: this.helper.easingQuart, display: 'none' }
+      { duration: 8 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
     );
 
   };
