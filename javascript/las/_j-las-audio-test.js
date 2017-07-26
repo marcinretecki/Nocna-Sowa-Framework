@@ -123,12 +123,6 @@ function LasAudioTest() {
     }
 
 
-    //
-    //  Get Data
-    //
-    this.lasData =              new LasAudioData();
-
-
     //  get Elements
     this.getBasicElements();
 

@@ -29,11 +29,6 @@ function LasLiczby() {
   //
   las.init = function() {
 
-    //
-    //  Get Data
-    //
-    this.lasData =                  new LasLiczbyData();
-
     //  there are 3 levels
     //  0 (0-19)
     //  20 (20-99)
