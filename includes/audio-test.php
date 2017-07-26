@@ -12,9 +12,9 @@
   <div class="section-content section-4-2">
     <div id="audio-test" class="main-column center">
 
-      <div id="audio-pause-timer" style="position:fixed;left:0px;top:40%;z-index:1000;width:100%;opacity:0;display:none;" class="">
-        <button id="audio-skip-pause" class="btn btn-white btn-nav" style="display:block;margin:0px auto;width:4rem;height:4rem;padding:0;border-radius:50%;background-image:url('/las/c/i/icon_next.png');background-size:26px auto;background-position:center center;background-repeat:no-repeat;box-shadow:0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);">
-          <svg width="80" height="80" viewBox="0 0 80 80" style="display:block;margin:0 auto;position:aboslute;left:0;top:0;">
+      <div id="audio-pause-timer"class="audio-pause-timer">
+        <button id="audio-skip-pause" class="audio-pause-timer__btn btn btn-white btn-nav">
+          <svg width="80" height="80" viewBox="0 0 80 80" style="display:block;margin:0 auto;position:absolute;left:0;top:0;">
             <defs>
               <mask id="cutout">
                 <circle cx="50%" cy="50%" r="40" fill="#fff" />
@@ -30,40 +30,32 @@
       </div>
 
 
-      <div id="audio-test-answers" class="audio-test-answers section-green" style="border-radius:3px;position:relative;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);">
+      <div id="audio-test-answers" class="audio-test-answers section-green">
 
-        <div id="audio-msg-wrapper" class="centered pad-2 section-dark" style="border-radius:3px 3px 0 0;">
-          <p id="audio-msg" class="space-0 size-2"></p>
-
-          <p id="audio-trans" class="space-0" style="display:none;padding-top:0.5rem;"></p>
+        <div id="audio-test-msg" class="audio-test-msg">
+          <div id="audio-test-msg-main" class="audio-test-msg__main"></div>
+          <div id="audio-test-msg-trans" class="audio-test-msg__trans"></div>
         </div>
 
 
         <div>
-          <button id="answer-0" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0;border:0;border-radius:3px 3px 0 0;">&nbsp;</button>
-
-          <button id="answer-1" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0;border:0;border-top:1px solid #60B3B3;">&nbsp;</button>
-
-          <button id="answer-2" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0;border:0;border-top:1px solid #60B3B3;">&nbsp;</button>
-
-          <button id="answer-3" class="btn btn-green btn-audio-test-answer" role="button" style="width:100%;display:none;padding:2rem;margin:0;border-radius:0 0 3px 3px;border:0;border-top:1px solid #60B3B3;">&nbsp;</button>
+          <button id="answer-0" class="audio-test-answers__answer" role="button">&nbsp;</button>
+          <button id="answer-1" class="audio-test-answers__answer" role="button">&nbsp;</button>
+          <button id="answer-2" class="audio-test-answers__answer" role="button">&nbsp;</button>
+          <button id="answer-3" class="audio-test-answers__answer" role="button">&nbsp;</button>
         </div>
 
 
-        <div id="audio-controls" class="section-dark" style="display:none;height:2rem;border-radius:0 0 3px 3px;">
-          <button id="audio-more" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);position:absolute;bottom:-2rem;left:25%;border-radius:50%;background-image:url(/las/c/i/icon_more.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-left:-3rem;margin-bottom:1px;"></button>
-
-
-          <button id="audio-rewind" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);position:absolute;bottom:-2rem;left:50%;border-radius:50%;background-image:url(/las/c/i/icon_rewind.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-left:-2rem;margin-bottom:1px;"></button>
-
-
-          <button id="audio-next" class="btn btn-white btn-nav" style="display:none;width:4rem;height:4rem;padding:0;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);position:absolute;bottom:-2rem;right:25%;border-radius:50%;background-image:url(/las/c/i/icon_next.png);background-size:26px auto;background-position:center;background-repeat:no-repeat;margin-right:-3rem;margin-bottom:1px;"></button>
+        <div id="audio-controls" class="audio-controls">
+          <button id="audio-more"   class="audio-controls__btn audio-controls__btn--more"></button>
+          <button id="audio-rewind" class="audio-controls__btn audio-controls__btn--rewind"></button>
+          <button id="audio-next"   class="audio-controls__btn audio-controls__btn--next"></button>
         </div>
 
       </div>
 
 
-      <div id="audio-spinner" class="wave-pulse-sync" style="position:fixed;left:50%;transform:translateX(-50%);bottom:2rem;display:none;opacity:0;">
+      <div id="audio-spinner" class="wave-pulse-sync audio-spinner">
         <div></div><div></div><div></div>
       </div>
 
