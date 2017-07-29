@@ -4,7 +4,11 @@ Template Name: Profile
 */
 
 //  GLOBALS
-include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
+$globals = stream_resolve_include_path( __DIR__ . '/includes/globals.php' );
+
+if ( $globals ) {
+  include( $globals );
+}
 
 
 //  there was no user

@@ -18,6 +18,11 @@
 </head>
 
 <body>
+<?php
+//  other versions of velocity have unexpected behaviours
+//  use only 1.4.1
+//  check back when 2.0.0 comes
+?>
 <script src="//cdn.jsdelivr.net/velocity/1.4.1/velocity.min.js"></script>
 <script src="<?php ns_auto_ver('/c/j-las-min.js'); ?>"></script>
 

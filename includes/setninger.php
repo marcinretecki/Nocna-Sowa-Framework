@@ -3,11 +3,12 @@
 // Includes - Setninger
 //
 
+//  GLOBALS
+$globals = stream_resolve_include_path( __DIR__ . '/includes/globals.php' );
 
-
-echo '<div style="position:absolute;right:0;z-index:100">';
-echo '<h1>Setninger!</h1>';
-echo '</div>';
+if ( $globals ) {
+  include( $globals );
+}
 
 
 ?>
@@ -16,24 +17,53 @@ echo '</div>';
 
 <section class="section-trans wrapper" style="background-image: url('/las/c/i/las_test_9.jpg');">
 
-  <div class="section-content section-4-2">
+  <div id="setninger" class="setninger">
 
-  <div class="items items-on-board">
-      <div id="wrapper-items" class="space-x4">
-        <div class="btn btn-word btn-s-2">kommer</div>
-        <div class="btn btn-word btn-s-2">du</div>
-        <div class="btn btn-word btn-s-2">og</div>
-        <div class="btn btn-word btn-s-2">din</div>
-        <div class="btn btn-word btn-s-2">kone</div>
-        <div class="btn btn-word btn-s-2">fra</div>
-        <div class="btn btn-word btn-s-2">Polen</div>
-        <div class="btn btn-word btn-s-2">?</div>
-      </div>
+    <div id="setninger-words" class="setninger-words"></div>
 
+    <div id="setninger-msg" class="setninger-msg"></div>
 
-      <p id="translation" class="translation"><i><span>Czy</span> <span>Ty</span> <span>i</span> <span>Twoja</span> <span>żona</span> <span>pochodzicie</span> <span>z</span> <span>Polski</span><span>?</span></i></p>
+    <div id="setninger-trans" class="setninger-trans"></div>
+
+    <div id="setninger-controls" class="setninger-controls">
+      <div id="setninger-controls__next" class="btn btn-white setninger-controls__next">Next</div>
+      <div id="setninger-controls__trans" class="btn btn-white setninger-controls__trans">Trans</div>
     </div>
 
   </div>
 
 </section>
+
+
+
+<?php
+
+//  get the audio file
+include( stream_resolve_include_path( __DIR__ . '/get-audio-file.php' ) );
+
+?>
+
+<script>
+var las = new LasSetninger();
+
+<?php
+
+$wyzwanie_helpers = stream_resolve_include_path( __DIR__ . '/wyzwanie-js-helpers.php' );
+
+if ( $wyzwanie_helpers ) {
+   include( $wyzwanie_helpers );
+}
+
+//  there is no file
+//  @audio_file_xxx is defined in get-audio-file
+if ( !$audio_file_m4a && !$audio_file_opus ) {
+  echo 'las.audioFile = false;';
+}
+?>
+
+window.addEventListener('load', function() {
+  las.init();
+
+}, false);
+
+</script>

@@ -6,10 +6,6 @@
 
 
 //  GLOBALS
-global $post;
-$id = $post->ID;
-
-//  Get przewodnik
 $globals = stream_resolve_include_path( __DIR__ . '/includes/globals.php' );
 
 if ( $globals ) {
@@ -128,7 +124,7 @@ function las_course_router() {
       }
 
 
-      if ( has_category( 'wyzwanie-audio' ) ) {
+      if ( has_category( 'wyzwanie-audio' ) || has_category( 'wyzwanie-liczby' ) ) {
         //  Audio Test
 
         include( 'includes/audio-test.php' );
@@ -138,12 +134,6 @@ function las_course_router() {
         //  Chat
 
         include( 'includes/chat.php' );
-
-      }
-      elseif ( has_category( 'wyzwanie-liczby' ) ) {
-        //  Liczby
-
-        include( 'includes/liczby.php' );
 
       }
       elseif ( has_category( 'wyzwanie-quiz' ) ) {

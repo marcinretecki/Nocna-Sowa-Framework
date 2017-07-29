@@ -11,7 +11,11 @@ if ( !las_is_developer() ) {
 
 
 //  GLOBALS
-include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
+$globals = stream_resolve_include_path( __DIR__ . '/includes/globals.php' );
+
+if ( $globals ) {
+  include( $globals );
+}
 
 
 
@@ -34,9 +38,12 @@ include( 'includes/head.php' );
           echo '<div style="height:2rem;overflow:hidden;">';
             echo '<a href="#" class="a-light" onClick="this.parentNode.style.cssText=\'\';">Pokaż progress ...</a><br /><br />';
 
+
+
             $user_cookie_progress = las_get_user_cookie_progress();
 
             echo '<pre class="size-0">';
+            var_dump( json_decode( stripslashes( $_COOKIE["lasChallangeProgress"] ), true ) );
             var_dump( $user_cookie_progress );
             echo '</pre>';
 

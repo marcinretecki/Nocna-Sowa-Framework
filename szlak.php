@@ -29,7 +29,11 @@
 
 
 //  GLOBALS
-include( stream_resolve_include_path( __DIR__ . '/includes/globals.php' ) );
+$globals = stream_resolve_include_path( __DIR__ . '/includes/globals.php' );
+
+if ( $globals ) {
+  include( $globals );
+}
 
 
 //
@@ -292,6 +296,7 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
     $slug   = $post->post_name;
     $id     = 'chapter-' . $post->ID;
     $ids[]  = $id;
+    $correct_sum = las_get_wyzwanie_correct_sum( $user_progress, $slug );
 
     //  Inner li
     $sublist .= '<li>';
@@ -302,7 +307,7 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
     //  and wyzwanie or there is no wyzwanie
     if (    $user_progress[ $slug ][ 'przewodnik' ]
          && ( count( $user_progress[ $slug ][ 'przewodnik' ] ) > 0 )
-         && ( ( $user_progress[ $slug ][ 'wyzwanie-suma-ex' ] > 0 ) || has_category( 'bez-wyzwania' ) )
+         && ( ( $correct_sum > 0 ) || has_category( 'bez-wyzwania' ) )
         ) {
 
       if ( has_category( 'bez-wyzwania' ) ) {
@@ -310,7 +315,7 @@ function las_sublist_loop( $chapters, $level, $user_progress, $last_section_done
         $punkty = 0;
       }
       else {
-        $punkty = $user_progress[ $slug ][ 'wyzwanie-suma-ex' ];
+        $punkty = $correct_sum;
       }
 
       //  popup
@@ -443,14 +448,17 @@ include( 'includes/head.php' );
 </div>
 
 <?php
-  //  $last_wyzwanie_result = las_get_last_wyzwanie_result( $user_progress );
+  $last_wyzwanie_result = las_get_last_wyzwanie_result( $user_progress );
 
   //  for testing results
-  $last_wyzwanie_result = test_las_get_last_wyzwanie_result();
+  //$last_wyzwanie_result = test_las_get_last_wyzwanie_result();
 
-  if ( $last_wyzwanie_result && $last_wyzwanie_result['ex'] ) {
+  if ( $last_wyzwanie_result && $last_wyzwanie_result['progress']['ex'] ) {
 
-    //las_reset_last_wyzwanie_user_meta();
+    //  Remove last wyzwanie result from database
+    //  the result is still in the var, so results can show
+    //  this way same results don't show twice
+    las_reset_last_wyzwanie_user_meta();
 
     include( stream_resolve_include_path( __DIR__ . '/includes/results.php' ) );
 
@@ -480,7 +488,7 @@ var las = new LasSzlak();
     echo 'las.helper.chapterToHighlight = \'' . $next_id . '\'; ' . "\r\n";
   }
 
-  if ( $last_wyzwanie_result && $last_wyzwanie_result['ex'] ) {
+  if ( $last_wyzwanie_result && $last_wyzwanie_result['progress']['ex'] ) {
 
     echo 'las.state.results = true;';
 

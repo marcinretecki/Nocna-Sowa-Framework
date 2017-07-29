@@ -1,9 +1,14 @@
 <?php
 //
-// Includes - Audio Test
+//  Includes - Audio Test
 //
 
 
+$globals = stream_resolve_include_path( __DIR__ . '/globals.php' );
+
+if ( $globals ) {
+  include( $globals );
+}
 ?>
 
 
@@ -72,22 +77,40 @@ include( stream_resolve_include_path( __DIR__ . '/get-audio-file.php' ) );
 ?>
 
 <script>
-var las = new LasAudioTest();
-las.helper.chapter = "<?php echo $post->post_name; ?>";
-las.helper.type = "<?php echo $type; ?>";
+var las;
 
 <?php
-//  there is no file
-//  @audio_file_xxx is defined in get-audio-file
-if ( !$audio_file_m4a && !$audio_file_opus ) {
-  echo 'las.audioFile = false;';
+if ( has_category( 'wyzwanie-liczby' ) ) {
+?>
+  las = new LasLiczby();
+<?php
+}
+else {
+?>
+  las = new LasAudioTest();
+<?php
+}
+
+$wyzwanie_helpers = stream_resolve_include_path( __DIR__ . '/wyzwanie-js-helpers.php' );
+
+if ( $wyzwanie_helpers ) {
+   include( $wyzwanie_helpers );
 }
 ?>
+
 
 //  init las on load
 window.addEventListener('load', function() {
 
   las.init();
+
+  <?php
+  //  there is no file
+  //  @audio_file_xxx is defined in get-audio-file
+  if ( !$audio_file_m4a && !$audio_file_opus ) {
+    echo 'las.audioFile = false;';
+  }
+  ?>
 
 }, false);
 
