@@ -5,41 +5,48 @@
 
 
 //  @last_wyzwanie_result
-
-  //
-  //  TODO
-  //  jeśli było dużo błędów, albo ćwiczenie nie było zrobione całe, pytamy, czy chce spróbować jeszcze raz, albo wrócić do przewodnika
-  //  jeśli nie było błędów, to sugestia, żeby wrócić na szlak
-  //
-
-  //
-  //  zeby zrobić animację levelu
-  //  mamy dostę do exp zarobionego na ćwiczeniu, więc wystarczy obliczyć
-  //
-
-  //  jeśli jest wyższy level
-  //  zamiast animować do drugiego procenta
-  //  animacja do 100%
-  //  błysk i ikonka +1 (jeśli tylko o jeden level...)
-  //  ustawienie nowego procentu
+//    @last_wyzwanie_result[ 'progress' ]
+//    @last_wyzwanie_result[ 'id' ]
+//    @last_wyzwanie_result[ 'first_time' ]
 
 
-  $wyzwanie_link = get_permalink( $last_wyzwanie_result['id'] ) . 'wyzwanie/';
-  $sos_link = get_permalink( $last_wyzwanie_result['id'] ) . '/';
-  $wyzwanie_title = las_get_clean_title( get_the_title( $last_wyzwanie_result['id'] ) );
 
-  //  user exp before the chapter
-  $user_exp_before = $user_exp - $last_wyzwanie_result['exp'];
+//
+//  TODO
+//  jeśli było dużo błędów, albo ćwiczenie nie było zrobione całe, pytamy, czy chce spróbować jeszcze raz, albo wrócić do przewodnika
+//  jeśli nie było błędów, to sugestia, żeby wrócić na szlak
+//
+
+//
+//  zeby zrobić animację levelu
+//  mamy dostę do exp zarobionego na ćwiczeniu, więc wystarczy obliczyć
+//
+
+//  jeśli jest wyższy level
+//  zamiast animować do drugiego procenta
+//  animacja do 100%
+//  błysk i ikonka +1 (jeśli tylko o jeden level...)
+//  ustawienie nowego procentu
 
 
-  //  $user_level;
-  $level_before_array = las_get_user_level_array( $user_exp_before );
+$last_wyzwanie_result_progress = $last_wyzwanie_result[ 'progress' ];
 
-  $level_percent_now = las_get_level_percent( $user_exp, $level_array );
-  $level_percent_before = las_get_level_percent( $user_exp_before, $level_before_array );
+$wyzwanie_link = get_permalink( $last_wyzwanie_result['id'] ) . 'wyzwanie/';
+$sos_link = get_permalink( $last_wyzwanie_result['id'] ) . '/';
+$wyzwanie_title = las_get_clean_title( get_the_title( $last_wyzwanie_result['id'] ) );
 
-  //  jeśli nowy jest mniejszy od starego, to znaczy, zeby był level up
-  //  choć nie koniecznie bo można było mieć 50%, a potem 51% w następnym levelu
+//  user exp before the chapter
+$user_exp_before = $user_exp - $last_wyzwanie_result_progress['exp'];
+
+
+//  $user_level;
+$level_before_array = las_get_user_level_array( $user_exp_before );
+
+$level_percent_now = las_get_level_percent( $user_exp, $level_array );
+$level_percent_before = las_get_level_percent( $user_exp_before, $level_before_array );
+
+//  jeśli nowy jest mniejszy od starego, to znaczy, zeby był level up
+//  choć nie koniecznie bo można było mieć 50%, a potem 51% w następnym levelu
 
 ?>
 
@@ -50,6 +57,12 @@
     <div class="main-column main-column--back">
 
       <div class="results__section">
+
+        <?php
+          //  echo '<pre>';
+          //  print_r( $last_wyzwanie_result );
+          //  echo '</pre>';
+        ?>
 
         <div class="results-header">
           <img class="result-header__img" src="<?php echo $user_img_url; ?>" />
@@ -81,20 +94,26 @@
               <td>
                 <i class="size-0">Eksempler:</i><br />
                 <span class="bariol-thin size-3">
-                  <?php echo $last_wyzwanie_result['ex']; ?>
+                  <?php echo $last_wyzwanie_result_progress['ex']; ?>
+                </span>
+              </td>
+              <td>
+                <i class="size-0">Correct:</i><br />
+                <span class="bariol-thin size-3">
+                  <?php echo $last_wyzwanie_result_progress['correct']; ?>
                 </span>
               </td>
 
               <td>
                 <i class="size-0">Tid:</i><br />
                 <span class="bariol-thin size-3">
-                  <?php echo las_format_t_short( $last_wyzwanie_result['t'] ); ?>
+                  <?php echo las_format_t_short( $last_wyzwanie_result_progress['t'] ); ?>
                 </span>
               </td>
 
               <td>
                 <i class="size-0">Erfering:</i><br />
-                <span id="results-added-exp" class="bariol-thin size-3" data-added-exp="<?php echo $last_wyzwanie_result['exp']; ?>">0</span>
+                <span id="results-added-exp" class="bariol-thin size-3" data-added-exp="<?php echo $last_wyzwanie_result_progress['exp']; ?>">0</span>
 
               </td>
             </tr>
@@ -113,7 +132,7 @@
 
 
         <ul>
-          <li>Erfaring for utfordringen: <?php echo $last_wyzwanie_result['exp']; ?></li>
+          <li>Erfaring for utfordringen: <?php echo $last_wyzwanie_result_progress['exp']; ?></li>
 
           <li>Erfaring til sammen: <?php echo $user_exp; ?></li>
 
@@ -122,15 +141,15 @@
           <?php
             //  jeśli był czas dłuższy od 5 sekund
             //  to może być pomocne w ustaleniu, czy ktoś w ogóle zrobił wyzwanie
-            if ( $last_wyzwanie_result['t'] > 5 ) {
+            if ( $last_wyzwanie_result_progress['t'] > 5 ) {
           ?>
           <?php
             }
 
             //  jeśli były błędy
-            if ( $last_wyzwanie_result['wrong'] > 0 ) {
+            if ( $last_wyzwanie_result_progress['wrong'] > 0 ) {
           ?>
-            <li>Błędy: <?php echo $last_wyzwanie_result['wrong']; ?></li>
+            <li>Błędy: <?php echo $last_wyzwanie_result_progress['wrong']; ?></li>
           <?php
             }
           ?>
@@ -139,14 +158,14 @@
         <?php
           //  if there is no time
           //  user has not finished the chapter
-          if ( ( !$last_wyzwanie_result['t'] && $last_wyzwanie_result['first_time'] ) ) {
+          if ( ( !$last_wyzwanie_result_progress['t'] && $last_wyzwanie_result_progress['first_time'] ) ) {
         ?>
             <p>Nie zrobiłeś wszystkich przykładów. Może spróbujesz jeszcze raz? Jeśli były za trudne, wróć do przewodnika albo do poprzednich wyzwań. Jeśli nie zrobiłeś wyzwania, bo wydawało Ci się nudne, daj nam o tym znać.</p>
         <?php
           }
           //  no exp
           //  maybe make it low exp instead?
-          elseif ( !$last_wyzwanie_result['exp'] ) {
+          elseif ( !$last_wyzwanie_result_progress['exp'] ) {
         ?>
             <p>Czy ćwiczenie było za trudne? Miałes problem z zagadnieniem? Wróć do przewodnika.</p>
         <?php

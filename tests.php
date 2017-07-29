@@ -22,6 +22,12 @@ if ( !las_is_developer() ) {
 
 <?php
 
+  test_las_get_wyzwanie_finished_sum();
+
+  test_las_get_wyzwanie_correct_sum();
+
+  test_las_add_totals();
+
   test_las_seconds_to_time_array();
 
   test_las_format_t();

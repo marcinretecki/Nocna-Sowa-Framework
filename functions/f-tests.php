@@ -3,7 +3,7 @@
 //  TESTS
 //
 
-
+//  Echo function name
 function las_test_echo_function_name( $name ) {
 
   echo '<strong style="display:block;margin:40px 0 20px;">';
@@ -11,6 +11,91 @@ function las_test_echo_function_name( $name ) {
   echo '</strong>';
 
 }
+
+
+
+
+//
+//  Test las_get_wyzwanie_finished_sum()
+//
+function test_las_get_wyzwanie_finished_sum() {
+
+  las_test_echo_function_name( __FUNCTION__ );
+
+  $user_progress = las_get_user_progress();
+
+  $slug = 'test';
+
+  $finished_no = las_get_wyzwanie_finished_sum( $user_progress, $slug );
+
+  echo 'Previously finsihed: ' . $finished_no .  ' times';
+
+}
+
+//
+//  Test las_get_wyzwanie_correct_sum()
+//
+function test_las_get_wyzwanie_correct_sum() {
+
+  las_test_echo_function_name( __FUNCTION__ );
+
+  $user_progress = las_get_user_progress();
+
+  $correct_sum = las_get_wyzwanie_correct_sum( $user_progress, 'test' );
+
+  echo 'Correct sum: ' . $correct_sum;
+
+}
+
+//
+//  Test las_add_totals()
+//
+function test_las_add_totals() {
+
+  las_test_echo_function_name( __FUNCTION__ );
+
+  $user_progress = las_get_user_progress();
+
+  $user_cookie_progress = [
+    'progress' => [
+      'exp'         => 800,
+      'ex'          => 20,
+      't'           => 544,
+      'correct'     => 20,
+      'wrong'       => 10,
+      'repeat'      => 23,
+      'more'        => 3,
+      'trans'       => 12
+    ],
+    'id'          => 36,
+    'first_time'  => true,
+    'progress_type' => 'wyzwanie'
+  ];
+
+  $user_progress_after_add_totals = las_add_totals( $user_progress, $user_cookie_progress );
+
+  echo '<div style="clear:both;overflow:hidden;">';
+
+    echo '<div style="width:48%;float:left;padding:0 1%;">';
+    echo '<p>Totals before:</p>';
+    echo '<pre>';
+      print_r( $user_progress['totals'] );
+    echo '</pre>';
+    echo '</div>';
+
+    echo '<div style="width:48%;float:left;padding:0 1%;">';
+    echo '<p>Totals after:</p>';
+    echo '<pre>';
+      print_r( $user_progress_after_add_totals['totals'] );
+    echo '</pre>';
+    echo '</div>';
+
+  echo '</div>';
+
+}
+
+
+
 
 //
 //  Test las_get_exp_from_progress()
@@ -120,13 +205,16 @@ function test_las_get_last_wyzwanie_result() {
   las_test_echo_function_name( __FUNCTION__ );
 
   $last_wyzwanie_result = [
-    'exp'         => 800,
-    'ex'          => 16,
-    't'           => 544,
-    'repeat'      => 23,
-    'more'        => 3,
-    'wrong'       => 17,
-    'trans'       => 12,
+    'progress' => [
+      'exp'         => 800,
+      'ex'          => 16,
+      't'           => 544,
+      'correct'     => 20,
+      'wrong'       => 10,
+      'repeat'      => 23,
+      'more'        => 3,
+      'trans'       => 12
+    ],
     'id'          => 36,
     'first_time'  => true
   ];

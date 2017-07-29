@@ -1,6 +1,6 @@
 <?php
 //
-//  Functions User Progress
+//  User Progress Functions
 //
 
 
@@ -12,41 +12,44 @@
 //  Array
 //  [
 //    'chapter-1' => [                  //  chapter
+//      'id' => 23,                       //  chapter id in database
 //      'przewodnik' => [                 //  progress_type
 //        '1490692099',                     //  access time, UNIX seconds
 //        '1490658658',
 //        ...
 //      ],
 //      'wyzwanie' => [
-//        '1490692099' => [               //  props
-//          'ex'        => 16,            //  ilość przykładów
-//          't'         => 544,           //  w sekundach
-//                                        //  jeśli t==0 to znaczy, że nie skończył danego ćwiczenia
-//          'repeat'    => 23,            //  ilośc powtórzeń na głos
-//          'more'      => 3,             //  ilośc dopowiedzeń
-//          'wrong'     => 17,            //  ilość błędnych odpowiedzi
-//          'trans'     => 12             //  ilość tłumaczeń
+//        '1490692099' => [                 //  props
+//          'exp'         => 240,           //  experience for chapter
+//          'ex'          => 16,            //  ilość przykładów albo segmentów
+//          'correct'     => 10,            //  ilość poprawnych odpowiedzi
+//          'wrong'       => 17,            //  ilość błędnych odpowiedzi
+//          'repeat'      => 23,            //  ilośc powtórzeń na głos
+//          'trans'       => 12,            //  ilość tłumaczeń
+//          'more'        => 3,             //  ilośc dopowiedzeń
+//          't'           => 544,           //  w sekundach (t==0 - nie skończył wyzwania)
+//          'finished'    => 0              //  czy skończył ćwiczenie
 //        ],
 //        '1490693000' => [
 //          ...
 //        ],
 //        ...
-//      ],
-//      'wyzwanie-suma-ex' =>  44
+//      ]
 //    ],
 //    'chapter-2' => [
 //      ...
 //    ],
 //    'totals'  =>  [
 //      'ex'              =>  345,
-//      'repeat'          =>  222,
+//      'correct'         =>  100,
 //      'wrong'           =>  100,
+//      'repeat'          =>  222,
 //      'trans'           =>  92,
 //      'more'            =>  8
 //      'przewodnik'      =>  10,
 //      'wyzwanie'        =>  13,
 //      't'               =>  16789,
-//      'dates'           =>  [2017-03-19, 2017-03-22, ...],
+//      'dates'           =>  [ '2017-03-19', '2017-03-22', ... ],
 //      'exp'             =>  1952
 //    ],
 //    'last' => [chapter, type, access],
@@ -103,7 +106,9 @@ function las_get_last_wyzwanie_result( $user_progress ) {
   $last_access  = $user_progress[ 'last' ][2];
   $first_time   = $user_progress[ 'last' ][3];
 
-  $last_wyzwanie_result = $user_progress[ $last_chapter ][ $last_type ][ $last_access ];
+  $last_wyzwanie_result = [];
+
+  $last_wyzwanie_result[ 'progress' ] = $user_progress[ $last_chapter ][ $last_type ][ $last_access ];
   $last_wyzwanie_result[ 'id' ] = $user_progress[ $last_chapter ][ 'id' ];
 
   if ( $first_time ) {
@@ -115,102 +120,65 @@ function las_get_last_wyzwanie_result( $user_progress ) {
 }
 
 
+//
+//  Calculate correct sum
+//  @user_progress
+//  @slug of the chapter
+//
+//  it is used by szlak.php to show all correct answers in the chapter
+//
+function las_get_wyzwanie_correct_sum( $user_progress, $slug ) {
+
+  $correct_sum = 0;
+
+  //  if nothing to show, return 0;
+  if ( !$user_progress[ $slug ] || !$user_progress[ $slug ][ 'wyzwanie' ]  ) {
+    return $correct_sum;
+  }
+
+  //
+  $wyzwanie_dates = $user_progress[ $slug ][ 'wyzwanie' ];
+
+  foreach ( $wyzwanie_dates as $date => $wyzwanie ) {
+
+    $correct_sum += $wyzwanie[ 'correct' ];
+
+  }
+
+  return ( $correct_sum );
+}
+
+
 
 //
-//  Get user cookie progress (previous page access)
-//  sanitize all input
-//  @return array [previous page progress, access time, chapter name, progress type]
-//  or false
+//  Get the sum of finished attempts of a wyzwanie
+//  @user_progress
+//  @slug of the chapter
 //
-//  Example cookie
-//  array(5) {
-//    ["progress"]=>
-//    array(2) {
-//      ["exp"]=>
-//      int(0)
-//      ["ex"]=>
-//      int(2)
-//    }
-//    ["access"]=>
-//    int(1493363680)
-//    ["chapter"]=>
-//    string(4) "test"
-//    ["progress_type"]=>
-//    string(8) "wyzwanie"
-//    ["id"]=>
-//    int(213)
-//  }
-function las_get_user_cookie_progress() {
+//  it is used by wyzwanie-js-helper.php
+//
+function las_get_wyzwanie_finished_sum( $user_progress, $slug ) {
 
-  $user_cookie_progress = json_decode( stripslashes( $_COOKIE["lasChallangeProgress"] ), true );
+  $finished_no = 0;
 
-  //  no cookie
-  //  or cookie is null
-  //  or it is not an array
-  if (    !$user_cookie_progress
-       || ( $user_cookie_progress === NULL )
-       || !is_array( $user_cookie_progress ) ) {
-    return false;
+  //  if nothing to show, return 0;
+  if ( !$user_progress[ $slug ] || !$user_progress[ $slug ][ 'wyzwanie' ]  ) {
+    return $finished_no;
   }
 
-  //  just in case, reset array pointer
-  reset( $user_cookie_progress );
+  $wyzwanie_dates = $user_progress[ $slug ][ 'wyzwanie' ];
 
-  //  get name of the first key of user_cookie_progress
-  $chapter = sanitize_file_name( key( $user_cookie_progress ) );
+  foreach ( $wyzwanie_dates as $date => $wyzwanie ) {
 
-  //  if chapter is not an array
-  if ( !is_array( $user_cookie_progress[ $chapter ] ) ) {
-    return false;
-  }
+    if ( $wyzwanie[ 'finished' ] && ( $wyzwanie[ 'finished' ] > 0 ) ) {
 
-  //  get name of the first key of chapter
-  $progress_type = sanitize_file_name( key( $user_cookie_progress[ $chapter ] ) );
+      $finished_no += 1;
 
-  //  if chapter is not an array
-  if ( !is_array( $user_cookie_progress[ $chapter ][ $progress_type ] ) ) {
-    return false;
-  }
-
-  //  get name of the first key of progress_type
-  $access = key( $user_cookie_progress[ $chapter ][ $progress_type ] );
-
-  //  if access is not a number
-  if ( !is_integer( $access ) ) {
-    return false;
-  }
-
-  $progress = $user_cookie_progress[ $chapter ][ $progress_type ][ $access ];
-
-  //  if progress is not an array
-  if ( !is_array( $progress ) ) {
-    return false;
-  }
-
-  //  check values
-  foreach ( $progress as $value ) {
-
-    //  if any of the values in progress are not integrs
-    if ( !is_integer( $value ) ) {
-      return false;
     }
 
   }
 
-  $id = $user_cookie_progress[ $chapter ][ 'id' ];
-
-  //  if id is not integer
-  if ( !is_integer( $id ) ) {
-    return false;
-  }
-
-  return  array(
-              'progress'        =>  $progress,
-              'access'          =>  $access,
-              'chapter'         =>  $chapter,
-              'progress_type'   =>  $progress_type,
-              'id'              =>  $id
-          );
+  return ( $finished_no );
 
 }
 
@@ -228,16 +196,13 @@ function las_update_user_meta() {
   $current_chapter_id = $post->ID;
 
   //  if it is front or szlak-test, don't do anything
-  if (    ( $current_chapter === 'front' )
-       || ( $current_chapter === 'szlak-test' )
-     ) {
+  if ( ( $current_chapter === 'front' ) || ( $current_chapter === 'szlak-test' ) ) {
     return;
   }
 
 
   $current_user = wp_get_current_user();
   $user_progress = las_get_user_progress();
-  $current_time = time();
   $current_progress_type = las_get_current_progress_type();
 
 
@@ -246,7 +211,7 @@ function las_update_user_meta() {
 
 
   //  set new cookie
-  las_set_new_progress_cookie( $current_chapter, $current_progress_type, $current_time, $current_chapter_id );
+  //las_set_new_progress_cookie( $current_chapter, $current_progress_type, $current_chapter_id );
 
 
   //  if user has no current progress in cookie, don't execute the rest
@@ -270,22 +235,6 @@ function las_update_user_meta() {
   //  add user meta according to cookies
   //  set number of examples, mistakes, times etc.
   $user_progress[ $cookie_chapter ][ $cookie_progress_type ][ $cookie_access ] = $cookie_progress;
-
-
-  //  if there is ex number
-  //  add it to the totals
-  if ( $cookie_progress['ex'] ) {
-
-    //  add to the sum of ex
-    if ( $user_progress[ $cookie_chapter ][ 'wyzwanie-suma-ex' ] ) {
-      $user_progress[ $cookie_chapter ][ 'wyzwanie-suma-ex' ] += $cookie_progress['ex'];
-    }
-    //  create the sum of ex
-    else {
-      $user_progress[ $cookie_chapter ][ 'wyzwanie-suma-ex' ] = $cookie_progress['ex'];
-    }
-
-  }
 
 
   //  add totals
@@ -366,8 +315,11 @@ function las_add_totals( $user_progress, $user_cookie_progress ) {
   //  first add current date
   $user_progress = las_add_totals_date( $user_progress );
 
-  //  add +1 to wisited pages
-  $user_progress[ 'totals' ][ $cookie_progress_type ] += 1;
+  //  if there is progress type
+  //  add +1 to visited pages
+  if ( $cookie_progress_type ) {
+    $user_progress[ 'totals' ][ $cookie_progress_type ] += 1;
+  }
 
   //  if wyzwanie
   if ( $cookie_progress_type === 'wyzwanie' ) {
@@ -449,7 +401,7 @@ function las_mark_last_wyzwanie( $user_progress, $user_cookie_progress ) {
 
 
 //
-//  Reset las wyzwanie from user meta
+//  Reset last wyzwanie from user meta
 //  saves to the database
 //
 function las_reset_last_wyzwanie_user_meta() {
@@ -471,12 +423,11 @@ function las_reset_last_wyzwanie_user_meta() {
 //
 function las_create_user_meta() {
 
-
   $new_meta = [
 
-      'totals'  =>  [
-        'dates'           =>  [ date('Y-m-d') ]
-      ]
+    'totals'  => [
+      'dates' =>    [ date('Y-m-d') ]
+    ]
 
   ];
 
@@ -509,35 +460,6 @@ function las_get_current_progress_type() {
 
 
 //
-//  Set new cookie for the current page
-//
-function las_set_new_progress_cookie( $current_chapter, $current_progress_type, $current_time, $current_chapter_id ) {
-
-  //  it is szlak
-  //  or profile
-  //  or other page that we don;t want ot measure directly
-  if ( ( $current_chapter === 'profil' ) || ( $current_chapter === 'szlak' ) ) {
-    setcookie( "lasChallangeProgress", json_encode( [] ), $current_time - 1, "/las/" );
-    return;
-  }
-
-  //  dlaczego jest od razu exp?
-  //  bo inaczej w JS nie będzie object, tylko array
-
-  $new_cookie = json_encode( [
-                  $current_chapter => [
-                    $current_progress_type => [ $current_time => [ 'exp' => 0 ] ],
-                    'id' => $current_chapter_id
-                  ]
-                ] );
-
-  setcookie( "lasChallangeProgress", $new_cookie, $current_time + 10000, "/las/" );
-
-}
-
-
-
-//
 //  Reset user progress
 //  @return true or false
 //
@@ -551,217 +473,3 @@ function las_reset_user_meta() {
 
 }
 //las_reset_user_meta();
-
-
-
-
-//
-//  Leveling system
-//
-
-
-
-//  TODO
-//  check if ex number is the same as real number of ex in chapter
-//  before adding exp to the user
-
-
-//
-//  Leveling system multiplicators
-//  @return array
-//
-function las_get_leveling_system_multi() {
-
-  $multi = [
-    'chapter' =>  200,
-    'ex'      =>   10,
-    'repeat'  =>    2,
-    'trans'   =>    2,
-    'more'    =>    5,
-    'wrong'   =>   -5
-  ];
-
-  return $multi;
-
-}
-
-
-//
-//  Get new exp
-//  pass user_progress to avoid additional calls to same function
-//  @return exp
-//
-function las_get_exp_from_progress( $user_cookie_progress ) {
-
-  $exp              = 0;
-  $multi            = las_get_leveling_system_multi();
-  $cookie_progress  = $user_cookie_progress[ 'progress' ];
-
-  //  Ex
-  if ( $cookie_progress['ex'] > 0 ) {
-
-    $exp += $cookie_progress['ex'] * $multi['ex'];
-
-  }
-
-  //  Repeat
-  if ( $cookie_progress['repeat'] > 0 ) {
-
-    $exp += $cookie_progress['repeat'] * $multi['repeat'];
-
-  }
-
-  //  More
-  if ( $cookie_progress['more'] > 0 ) {
-
-    $exp += $cookie_progress['more'] * $multi['more'];
-
-  }
-
-  //  Trans
-  if ( $cookie_progress['trans'] > 0 ) {
-
-    $exp += $cookie_progress['trans'] * $multi['trans'];
-
-  }
-
-  //  Wrong
-  if ( $cookie_progress['wrong'] > 0 ) {
-
-    $exp += $cookie_progress['wrong'] * $multi['wrong'];
-
-  }
-
-  //  user can't recive minus exp, so return 0
-  if ( $exp < 0 ) {
-    $exp = 0;
-  }
-
-  return $exp;
-}
-
-
-
-//
-//  Get user's experience
-//  pass args to avoid additional calls to same function
-//  @return integer
-//
-function las_get_user_exp( $user_progress ) {
-
-  if ( $user_progress['totals']['exp'] ) {
-    return $user_progress['totals']['exp'];
-  }
-  else {
-    return 0;
-  }
-
-}
-
-
-//
-//  Get level percent for the next
-//
-function las_get_level_percent( $user_exp, $level_array ) {
-
-  $prev_level = $level_array[2];
-  $next_level = $level_array[1];
-
-  $exp_diff = $next_level - $prev_level;
-  $exp_needed = $next_level - $user_exp;
-
-  $percent = floor( ( ( $exp_diff - $exp_needed ) / $exp_diff ) * 100) . '%';
-
-  return $percent;
-}
-
-
-//
-//  Get user level
-//  @return array(level, exp for next level)
-//
-function las_get_user_level_array( $user_exp ) {
-
-  //  create array of levels
-  //  and check if the new value is higher, than the last
-  $levels_exp_array = [];
-
-  //  begin with 2, because 1 doesn't need any exp
-  $levels_i = 2;
-  $levels_max = 50;
-  $levels_add = 600;
-  $levels_multiplier = 1.1;
-  $user_level = 0;
-  $exp_for_next = 0;
-  $exp_for_previous = 0;
-
-  for ( ; $levels_i <= $levels_max; $levels_i++ ) {
-
-    $levels_exp_array[$levels_i] = round( ( ( $levels_exp_array[$levels_i - 1] * $levels_multiplier ) + $levels_add ), 0 );
-
-    $exp_for_next = $levels_exp_array[ $levels_i ];
-
-    if ( $exp_for_next > $user_exp ) {
-
-      $user_level = $levels_i - 1;
-      $exp_for_previous = $levels_exp_array[ $levels_i -1 ];
-      break;
-
-    }
-
-  }
-
-  return array( $user_level, $exp_for_next, $exp_for_previous );
-
-}
-
-
-
-//
-//  Add exp
-//  @return updated $user_progress
-//
-function las_add_exp( $user_progress, $user_cookie_progress ) {
-
-  $cookie_progress        = $user_cookie_progress[ 'progress' ];
-  $cookie_chapter         = $user_cookie_progress[ 'chapter' ];
-  $cookie_progress_type   = $user_cookie_progress[ 'progress_type' ];
-  $cookie_access          = $user_cookie_progress[ 'access' ];
-
-  $multi = las_get_leveling_system_multi();
-
-  //  first visit on this przewodnik
-  if ( ( $cookie_progress_type === 'przewodnik' ) && ( count( $user_progress[ $cookie_chapter ][ $cookie_progress_type ] ) === 1 ) ) {
-
-    $exp = $multi[ 'chapter' ];
-
-  }
-  //  wyzwanie
-  elseif ( $cookie_progress_type === 'wyzwanie' ) {
-
-    $exp = las_get_exp_from_progress( $user_cookie_progress );
-
-  }
-  else {
-
-    $exp = 0;
-
-  }
-
-
-  //  assign exp
-  $user_progress[ $cookie_chapter ][ $cookie_progress_type ][ $cookie_access ][ 'exp' ] = $exp;
-
-
-  //  if user had previous exp, add it
-  if ( $user_progress[ 'totals' ][ 'exp' ] > 0 ) {
-    $user_progress[ 'totals' ][ 'exp' ] += $exp;
-  }
-  //  if they had no exp, assign
-  else {
-    $user_progress[ 'totals' ][ 'exp' ] = $exp;
-  }
-
-  return $user_progress;
-
-}
