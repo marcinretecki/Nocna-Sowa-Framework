@@ -33,6 +33,7 @@ function LasChat() {
   //  this will we assigned at assignBubbleData
   //
   las.currentBubbleData =     null;
+
   las.bubbleStack = {
     stack:                    [],
     pointer:                  0
@@ -66,6 +67,12 @@ function LasChat() {
   //
   las.init = function() {
 
+    window.console.log('init');
+
+    if ( !this.audioFile ) {
+      window.console.log('there is no audio file');
+    }
+
     //
     //  Get Data
     //
@@ -74,21 +81,20 @@ function LasChat() {
     //  get Elements
     this.getBasicElements();
 
-    //  random chat arrays
-    this.randomIntroArray =   this.getRandomArrayOfFirstBubbles( this.lasData.intro );
-    this.randomChatArray =    this.getRandomArrayOfFirstBubbles( this.lasData.chat );
-    this.randomEndArray =     this.getRandomArrayOfFirstBubbles( this.lasData.end );
 
-    //  create chat
+    //  Prepare
     this.createChat();
     this.addListener();
     this.resetAnswers();
 
+    //  If not test mode, begin
+    //  Get the intro
     if ( !this.state.testmode ) {
       this.hideLoader();
 
       //  get the intro
-      this.getNextBubble( 'INTRO' );
+      this.currentBubbleData = this.getNextBubble( 'INTRO' );
+
       this.createBubble();
     }
   };
@@ -145,39 +151,36 @@ function LasChat() {
   };
 
 
-  //
-  //  BUBBLE
-  //  check what data is available, assign it and reset those unavailable
-  //
-  las.assignBubbleData = function(no, data) {
+  //  //
+  //  //  BUBBLE
+  //  //  check what data is available, assign it and reset those unavailable
+  //  //
+  //  las.assignBubbleData = function(no, data) {
 
-    console.log(data);
+  //    //  assign
+  //    this.currentBubbleData = data;
 
-    //  assign
-    this.currentBubble = no;
-    this.currentBubbleData = data;
+  //    //  reset bubble stack
+  //    this.bubbleStack.stack = [];
+  //    this.bubbleStack.pointer = 0;
 
-    //  reset bubble stack
-    this.bubbleStack.stack = [];
-    this.bubbleStack.pointer = 0;
-
-    //  new bubble stack
-    this.bubbleStack.stack = this.currentBubbleData.bubbles;
+  //    //  new bubble stack
+  //    this.bubbleStack.stack = this.currentBubbleData.bubbles;
 
 
-    //
-    //  tu dojdzie audio....
-    //
+  //    //
+  //    //  tu dojdzie audio....
+  //    //
 
 
-    //  if there is no autoNext or answers
-    if ( !( this.currentBubbleData.hasOwnProperty('autoNext') || this.currentBubbleData.hasOwnProperty('answers') ) ) {
+  //    //  if there is no autoNext or answers
+  //    if ( !( this.currentBubbleData.hasOwnProperty('autoNext') || this.currentBubbleData.hasOwnProperty('answers') ) ) {
 
-      throw "There is no autoNext or answers – audio test can't work";
+  //      throw "There is no autoNext or answers – audio test can't work";
 
-    }
+  //    }
 
-  };
+  //  };
 
 
 
@@ -192,25 +195,33 @@ function LasChat() {
       return false;
     }
 
+    window.console.log( 'createBubble' );
+
+    //  if there is no autoNext or answers or bubbles
+    if ( !( this.currentBubbleData.hasOwnProperty('autoNext') || this.currentBubbleData.hasOwnProperty('answers') || this.currentBubbleData.hasOwnProperty('bubbles') ) ) {
+
+      throw "There is no autoNext or answers or bubbles – chat can't work";
+
+    }
+
 
     //  if there is bubble stack
-    if ( this.bubbleStack.stack ) {
+    if ( this.bubbleStack.stack && this.bubbleStack.stack.length ) {
 
       l = this.bubbleStack.stack.length;
 
-      // pointer is at 0
-      if ( ( l > 0 ) && ( this.bubbleStack.pointer === 0 ) ) {
-
-        this.loopBubbleStack();
-
-      }
       //  pointer is at the end
-      else if ( ( l > 0 ) && ( l === this.bubbleStack.pointer  ) ) {
+      if ( ( l > 0 ) && ( l === this.bubbleStack.pointer  ) ) {
+
+        //  reset bubble stack
+        this.bubbleStack.stack = [];
+        this.bubbleStack.pointer = 0;
 
         //  if there is autoNext
         if ( this.currentBubbleData.autoNext ) {
 
-          this.getNextBubble( this.currentBubbleData.autoNext );
+          this.currentBubbleData = this.getNextBubble( this.currentBubbleData.autoNext );
+
           this.createBubble();
         }
         //  if there are answers
@@ -223,9 +234,14 @@ function LasChat() {
       }
 
     }
+    //  there is no stack
     else {
 
-      throw "There are no bubbles to show.";
+      //  new bubble stack
+      this.bubbleStack.stack = this.currentBubbleData.bubbles;
+
+      //  start the loop
+      this.loopBubbleStack();
 
     }
 
@@ -277,7 +293,8 @@ function LasChat() {
     completeFn = function() {
 
       //  get next bubble
-      this.getNextBubble( this.clickedAnswer.next );
+      this.currentBubbleData = this.getNextBubble( this.clickedAnswer.next );
+
       //  set timer
       setTimeout(function() {
         this.createBubble();
@@ -359,7 +376,6 @@ function LasChat() {
     bubble = document.createElement('li');
     bubble.className = 'white chat-bubble';
     bubble.innerHTML = '<span class="ball-pulse-sync ball-pulse-sync-dark"><div></div><div></div><div></div></span>';
-    bubble.id = 'bubble-' + this.currentBubble;
 
 
     //  insert loader bubble
@@ -443,6 +459,9 @@ function LasChat() {
     this.state.answers = true;
 
     window.console.log('show answers');
+
+    //  Shuffle answers
+    this.currentBubbleData.answers = this.shuffleArray( this.currentBubbleData.answers );
 
     l = this.currentBubbleData.answers.length;
 
@@ -662,19 +681,26 @@ function LasChat() {
   //  Testmode
   //
   las.test = function() {
+    var data = this.lasData;
     var property;
     var bubble;
+    var testNotes = data.testNotes;
+    var testNotesEl;
+    var testNotesContent = '';
     var content;
     var i;
+    var j;
     var l;
     var liEl;
     var line;
     var lineIntro;
     var lineChat;
     var loopDataFn;
-    var bigLineCss = 'width:100%;padding-top:2.5rem;padding-bottom:2.5rem;background: rgba(0,0,0,0.15);color: #fff;text-align:center;clear:both;';
+    var bigLineCss = 'width:100%;padding-top:2rem;padding-bottom:2rem;background: rgba(0,0,0,0.15);color: #fff;text-align:center;clear:both;';
 
     window.console.log('testmode');
+
+    document.styleSheets[0].insertRule('.chat-flow::before { height: 4rem !important; }', 1);
 
     this.state.answers = true;
     this.resetAnswers();
@@ -682,6 +708,31 @@ function LasChat() {
     this.velocity(this.answersWrapper, 'stop', true);
     this.chatFlow.innerHTML = '';
     this.chatFlow.style.display = 'none';
+
+    line = document.createElement('li');
+    line.style.cssText = 'width:100%; padding-top:1rem; padding-bottom:1rem; margin:0 0 1rem; clear:both; position:relative;';
+    line.className = 'section-dark';
+    line.innerHTML = 'Category: ' + data.category + '<br />' + 'Max correct: ' + this.countMaxCorrectAnswers(data);
+    this.chatFlow.appendChild(line);
+
+    if ( testNotes ) {
+      //  create test notes
+      testNotesEl = document.createElement('li');
+      testNotesEl.style.cssText = 'width:100%; padding-top:1rem; padding-bottom:1rem; margin:0 0 1rem; clear:both; position:relative;';
+      testNotesEl.className = 'section-dark';
+      testNotesContent += '<p class="size-1 space-half">Test Notes</p>';
+      testNotesContent += '<ul class="light-dots">';
+
+      //  show test notes
+      for ( j = 0; j < testNotes.length; j++ ) {
+
+        testNotesContent += '<li>' + testNotes[j] + '</li>';
+
+      }
+
+      testNotesEl.innerHTML = testNotesContent;
+      this.chatFlow.appendChild(testNotesEl);
+    }
 
     loopDataFn = function ( data ) {
       for (property in data) {
@@ -709,6 +760,14 @@ function LasChat() {
               liEl.className = 'chat-bubble-answer';
               liEl.style.opacity = '1';
               liEl.innerHTML = this.encodeBubble( data[property].answers[i].answer );
+
+              //  if wrong, change background
+              if ( data[property].answers[i].score === 'wrong' ) {
+
+                liEl.style.backgroundColor = '#de7642';
+
+              }
+
               this.chatFlow.appendChild( liEl );
 
             }
@@ -733,18 +792,18 @@ function LasChat() {
 
 
 
-    loopDataFn( this.lasData.intro );
+    loopDataFn( data.intro );
     lineIntro = document.createElement('li');
     lineIntro.style.cssText = bigLineCss;
     lineIntro.innerHTML = 'Koniec INTRO';
     this.chatFlow.appendChild(lineIntro);
 
-    loopDataFn( this.lasData.chat );
+    loopDataFn( data.chat );
     lineChat = document.createElement('li');
     lineChat.style.cssText = bigLineCss;
     this.chatFlow.appendChild(lineChat);
 
-    loopDataFn( this.lasData.end );
+    loopDataFn( data.end );
 
 
 

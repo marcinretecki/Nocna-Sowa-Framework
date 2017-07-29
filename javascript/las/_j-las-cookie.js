@@ -1,6 +1,263 @@
 //
 //  COOKIES
 //
+//  Attaches to @LasHelper prototype
+//
+
+
+(function() {
+
+
+  //
+  //  Private store of user progress
+  //  cookie[ chapter ][ type ][ access ] = progress
+  //  chapter, type and access are stored in helper
+  //  here we stroee
+  //
+  var cookieStore = {
+    //  use this to count time
+    jsAccess:       0,
+    //  here goes all progress props
+    //  ex, correct, wrong,
+    progress:       {}
+  };
+
+
+
+  //
+  //  Private functions
+  //
+
+  //
+  //  Get time and adjust it to match php format
+  //
+  function getJsTime() {
+    Date.now = Date.now || function() { return +new Date; };
+    return Math.floor( Date.now() / 1000 );
+  }
+
+  //
+  //  Get progress cookie in json
+  //
+  function getCookie() {
+    var cookie = Cookies.getJSON( 'lasChallangeProgress' );
+    return cookie;
+  }
+
+  //
+  //  Save data to progress cookie
+  //
+  function setCookie(value) {
+    Cookies.set( 'lasChallangeProgress', value, { expires: 365, path: '/las/' } );
+  }
+
+  //
+  //  Remove progress cookie
+  //
+  function cleanCookie() {
+    Cookies.remove( 'lasChallangeProgress', { path: '/las/' } );
+  }
+
+
+
+  //
+  //  Public functions
+  //
+
+  //
+  //  Prepare cookie store
+  //
+  LasHelper.prototype.prepareCookieStore = function() {
+
+    //  check if we have all needed info
+    if ( !las.helper.chapter || !las.helper.type || !las.helper.chapterId || !las.helper.serverAccess ) {
+      window.console.log('server did not set helper correctly');
+
+      cookieStore = false;
+
+      return;
+    }
+
+    window.console.log( 'prepareCookieStore' );
+
+    //  set access time to count elapsed later
+    cookieStore.jsAccess = getJsTime();
+
+
+  };
+
+
+  //
+  //  Add one to the prop in progress
+  //  ex, correct, wrong, more, repeat etc.
+  //
+  LasHelper.prototype.addOneToProgress = function( prop ) {
+
+    //  if there was wrong data from the server, store is set to false
+    if ( !cookieStore ) {
+      window.console.log('cookie store is false');
+      return;
+    }
+
+    //  if such prop was not set before
+    if ( !cookieStore.progress[ prop ] ) {
+      cookieStore.progress[ prop ] = 0;
+    }
+
+    //  add +1 to the prop
+    cookieStore.progress[ prop ] += 1;
+
+  };
+
+
+  //
+  //  Add new exp to progress store
+  //  @prop comes from log.js
+  //  @countExpFromMultiFn comes from log.js
+  //
+  LasHelper.prototype.addExpToProgress = function( exp ) {
+
+    //  if there was wrong data from the server, store is set to false
+    if ( !cookieStore ) {
+      window.console.log('cookie store is false');
+      return;
+    }
+
+    //  if there is no exp, ignore
+    if ( exp === 0 ) {
+      return;
+    }
+
+    //  if exp was not set before
+    if ( !cookieStore.progress[ 'exp' ] ) {
+      cookieStore.progress[ 'exp' ] = 0;
+    }
+
+    //  add exp
+    cookieStore.progress[ 'exp' ] += exp;
+
+  };
+
+
+  //
+  //  Save progress to cookie
+  //
+  LasHelper.prototype.saveProgressToCookie = function() {
+
+    if ( !cookieStore ) {
+      window.console.log('cookie store is false');
+      return;
+    }
+
+
+    var timeNow = getJsTime();
+    var progress = cookieStore.progress;
+    var cookie = {};
+    var property;
+
+    //  store elapsed time
+    cookieStore.progress[ 't' ] = timeNow - cookieStore.jsAccess;
+
+    //  cookie should look like this
+    //  cookie[chapter][type][serverAccess][progress]
+    //  cookie[chapter][id]
+    //  progress has additionaly t (time elapsed) and finished (integer)
+
+    //  create chapter object
+    cookie[ this.helper.chapter ] = {};
+
+    //  set id
+    cookie[ this.helper.chapter ][ 'id' ] = this.helper.chapterId;
+
+    //  create type object
+    cookie[ this.helper.chapter ][ this.helper.type ] = {};
+
+    //  create serverTime object
+    cookie[ this.helper.chapter ][ this.helper.type ][ this.helper.serverAccess ] = {};
+
+    //  loop over all progress props and add them to type object
+    for ( property in progress ) {
+
+      // if it is own property
+      if ( progress.hasOwnProperty( property ) ) {
+
+        //  obfuscate
+        cookie[ this.helper.chapter ][ this.helper.type ][ this.helper.serverAccess ][ property ] = progress[ property ].toString(3);
+
+      }
+    }
+
+    window.console.log( cookie );
+
+    //  set the cookie
+    setCookie( cookie );
+
+  };
+
+
+
+  //  //
+  //  //  Set the finished prop to cookie
+  //  //
+  //  LasHelper.prototype.cookieSetFinished = function() {
+
+  //    var chapter = this.helper.chapter;
+  //    var access = this.helper.access;
+  //    var type = this.helper.type;
+  //    var cookie = getCookie( chapter );
+
+  //    if ( !cookie[ chapter ] ) {
+  //      return;
+  //    }
+
+  //    cookie[ chapter ][ type ][ access ][ 'finished' ] = 1;
+
+  //    //  set the new cookie
+  //    setCookie(cookie);
+
+  //  };
+
+
+
+  //  //
+  //  //  Set the elapsed time on wyzwanie
+  //  //
+  //  LasHelper.prototype.cookieSetT = function() {
+
+  //    var beginT = this.helper.beginT;
+  //    var chapter = this.helper.chapter;
+  //    var access = this.helper.access;
+  //    var type = this.helper.type;
+  //    var cookie = getCookie( chapter );
+
+  //    if ( !cookie[ chapter ] ) {
+  //      return false;
+  //    }
+
+  //    Date.now = Date.now || function() { return +new Date; };
+
+  //    var endT = Math.floor( Date.now() / 1000 );
+  //    var t = endT - beginT;
+
+  //    if ( t > 1 ) {
+  //      console.log('Elapsed T: ' + t);
+  //      cookie[ chapter ][ type ][ access ]['t'] = t;
+
+  //    //  set the new cookie
+  //    setCookie(cookie);
+
+  //    }
+  //    else {
+  //      return false;
+  //    }
+
+  //  };
+
+
+
+})();
+
+
 
 
 /*!
@@ -154,138 +411,3 @@
 
   return init(function () {});
 }));
-
-
-
-//
-//  Ideas
-//  - czy cookiePlusOne powinien dodawać się, przed podaniem poprawnej odpowiedzi?
-//  - popupz pytaniem, czy odświerzyć stronę
-//
-
-
-(function() {
-
-  //
-  //  Private functions
-  //
-  function getCookie() {
-
-    var cookie = Cookies.getJSON( 'lasChallangeProgress' );
-
-    //  if there was no cookie for this key
-    if ( !cookie ) {
-
-      //  w tym miejscu można zrobić popup z pytaniem
-      //  nie możemy zapisać Twojego progresu, czy chcesz kontynuować
-      //  czy odświerzyć stronę
-      window.location.reload( false );
-    }
-
-    return cookie;
-  }
-
-
-  function setCookie(value) {
-    Cookies.set( 'lasChallangeProgress', value, { expires: 365, path: '/las/' } );
-  }
-
-
-  function cleanCookie() {
-    Cookies.remove( 'lasChallangeProgress', { path: '/las/' } );
-  }
-
-
-
-
-
-  //
-  //  Public functions
-  //
-
-  //
-  //  Add one to the prop
-  //  ex, wrong, more, repeat etc.
-  //
-  LasHelper.prototype.cookiePlusOne = function( prop ) {
-
-    var chapter = this.helper.chapter;
-    var type = this.helper.type;
-    var cookie = getCookie( chapter );
-    var access;
-    var property;
-
-    //  there is no cookie for this chapter and type
-    //  user is not accepting cookies
-    if ( !cookie[ chapter ] || !cookie[ chapter ][ type ] ) {
-      window.console.log('user is not accepting cookies');
-      window.console.log('or they have two exercises open at once');
-
-
-      //
-      //  think about resolving the problem with multiple exercises
-      //  maybe cookie saving and cleaning should be only on non-ex pages
-      //  if the open another ex, php would simply add one more chapter to the array in cookie?
-      //
-
-      return;
-    }
-
-    //  if the access time is not yet set
-    if ( !this.helper.access ) {
-      //  get access time from the name of the first property
-      for ( property in cookie[ chapter ][ type ] ) {
-
-        if ( cookie[ chapter ][ type ].hasOwnProperty(property) ) {
-          this.helper.access = property;
-          break;
-        }
-
-      }
-    }
-    access = this.helper.access;
-
-    if ( !cookie[ chapter ][ type ][ access ][ prop ] ) {
-      cookie[ chapter ][ type ][ access ][ prop ] = 0;
-    }
-
-    //  add +1 to the prop of interaction
-    cookie[ chapter ][ type ][ access ][ prop ] += 1;
-
-    //  set the new cookie
-    setCookie(cookie);
-
-  };
-
-
-  //
-  //  Set the elapsed time on wyzwanie
-  //
-  LasHelper.prototype.cookieSetT = function() {
-
-    var beginT = this.helper.beginT;
-    var chapter = this.helper.chapter;
-    var access = this.helper.access;
-    var type = this.helper.type;
-    var cookie = getCookie( chapter );
-
-    if ( !cookie[ chapter ] ) {
-      return;
-    }
-
-    Date.now = Date.now || function() { return +new Date; };
-
-    var endT = Math.floor( Date.now() / 1000 );
-    var t = endT - beginT;
-
-    console.log('Elapsed T: ' + t);
-    cookie[ chapter ][ type ][ access ].t = t;
-
-    //  set the new cookie
-    setCookie(cookie);
-
-
-  };
-
-
-})();

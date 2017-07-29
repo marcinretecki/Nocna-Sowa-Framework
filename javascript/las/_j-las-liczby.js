@@ -58,28 +58,27 @@ function LasLiczby() {
     this.hideLoader();
 
     //  Get the intro
-    this.getNextBubble( 'INTRO' );
-    this.showMsg();
-    this.showControls();
+    this.currentBubbleData = this.getNextBubble( 'INTRO' );
+
+    this.createBubble();
 
   };
 
 
   //
-  //  BUBBLE
+  //  Create Bubble
   //
-  las.assignBubbleData = function(no, data) {
+  las.createBubble = function() {
 
     var audioObject;
     var audioStackL;
 
 
-    window.console.log('assignBubbleData');
-
-
-    //  assign
-    this.currentBubble = no;
-    this.currentBubbleData = data;
+    //  If this is the END
+    if ( this.currentBubbleData.state === 'END' ) {
+      this.finish();
+      return;
+    }
 
 
     //  reset
@@ -101,35 +100,79 @@ function LasLiczby() {
 
         //  create words and audioStack
         //  this also saves new msg
-        this.createWordsFromNum();
+        this.createAudioAndMsgFromNum();
 
-        //  reassign bubbleData
-        this.assignBubbleDataFromNum();
+        //  create new audio stack
+        this.createAudioStackFromNum();
 
         //  reasign autoNext
-        this.currentBubbleData.autoNext = 'RANDOM';
+        this.currentBubbleData.autoNext = 'msg';
+
+        //  //
+        //  //  Create new audioObject
+        //  //
+        //  audioObject = this.createNewAudioObject( this.currentBubbleData.no );
+
+        //  //  Push new audio object onto the stack
+        //  if ( audioObject ) {
+
+        //    audioStackL = this.audioStack.stack.push( audioObject );
+
+        //  }
+
+      }
+
+    }
+    else {
+
+      //
+      //  Create new audioObject
+      //
+      audioObject = this.createNewAudioObject( this.currentBubbleData );
+      //  Push new audio object onto the stack
+      if ( audioObject ) {
+        audioStackL = this.audioStack.stack.push( audioObject );
+      }
+
+      //  there is either autoNext or answers, never both
+
+      //  if there is no autoNext or answers
+      if ( !( this.currentBubbleData.hasOwnProperty('autoNext') || this.currentBubbleData.hasOwnProperty('answers') ) ) {
+
+        throw "There is no autoNext or answers – audio test can't work";
 
       }
 
     }
 
 
-    //
-    //  Create new audioObject
-    //
-    audioObject = this.createNewAudioObject( this.currentBubbleData.no );
+    //  if there is no time
+    if ( this.audioStack.stack.length === 0  ) {
 
-    //  Push new audio object onto the stack
-    if ( audioObject ) {
-
-      audioStackL = this.audioStack.stack.push( audioObject );
+      //  show answers and msg
+      //  if there was time, they would be showed prePause
+      this.waitForMsg();
+      return;
 
     }
+    //  there is time, so we can play it
+    //  answers show on autoPause
+    else {
+
+      //  allow prePause event
+      this.state.prePause = true;
+
+      //  play Audio
+      this.playAudio();
+
+    }
+
 
   };
 
 
-  las.assignBubbleDataFromNum = function() {
+
+  las.createAudioStackFromNum = function() {
 
     var stack = this.audioStack.stack;
     var stackL;
@@ -140,6 +183,8 @@ function LasLiczby() {
     if ( !stack || !stack.length ) {
       return;
     }
+
+    window.console.log( 'createAudioStackFromNum' );
 
     stackL = stack.length;
     newStack = [];
@@ -165,24 +210,24 @@ function LasLiczby() {
   };
 
 
+  //  this is intentionally different from same function in helper
   las.getRandomBubble = function() {
+    var pop;
+
     window.console.log( 'getRandomBubble');
 
     if ( this.randomChatArray.length ) {
       //  if there are still chat items to show
 
       //  pop data and return the object
-      var pop = this.randomChatArray.pop();
+      pop = this.randomChatArray.pop();
       return pop;
 
     }
+    //  no more random bubbles
     else {
-      //  Set state
-      this.state.currentState = 'END';
-
       return this.getEndBubble();
     }
-
   };
 
 
@@ -333,13 +378,16 @@ function LasLiczby() {
   //  Number to words
   //  save new msg
   //  fill the audioStack with numbers to read
-  las.createWordsFromNum = function() {
+  las.createAudioAndMsgFromNum = function() {
     var j = this.lasData.words.j;
     var d = this.lasData.words.d;
     var e = this.lasData.words.e;
     var r = '';
     var num = this.currentNum.toString();
     var numAudioStackL, tusen, hundre, ti, en;
+
+
+    window.console.log( 'createAudioAndMsgFromNum' );
 
     //  do 20
     if ( 20 > num ) {
@@ -468,8 +516,8 @@ function LasLiczby() {
     }
 
 
-    //  assign msg
-    this.currentBubbleData.msg = '<span class="h1 size-6">' + num + '</span><br />' + r;
+    //  assign msg to msg object in data
+    this.lasData.chat.msg.msg = '<p class="h1 size-6">' + num + '</p><p><i>' + r + '</i></p>';
 
     window.console.log(this.audioStack.stack);
 

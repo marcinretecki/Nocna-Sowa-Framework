@@ -454,6 +454,9 @@
     //  play again
     this.playAudio();
 
+    //  add one to progress progress
+    this.addScore( 'repeat' );
+
   };
 
 

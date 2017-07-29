@@ -17,7 +17,13 @@ function LasHelper() {
     easingSpring:                       [ 200, 20 ],
     easingQuart:                        'easeInOutQuart',
     currentUrl:                         window.location.href.split('#')[0],
-    audioFileDuration:                  -1
+    audioFileDuration:                  -1,
+
+    //  those are filled by php
+    chapter:                            '',
+    type:                               '',
+    chapterId:                          0,
+    serverAccess:                       0
   };
 
   var self = this;
@@ -50,6 +56,13 @@ function LasHelper() {
     //  Velocity
     this.velocity =                     Velocity;
 
+    //  Random chat arrays
+    this.createRandomDataArrays();
+
+    //  Prepare cookie store
+    this.prepareCookieStore();
+
+
     //  remove loader when user clicks back button
     window.addEventListener('unload', function(event) {
 
@@ -70,6 +83,100 @@ function LasHelper() {
 
     }.bind(this), false);
 
+
+  };
+
+
+  //
+  //  Create arrays of first bubbles from data
+  //
+  this.createRandomDataArrays = function() {
+
+    var chatObject;
+    var property;
+
+    if ( !this.lasData ) {
+      return;
+    }
+
+    window.console.log('createRandomDataArrays');
+
+    //
+    //  here we need logic for combining chat and extra
+    //  it depends on number of finished wyzwanie
+    //
+
+    window.console.log( this.lasData.intro );
+
+    // INTRO
+    if ( this.lasData.intro ) {
+      this.randomIntroArray = this.getRandomArrayOfFirstBubbles( this.lasData.intro );
+    }
+
+
+    //  prepare chat object
+    chatObject = this.lasData.chat
+
+    //  check if user finished wyzwanie
+    //  at least 2 time before
+    if ( this.lasData.hasOwnProperty( 'extra' ) && ( this.helper.finishedNo >= 2 ) ) {
+
+      window.console.log('data has extra and user finished at least 2 times before');
+
+      //  combine extra into the chat before getting random array
+      for ( property in this.lasData.extra ) {
+
+        chatObject[ property ] = this.lasData.extra[ property ];
+
+      }
+
+    }
+
+    //  CHAT
+    this.randomChatArray = this.getRandomArrayOfFirstBubbles( chatObject );
+
+
+    //  END
+    if ( this.lasData.end ) {
+      this.randomEndArray = this.getRandomArrayOfFirstBubbles( this.lasData.end );
+    }
+
+
+  };
+
+
+
+  //
+  //  Function to create array of bubbles with '1'
+  //  @return array of first keys in the series of bubbles
+  //
+  //  Maximum number of bubbles is 20
+  //
+  this.getRandomArrayOfFirstBubbles = function( bubbles ) {
+    var property;
+    var propArray = [];
+    var i = 0;
+
+    //  Push first items
+    for ( property in bubbles ) {
+
+      //  if it is own property
+      //  last character is '1'
+      //  i is lower than 20
+      if ( bubbles.hasOwnProperty( property ) && ( property.slice(-1) === '1' ) && ( i < 20 ) ) {
+
+        propArray.push( property );
+
+        i++;
+
+      }
+
+    }
+
+    //  Shuffle
+    propArray = this.shuffleArray( propArray );
+
+    return propArray;
   };
 
 
@@ -128,11 +235,21 @@ function LasHelper() {
 
     window.console.log('Finish');
 
+    //  set finished in store
+    this.addOneToProgress( 'finished' );
+
+    //  set cookie
+    this.saveProgressToCookie()
+
     //  show loader
     this.showLoader();
 
     //  redirect to Szlak
-    window.location.href = "/las/szlak/";
+    //  wait to show the animation
+    //  if animation changes, change the time
+    setTimeout(function() {
+      //window.location.href = "/las/szlak/";
+    }.bind(this), 2 * this.helper.speed);
 
 
   };
@@ -140,57 +257,138 @@ function LasHelper() {
 
 
   //
-  //  Function to create array of bubbles with '1'
-  //  @parameter data is feeded in init() with data files by objects making exercises
-  //  @return array of first keys in the series of bubbles
+  //  Count Max Correct Answers
+  //  @data is the whole LasData object
   //
-  this.getRandomArrayOfFirstBubbles = function( data ) {
+  this.countMaxCorrectAnswers = function( data ) {
+
+    var chat = data.chat;
+    var sum = 0;
     var property;
-    var propArray = [];
+    var answers;
+    var answer;
 
-    //  Push first items
-    for ( property in data ) {
-      if ( data.hasOwnProperty( property ) && ( property.slice(-1) === '1' ) ) {
-        // if it is own property and last letter is '1'
+    //  in the future there will be also partials to count
 
-        propArray.push( property );
+
+    //  loop over all chat props
+    for ( property in chat ) {
+
+      // if it is own property
+      if ( chat.hasOwnProperty( property ) ) {
+
+          //  check if property has answers
+          if ( chat[property].hasOwnProperty( 'answers' ) ) {
+
+            answers = chat[property].answers;
+
+            //  loop over answers
+            for ( answer in answers ) {
+
+              if ( answers.hasOwnProperty( answer ) && answers[answer].score && ( answers[answer].score === 'correct' ) ) {
+                sum = sum + 1;
+              }
+
+            }
+
+          }
+          //  check if property has score
+          else if ( chat[property].hasOwnProperty( 'score' ) && ( chat[property].score  === 'correct' ) ) {
+
+            sum = sum + 1;
+
+          }
 
       }
+
     }
 
-    propArray = this.shuffleArray( propArray );
+    window.console.log( 'Max correct: ' + sum );
 
-    return propArray;
+    return sum;
+
   };
 
 
-  //  Fisher-Yates Shuffle
-  this.shuffleArray = function( propArray ) {
 
-    var counter = propArray.length;
-    var index;
-    var temp;
 
-    //  While there are elements in the propArray
-    while (counter > 0) {
-      //  Pick a random index
-      index = Math.floor(Math.random() * counter);
 
-      //  Decrease counter by 1
-      counter--;
+  //
+  //  Get Next Bubble
+  //
+  this.getNextBubble = function( no ) {
 
-      //  And swap the last element with it
-      temp = propArray[counter];
-      propArray[counter] = propArray[index];
-      propArray[index] = temp;
+    var data;
+
+    //  if it is intro and we need next bubble
+    if ( ( this.state.currentState === 'INTRO' ) && ( no !== '' )  && ( no !== 'ENDINTRO' ) ) {
+
+      window.console.log('if it is intro and we need next bubble');
+      data = this.lasData.intro[ no ];
+
+    }
+    //  if it is intro and we need first bubble
+    else if ( ( no === 'INTRO' ) ) {
+
+      window.console.log('if it is intro and we need first bubble');
+      data = this.getIntroBubble();
+
+    }
+    //  if it is the end of intro,  move one to chat
+    else if ( no === 'ENDINTRO' ) {
+
+      window.console.log('if it is the end of intro,  move one to chat');
+
+      //  start chapter timer
+      Date.now = Date.now || function() { return +new Date; };
+      this.helper.beginT = Math.floor( Date.now() / 1000 );
+
+      //  Set state
+      this.state.currentState = 'CHAT';
+      data = this.getRandomBubble();
+
+    }
+    //  if we are at the CHAT, get random
+    //  if there is no random, it will return random from END
+    else if ( ( this.state.currentState === 'CHAT' ) && ( no === 'RANDOM' ) ) {
+
+      window.console.log('if we are at the chat, move one');
+      data = this.getRandomBubble();
+
+      //  add one to ex in progress store
+      this.addOneToProgress( 'ex' );
+
+    }
+    //  if we are at chat, but need exact bubble
+    else if ( ( this.state.currentState === 'CHAT' ) && ( no !== '' ) ) {
+
+      window.console.log('if we are at chat, but need exact bubble');
+      data = this.lasData.chat[ no ];
+
+      //  if data has direct score
+      if ( data.hasOwnProperty( 'score' ) ) {
+        this.addScore( data.score );
+      }
+
+    }
+    //  if we got to the end and need an exact bubble
+    else if ( this.state.currentState === 'END' ) {
+
+      window.console.log('if we got to the end and need an exact bubble');
+      data = this.lasData.end[ no ];
     }
 
-    return propArray;
+    window.console.log('No: ' + no);
+    window.console.log('Data:');
+    window.console.log(data);
+
+    return data;
+
   };
 
 
   //
-  //  Data bubbles
+  //  Get next bubble helpers
   //
   this.getRandomBubble = function() {
     var pop;
@@ -199,10 +397,7 @@ function LasHelper() {
     window.console.log( this.randomChatArray.length );
 
     //  if there are still chat items to show
-    if ( this.randomChatArray.length > 0 ) {
-
-      //  add one to progress
-      this.addScore( 'ex' );
+    if ( this.randomChatArray && ( this.randomChatArray.length > 0 ) ) {
 
       //  pop data and return the object
       pop = this.lasData.chat[ this.randomChatArray.pop() ];
@@ -220,6 +415,11 @@ function LasHelper() {
   this.getIntroBubble = function() {
 
     window.console.log( 'getIntroBubble');
+
+    if ( !this.randomIntroArray ) {
+      return false;
+    }
+
     var pop = this.lasData.intro[ this.randomIntroArray.pop() ];
 
     //  Set state
@@ -238,73 +438,15 @@ function LasHelper() {
     //  Set state
     this.state.currentState = 'END';
 
+    //  if no end array
+    if ( !this.randomEndArray ) {
+      return { state: 'END' };
+    }
+
     var pop = this.lasData.end[ this.randomEndArray.pop() ];
 
     //  Return bubble
     return pop;
-
-  };
-
-
-
-  //  ta funkcja powinna mieć return zamiast call do assign
-  this.getNextBubble = function(no) {
-
-    var data;
-
-    if ( ( this.state.currentState === 'INTRO' ) && ( no !== '' )  && ( no !== 'ENDINTRO' ) ) {
-      //  if it is intro and we need next bubble
-      window.console.log('if it is intro and we need next bubble');
-      data = this.lasData.intro[ no ];
-
-    } else if ( ( no === 'INTRO' ) ) {
-      //  if it is intro and we need first bubble
-      window.console.log('if it is intro and we need first bubble');
-      data = this.getIntroBubble();
-
-    }
-    else if ( no === 'ENDINTRO' ) {
-      //  if it is the end of intro,  move one to chat
-      window.console.log('if it is the end of intro,  move one to chat');
-
-      //  start chapter timer
-      Date.now = Date.now || function() { return +new Date; };
-      this.helper.beginT = Math.floor( Date.now() / 1000 );
-
-      //  Set state
-      this.state.currentState = 'CHAT';
-      data = this.getRandomBubble();
-
-    }
-    else if ( ( this.state.currentState === 'CHAT' ) && ( no === 'RANDOM' ) ) {
-      //  if we are at the CHAT, get random
-      //  if there is no random, it will return random from END
-      window.console.log('if we are at the chat, move one');
-      data = this.getRandomBubble();
-
-    }
-    else if ( ( this.state.currentState === 'CHAT' ) && ( no !== '' ) ) {
-      //  if we are at chat, but need exact bubble
-      window.console.log('if we are at chat, but need exact bubble');
-      data = this.lasData.chat[ no ];
-
-    }
-    else if ( this.state.currentState === 'END' ) {
-      //  if we got to the end and need an exact bubble
-      window.console.log('if we got to the end and need an exact bubble');
-      data = this.lasData.end[ no ];
-    }
-
-    window.console.log('No: ' + no);
-    window.console.log('Data:');
-    window.console.log(data);
-
-
-    //  Assign data
-    //  Method available at subObject
-    this.assignBubbleData(no, data);
-
-    //  return data;
 
   };
 
@@ -684,6 +826,33 @@ function LasHelper() {
 
   };
 
+
+
+  //
+  //  Fisher-Yates Shuffle
+  //
+  this.shuffleArray = function( propArray ) {
+
+    var counter = propArray.length;
+    var index;
+    var temp;
+
+    //  While there are elements in the propArray
+    while (counter > 0) {
+      //  Pick a random index
+      index = Math.floor(Math.random() * counter);
+
+      //  Decrease counter by 1
+      counter--;
+
+      //  And swap the last element with it
+      temp = propArray[counter];
+      propArray[counter] = propArray[index];
+      propArray[index] = temp;
+    }
+
+    return propArray;
+  };
 
 
 }

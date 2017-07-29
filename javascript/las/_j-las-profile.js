@@ -8,45 +8,45 @@ function LasCreateProfile() {
 
   //  get methods from the LasHelper
   //  we can add new methods or overwrite old ones
-  var las = new LasHelper();
+  var las =                   new LasHelper();
 
   //
   //  Elements
   //
-  las.wrapper =             document.getElementById('wrapper');
-  las.charsWrapper =        document.getElementById('chars-wrapper');
-  las.charsWrapperRect =    null;
+  las.wrapper =               document.getElementById('wrapper');
+  las.charsWrapper =          document.getElementById('chars-wrapper');
+  las.charsWrapperRect =      null;
   las.chars = [
-                            null,
-                            document.getElementById('char-1'),
-                            document.getElementById('char-2'),
-                            document.getElementById('char-3'),
-                            document.getElementById('char-4')
+                              null,
+                              document.getElementById('char-1'),
+                              document.getElementById('char-2'),
+                              document.getElementById('char-3'),
+                              document.getElementById('char-4')
   ];
-  las.charsRectArray =      [];
+  las.charsRectArray =        [];
 
-  las.charsRow =            document.getElementById('chars-row');
-  las.charsRowRect =        null;
-  las.charImgs =            [];
-  las.charTitles =          [];
-  las.charDescs =           [];
+  las.charsRow =              document.getElementById('chars-row');
+  las.charsRowRect =          null;
+  las.charImgs =              [];
+  las.charTitles =            [];
+  las.charDescs =             [];
   las.charBacks = [
-                            null,
-                            document.getElementById('char-back-1'),
-                            document.getElementById('char-back-2'),
-                            document.getElementById('char-back-3'),
-                            document.getElementById('char-back-4')
+                              null,
+                              document.getElementById('char-back-1'),
+                              document.getElementById('char-back-2'),
+                              document.getElementById('char-back-3'),
+                              document.getElementById('char-back-4')
   ];
 
-  las.charForm =            document.getElementById('char-form');
-  las.charType =            document.getElementById('char-type');
-  las.charFname =           document.getElementById('char-fname');
-  las.charNick =            document.getElementById('char-nick');
-  las.charBlocker =         document.getElementById('char-blocker');
+  las.charForm =              document.getElementById('char-form');
+  las.charType =              document.getElementById('char-type');
+  las.charFname =             document.getElementById('char-fname');
+  las.charNick =              document.getElementById('char-nick');
+  las.charBlocker =           document.getElementById('char-blocker');
 
 
-  las.clickedCharNo =       0;
-  las.activeCharNo =        0;
+  las.clickedCharNo =         0;
+  las.activeCharNo =          0;
 
 
 
@@ -57,12 +57,12 @@ function LasCreateProfile() {
   //  it's also usefull in debugging
   //
   las.state = {
-    clicked:                false,
-    writing:                false,
-    drawOpen:               false,
-    animatingDraw:          false,
+    clicked:                  false,
+    writing:                  false,
+    drawOpen:                 false,
+    animatingDraw:            false,
     //  start, toggle, form, accept
-    state:                  'start',
+    state:                    'start'
   };
 
 
