@@ -1,9 +1,13 @@
 <script>
 function LasData() {
 
+  this.category = 'chat';         // audio-test|setninger|etc
+
+
   this.testNotes = [
     'oczy mają druga odmianę, można by ją też podać'
   ];
+
 
   this.intro = {
     _a1: {

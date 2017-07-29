@@ -1,13 +1,18 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test'; // chat|setninger|etc
+
+
   this.testNotes = [
+    'czy _bm1 jest nagrane?',
     'dwa przykłady mają jakiś błąd',
     'czy gwarancja powinna być z rodzajnikiem?',
     'Vi drar ikke til Stavanger. - zrobic moze znak zapytania i napisac im ze moze byc reise',
     'jak powiesz nie wiem: jeg sier ikke noe',
     'nigdzie nie idziemy, czy da sie inaczej poprawnie to samo powiedziec w znaku zapytania'
   ];
+
 
   this.intro = {
     _a1: {
@@ -31,7 +36,7 @@ function LasData() {
       autoNext:   '_aa2'
     },
     _aa2: {
-      msg:        'Mobilen ligger ikke på skapet.',
+      msg:        '<i>Mobilen ligger ikke på skapet.</i>',
       startTime:  4,
       duration:   6.5 - 4,
       more:       {
@@ -39,6 +44,7 @@ function LasData() {
         startTime:  0,
         duration:   0 - 0,
       },
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -51,9 +57,10 @@ function LasData() {
       autoNext:   '_ab2'
     },
     _ab2: {
-      msg:        'De bor ikke sammen.',
+      msg:        '<i>De bor ikke sammen.</i>',
       startTime:  12,
       duration:   13.5 - 12,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -66,9 +73,10 @@ function LasData() {
       autoNext:   '_ac2'
     },
     _ac2: {
-      msg:        'De liker ikke å ringe.',
+      msg:        '<i>De liker ikke å ringe.</i>',
       startTime:  19,
       duration:   21 - 19,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -81,9 +89,10 @@ function LasData() {
       autoNext:   '_ae2'
     },
     _ae2: {
-      msg:        'Hun klarer ikke.',
+      msg:        '<i>Hun klarer ikke.</i>',
       startTime:  33,
       duration:   34.5 - 33,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -97,9 +106,10 @@ function LasData() {
       autoNext:   '_af2'
     },
     _af2: {
-      msg:        'Mannen sier ikke alt.',
+      msg:        '<i>Mannen sier ikke alt.</i>',
       startTime:  40,
       duration:   42 - 40,
+      score:      'correct',
       autoNext:   'RANDOM'
     },*/
 
@@ -112,9 +122,10 @@ function LasData() {
       autoNext:   '_ah2'
     },
     _ah2: {
-      msg:        'Barna liker ikke å vente.',
+      msg:        '<i>Barna liker ikke å vente.</i>',
       startTime:  47,
       duration:   49 - 47,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -127,9 +138,10 @@ function LasData() {
       autoNext:   '_aj2'
     },
     _aj2: {
-      msg:        'Foreldrene hører ikke på barna.',
+      msg:        '<i>Foreldrene hører ikke på barna.</i>',
       startTime:  54,
       duration:   56 - 54,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -142,9 +154,10 @@ function LasData() {
       autoNext:   '_ai2'
     },
     _ai2: {
-      msg:        'Tor tror ikke.',
+      msg:        '<i>Tor tror ikke.</i>',
       startTime:  60,
       duration:   61.5 - 60,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -157,9 +170,10 @@ function LasData() {
       autoNext:   '_ak2'
     },
     _ak2: {
-      msg:        'Jeg forstår ikke alt.',
+      msg:        '<i>Jeg forstår ikke alt.</i>',
       startTime:  67,
       duration:   68.5 - 67,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -172,9 +186,10 @@ function LasData() {
       autoNext:   '_al2'
     },
     _al2: {
-      msg:        'Vi drar ikke til Stavanger.',
+      msg:        '<i>Vi drar ikke til Stavanger.</i>',
       startTime:  74,
       duration:   76 - 74,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -187,9 +202,10 @@ function LasData() {
       autoNext:   '_ba2'
     },
     _ba2: {
-      msg:        'Selgeren gir ikke en garanti.',
+      msg:        '<i>Selgeren gir ikke en garanti.</i>',
       startTime:  81,
       duration:   83.5 - 81,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -202,9 +218,10 @@ function LasData() {
       autoNext:   '_bb2'
     },
     _bb2: {
-      msg:        'Jeg blir ikke konge.',
+      msg:        '<i>Jeg blir ikke konge.</i>',
       startTime:  89,
       duration:   90.5 - 89,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -217,9 +234,10 @@ function LasData() {
       autoNext:   '_bc2'
     },
     _bc2: {
-      msg:        'Vi går ikke noe sted.',
+      msg:        '<i>Vi går ikke noe sted.</i>',
       startTime:  95,
       duration:   97 - 95,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -232,9 +250,10 @@ function LasData() {
       autoNext:   '_bd2'
     },
     _bd2: {
-      msg:        'Teresa tar ikke narkotika.',
+      msg:        '<i>Teresa tar ikke narkotika.</i>',
       startTime:  102,
       duration:   104.5 - 102,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -247,9 +266,10 @@ function LasData() {
       autoNext:   '_bf2'
     },
     _bf2: {
-      msg:        'Hun drikker ikke melk.',
+      msg:        '<i>Hun drikker ikke melk.</i>',
       startTime:  116,
       duration:   118 - 116,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -262,9 +282,10 @@ function LasData() {
       autoNext:   '_bh2'
     },
     _bh2: {
-      msg:        'De er ikke hjemme nå.',
+      msg:        '<i>De er ikke hjemme nå.</i>',
       startTime:  130,
       duration:   131.5 - 130,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -277,9 +298,10 @@ function LasData() {
       autoNext:   '_bi2'
     },
     _bi2: {
-      msg:        'Det gjør ikke noe.',
+      msg:        '<i>Det gjør ikke noe.</i>',
       startTime:  136,
       duration:   137.5 - 136,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -292,9 +314,10 @@ function LasData() {
       autoNext:   '_bj2'
     },
     _bj2: {
-      msg:        'Jeg vet ikke.',
+      msg:        '<i>Jeg vet ikke.</i>',
       startTime:  142,
       duration:   143.5 - 142,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -307,24 +330,26 @@ function LasData() {
       autoNext:   '_bk2'
     },
     _bk2: {
-      msg:        'Jeg sier ikke noe.',
+      msg:        '<i>Jeg sier ikke noe.</i>',
       startTime:  148,
       duration:   149.5 - 148,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
 
     _bm1: {
-      spokenWord: '??? ZNIKŁ PRZYKŁAD Z IA',
+      spokenWord: 'Nie muszę sprzątać',
       startTime:  158,
       duration:   160 - 158,
       pauseTime:  6,
       autoNext:   '_bm2'
     },
     _bm2: {
-      msg:        'Vi trenger ikke å rydde.',
+      msg:        '<i>Vi trenger ikke å rydde.</i>',
       startTime:  161,
       duration:   163 - 161,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -337,9 +362,10 @@ function LasData() {
       autoNext:   '_bo2'
     },
     _bo2: {
-      msg:        'Hun stopper ikke å snakke.',
+      msg:        '<i>Hun stopper ikke å snakke.</i>',
       startTime:  182,
       duration:   184 - 182,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -352,9 +378,10 @@ function LasData() {
       autoNext:   '_ca2'
     },
     _ca2: {
-      msg:        'Han slutter ikke jobben ennå.',
+      msg:        '<i>Han slutter ikke jobben ennå.</i>',
       startTime:  189,
       duration:   191 - 189,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -367,9 +394,10 @@ function LasData() {
       autoNext:   '_cb2'
     },
     _cb2: {
-      msg:        'Hun prøver ikke å forstå.',
+      msg:        '<i>Hun prøver ikke å forstå.</i>',
       startTime:  196,
       duration:   197.5 - 196,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -382,9 +410,10 @@ function LasData() {
       autoNext:   '_cc2'
     },
     _cc2: {
-      msg:        'Jeg får ikke meldinger.',
+      msg:        '<i>Jeg får ikke meldinger.</i>',
       startTime:  203,
       duration:   204.5 - 203,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -397,9 +426,10 @@ function LasData() {
       autoNext:   '_cd2'
     },
     _cd2: {
-      msg:        'Jeg liker ikke blod.',
+      msg:        '<i>Jeg liker ikke blod.</i>',
       startTime:  209,
       duration:   210.5 - 209,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -412,9 +442,10 @@ function LasData() {
       autoNext:   '_ce2'
     },
     _ce2: {
-      msg:        'Jeg har ikke et firma ennå.',
+      msg:        '<i>Jeg har ikke et firma ennå.</i>',
       startTime:  215,
       duration:   216.5 - 215,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -427,27 +458,16 @@ function LasData() {
       autoNext:   '_cf2'
     },
     _cf2: {
-      msg:        'Jeg er ikke ferdig ennå.',
+      msg:        '<i>Jeg er ikke ferdig ennå.</i>',
       startTime:  222,
       duration:   223.5 - 222,
+      score:      'correct',
       autoNext:   'RANDOM'
     }
 
 
 
   };
-
-
-  this.end = {
-
-    _end1: {
-      msg:        'END',
-      startTime:  0,
-      duration:   0,
-    }
-
-  };
-
 
 
 }

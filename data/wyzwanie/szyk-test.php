@@ -1,12 +1,16 @@
 <script>
-function LasSetningerData() {
+function LasData() {
+
+  this.category = 'setninger';   // chat|audio-test|etc
+
 
   this.testNotes = [
   ];
 
+
   this.intro = {
     _a1: {
-      msg:        'Ułuż pytania z podanych słów.',
+      msg:        'Ułóż pytania z podanych słów.',
       autoNext:   'ENDINTRO'
     }
   };
@@ -33,16 +37,6 @@ function LasSetningerData() {
 
   };
 
-
-  this.end = {
-
-    _end1: {
-      msg:        'END',
-      startTime:  0,
-      stopTime:   0
-    }
-
-  };
 
 }
 </script>

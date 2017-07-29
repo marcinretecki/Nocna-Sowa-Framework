@@ -1,16 +1,19 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test';   // chat|setninger|etc
+
+
   this.testNotes = [
-    'nie ma zakończenia',
     'nie ma nagrania'
   ];
+
 
   //  Uzupełnij zdania zaimkami: den, det, de.
 
   this.intro = {
     _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie.<br />Gdy będziesz gotowy, naciśnij <i>play</i>.',
+      msg:        'Załóż słuchawki i usiądź wygodnie.<br />Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w"></i>.',
       autoNext:   'ENDINTRO'/*,
       more: {
         startTime:  0,
@@ -23,16 +26,16 @@ function LasData() {
   this.chat = {
 
     _aa1: {
-      msg:        'Harald bor på slottet.<br />#fill-space; ligger i Oslo sentrum.',
+      msg:        '<i>Harald bor på slottet.<br />#fill-space; ligger i Oslo sentrum.</i>',
       trans:      'Harald mieszka w pałacu.<br />On leży w centrum Oslo.',
       answers: [
-        { answer: 'det',  score: 'correct', next: '_aa2' },
-        { answer: 'den',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>det</i>',  score: 'correct', next: '_aa2' },
+        { answer: '<i>den</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _aa2: {
-      msg:        'Harald bor på slottet.<br />Det ligger i Oslo sentrum.',
+      msg:        '<i>Harald bor på slottet.<br />Det ligger i Oslo sentrum.</i>',
       trans:      'Harald mieszka w pałacu.<br />On leży w centrum Oslo.',
       startTime:  0,
       duration:   1.5,
@@ -41,16 +44,16 @@ function LasData() {
 
 
     _ab1: {
-      msg:        'Arnold trener i skogen.<br />#fill-space; er stor og grønn.',
+      msg:        '<i>Arnold trener i skogen.<br />#fill-space; er stor og grønn.</i>',
       trans:      'Arnold trenuje w lesie.<br />On jest duży i zielony.',
       answers: [
-        { answer: 'den',  score: 'correct', next: '_ab2' },
-        { answer: 'det',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>den</i>',  score: 'correct', next: '_ab2' },
+        { answer: '<i>det</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _ab2: {
-      msg:        'Arnold trener i skogen.<br />Den er stor og grønn.',
+      msg:        '<i>Arnold trener i skogen.<br />Den er stor og grønn.</i>',
       trans:      'Arnold trenuje w lesie.<br />On jest duży i zielony.',
       startTime:  3,
       duration:   1.5,
@@ -59,16 +62,16 @@ function LasData() {
 
 
     _ac1: {
-      msg:        'Jeg har ikke briller her.<br />#fill-space; er hjemme.',
+      msg:        '<i>Jeg har ikke briller her.<br />#fill-space; er hjemme.</i>',
       trans:      'Nie mam tu okularów.<br />One są w domu.',
       answers: [
-        { answer: 'de',    score: 'correct', next: '_ac2' },
-        { answer: 'det',   score: 'wrong' },
-        { answer: 'den',   score: 'wrong' }
+        { answer: '<i>de</i>',    score: 'correct', next: '_ac2' },
+        { answer: '<i>det</i>',   score: 'wrong' },
+        { answer: '<i>den</i>',   score: 'wrong' }
       ]
     },
     _ac2: {
-      msg:        'Jeg har ikke briller her.<br />De er hjemme.',
+      msg:        '<i>Jeg har ikke briller her.<br />De er hjemme.</i>',
       trans:      'Nie mam tu okularów.<br />One są w domu.',
       startTime:  3,
       duration:   1.5,
@@ -77,16 +80,16 @@ function LasData() {
 
 
     _ad1: {
-      msg:        'Adam vanner blomstene hver dag.<br />#fill-space; som er i botanisk hage.',
+      msg:        '<i>Adam vanner blomstene hver dag.<br />#fill-space; som er i botanisk hage.</i>',
       trans:      'Adam podlewa kwiaty codziennie.<br />Te, które są w ogrodzie botanicznym.',
       answers: [
-        { answer: 'de',    score: 'correct', next: '_ad2' },
-        { answer: 'det',   score: 'wrong' },
-        { answer: 'den',   score: 'wrong' }
+        { answer: '<i>de</i>',    score: 'correct', next: '_ad2' },
+        { answer: '<i>det</i>',   score: 'wrong' },
+        { answer: '<i>den</i>',   score: 'wrong' }
       ]
     },
     _ad2: {
-      msg:        'Adam vanner blomstene hver dag.<br />De som er i botanisk hage.',
+      msg:        '<i>Adam vanner blomstene hver dag.<br />De som er i botanisk hage.</i>',
       trans:      'Adam podlewa kwiaty codziennie.<br />Te, które są w ogrodzie botanicznym.',
       startTime:  3,
       duration:   1.5,
@@ -95,16 +98,16 @@ function LasData() {
 
 
     _ae1: {
-      msg:        'Mobilen til bestemora ringer hver time.<br />#fill-space; er veldig høy.',
+      msg:        '<i>Mobilen til bestemora ringer hver time.<br />#fill-space; er veldig høy.</i>',
       trans:      'Babci telefon dzwoni co godzinę. <br />On jest bardzo głośny.',
       answers: [
-        { answer: 'den',  score: 'correct', next: '_ae2' },
-        { answer: 'det',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>den</i>',  score: 'correct', next: '_ae2' },
+        { answer: '<i>det</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _ae2: {
-      msg:        'Mobilen til bestemora ringer hver time.<br />Den er veldig høy.',
+      msg:        '<i>Mobilen til bestemora ringer hver time.<br />Den er veldig høy.</i>',
       trans:      'Babci telefon dzwoni co godzinę. <br />On jest bardzo głośny.',
       startTime:  3,
       duration:   1.5,
@@ -113,16 +116,16 @@ function LasData() {
 
 
     _af1: {
-      msg:        'Marius strikker ei lue.<br />#fill-space; er rød, blå og hvit.',
+      msg:        '<i>Marius strikker ei lue.<br />#fill-space; er rød, blå og hvit.</i>',
       trans:      'Marius robi na drutach czapkę. <br />Ona jest czerwona, niebieska i biała.',
       answers: [
-        { answer: 'den',  score: 'correct', next: '_af2' },
-        { answer: 'det',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>den</i>',  score: 'correct', next: '_af2' },
+        { answer: '<i>det</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _af2: {
-      msg:        'Marius strikker ei lue.<br />Den er rød, blå og hvit.',
+      msg:        '<i>Marius strikker ei lue.<br />Den er rød, blå og hvit.</i>',
       trans:      'Marius robi na drutach czapkę. <br />Ona jest czerwona, niebieska i biała.',
       startTime:  3,
       duration:   1.5,
@@ -131,16 +134,16 @@ function LasData() {
 
 
     _ag1: {
-      msg:        'Armstrong kjøper en ny sykkel.<br />#fill-space; er dyr.',
+      msg:        '<i>Armstrong kjøper en ny sykkel.<br />#fill-space; er dyr.</i>',
       trans:      'Armstrong kupuje nowy rower. <br />On jest drogi.',
       answers: [
-        { answer: 'den',  score: 'correct', next: '_ag2' },
-        { answer: 'det',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>den</i>',  score: 'correct', next: '_ag2' },
+        { answer: '<i>det</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _ag2: {
-      msg:        'Armstrong kjøper en ny sykkel.<br />Den er dyr.',
+      msg:        '<i>Armstrong kjøper en ny sykkel.<br />Den er dyr.</i>',
       trans:      'Armstrong kupuje nowy rower. <br />On jest drogi.',
       startTime:  3,
       duration:   1.5,
@@ -149,16 +152,16 @@ function LasData() {
 
 
     _ah1: {
-      msg:        'Det er mange biler i byen.<br />#fill-space; er på alle steder.',
+      msg:        '<i>Det er mange biler i byen.<br />#fill-space; er på alle steder.</i>',
       trans:      'Jest dużo samochodów w mieście. <br />One są wszędzie.',
       answers: [
-        { answer: 'de',    score: 'correct', next: '_ah2' },
-        { answer: 'det',   score: 'wrong' },
-        { answer: 'den',   score: 'wrong' }
+        { answer: '<i>de</i>',    score: 'correct', next: '_ah2' },
+        { answer: '<i>det</i>',   score: 'wrong' },
+        { answer: '<i>den</i>',   score: 'wrong' }
       ]
     },
     _ah2: {
-      msg:        'Det er mange biler i byen.<br />De er på alle steder.',
+      msg:        '<i>Det er mange biler i byen.<br />De er på alle steder.</i>',
       trans:      'Jest dużo samochodów w mieście. <br />One są wszędzie.',
       startTime:  3,
       duration:   1.5,
@@ -167,16 +170,16 @@ function LasData() {
 
 
     _ai1: {
-      msg:        'Klara klarer ikke prøven.<br />#fill-space; er vanskelig.',
+      msg:        '<i>Klara klarer ikke prøven.<br />#fill-space; er vanskelig.</i>',
       trans:      'Klara nie zalicza sprawdzianu. <br />On jest trudny.',
       answers: [
-        { answer: 'den',  score: 'correct', next: '_ai2' },
-        { answer: 'det',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>den</i>',  score: 'correct', next: '_ai2' },
+        { answer: '<i>det</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _ai2: {
-      msg:        'Klara klarer ikke prøven.<br />Den er vanskelig.',
+      msg:        '<i>Klara klarer ikke prøven.<br />Den er vanskelig.</i>',
       trans:      'Klara nie zalicza sprawdzianu. <br />On jest trudny.',
       startTime:  3,
       duration:   1.5,
@@ -185,16 +188,16 @@ function LasData() {
 
 
     _aj1: {
-      msg:        'Trollene sier at treet er gammelt.<br />#fill-space; er høyest i hele skogen.',
+      msg:        '<i>Trollene sier at treet er gammelt.<br />#fill-space; er høyest i hele skogen.</i>',
       trans:      'Trole mówią, że drzewo jest stare. <br />Ono jest najwyższe w całym lesie.',
       answers: [
-        { answer: 'det',  score: 'correct', next: '_aj2' },
-        { answer: 'den',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>det</i>',  score: 'correct', next: '_aj2' },
+        { answer: '<i>den</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _aj2: {
-      msg:        'Trollene sier at treet er gammelt.<br />Det er høyest i hele skogen.',
+      msg:        '<i>Trollene sier at treet er gammelt.<br />Det er høyest i hele skogen.</i>',
       trans:      'Trole mówią, że drzewo jest stare. <br />Ono jest najwyższe w całym lesie.',
       startTime:  3,
       duration:   1.5,
@@ -203,16 +206,16 @@ function LasData() {
 
 
     _ak1: {
-      msg:        'Mennesker går på Opera-taket.<br />#fill-space; er hvitt.',
+      msg:        '<i>Mennesker går på Opera-taket.<br />#fill-space; er hvitt.</i>',
       trans:      'Ludzie idą na dach Opery. <br />On jest biały.',
       answers: [
-        { answer: 'det',  score: 'correct', next: '_ak2' },
-        { answer: 'den',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>det</i>',  score: 'correct', next: '_ak2' },
+        { answer: '<i>den</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _ak2: {
-      msg:        'Mennesker går på Opera-taket.<br />Det er hvitt.',
+      msg:        '<i>Mennesker går på Opera-taket.<br />Det er hvitt.</i>',
       trans:      'Ludzie idą na dach Opery. <br />On jest biały.',
       startTime:  3,
       duration:   1.5,
@@ -221,16 +224,16 @@ function LasData() {
 
 
     _al1: {
-      msg:        'Madonna velger sko.<br />#fill-space; er svarte.',
+      msg:        '<i>Madonna velger sko.<br />#fill-space; er svarte.</i>',
       trans:      'Madonna wybiera buty. <br />One są czarne.',
       answers: [
-        { answer: 'de',    score: 'correct', next: '_al2' },
-        { answer: 'det',   score: 'wrong' },
-        { answer: 'den',   score: 'wrong' }
+        { answer: '<i>de</i>',    score: 'correct', next: '_al2' },
+        { answer: '<i>det</i>',   score: 'wrong' },
+        { answer: '<i>den</i>',   score: 'wrong' }
       ]
     },
     _al2: {
-      msg:        'Madonna velger sko.<br />De er svarte.',
+      msg:        '<i>Madonna velger sko.<br />De er svarte.</i>',
       trans:      'Madonna wybiera buty. <br />One są czarne.',
       startTime:  3,
       duration:   1.5,
@@ -239,16 +242,16 @@ function LasData() {
 
 
     _am1: {
-      msg:        'Flyet venter på passasjerer.<br />#fill-space; er tomt.',
+      msg:        '<i>Flyet venter på passasjerer.<br />#fill-space; er tomt.</i>',
       trans:      'Samolot czeka na pasażerów. <br />Jest pusty.',
       answers: [
-        { answer: 'det',  score: 'correct', next: '_am2' },
-        { answer: 'den',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>det</i>',  score: 'correct', next: '_am2' },
+        { answer: '<i>den</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _am2: {
-      msg:        'Flyet venter på passasjerer.<br />Det er tomt.',
+      msg:        '<i>Flyet venter på passasjerer.<br />Det er tomt.</i>',
       trans:      'Samolot czeka na pasażerów. <br />Jest pusty.',
       startTime:  3,
       duration:   1.5,
@@ -257,16 +260,16 @@ function LasData() {
 
 
     _ba1: {
-      msg:        'Er rommet ferdig?<br /> Ja, #fill-space; er ferdig.',
+      msg:        '<i>Er rommet ferdig?<br /> Ja, #fill-space; er ferdig.</i>',
       trans:      'Czy pokój jest gotowy?<br />Tak, on jest gotowy.',
       answers: [
-        { answer: 'det',  score: 'correct', next: '_ba2' },
-        { answer: 'den',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>det</i>',  score: 'correct', next: '_ba2' },
+        { answer: '<i>den</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _ba2: {
-      msg:        'Er rommet ferdig?<br />Ja, det er ferdig.',
+      msg:        '<i>Er rommet ferdig?<br />Ja, det er ferdig.</i>',
       trans:      'Czy pokój jest gotowy?<br />Tak, on jest gotowy.',
       startTime:  3,
       duration:   1.5,
@@ -275,16 +278,16 @@ function LasData() {
 
 
     _bb1: {
-      msg:        'Er toalettet ledig? <br />Er #fill-space; ledig?',
+      msg:        '<i>Er toalettet ledig? <br />Er #fill-space; ledig?</i>',
       trans:      'Czy łazienka jest wolna?<br />Czy ona jest wolna?',
       answers: [
-        { answer: 'det',  score: 'correct', next: '_bb2' },
-        { answer: 'den',  score: 'wrong' },
-        { answer: 'de',   score: 'wrong' }
+        { answer: '<i>det</i>',  score: 'correct', next: '_bb2' },
+        { answer: '<i>den</i>',  score: 'wrong' },
+        { answer: '<i>de</i>',   score: 'wrong' }
       ]
     },
     _bb2: {
-      msg:        'Er toalettet ledig?<br />Er det ledig?',
+      msg:        '<i>Er toalettet ledig?<br />Er det ledig?</i>',
       trans:      'Czy łazienka jest wolna?<br />Czy ona jest wolna?',
       startTime:  3,
       duration:   1.5,
@@ -293,16 +296,16 @@ function LasData() {
 
 
     _bc1: {
-      msg:        'Hvor kan jeg kjøpe en billett?<br />Du kan kjøpe #fill-space; i kiosken.',
+      msg:        '<i>Hvor kan jeg kjøpe en billett?<br />Du kan kjøpe #fill-space; i kiosken.</i>',
       trans:      'Gdzie mogę kupić bilet? <br />Możesz go kupić w kiosku.',
       answers: [
-        { answer: 'den',  score: 'correct', next: '_bc2' },
-        { answer: 'de',   score: 'wrong' },
-        { answer: 'det',  score: 'wrong' }
+        { answer: '<i>den</i>',  score: 'correct', next: '_bc2' },
+        { answer: '<i>de</i>',   score: 'wrong' },
+        { answer: '<i>det</i>',  score: 'wrong' }
       ]
     },
     _bc2: {
-      msg:        'Hvor kan jeg kjøpe en billett?<br />Du kan kjøpe den i kiosken.',
+      msg:        '<i>Hvor kan jeg kjøpe en billett?<br />Du kan kjøpe den i kiosken.</i>',
       trans:      'Gdzie mogę kupić bilet? <br />Możesz go kupić w kiosku.',
       startTime:  3,
       duration:   1.5,
@@ -311,16 +314,16 @@ function LasData() {
 
 
     _bd1: {
-      msg:        'Hvor er nøklene? <br />Hvor er #fill-space;?',
+      msg:        '<i>Hvor er nøklene? <br />Hvor er #fill-space;?</i>',
       trans:      'Gdzie są klucze?<br />Gdzie one są?',
       answers: [
-        { answer: 'de',    score: 'correct', next: '_bd2' },
-        { answer: 'den',   score: 'wrong' },
-        { answer: 'det',   score: 'wrong' }
+        { answer: '<i>de</i>',    score: 'correct', next: '_bd2' },
+        { answer: '<i>den</i>',   score: 'wrong' },
+        { answer: '<i>det</i>',   score: 'wrong' }
       ]
     },
     _bd2: {
-      msg:        'Hvor er nøklene? <br />Hvor er de?',
+      msg:        '<i>Hvor er nøklene? <br />Hvor er de?</i>',
       trans:      'Gdzie są klucze?<br />Gdzie one są?',
       startTime:  3,
       duration:   1.5,
@@ -329,16 +332,16 @@ function LasData() {
 
 
     _ca1: {
-      msg:        'Er kassa åpen? <br /> Er #fill-space; åpen?',
+      msg:        '<i>Er kassa åpen? <br /> Er #fill-space; åpen?</i>',
       trans:      'Czy kasa jest otwarta?<br />Czy ona jest otwarta?',
       answers: [
-        { answer: 'den',  score: 'correct', next: '_ca2' },
-        { answer: 'de',   score: 'wrong' },
-        { answer: 'det',  score: 'wrong' }
+        { answer: '<i>den</i>',  score: 'correct', next: '_ca2' },
+        { answer: '<i>de</i>',   score: 'wrong' },
+        { answer: '<i>det</i>',  score: 'wrong' }
       ]
     },
     _ca2: {
-      msg:        'Er kassa åpen? <br />Er den åpen?',
+      msg:        '<i>Er kassa åpen? <br />Er den åpen?</i>',
       trans:      'Czy kasa jest otwarta?<br/>Czy ona jest otwarta?',
       startTime:  3,
       duration:   1.5,
@@ -347,16 +350,16 @@ function LasData() {
 
 
     _cb1: {
-      msg:        'Er butikken stengt? <br />Ja, #fill-space; er stengt.',
+      msg:        '<i>Er butikken stengt? <br />Ja, #fill-space; er stengt.</i>',
       trans:      'Czy sklep jest zamknięty?<br />Tak, on jest zamknięty.',
       answers: [
-        { answer: 'den',  score: 'correct', next: '_cb2' },
-        { answer: 'de',   score: 'wrong' },
-        { answer: 'det',  score: 'wrong' }
+        { answer: '<i>den</i>',  score: 'correct', next: '_cb2' },
+        { answer: '<i>de</i>',   score: 'wrong' },
+        { answer: '<i>det</i>',  score: 'wrong' }
       ]
     },
     _cb2: {
-      msg:        'Er butikken stengt? <br />Ja, den er stengt.',
+      msg:        '<i>Er butikken stengt? <br />Ja, den er stengt.</i>',
       trans:      'Czy sklep jest zamknięty?<br />Tak, on jest zamknięty.',
       startTime:  3,
       duration:   1.5,
@@ -365,33 +368,22 @@ function LasData() {
 
 
     _cc1: {
-      msg:        'Er toget komfortabelt?<br />Ja, #fill-space; er komfortabelt og stille.',
+      msg:        '<i>Er toget komfortabelt?<br />Ja, #fill-space; er komfortabelt og stille.</i>',
       trans:      'Czy pociąg jest wygodny? Tak, on jest wygodny.',
       answers: [
-        { answer: 'det',  score: 'correct', next: '_cc2' },
-        { answer: 'de',   score: 'wrong' },
-        { answer: 'den',  score: 'wrong' }
+        { answer: '<i>det</i>',  score: 'correct', next: '_cc2' },
+        { answer: '<i>de</i>',   score: 'wrong' },
+        { answer: '<i>den</i>',  score: 'wrong' }
       ]
     },
     _cc2: {
-      msg:        'Er toget komfortabelt?<br />Ja, det er komfortabelt og stille.',
+      msg:        '<i>Er toget komfortabelt?<br />Ja, det er komfortabelt og stille.</i>',
       trans:      'Czy pociąg jest wygodny? Tak, on jest wygodny.',
       startTime:  3,
       duration:   1.5,
       autoNext:   'RANDOM'
     }
 
-
-  };
-
-
-  this.end = {
-
-    _end1: {
-      msg:        '_END',
-      startTime:  0,
-      duration:   1.5
-    }
 
   };
 

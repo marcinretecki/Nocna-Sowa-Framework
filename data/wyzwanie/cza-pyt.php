@@ -1,8 +1,12 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test'; // chat|setninger|etc
+
+
   this.testNotes = [
   ];
+
 
   this.intro = {
     _a1: {
@@ -26,7 +30,7 @@ function LasData() {
       autoNext:   '_aa2'
     },
     _aa2: {
-      msg:        'Bor Tom i Bergen?',
+      msg:        '<i>Bor Tom i Bergen?</i>',
       trans:      'Czy Tom mieszka w Bergen?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -40,10 +44,11 @@ function LasData() {
       autoNext:   '_aa4'
     },
     _aa4: {
-      msg:        'Nei, Tom bor ikke i Bergen. Han bor i Bodø.',
+      msg:        '<i>Nei, Tom bor ikke i Bergen. Han bor i Bodø.</i>',
       trans:      'Nie, Tom nie mieszka w Bergen. On mieszka w Bodø.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -56,7 +61,7 @@ function LasData() {
       autoNext:   '_ab2'
     },
     _ab2: {
-      msg:        'Kommer du fra Norge?',
+      msg:        '<i>Kommer du fra Norge?</i>',
       trans:      'Czy pochodzisz z Norwegii?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -70,10 +75,11 @@ function LasData() {
       autoNext:   '_ab4'
     },
     _ab4: {
-      msg:        'Nei, jeg kommer ikke fra Norge. Jeg kommer fra Polen.',
+      msg:        '<i>Nei, jeg kommer ikke fra Norge. Jeg kommer fra Polen.</i>',
       trans:      'Nie, nie pochodzę z Norwegii. Pochodzę z Polski.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -86,7 +92,7 @@ function LasData() {
       autoNext:   '_ac2'
     },
     _ac2: {
-      msg:        'Har du barn?',
+      msg:        '<i>Har du barn?</i>',
       trans:      'Czy masz dzieci?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -100,10 +106,11 @@ function LasData() {
       autoNext:   '_ac4'
     },
     _ac4: {
-      msg:        'Ja, jeg har to barn.',
+      msg:        '<i>Ja, jeg har to barn.</i>',
       trans:      'Tak, mam dwoje dzieci.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -116,7 +123,7 @@ function LasData() {
       autoNext:   '_ad2'
     },
     _ad2: {
-      msg:        'Har du en bil?',
+      msg:        '<i>Har du en bil?</i>',
       trans:      'Czy masz samochód?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -130,10 +137,11 @@ function LasData() {
       autoNext:   '_ad4'
     },
     _ad4: {
-      msg:        'Nei, jeg har ikke en bil. Jeg har en sykkel.',
+      msg:        '<i>Nei, jeg har ikke en bil. Jeg har en sykkel.</i>',
       trans:      'Nie, nie mam samochodu. Mam rower.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -146,7 +154,7 @@ function LasData() {
       autoNext:   '_ae2'
     },
     _ae2: {
-      msg:        'Liker du å kjøpe sko?',
+      msg:        '<i>Liker du å kjøpe sko?</i>',
       trans:      'Czy lubisz kupować buty?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -160,10 +168,11 @@ function LasData() {
       autoNext:   '_ae4'
     },
     _ae4: {
-      msg:        'Ja, jeg liker å kjøpe sko.',
+      msg:        '<i>Ja, jeg liker å kjøpe sko.</i>',
       trans:      'Tak, lubię kupować buty.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -176,7 +185,7 @@ function LasData() {
       autoNext:   '_af2'
     },
     _af2: {
-      msg:        'Snakker du ofte med faren?',
+      msg:        '<i>Snakker du ofte med faren?</i>',
       trans:      'Czy często rozmawiasz z ojcem?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -190,10 +199,11 @@ function LasData() {
       autoNext:   '_af4'
     },
     _af4: {
-      msg:        'Ja, jeg snakker med ham hver dag.',
+      msg:        '<i>Ja, jeg snakker med ham hver dag.</i>',
       trans:      'Tak, rozmawiam z nim codziennie.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -206,7 +216,7 @@ function LasData() {
       autoNext:   '_ah2'
     },
     _ah2: {
-      msg:        'Har du mye energi?',
+      msg:        '<i>Har du mye energi?</i>',
       trans:      'Czy masz dużo energii?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -220,10 +230,11 @@ function LasData() {
       autoNext:   '_ah4'
     },
     _ah4: {
-      msg:        'Ja, jeg har mye energi.',
+      msg:        '<i>Ja, jeg har mye energi.</i>',
       trans:      'Tak, mam dużo energii.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -236,7 +247,7 @@ function LasData() {
       autoNext:   '_ag2'
     },
     _ag2: {
-      msg:        'Har du mange venner?',
+      msg:        '<i>Har du mange venner?</i>',
       trans:      'Czy masz wielu przyjaciół?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -250,10 +261,11 @@ function LasData() {
       autoNext:   '_ag4'
     },
     _ag4: {
-      msg:        'Ja, jeg har mange venner.',
+      msg:        '<i>Ja, jeg har mange venner.</i>',
       trans:      'Tak, mam wielu przyjaciół.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -266,7 +278,7 @@ function LasData() {
       autoNext:   '_aj2'
     },
     _aj2: {
-      msg:        'Er det mye sand på stranda?',
+      msg:        '<i>Er det mye sand på stranda?</i>',
       trans:      'Czy jest dużo piasku na plaży?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -280,10 +292,11 @@ function LasData() {
       autoNext:   '_aj4'
     },
     _aj4: {
-      msg:        'Nei, det er ikke mye sand. Bare steiner.',
+      msg:        '<i>Nei, det er ikke mye sand. Bare steiner.</i>',
       trans:      'Nie, nie ma dużo piasku. Tylko kamienie.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -296,7 +309,7 @@ function LasData() {
       autoNext:   '_ak2'
     },
     _ak2: {
-      msg:        'Har du mange klær?',
+      msg:        '<i>Har du mange klær?</i>',
       trans:      'Czy masz wiele ubrań?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -310,10 +323,11 @@ function LasData() {
       autoNext:   '_ak4'
     },
     _ak4: {
-      msg:        'Nei, jeg trenger ikke mange klær.',
+      msg:        '<i>Nei, jeg trenger ikke mange klær.</i>',
       trans:      'Nie, nie potrzebuję wielu ubrań.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -326,7 +340,7 @@ function LasData() {
       autoNext:   '_al2'
     },
     _al2: {
-      msg:        'Har du vondt i kneet?',
+      msg:        '<i>Har du vondt i kneet?</i>',
       trans:      'Czy boli Cię kolano?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -340,10 +354,11 @@ function LasData() {
       autoNext:   '_al4'
     },
     _al4: {
-      msg:        'Ja, jeg har vondt i kneet.',
+      msg:        '<i>Ja, jeg har vondt i kneet.</i>',
       trans:      'Tak, boli mnie kolano.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -356,7 +371,7 @@ function LasData() {
       autoNext:   '_am2'
     },
     _am2: {
-      msg:        'Har du en båt i Norge?',
+      msg:        '<i>Har du en båt i Norge?</i>',
       trans:      'Czy masz łódkę w Norwegii?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -370,10 +385,11 @@ function LasData() {
       autoNext:   '_am4'
     },
     _am4: {
-      msg:        'Jeg har ikke. Jeg kan låne en båt.',
+      msg:        '<i>Jeg har ikke. Jeg kan låne en båt.</i>',
       trans:      'Nie mam. Mogę pożyczyć łódź.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -386,7 +402,7 @@ function LasData() {
       autoNext:   '_an2'
     },
     _an2: {
-      msg:        'Ser du disse mennene?',
+      msg:        '<i>Ser du disse mennene?</i>',
       trans:      'Czy widzisz tych mężczyzn?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -400,10 +416,11 @@ function LasData() {
       autoNext:   '_an4'
     },
     _an4: {
-      msg:        'Ja, jeg ser disse mennene.',
+      msg:        '<i>Ja, jeg ser disse mennene.</i>',
       trans:      'Tak, widzę tych mężczyzn.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -416,7 +433,7 @@ function LasData() {
       autoNext:   '_ao2'
     },
     _ao2: {
-      msg:        'Bruker du mye sukker?',
+      msg:        '<i>Bruker du mye sukker?</i>',
       trans:      'Czy używasz dużo cukru?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -430,10 +447,11 @@ function LasData() {
       autoNext:   '_ao4'
     },
     _ao4: {
-      msg:        'Ikke så mye.',
+      msg:        '<i>Ikke så mye.</i>',
       trans:      'Nie tak dużo.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -446,7 +464,7 @@ function LasData() {
       autoNext:   '_ap2'
     },
     _ap2: {
-      msg:        'Får du mange gaver til bursdag?',
+      msg:        '<i>Får du mange gaver til bursdag?</i>',
       trans:      'Czy dostajesz wiele prezentów na urodziny?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -460,10 +478,11 @@ function LasData() {
       autoNext:   '_ap4'
     },
     _ap4: {
-      msg:        'Ja, jeg får mange gaver til bursdag.',
+      msg:        '<i>Ja, jeg får mange gaver til bursdag.</i>',
       trans:      'Tak, dostaję wiele prezentów na urodziny.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -476,7 +495,7 @@ function LasData() {
       autoNext:   '_ar2'
     },
     _ar2: {
-      msg:        'Liker han å se på fotballkamper?',
+      msg:        '<i>Liker han å se på fotballkamper?</i>',
       trans:      'Czy on lubi oglądać mecze piłki nożnej?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -490,10 +509,11 @@ function LasData() {
       autoNext:   '_ar4'
     },
     _ar4: {
-      msg:        'Ja, han liker å se på fotballkamper.',
+      msg:        '<i>Ja, han liker å se på fotballkamper.</i>',
       trans:      'Tak, on lubi oglądać mecze.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -506,7 +526,7 @@ function LasData() {
       autoNext:   '_as2'
     },
     _as2: {
-      msg:        'Er kona di på jobben nå?',
+      msg:        '<i>Er kona di på jobben nå?</i>',
       trans:      'Czy Twoja żona jest teraz w pracy?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -520,10 +540,11 @@ function LasData() {
       autoNext:   '_as4'
     },
     _as4: {
-      msg:        'Nei, hun har fri i dag.',
+      msg:        '<i>Nei, hun har fri i dag.</i>',
       trans:      'Nie, ona ma dzisiaj wolne.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -536,7 +557,7 @@ function LasData() {
       autoNext:   '_at2'
     },
     _at2: {
-      msg:        'Er det ikke lys her?',
+      msg:        '<i>Er det ikke lys her?</i>',
       trans:      'Czy nie ma tu światła?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -550,10 +571,11 @@ function LasData() {
       autoNext:   '_at4'
     },
     _at4: {
-      msg:        'Dessverre. Det er ikke lys her.',
+      msg:        '<i>Dessverre. Det er ikke lys her.</i>',
       trans:      'Niestety. Nie ma tu światła.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -566,7 +588,7 @@ function LasData() {
       autoNext:   '_ax2'
     },
     _ax2: {
-      msg:        'Er det mange mennesker på kurset?',
+      msg:        '<i>Er det mange mennesker på kurset?</i>',
       trans:      'Czy jest dużo ludzi na kursie?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -580,10 +602,11 @@ function LasData() {
       autoNext:   '_ax4'
     },
     _ax4: {
-      msg:        'Ja, det er mange mennesker på kurset.',
+      msg:        '<i>Ja, det er mange mennesker på kurset.</i>',
       trans:      'Tak, jest dużo ludzi na kursie.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -596,7 +619,7 @@ function LasData() {
       autoNext:   '_ay2'
     },
     _ay2: {
-      msg:        'Har tanta mange hunder?',
+      msg:        '<i>Har tanta mange hunder?</i>',
       trans:      'Czy ciocia ma dużo psów?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -610,10 +633,11 @@ function LasData() {
       autoNext:   '_ay4'
     },
     _ay4: {
-      msg:        'Nei, hun har bare en hund.',
+      msg:        '<i>Nei, hun har bare en hund.</i>',
       trans:      'Nie, ona ma tylko jednego psa.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -626,7 +650,7 @@ function LasData() {
       autoNext:   '_az2'
     },
     _az2: {
-      msg:        'Er det mye snø?',
+      msg:        '<i>Er det mye snø?</i>',
       trans:      'Czy jest dużo śniegu?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -640,10 +664,11 @@ function LasData() {
       autoNext:   '_az4'
     },
     _az4: {
-      msg:        'Ja, det er mye snø.',
+      msg:        '<i>Ja, det er mye snø.</i>',
       trans:      'Tak, jest dużo śniegu.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -656,7 +681,7 @@ function LasData() {
       autoNext:   '_ba2'
     },
     _ba2: {
-      msg:        'Bor de på øya?',
+      msg:        '<i>Bor de på øya?</i>',
       trans:      'Czy oni mieszkają na wyspie?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -670,10 +695,11 @@ function LasData() {
       autoNext:   '_ba4'
     },
     _ba4: {
-      msg:        'Ja, de bor på øya.',
+      msg:        '<i>Ja, de bor på øya.</i>',
       trans:      'Tak, oni mieszkają na wyspie.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -686,7 +712,7 @@ function LasData() {
       autoNext:   '_bb2'
     },
     _bb2: {
-      msg:        'Hører du meg?',
+      msg:        '<i>Hører du meg?</i>',
       trans:      'Czy słyszysz mnie?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -700,10 +726,11 @@ function LasData() {
       autoNext:   '_bb4'
     },
     _bb4: {
-      msg:        'Jeg hører deg ikke. Kan du gjenta?',
+      msg:        '<i>Jeg hører deg ikke. Kan du gjenta?</i>',
       trans:      'Nie słyszę Cię. Czy możesz powtórzyć?',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -716,7 +743,7 @@ function LasData() {
       autoNext:   '_bc2'
     },
     _bc2: {
-      msg:        'Liker du å få blomster?',
+      msg:        '<i>Liker du å få blomster?</i>',
       trans:      'Czy lubisz dostawać kwiaty?',
       startTime:  4,
       duration:   6.5 - 4,
@@ -730,22 +757,12 @@ function LasData() {
       autoNext:   '_bc4'
     },
     _bc4: {
-      msg:        'Jeg liker å få blomster veldig mye.',
+      msg:        '<i>Jeg liker å få blomster veldig mye.</i>',
       trans:      'Bardzo lubię dostawać kwiaty.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
-    }
-
-  };
-
-
-  this.end = {
-
-    _end1: {
-      msg: 'END',
-      startTime: 0,
-      duration: 0 -  0,
     }
 
   };

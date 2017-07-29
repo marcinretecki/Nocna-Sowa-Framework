@@ -1,6 +1,9 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test'; // chat|setninger|etc
+
+
   this.testNotes = [
     'De leverer skapene i overmorgen. - nie ma quizu :(',
     'De bytter dørklokka i vår. - czytanie dørklokka',
@@ -10,6 +13,7 @@ function LasData() {
     'Han står opp tidlig om morgenen. - czytana tylko końcówka zdania',
     'De vil ikke ta opp lånn neste gang. Po tym przykﬁadzie wyswietla sie zle zdanie: Jeg lærer noe nytt hver dag., a czytane jest dobre'
   ];
+
 
   this.intro = {
     _a1: {
@@ -26,17 +30,17 @@ function LasData() {
   this.chat = {
 
     _ikveld1: {
-      msg:        'Vi går på festen <span class="mark mark--green">dziś wieczorem</span>.',
+      msg:        '<i>Vi går på festen <span class="mark mark--green">dziś wieczorem</span>.</i>',
       trans:      'Idziemy na imprezę dziś wieczorem.',
       answers: [
-        { answer: 'i kveld', next: '_ikveld2', score: 'correct' },
-        { answer: 'om kvelden', score: 'wrong' },
-        { answer: 'i dag', score: 'wrong' },
-        { answer: 'om natta', score: 'wrong' }
+        { answer: '<i>i kveld</i>', score: 'correct', next: '_ikveld2' },
+        { answer: '<i>om kvelden</i>', score: 'wrong' },
+        { answer: '<i>i dag</i>', score: 'wrong' },
+        { answer: '<i>om natta</i>', score: 'wrong' }
       ]
     },
     _ikveld2: {
-      msg:        'Vi går på festen i kveld.',
+      msg:        '<i>Vi går på festen i kveld.</i>',
       trans:      'Idziemy na imprezę dziś wieczorem.',
       score:      true,
       startTime:  0,
@@ -45,17 +49,17 @@ function LasData() {
     },
 
     _omkvelden1: {
-      msg:        'Jeg lærer norsk <span class="mark mark--green">wieczorami</span>.',
+      msg:        '<i>Jeg lærer norsk <span class="mark mark--green">wieczorami</span>.</i>',
       trans:      'Uczę się norweskiego wieczorami.',
       answers: [
-        { answer: 'om kvelden', next: '_omkvelden2', score: 'correct' },
-        { answer: 'i kveld', score: 'wrong' },
-        { answer: 'hver dag', score: 'wrong' },
-        { answer: 'i natt', score: 'wrong' }
+        { answer: '<i>om kvelden</i>', score: 'correct', next: '_omkvelden2' },
+        { answer: '<i>i kveld</i>', score: 'wrong' },
+        { answer: '<i>hver dag</i>', score: 'wrong' },
+        { answer: '<i>i natt</i>', score: 'wrong' }
       ]
     },
     _omkvelden2: {
-      msg:        'Jeg lærer norsk om kvelden.',
+      msg:        '<i>Jeg lærer norsk om kvelden.</i>',
       trans:      'Uczę się norweskiego wieczorami.',
       score:      true,
       startTime:  3,
@@ -64,17 +68,17 @@ function LasData() {
     },
 
     _imorgen1: {
-      msg:        'Jeg går på jobb <span class="mark mark--green">jutro</span>.',
+      msg:        '<i>Jeg går på jobb <span class="mark mark--green">jutro</span>.</i>',
       trans:      'Idę do pracy jutro.',
       answers: [
-        { answer: 'i morgen', next: '_imorgen2', score: 'correct' },
-        { answer: 'om morgenen', score: 'wrong' },
-        { answer: 'i dag', score: 'wrong' },
-        { answer: 'om dagen', score: 'wrong' }
+        { answer: '<i>i morgen</i>', score: 'correct', next: '_imorgen2' },
+        { answer: '<i>om morgenen</i>', score: 'wrong' },
+        { answer: '<i>i dag</i>', score: 'wrong' },
+        { answer: '<i>om dagen</i>', score: 'wrong' }
       ]
     },
     _imorgen2: {
-      msg:        'Jeg går på jobb i morgen.',
+      msg:        '<i>Jeg går på jobb i morgen.</i>',
       trans:      'Idę do pracy jutro.',
       score:      true,
       startTime:  6,
@@ -83,17 +87,17 @@ function LasData() {
     },
 
     _imorgentidlig1: {
-      msg:        'Jeg skal lage kaffe <span class="mark mark--green">jutro rano</span>.',
+      msg:        '<i>Jeg skal lage kaffe <span class="mark mark--green">jutro rano</span>.</i>',
       trans:      'Zrobię kawę jutro rano.',
       answers: [
-        { answer: 'i morgen tidlig', next: '_imorgentidlig2', score: 'correct' },
-        { answer: 'i morgen', score: 'wrong' },
-        { answer: 'i morgen kveld', score: 'wrong' },
-        { answer: 'om morgenen', score: 'wrong' }
+        { answer: '<i>i morgen tidlig</i>', score: 'correct', next: '_imorgentidlig2' },
+        { answer: '<i>i morgen</i>', score: 'wrong' },
+        { answer: '<i>i morgen kveld</i>', score: 'wrong' },
+        { answer: '<i>om morgenen</i>', score: 'wrong' }
       ]
     },
     _imorgentidlig2: {
-      msg:        'Jeg skal lage kaffe i morgen tidlig',
+      msg:        '<i>Jeg skal lage kaffe i morgen tidlig</i>',
       trans:      'Zrobię kawę jutro rano.',
       score:      true,
       startTime:  9,
@@ -102,18 +106,18 @@ function LasData() {
     },
 
     _ommorgen1: {
-      msg:        'Han står opp tidlig <span class="mark mark--green">rano/rankami</span>.',
+      msg:        '<i>Han står opp tidlig <span class="mark mark--green">rano/rankami</span>.</i>',
       trans:      '',
       answers: [
-        { answer: 'om morgenen', next: '_ommorgen2', score: 'correct' },
-        { answer: 'i morges', score: 'wrong' },
-        { answer: 'i morgen tidlig', score: 'wrong' },
-        { answer: 'i dag', score: 'wrong' }
+        { answer: '<i>om morgenen</i>', score: 'correct', next: '_ommorgen2' },
+        { answer: '<i>i morges</i>', score: 'wrong' },
+        { answer: '<i>i morgen tidlig</i>', score: 'wrong' },
+        { answer: '<i>i dag</i>', score: 'wrong' }
       ]
     },
     _ommorgen2: {
-      msg:        'Han står opp tidlig om morgenen.',
-      trans:      '',
+      msg:        '<i>Han står opp tidlig om morgenen.</i>',
+      trans:      'On wstaje wcześnie rano.',
       score:      true,
       startTime:  14,
       duration:   15.5 - 14,
@@ -121,17 +125,17 @@ function LasData() {
     },
 
     _idag1: {
-      msg:        'Takk for <span class="mark mark--green">dziś</span>.',
+      msg:        '<i>Takk for <span class="mark mark--green">dziś</span>.</i>',
       trans:      'Dzięki za dziś.',
       answers: [
-        { answer: 'i dag', next: '_idag2', score: 'correct' },
-        { answer: 'i morges', score: 'wrong' },
-        { answer: 'i natt', score: 'wrong' },
-        { answer: 'sist', score: 'wrong' }
+        { answer: '<i>i dag</i>', score: 'correct', next: '_idag2' },
+        { answer: '<i>i morges</i>', score: 'wrong' },
+        { answer: '<i>i natt</i>', score: 'wrong' },
+        { answer: '<i>sist</i>', score: 'wrong' }
       ]
     },
     _idag2: {
-      msg:        'Takk for i dag.',
+      msg:        '<i>Takk for i dag.</i>',
       trans:      'Dzięki za dziś.',
       score:      true,
       startTime:  17,
@@ -140,17 +144,17 @@ function LasData() {
     },
 
     _imorgenkveld1: {
-      msg:        'De skal på treningssenter <span class="mark mark--green">jutro wieczorem</span>.',
+      msg:        '<i>De skal på treningssenter <span class="mark mark--green">jutro wieczorem</span>.</i>',
       trans:      'Idą na siłowię jutro wieczorem.',
       answers: [
-        { answer: 'i morgen kveld', next: '_imorgenkveld2', score: 'correct' },
-        { answer: 'i kveld', score: 'wrong' },
-        { answer: 'om kvelden', score: 'wrong' },
-        { answer: 'i morgen tidlig', score: 'wrong' }
+        { answer: '<i>i morgen kveld</i>', score: 'correct', next: '_imorgenkveld2' },
+        { answer: '<i>i kveld</i>', score: 'wrong' },
+        { answer: '<i>om kvelden</i>', score: 'wrong' },
+        { answer: '<i>i morgen tidlig</i>', score: 'wrong' }
       ]
     },
     _imorgenkveld2: {
-      msg:        'De skal på treningssenter i morgen kveld.',
+      msg:        '<i>De skal på treningssenter i morgen kveld.</i>',
       trans:      'Idą na siłowię jutro wieczorem.',
       score:      true,
       startTime:  20,
@@ -159,17 +163,17 @@ function LasData() {
     },
 
     _omettermiddagen1: {
-      msg:        'Jeg vil løpe <span class="mark mark--green">popołudniami</span>.',
+      msg:        '<i>Jeg vil løpe <span class="mark mark--green">popołudniami</span>.</i>',
       trans:      'Chcę biegać popołudniami.',
       answers: [
-        { answer: 'om ettermiddagen', next: '_omettermiddagen2', score: 'correct' },
-        { answer: 'om formiddagen', score: 'wrong' },
-        { answer: 'i ettermiddag', score: 'wrong' },
-        { answer: 'i formiddag', score: 'wrong' }
+        { answer: '<i>om ettermiddagen</i>', score: 'correct', next: '_omettermiddagen2' },
+        { answer: '<i>om formiddagen</i>', score: 'wrong' },
+        { answer: '<i>i ettermiddag</i>', score: 'wrong' },
+        { answer: '<i>i formiddag</i>', score: 'wrong' }
       ]
     },
     _omettermiddagen2: {
-      msg:        'Jeg vil løpe om ettermiddagen.',
+      msg:        '<i>Jeg vil løpe om ettermiddagen.</i>',
       trans:      'Chcę biegać popołudniami.',
       score:      true,
       startTime:  24,
@@ -178,17 +182,17 @@ function LasData() {
     },
 
     _iettermiddag1: {
-      msg:        'Jeg går til frisøren <span class="mark mark--green">dziś popołudniu</span>.',
+      msg:        '<i>Jeg går til frisøren <span class="mark mark--green">dziś popołudniu</span>.</i>',
       trans:      'Idę do fryzjera dziś popołudniu.',
       answers: [
-        { answer: 'i ettermiddag', next: '_iettermiddag2', score: 'correct' },
-        { answer: 'i formiddag', score: 'wrong' },
-        { answer: 'om formiddagen', score: 'wrong' },
-        { answer: 'om ettermiddagen', score: 'wrong' }
+        { answer: '<i>i ettermiddag</i>', score: 'correct', next: '_iettermiddag2' },
+        { answer: '<i>i formiddag</i>', score: 'wrong' },
+        { answer: '<i>om formiddagen</i>', score: 'wrong' },
+        { answer: '<i>om ettermiddagen</i>', score: 'wrong' }
       ]
     },
     _iettermiddag2: {
-      msg:        'Jeg går til frisøren i ettermiddag.',
+      msg:        '<i>Jeg går til frisøren i ettermiddag.</i>',
       trans:      'Idę do fryzjera dziś popołudniu.',
       score:      true,
       startTime:  27,
@@ -197,17 +201,17 @@ function LasData() {
     },
 
     _omformiddagen1: {
-      msg:        'Han lufter hunden <span class="mark mark--green">przedpołudniami</span>.',
+      msg:        '<i>Han lufter hunden <span class="mark mark--green">przedpołudniami</span>.</i>',
       trans:      'On wychodzi z psem przedpołudniami.',
       answers: [
-        { answer: 'om formiddagen', next: '_omformiddagen2', score: 'correct' },
-        { answer: 'om ettermiddagen', score: 'wrong' },
-        { answer: 'i ettermiddag', score: 'wrong' },
-        { answer: 'i formiddag', score: 'wrong' }
+        { answer: '<i>om formiddagen</i>', score: 'correct', next: '_omformiddagen2' },
+        { answer: '<i>om ettermiddagen</i>', score: 'wrong' },
+        { answer: '<i>i ettermiddag</i>', score: 'wrong' },
+        { answer: '<i>i formiddag</i>', score: 'wrong' }
       ]
     },
     _omformiddagen2: {
-      msg:        'Han lufter hunden om formiddagen.',
+      msg:        '<i>Han lufter hunden om formiddagen.</i>',
       trans:      'On wychodzi z psem przedpołudniami.',
       score:      true,
       startTime:  31,
@@ -216,17 +220,17 @@ function LasData() {
     },
 
     _omnatta1: {
-      msg:        'Han kan ikke sove <span class="mark mark--green">w nocy/nocami</span>.',
+      msg:        '<i>Han kan ikke sove <span class="mark mark--green">w nocy/nocami</span>.</i>',
       trans:      'On nie może spać nocami.',
       answers: [
-        { answer: 'om natta', next: '_omnatta2', score: 'correct' },
-        { answer: 'om kvelden', score: 'wrong' },
-        { answer: 'i natt', score: 'wrong' },
-        { answer: 'i kveld', score: 'wrong' }
+        { answer: '<i>om natta</i>', score: 'correct', next: '_omnatta2' },
+        { answer: '<i>om kvelden</i>', score: 'wrong' },
+        { answer: '<i>i natt</i>', score: 'wrong' },
+        { answer: '<i>i kveld</i>', score: 'wrong' }
       ]
     },
     _omnatta2: {
-      msg:        'Han kan ikke sove om natta.',
+      msg:        '<i>Han kan ikke sove om natta.</i>',
       trans:      'On nie może spać nocami.',
       score:      true,
       startTime:  35,
@@ -235,17 +239,17 @@ function LasData() {
     },
 
     inatt: {
-      msg:        'Naboene fester <span class="mark mark--green">dziś w nocy</span>.',
+      msg:        '<i>Naboene fester <span class="mark mark--green">dziś w nocy</span>.</i>',
       trans:      'Sąsiedzi imprezują dziś w nocy.',
       answers: [
-        { answer: 'i natt', next: '_inatt', score: 'correct' },
-        { answer: 'i kveld', score: 'wrong' },
-        { answer: 'om kvelden', score: 'wrong' },
-        { answer: 'om ettermiddagen', score: 'wrong' }
+        { answer: '<i>i natt</i>', score: 'correct', next: '_inatt' },
+        { answer: '<i>i kveld</i>', score: 'wrong' },
+        { answer: '<i>om kvelden</i>', score: 'wrong' },
+        { answer: '<i>om ettermiddagen</i>', score: 'wrong' }
       ]
     },
     inatt: {
-      msg:        'Naboene fester i natt.',
+      msg:        '<i>Naboene fester i natt.</i>',
       trans:      'Sąsiedzi imprezują dziś w nocy.',
       score:      true,
       startTime:  38,
@@ -254,17 +258,17 @@ function LasData() {
     },
 
     _omenstund1: {
-      msg:        'Jeg kommer  <span class="mark mark--green">za chwilę</span>.',
+      msg:        '<i>Jeg kommer  <span class="mark mark--green">za chwilę</span>.</i>',
       trans:      'Przyjdę za chwilę.',
       answers: [
-        { answer: 'om en stund', next: '_omenstund2', score: 'correct' },
-        { answer: 'i en stund', score: 'wrong' },
-        { answer: 'for en stund', score: 'wrong' },
-        { answer: 'en stund', score: 'wrong' }
+        { answer: '<i>om en stund</i>', score: 'correct', next: '_omenstund2' },
+        { answer: '<i>i en stund</i>', score: 'wrong' },
+        { answer: '<i>for en stund</i>', score: 'wrong' },
+        { answer: '<i>en stund</i>', score: 'wrong' }
       ]
     },
     _omenstund2: {
-      msg:        'Jeg kommer om en stund.',
+      msg:        '<i>Jeg kommer om en stund.</i>',
       trans:      'Przyjdę za chwilę.',
       score:      true,
       startTime:  41,
@@ -273,17 +277,17 @@ function LasData() {
     },
 
     _na1: {
-      msg:        'Jeg må stikke <span class="mark mark--green">teraz</span>.',
+      msg:        '<i>Jeg må stikke <span class="mark mark--green">teraz</span>.</i>',
       trans:      'Muszę teraz spadać.',
       answers: [
-        { answer: 'nå', next: '_na2', score: 'correct' },
-        { answer: 'om en stund', score: 'wrong' },
-        { answer: 'om et øyeblikk', score: 'wrong' },
-        { answer: 'etterpå', score: 'wrong' }
+        { answer: '<i>nå</i>', score: 'correct', next: '_na2' },
+        { answer: '<i>om en stund</i>', score: 'wrong' },
+        { answer: '<i>om et øyeblikk</i>', score: 'wrong' },
+        { answer: '<i>etterpå</i>', score: 'wrong' }
       ]
     },
     _na2: {
-      msg:        'Jeg må stikke nå.',
+      msg:        '<i>Jeg må stikke nå.</i>',
       trans:      'Muszę teraz spadać.',
       score:      true,
       startTime:  44,
@@ -292,17 +296,17 @@ function LasData() {
     },
 
     _omentime1: {
-      msg:        'Vi skal reise <span class="mark mark--green">za godzinę</span>.',
+      msg:        '<i>Vi skal reise <span class="mark mark--green">za godzinę</span>.</i>',
       trans:      'Wyjeżdżamy za godzinę.',
       answers: [
-        { answer: 'om en time', next: '_omentime2', score: 'correct' },
-        { answer: 'om en tid', score: 'wrong' },
-        { answer: 'i en time', score: 'wrong' },
-        { answer: 'timehvis', score: 'wrong' }
+        { answer: '<i>om en time</i>', score: 'correct', next: '_omentime2' },
+        { answer: '<i>om en tid</i>', score: 'wrong' },
+        { answer: '<i>i en time</i>', score: 'wrong' },
+        { answer: '<i>timehvis</i>', score: 'wrong' }
       ]
     },
     _omentime2: {
-      msg:        'Vi skal reise om en time.',
+      msg:        '<i>Vi skal reise om en time.</i>',
       trans:      'Wyjeżdżamy za godzinę.',
       score:      true,
       startTime:  47,
@@ -311,17 +315,17 @@ function LasData() {
     },
 
     _omettminutt1: {
-      msg:        'Vi er på stedet <span class="mark mark--green">za minutę</span>.',
+      msg:        '<i>Vi er på stedet <span class="mark mark--green">za minutę</span>.</i>',
       trans:      'Jesteśmy na miejscu za minutę.',
       answers: [
-        { answer: 'om ett minutt', next: '_omettminutt2', score: 'correct' },
-        { answer: 'i et minutt', score: 'wrong' },
-        { answer: 'om noen minutter', score: 'wrong' },
-        { answer: 'på minutt', score: 'wrong' }
+        { answer: '<i>om ett minutt</i>', score: 'correct', next: '_omettminutt2' },
+        { answer: '<i>i et minutt</i>', score: 'wrong' },
+        { answer: '<i>om noen minutter</i>', score: 'wrong' },
+        { answer: '<i>på minutt</i>', score: 'wrong' }
       ]
     },
     _omettminutt2: {
-      msg:        'Vi er på stedet om ett minutt.',
+      msg:        '<i>Vi er på stedet om ett minutt.</i>',
       trans:      'Jesteśmy na miejscu za minutę.',
       score:      true,
       startTime:  50,
@@ -330,17 +334,17 @@ function LasData() {
     },
 
     _omtredager1: {
-      msg:        'Han slutter prosjektet <span class="mark mark--green">za trzy dni</span>.',
+      msg:        '<i>Han slutter prosjektet <span class="mark mark--green">za trzy dni</span>.</i>',
       trans:      'On skończy projekt za trzy dni.',
       answers: [
-        { answer: 'om tre dager', next: '_omtredager2', score: 'correct' },
-        { answer: 'i tre dager', score: 'wrong' },
-        { answer: 'om tre timer', score: 'wrong' },
-        { answer: 'på torsdag', score: 'wrong' }
+        { answer: '<i>om tre dager</i>', score: 'correct', next: '_omtredager2' },
+        { answer: '<i>i tre dager</i>', score: 'wrong' },
+        { answer: '<i>om tre timer</i>', score: 'wrong' },
+        { answer: '<i>på torsdag</i>', score: 'wrong' }
       ]
     },
     _omtredager2: {
-      msg:        'Han slutter prosjektet om tre dager.',
+      msg:        '<i>Han slutter prosjektet om tre dager.</i>',
       trans:      'On skończy projekt za trzy dni.',
       score:      true,
       startTime:  53,
@@ -349,17 +353,17 @@ function LasData() {
     },
 
     _omfemuker1: {
-      msg:        'Jeg kommer tilbake til Norge <span class="mark mark--green">za pięć tygodni</span>.',
+      msg:        '<i>Jeg kommer tilbake til Norge <span class="mark mark--green">za pięć tygodni</span>.</i>',
       trans:      'Wracam do Norwegii za pięć tygodni.',
       answers: [
-        { answer: 'om fem uker', next: '_omfemuker2', score: 'correct' },
-        { answer: 'om fem måneder', score: 'wrong' },
-        { answer: 'om ei uke', score: 'wrong' },
-        { answer: 'om to måneder', score: 'wrong' }
+        { answer: '<i>om fem uker</i>', score: 'correct', next: '_omfemuker2' },
+        { answer: '<i>om fem måneder</i>', score: 'wrong' },
+        { answer: '<i>om ei uke</i>', score: 'wrong' },
+        { answer: '<i>om to måneder</i>', score: 'wrong' }
       ]
     },
     _omfemuker2: {
-      msg:        'Jeg kommer tilbake til Norge om fem uker.',
+      msg:        '<i>Jeg kommer tilbake til Norge om fem uker.</i>',
       trans:      'Wracam do Norwegii za pięć tygodni.',
       score:      true,
       startTime:  57,
@@ -368,17 +372,17 @@ function LasData() {
     },
 
     _omfireman1: {
-      msg:        'Jeg åpner en ny butikk <span class="mark mark--green">za cztery miesiące</span>.',
+      msg:        '<i>Jeg åpner en ny butikk <span class="mark mark--green">za cztery miesiące</span>.</i>',
       trans:      'Otwieram nowy sklep za cztery miesiące.',
       answers: [
-        { answer: 'om fire måneder', next: '_omfireman2', score: 'correct' },
-        { answer: 'om et halvt år', score: 'wrong' },
-        { answer: 'om fire uker', score: 'wrong' },
-        { answer: 'i fire måneder', score: 'wrong' }
+        { answer: '<i>om fire måneder</i>', score: 'correct', next: '_omfireman2' },
+        { answer: '<i>om et halvt år</i>', score: 'wrong' },
+        { answer: '<i>om fire uker</i>', score: 'wrong' },
+        { answer: '<i>i fire måneder</i>', score: 'wrong' }
       ]
     },
     _omfireman2: {
-      msg:        'Jeg åpner en ny butikk om fire måneder.',
+      msg:        '<i>Jeg åpner en ny butikk om fire måneder.</i>',
       trans:      'Otwieram nowy sklep za cztery miesiące.',
       score:      true,
       startTime:  61,
@@ -387,17 +391,17 @@ function LasData() {
     },
 
     _omethalvtar1: {
-      msg:        'Han vil slanke seg <span class="mark mark--green">za pół roku</span>.',
+      msg:        '<i>Han vil slanke seg <span class="mark mark--green">za pół roku</span>.</i>',
       trans:      'On chce się odchudzić za pół roku.',
       answers: [
-        { answer: 'om et halvt år', next: '_omethalvtar2', score: 'correct' },
-        { answer: 'om fem måneder', score: 'wrong' },
-        { answer: 'i seks måneder', score: 'wrong' },
-        { answer: 'om et år', score: 'wrong' }
+        { answer: '<i>om et halvt år</i>', score: 'correct', next: '_omethalvtar2' },
+        { answer: '<i>om fem måneder</i>', score: 'wrong' },
+        { answer: '<i>i seks måneder</i>', score: 'wrong' },
+        { answer: '<i>om et år</i>', score: 'wrong' }
       ]
     },
     _omethalvtar2: {
-      msg:        'Han vil slanke seg om et halvt år.',
+      msg:        '<i>Han vil slanke seg om et halvt år.</i>',
       trans:      'On chce się odchudzić za pół roku.',
       score:      true,
       startTime:  65,
@@ -406,17 +410,17 @@ function LasData() {
     },
 
     _omnoenar1: {
-      msg:        'Hun blir sjef her <span class="mark mark--green">za kilka lat</span>.',
+      msg:        '<i>Hun blir sjef her <span class="mark mark--green">za kilka lat</span>.</i>',
       trans:      'Ona zostanie tu szefem za kilka lat.',
       answers: [
-        { answer: 'om noen år', next: '_omnoenar2', score: 'correct' },
-        { answer: 'i noen år', score: 'wrong' },
-        { answer: 'hvert år', score: 'wrong' },
-        { answer: 'neste år', score: 'wrong' }
+        { answer: '<i>om noen år</i>', score: 'correct', next: '_omnoenar2' },
+        { answer: '<i>i noen år</i>', score: 'wrong' },
+        { answer: '<i>hvert år</i>', score: 'wrong' },
+        { answer: '<i>neste år</i>', score: 'wrong' }
       ]
     },
     _omnoenar2: {
-      msg:        'Hun blir sjef her om noen år.',
+      msg:        '<i>Hun blir sjef her om noen år.</i>',
       trans:      'Ona zostanie tu szefem za kilka lat.',
       score:      true,
       startTime:  69,
@@ -425,17 +429,17 @@ function LasData() {
     },
 
     _nextar1: {
-      msg:        'De gifter seg <span class="mark mark--green">w przyszłym roku</span>.',
+      msg:        '<i>De gifter seg <span class="mark mark--green">w przyszłym roku</span>.</i>',
       trans:      'Ożenią się w przyszłym roku.',
       answers: [
-        { answer: 'neste år', next: '_nextar2', score: 'correct' },
-        { answer: 'siste år', score: 'wrong' },
-        { answer: 'i år', score: 'wrong' },
-        { answer: 'om fem måneder', score: 'wrong' }
+        { answer: '<i>neste år</i>', score: 'correct', next: '_nextar2' },
+        { answer: '<i>siste år</i>', score: 'wrong' },
+        { answer: '<i>i år</i>', score: 'wrong' },
+        { answer: '<i>om fem måneder</i>', score: 'wrong' }
       ]
     },
     _nextar2: {
-      msg:        'De gifter seg neste år.',
+      msg:        '<i>De gifter seg neste år.</i>',
       trans:      'Ożenią się w przyszłym roku.',
       score:      true,
       startTime:  72,
@@ -444,17 +448,17 @@ function LasData() {
     },
 
     nesteuke: {
-      msg:        'Vi sees <span class="mark mark--green">w przyszłym tygodniu</span>.',
+      msg:        '<i>Vi sees <span class="mark mark--green">w przyszłym tygodniu</span>.</i>',
       trans:      'Widzimy się w przyszłym tygodniu.',
       answers: [
-        { answer: 'neste uke', next: '_nesteuke', score: 'correct' },
-        { answer: 'igjen', score: 'wrong' },
-        { answer: 'om ei uke', score: 'wrong' },
-        { answer: 'om sju dager', score: 'wrong' }
+        { answer: '<i>neste uke</i>', score: 'correct', next: '_nesteuke' },
+        { answer: '<i>igjen</i>', score: 'wrong' },
+        { answer: '<i>om ei uke</i>', score: 'wrong' },
+        { answer: '<i>om sju dager</i>', score: 'wrong' }
       ]
     },
     nesteuke: {
-      msg:        'Vi sees neste uke.',
+      msg:        '<i>Vi sees neste uke.</i>',
       trans:      'Widzimy się w przyszłym tygodniu.',
       score:      true,
       startTime:  75,
@@ -465,10 +469,10 @@ function LasData() {
 /*    _nestemaned1: {
       msg: 'Jeg begynner et dansekurs <span class="mark mark--green">w następnym/przyszłym miesiącu</span>.',
       answers: [
-        { answer: 'neste måned', next: '_nestemaned2', score: 'correct' },
-        { answer: 'neste år', score: 'wrong' },
-        { answer: 'neste gang', score: 'wrong' },
-        { answer: 'om en måned', score: 'wrong' }
+        { answer: '<i>neste måned</i>', score: 'correct', next: '_nestemaned2' },
+        { answer: '<i>neste år</i>', score: 'wrong' },
+        { answer: '<i>neste gang</i>', score: 'wrong' },
+        { answer: '<i>om en måned</i>', score: 'wrong' }
       ]
     },
     _nestemaned2: {
@@ -481,17 +485,17 @@ function LasData() {
 
 
     _nestegang1: {
-      msg:        'De vil ikke ta opp lån <span class="mark mark--green">następnym razem</span>.',
+      msg:        '<i>De vil ikke ta opp lån <span class="mark mark--green">następnym razem</span>.</i>',
       trans:      'Nie chcą brać pożyczki następnym razem.',
       answers: [
-        { answer: 'neste gang', next: '_nestegang2', score: 'correct' },
-        { answer: 'hver gang', score: 'wrong' },
-        { answer: 'om en stund', score: 'wrong' },
-        { answer: 'nesten gang', score: 'wrong' }
+        { answer: '<i>neste gang</i>', score: 'correct', next: '_nestegang2' },
+        { answer: '<i>hver gang</i>', score: 'wrong' },
+        { answer: '<i>om en stund</i>', score: 'wrong' },
+        { answer: '<i>nesten gang</i>', score: 'wrong' }
       ]
     },
     _nestegang2: {
-      msg:        'De vil ikke ta opp lån neste gang.',
+      msg:        '<i>De vil ikke ta opp lån neste gang.</i>',
       trans:      'Nie chcą brać pożyczki następnym razem.',
       score:      true,
       startTime:  82,
@@ -501,17 +505,17 @@ function LasData() {
 
 
     _nytthverdag1: {
-      msg:        'Jeg lærer noe nytt <span class="mark mark--green">codziennie</span>.',
+      msg:        '<i>Jeg lærer noe nytt <span class="mark mark--green">codziennie</span>.</i>',
       trans:      'Uczę się czegoś nowego każdego dnia.',
       answers: [
-        { answer: 'hver dag', next: '_nytthverdag2', score: 'correct' },
-        { answer: 'i dag', score: 'wrong' },
-        { answer: 'om en dag', score: 'wrong' },
-        { answer: 'hver andre dag', score: 'wrong' }
+        { answer: '<i>hver dag</i>', score: 'correct', next: '_nytthverdag2' },
+        { answer: '<i>i dag</i>', score: 'wrong' },
+        { answer: '<i>om en dag</i>', score: 'wrong' },
+        { answer: '<i>hver andre dag</i>', score: 'wrong' }
       ]
     },
     _nytthverdag2: {
-      msg:        'Jeg lærer noe nytt hver dag.',
+      msg:        '<i>Jeg lærer noe nytt hver dag.</i>',
       trans:      'Uczę się czegoś nowego każdego dnia.',
       score:      true,
       startTime:  86,
@@ -521,17 +525,17 @@ function LasData() {
 
 
     _hvermorgen1: {
-      msg:        'Jeg løper i parken <span class="mark mark--green">każdego ranka</span>.',
+      msg:        '<i>Jeg løper i parken <span class="mark mark--green">każdego ranka</span>.</i>',
       trans:      'Biegam w parku każdego ranka.',
       answers: [
-        { answer: 'hver morgen', next: '_hvermorgen2', score: 'correct' },
-        { answer: 'i morgen', score: 'wrong' },
-        { answer: 'i morges', score: 'wrong' },
-        { answer: 'hver dag', score: 'wrong' }
+        { answer: '<i>hver morgen</i>', score: 'correct', next: '_hvermorgen2' },
+        { answer: '<i>i morgen</i>', score: 'wrong' },
+        { answer: '<i>i morges</i>', score: 'wrong' },
+        { answer: '<i>hver dag</i>', score: 'wrong' }
       ]
     },
     _hvermorgen2: {
-      msg:        'Jeg løper i parken hver morgen.',
+      msg:        '<i>Jeg løper i parken hver morgen.</i>',
       trans:      'Biegam w parku każdego ranka.',
       score:      true,
       startTime:  89,
@@ -540,17 +544,17 @@ function LasData() {
     },
 
     _hvertime1: {
-      msg:        'Jeg sjekker mobilen <span class="mark mark--green">co godzinę</span>.',
+      msg:        '<i>Jeg sjekker mobilen <span class="mark mark--green">co godzinę</span>.</i>',
       trans:      'Sprawdzam telefon co godzinę.',
       answers: [
-        { answer: 'hver time', next: '_hvertime2', score: 'correct' },
-        { answer: 'i en time', score: 'wrong' },
-        { answer: 'på en time', score: 'wrong' },
-        { answer: 'hver gang', score: 'wrong' }
+        { answer: '<i>hver time</i>', score: 'correct', next: '_hvertime2' },
+        { answer: '<i>i en time</i>', score: 'wrong' },
+        { answer: '<i>på en time</i>', score: 'wrong' },
+        { answer: '<i>hver gang</i>', score: 'wrong' }
       ]
     },
     _hvertime2: {
-      msg:        'Jeg sjekker mobilen hver time.',
+      msg:        '<i>Jeg sjekker mobilen hver time.</i>',
       trans:      'Sprawdzam telefon co godzinę.',
       score:      true,
       startTime:  93,
@@ -559,17 +563,17 @@ function LasData() {
     },
 
     _hveruke1: {
-      msg:        'Hun ringer til foreldrene <span class="mark mark--green">co tydzień</span>.',
+      msg:        '<i>Hun ringer til foreldrene <span class="mark mark--green">co tydzień</span>.</i>',
       trans:      'Ona dzwoni do rodziców co tydzień.',
       answers: [
-        { answer: 'hver uke', next: '_hveruke2', score: 'correct' },
-        { answer: 'hver søndag', score: 'wrong' },
-        { answer: 'om uka', score: 'wrong' },
-        { answer: 'mange ganger', score: 'wrong' }
+        { answer: '<i>hver uke</i>', score: 'correct', next: '_hveruke2' },
+        { answer: '<i>hver søndag</i>', score: 'wrong' },
+        { answer: '<i>om uka</i>', score: 'wrong' },
+        { answer: '<i>mange ganger</i>', score: 'wrong' }
       ]
     },
     _hveruke2: {
-      msg:        'Hun ringer til foreldrene hver uke.',
+      msg:        '<i>Hun ringer til foreldrene hver uke.</i>',
       trans:      'Ona dzwoni do rodziców co tydzień.',
       score:      true,
       startTime:  97,
@@ -578,17 +582,17 @@ function LasData() {
     },
 
     _annenhveruke1: {
-      msg:        'Han jobber om morgenen <span class="mark mark--green">co drugi tydzień</span>.',
+      msg:        '<i>Han jobber om morgenen <span class="mark mark--green">co drugi tydzień</span>.</i>',
       trans:      'On pracuje rankiem co drugi tydzień.',
       answers: [
-        { answer: 'annenhver uke', next: '_annenhveruke2', score: 'correct' },
-        { answer: 'hver andre måned', score: 'wrong' },
-        { answer: 'hver uke', score: 'wrong' },
-        { answer: 'hver andre gang', score: 'wrong' }
+        { answer: '<i>annenhver uke</i>', score: 'correct', next: '_annenhveruke2' },
+        { answer: '<i>hver andre måned</i>', score: 'wrong' },
+        { answer: '<i>hver uke</i>', score: 'wrong' },
+        { answer: '<i>hver andre gang</i>', score: 'wrong' }
       ]
     },
     _annenhveruke2: {
-      msg:        'Han jobber om morgenen annenhver uke.',
+      msg:        '<i>Han jobber om morgenen annenhver uke.</i>',
       trans:      'On pracuje rankiem co drugi tydzień.',
       score:      true,
       startTime:  101,
@@ -597,17 +601,17 @@ function LasData() {
     },
 
     _annenhvermaned1: {
-      msg:        'Jeg flyr til Bergen <span class="mark mark--green">co drugi miesiąc</span>.',
+      msg:        '<i>Jeg flyr til Bergen <span class="mark mark--green">co drugi miesiąc</span>.</i>',
       trans:      'Latam do Bergen co drugi miesiąc.',
       answers: [
-        { answer: 'annehver måned', next: '_annenhvermaned2', score: 'correct' },
-        { answer: 'hver andre uke', score: 'wrong' },
-        { answer: 'hver måned', score: 'wrong' },
-        { answer: 'annenhver uke', score: 'wrong' }
+        { answer: '<i>annehver måned</i>', score: 'correct', next: '_annenhvermaned2' },
+        { answer: '<i>hver andre uke</i>', score: 'wrong' },
+        { answer: '<i>hver måned</i>', score: 'wrong' },
+        { answer: '<i>annenhver uke</i>', score: 'wrong' }
       ]
     },
     _annenhvermaned2: {
-      msg:        'Jeg flyr til Bergen annehver måned.',
+      msg:        '<i>Jeg flyr til Bergen annehver måned.</i>',
       trans:      'Latam do Bergen co drugi miesiąc.',
       score:      true,
       startTime:  105,
@@ -616,17 +620,17 @@ function LasData() {
     },
 
     _hvergang1: {
-      msg:        'Han kommer for sent <span class="mark mark--green">za każdym razem</span>.',
+      msg:        '<i>Han kommer for sent <span class="mark mark--green">za każdym razem</span>.</i>',
       trans:      'On przychodzi spóźniony za każdym razem.',
       answers: [
-        { answer: 'hver gang', next: '_hvergang2', score: 'correct' },
-        { answer: 'annenhver gang', score: 'wrong' },
-        { answer: 'hver time', score: 'wrong' },
-        { answer: 'timevis', score: 'wrong' }
+        { answer: '<i>hver gang</i>', score: 'correct', next: '_hvergang2' },
+        { answer: '<i>annenhver gang</i>', score: 'wrong' },
+        { answer: '<i>hver time</i>', score: 'wrong' },
+        { answer: '<i>timevis</i>', score: 'wrong' }
       ]
     },
     _hvergang2: {
-      msg:        'Han kommer for sent hver gang.',
+      msg:        '<i>Han kommer for sent hver gang.</i>',
       trans:      'On przychodzi spóźniony za każdym razem.',
       score:      true,
       startTime:  109,
@@ -635,17 +639,17 @@ function LasData() {
     },
 
     _hvertar1: {
-      msg:        'Dere betaler skatt <span class="mark mark--green">każdego roku</span>.',
+      msg:        '<i>Dere betaler skatt <span class="mark mark--green">każdego roku</span>.</i>',
       trans:      'Płacicie podatek każdego roku.',
       answers: [
-        { answer: 'hvert år', next: '_hvertar2', score: 'correct' },
-        { answer: 'hver andre år', score: 'wrong' },
-        { answer: 'aldri', score: 'wrong' },
-        { answer: 'hvis dere husker det', score: 'wrong' }
+        { answer: '<i>hvert år</i>', score: 'correct', next: '_hvertar2' },
+        { answer: '<i>hver andre år</i>', score: 'wrong' },
+        { answer: '<i>aldri</i>', score: 'wrong' },
+        { answer: '<i>hvis dere husker det</i>', score: 'wrong' }
       ]
     },
     _hvertar2: {
-      msg:        'Dere betaler skatt hvert år.',
+      msg:        '<i>Dere betaler skatt hvert år.</i>',
       trans:      'Płacicie podatek każdego roku.',
       score:      true,
       startTime:  113,
@@ -654,17 +658,17 @@ function LasData() {
     },
 
     _hversommer1: {
-      msg:        'De besøker venner <span class="mark mark--green">każdego lata</span>.',
+      msg:        '<i>De besøker venner <span class="mark mark--green">każdego lata</span>.</i>',
       trans:      'Odwiedzają przyjaciół każdego lata.',
       answers: [
-        { answer: 'hver sommer', next: '_hversommer2', score: 'correct' },
-        { answer: 'hver vinter', score: 'wrong' },
-        { answer: 'hver måned', score: 'wrong' },
-        { answer: 'hver vår', score: 'wrong' }
+        { answer: '<i>hver sommer</i>', score: 'correct', next: '_hversommer2' },
+        { answer: '<i>hver vinter</i>', score: 'wrong' },
+        { answer: '<i>hver måned</i>', score: 'wrong' },
+        { answer: '<i>hver vår</i>', score: 'wrong' }
       ]
     },
     _hversommer2: {
-      msg:        'De besøker venner hver sommer.',
+      msg:        '<i>De besøker venner hver sommer.</i>',
       trans:      'Odwiedzają przyjaciół każdego lata.',
       score:      true,
       startTime:  117,
@@ -673,17 +677,17 @@ function LasData() {
     },
 
     _hvervinter1: {
-      msg:        'De reiser til Spania <span class="mark mark--green">każdej zimy</span>.',
+      msg:        '<i>De reiser til Spania <span class="mark mark--green">każdej zimy</span>.</i>',
       trans:      'Jeżdżą do Hiszpani każdej zimy.',
       answers: [
-        { answer: 'hver vinter', next: '_hvervinter2', score: 'correct' },
-        { answer: 'om vinteren', score: 'wrong' },
-        { answer: 'i helga', score: 'wrong' },
-        { answer: 'hver ferie', score: 'wrong' }
+        { answer: '<i>hver vinter</i>', score: 'correct', next: '_hvervinter2' },
+        { answer: '<i>om vinteren</i>', score: 'wrong' },
+        { answer: '<i>i helga</i>', score: 'wrong' },
+        { answer: '<i>hver ferie</i>', score: 'wrong' }
       ]
     },
     _hvervinter2: {
-      msg:        'De reiser til Spania hver vinter.',
+      msg:        '<i>De reiser til Spania hver vinter.</i>',
       trans:      'Jeżdżą do Hiszpani każdej zimy.',
       score:      true,
       startTime:  121,
@@ -692,17 +696,17 @@ function LasData() {
     },
 
     _ihost1: {
-      msg:        'Det regner ikke <span class="mark mark--green">tej jesieni</span>.',
+      msg:        '<i>Det regner ikke <span class="mark mark--green">tej jesieni</span>.</i>',
       trans:      'Nie pada tej jesieni.',
       answers: [
-        { answer: 'i høst', next: '_ihost2', score: 'correct' },
-        { answer: 'siste høst', score: 'wrong' },
-        { answer: 'om høsten', score: 'wrong' },
-        { answer: 'hver høst', score: 'wrong' }
+        { answer: '<i>i høst</i>', score: 'correct', next: '_ihost2' },
+        { answer: '<i>siste høst</i>', score: 'wrong' },
+        { answer: '<i>om høsten</i>', score: 'wrong' },
+        { answer: '<i>hver høst</i>', score: 'wrong' }
       ]
     },
     _ihost2: {
-      msg:        'Det regner ikke i høst.',
+      msg:        '<i>Det regner ikke i høst.</i>',
       trans:      'Nie pada tej jesieni.',
       score:      true,
       startTime:  125,
@@ -711,17 +715,17 @@ function LasData() {
     },
 
     _ivar1: {
-      msg:        'De bytter dørklokka <span class="mark mark--green">tej wiosny</span>.',
+      msg:        '<i>De bytter dørklokka <span class="mark mark--green">tej wiosny</span>.</i>',
       trans:      'Zmieniają zamek tej wiosny.',
       answers: [
-        { answer: 'i vår', next: '_ivar2', score: 'correct' },
-        { answer: 'hver vår', score: 'wrong' },
-        { answer: 'hver andre høst', score: 'wrong' },
-        { answer: 'hver høst', score: 'wrong' }
+        { answer: '<i>i vår</i>', score: 'correct', next: '_ivar2' },
+        { answer: '<i>hver vår</i>', score: 'wrong' },
+        { answer: '<i>hver andre høst</i>', score: 'wrong' },
+        { answer: '<i>hver høst</i>', score: 'wrong' }
       ]
     },
     _ivar2: {
-      msg:        'De bytter dørklokka i vår.',
+      msg:        '<i>De bytter dørklokka i vår.</i>',
       trans:      'Zmieniają zamek tej wiosny.',
       score:      true,
       startTime:  128,
@@ -730,17 +734,17 @@ function LasData() {
     },
 
     _itoar1: {
-      msg:        'Vi skal bo i Ålesund <span class="mark mark--green">przez dwa lata</span>.',
+      msg:        '<i>Vi skal bo i Ålesund <span class="mark mark--green">przez dwa lata</span>.</i>',
       trans:      'Będziemy mieszkali w Ålesund przez dwa lata.',
       answers: [
-        { answer: 'i to år', next: '_itoar2', score: 'correct' },
-        { answer: 'om to år', score: 'wrong' },
-        { answer: 'for to år siden', score: 'wrong' },
-        { answer: 'for to år', score: 'wrong' }
+        { answer: '<i>i to år</i>', score: 'correct', next: '_itoar2' },
+        { answer: '<i>om to år</i>', score: 'wrong' },
+        { answer: '<i>for to år siden</i>', score: 'wrong' },
+        { answer: '<i>for to år</i>', score: 'wrong' }
       ]
     },
     _itoar2: {
-      msg:        'Vi skal bo i Ålesund i to år.',
+      msg:        '<i>Vi skal bo i Ålesund i to år.</i>',
       trans:      'Będziemy mieszkali w ',
       score:      true,
       startTime:  131,
@@ -749,17 +753,17 @@ function LasData() {
     },
 
     _iovermorgen1: {
-      msg:        'De leverer skapene <span class="mark mark--green">pojutrze</span>.',
+      msg:        '<i>De leverer skapene <span class="mark mark--green">pojutrze</span>.</i>',
       trans:      'Dostarczą szafki pojutrze.',
       answers: [
-        { answer: 'i overmorgen', next: '_iovermorgen2', score: 'correct' },
-        { answer: 'om noen dager', score: 'wrong' },
-        { answer: 'på tirsdag', score: 'wrong' },
-        { answer: 'i morgen', score: 'wrong' }
+        { answer: '<i>i overmorgen</i>', score: 'correct', next: '_iovermorgen2' },
+        { answer: '<i>om noen dager</i>', score: 'wrong' },
+        { answer: '<i>på tirsdag</i>', score: 'wrong' },
+        { answer: '<i>i morgen</i>', score: 'wrong' }
       ]
     },
     _iovermorgen2: {
-      msg:        'De leverer skapene i overmorgen.',
+      msg:        '<i>De leverer skapene i overmorgen.</i>',
       trans:      'Dostarczą szafki pojutrze.',
       score:      true,
       startTime:  135,
@@ -768,33 +772,22 @@ function LasData() {
     },
 
     _ihelga1: {
-      msg:        'Jeg drar med familien på hytta <span class="mark mark--green">w weekend</span>.',
+      msg:        '<i>Jeg drar med familien på hytta <span class="mark mark--green">w weekend</span>.</i>',
       trans:      'Jadę z rodzinę do hytty w weekend.',
       answers: [
-        { answer: 'i helga', next: '_ihelga2', score: 'correct' },
-        { answer: 'på fredag', score: 'wrong' },
-        { answer: 'på lørdag', score: 'wrong' },
-        { answer: 'hver helg', score: 'wrong' }
+        { answer: '<i>i helga</i>', score: 'correct', next: '_ihelga2' },
+        { answer: '<i>på fredag</i>', score: 'wrong' },
+        { answer: '<i>på lørdag</i>', score: 'wrong' },
+        { answer: '<i>hver helg</i>', score: 'wrong' }
       ]
     },
     _ihelga2: {
-      msg:        'Jeg drar med familien på hytta i helga.',
+      msg:        '<i>Jeg drar med familien på hytta i helga.</i>',
       trans:      'Jadę z rodzinę do hytty w weekend.',
       score:      true,
       startTime:  138,
       duration:   140.5 - 138,
       autoNext:   'RANDOM'
-    }
-
-  };
-
-
-  this.end = {
-
-    _end1: {
-      msg: 'END',
-      startTime: 0,
-      duration: 0 -  0,
     }
 
   };

@@ -1,13 +1,16 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test';   // chat|setninger|etc
+
+
   this.testNotes = [
   ];
 
 
   this.intro = {
     a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
+      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w"></i>.',
       autoNext:   'ENDINTRO'
     }
   };
@@ -192,6 +195,13 @@ function LasData() {
     og: {
       startTime:  46.5,
       duration:   0.3
+    },
+
+
+    msg: {
+      msg:        '',
+      score:      'correct',
+      autoNext:   'RANDOM'
     }
 
 

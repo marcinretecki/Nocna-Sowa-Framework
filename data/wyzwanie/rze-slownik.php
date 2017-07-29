@@ -1,13 +1,16 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test';   // chat|setninger|etc
+
+
   var newMsg = function( word ) {
     var a = ''
 
-    a += '<span class="mark mark--green">';
+    a += '<i class="mark mark--green">';
 
     a += word;
-    a += '</span>';
+    a += '</i>';
     a += '<br />';
     a += '<a class="size-1 a-light" target="_blank" href="http://ordbok.uib.no/perl/ordbok.cgi?bokmaal=+&OPP=';
     a += word;
@@ -18,8 +21,9 @@ function LasData() {
 
 
   this.testNotes = [
-    'mamy za mało słów, które mają jeden rodzaj i nie są jednocześnie czasownikiem/przymiotnikiem (żeby nie robić zamieszania)'
+    'jeszcze nie dodałem słów z IA'
   ];
+
 
   //  Albo answers
   //  albo autoNext
@@ -44,7 +48,7 @@ function LasData() {
     _barn1: {
       msg:        newMsg( 'barn' ),
       answers: [
-        { answer: '<i>et</i>',   next: '_barn2', score: 'correct' },
+        { answer: '<i>et</i>', score: 'correct', next: '_barn2' },
         { answer: '<i>en/ei</i>',   score: 'wrong' },
         { answer: '<i>en</i>',   score: 'wrong' },
       ]
@@ -59,7 +63,7 @@ function LasData() {
     _hand1: {
       msg:        newMsg( 'hånd' ),
       answers: [
-        { answer: '<i>en/ei</i>',   next: '_hand2', score: 'correct' },
+        { answer: '<i>en/ei</i>', score: 'correct', next: '_hand2' },
         { answer: '<i>en</i>',   score: 'wrong' },
         { answer: '<i>et</i>',   score: 'wrong' },
       ]
@@ -74,7 +78,7 @@ function LasData() {
     _spor1: {
       msg:        newMsg( 'spor' ),
       answers: [
-        { answer: '<i>et</i>',   next: '_spor2', score: 'correct' },
+        { answer: '<i>et</i>', score: 'correct', next: '_spor2' },
         { answer: '<i>en</i>',   score: 'wrong' },
         { answer: '<i>en/ei</i>',   score: 'wrong' },
       ]
@@ -89,7 +93,7 @@ function LasData() {
     _lys1: {
       msg:        newMsg( 'lys' ),
       answers: [
-        { answer: '<i>et</i>',   next: '_lys2', score: 'correct' },
+        { answer: '<i>et</i>', score: 'correct', next: '_lys2' },
         { answer: '<i>en</i>',   score: 'wrong' },
         { answer: '<i>en/ei</i>',   score: 'wrong' },
       ]
@@ -104,7 +108,7 @@ function LasData() {
     _kamp1: {
       msg:        newMsg( 'kamp' ),
       answers: [
-        { answer: '<i>en</i>',   next: '_kamp2', score: 'correct' },
+        { answer: '<i>en</i>', score: 'correct', next: '_kamp2' },
         { answer: '<i>en/ei</i>',   score: 'wrong' },
         { answer: '<i>et</i>',   score: 'wrong' },
       ]
@@ -119,7 +123,7 @@ function LasData() {
     _bat1: {
       msg:        newMsg( 'båt' ),
       answers: [
-        { answer: '<i>en</i>',   next: '_bat2', score: 'correct' },
+        { answer: '<i>en</i>', score: 'correct', next: '_bat2' },
         { answer: '<i>en/ei</i>',   score: 'wrong' },
         { answer: '<i>et</i>',   score: 'wrong' },
       ]
@@ -134,7 +138,7 @@ function LasData() {
     _morgen1: {
       msg:        newMsg( 'morgen' ),
       answers: [
-        { answer: '<i>en</i>',   next: '_morgen2', score: 'correct' },
+        { answer: '<i>en</i>', score: 'correct', next: '_morgen2' },
         { answer: '<i>en/ei</i>',   score: 'wrong' },
         { answer: '<i>et</i>',   score: 'wrong' },
       ]
@@ -149,7 +153,7 @@ function LasData() {
     _helg1: {
       msg:        newMsg( 'helg' ),
       answers: [
-        { answer: '<i>en/ei</i>',   next: '_helg2', score: 'correct' },
+        { answer: '<i>en/ei</i>', score: 'correct', next: '_helg2' },
         { answer: '<i>en</i>',   score: 'wrong' },
         { answer: '<i>et</i>',   score: 'wrong' },
       ]
@@ -164,7 +168,7 @@ function LasData() {
     _navn1: {
       msg:        newMsg( 'navn' ),
       answers: [
-        { answer: '<i>et</i>',   next: '_navn2', score: 'correct' },
+        { answer: '<i>et</i>', score: 'correct', next: '_navn2' },
         { answer: '<i>en/ei</i>',   score: 'wrong' },
         { answer: '<i>en</i>',   score: 'wrong' },
       ]
@@ -179,7 +183,7 @@ function LasData() {
     _moete1: {
       msg:        newMsg( 'møte' ),
       answers: [
-        { answer: '<i>et</i>',   next: '_moete2', score: 'correct' },
+        { answer: '<i>et</i>', score: 'correct', next: '_moete2' },
         { answer: '<i>en</i>',   score: 'wrong' },
         { answer: '<i>en/ei</i>',   score: 'wrong' },
       ]
@@ -194,7 +198,7 @@ function LasData() {
     _land1: {
       msg:        newMsg( 'land' ),
       answers: [
-        { answer: '<i>et</i>',   next: '_land2', score: 'correct' },
+        { answer: '<i>et</i>', score: 'correct', next: '_land2' },
         { answer: '<i>en</i>',   score: 'wrong' },
         { answer: '<i>en/ei</i>',   score: 'wrong' },
       ]
@@ -209,7 +213,7 @@ function LasData() {
     _jord1: {
       msg:        newMsg( 'jord' ),
       answers: [
-        { answer: '<i>en/ei</i>',   next: '_jord2', score: 'correct' },
+        { answer: '<i>en/ei</i>', score: 'correct', next: '_jord2' },
         { answer: '<i>en</i>',   score: 'wrong' },
         { answer: '<i>et</i>',   score: 'wrong' },
       ]
@@ -224,7 +228,7 @@ function LasData() {
     //  _xx1: {
     //    msg:        newMsg( '' ),
     //    answers: [
-    //      { answer: '<i>en/ei</i>',   next: '_xx2', score: 'correct' },
+    //      { answer: '<i>en/ei</i>', score: 'correct', next: '_xx2' },
     //      { answer: '<i>en</i>',   score: 'wrong' },
     //      { answer: '<i>et</i>',   score: 'wrong' },
     //    ]

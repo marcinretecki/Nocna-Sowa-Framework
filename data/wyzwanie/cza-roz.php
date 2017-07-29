@@ -1,12 +1,16 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test'; // chat|setninger|etc
+
+
   this.testNotes = [
     'Slipp meg frem! – jest zachrypnięte',
     'Ti stille! – złe nagranie',
     'dodaj: Powiedz: Podaj mi sól! Rekk meg saltet!',
     'Ikke glem å komme! – złe nagranie'
   ];
+
 
   this.intro = {
     _a1: {
@@ -31,9 +35,10 @@ function LasData() {
       autoNext:   '_aa2'
     },
     _aa2: {
-      msg:        'Slipp meg frem!',
+      msg:        '<i>Slipp meg frem!</i>',
       startTime:  3,
       duration:   4.5 - 3,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -46,9 +51,10 @@ function LasData() {
       autoNext:   '_ab2'
     },
     _ab2: {
-      msg:        'Ikke rør det!',
+      msg:        '<i>Ikke rør det!</i>',
       startTime:  8,
       duration:   9 - 8,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -61,9 +67,10 @@ function LasData() {
       autoNext:   '_ac2'
     },
     _ac2: {
-      msg:        'Hør på meg!',
+      msg:        '<i>Hør på meg!</i>',
       startTime:  13,
       duration:   14 - 13,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -76,9 +83,10 @@ function LasData() {
       autoNext:   '_ad2'
     },
     _ad2: {
-      msg:        'Sett deg ned!',
+      msg:        '<i>Sett deg ned!</i>',
       startTime:  17,
       duration:   18 - 17,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -91,10 +99,11 @@ function LasData() {
     //    autoNext:   '_ae2'
     //  },
     //  _ae2: {
-    //    msg:        'Ti stille!',
+    //    msg:        '<i>Ti stille!</i>',
     //    startTime:  22,
     //    duration:   23 - 22,
-    //    autoNext:   'RANDOM'
+    //  score:      'correct',
+    //  autoNext:   'RANDOM'
     //  },
 
 
@@ -106,9 +115,10 @@ function LasData() {
       autoNext:   '_af2'
     },
     _af2: {
-      msg:        'Hold kjeft!',
+      msg:        '<i>Hold kjeft!</i>',
       startTime:  27,
       duration:   28 - 27,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -121,9 +131,10 @@ function LasData() {
       autoNext:   '_ag2'
     },
     _ag2: {
-      msg:        'Ikke røyk!',
+      msg:        '<i>Ikke røyk!</i>',
       startTime:  31,
       duration:   32   - 31,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -136,9 +147,10 @@ function LasData() {
       autoNext:   '_ah2'
     },
     _ah2: {
-      msg:        'Ikke drikk!',
+      msg:        '<i>Ikke drikk!</i>',
       startTime:  36,
       duration:   37 - 36,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -151,9 +163,10 @@ function LasData() {
       autoNext:   '_aj2'
     },
     _aj2: {
-      msg:        'Vent litt!',
+      msg:        '<i>Vent litt!</i>',
       startTime:  41,
       duration:   42 - 41,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -166,9 +179,10 @@ function LasData() {
       autoNext:   '_ai2'
     },
     _ai2: {
-      msg:        'Sjekk det!',
+      msg:        '<i>Sjekk det!</i>',
       startTime:  46,
       duration:   47 - 46,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -181,9 +195,10 @@ function LasData() {
       autoNext:   '_ak2'
     },
     _ak2: {
-      msg:        'Hold hunden!',
+      msg:        '<i>Hold hunden!</i>',
       startTime:  51,
       duration:   52 - 51,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -196,9 +211,10 @@ function LasData() {
       autoNext:   '_al2'
     },
     _al2: {
-      msg:        'Lukk døra!',
+      msg:        '<i>Lukk døra!</i>',
       startTime:  56,
       duration:   57 - 56,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -211,9 +227,10 @@ function LasData() {
       autoNext:   '_ba2'
     },
     _ba2: {
-      msg:        'Ikke slå hverandre!',
+      msg:        '<i>Ikke slå hverandre!</i>',
       startTime:  61,
       duration:   62.5 - 61,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -226,9 +243,10 @@ function LasData() {
       autoNext:   '_bb2'
     },
     _bb2: {
-      msg:        'Stopp å skrike!',
+      msg:        '<i>Stopp å skrike!</i>',
       startTime:  67,
       duration:   68.5 - 67,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -241,9 +259,10 @@ function LasData() {
       autoNext:   '_bc2'
     },
     _bc2: {
-      msg:        'La meg se!',
+      msg:        '<i>La meg se!</i>',
       startTime:  73,
       duration:   74 - 73,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -256,9 +275,10 @@ function LasData() {
       autoNext:   '_bd2'
     },
     _bd2: {
-      msg:        'La meg si noe!',
+      msg:        '<i>La meg si noe!</i>',
       startTime:  79,
       duration:   80.5 - 79,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -271,9 +291,10 @@ function LasData() {
       autoNext:   '_be2'
     },
     _be2: {
-      msg:        'Ta det med ro!',
+      msg:        '<i>Ta det med ro!</i>',
       startTime:  86,
       duration:   87 - 86,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -286,9 +307,10 @@ function LasData() {
       autoNext:   '_bf2'
     },
     _bf2: {
-      msg:        'Ikke gråt!',
+      msg:        '<i>Ikke gråt!</i>',
       startTime:  91,
       duration:   92.5 - 91,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -301,9 +323,10 @@ function LasData() {
       autoNext:   '_bg2'
     },
     _bg2: {
-      msg:        'Kom!',
+      msg:        '<i>Kom!</i>',
       startTime:  97,
       duration:   98 - 97,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -316,9 +339,10 @@ function LasData() {
       autoNext:   '_bh2'
     },
     _bh2: {
-      msg:        'Slapp av!',
+      msg:        '<i>Slapp av!</i>',
       startTime:  102,
       duration:   103 - 102,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -331,9 +355,10 @@ function LasData() {
       autoNext:   '_bi2'
     },
     _bi2: {
-      msg:        'Ikke stress!',
+      msg:        '<i>Ikke stress!</i>',
       startTime:  108,
       duration:   109 - 108,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -346,9 +371,10 @@ function LasData() {
       autoNext:   '_bk2'
     },
     _bk2: {
-      msg:        'Pust dypt!',
+      msg:        '<i>Pust dypt!</i>',
       startTime:  113,
       duration:   114 - 113,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -361,9 +387,10 @@ function LasData() {
       autoNext:   '_bl2'
     },
     _bl2: {
-      msg:        'Ro deg ned!',
+      msg:        '<i>Ro deg ned!</i>',
       startTime:  118,
       duration:   119 - 118,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -376,9 +403,10 @@ function LasData() {
       autoNext:   '_bm2'
     },
     _bm2: {
-      msg:        'Ikke glem å komme!',
+      msg:        '<i>Ikke glem å komme!</i>',
       startTime:  124,
       duration:   125.5 - 124,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -391,9 +419,10 @@ function LasData() {
       autoNext:   '_bn2'
     },
     _bn2: {
-      msg:        'Vær forsiktig!',
+      msg:        '<i>Vær forsiktig!</i>',
       startTime:  132,
       duration:   133 - 132,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -406,9 +435,10 @@ function LasData() {
       autoNext:   '_bp2'
     },
     _bp2: {
-      msg:        'Hjelp meg!',
+      msg:        '<i>Hjelp meg!</i>',
       startTime:  137,
       duration:   138 - 137,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -421,9 +451,10 @@ function LasData() {
       autoNext:   '_bo2'
     },
     _bo2: {
-      msg:        'Vær så snill!',
+      msg:        '<i>Vær så snill!</i>',
       startTime:  144,
       duration:   145 - 144,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -436,24 +467,14 @@ function LasData() {
       autoNext:   '_br2'
     },
     _br2: {
-      msg:        'Gjør det!',
+      msg:        '<i>Gjør det!</i>',
       startTime:  149,
       duration:   150 - 149,
+      score:      'correct',
       autoNext:   'RANDOM'
     }
 
 
-
-  };
-
-
-  this.end = {
-
-    _end1: {
-      msg:        'END',
-      startTime:  0,
-      duration:   0,
-    }
 
   };
 

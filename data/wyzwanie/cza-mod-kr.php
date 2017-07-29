@@ -1,6 +1,9 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test'; // chat|setninger|etc
+
+
   this.testNotes = [
     'nie ma nagrania ani czasów'
   ];
@@ -28,13 +31,13 @@ function LasData() {
       autoNext:   '_aa2'
     },
     _aa2: {
-      msg:        'Ja, det kan jeg.<br />Nei, det kan jeg ikke.',
+      msg:        '<i>Ja, det kan jeg.<br />Nei, det kan jeg ikke.</i>',
       trans:      'Tak, potrafię.<br />Nie, niepotrafię.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
-
 
 
     _ab1: {
@@ -45,10 +48,11 @@ function LasData() {
       autoNext:   '_ab2'
     },
     _ab2: {
-      msg:        'Ja, det kan jeg.<br />Nei, det kan jeg ikke.',
+      msg:        '<i>Ja, det kan jeg.<br />Nei, det kan jeg ikke.</i>',
       trans:      'Tak, mogę.<br />Nie, nie mogę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -61,10 +65,11 @@ function LasData() {
       autoNext:   '_ac2'
     },
     _ac2: {
-      msg:        'Ja, det kan hun.<br />Nei, det kan hun ikke.',
+      msg:        '<i>Ja, det kan hun.<br />Nei, det kan hun ikke.</i>',
       trans:      'Tak, może.<br />Nie, nie może.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -77,10 +82,11 @@ function LasData() {
       autoNext:   '_ad2'
     },
     _ad2: {
-      msg:        'Ja, det kan jeg.<br />Nei, det kan jeg ikke.',
+      msg:        '<i>Ja, det kan jeg.<br />Nei, det kan jeg ikke.</i>',
       trans:      'Tak, umiem.<br />Nie, nie umiem.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -93,10 +99,11 @@ function LasData() {
       autoNext:   '_ae2'
     },
     _ae2: {
-      msg:        'Ja, det kan jeg.<br />Nei, det kan jeg ikke.',
+      msg:        '<i>Ja, det kan jeg.<br />Nei, det kan jeg ikke.</i>',
       trans:      'Tak, mogę.<br />Nie, nie mogę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -109,10 +116,11 @@ function LasData() {
       autoNext:   '_af2'
     },
     _af2: {
-      msg:        'Ja, det kan jeg.<br />Nei, det kan jeg ikke.',
+      msg:        '<i>Ja, det kan jeg.<br />Nei, det kan jeg ikke.</i>',
       trans:      'Tak, mogę.<br />Nie, nie mogę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -125,10 +133,11 @@ function LasData() {
       autoNext:   '_ag2'
     },
     _ag2: {
-      msg:        'Ja, det vil jeg.<br />Nei, det vil jeg ikke.',
+      msg:        '<i>Ja, det vil jeg.<br />Nei, det vil jeg ikke.</i>',
       trans:      'Tak, chcę.<br />Nie, nie chcę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -141,10 +150,11 @@ function LasData() {
       autoNext:   '_ah2'
     },
     _ah2: {
-      msg:        'Ja, det vil jeg.<br />Nei, det vil jeg ikke.',
+      msg:        '<i>Ja, det vil jeg.<br />Nei, det vil jeg ikke.</i>',
       trans:      'Tak, chcę.<br />Nie, nie chcę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -157,10 +167,11 @@ function LasData() {
       autoNext:   '_ai2'
     },
     _ai2: {
-      msg:        'Ja, det vil jeg.<br />Nei, det vil jeg ikke.',
+      msg:        '<i>Ja, det vil jeg.<br />Nei, det vil jeg ikke.</i>',
       trans:      'Tak, chce.<br />Nie, nie chcę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -173,10 +184,11 @@ function LasData() {
       autoNext:   '_aj2'
     },
     _aj2: {
-      msg:        'Ja, det vil jeg.<br />Nei, det vil jeg ikke.',
+      msg:        '<i>Ja, det vil jeg.<br />Nei, det vil jeg ikke.</i>',
       trans:      'Tak, chcę.<br />Nie, nie chcę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -189,10 +201,11 @@ function LasData() {
       autoNext:   '_ak2'
     },
     _ak2: {
-      msg:        'Ja, det vil jeg.<br />Nei, det vil jeg ikke.',
+      msg:        '<i>Ja, det vil jeg.<br />Nei, det vil jeg ikke.</i>',
       trans:      'Tak, chcę.<br />Nie, nie chcę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -205,10 +218,11 @@ function LasData() {
       autoNext:   '_al2'
     },
     _al2: {
-      msg:        'Ja, det vil vi.<br />Nei, det vil vi ikke.',
+      msg:        '<i>Ja, det vil vi.<br />Nei, det vil vi ikke.</i>',
       trans:      'Tak, chcemy.<br />Nie, nie chcemy.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -221,10 +235,11 @@ function LasData() {
       autoNext:   '_am2'
     },
     _am2: {
-      msg:        'Ja, det skal vi.<br />Nei, det skal vi ikke.',
+      msg:        '<i>Ja, det skal vi.<br />Nei, det skal vi ikke.</i>',
       trans:      'Tak, (pójdziemy po niego).<br />Nie, (nie pójdziemy po niego).',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -237,10 +252,11 @@ function LasData() {
       autoNext:   '_an2'
     },
     _an2: {
-      msg:        'Ja, det skal jeg.<br />Nei, det skal jeg ikke.',
+      msg:        '<i>Ja, det skal jeg.<br />Nei, det skal jeg ikke.</i>',
       trans:      'Tak, (spotkam się z nimi).<br />Nie, (nie spotkam się z nimi).',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -253,10 +269,11 @@ function LasData() {
       autoNext:   '_ao2'
     },
     _ao2: {
-      msg:        'Ja, det skal jeg.<br />Nei, det skal jeg ikke.',
+      msg:        '<i>Ja, det skal jeg.<br />Nei, det skal jeg ikke.</i>',
       trans:      'Tak, (dołączę).<br />Nie, nie (dołączę).',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -269,10 +286,11 @@ function LasData() {
       autoNext:   '_ap2'
     },
     _ap2: {
-      msg:        'Ja, det skal jeg.<br />Nei, det skal jeg ikke.',
+      msg:        '<i>Ja, det skal jeg.<br />Nei, det skal jeg ikke.</i>',
       trans:      'Tak, (zamierzam pracować w domu).<br />Nie, nie (zamierzam pracować w domu).',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -285,10 +303,11 @@ function LasData() {
       autoNext:   '_aq2'
     },
     _aq2: {
-      msg:        'Ja, det skal jeg.<br />Nei, det skal jeg ikke.',
+      msg:        '<i>Ja, det skal jeg.<br />Nei, det skal jeg ikke.</i>',
       trans:      'Tak, (przeczytam to).<br />Nie, nie (przeczytam tego).',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -301,10 +320,11 @@ function LasData() {
       autoNext:   '_ar2'
     },
     _ar2: {
-      msg:        'Ja, det må han.<br />Nei, det trenger han ikke.',
+      msg:        '<i>Ja, det må han.<br />Nei, det trenger han ikke.</i>',
       trans:      'Tak, musi.<br />Nie, nie musi (nie ma takiej potrzeby).',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -317,10 +337,11 @@ function LasData() {
       autoNext:   '_as2'
     },
     _as2: {
-      msg:        'Ja, det må jeg.<br />Nei, det trenger jeg ikke.',
+      msg:        '<i>Ja, det må jeg.<br />Nei, det trenger jeg ikke.</i>',
       trans:      'Tak, muszę.<br />Nie, nie muszę (nie ma takiej potrzeby).',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -333,10 +354,11 @@ function LasData() {
       autoNext:   '_at2'
     },
     _at2: {
-      msg:        'Ja, det må jeg.<br />Nei, det trenger jeg ikke.',
+      msg:        '<i>Ja, det må jeg.<br />Nei, det trenger jeg ikke.</i>',
       trans:      'Tak, muszę.<br />Nie, nie muszę (nie ma takiej potrzeby).',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -349,10 +371,11 @@ function LasData() {
       autoNext:   '_au2'
     },
     _au2: {
-      msg:        'Ja, det må de.<br />Nei, det trenger de ikke.',
+      msg:        '<i>Ja, det må de.<br />Nei, det trenger de ikke.</i>',
       trans:      'Tak, muszą.<br />Nie, nie muszą (nie ma takiej potrzeby).',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -365,10 +388,11 @@ function LasData() {
       autoNext:   '_av2'
     },
     _av2: {
-      msg:        'Ja, det må vi.<br />Nei, det trenger vi ikke.',
+      msg:        '<i>Ja, det må vi.<br />Nei, det trenger vi ikke.</i>',
       trans:      'Tak, musimy.<br />Nie, nie musimy (nie ma takiej potrzeby).',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     }
 
@@ -377,16 +401,6 @@ function LasData() {
 
   };
 
-
-  this.end = {
-
-    _end1: {
-      msg: 'END',
-      startTime: 0,
-      duration:   0 + 0
-    }
-
-  };
 
 
 

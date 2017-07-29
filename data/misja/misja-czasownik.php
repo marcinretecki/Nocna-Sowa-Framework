@@ -1,18 +1,12 @@
 <script>
 function LasData() {
 
-  //  _aa1: {
-  //    bubbles: [
-  //      '<q>Kwiaty</q> określone to:'
-  //    ],
-  //    answers: [
-  //     { answer: '<i>blomster</i>', next: '_aa2', score: 'correct' },
-  //      { answer: '<i>blomstene</i>', next: '_aa1b', score: 'wrong' }
-  //    ]
-  //  },
+  this.category = 'chat';
+
 
   this.testNotes = [
   ];
+
 
   this.intro = {
 

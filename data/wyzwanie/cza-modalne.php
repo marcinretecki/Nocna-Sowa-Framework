@@ -1,9 +1,13 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test'; // chat|setninger|etc
+
+
   this.testNotes = [
     'nie ma czasów ani nagrania'
   ];
+
 
   this.intro = {
     _a1: {
@@ -27,10 +31,11 @@ function LasData() {
       autoNext:   '_aa2'
     },
     _aa2: {
-      msg:        'De vil lage middag.',
+      msg:        '<i>De vil lage middag.</i>',
       trans:      'Oni chcą ugotować obiad.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -43,10 +48,11 @@ function LasData() {
       autoNext:   '_ab2'
     },
     _ab2: {
-      msg:        'Hun vil kjøpe en leilighet.',
+      msg:        '<i>Hun vil kjøpe en leilighet.</i>',
       trans:      'Ona chce kupić mieszkanie.',
       startTime:  12,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -59,10 +65,11 @@ function LasData() {
       autoNext:   '_ac2'
     },
     _ac2: {
-      msg:        'Jeg vil ligge på stranda.',
+      msg:        '<i>Jeg vil ligge på stranda.</i>',
       trans:      'Chcę leżeć na plaży.',
       startTime:  19,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -75,10 +82,11 @@ function LasData() {
       autoNext:   '_ae2'
     },
     _ae2: {
-      msg:        'Vi vil fly på Svalbard.',
-      trans:      'Chcemy lecieć na Svalbard.',
+      msg:        '<i>Vi vil fly på Svalbard.</i>',
+      trans:      'Chcemy polecieć na Svalbard.',
       startTime:  33,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -91,10 +99,11 @@ function LasData() {
       autoNext:   '_af2'
     },
     _af2: {
-      msg:        'Jeg må handle.',
+      msg:        '<i>Jeg må handle.</i>',
       trans:      'Muszę zrobić zakupy.',
       startTime:  40,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -107,10 +116,11 @@ function LasData() {
       autoNext:   '_ah2'
     },
     _ah2: {
-      msg:        'De må tenke seg om.',
+      msg:        '<i>De må tenke seg om.</i>',
       trans:      'Oni muszą się zastanowić.',
       startTime:  47,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -123,10 +133,11 @@ function LasData() {
       autoNext:   '_aj2'
     },
     _aj2: {
-      msg:        'Vi må lære mye.',
+      msg:        '<i>Vi må lære mye.</i>',
       trans:      'My musimy uczyć się dużo.',
       startTime:  54,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -139,10 +150,11 @@ function LasData() {
       autoNext:   '_ai2'
     },
     _ai2: {
-      msg:        'Dere må rydde her.',
+      msg:        '<i>Dere må rydde her.</i>',
       trans:      'Musicie tu posprzątać.',
       startTime:  60,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -155,10 +167,11 @@ function LasData() {
       autoNext:   '_ak2'
     },
     _ak2: {
-      msg:        'Han må spise mye.',
+      msg:        '<i>Han må spise mye.</i>',
       trans:      'On musi dużo jeść.',
       startTime:  67,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -171,10 +184,11 @@ function LasData() {
       autoNext:   '_al2'
     },
     _al2: {
-      msg:        'Han kan svømme.',
+      msg:        '<i>Han kan svømme.</i>',
       trans:      'On umie pływać.',
       startTime:  74,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -187,10 +201,11 @@ function LasData() {
       autoNext:   '_ba2'
     },
     _ba2: {
-      msg:        'Hun kan kjøre.',
+      msg:        '<i>Hun kan kjøre.</i>',
       trans:      'Ona może jechać. / Umie jechać.',
       startTime:  81,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -203,10 +218,11 @@ function LasData() {
       autoNext:   '_bb2'
     },
     _bb2: {
-      msg:        'Jeg kan betale.',
+      msg:        '<i>Jeg kan betale.</i>',
       trans:      'Mogę zapłacić.',
       startTime:  89,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -219,10 +235,11 @@ function LasData() {
       autoNext:   '_bc2'
     },
     _bc2: {
-      msg:        'Det kan vente.',
+      msg:        '<i>Det kan vente.</i>',
       trans:      'To może zaczekać.',
       startTime:  95,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -235,10 +252,11 @@ function LasData() {
       autoNext:   '_bd2'
     },
     _bd2: {
-      msg:        'Jeg kan bli hjemme.',
+      msg:        '<i>Jeg kan bli hjemme.</i>',
       trans:      'Mogę zostać w domu.',
       startTime:  102,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -251,10 +269,11 @@ function LasData() {
       autoNext:   '_bf2'
     },
     _bf2: {
-      msg:        'De skal gå på tur.',
+      msg:        '<i>De skal gå på tur.</i>',
       trans:      'Oni zamierzają pójść na wycieczkę.',
       startTime:  116,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -267,10 +286,11 @@ function LasData() {
       autoNext:   '_bh2'
     },
     _bh2: {
-      msg:        'Han skal bytte jobben.',
+      msg:        '<i>Han skal bytte jobben.</i>',
       trans:      'On planuje zmienić pracę.',
       startTime:  130,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -283,10 +303,11 @@ function LasData() {
       autoNext:   '_bi2'
     },
     _bi2: {
-      msg:        'Vi skal lære tålmodighet.',
+      msg:        '<i>Vi skal lære tålmodighet.</i>',
       trans:      'My zamierzamy uczyć się cierpliwości.',
       startTime:  136,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -299,10 +320,11 @@ function LasData() {
       autoNext:   '_bj2'
     },
     _bj2: {
-      msg:        'De skal øve mer.',
+      msg:        '<i>De skal øve mer.</i>',
       trans:      'Oni planują ćwiczyć więcej.',
       startTime:  142,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -315,25 +337,15 @@ function LasData() {
       autoNext:   '_bk2'
     },
     _bk2: {
-      msg:        'Hun skal lese mer.',
+      msg:        '<i>Hun skal lese mer.</i>',
       trans:      'Ona zamierza czytać więcej.',
       startTime:  148,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     }
 
 
-
-  };
-
-
-  this.end = {
-
-    _end1: {
-      msg:        'END',
-      startTime:  0,
-      duration:   1.5,
-    }
 
   };
 

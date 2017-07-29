@@ -1,6 +1,17 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test';   // chat|setninger|etc
+
+
+  //  answers = [
+  //    { answer: '', next: '', score: 'wrong' },
+  //    { answer: '', next: '', score: 'correct' },
+  //    { answer: '', next: '', score: 'partial' },
+  //    { answer: '', next: '', score: 'more' }
+  //  ]
+
+
   this.testNotes = [
     'note'
   ];
@@ -13,6 +24,9 @@ function LasData() {
   //  gdy nie startTime, mamy quiz
   //  answer jest poiminięte tylko w intro 1
   //  cmd + alt + n -> aa
+
+  //  jeśli nie ma answers
+  //  dodajemy score do bubble z msg
 
 
   this.intro = {
@@ -27,6 +41,7 @@ function LasData() {
   };
 
 
+  //  main wyzwanie
   this.chat = {
 
     _aa1: {
@@ -65,13 +80,26 @@ function LasData() {
   };
 
 
-  this.end = {
+  //  extra examples
+  //  if user finished at least 2 times
+  this.extra = {
 
-    _end1: {
-      msg:        'END',
+    _aa1: {
+      msg:        ' <span class="mark mark--green"></span>.',
+      answers: [
+        { answer: '', score: 'correct', next: '_aa2' },
+        { answer: '', score: 'wrong' },
+        { answer: '', score: 'wrong' },
+        { answer: '', score: 'wrong' }
+      ]
+    },
+    _aa2: {
+      msg:        '',
       startTime:  0,
       duration:   1.5,
-    }
+      autoNext:   'RANDOM'
+    },
+
 
   };
 

@@ -1,9 +1,13 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test'; // chat|setninger|etc
+
+
   this.testNotes = [
     'nie ma startTime duration',
   ];
+
 
   this.intro = {
     _a1: {
@@ -40,10 +44,11 @@ function LasData() {
       autoNext:   '_aa4'
     },
     _aa4: {
-      msg:        'Ela leser ei bok.',
+      msg:        '<i>Ela leser ei bok.</i>',
       trans:      'Ela czyta książkę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -69,10 +74,11 @@ function LasData() {
       autoNext:   '_ab4'
     },
     _ab4: {
-      msg:        'Jeg kommer til deg.',
+      msg:        '<i>Jeg kommer til deg.</i>',
       trans:      'Przyjdę do Ciebie.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -98,10 +104,11 @@ function LasData() {
       autoNext:   '_ac4'
     },
     _ac4: {
-      msg:        'Vi drikker vann.',
+      msg:        '<i>Vi drikker vann.</i>',
       trans:      'My pijemy wodę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -127,10 +134,11 @@ function LasData() {
       autoNext:   '_ae4'
     },
     _ae4: {
-      msg:        'Dere har barn.',
+      msg:        '<i>Dere har barn.</i>',
       trans:      'Wy macie dzieci.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -156,10 +164,11 @@ function LasData() {
       autoNext:   '_af4'
     },
     _af4: {
-      msg:        'Jeg tar det.',
+      msg:        '<i>Jeg tar det.</i>',
       trans:      'Wezmę to.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -185,10 +194,11 @@ function LasData() {
       autoNext:   '_ah4'
     },
     _ah4: {
-      msg:        'Olaf får gaver.',
+      msg:        '<i>Olaf får gaver.</i>',
       trans:      'Olaf dostaje prezenty.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -214,10 +224,11 @@ function LasData() {
       autoNext:   '_aj4'
     },
     _aj4: {
-      msg:        'Vi går til skogen.',
+      msg:        '<i>Vi går til skogen.</i>',
       trans:      'Idziemy do lasu.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -243,10 +254,11 @@ function LasData() {
       autoNext:   '_ai4'
     },
     _ai4: {
-      msg:        'Jeg blir hjemme.',
+      msg:        '<i>Jeg blir hjemme.</i>',
       trans:      'Zostaję w domu.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -272,10 +284,11 @@ function LasData() {
       autoNext:   '_ak4'
     },
     _ak4: {
-      msg:        'Butikken gir rabatt.',
+      msg:        '<i>Butikken gir rabatt.</i>',
       trans:      'Sklep daje rabat.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -301,10 +314,11 @@ function LasData() {
       autoNext:   '_al4'
     },
     _al4: {
-      msg:        'Hun trenger nøkkelen.',
+      msg:        '<i>Hun trenger nøkkelen.</i>',
       trans:      'Ona potrzebuje klucza.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -330,10 +344,11 @@ function LasData() {
       autoNext:   '_ba4'
     },
     _ba4: {
-      msg:        'Jeg venter på deg.',
+      msg:        '<i>Jeg venter på deg.</i>',
       trans:      'Czekam na Ciebie. / Zaczekam na Ciebie.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -359,10 +374,11 @@ function LasData() {
       autoNext:   '_bb4'
     },
     _bb4: {
-      msg:        'De snakker med politi.',
+      msg:        '<i>De snakker med politi.</i>',
       trans:      'Oni rozmawiają z policją.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -388,10 +404,11 @@ function LasData() {
       autoNext:   '_bc4'
     },
     _bc4: {
-      msg:        'Han liker jenta.',
+      msg:        '<i>Han liker jenta.</i>',
       trans:      'On lubi dziewczynę. / Podoba mu się dziewczyna.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -420,10 +437,11 @@ function LasData() {
       autoNext:   '_bd4'
     },
     _bd4: {
-      msg:        'Vi reiser på ferie.',
+      msg:        '<i>Vi reiser på ferie.</i>',
       trans:      'Jedziemy na wakacje.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -449,10 +467,11 @@ function LasData() {
       autoNext:   '_bf4'
     },
     _bf4: {
-      msg:        'De elsker fjell.',
+      msg:        '<i>De elsker fjell.</i>',
       trans:      'Oni kochają góry.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -481,10 +500,11 @@ function LasData() {
       autoNext:   '_bh4'
     },
     _bh4: {
-      msg:        'Jeg forstår alt.',
+      msg:        '<i>Jeg forstår alt.</i>',
       trans:      'Rozumiem wszystko.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -510,10 +530,11 @@ function LasData() {
       autoNext:   '_bi4'
     },
     _bi4: {
-      msg:        'Han tror i seg selv.',
+      msg:        '<i>Han tror i seg selv.</i>',
       trans:      'On wierzy w siebie.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -539,10 +560,11 @@ function LasData() {
       autoNext:   '_bj4'
     },
     _bj4: {
-      msg:        'De hører på black metal.',
+      msg:        '<i>De hører på black metal.</i>',
       trans:      'Oni słuchają black metalu.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -568,10 +590,11 @@ function LasData() {
       autoNext:   '_bk4'
     },
     _bk4: {
-      msg:        'Dere forteller eventyr.',
+      msg:        '<i>Dere forteller eventyr.</i>',
       trans:      'Opowiadacie bajki.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -584,10 +607,11 @@ function LasData() {
       autoNext:   '_bm2'
     },
     _bm2: {
-      msg:        'Det betyr noe.',
+      msg:        '<i>Det betyr noe.</i>',
       trans:      'To coś znaczy.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -600,10 +624,11 @@ function LasData() {
       autoNext:   '_bo2'
     },
     _bo4: {
-      msg:        'Jeg klarer det.',
+      msg:        '<i>Jeg klarer det.</i>',
       trans:      'Daję radę. / Radzę sobie z tym.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -629,10 +654,11 @@ function LasData() {
       autoNext:   '_ca4'
     },
     _ca4: {
-      msg:        'Han ber om hjelp.',
+      msg:        '<i>Han ber om hjelp.</i>',
       trans:      'On prosi o pomoc.',
       startTime:  192,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -658,10 +684,11 @@ function LasData() {
       autoNext:   '_cb4'
     },
     _cb4: {
-      msg:        'De ringer etter ambulansen.',
+      msg:        '<i>De ringer etter ambulansen.</i>',
       trans:      'One dzwonią po karetkę.',
       startTime:  0,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -687,10 +714,11 @@ function LasData() {
       autoNext:   '_ccb4'
     },
     _ccb4: {
-      msg:        'De bor sammen.',
+      msg:        '<i>De bor sammen.</i>',
       trans:      'Oni mieszkają razem.',
       startTime:  207,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -716,10 +744,11 @@ function LasData() {
       autoNext:   '_cc4'
     },
     _cc4: {
-      msg:        'Mobilen ligger på bordet.',
+      msg:        '<i>Mobilen ligger på bordet.</i>',
       trans:      'Telefon leży na stole.',
       startTime:  207,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -745,25 +774,15 @@ function LasData() {
       autoNext:   '_cd4'
     },
     _cd4: {
-      msg:        'Hun tenker mye.',
+      msg:        '<i>Hun tenker mye.</i>',
       trans:      'Ona myśli dużo.',
       startTime:  210,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     }
 
 
-
-  };
-
-
-  this.end = {
-
-    _end1: {
-      msg:        'END',
-      /*startTime:  0,
-      duration:   1.5,
-    }
 
   };
 

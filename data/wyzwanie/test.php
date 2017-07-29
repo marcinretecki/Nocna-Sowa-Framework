@@ -1,6 +1,10 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test';     // chat|setninger|etc
+
+  //  Audio Test
+
   this.testNotes = [
   ];
 
@@ -15,7 +19,7 @@ function LasData() {
 
   this.intro = {
     _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2-w las-icon-size-2"></i>.',
+      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w"></i>.',
       autoNext:   'ENDINTRO'
     }
   };
@@ -40,7 +44,7 @@ function LasData() {
       }
     },
     _aa2: {
-      msg:        'barnet',
+      msg:        '<i>barnet</i>',
       score:      true,
       startTime:  3,
       duration:   4 - 3,
@@ -61,7 +65,7 @@ function LasData() {
       ]
     },
     _bb2: {
-      msg:        'kona',
+      msg:        '<i>kona</i>',
       startTime:  15,
       duration:   16 - 15,
       autoNext:   'RANDOM'
@@ -80,7 +84,7 @@ function LasData() {
       ]
     },
     _bd2: {
-      msg:        'kona',
+      msg:        '<i>kona</i>',
       autoNext:   'RANDOM'
     },
 
@@ -98,10 +102,11 @@ function LasData() {
       autoNext:   '_cc2'
     },
     _cc2: {
-      msg:        'Mobilen ligger ikke på skapet.',
+      msg:        '<i>Mobilen ligger ikke på skapet.</i>',
       trans:      'Telefon nie leży na szawce.',
       startTime:  21,
       duration:   23.5 - 21,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -114,13 +119,13 @@ function LasData() {
       startTime:  0,
       duration:   1.5 - 0,
       answers: [
-        { answer: '<i>barnet', next: '_dd2</i>', score: 'correct' },
+        { answer: '<i>barnet</i>', next: '_dd2', score: 'correct' },
         { answer: '<i>et barn</i>', score: 'wrong' }
       ],
 
     },
     _dd2: {
-      msg:        'barnet',
+      msg:        '<i>barnet</i>',
       startTime:  3,
       duration:   4 - 3,
       more:       {
@@ -132,14 +137,52 @@ function LasData() {
 
 
 
+    //  To jest zły przykład kodu
+    //  nie rób jednocześnie time i msg
+    //
+    //  //  audio
+    //  //  msg
+    //  //  single bubble
+    //  _ee1: {
+    //    msg:        '<i>Mobilen ligger ikke på skapet.</i>',
+    //    startTime:  17,
+    //    duration:   19.5 - 17,
+    //    pauseTime:  5,
+    //    score:      'correct',
+    //    autoNext:   'RANDOM'
+    //  },
+
+
+
 
   };
+
+
+  this.extra = {
+
+    //  msg + answers
+    //  no audio at all
+    //  no more
+    //  Powiedz ta żona
+    _xx1: {
+      msg:        'Powiedz <span class="mark mark--green">ta żona</span>. (extra)',
+      answers: [
+        { answer: '<i>kona</i>', score: 'correct', next: '_bd2' },
+        { answer: '<i>ei kone</i>', score: 'wrong' }
+      ]
+    },
+    _xx2: {
+      msg:        '<i>kona</i>',
+      autoNext:   'RANDOM'
+    },
+
+  }
 
 
   this.end = {
 
     _end1: {
-      autoNext: 'END'
+      state: 'END'
     }
 
   };

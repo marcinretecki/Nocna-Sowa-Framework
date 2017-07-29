@@ -1,8 +1,12 @@
 <script>
 function LasData() {
 
+  this.category = 'chat';         // audio-test|setninger|etc
+
+
   this.testNotes = [
   ];
+
 
   this.intro = {
     _a1: {

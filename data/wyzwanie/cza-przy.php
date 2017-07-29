@@ -1,8 +1,12 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test'; // chat|setninger|etc
+
+
   this.testNotes = [
   ];
+
 
   this.intro = {
     _a1: {
@@ -26,10 +30,11 @@ function LasData() {
       autoNext:   '_aa2'
     },
     _aa2: {
-      msg:        'Jeg skal på jobb i morgen.',
+      msg:        '<i>Jeg skal på jobb i morgen.</i>',
       trans:      'Jutro mam iść do pracy.',
       startTime:  4,
       duration:   6.5 - 4,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -42,10 +47,11 @@ function LasData() {
       autoNext:   '_ab2'
     },
     _ab2: {
-      msg:        'Jeg går på jobb i morgen.',
+      msg:        '<i>Jeg går på jobb i morgen.</i>',
       trans:      'Jutro idę do pracy.',
       startTime:  12,
       duration:   13.5 - 12,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -58,10 +64,11 @@ function LasData() {
       autoNext:   '_ac2'
     },
     _ac2: {
-      msg:        'Jeg skal komme til deg.',
+      msg:        '<i>Jeg skal komme til deg.</i>',
       trans:      'Przyjdę do Ciebie.',
       startTime:  19,
       duration:   21 - 19,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -74,10 +81,11 @@ function LasData() {
       autoNext:   '_ae2'
     },
     _ae2: {
-      msg:        'Jeg kommer til deg.',
+      msg:        '<i>Jeg kommer til deg.</i>',
       trans:      'Przyjdę do Ciebie.',
       startTime:  33,
       duration:   34.5 - 33,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -90,10 +98,11 @@ function LasData() {
       autoNext:   '_af2'
     },
     _af2: {
-      msg:        'Jeg skal skrive e-posten til deg.',
+      msg:        '<i>Jeg skal skrive e-posten til deg.</i>',
       trans:      'Napiszę do Ciebie maila.',
       startTime:  40,
       duration:   42 - 40,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -106,10 +115,11 @@ function LasData() {
       autoNext:   '_ah2'
     },
     _ah2: {
-      msg:        'Jeg skriver e-posten til deg.',
+      msg:        '<i>Jeg skriver e-posten til deg.</i>',
       trans:      'Napiszę do Ciebie maila.',
       startTime:  47,
       duration:   49 - 47,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -122,10 +132,11 @@ function LasData() {
       autoNext:   '_aj2'
     },
     _aj2: {
-      msg:        'Han skal hente pakka på posten.',
+      msg:        '<i>Han skal hente pakka på posten.</i>',
       trans:      'On ma odebrać paczkę z poczty.',
       startTime:  54,
       duration:   56 - 54,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -138,10 +149,11 @@ function LasData() {
       autoNext:   '_ai2'
     },
     _ai2: {
-      msg:        'Han henter pakka på posten.',
+      msg:        '<i>Han henter pakka på posten.</i>',
       trans:      'On odbierze paczkę z poczty.',
       startTime:  60,
       duration:   61.5 - 60,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -154,10 +166,11 @@ function LasData() {
       autoNext:   '_ak2'
     },
     _ak2: {
-      msg:        'Jeg skal lese denne boka neste måned.',
+      msg:        '<i>Jeg skal lese denne boka neste måned.</i>',
       trans:      'Zamierzam przeczytać tę książkę w przyszłym miesiącu.',
       startTime:  67,
       duration:   68.5 - 67,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -170,10 +183,11 @@ function LasData() {
       autoNext:   '_al2'
     },
     _al2: {
-      msg:        'Jeg leser denne boka neste måned.',
+      msg:        '<i>Jeg leser denne boka neste måned.</i>',
       trans:      'Przeczytam tę książkę w przyszłym miesiącu.',
       startTime:  74,
       duration:   76 - 74,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -186,10 +200,11 @@ function LasData() {
       autoNext:   '_ba2'
     },
     _ba2: {
-      msg:        'Jeg skal handle på vei hjem.',
+      msg:        '<i>Jeg skal handle på vei hjem.</i>',
       trans:      'Planuję zrobić zakupy w drodze do domu.',
       startTime:  81,
       duration:   83.5 - 81,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -202,10 +217,11 @@ function LasData() {
       autoNext:   '_bb2'
     },
     _bb2: {
-      msg:        'Jeg handler på vei hjem.',
+      msg:        '<i>Jeg handler på vei hjem.</i>',
       trans:      'Zrobię zakupy w drodze do domu.',
       startTime:  89,
       duration:   90.5 - 89,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -218,10 +234,11 @@ function LasData() {
       autoNext:   '_bc2'
     },
     _bc2: {
-      msg:        'Jeg skal selge bilen i år.',
+      msg:        '<i>Jeg skal selge bilen i år.</i>',
       trans:      'Zamierzam sprzedać samochód w tym roku.',
       startTime:  95,
       duration:   97 - 95,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -234,10 +251,11 @@ function LasData() {
       autoNext:   '_bd2'
     },
     _bd2: {
-      msg:        'Jeg selger bilen i år.',
+      msg:        '<i>Jeg selger bilen i år.</i>',
       trans:      'Sprzedam samochód w tym roku.',
       startTime:  102,
       duration:   104.5 - 102,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -250,10 +268,11 @@ function LasData() {
       autoNext:   '_bf2'
     },
     _bf2: {
-      msg:        'Jeg skal åpne en konto i banken.',
+      msg:        '<i>Jeg skal åpne en konto i banken.</i>',
       trans:      'Zamierzam otworzyć konto w banku.',
       startTime:  116,
       duration:   118 - 116,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -266,10 +285,11 @@ function LasData() {
       autoNext:   '_bh2'
     },
     _bh2: {
-      msg:        'Jeg åpner en konto i banken.',
+      msg:        '<i>Jeg åpner en konto i banken.</i>',
       trans:      'Otworzę konto w banku.',
       startTime:  130,
       duration:   131.5 - 130,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -282,10 +302,11 @@ function LasData() {
       autoNext:   '_bi2'
     },
     _bi2: {
-      msg:        'Jeg skal snakke med sjefen i morgen.',
+      msg:        '<i>Jeg skal snakke med sjefen i morgen.</i>',
       trans:      'Jutro będę rozmawiał z szefem.',
       startTime:  136,
       duration:   137.5 - 136,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -298,10 +319,11 @@ function LasData() {
       autoNext:   '_bj2'
     },
     _bj2: {
-      msg:        'Jeg snakker med sjefen i morgen.',
+      msg:        '<i>Jeg snakker med sjefen i morgen.</i>',
       trans:      'Jutro porozmawiam z szefem.',
       startTime:  142,
       duration:   143.5 - 142,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -314,10 +336,11 @@ function LasData() {
       autoNext:   '_bk2'
     },
     _bk2: {
-      msg:        'Jeg skal gå til fysioterapeut.',
+      msg:        '<i>Jeg skal gå til fysioterapeut.</i>',
       trans:      'W czwartek idę do fizjoterapeuty.',
       startTime:  148,
       duration:   149.5 - 148,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -330,25 +353,15 @@ function LasData() {
       autoNext:   '_bl2'
     },
     _bl2: {
-      msg:        'Jeg går til fysjoteraput.',
+      msg:        '<i>Jeg går til fysjoteraput.</i>',
       trans:      'W czwartek idę do fizjoterapeuty.',
       startTime:  148,
       duration:   149.5 - 148,
+      score:      'correct',
       autoNext:   'RANDOM'
     }
 
 
-
-  };
-
-
-  this.end = {
-
-    _end1: {
-      msg:        'END',
-      startTime:  0,
-      duration:   0,
-    }
 
   };
 

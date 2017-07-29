@@ -1,6 +1,9 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test';   // chat|setninger|etc
+
+
   this.testNotes = [
     'nie ma nagrania'
   ];
@@ -16,7 +19,7 @@ function LasData() {
 
   this.intro = {
     _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
+      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w"></i>.',
       autoNext:   'ENDINTRO'/*,
       more: {
         startTime: 0,
@@ -29,16 +32,16 @@ function LasData() {
   this.chat = {
 
     _aa1: {
-      msg:        'Hvorfor står  #fill-space; tigeren foran Oslo S?',
+      msg:        '<i>Hvorfor står #fill-space; tigeren foran Oslo S?</i>',
       trans:      'Dlaczego ten tygrys stoi przed Oslo S?',
       answers: [
-        { answer: 'denne',   score: 'correct', next: '_aa2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>denne</i>',   score: 'correct', next: '_aa2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _aa2: {
-      msg:        'Hvorfor står denne tigeren foran Oslo S?',
+      msg:        '<i>Hvorfor står denne tigeren foran Oslo S?</i>',
       trans:      'Dlaczego ten tygrys stoi przed Oslo S?',
       startTime:  0,
       duration:   1.5,
@@ -47,16 +50,16 @@ function LasData() {
 
 
     _ab1: {
-      msg:        ' #fill-space; jentene spiser her hver dag.',
+      msg:        '<i> #fill-space; jentene spiser her hver dag.</i>',
       trans:      'Te dziewczyny jedzą tu codziennie.',
       answers: [
-        { answer: 'disse',   score: 'correct', next: '_aa2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'denne',   score: 'wrong' }
+        { answer: '<i>disse</i>',   score: 'correct', next: '_aa2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>denne</i>',   score: 'wrong' }
       ]
     },
     _ab2: {
-      msg:        'Disse jentene spiser her hver dag.',
+      msg:        '<i>Disse jentene spiser her hver dag.</i>',
       trans:      'Te dziewczyny jedzą tu codziennie.',
       startTime:  3,
       duration:   1.5,
@@ -65,16 +68,16 @@ function LasData() {
 
 
     _ac1: {
-      msg:        ' #fill-space; huset er ikke til salgs.',
+      msg:        '<i> #fill-space; huset er ikke til salgs.</i>',
       trans:      'Ten dom nie jest na sprzedaż.',
       answers: [
-        { answer: 'dette',   score: 'correct', next: '_ac2' },
-        { answer: 'denne',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>dette</i>',   score: 'correct', next: '_ac2' },
+        { answer: '<i>denne</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _ac2: {
-      msg:        'Dette huset er ikke til salgs.',
+      msg:        '<i>Dette huset er ikke til salgs.</i>',
       trans:      'Ten dom nie jest na sprzedaż.',
       startTime:  3,
       duration:   1.5,
@@ -83,16 +86,16 @@ function LasData() {
 
 
     _ad1: {
-      msg:        ' #fill-space; krydderet kommer fra Bangladesh.',
+      msg:        '<i> #fill-space; krydderet kommer fra Bangladesh.</i>',
       trans:      'Ta przyprawa pochodzi z Bangladeszu.',
       answers: [
-        { answer: 'dette',   score: 'correct', next: '_ad2' },
-        { answer: 'denne',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>dette</i>',   score: 'correct', next: '_ad2' },
+        { answer: '<i>denne</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _ad2: {
-      msg:        'Dette krydderet kommer fra Bangladesh.',
+      msg:        '<i>Dette krydderet kommer fra Bangladesh.</i>',
       trans:      'Ta przyprawa pochodzi z Bangladeszu.',
       startTime:  3,
       duration:   1.5,
@@ -101,16 +104,16 @@ function LasData() {
 
 
     _ae1: {
-      msg:        ' #fill-space; roboten kan snakke med deg.',
+      msg:        '<i> #fill-space; roboten kan snakke med deg.</i>',
       trans:      'Ten robot może rozmawiać z Tobą.',
       answers: [
-        { answer: 'denne',   score: 'correct', next: '_ae2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>denne</i>',   score: 'correct', next: '_ae2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _ae2: {
-      msg:        'Denne roboten kan snakke med deg.',
+      msg:        '<i>Denne roboten kan snakke med deg.</i>',
       trans:      'Ten robot może rozmawiać z Tobą.',
       startTime:  3,
       duration:   1.5,
@@ -119,16 +122,16 @@ function LasData() {
 
 
     _af1: {
-      msg:        'Det er ikke mulig å åpne  #fill-space; vinduene.',
+      msg:        '<i>Det er ikke mulig å åpne  #fill-space; vinduene.</i>',
       trans:      'Nie jest możliwe otworzenie tych okien.',
       answers: [
-        { answer: 'disse',   score: 'correct', next: '_af2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'denne',   score: 'wrong' }
+        { answer: '<i>disse</i>',   score: 'correct', next: '_af2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>denne</i>',   score: 'wrong' }
       ]
     },
     _af2: {
-      msg:        'Det er ikke mulig å åpne disse vinduene.',
+      msg:        '<i>Det er ikke mulig å åpne disse vinduene.</i>',
       trans:      'Nie jest możliwe otworzenie tych okien.',
       startTime:  3,
       duration:   1.5,
@@ -137,16 +140,16 @@ function LasData() {
 
 
     _ag1: {
-      msg:        ' #fill-space; vaskemaskinen virker ikke.',
+      msg:        '<i> #fill-space; vaskemaskinen virker ikke.</i>',
       trans:      'Ta pralka nie działa.',
       answers: [
-        { answer: 'denne',   score: 'correct', next: '_ag2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>denne</i>',   score: 'correct', next: '_ag2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _ag2: {
-      msg:        'Denne vaskemaskinen virker ikke.',
+      msg:        '<i>Denne vaskemaskinen virker ikke.</i>',
       trans:      'Ta pralka nie działa.',
       startTime:  3,
       duration:   1.5,
@@ -155,16 +158,16 @@ function LasData() {
 
 
     _ah1: {
-      msg:        ' #fill-space; dagen kan være pen.',
+      msg:        '<i> #fill-space; dagen kan være pen.</i>',
       trans:      'Ten dzień może być piękny.',
       answers: [
-        { answer: 'denne',   score: 'correct', next: '_ah2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>denne</i>',   score: 'correct', next: '_ah2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _ah2: {
-      msg:        'Denne dagen kan være pen.',
+      msg:        '<i>Denne dagen kan være pen.</i>',
       trans:      'Ten dzień może być piękny.',
       startTime:  3,
       duration:   1.5,
@@ -173,16 +176,16 @@ function LasData() {
 
 
     _ai1: {
-      msg:        ' #fill-space; krigen kan ikke avsluttes.',
+      msg:        '<i> #fill-space; krigen kan ikke avsluttes.</i>',
       trans:      'Ta wojna nie może się skończyć.',
       answers: [
-        { answer: 'denne',   score: 'correct', next: '_ai2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>denne</i>',   score: 'correct', next: '_ai2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _ai2: {
-      msg:        'Denne krigen kan ikke avsluttes.',
+      msg:        '<i>Denne krigen kan ikke avsluttes.</i>',
       trans:      'Ta wojna nie może się skończyć.',
       startTime:  3,
       duration:   1.5,
@@ -191,16 +194,16 @@ function LasData() {
 
 
     _aj1: {
-      msg:        '#fill-space; mannen vil ikke slutte å røyke.',
+      msg:        '<i>#fill-space; mannen vil ikke slutte å røyke.</i>',
       trans:      'Ten mężczyzna nie chce rzucić palenia.',
       answers: [
-        { answer: 'denne',   score: 'correct', next: '_aj2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>denne</i>',   score: 'correct', next: '_aj2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _aj2: {
-      msg:        'Denne mannen vil ikke slutte å røyke.',
+      msg:        '<i>Denne mannen vil ikke slutte å røyke.</i>',
       trans:      'Ten mężczyzna nie chce rzucić palenia.',
       startTime:  3,
       duration:   1.5,
@@ -209,16 +212,16 @@ function LasData() {
 
 
     _ak1: {
-      msg:        '#fill-space; lysene er veldig sterke.',
+      msg:        '<i>#fill-space; lysene er veldig sterke.</i>',
       trans:      'Te światła są bardzo silne.',
       answers: [
-        { answer: 'disse',   score: 'correct', next: '_ak2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'denne',   score: 'wrong' }
+        { answer: '<i>disse</i>',   score: 'correct', next: '_ak2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>denne</i>',   score: 'wrong' }
       ]
     },
     _ak2: {
-      msg:        'Disse lysene er veldig sterke.',
+      msg:        '<i>Disse lysene er veldig sterke.</i>',
       trans:      'Te światła są bardzo silne.',
       startTime:  3,
       duration:   1.5,
@@ -227,16 +230,16 @@ function LasData() {
 
 
     _al1: {
-      msg:        '#fill-space; flyet flyr til Dubai.',
+      msg:        '<i>#fill-space; flyet flyr til Dubai.</i>',
       trans:      'Ten samolot leci do Dubaju.',
       answers: [
-        { answer: 'dette',   score: 'correct', next: '_al2' },
-        { answer: 'denne',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>dette</i>',   score: 'correct', next: '_al2' },
+        { answer: '<i>denne</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _al2: {
-      msg:        'Dette flyet flyr til Dubai.',
+      msg:        '<i>Dette flyet flyr til Dubai.</i>',
       trans:      'Ten samolot leci do Dubaju.',
       startTime:  3,
       duration:   1.5,
@@ -245,16 +248,16 @@ function LasData() {
 
 
     _am1: {
-      msg:        'Det er morsomt på  #fill-space; kurset.',
+      msg:        '<i>Det er morsomt på  #fill-space; kurset.</i>',
       trans:      'Jest wesoło na tym kursie.',
       answers: [
-        { answer: 'dette',   score: 'correct', next: '_am2' },
-        { answer: 'denne',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>dette</i>',   score: 'correct', next: '_am2' },
+        { answer: '<i>denne</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _am2: {
-      msg:        'Det er morsomt på dette kurset.',
+      msg:        '<i>Det er morsomt på dette kurset.</i>',
       trans:      'Jest wesoło na tym kursie.',
       startTime:  3,
       duration:   1.5,
@@ -263,16 +266,16 @@ function LasData() {
 
 
     _an1: {
-      msg:        'Det er koselig på #fill-space; hytta.',
+      msg:        '<i>Det er koselig på #fill-space; hytta.</i>',
       trans:      'Jest przytulnie w tej chatce.',
       answers: [
-        { answer: 'denne',   score: 'correct', next: '_an2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>denne</i>',   score: 'correct', next: '_an2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _an2: {
-      msg:        'Det er koselig på denne hytta.',
+      msg:        '<i>Det er koselig på denne hytta.</i>',
       trans:      'Jest przytulnie w tej chatce.',
       startTime:  3,
       duration:   1.5,
@@ -281,16 +284,16 @@ function LasData() {
 
 
     _ao1: {
-      msg:        '#fill-space; bussene er veldig raske.',
+      msg:        '<i>#fill-space; bussene er veldig raske.</i>',
       trans:      'Te autobusy są bardzo szybkie.',
       answers: [
-        { answer: 'disse',   score: 'correct', next: '_ao2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'denne',   score: 'wrong' }
+        { answer: '<i>disse</i>',   score: 'correct', next: '_ao2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>denne</i>',   score: 'wrong' }
       ]
     },
     _ao2: {
-      msg:        'Disse bussene er veldig raske.',
+      msg:        '<i>Disse bussene er veldig raske.</i>',
       trans:      'Te autobusy są bardzo szybkie.',
       startTime:  3,
       duration:   1.5,
@@ -299,16 +302,16 @@ function LasData() {
 
 
     _ap1: {
-      msg:        '#fill-space; gummistøvlene er våte inne.',
+      msg:        '<i>#fill-space; gummistøvlene er våte inne.</i>',
       trans:      'Te kalosze są mokre w środku.',
       answers: [
-        { answer: 'disse',   score: 'correct', next: '_ap2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'denne',   score: 'wrong' }
+        { answer: '<i>disse</i>',   score: 'correct', next: '_ap2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>denne</i>',   score: 'wrong' }
       ]
     },
     _ap2: {
-      msg:        'Disse gummistøvlene er våte inne.',
+      msg:        '<i>Disse gummistøvlene er våte inne.</i>',
       trans:      'Te kalosze są mokre w środku.',
       startTime:  3,
       duration:   1.5,
@@ -317,16 +320,16 @@ function LasData() {
 
 
     _ba1: {
-      msg:        'Hvorfor ringer #fill-space; kvinna fra Aftenposten til oss?',
+      msg:        '<i>Hvorfor ringer #fill-space; kvinna fra Aftenposten til oss?</i>',
       trans:      'Dlaczego dzwoni ta kobieta z Aftenposten do nas?',
       answers: [
-        { answer: 'denne',   score: 'correct', next: '_ba2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>denne</i>',   score: 'correct', next: '_ba2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _ba2: {
-      msg:        'Hvorfor ringer denne kvinna fra Aftenposten til oss?',
+      msg:        '<i>Hvorfor ringer denne kvinna fra Aftenposten til oss?</i>',
       trans:      'Dlaczego dzwoni ta kobieta z Aftenposten do nas?',
       startTime:  3,
       duration:   1.5,
@@ -335,16 +338,16 @@ function LasData() {
 
 
     _bb1: {
-      msg:        'Hvor kan jeg legge #fill-space; pakkene?',
+      msg:        '<i>Hvor kan jeg legge #fill-space; pakkene?</i>',
       trans:      'Gdzie mogę położyć te paczki?',
       answers: [
-        { answer: 'disse',   score: 'correct', next: '_bb2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'denne',   score: 'wrong' }
+        { answer: '<i>disse</i>',   score: 'correct', next: '_bb2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>denne</i>',   score: 'wrong' }
       ]
     },
     _bb2: {
-      msg:        'Hvor kan jeg legge disse pakkene?',
+      msg:        '<i>Hvor kan jeg legge disse pakkene?</i>',
       trans:      'Gdzie mogę położyć te paczki?',
       startTime:  3,
       duration:   1.5,
@@ -353,16 +356,16 @@ function LasData() {
 
 
     _bc1: {
-      msg:        'Hvem er sjefen for #fill-space; firmaet?',
+      msg:        '<i>Hvem er sjefen for #fill-space; firmaet?</i>',
       trans:      'Gdzie jest szef tej firmy?',
       answers: [
-        { answer: 'dette',   score: 'correct', next: '_bc2' },
-        { answer: 'disse',   score: 'wrong' },
-        { answer: 'denne',   score: 'wrong' }
+        { answer: '<i>dette</i>',   score: 'correct', next: '_bc2' },
+        { answer: '<i>disse</i>',   score: 'wrong' },
+        { answer: '<i>denne</i>',   score: 'wrong' }
       ]
     },
     _bc2: {
-      msg:        'Hvem er sjefen for dette firmaet?',
+      msg:        '<i>Hvem er sjefen for dette firmaet?</i>',
       trans:      'Gdzie jest szef tej firmy?',
       startTime:  3,
       duration:   1.5,
@@ -371,33 +374,22 @@ function LasData() {
 
 
     _bd1: {
-      msg:        'Hva gjør #fill-space; hunden her?',
+      msg:        '<i>Hva gjør #fill-space; hunden her?</i>',
       trans:      'Co robi ten pies tutaj?',
       answers: [
-        { answer: 'denne',   score: 'correct', next: '_bd2' },
-        { answer: 'dette',   score: 'wrong' },
-        { answer: 'disse',   score: 'wrong' }
+        { answer: '<i>denne</i>',   score: 'correct', next: '_bd2' },
+        { answer: '<i>dette</i>',   score: 'wrong' },
+        { answer: '<i>disse</i>',   score: 'wrong' }
       ]
     },
     _bd2: {
-      msg:        'Hva gjør denne hunden her?',
+      msg:        '<i>Hva gjør denne hunden her?</i>',
       trans:      'Co robi ten pies tutaj?',
       startTime:  3,
       duration:   1.5,
       autoNext:   'RANDOM'
     }
 
-
-  };
-
-
-  this.end = {
-
-    _end1: {
-      msg:        'END',
-      startTime:  0,
-      duration:   1.5
-    }
 
   };
 

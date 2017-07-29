@@ -1,14 +1,18 @@
 <script>
 function LasData() {
 
+  this.category = 'audio-test'; // chat|setninger|etc
+
+
   this.testNotes = [
     'nie ma nagrania ani czasów'
   ];
 
+
   this.intro = {
     _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:     'ENDINTRO'/*,
+      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
+      autoNext:   'ENDINTRO'/*,
       more: {
         startTime:  0,
         duration:   1
@@ -27,7 +31,7 @@ function LasData() {
       autoNext:   '_aa2'
     },
     _aa2: {
-      msg:        'Kan du åpne døra?',
+      msg:        '<i>Kan du åpne døra?</i>',
       trans:      'Czy możesz otworzyć drzwi?',
       startTime:  4,
       duration:   1.5,
@@ -41,10 +45,11 @@ function LasData() {
       autoNext:   '_aa4'
     },
     _aa4: {
-      msg:        'Ja, jeg kan åpne døra.',
+      msg:        '<i>Ja, jeg kan åpne døra.</i>',
       trans:      'Tak, mogę otworzyć drzwi.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -57,7 +62,7 @@ function LasData() {
       autoNext:   '_ab2'
     },
     _ab2: {
-      msg:        'Kan jeg lukke vinduet?',
+      msg:        '<i>Kan jeg lukke vinduet?</i>',
       trans:      'Czy mogę zamknąć okno?',
       startTime:  4,
       duration:   1.5,
@@ -71,10 +76,11 @@ function LasData() {
       autoNext:   '_ab4'
     },
     _ab4: {
-      msg:        'Ja, du kan lukke vinduet.',
+      msg:        '<i>Ja, du kan lukke vinduet.</i>',
       trans:      'Tak, możesz zamknąć okno.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -87,7 +93,7 @@ function LasData() {
       autoNext:   '_ac2'
     },
     _ac2: {
-      msg:        'Kan du sende meg en melding med adressa?',
+      msg:        '<i>Kan du sende meg en melding med adressa?</i>',
       trans:      'Czy możesz wysłać mi wiadomość z adresem?',
       startTime:  4,
       duration:   1.5,
@@ -101,10 +107,11 @@ function LasData() {
       autoNext:   '_ac4'
     },
     _ac4: {
-      msg:        'Selvfølgelig. Jeg sender deg adressa.',
+      msg:        '<i>Selvfølgelig. Jeg sender deg adressa.</i>',
       trans:      'Oczywiście. Wyślę Ci adres.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -117,7 +124,7 @@ function LasData() {
       autoNext:   '_ad2'
     },
     _ad2: {
-      msg:        'Kan jeg komme med mannen min?',
+      msg:        '<i>Kan jeg komme med mannen min?</i>',
       trans:      'Czy mogę przyjść z moim mężem?',
       startTime:  4,
       duration:   1.5,
@@ -131,10 +138,11 @@ function LasData() {
       autoNext:   '_ad4'
     },
     _ad4: {
-      msg:        'Selvfølgelig. Du kan komme med mannen.',
+      msg:        '<i>Selvfølgelig. Du kan komme med mannen.</i>',
       trans:      'Oczywiście. Możesz przyjść z mężem.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -147,7 +155,7 @@ function LasData() {
       autoNext:   '_ae2'
     },
     _ae2: {
-      msg:        'Kan du gi meg e-posten?',
+      msg:        '<i>Kan du gi meg e-posten?</i>',
       trans:      'Czy możesz dać mi maila?',
       startTime:  4,
       duration:   1.5,
@@ -161,10 +169,11 @@ function LasData() {
       autoNext:   '_ae4'
     },
     _ae4: {
-      msg:        'Ja, jeg kan skrive den her.',
+      msg:        '<i>Ja, jeg kan skrive den her.</i>',
       trans:      'Tak, mogę napisać go tu.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -177,7 +186,7 @@ function LasData() {
       autoNext:   '_af2'
     },
     _af2: {
-      msg:        'Kan du gi meg nøkkelen?',
+      msg:        '<i>Kan du gi meg nøkkelen?</i>',
       trans:      'Czy możesz dać mi klucz?',
       startTime:  4,
       duration:   1.5,
@@ -191,10 +200,11 @@ function LasData() {
       autoNext:   '_af4'
     },
     _af4: {
-      msg:        'Ja. Vær så god.',
+      msg:        '<i>Ja. Vær så god.</i>',
       trans:      'Tak. Proszę.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -207,7 +217,7 @@ function LasData() {
       autoNext:   '_ah2'
     },
     _ah2: {
-      msg:        'Vil du gå på fjellet?',
+      msg:        '<i>Vil du gå på fjellet?</i>',
       trans:      'Chcesz iść w góry?',
       startTime:  4,
       duration:   1.5,
@@ -226,10 +236,11 @@ function LasData() {
       autoNext:   '_ah4'
     },
     _ah4: {
-      msg:        'Jeg vil gjerne gå på fjellet.',
+      msg:        '<i>Jeg vil gjerne gå på fjellet.</i>',
       trans:      'Chętnie pójdę w góry.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -242,7 +253,7 @@ function LasData() {
       autoNext:   '_ag2'
     },
     _ag2: {
-      msg:        'Vil du ha kaffe?',
+      msg:        '<i>Vil du ha kaffe?</i>',
       trans:      'Czy chcesz kawę?',
       startTime:  4,
       duration:   1.5,
@@ -256,7 +267,7 @@ function LasData() {
       autoNext:   '_ag4'
     },
     _ag4: {
-      msg:        'Jeg vil gjerne ha kaffe.',
+      msg:        '<i>Jeg vil gjerne ha kaffe.</i>',
       trans:      'Poproszę kawę.',
       startTime:  4,
       duration:   1.
@@ -265,6 +276,7 @@ function LasData() {
         startTime:  0,
         duration:   1
       },
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -277,7 +289,7 @@ function LasData() {
       autoNext:   '_aj2'
     },
     _aj2: {
-      msg:        'Vil du kjøpe et fly?',
+      msg:        '<i>Vil du kjøpe et fly?</i>',
       trans:      'Czy chcesz kupić samolot?',
       startTime:  4,
       duration:   1.5,
@@ -291,10 +303,11 @@ function LasData() {
       autoNext:   '_aj4'
     },
     _aj4: {
-      msg:        'Nei, jeg må kjøpe ei hytte først.',
+      msg:        '<i>Nei, jeg må kjøpe ei hytte først.</i>',
       trans:      'Nie, muszę kupić najpierw domek letniskowy.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -307,7 +320,7 @@ function LasData() {
       autoNext:   '_ak2'
     },
     _ak2: {
-      msg:        'Må vi kjøpe et hus?',
+      msg:        '<i>Må vi kjøpe et hus?</i>',
       trans:      'Czy musimy kupić dom?',
       startTime:  4,
       duration:   1.5,
@@ -321,10 +334,11 @@ function LasData() {
       autoNext:   '_ak4'
     },
     _ak4: {
-      msg:        'Vi trenger ikke. Vi kan leie det.',
+      msg:        '<i>Vi trenger ikke. Vi kan leie det.</i>',
       trans:      'Nie musimy. Możemy wynająć.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -337,7 +351,7 @@ function LasData() {
       autoNext:   '_al2'
     },
     _al2: {
-      msg:        'Kan hun hente barnet fra barnehagen?',
+      msg:        '<i>Kan hun hente barnet fra barnehagen?</i>',
       trans:      'Czy ona może odebrać dziecko z przedszkola?',
       startTime:  4,
       duration:   1.5,
@@ -351,10 +365,11 @@ function LasData() {
       autoNext:   '_al4'
     },
     _al4: {
-      msg:        'Ja, hun kan gjøre det.',
+      msg:        '<i>Ja, hun kan gjøre det.</i>',
       trans:      'Tak, może to zrobić.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -367,7 +382,7 @@ function LasData() {
       autoNext:   '_am2'
     },
     _am2: {
-      msg:        'Kan hun levere barnet til skolen?',
+      msg:        '<i>Kan hun levere barnet til skolen?</i>',
       trans:      'Czy ona może zawieźć dziecko do szkoły?',
       startTime:  4,
       duration:   1.5,
@@ -381,10 +396,11 @@ function LasData() {
       autoNext:   '_am4'
     },
     _am4: {
-      msg:        'Ja, hun kan levere barnet til skolen.',
+      msg:        '<i>Ja, hun kan levere barnet til skolen.</i>',
       trans:      'Tak, ona może zawieźć dziecko do szkoły.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -397,7 +413,7 @@ function LasData() {
       autoNext:   '_an2'
     },
     _an2: {
-      msg:        'Skal du skifte dekk?',
+      msg:        '<i>Skal du skifte dekk?</i>',
       trans:      'Czy zamierzasz zmienić opony?',
       startTime:  4,
       duration:   1.5,
@@ -411,10 +427,11 @@ function LasData() {
       autoNext:   '_an4'
     },
     _an4: {
-      msg:        'Jeg skal skifte dekk.',
+      msg:        '<i>Jeg skal skifte dekk.</i>',
       trans:      'Zamierzam zmienić opony.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -427,7 +444,7 @@ function LasData() {
       autoNext:   '_ao2'
     },
     _ao2: {
-      msg:        'Skal du gå på toppen?',
+      msg:        '<i>Skal du gå på toppen?</i>',
       trans:      'Czy planujesz wejść na szczyt?',
       startTime:  4,
       duration:   1.5,
@@ -441,10 +458,11 @@ function LasData() {
       autoNext:   '_ao4'
     },
     _ao4: {
-      msg:        'Jeg skal gå på toppen.',
+      msg:        '<i>Jeg skal gå på toppen.</i>',
       trans:      'Planuję wejść na szczyt.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -457,7 +475,7 @@ function LasData() {
       autoNext:   '_ap2'
     },
     _ap2: {
-      msg:        'Vil du prøve genseren?',
+      msg:        '<i>Vil du prøve genseren?</i>',
       trans:      'Czy chcesz przymierzyć sweter?',
       startTime:  4,
       duration:   1.5,
@@ -476,10 +494,11 @@ function LasData() {
       autoNext:   '_ap4'
     },
     _ap4: {
-      msg:        'Nei, jeg vil ikke vente i køen til prøverommet.',
+      msg:        '<i>Nei, jeg vil ikke vente i køen til prøverommet.</i>',
       trans:      'Nie, nie chcę czekać w kolejce do przymierzalni.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -492,7 +511,7 @@ function LasData() {
       autoNext:   '_ar2'
     },
     _ar2: {
-      msg:        'Kan du komme til meg?',
+      msg:        '<i>Kan du komme til meg?</i>',
       trans:      'Czy możesz do mnie przyjść?',
       startTime:  4,
       duration:   1.5,
@@ -506,10 +525,11 @@ function LasData() {
       autoNext:   '_ar4'
     },
     _ar4: {
-      msg:        'Jeg kan ikke komme til deg.',
+      msg:        '<i>Jeg kan ikke komme til deg.</i>',
       trans:      'Nie mogę do Ciebie przyjść.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -522,7 +542,7 @@ function LasData() {
       autoNext:   '_as2'
     },
     _as2: {
-      msg:        'Vil de spise hjemme?',
+      msg:        '<i>Vil de spise hjemme?</i>',
       trans:      'Czy oni chcę zjeść w domu?',
       startTime:  4,
       duration:   1.5,
@@ -536,10 +556,11 @@ function LasData() {
       autoNext:   '_as4'
     },
     _as4: {
-      msg:        'De vil ikke spise hjemme.',
+      msg:        '<i>De vil ikke spise hjemme.</i>',
       trans:      'Oni nie chcą jeść w domu.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -552,7 +573,7 @@ function LasData() {
       autoNext:   '_at2'
     },
     _at2: {
-      msg:        'Vil du fly til Nord-Norge?',
+      msg:        '<i>Vil du fly til Nord-Norge?</i>',
       trans:      'Czy chcesz lecieć na północ Norwegii?',
       startTime:  4,
       duration:   1.5,
@@ -566,10 +587,11 @@ function LasData() {
       autoNext:   '_at4'
     },
     _at4: {
-      msg:        'Jeg vil ikke fly til Nord-Norge.',
+      msg:        '<i>Jeg vil ikke fly til Nord-Norge.</i>',
       trans:      'Nie chcę lecieć na północ Norwegii.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -582,7 +604,7 @@ function LasData() {
       autoNext:   '_ax2'
     },
     _ax2: {
-      msg:        'Må dere rydde?',
+      msg:        '<i>Må dere rydde?</i>',
       trans:      'Czy musicie sprzątać?',
       startTime:  4,
       duration:   1.5,
@@ -601,10 +623,11 @@ function LasData() {
       autoNext:   '_ax4'
     },
     _ax4: {
-      msg:        'Vi trenger ikke å rydde.',
+      msg:        '<i>Vi trenger ikke å rydde.</i>',
       trans:      'Nie musimy sprzątać.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -617,7 +640,7 @@ function LasData() {
       autoNext:   '_ay2'
     },
     _ay2: {
-      msg:        'Kan det ikke vente?',
+      msg:        '<i>Kan det ikke vente?</i>',
       trans:      'Czy to nie może zaczekać?',
       startTime:  4,
       duration:   1.5,
@@ -631,10 +654,11 @@ function LasData() {
       autoNext:   '_ay4'
     },
     _ay4: {
-      msg:        'Det kan ikke vente.',
+      msg:        '<i>Det kan ikke vente.</i>',
       trans:      'To nie może czekać.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
     },
 
@@ -647,7 +671,7 @@ function LasData() {
       autoNext:   '_az2'
     },
     _az2: {
-      msg:        'Skal du bytte jobb?',
+      msg:        '<i>Skal du bytte jobb?</i>',
       trans:      'Czy planujesz zmienić pracę?',
       startTime:  4,
       duration:   1.5,
@@ -661,22 +685,12 @@ function LasData() {
       autoNext:   '_az4'
     },
     _az4: {
-      msg:        'Jeg skal ikke bytte jobb.',
+      msg:        '<i>Jeg skal ikke bytte jobb.</i>',
       trans:      'Nie planuję zmieniać pracy.',
       startTime:  4,
       duration:   1.5,
+      score:      'correct',
       autoNext:   'RANDOM'
-    }
-
-  };
-
-
-  this.end = {
-
-    _end1: {
-      msg: 'END',
-      startTime: 0,
-      duration: 1
     }
 
   };
