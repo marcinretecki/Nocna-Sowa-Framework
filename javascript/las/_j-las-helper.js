@@ -239,7 +239,7 @@ function LasHelper() {
     this.addOneToProgress( 'finished' );
 
     //  set cookie
-    this.saveProgressToCookie()
+    this.saveProgressToCookie();
 
     //  show loader
     this.showLoader();
@@ -248,7 +248,7 @@ function LasHelper() {
     //  wait to show the animation
     //  if animation changes, change the time
     setTimeout(function() {
-      //window.location.href = "/las/szlak/";
+      window.location.href = "/las/szlak/";
     }.bind(this), 2 * this.helper.speed);
 
 
