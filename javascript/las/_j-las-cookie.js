@@ -40,8 +40,7 @@
   //  Get progress cookie in json
   //
   function getCookie() {
-    var cookie = Cookies.getJSON( 'lasChallangeProgress' );
-    return cookie;
+    return Cookies.getJSON( 'lasChallangeProgress' );
   }
 
   //
@@ -53,6 +52,7 @@
 
   //
   //  Remove progress cookie
+  //  only used for testing
   //
   function cleanCookie() {
     Cookies.remove( 'lasChallangeProgress', { path: '/las/' } );
@@ -149,31 +149,49 @@
       return;
     }
 
-
     var timeNow = getJsTime();
     var progress = cookieStore.progress;
-    var cookie = {};
+    var cookie;
     var property;
 
     //  store elapsed time
     cookieStore.progress[ 't' ] = timeNow - cookieStore.jsAccess;
 
+    //  get the cookie
+    cookie = getCookie();
+
+    //  if there is no cookie
+    if ( !cookie ) {
+
+      //  create object
+      cookie = {};
+
+    }
+
     //  cookie should look like this
-    //  cookie[chapter][type][serverAccess][progress]
-    //  cookie[chapter][id]
+    //  cookie[serverAccess][id]        (integer)
+    //  cookie[serverAccess][type]      (string)
+    //  cookie[serverAccess][chapter]   (string)
+    //  cookie[serverAccess][progress]  (object)
     //  progress has additionaly t (time elapsed) and finished (integer)
 
     //  create chapter object
-    cookie[ this.helper.chapter ] = {};
+    //  even if it existed before
+    //  reset it
+    cookie[ this.helper.serverAccess ] = {};
 
     //  set id
-    cookie[ this.helper.chapter ][ 'id' ] = this.helper.chapterId;
+    cookie[ this.helper.serverAccess ][ 'id' ] = this.helper.chapterId;
 
-    //  create type object
-    cookie[ this.helper.chapter ][ this.helper.type ] = {};
+    //  set the type
+    cookie[ this.helper.serverAccess ][ 'type' ] = this.helper.type;
 
-    //  create serverTime object
-    cookie[ this.helper.chapter ][ this.helper.type ][ this.helper.serverAccess ] = {};
+    //  set the chapter
+    cookie[ this.helper.serverAccess ][ 'chapter' ] = this.helper.chapter;
+
+    //  prepare progress object
+    cookie[ this.helper.serverAccess ][ 'progress' ] = {};
+
 
     //  loop over all progress props and add them to type object
     for ( property in progress ) {
@@ -182,7 +200,7 @@
       if ( progress.hasOwnProperty( property ) ) {
 
         //  obfuscate
-        cookie[ this.helper.chapter ][ this.helper.type ][ this.helper.serverAccess ][ property ] = progress[ property ].toString(3);
+        cookie[ this.helper.serverAccess ][ 'progress' ][ property ] = progress[ property ].toString(3);
 
       }
     }
@@ -193,66 +211,6 @@
     setCookie( cookie );
 
   };
-
-
-
-  //  //
-  //  //  Set the finished prop to cookie
-  //  //
-  //  LasHelper.prototype.cookieSetFinished = function() {
-
-  //    var chapter = this.helper.chapter;
-  //    var access = this.helper.access;
-  //    var type = this.helper.type;
-  //    var cookie = getCookie( chapter );
-
-  //    if ( !cookie[ chapter ] ) {
-  //      return;
-  //    }
-
-  //    cookie[ chapter ][ type ][ access ][ 'finished' ] = 1;
-
-  //    //  set the new cookie
-  //    setCookie(cookie);
-
-  //  };
-
-
-
-  //  //
-  //  //  Set the elapsed time on wyzwanie
-  //  //
-  //  LasHelper.prototype.cookieSetT = function() {
-
-  //    var beginT = this.helper.beginT;
-  //    var chapter = this.helper.chapter;
-  //    var access = this.helper.access;
-  //    var type = this.helper.type;
-  //    var cookie = getCookie( chapter );
-
-  //    if ( !cookie[ chapter ] ) {
-  //      return false;
-  //    }
-
-  //    Date.now = Date.now || function() { return +new Date; };
-
-  //    var endT = Math.floor( Date.now() / 1000 );
-  //    var t = endT - beginT;
-
-  //    if ( t > 1 ) {
-  //      console.log('Elapsed T: ' + t);
-  //      cookie[ chapter ][ type ][ access ]['t'] = t;
-
-  //    //  set the new cookie
-  //    setCookie(cookie);
-
-  //    }
-  //    else {
-  //      return false;
-  //    }
-
-  //  };
-
 
 
 })();

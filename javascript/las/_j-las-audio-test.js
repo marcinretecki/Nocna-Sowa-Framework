@@ -1030,7 +1030,7 @@ function LasAudioTest() {
   //  Testmode
   //
   las.test = function() {
-    var property;
+
     var data = this.lasData;
     var testNotes = this.lasData.testNotes;
     var testNotesEl;
@@ -1046,7 +1046,8 @@ function LasAudioTest() {
     var answersL;
     var moreProp;
     var moreData;
-    var bigLineCss = 'width:100%;padding-top:2rem;padding-bottom:2rem;background: rgba(0,0,0,0.15);color: #fff;text-align:center;clear:both;';
+    var loopDataFn;
+    var bigLineCss = 'width:100%;padding-top:2rem;padding-bottom:2rem;background: rgba(0,0,0,0.15);color: #fff;text-align:center;clear:both;margin:2rem 0;';
 
 
     //  clean wrapper
@@ -1054,7 +1055,7 @@ function LasAudioTest() {
 
     line = document.createElement('div');
     line.className = 'pad section-dark space size-0';
-    line.innerHTML = '<p class="space-0">Category: ' + data.category + '<br />' + 'Max correct: ' + this.countMaxCorrectAnswers(data) + '</p>';
+    line.innerHTML = '<p class="space-0">Category: ' + data.category + '<br />' + 'Max correct: ' + this.countMaxCorrectAnswers(data.chat) + '<br />' + 'Extra: ' + this.countMaxCorrectAnswers(data.extra) + '</p>';
     this.wrapper.appendChild(line);
 
 
@@ -1080,11 +1081,16 @@ function LasAudioTest() {
     }
 
 
+    loopDataFn = function( data ) {
 
-    if ( data.chat ) {
-      //  iteriate over all data props
-      for ( property in data.chat ) {
-        if ( data.chat.hasOwnProperty(property) ) {
+      var property;
+
+      if ( !data ) {
+        return;
+      }
+
+      for ( property in data ) {
+        if ( data.hasOwnProperty(property) ) {
 
           //  create bubble
           bubble = document.createElement('div');
@@ -1092,7 +1098,7 @@ function LasAudioTest() {
           bubble.style.position = 'relative';
           bubble.style.paddingRight = '2rem';
 
-          if ( data.chat[property]['autoNext'] && ( data.chat[property]['autoNext'] === 'RANDOM' ) ) {
+          if ( data[property]['autoNext'] && ( data[property]['autoNext'] === 'RANDOM' ) ) {
 
             bubble.style.marginBottom = '4rem';
 
@@ -1101,7 +1107,7 @@ function LasAudioTest() {
           //  reset content
           content = '';
 
-          bubbleData = data.chat[property];
+          bubbleData = data[property];
 
           for ( bubbleProp in bubbleData ) {
             if ( bubbleData.hasOwnProperty(bubbleProp) ) {
@@ -1123,11 +1129,13 @@ function LasAudioTest() {
                 for (i = 0; i < answersL; i++) {
 
                   if ( answers[i].score === 'wrong' ) {
-                    content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#dd4b39;display:inline-block;"></span>' + answers[i].answer;
+                    content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#dd4b39;display:inline-block;"></span>';
                   }
-                  else {
-                    content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#308c8c;display:inline-block;"></span>' + answers[i].answer;
+                  else if ( answers[i].score === 'correct' ) {
+                    content += '<span style="width:0.5rem;height:0.5rem;border-radius:50%;vertical-align: middle;margin-left:0.5rem;margin-right:0.5rem;background-color:#308c8c;display:inline-block;"></span>';
                   }
+
+                  content += answers[i].answer
 
                   content += '<br />';
 
@@ -1177,8 +1185,24 @@ function LasAudioTest() {
       // end loop
       }
 
-    //  end if data.chat
-    }
+    //  function
+    }.bind(this);
+
+
+    loopDataFn( data.intro );
+
+    line = document.createElement('div');
+    line.style.cssText = bigLineCss;
+    line.innerHTML = 'AUDIO TEST';
+    this.wrapper.appendChild(line);
+    loopDataFn( data.chat );
+
+    line = document.createElement('div');
+    line.style.cssText = bigLineCss;
+    line.innerHTML = 'EXTRA';
+    this.wrapper.appendChild(line);
+    loopDataFn( data.extra );
+
 
   };
 

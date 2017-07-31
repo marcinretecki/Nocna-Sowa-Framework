@@ -21,6 +21,7 @@ function LasSzlak() {
   las.szlakPopUpSection =     document.getElementById('szlak-post-popup__section');
   las.navs = {
     basic:                    document.getElementById('section-basic'),
+    fonetyka:                 document.getElementById('section-fonetyka'),
     advanced:                 document.getElementById('section-advanced')
   };
 
@@ -33,13 +34,21 @@ function LasSzlak() {
 
   las.clickedLevel =          '';
 
+
+  //
+  //  Tu jest duży problemz  dokładaniem nowych sekcji
+  //  za każdym razem będzie trzeba ręcznie aktualizować
+  //
+
   las.btns = {
     basic:                    [],
+    fonetyka:                 [],
     advanced:                 []
   };
 
   las.sections = {
     basic:                    [],
+    fonetyka:                 [],
     advanced:                 []
   };
 
@@ -50,7 +59,21 @@ function LasSzlak() {
   //
   las.state = {
     clicked:                  false,
-    popupUrl:                 ''
+    popupUrl:                 '',
+    results:                  false
+  };
+
+
+
+  //
+  //  Results
+  //
+  las.results = {
+    expAdded:                 0,
+    levelPercentBefore:       0,
+    levelPercentNow:          0,
+    levelBefore:              0,
+    levelNow:                 0
   };
 
 
@@ -297,43 +320,46 @@ function LasSzlak() {
   //
   las.animateResults = function() {
 
-    if ( !las.state.results ) {
+    //  no results to show
+    if ( this.results.exp === 0 ) {
       return;
     }
 
-    this.animateResultsEls = [];
+    //  prepare elements
+    this.animateResultsEls = {
 
-    this.animateResultsEls.levelEl = document.getElementById( 'results-level' );
-    this.animateResultsEls.levelLineEl = document.getElementById( 'results-level__line' );
-    this.animateResultsEls.percentBefore = this.animateResultsEls.levelLineEl.getAttribute('data-percent-before');
-    this.animateResultsEls.percentNow = this.animateResultsEls.levelLineEl.getAttribute('data-percent-now');
+      levelEl:                document.getElementById( 'results-level' ),
+      levelLineEl:            document.getElementById( 'results-level__line' ),
+      levelNoEl:              document.getElementById( 'results-level__no' ),
+      addedExpEl:             document.getElementById( 'results-added-exp' ),
+      levelHighlight:         document.getElementById( 'results-level__highlight' )
+    };
 
-    console.log('% before:' + this.animateResultsEls.percentBefore);
-    console.log('% now:' + this.animateResultsEls.percentNow);
+    //  this.results.expAdded
+    //  this.results.levelPercentBefore
+    //  this.results.levelPercentNow
+    //  this.results.levelBefore
+    //  this.results.levelNow
 
-    this.animateResultsEls.levelNoEl = document.getElementById( 'results-level__no' );
-    this.animateResultsEls.levelBefore = parseInt( this.animateResultsEls.levelNoEl.getAttribute('data-level-before') );
-    this.animateResultsEls.levelNow = parseInt( this.animateResultsEls.levelNoEl.getAttribute('data-level-now') );
-
-    this.animateResultsEls.addedExpEl = document.getElementById( 'results-added-exp' );
-    this.animateResultsEls.addedExp = this.animateResultsEls.addedExpEl.getAttribute( 'data-added-exp' );
-
-    this.animateResultsEls.levelHighlight = document.getElementById( 'results-level__highlight' );
+    console.log( '% before: ' + this.results.levelPercentBefore );
+    console.log( '% now: ' + this.results.levelPercentNow );
+    console.log( 'exp added: ' + this.results.expAdded );
+    console.log( 'level before: ' + this.results.levelBefore );
+    console.log( 'level now: ' + this.results.levelNow );
 
 
     //  the level is same
-
-    if ( this.animateResultsEls.levelNow === this.animateResultsEls.levelBefore ) {
+    if ( this.results.levelNow === this.results.levelBefore ) {
 
       //  animate %
-      this.animateResultsPercent( this.animateResultsEls.percentNow, this.animateResultsEls.percentBefore );
+      this.animateResultsPercent( false );
 
     }
     //  user got level up
-    else if ( this.animateResultsEls.levelNow > this.animateResultsEls.levelBefore ) {
+    else if ( this.results.levelNow > this.results.levelBefore ) {
 
       //  animate to 100%
-      this.animateResultsPercent( '100%', this.animateResultsEls.percentBefore, this.animateLevelChange );
+      this.animateResultsPercent( true, this.animateLevelChange );
 
     }
 
@@ -344,7 +370,10 @@ function LasSzlak() {
 
   };
 
-  las.animateResultsPercent = function( now, before, completeFn ) {
+  las.animateResultsPercent = function( toHundred, completeFn ) {
+
+    var now = this.results.levelPercentNow;
+    var before = this.results.levelPercentBefore;
 
     if ( typeof completeFn !== 'undefined'  ) {
       completeFn = completeFn.bind(this);
@@ -352,6 +381,10 @@ function LasSzlak() {
     //  prevent error if the function is not provided
     else {
       completeFn = Function.prototype;
+    }
+
+    if ( toHundred ) {
+      now = '100%';
     }
 
     this.velocity(
@@ -395,14 +428,14 @@ function LasSzlak() {
     animStateFraction = easeInOutQuart( animStateFraction );
 
     //  how much exp to animate now
-    expToShow = Math.ceil( animStateFraction * this.animateResultsEls.addedExp );
+    expToShow = Math.ceil( animStateFraction * this.results.expAdded );
 
     //  change inner HTML
     this.animateResultsEls.addedExpEl.innerHTML = expToShow;
 
     //  time ended, so set it to proper number
     if ( ( timestamp - this.helper.startAnimateExpCount ) >= duration ) {
-      this.animateResultsEls.addedExpEl.innerHTML = this.animateResultsEls.addedExp;
+      this.animateResultsEls.addedExpEl.innerHTML = this.results.expAdded;
     }
 
   };
@@ -411,8 +444,8 @@ function LasSzlak() {
 
     //  set new x%
     var completeFn = function() {
-      this.animateResultsEls.levelLineEl.style.width = this.animateResultsEls.percentNow;
-      this.animateResultsEls.levelNoEl.innerHTML = 'Rang ' + this.animateResultsEls.levelNow;
+      this.animateResultsEls.levelLineEl.style.width = this.results.levelPercentNow;
+      this.animateResultsEls.levelNoEl.innerHTML = 'Rang ' + this.results.levelNow;
     }.bind( this );
 
     console.log('level change!');

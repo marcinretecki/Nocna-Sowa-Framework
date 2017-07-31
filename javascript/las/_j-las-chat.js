@@ -682,7 +682,6 @@ function LasChat() {
   //
   las.test = function() {
     var data = this.lasData;
-    var property;
     var bubble;
     var testNotes = data.testNotes;
     var testNotesEl;
@@ -693,8 +692,6 @@ function LasChat() {
     var l;
     var liEl;
     var line;
-    var lineIntro;
-    var lineChat;
     var loopDataFn;
     var bigLineCss = 'width:100%;padding-top:2rem;padding-bottom:2rem;background: rgba(0,0,0,0.15);color: #fff;text-align:center;clear:both;';
 
@@ -712,7 +709,10 @@ function LasChat() {
     line = document.createElement('li');
     line.style.cssText = 'width:100%; padding-top:1rem; padding-bottom:1rem; margin:0 0 1rem; clear:both; position:relative;';
     line.className = 'section-dark';
-    line.innerHTML = 'Category: ' + data.category + '<br />' + 'Max correct: ' + this.countMaxCorrectAnswers(data);
+    line.innerHTML = '<p class="space-0">Category: ' + data.category
+      + '<br />' + 'Max correct: ' + this.countMaxCorrectAnswers(data.chat)
+      + '<br />' + 'Extra: ' + this.countMaxCorrectAnswers(data.extra)
+      + '</p>';
     this.chatFlow.appendChild(line);
 
     if ( testNotes ) {
@@ -735,6 +735,13 @@ function LasChat() {
     }
 
     loopDataFn = function ( data ) {
+
+      var property;
+
+      if ( !data ) {
+        return;
+      }
+
       for (property in data) {
         if (data.hasOwnProperty(property)) {
 
@@ -767,6 +774,11 @@ function LasChat() {
                 liEl.style.backgroundColor = '#de7642';
 
               }
+              else if ( data[property].answers[i].score === 'correct' ) {
+
+                liEl.style.backgroundColor = '#308c8c';
+
+              }
 
               this.chatFlow.appendChild( liEl );
 
@@ -793,17 +805,25 @@ function LasChat() {
 
 
     loopDataFn( data.intro );
-    lineIntro = document.createElement('li');
-    lineIntro.style.cssText = bigLineCss;
-    lineIntro.innerHTML = 'Koniec INTRO';
-    this.chatFlow.appendChild(lineIntro);
 
+    line = document.createElement('li');
+    line.style.cssText = bigLineCss;
+    line.innerHTML = 'CHAT';
+    this.chatFlow.appendChild(line);
     loopDataFn( data.chat );
-    lineChat = document.createElement('li');
-    lineChat.style.cssText = bigLineCss;
-    this.chatFlow.appendChild(lineChat);
 
+    line = document.createElement('li');
+    line.style.cssText = bigLineCss;
+    line.innerHTML = 'END';
+    this.chatFlow.appendChild(line);
     loopDataFn( data.end );
+
+    line = document.createElement('li');
+    line.style.cssText = bigLineCss;
+    line.innerHTML = 'EXTRA';
+    this.chatFlow.appendChild(line);
+    loopDataFn( data.extra );
+
 
 
 

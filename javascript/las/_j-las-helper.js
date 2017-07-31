@@ -258,11 +258,10 @@ function LasHelper() {
 
   //
   //  Count Max Correct Answers
-  //  @data is the whole LasData object
+  //  @data is one of LasData objects
   //
   this.countMaxCorrectAnswers = function( data ) {
 
-    var chat = data.chat;
     var sum = 0;
     var property;
     var answers;
@@ -272,15 +271,15 @@ function LasHelper() {
 
 
     //  loop over all chat props
-    for ( property in chat ) {
+    for ( property in data ) {
 
       // if it is own property
-      if ( chat.hasOwnProperty( property ) ) {
+      if ( data.hasOwnProperty( property ) ) {
 
           //  check if property has answers
-          if ( chat[property].hasOwnProperty( 'answers' ) ) {
+          if ( data[property].hasOwnProperty( 'answers' ) ) {
 
-            answers = chat[property].answers;
+            answers = data[property].answers;
 
             //  loop over answers
             for ( answer in answers ) {
@@ -293,7 +292,7 @@ function LasHelper() {
 
           }
           //  check if property has score
-          else if ( chat[property].hasOwnProperty( 'score' ) && ( chat[property].score  === 'correct' ) ) {
+          else if ( data[property].hasOwnProperty( 'score' ) && ( data[property].score  === 'correct' ) ) {
 
             sum = sum + 1;
 

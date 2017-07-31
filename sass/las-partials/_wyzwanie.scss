@@ -65,7 +65,7 @@
 }
 
 .audio-test-msg__main {
-  //font-size: $size-1;
+  font-size: $size-2;
   //  if we change this, we should change answer as well
 }
 
@@ -96,7 +96,7 @@
 
   background-color: transparent;
 
-  font: normal normal 400 #{$size-1}/1 $body-font;
+  font: normal normal 400 #{$size-2}/1 $body-font;
   color: $white;
   text-decoration: none;
   text-transform: none;
@@ -286,4 +286,85 @@
 .chat-flow q {
   font-style: normal;
 }
+
+
+
+
+//
+//  Setninger
+//
+
+
+.setninger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+
+  font-size: 0;
+  text-align: center;
+}
+.setninger:before {
+  content:  '';
+
+  display: inline-block;
+  height: 100%;
+
+  vertical-align: middle;
+}
+.setninger-words {
+  position: relative;
+
+  display: inline-block;
+  width: 100%;
+
+  background-color: rgba( $dark-btn, 0.33 );
+}
+
+.setninger-words__word {
+  @include font-bariol-reg;
+
+  display: inline-block;
+  padding: $space-half $space-2;
+  margin: $space-half;
+  border-radius: 3px;
+
+  background: $green;
+
+  font: normal normal 400 #{$size-1}/1 $body-font;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  white-space: nowrap;
+
+  cursor:move;
+  user-select: none;
+}
+
+
+.setninger-msg {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+
+  font-size: $size-1;
+}
+
+.setninger-trans {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+
+  font-size: $size-1;
+}
+
+.setninger-controls {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+}
+
+
 
