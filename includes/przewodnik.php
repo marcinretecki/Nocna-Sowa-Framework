@@ -3,7 +3,7 @@
 //  Includes - Przewodnik
 //
 
-//  @przewodnik_data comes from page.php
+//  @data_file comes from page.php
 
 
 function las_przewodnik_get_media( $post_name ) {
@@ -68,9 +68,9 @@ function las_przewodnik_show_media() {
 
             //  check if there is custom Przewodnik file
 
-            if ( $przewodnik_data ) {
+            if ( $data_file ) {
 
-              include( $przewodnik_data );
+              include( $data_file );
 
             }
             else {
@@ -98,7 +98,7 @@ function las_przewodnik_show_media() {
 
     <a href="../wyzwanie/" class="przewodnik__action-btn">Przejdź do wyzwania &raquo;</a>
   </div>
-</div>
+</section>
 
 
 <?php

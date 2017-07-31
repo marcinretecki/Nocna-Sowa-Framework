@@ -26,33 +26,21 @@
 //  money paid
 
 
-//
-//  Check user char
-//  Called on template_redirect
-//
-function las_check_user_char() {
-
-  $current_user = wp_get_current_user();
-  $user_char = get_user_meta( $current_user->ID, 'las_char' );
-
-  if ( !$user_char || !is_array( $user_char[0] ) ) {
-    las_redirect_to_create_user_char();
-  }
-
-}
-add_action('template_redirect', 'las_check_user_char');
-
 
 
 //
 //  Redirect to profile, if no char
 //
-function las_redirect_to_create_user_char() {
+function las_redirect_to_create_user_char( $user_char ) {
 
   if ( !is_page('profil') && !las_is_developer() ) {
 
-    wp_redirect( '/las/profil/' );
-    exit;
+    if ( !$user_char || !is_array( $user_char[0] ) ) {
+
+      wp_redirect( '/las/profil/' );
+      exit;
+
+    }
 
   }
 

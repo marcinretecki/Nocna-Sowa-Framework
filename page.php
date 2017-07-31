@@ -12,48 +12,42 @@ if ( $globals ) {
   include( $globals );
 }
 
+
+//
+//  If user has not created char, redirect her
+//
+las_redirect_to_create_user_char( $user_char );
+
+
 $heading = las_get_heading();
 
 
 //
-//  Display normal page
+//  Show normal page
 //
 function las_show_normal_page() {
   global $post;
   global $heading;
 
-  $type = 'przewodnik';
+  the_content();
 
-  //  Get data
-  $przewodnik_data = stream_resolve_include_path( __DIR__ . '/data/przewodnik/' . $post->post_name . '.php' );
-
-  //  Get przewodnik
-  $przewodnik = stream_resolve_include_path( __DIR__ . '/includes/przewodnik.php' );
-
-  if ( $przewodnik ) {
-    include( $przewodnik );
-  }
 }
 
 
 
 //
-//  Show comment section
+//  Show SOS - comment section
 //
-function las_show_comment_section() {
+function las_show_sos() {
   global $post;
   global $heading;
 
-  echo '<div class="section-content">';
-  echo '<h1>';
-  echo $heading;
-  echo '</h1>';
+  //  Get sos
+  $sos = stream_resolve_include_path( __DIR__ . '/includes/sos.php' );
 
-  echo '<h2>Pytania i odpowiedzi</h2>';
-
-  comments_template('', true);
-
-  echo '</div>';
+  if ( $sos ) {
+    include( $sos );
+  }
 }
 
 
@@ -63,10 +57,14 @@ function las_show_comment_section() {
 //
 function las_course_router() {
   global $post;
+  global $heading;
+
+  $parent_id = $post->post_parent;
+  $parent_name = get_post( $parent_id )->post_name;
 
   //  Has no categories, normal page then
   //  cokolwiek by to nie było....
-  if ( ( get_query_var( 'przewodnik' ) || get_query_var( 'wyzwanie' ) ) && !has_category() ) {
+  if ( !has_category() ) {
 
     //  show normal page
     las_show_normal_page();
@@ -75,8 +73,8 @@ function las_course_router() {
   //  It is a QA part
   elseif ( !get_query_var( 'przewodnik' ) && !get_query_var( 'wyzwanie' ) && !get_query_var( 'testmode' ) ) {
 
-    //  Show comment section
-    las_show_comment_section();
+    //  Show SOS - comment section
+    las_show_sos();
 
   }
   //  It must be one of the types
@@ -98,24 +96,22 @@ function las_course_router() {
     }
 
     //
+    //  Get data file
+    //
+    if ( has_category( 'wyzwanie-liczby' ) ) {
+      $data_file = stream_resolve_include_path( __DIR__ . '/data/' . $type . '/' . $parent_name . '/liczby.php' );
+    }
+    else {
+      $data_file = stream_resolve_include_path( __DIR__ . '/data/' . $type . '/' . $parent_name . '/' . $post->post_name . '.php' );
+    }
+
+    //
     //  Route page types
     //
     if ( $type === 'wyzwanie' ) {
 
-      //  Get data for wyzwanie
-      if ( has_category( 'wyzwanie-liczby' ) ) {
-        $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/liczby.php' );
-      }
-      elseif ( has_category( 'misja' ) ) {
-        $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/misja/' . $post->post_name . '.php' );
-      }
-      else {
-        $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $post->post_name . '.php' );
-      }
-
-
-      if ( $wyzwanie_data ) {
-        include( $wyzwanie_data );
+      if ( $data_file ) {
+        include( $data_file );
       }
       else {
         echo '<p>Nie znaleźlismy pliku z wyzwaniem.';
@@ -127,25 +123,25 @@ function las_course_router() {
       if ( has_category( 'wyzwanie-audio' ) || has_category( 'wyzwanie-liczby' ) ) {
         //  Audio Test
 
-        include( 'includes/audio-test.php' );
+        include( stream_resolve_include_path( __DIR__ . '/includes/audio-test.php' ) );
 
       }
       elseif ( has_category( 'wyzwanie-chat' ) ) {
         //  Chat
 
-        include( 'includes/chat.php' );
+        include( stream_resolve_include_path( __DIR__ . '/includes/chat.php' ) );
 
       }
       elseif ( has_category( 'wyzwanie-quiz' ) ) {
         //  Quiz
 
-        include( 'includes/quiz.php' );
+        include( stream_resolve_include_path( __DIR__ . '/includes/quiz.php' ) );
 
       }
       elseif ( has_category( 'wyzwanie-setninger') ) {
         //  Setninger
 
-        include( 'includes/setninger.php' );
+        include( stream_resolve_include_path( __DIR__ . '/includes/setninger.php' ) );
 
       }
 
@@ -157,9 +153,17 @@ function las_course_router() {
 
     }
     //  if it is not wyzwanie
-    else {
+    //  it should be przewodnik
+    else if ( $type === 'przewodnik' ) {
 
-      las_show_normal_page();
+      //  @data_file is included in przewodnik.php
+
+      //  include przewodnik page
+      $przewodnik = stream_resolve_include_path( __DIR__ . '/includes/przewodnik.php' );
+
+      if ( $przewodnik ) {
+        include( $przewodnik );
+      }
 
     }
 

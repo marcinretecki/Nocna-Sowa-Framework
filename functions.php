@@ -5,6 +5,9 @@
 
 if ( is_user_logged_in() ) {
 
+  //  global variable, needed for progress and cookie functions
+  $access_time = time();
+
   //  include functions
   include( stream_resolve_include_path( __DIR__ . '/functions/f-cookie.php' ) );
   include( stream_resolve_include_path( __DIR__ . '/functions/f-user-exp.php' ) );
@@ -25,6 +28,8 @@ function las_admin_dev_mode() {
     return false;
   }
 }
+
+
 
 
 //

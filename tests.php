@@ -22,6 +22,12 @@ if ( !las_is_developer() ) {
 
 <?php
 
+  test_las_level_arrays();
+
+  test_las_mutate_user_meta();
+
+  test_las_create_new_access_struct();
+
   test_las_get_wyzwanie_finished_sum();
 
   test_las_get_wyzwanie_correct_sum();

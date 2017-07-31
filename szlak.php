@@ -45,6 +45,7 @@ function las_get_all_sections( $user_progress ) {
 
   // Kursy IDs
   $basic_sections_parent = 20;
+  $fonetyka_sections_parent = 284;
   $advanced_sections_parent = 24;
 
   $all_sections         = '';
@@ -52,6 +53,12 @@ function las_get_all_sections( $user_progress ) {
   $adv_list_loop_array  = array();
   $section_top_open     = '';
   $ids                  = array();
+
+
+
+  //
+  //  Początek drogi
+  //
 
   //  get sections array
   $sections_args = array(
@@ -64,13 +71,6 @@ function las_get_all_sections( $user_progress ) {
   );
   $basic_sections = get_posts( $sections_args );
 
-
-  //  get advanced sections array
-  $adv_sections_args = $sections_args;
-  $adv_sections_args['post_parent'] = $advanced_sections_parent;
-  $advanced_sections = get_posts( $adv_sections_args );
-
-
   // if there are any sections to display
   //  LOOP them
   if ( $basic_sections ) {
@@ -80,6 +80,35 @@ function las_get_all_sections( $user_progress ) {
     $all_sections .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
   }
 
+
+  //
+  //  Fonetyka
+  //
+
+  //  get fonetyka sections array
+  $fonetyka_sections_args = $sections_args;
+  $fonetyka_sections_args['post_parent'] = $fonetyka_sections_parent;
+  $fonetyka_sections = get_posts( $fonetyka_sections_args );
+
+  // if there are any fonetyka sections to display
+  if ( $fonetyka_sections ) {
+    $fonetyka_list_loop_array = las_list_loop( $fonetyka_sections, 'fonetyka', $user_progress );
+  }
+  else {
+    $all_sections .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
+  }
+
+
+  //
+  //  Daleko w lesie
+  //
+
+  //  get advanced sections array
+  $adv_sections_args = $sections_args;
+  $adv_sections_args['post_parent'] = $advanced_sections_parent;
+  $advanced_sections = get_posts( $adv_sections_args );
+
+
   // if there are any advanced sections to display
   if ( $advanced_sections ) {
     $adv_list_loop_array = las_list_loop( $advanced_sections, 'advanced', $user_progress );
@@ -88,7 +117,9 @@ function las_get_all_sections( $user_progress ) {
     $all_sections .= 'Wystąpił błąd i nie możemy wyświetlić szlaku.';
   }
 
+
   $all_sections .= $list_loop_array[0];
+  $all_sections .= $fonetyka_list_loop_array[0];
   $all_sections .= $adv_list_loop_array[0];
 
   //  if there is section to open in advanced courses
@@ -132,6 +163,9 @@ function las_list_loop( $sections, $level, $user_progress ) {
   if ( $level === 'basic' ) {
     $main_list .= 'Początek drogi';
   }
+  elseif ( $level === 'fonetyka' ) {
+    $main_list .= 'Dźwięki';
+  }
   elseif ( $level === 'advanced' ) {
     $main_list .= 'Daleko w lesie';
   }
@@ -151,8 +185,6 @@ function las_list_loop( $sections, $level, $user_progress ) {
     //
     //  Section title
     //
-
-    //  remove the number from the title
     $new_title = las_get_clean_title( $section->post_title );
 
 
@@ -162,6 +194,7 @@ function las_list_loop( $sections, $level, $user_progress ) {
     //  user has done previous section
     //  show active link to next section
     if (     ( $last_section_done && ( $level === 'basic' ) )
+          || ( $last_section_done && ( $level === 'fonetyka' ) )
           || ( $last_section_done && current_user_can( 'avanced_user' ) )
           //|| ( $last_section_done && current_user_can( 'edit_posts' ) )
         ) {
@@ -183,6 +216,7 @@ function las_list_loop( $sections, $level, $user_progress ) {
     //  but hasn't done the previous section
     //  the link is gray but active so user can see what is inside
     elseif (     ( $level === 'basic' )
+              || ( $level === 'fonetyka' )
               || current_user_can( 'avanced_user' )
               //|| current_user_can( 'edit_posts' )
             ) {
@@ -213,6 +247,7 @@ function las_list_loop( $sections, $level, $user_progress ) {
 
     //  if user can see links to excersises
     if (    ( $level === 'basic' )
+         || ( $level === 'fonetyka' )
          || current_user_can( 'avanced_user' )
          //|| current_user_can( 'edit_posts' )
         ) {
@@ -408,13 +443,6 @@ include( 'includes/head.php' );
 
     <?php
 
-      // $test =  json_decode( stripslashes($_COOKIE["lasChallangeProgress"] ), true );
-
-      // echo '<p style="display:none">';
-      // var_dump($test);
-      // echo '</p>';
-
-
       $all_sections_array = las_get_all_sections( $user_progress );
 
       echo $all_sections_array[0];
@@ -447,13 +475,24 @@ include( 'includes/head.php' );
   </div>
 </div>
 
+
+<script>
+//  prepare Szlak
+var las = new LasSzlak();
+</script>
+
+
 <?php
-  $last_wyzwanie_result = las_get_last_wyzwanie_result( $user_progress );
+  //$last_wyzwanie_result = las_get_last_wyzwanie_result( $user_progress );
 
   //  for testing results
-  //$last_wyzwanie_result = test_las_get_last_wyzwanie_result();
+  $last_wyzwanie_result = test_las_get_last_wyzwanie_result();
+  $user_exp = 900;
+  $level_array = las_get_user_level_array( $user_exp );
+  $user_level = $level_array[0];
+  $exp_for_next = $level_array[1];
 
-  if ( $last_wyzwanie_result && $last_wyzwanie_result['progress']['ex'] ) {
+  if ( $last_wyzwanie_result && $last_wyzwanie_result['id'] ) {
 
     //  Remove last wyzwanie result from database
     //  the result is still in the var, so results can show
@@ -467,35 +506,14 @@ include( 'includes/head.php' );
 
 
 <script>
-//  init Szlak
-var las = new LasSzlak();
-
 <?php
   //  there is a section to open
   if ( $all_sections_array[1] && ( $all_sections_array[1] !== '' ) ) {
     echo 'las.helper.sectionTopOpen = \'' . $all_sections_array[1] . '\';'  . "\r\n";
   }
-
-
-  if ( $last_wyzwanie_result && $last_wyzwanie_result[ 'first_time' ] ) {
-
-    $ids = $all_sections_array[2];
-
-    $next_id_key = array_search( 'chapter-' . $last_wyzwanie_result['id'], $ids ) + 1;
-
-    $next_id = $ids[ $next_id_key ];
-
-    echo 'las.helper.chapterToHighlight = \'' . $next_id . '\'; ' . "\r\n";
-  }
-
-  if ( $last_wyzwanie_result && $last_wyzwanie_result['progress']['ex'] ) {
-
-    echo 'las.state.results = true;';
-
-  }
-
 ?>
 
+//  init Szlak
 las.init();
 </script>
 

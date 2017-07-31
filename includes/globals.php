@@ -8,6 +8,7 @@ $test_time_start = microtime(true);
 
 
 global $post;
+global $access_time;
 $id = $post->ID;
 
 

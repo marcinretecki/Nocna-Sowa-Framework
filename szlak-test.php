@@ -40,15 +40,14 @@ include( 'includes/head.php' );
 
 
 
-            $user_cookie_progress = las_get_user_cookie_progress();
+            $user_cookie_progress = las_get_user_progress_from_cookie();
 
             echo '<pre class="size-0">';
-            var_dump( json_decode( stripslashes( $_COOKIE["lasChallangeProgress"] ), true ) );
             var_dump( $user_cookie_progress );
             echo '</pre>';
 
 
-            echo las_get_exp_from_progress( $user_cookie_progress );
+            //echo las_get_exp_from_progress( $user_cookie_progress );
 
 
             echo '<h2 class="h1">User Struct</h2>';
@@ -102,6 +101,10 @@ include( 'includes/head.php' );
 
               echo '<h2 class="size-3 space-2">' . $post->post_title . '</h2>';
 
+              //  get the slug of parent
+              //  to get the data file
+              $parent_name = $post->post_name;
+
               $children_args_3 = array(
                 'post_type'       => 'page',
                 'posts_per_page'  => -1,
@@ -148,7 +151,7 @@ include( 'includes/head.php' );
                 echo '<p class="size-0">';
 
                 //  PRZEWODNIK DATA FILE
-                $przewodnik = stream_resolve_include_path( __DIR__ . '/data/przewodnik/' . $post->post_name . '.php' );
+                $przewodnik = stream_resolve_include_path( __DIR__ . '/data/przewodnik/' . $parent_name . '/' . $post->post_name . '.php' );
 
                 if ( $przewodnik ) {
                   echo $green_light;
@@ -181,13 +184,10 @@ include( 'includes/head.php' );
 
                   //  WYZWANIE DATA FILE
                   if ( has_category( 'wyzwanie-liczby' ) ) {
-                    $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/liczby.php' );
-                  }
-                  elseif ( has_category( 'misja' ) ) {
-                    $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/misja/' . $post->post_name . '.php' );
+                    $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $parent_name . '/liczby.php' );
                   }
                   else {
-                    $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $post->post_name . '.php' );
+                    $wyzwanie_data = stream_resolve_include_path( __DIR__ . '/data/wyzwanie/' . $parent_name . '/' . $post->post_name . '.php' );
                   }
 
                   if ( $wyzwanie_data ) {
