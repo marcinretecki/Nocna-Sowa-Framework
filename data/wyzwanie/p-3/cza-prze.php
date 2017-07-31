@@ -5,12 +5,13 @@ function LasData() {
 
 
   this.testNotes = [
-    'czy _bm1 jest nagrane?',
-    'dwa przykłady mają jakiś błąd',
+    'Mężczyzna nie mówi wszystkiego. – złe nagranie',
+    'czy "Nie muszę sprzątać" jest nagrane?',
     'czy gwarancja powinna być z rodzajnikiem?',
     'Vi drar ikke til Stavanger. - zrobic moze znak zapytania i napisac im ze moze byc reise',
-    'jak powiesz nie wiem: jeg sier ikke noe',
-    'nigdzie nie idziemy, czy da sie inaczej poprawnie to samo powiedziec w znaku zapytania'
+    'jak powiesz nie wiem: jeg sier ikke noe ???',
+    'nigdzie nie idziemy, czy da sie inaczej poprawnie to samo powiedziec w znaku zapytania',
+    'Mobilen ligger ikke på skapet. – nie ma nagrania more'
   ];
 
 
@@ -95,23 +96,6 @@ function LasData() {
       score:      'correct',
       autoNext:   'RANDOM'
     },
-
-
-    /*  złe nagranie
-    _af1: {
-      spokenWord: 'Mężczyzna nie mówi wszystkiego.',
-      startTime:  36,
-      duration:   39 - 36,
-      pauseTime:  6,
-      autoNext:   '_af2'
-    },
-    _af2: {
-      msg:        '<i>Mannen sier ikke alt.</i>',
-      startTime:  40,
-      duration:   42 - 40,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },*/
 
 
     _ah1: {
@@ -210,54 +194,6 @@ function LasData() {
     },
 
 
-    _bb1: {
-      spokenWord: 'Nie zostanę królem.',
-      startTime:  85,
-      duration:   87.5 - 85,
-      pauseTime:  5,
-      autoNext:   '_bb2'
-    },
-    _bb2: {
-      msg:        '<i>Jeg blir ikke konge.</i>',
-      startTime:  89,
-      duration:   90.5 - 89,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _bc1: {
-      spokenWord: 'Nigdzie nie idziemy.',
-      startTime:  92,
-      duration:   94 - 92,
-      pauseTime:  6,
-      autoNext:   '_bc2'
-    },
-    _bc2: {
-      msg:        '<i>Vi går ikke noe sted.</i>',
-      startTime:  95,
-      duration:   97 - 95,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _bd1: {
-      spokenWord: 'Teresa nie bierze narkotyków.',
-      startTime:  98,
-      duration:   100.5 - 98,
-      pauseTime:  8,
-      autoNext:   '_bd2'
-    },
-    _bd2: {
-      msg:        '<i>Teresa tar ikke narkotika.</i>',
-      startTime:  102,
-      duration:   104.5 - 102,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _bf1: {
       spokenWord: 'Ona nie pije mleka.',
       startTime:  113,
@@ -317,38 +253,6 @@ function LasData() {
       msg:        '<i>Jeg vet ikke.</i>',
       startTime:  142,
       duration:   143.5 - 142,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _bk1: {
-      spokenWord: 'Nic nie powiem.',
-      startTime:  145,
-      duration:   147 - 145,
-      pauseTime:  5,
-      autoNext:   '_bk2'
-    },
-    _bk2: {
-      msg:        '<i>Jeg sier ikke noe.</i>',
-      startTime:  148,
-      duration:   149.5 - 148,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _bm1: {
-      spokenWord: 'Nie muszę sprzątać',
-      startTime:  158,
-      duration:   160 - 158,
-      pauseTime:  6,
-      autoNext:   '_bm2'
-    },
-    _bm2: {
-      msg:        '<i>Vi trenger ikke å rydde.</i>',
-      startTime:  161,
-      duration:   163 - 161,
       score:      'correct',
       autoNext:   'RANDOM'
     },
@@ -418,22 +322,6 @@ function LasData() {
     },
 
 
-    _cd1: {
-      spokenWord: 'Nie lubię krwi.',
-      startTime:  206,
-      duration:   208 - 206,
-      pauseTime:  6,
-      autoNext:   '_cd2'
-    },
-    _cd2: {
-      msg:        '<i>Jeg liker ikke blod.</i>',
-      startTime:  209,
-      duration:   210.5 - 209,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _ce1: {
       spokenWord: 'Nie mam jeszcze firmy.',
       startTime:  212,
@@ -465,6 +353,122 @@ function LasData() {
       autoNext:   'RANDOM'
     }
 
+
+
+  };
+
+
+  this.extra = {
+
+    _bm1: {
+      spokenWord: 'Nie muszę sprzątać',
+      startTime:  158,
+      duration:   160 - 158,
+      pauseTime:  6,
+      autoNext:   '_bm2'
+    },
+    _bm2: {
+      msg:        '<i>Vi trenger ikke å rydde.</i>',
+      startTime:  161,
+      duration:   163 - 161,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _bb1: {
+      spokenWord: 'Nie zostanę królem.',
+      startTime:  85,
+      duration:   87.5 - 85,
+      pauseTime:  5,
+      autoNext:   '_bb2'
+    },
+    _bb2: {
+      msg:        '<i>Jeg blir ikke konge.</i>',
+      startTime:  89,
+      duration:   90.5 - 89,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _cd1: {
+      spokenWord: 'Nie lubię krwi.',
+      startTime:  206,
+      duration:   208 - 206,
+      pauseTime:  6,
+      autoNext:   '_cd2'
+    },
+    _cd2: {
+      msg:        '<i>Jeg liker ikke blod.</i>',
+      startTime:  209,
+      duration:   210.5 - 209,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _bc1: {
+      spokenWord: 'Nigdzie nie idziemy.',
+      startTime:  92,
+      duration:   94 - 92,
+      pauseTime:  6,
+      autoNext:   '_bc2'
+    },
+    _bc2: {
+      msg:        '<i>Vi går ikke noe sted.</i>',
+      startTime:  95,
+      duration:   97 - 95,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _bd1: {
+      spokenWord: 'Teresa nie bierze narkotyków.',
+      startTime:  98,
+      duration:   100.5 - 98,
+      pauseTime:  8,
+      autoNext:   '_bd2'
+    },
+    _bd2: {
+      msg:        '<i>Teresa tar ikke narkotika.</i>',
+      startTime:  102,
+      duration:   104.5 - 102,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+    _af1: {
+      spokenWord: 'Mężczyzna nie mówi wszystkiego.',
+      startTime:  36,
+      duration:   39 - 36,
+      pauseTime:  6,
+      autoNext:   '_af2'
+    },
+    _af2: {
+      msg:        '<i>Mannen sier ikke alt.</i>',
+      startTime:  40,
+      duration:   42 - 40,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _bk1: {
+      spokenWord: 'Nic nie powiem.',
+      startTime:  145,
+      duration:   147 - 145,
+      pauseTime:  5,
+      autoNext:   '_bk2'
+    },
+    _bk2: {
+      msg:        '<i>Jeg sier ikke noe.</i>',
+      startTime:  148,
+      duration:   149.5 - 148,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
 
 
   };

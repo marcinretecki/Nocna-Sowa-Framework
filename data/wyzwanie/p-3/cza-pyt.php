@@ -177,68 +177,6 @@ function LasData() {
     },
 
 
-    _af1: {
-      spokenWord: 'Zapytaj: Czy często rozmawiasz z ojcem?',
-      startTime:  0,
-      duration:   2.5 - 0,
-      pauseTime:  8,
-      autoNext:   '_af2'
-    },
-    _af2: {
-      msg:        '<i>Snakker du ofte med faren?</i>',
-      trans:      'Czy często rozmawiasz z ojcem?',
-      startTime:  4,
-      duration:   6.5 - 4,
-      autoNext:   '_af3'
-    },
-    _af3: {
-      spokenWord: 'Odpowiedz: Tak, rozmawiam z nim codziennie.',
-      startTime:  4,
-      duration:   6.5 - 4,
-      pauseTime:  8,
-      autoNext:   '_af4'
-    },
-    _af4: {
-      msg:        '<i>Ja, jeg snakker med ham hver dag.</i>',
-      trans:      'Tak, rozmawiam z nim codziennie.',
-      startTime:  4,
-      duration:   6.5 - 4,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _ah1: {
-      spokenWord: 'Zapytaj: Czy masz dużo energii?',
-      startTime:  0,
-      duration:   2.5 - 0,
-      pauseTime:  8,
-      autoNext:   '_ah2'
-    },
-    _ah2: {
-      msg:        '<i>Har du mye energi?</i>',
-      trans:      'Czy masz dużo energii?',
-      startTime:  4,
-      duration:   6.5 - 4,
-      autoNext:   '_ah3'
-    },
-    _ah3: {
-      spokenWord: 'Odpowiedz: Tak, mam dużo energii.',
-      startTime:  4,
-      duration:   6.5 - 4,
-      pauseTime:  8,
-      autoNext:   '_ah4'
-    },
-    _ah4: {
-      msg:        '<i>Ja, jeg har mye energi.</i>',
-      trans:      'Tak, mam dużo energii.',
-      startTime:  4,
-      duration:   6.5 - 4,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _ag1: {
       spokenWord: 'Zapytaj: Czy masz wielu przyjaciół?',
       startTime:  0,
@@ -263,68 +201,6 @@ function LasData() {
     _ag4: {
       msg:        '<i>Ja, jeg har mange venner.</i>',
       trans:      'Tak, mam wielu przyjaciół.',
-      startTime:  4,
-      duration:   6.5 - 4,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _aj1: {
-      spokenWord: 'Zapytaj: Czy jest dużo piasku na plaży?',
-      startTime:  0,
-      duration:   2.5 - 0,
-      pauseTime:  8,
-      autoNext:   '_aj2'
-    },
-    _aj2: {
-      msg:        '<i>Er det mye sand på stranda?</i>',
-      trans:      'Czy jest dużo piasku na plaży?',
-      startTime:  4,
-      duration:   6.5 - 4,
-      autoNext:   '_aj3'
-    },
-    _aj3: {
-      spokenWord: 'Odpowiedz: Nie, nie ma dużo piasku. Tylko kamienie.',
-      startTime:  4,
-      duration:   6.5 - 4,
-      pauseTime:  8,
-      autoNext:   '_aj4'
-    },
-    _aj4: {
-      msg:        '<i>Nei, det er ikke mye sand. Bare steiner.</i>',
-      trans:      'Nie, nie ma dużo piasku. Tylko kamienie.',
-      startTime:  4,
-      duration:   6.5 - 4,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _ak1: {
-      spokenWord: 'Zapytaj: Czy masz wiele ubrań?',
-      startTime:  0,
-      duration:   2.5 - 0,
-      pauseTime:  8,
-      autoNext:   '_ak2'
-    },
-    _ak2: {
-      msg:        '<i>Har du mange klær?</i>',
-      trans:      'Czy masz wiele ubrań?',
-      startTime:  4,
-      duration:   6.5 - 4,
-      autoNext:   '_ak3'
-    },
-    _ak3: {
-      spokenWord: 'Odpowiedz: Nie, nie potrzebuję wielu ubrań.',
-      startTime:  4,
-      duration:   6.5 - 4,
-      pauseTime:  8,
-      autoNext:   '_ak4'
-    },
-    _ak4: {
-      msg:        '<i>Nei, jeg trenger ikke mange klær.</i>',
-      trans:      'Nie, nie potrzebuję wielu ubrań.',
       startTime:  4,
       duration:   6.5 - 4,
       score:      'correct',
@@ -767,6 +643,134 @@ function LasData() {
 
   };
 
+
+  this.extra = {
+
+    _af1: {
+      spokenWord: 'Zapytaj: Czy często rozmawiasz z ojcem?',
+      startTime:  0,
+      duration:   2.5 - 0,
+      pauseTime:  8,
+      autoNext:   '_af2'
+    },
+    _af2: {
+      msg:        '<i>Snakker du ofte med faren?</i>',
+      trans:      'Czy często rozmawiasz z ojcem?',
+      startTime:  4,
+      duration:   6.5 - 4,
+      autoNext:   '_af3'
+    },
+    _af3: {
+      spokenWord: 'Odpowiedz: Tak, rozmawiam z nim codziennie.',
+      startTime:  4,
+      duration:   6.5 - 4,
+      pauseTime:  8,
+      autoNext:   '_af4'
+    },
+    _af4: {
+      msg:        '<i>Ja, jeg snakker med ham hver dag.</i>',
+      trans:      'Tak, rozmawiam z nim codziennie.',
+      startTime:  4,
+      duration:   6.5 - 4,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _ah1: {
+      spokenWord: 'Zapytaj: Czy masz dużo energii?',
+      startTime:  0,
+      duration:   2.5 - 0,
+      pauseTime:  8,
+      autoNext:   '_ah2'
+    },
+    _ah2: {
+      msg:        '<i>Har du mye energi?</i>',
+      trans:      'Czy masz dużo energii?',
+      startTime:  4,
+      duration:   6.5 - 4,
+      autoNext:   '_ah3'
+    },
+    _ah3: {
+      spokenWord: 'Odpowiedz: Tak, mam dużo energii.',
+      startTime:  4,
+      duration:   6.5 - 4,
+      pauseTime:  8,
+      autoNext:   '_ah4'
+    },
+    _ah4: {
+      msg:        '<i>Ja, jeg har mye energi.</i>',
+      trans:      'Tak, mam dużo energii.',
+      startTime:  4,
+      duration:   6.5 - 4,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _aj1: {
+      spokenWord: 'Zapytaj: Czy jest dużo piasku na plaży?',
+      startTime:  0,
+      duration:   2.5 - 0,
+      pauseTime:  8,
+      autoNext:   '_aj2'
+    },
+    _aj2: {
+      msg:        '<i>Er det mye sand på stranda?</i>',
+      trans:      'Czy jest dużo piasku na plaży?',
+      startTime:  4,
+      duration:   6.5 - 4,
+      autoNext:   '_aj3'
+    },
+    _aj3: {
+      spokenWord: 'Odpowiedz: Nie, nie ma dużo piasku. Tylko kamienie.',
+      startTime:  4,
+      duration:   6.5 - 4,
+      pauseTime:  8,
+      autoNext:   '_aj4'
+    },
+    _aj4: {
+      msg:        '<i>Nei, det er ikke mye sand. Bare steiner.</i>',
+      trans:      'Nie, nie ma dużo piasku. Tylko kamienie.',
+      startTime:  4,
+      duration:   6.5 - 4,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _ak1: {
+      spokenWord: 'Zapytaj: Czy masz wiele ubrań?',
+      startTime:  0,
+      duration:   2.5 - 0,
+      pauseTime:  8,
+      autoNext:   '_ak2'
+    },
+    _ak2: {
+      msg:        '<i>Har du mange klær?</i>',
+      trans:      'Czy masz wiele ubrań?',
+      startTime:  4,
+      duration:   6.5 - 4,
+      autoNext:   '_ak3'
+    },
+    _ak3: {
+      spokenWord: 'Odpowiedz: Nie, nie potrzebuję wielu ubrań.',
+      startTime:  4,
+      duration:   6.5 - 4,
+      pauseTime:  8,
+      autoNext:   '_ak4'
+    },
+    _ak4: {
+      msg:        '<i>Nei, jeg trenger ikke mange klær.</i>',
+      trans:      'Nie, nie potrzebuję wielu ubrań.',
+      startTime:  4,
+      duration:   6.5 - 4,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+  };
 
 
 }

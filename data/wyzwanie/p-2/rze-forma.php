@@ -5,9 +5,7 @@ function LasData() {
 
 
   this.testNotes = [
-    'czy w "more" powinniśmy czytać poprawną odpowiedź?',
-    'trzeba zastanowić się nad treścią "more"',
-    'nie ma zakończenia'
+    'Można dodać "mieszkanie" do bonusowych przykładów.'
   ];
 
   this.intro = {
@@ -48,30 +46,6 @@ function LasData() {
 
 
 
-    _speil1: {
-      spokenWord: 'Powiedz "to lustro"',
-      startTime:  41,
-      duration:   43 - 41,
-      answers: [
-        { answer: '<i>speilet</i>', score: 'correct', next: '_speil2' },
-        { answer: '<i>et speil</i>', score: 'wrong' }
-      ],
-      more:       {
-        spokenWord: 'Rodzajnik /et/ wskazuje na jedno, nieokreślone lustro. W formie określonej zabieramy rodzajnik i dodajemy końcówkę.',
-        startTime:  47,
-        duration:   56 - 47
-      }
-    },
-    _speil2: {
-      msg:        '<i>speilet</i>',
-      score:      true,
-      startTime:  44,
-      duration:   46 - 44,
-      autoNext:   'RANDOM'
-    },
-
-
-
     _mann1: {
       spokenWord: 'Powiedz "ten mężczyzna" albo "mąż":',
       startTime:  57,
@@ -91,78 +65,6 @@ function LasData() {
       score:      true,
       startTime:  62,
       duration:   64 - 62,
-      autoNext:   'RANDOM'
-    },
-
-
-
-    _kvinne1: {
-      spokenWord: 'Powiedz "jakaś kobieta":',
-      startTime:  76,
-      duration:   79 - 76,
-      answers: [
-        { answer: '<i>ei kvinne</i>', score: 'correct', next: '_kvinne2' },
-        { answer: '<i>kvinna</i>', score: 'wrong' }
-      ],
-      more:       {
-        spokenWord: 'Gdy mówimy o dowolnej kobiecie, przed rzeczownikiem stoi rodzajnik.',
-        startTime:  83,
-        duration:   89 - 83
-      }
-    },
-    _kvinne2: {
-      msg:        '<i>ei kvinne</i>',
-      score:      true,
-      startTime:  80,
-      duration:   82 - 80,
-      autoNext:   'RANDOM'
-    },
-
-
-
-    _gutt1: {
-      spokenWord: 'Powiedz "ten chłopiec":',
-      startTime:  90,
-      duration:   92 - 90,
-      answers: [
-        { answer: '<i>gutten</i>', score: 'correct', next: '_gutt2' },
-        { answer: '<i>en gutt</i>', score: 'wrong' }
-      ],
-      more:       {
-        spokenWord: 'Rodzajnik /en/ wskazuje na jednego, nieokreślonego chłopca. W formie określonej zabieramy rodzajnik i dodajemy końcówkę.',
-        startTime:  96,
-        duration:   106 - 96
-      }
-    },
-    _gutt2: {
-      msg:        '<i>gutten</i>',
-      score:      true,
-      startTime:  93,
-      duration:   95 - 93,
-      autoNext:   'RANDOM'
-    },
-
-
-
-    _jente1: {
-      spokenWord: 'Powiedz "jakaś dziewczyna" albo "dziewczynka":',
-      startTime:  107,
-      duration:   111 - 107,
-      answers: [
-        { answer: '<i>ei jente</i>', score: 'correct', next: '_jente2' },
-        { answer: '<i>jenta</i>', score: 'wrong' }
-      ],
-      more:       {
-        spokenWord: 'Gdy mówimy o nieokreślonej dziewczynie, przed rzeczownikiem stoi rodzajnik.',
-        startTime:  115,
-        duration:   121 - 115
-      }
-    },
-    _jente2: {
-      msg:        '<i>ei jente</i>',
-      score:      true,
-      startTime:  112,
-      duration:   114 - 112,
       autoNext:   'RANDOM'
     },
 
@@ -211,30 +113,6 @@ function LasData() {
       score:      true,
       startTime:  143,
       duration:   145 - 143,
-      autoNext:   'RANDOM'
-    },
-
-
-
-    _land1: {
-      spokenWord: 'Powiedz "ten kraj":',
-      startTime:  157,
-      duration:   159 - 157,
-      answers: [
-        { answer: '<i>landet</i>', score: 'correct', next: '_land2' },
-        { answer: '<i>et land</i>', score: 'wrong' }
-      ],
-      more:       {
-        spokenWord: 'Rodzajnik /et/ wskazuje na jeden, nieokreślony kraj. W formie określonej zabieramy rodzajnik i dodajemy końcówkę.',
-        startTime:  163,
-        duration:   172 - 163
-      }
-    },
-    _land2: {
-      msg:        '<i>landet</i>',
-      score:      true,
-      startTime:  160,
-      duration:   162 - 160,
       autoNext:   'RANDOM'
     },
 
@@ -412,36 +290,6 @@ function LasData() {
     },
 
 
-
-    _mobil1: {
-      spokenWord: 'Powiedz "ten telefon":',
-      startTime:  295,
-      duration:   297 - 295,
-      answers: [
-        { answer: '<i>mobilen</i>', score: 'correct', next: '_mobil2' },
-        { answer: '<i>en mobil</i>', score: 'wrong' }
-      ],
-      more:       {
-        spokenWord: 'Rodzajnik /en/ wskazuje na jeden, nieokreślony telefon. W formie określonej zabieramy rodzajnik i dodajemy końcówkę.',
-        startTime:  301,
-        duration:   311 - 301
-      }
-    },
-    _mobil2: {
-      msg:        '<i>mobilen</i>',
-      score:      true,
-      startTime:  298,
-      duration:   300 - 298,
-      autoNext:   'RANDOM',
-      more:       {
-        spokenWord: '/en mobil/ to skrót od /en mobiltelefon/. Możesz też powiedzieć /en telefon/ lub /en smarttelefon/',
-        startTime:  312,
-        duration:   321 - 312
-      }
-
-    },
-
-
     _melding1: {
       spokenWord: 'Powiedz "jakaś wiadomość":',
       startTime:  323,
@@ -543,54 +391,6 @@ function LasData() {
 
 
 
-    _kontakt1: {
-      spokenWord: 'Jak powiesz "kontakt", jakiś dowolny?',
-      startTime:  388,
-      duration:   391 - 388,
-      answers: [
-        { answer: '<i>en kontakt</i>', score: 'correct', next: '_kontakt2' },
-        { answer: '<i>kontakten</i>', score: 'wrong' }
-      ],
-      more:       {
-        spokenWord: 'Gdy mówimy o dowolnym kontakcie, przed rzeczownikiem stawiamy rodzajnik.',
-        startTime:  395,
-        duration:   401 - 395
-      }
-    },
-    _kontakt2: {
-      msg:        '<i>en kontakt</i>',
-      score:      true,
-      startTime:  392,
-      duration:   394 - 392,
-      autoNext:   'RANDOM'
-    },
-
-
-
-    _menneske1: {
-      spokenWord: 'Powiedz "człowiek", w formie nieokreślonej:',
-      startTime:  402,
-      duration:   405 - 402,
-      answers: [
-        { answer: '<i>et menneske</i>', score: 'correct', next: '_menneske2' },
-        { answer: '<i>mennesket</i>', score: 'wrong' }
-      ],
-      more:       {
-        spokenWord: 'Gdy mówimy o nieokreślonym człowieku, przed rzeczownikiem stawiamy rodzajnik.',
-        startTime:  409,
-        duration:   415 - 409
-      }
-    },
-    _menneske2: {
-      msg:        '<i>et menneske</i>',
-      score:      true,
-      startTime:  406,
-      duration:   408 - 406,
-      autoNext:   'RANDOM'
-    },
-
-
-
     _fly1: {
       spokenWord: 'Powiedz "ten samolot":',
       startTime:  416,
@@ -687,30 +487,6 @@ function LasData() {
 
 
 
-    _firma1: {
-      spokenWord: 'Powiedz "firma" w formie nieokreślonej:',
-      startTime:  477,
-      duration:   480 - 477,
-      answers: [
-        { answer: '<i>et firma</i>', score: 'correct', next: '_firma2' },
-        { answer: '<i>firmaet</i>', score: 'wrong' }
-      ],
-      more:       {
-        spokenWord: 'Gdy mówimy o nieokreślonej firmie, przed rzeczownikiem stawiamy rodzajnik.',
-        startTime:  484,
-        duration:   490 - 484
-      }
-    },
-    _firma2: {
-      msg:        '<i>et firma</i>',
-      score:      true,
-      startTime:  481,
-      duration:   483 - 481,
-      autoNext:   'RANDOM'
-    },
-
-
-
     _skog1: {
       spokenWord: 'Powiedz "ten las":',
       startTime:  491,
@@ -736,6 +512,231 @@ function LasData() {
 
   };
 
+
+  this.extra = {
+
+    _land1: {
+      spokenWord: 'Powiedz "ten kraj":',
+      startTime:  157,
+      duration:   159 - 157,
+      answers: [
+        { answer: '<i>landet</i>', score: 'correct', next: '_land2' },
+        { answer: '<i>et land</i>', score: 'wrong' }
+      ],
+      more:       {
+        spokenWord: 'Rodzajnik /et/ wskazuje na jeden, nieokreślony kraj. W formie określonej zabieramy rodzajnik i dodajemy końcówkę.',
+        startTime:  163,
+        duration:   172 - 163
+      }
+    },
+    _land2: {
+      msg:        '<i>landet</i>',
+      score:      true,
+      startTime:  160,
+      duration:   162 - 160,
+      autoNext:   'RANDOM'
+    },
+
+
+
+    _speil1: {
+      spokenWord: 'Powiedz "to lustro"',
+      startTime:  41,
+      duration:   43 - 41,
+      answers: [
+        { answer: '<i>speilet</i>', score: 'correct', next: '_speil2' },
+        { answer: '<i>et speil</i>', score: 'wrong' }
+      ],
+      more:       {
+        spokenWord: 'Rodzajnik /et/ wskazuje na jedno, nieokreślone lustro. W formie określonej zabieramy rodzajnik i dodajemy końcówkę.',
+        startTime:  47,
+        duration:   56 - 47
+      }
+    },
+    _speil2: {
+      msg:        '<i>speilet</i>',
+      score:      true,
+      startTime:  44,
+      duration:   46 - 44,
+      autoNext:   'RANDOM'
+    },
+
+
+
+    _kontakt1: {
+      spokenWord: 'Jak powiesz "kontakt", jakiś dowolny?',
+      startTime:  388,
+      duration:   391 - 388,
+      answers: [
+        { answer: '<i>en kontakt</i>', score: 'correct', next: '_kontakt2' },
+        { answer: '<i>kontakten</i>', score: 'wrong' }
+      ],
+      more:       {
+        spokenWord: 'Gdy mówimy o dowolnym kontakcie, przed rzeczownikiem stawiamy rodzajnik.',
+        startTime:  395,
+        duration:   401 - 395
+      }
+    },
+    _kontakt2: {
+      msg:        '<i>en kontakt</i>',
+      score:      true,
+      startTime:  392,
+      duration:   394 - 392,
+      autoNext:   'RANDOM'
+    },
+
+
+
+    _firma1: {
+      spokenWord: 'Powiedz "firma" w formie nieokreślonej:',
+      startTime:  477,
+      duration:   480 - 477,
+      answers: [
+        { answer: '<i>et firma</i>', score: 'correct', next: '_firma2' },
+        { answer: '<i>firmaet</i>', score: 'wrong' }
+      ],
+      more:       {
+        spokenWord: 'Gdy mówimy o nieokreślonej firmie, przed rzeczownikiem stawiamy rodzajnik.',
+        startTime:  484,
+        duration:   490 - 484
+      }
+    },
+    _firma2: {
+      msg:        '<i>et firma</i>',
+      score:      true,
+      startTime:  481,
+      duration:   483 - 481,
+      autoNext:   'RANDOM'
+    },
+
+
+
+    _kvinne1: {
+      spokenWord: 'Powiedz "jakaś kobieta":',
+      startTime:  76,
+      duration:   79 - 76,
+      answers: [
+        { answer: '<i>ei kvinne</i>', score: 'correct', next: '_kvinne2' },
+        { answer: '<i>kvinna</i>', score: 'wrong' }
+      ],
+      more:       {
+        spokenWord: 'Gdy mówimy o dowolnej kobiecie, przed rzeczownikiem stoi rodzajnik.',
+        startTime:  83,
+        duration:   89 - 83
+      }
+    },
+    _kvinne2: {
+      msg:        '<i>ei kvinne</i>',
+      score:      true,
+      startTime:  80,
+      duration:   82 - 80,
+      autoNext:   'RANDOM'
+    },
+
+
+
+    _gutt1: {
+      spokenWord: 'Powiedz "ten chłopiec":',
+      startTime:  90,
+      duration:   92 - 90,
+      answers: [
+        { answer: '<i>gutten</i>', score: 'correct', next: '_gutt2' },
+        { answer: '<i>en gutt</i>', score: 'wrong' }
+      ],
+      more:       {
+        spokenWord: 'Rodzajnik /en/ wskazuje na jednego, nieokreślonego chłopca. W formie określonej zabieramy rodzajnik i dodajemy końcówkę.',
+        startTime:  96,
+        duration:   106 - 96
+      }
+    },
+    _gutt2: {
+      msg:        '<i>gutten</i>',
+      score:      true,
+      startTime:  93,
+      duration:   95 - 93,
+      autoNext:   'RANDOM'
+    },
+
+
+
+    _jente1: {
+      spokenWord: 'Powiedz "jakaś dziewczyna" albo "dziewczynka":',
+      startTime:  107,
+      duration:   111 - 107,
+      answers: [
+        { answer: '<i>ei jente</i>', score: 'correct', next: '_jente2' },
+        { answer: '<i>jenta</i>', score: 'wrong' }
+      ],
+      more:       {
+        spokenWord: 'Gdy mówimy o nieokreślonej dziewczynie, przed rzeczownikiem stoi rodzajnik.',
+        startTime:  115,
+        duration:   121 - 115
+      }
+    },
+    _jente2: {
+      msg:        '<i>ei jente</i>',
+      score:      true,
+      startTime:  112,
+      duration:   114 - 112,
+      autoNext:   'RANDOM'
+    },
+
+
+
+    _mobil1: {
+      spokenWord: 'Powiedz "ten telefon":',
+      startTime:  295,
+      duration:   297 - 295,
+      answers: [
+        { answer: '<i>mobilen</i>', score: 'correct', next: '_mobil2' },
+        { answer: '<i>en mobil</i>', score: 'wrong' }
+      ],
+      more:       {
+        spokenWord: 'Rodzajnik /en/ wskazuje na jeden, nieokreślony telefon. W formie określonej zabieramy rodzajnik i dodajemy końcówkę.',
+        startTime:  301,
+        duration:   311 - 301
+      }
+    },
+    _mobil2: {
+      msg:        '<i>mobilen</i>',
+      score:      true,
+      startTime:  298,
+      duration:   300 - 298,
+      autoNext:   'RANDOM',
+      more:       {
+        spokenWord: '/en mobil/ to skrót od /en mobiltelefon/. Możesz też powiedzieć /en telefon/ lub /en smarttelefon/',
+        startTime:  312,
+        duration:   321 - 312
+      }
+
+    },
+
+
+
+    _menneske1: {
+      spokenWord: 'Powiedz "człowiek", w formie nieokreślonej:',
+      startTime:  402,
+      duration:   405 - 402,
+      answers: [
+        { answer: '<i>et menneske</i>', score: 'correct', next: '_menneske2' },
+        { answer: '<i>mennesket</i>', score: 'wrong' }
+      ],
+      more:       {
+        spokenWord: 'Gdy mówimy o nieokreślonym człowieku, przed rzeczownikiem stawiamy rodzajnik.',
+        startTime:  409,
+        duration:   415 - 409
+      }
+    },
+    _menneske2: {
+      msg:        '<i>et menneske</i>',
+      score:      true,
+      startTime:  406,
+      duration:   408 - 406,
+      autoNext:   'RANDOM'
+    },
+
+
+  };
 
 
 }

@@ -91,65 +91,17 @@ function LasData() {
     },
 
 
-    //  _ae1: {
-    //    spokenWord: 'Powiedz: Bądź cicho!',
-    //    startTime:  ,
-    //    duration:   ,
-    //    pauseTime:  5,
-    //    autoNext:   '_ae2'
-    //  },
-    //  _ae2: {
-    //    msg:        '<i>Ti stille!</i>',
-    //    startTime:  22,
-    //    duration:   23 - 22,
-    //  score:      'correct',
-    //  autoNext:   'RANDOM'
-    //  },
-
-
-    _af1: {
-      spokenWord: 'Powiedz: Zamknij się!',
-      startTime:  24,
-      duration:   26 - 24,
+    _ae1: {
+      spokenWord: 'Powiedz: Bądź cicho!',
+      startTime:  0,
+      duration:   0,
       pauseTime:  5,
-      autoNext:   '_af2'
+      autoNext:   '_ae2'
     },
-    _af2: {
-      msg:        '<i>Hold kjeft!</i>',
-      startTime:  27,
-      duration:   28 - 27,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _ag1: {
-      spokenWord: 'Powiedz: Nie pal!',
-      startTime:  29,
-      duration:   30.5 - 29,
-      pauseTime:  5,
-      autoNext:   '_ag2'
-    },
-    _ag2: {
-      msg:        '<i>Ikke røyk!</i>',
-      startTime:  31,
-      duration:   32   - 31,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _ah1: {
-      spokenWord: 'Powiedz: Nie pij!',
-      startTime:  33,
-      duration:   34.5 - 33,
-      pauseTime:  5,
-      autoNext:   '_ah2'
-    },
-    _ah2: {
-      msg:        '<i>Ikke drikk!</i>',
-      startTime:  36,
-      duration:   37 - 36,
+    _ae2: {
+      msg:        '<i>Ti stille!</i>',
+      startTime:  22,
+      duration:   23 - 22,
       score:      'correct',
       autoNext:   'RANDOM'
     },
@@ -187,22 +139,6 @@ function LasData() {
     },
 
 
-    _ak1: {
-      spokenWord: 'Powiedz: Trzymaj psa!',
-      startTime:  48,
-      duration:   50 - 48,
-      pauseTime:  5,
-      autoNext:   '_ak2'
-    },
-    _ak2: {
-      msg:        '<i>Hold hunden!</i>',
-      startTime:  51,
-      duration:   52 - 51,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _al1: {
       spokenWord: 'Powiedz: Zamknij drzwi!',
       startTime:  53,
@@ -230,22 +166,6 @@ function LasData() {
       msg:        '<i>Ikke slå hverandre!</i>',
       startTime:  61,
       duration:   62.5 - 61,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _bb1: {
-      spokenWord: 'Powiedz: Przestań krzyczeć!',
-      startTime:  64,
-      duration:   66 - 64,
-      pauseTime:  5,
-      autoNext:   '_bb2'
-    },
-    _bb2: {
-      msg:        '<i>Stopp å skrike!</i>',
-      startTime:  67,
-      duration:   68.5 - 67,
       score:      'correct',
       autoNext:   'RANDOM'
     },
@@ -299,22 +219,6 @@ function LasData() {
     },
 
 
-    _bf1: {
-      spokenWord: 'Powiedz: Nie płacz!',
-      startTime:  88,
-      duration:   90 - 88,
-      pauseTime:  5,
-      autoNext:   '_bf2'
-    },
-    _bf2: {
-      msg:        '<i>Ikke gråt!</i>',
-      startTime:  91,
-      duration:   92.5 - 91,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _bg1: {
       spokenWord: 'Powiedz: Przyjdź!',
       startTime:  94,
@@ -342,38 +246,6 @@ function LasData() {
       msg:        '<i>Slapp av!</i>',
       startTime:  102,
       duration:   103 - 102,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _bi1: {
-      spokenWord: 'Powiedz: Nie spiesz się i nie stresuj!',
-      startTime:  104,
-      duration:   106.5 - 104,
-      pauseTime:  5,
-      autoNext:   '_bi2'
-    },
-    _bi2: {
-      msg:        '<i>Ikke stress!</i>',
-      startTime:  108,
-      duration:   109 - 108,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _bk1: {
-      spokenWord: 'Powiedz: Oddychaj głęboko!',
-      startTime:  110,
-      duration:   112 - 110,
-      pauseTime:  5,
-      autoNext:   '_bk2'
-    },
-    _bk2: {
-      msg:        '<i>Pust dypt!</i>',
-      startTime:  113,
-      duration:   114 - 113,
       score:      'correct',
       autoNext:   'RANDOM'
     },
@@ -479,6 +351,136 @@ function LasData() {
   };
 
 
+  this.extra = {
+
+    _bi1: {
+      spokenWord: 'Powiedz: Nie spiesz się i nie stresuj!',
+      startTime:  104,
+      duration:   106.5 - 104,
+      pauseTime:  5,
+      autoNext:   '_bi2'
+    },
+    _bi2: {
+      msg:        '<i>Ikke stress!</i>',
+      startTime:  108,
+      duration:   109 - 108,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _bk1: {
+      spokenWord: 'Powiedz: Oddychaj głęboko!',
+      startTime:  110,
+      duration:   112 - 110,
+      pauseTime:  5,
+      autoNext:   '_bk2'
+    },
+    _bk2: {
+      msg:        '<i>Pust dypt!</i>',
+      startTime:  113,
+      duration:   114 - 113,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _bf1: {
+      spokenWord: 'Powiedz: Nie płacz!',
+      startTime:  88,
+      duration:   90 - 88,
+      pauseTime:  5,
+      autoNext:   '_bf2'
+    },
+    _bf2: {
+      msg:        '<i>Ikke gråt!</i>',
+      startTime:  91,
+      duration:   92.5 - 91,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _ah1: {
+      spokenWord: 'Powiedz: Nie pij!',
+      startTime:  33,
+      duration:   34.5 - 33,
+      pauseTime:  5,
+      autoNext:   '_ah2'
+    },
+    _ah2: {
+      msg:        '<i>Ikke drikk!</i>',
+      startTime:  36,
+      duration:   37 - 36,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _bb1: {
+      spokenWord: 'Powiedz: Przestań krzyczeć!',
+      startTime:  64,
+      duration:   66 - 64,
+      pauseTime:  5,
+      autoNext:   '_bb2'
+    },
+    _bb2: {
+      msg:        '<i>Stopp å skrike!</i>',
+      startTime:  67,
+      duration:   68.5 - 67,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _af1: {
+      spokenWord: 'Powiedz: Zamknij się!',
+      startTime:  24,
+      duration:   26 - 24,
+      pauseTime:  5,
+      autoNext:   '_af2'
+    },
+    _af2: {
+      msg:        '<i>Hold kjeft!</i>',
+      startTime:  27,
+      duration:   28 - 27,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _ak1: {
+      spokenWord: 'Powiedz: Trzymaj psa!',
+      startTime:  48,
+      duration:   50 - 48,
+      pauseTime:  5,
+      autoNext:   '_ak2'
+    },
+    _ak2: {
+      msg:        '<i>Hold hunden!</i>',
+      startTime:  51,
+      duration:   52 - 51,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _ag1: {
+      spokenWord: 'Powiedz: Nie pal!',
+      startTime:  29,
+      duration:   30.5 - 29,
+      pauseTime:  5,
+      autoNext:   '_ag2'
+    },
+    _ag2: {
+      msg:        '<i>Ikke røyk!</i>',
+      startTime:  31,
+      duration:   32   - 31,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+  };
 
 }
 </script>

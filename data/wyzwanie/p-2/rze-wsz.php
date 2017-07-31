@@ -228,7 +228,7 @@ function LasData() {
     },
     _idiot2b: {
       bubbles: [
-        '<i>en idiot</i> (jakiś idiota) – idioten (określony idiota)'
+        '<i class="mark">en idiot</i> –jakiś idiota)<br /><i class="mark">idioten</i> – określony idiota'
       ],
       answers: [
         { answer: 'OK', next: 'RANDOM' }
@@ -266,8 +266,8 @@ function LasData() {
         'To jak będzie określona <q>para</q>?'
       ],
       answers: [
-        { answer: '<i>paret</i>', next: '_par3' },
-        { answer: '<i>para</i>', next: '_par2b' }
+        { answer: '<i>paret</i>', next: '_par3', score: 'correct' },
+        { answer: '<i>para</i>', next: '_par2b', score: 'wrong' }
       ]
 
     },
@@ -278,7 +278,7 @@ function LasData() {
         'Która to określona?'
       ],
       answers: [
-        { answer: 'Ah, <i>paret</i>', next: '_par3' }
+        { answer: 'ach, <i>paret</i>', next: '_par3' }
       ]
     },
     _par3: {
@@ -413,7 +413,7 @@ function LasData() {
         '<i class="mark">Vannene</i> to określone wody albo jeziora. Określona woda to...'
       ],
       answers: [
-        { answer: 'Aha, <i>vannet</i>', next: '_vann2' }
+        { answer: 'aha, <i>vannet</i>', next: '_vann2' }
       ]
     },
     _vann2: {
@@ -480,8 +480,8 @@ function LasData() {
         'A <q>córki</q>?'
       ],
       answers: [
-        { answer: '<i>datter</i>', next: '_syn2b' },
-        { answer: '<i>døtre</i>', next: '_syn3' }
+        { answer: '<i>datter</i>', next: '_syn2b', score: 'wrong' },
+        { answer: '<i>døtre</i>', next: '_syn3', score: 'correct' }
       ]
 
     },
@@ -497,7 +497,8 @@ function LasData() {
     },
     _syn3: {
       bubbles: [
-        'Zgadza się. <i>Han har søte døtre.</i>',
+        'Zgadza się.',
+        '<i>Han har søte døtre.</i>',
         '<img src="/las/c/i/rze-wsz/tumblr_mzwj71IIl51r6b6qeo1_500.gif" />'
       ],
       autoNext: 'RANDOM'
@@ -962,7 +963,7 @@ function LasData() {
     },
     _by1b: {
       bubbles: [
-        'Nie będę się sprzeczać, ale w słowniku jest <i class="mark">en by</i>. Zgoda?'
+        'Nie zamierzam się sprzeczać, ale w słowniku jest <i class="mark">en by</i>. Zgoda?'
       ],
       answers: [
         { answer: 'no dobra, <i>en by</i>', next: '_by2' }
@@ -970,8 +971,8 @@ function LasData() {
     },
     _by2: {
       bubbles: [
-        '<i>Veldig bra!</i>',
-        '<img src="/las/c/i/rze-wsz/newspaper-man-429.gif" />'
+        '<i>Veldig bra! Bergen til deg!</i>',
+        '<img src="/las/c/i/rze-wsz/tumblr_no3nbsvamj1tchrkco1_500.gif" />'
       ],
       autoNext: 'RANDOM'
     },
@@ -1010,7 +1011,7 @@ function LasData() {
       ],
       answers: [
         { answer: '<i>en film</i>', next: '_film2', score: 'correct' },
-        { answer: '<i>en movie</i>', next: '_film1b', rong: true }
+        { answer: '<i>en movie</i>', next: '_film1b', score: 'wrong' }
       ]
 
     },
@@ -1052,8 +1053,8 @@ function LasData() {
     },
     _vindu2: {
       bubbles: [
-        '<i>Ganske bra!</i> nie ma gifa',
-        '<img src="/las/c/i/rze-wsz/.gif" />'
+        '<i>Ganske bra!</i>',
+        '<img src="/las/c/i/rze-wsz/CfsAyq9Z2NSwM.gif" />'
       ],
       autoNext: 'RANDOM'
     },
@@ -1080,6 +1081,7 @@ function LasData() {
     _venn2: {
       bubbles: [
         '<i>Ja!</i>',
+        'A tu ekipa z mojego ulubionego Seinfelda.',
         '<img src="/las/c/i/rze-wsz/12UlfHpF05ielO.gif" />'
       ],
       autoNext: 'RANDOM'
@@ -1091,10 +1093,9 @@ function LasData() {
         'Nieokreślone <q>krzesła</q>?'
       ],
       answers: [
-        { answer: '<i>bord</i>', next: '_stol1b' },
-        { answer: '<i>stoler</i>', next: '_stol2' }
+        { answer: '<i>bord</i>', next: '_stol1b', score: 'wrong' },
+        { answer: '<i>stoler</i>', next: '_stol2', score: 'correct' }
       ]
-
     },
     _stol1b: {
       bubbles: [
@@ -1308,7 +1309,7 @@ function LasData() {
     },
     _famielien2: {
       bubbles: [
-        'Jesteś niesamowity!',
+        'Niesamowite!',
         '<img src="/las/c/i/rze-wsz/YGJBp5EgyVP9K.gif" />'
       ],
       autoNext: 'RANDOM'
@@ -1327,7 +1328,7 @@ function LasData() {
     },
     _netter1b: {
       bubbles: [
-        '<i class="mark">Nøtter</i> to orzeszki. Noc jest nieregularna, zobacz:',
+        '#emoji-1f95c;#emoji-1f95c; <i class="mark">Nøtter</i> to orzeszki. Noc jest nieregularna, zobacz:',
         '<i>ei natt – natta – netter – nettene</i>',
         'Dlatego...'
       ],
@@ -1574,7 +1575,7 @@ function LasData() {
       bubbles: [
         'Matki są wyjątkowe:',
         '<i>ei mor – mora – mødre – mødrene</i>',
-        'Dlatego nie określone to...'
+        'Dlatego nieokreślone to...'
       ],
       answers: [
         { answer: '<i>mødre</i>', next: '_modre2' }
@@ -2494,8 +2495,8 @@ function LasData() {
     },
     _hjerne2: {
       bubbles: [
-        'Jest OK!',
-        '<img src="/las/c/i/rze-wsz/tumblr_mvspokcAed1t0uxv8o1_250.gif" />'
+        '<img src="/las/c/i/rze-wsz/tumblr_mvspokcAed1t0uxv8o1_250.gif" />',
+        'Jest OK!'
       ],
       autoNext: 'RANDOM'
     },
@@ -2516,7 +2517,7 @@ function LasData() {
         '<i>et tegn – tegnet – tegn – tegnene</i>'
       ],
       answers: [
-        { answer: 'Aha, <i>et tegn</i>', next: '_tegn2' }
+        { answer: 'aha, <i>et tegn</i>', next: '_tegn2' }
       ]
     },
     _tegn2: {
@@ -2627,7 +2628,7 @@ function LasData() {
       bubbles: [
         'Pamiętasz jak odmieniamy dom?',
         '<i>et hus – huset – hus – husene</i>',
-        'Szpital odmieniamy tak samo. Ostatni człon jest jednosylabowy, rodzaju <i>et</i> i dlatego nie otrzymuje koncówki <i class="mark">-er</i>.'
+        'Szpital odmieniamy tak samo. Ostatni człon jest jednosylabowy, rodzaju <i class="mark">et</i> i dlatego nie otrzymuje koncówki <i class="mark">-er</i>.'
       ],
       answers: [
         { answer: '<i>sykehus</i>', next: '_sykehus2' }
@@ -2916,28 +2917,30 @@ function LasData() {
       bubbles: [
         'Gładko Ci poszło!',
         '<img src="/las/c/i/rze-wsz/When-Gang-Does-Group-Dance-Too.gif" />',
+        'Koniecznie wróć do tego ćwiczenia, bo to nie był koniec niespodzianek.'
       ],
       answers: [
-        { answer: 'KONIEC', next: 'END' }
+        { answer: 'koniec na dziś', next: 'END' }
       ]
     },
     _b1: {
       bubbles: [
         'To były najczęściej używane rzeczowniki w potocznym języku. Jeśli opanowałeś zasady tworzenia wszystkich czterech form, to na tej zasadzie będziesz już tworzyć kolejne!',
-        '<img src="/las/c/i/rze-wsz/Bi6FcO7UoutWM.gif" />'
+        '<img src="/las/c/i/rze-wsz/Bi6FcO7UoutWM.gif" />',
+        'Zajrzyj tu później.'
       ],
       answers: [
-        { answer: 'KONIEC', next: 'END' }
+        { answer: 'zajrzę', next: 'END' }
       ]
     },
     _c1: {
       bubbles: [
-        'Muszę już jechać.',
+        'Muszę już jechać, ale wpadnij tu później. Przygotuję dla Ciebie kolejny zestaw słów najczęściej używanych w języku potocznym. ',
         '<img src="/las/c/i/rze-wsz/vjnLzg78di4wM.gif" />',
         'Trzymaj się!'
       ],
       answers: [
-        { answer: 'KONIEC', next: 'END' }
+        { answer: 'koniec na dziś', next: 'END' }
       ]
     }
   };

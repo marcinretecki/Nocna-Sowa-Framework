@@ -7,8 +7,6 @@ function LasData() {
   this.testNotes = [
     'Nie zapisałem jeszcze spokenWord',
     'Jenta stopper å spise søtsaker. Może dodać więcej: godteri - bo niektórzy znają to słowo',
-    'Hun lærer å konsentrere seg om en ting. - czy tu jest dobre czytanie slowa ting? moze jest ok. sprawdz.',
-    'nie ma zakończenia'
   ];
 
 
@@ -138,22 +136,6 @@ function LasData() {
     },
 
 
-    _ah1: {
-      spokenWord: '',
-      startTime:  52,
-      duration:   55.5 - 52,
-      pauseTime:  8,
-      autoNext:   '_ah2'
-    },
-    _ah2: {
-      msg:        '<i>Han trenger å ligge og slappe av.</i>',
-      startTime:  57,
-      duration:   59.5 - 57,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _aj1: {
       spokenWord: '',
       startTime:  61,
@@ -266,22 +248,6 @@ function LasData() {
     },
 
 
-    _be1: {
-      spokenWord: '',
-      startTime:  121,
-      duration:   124.5 - 121,
-      pauseTime:  10,
-      autoNext:   '_be2'
-    },
-    _be2: {
-      msg:        '<i>Hun lærer å konsentrere seg om en ting.</i>',
-      startTime:  126,
-      duration:   129.5 - 126,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _bf1: {
       spokenWord: '',
       startTime:  131,
@@ -330,38 +296,6 @@ function LasData() {
     },
 
 
-    _bi1: {
-      spokenWord: '',
-      startTime:  155,
-      duration:   158 - 155,
-      pauseTime:  8,
-      autoNext:   '_bi2'
-    },
-    _bi2: {
-      msg:        '<i>Hun begynner å klare på jobben.</i>',
-      startTime:  159,
-      duration:   161.5 - 159,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _bk1: {
-      spokenWord: '',
-      startTime:  163,
-      duration:   165.5 - 163,
-      pauseTime:  6,
-      autoNext:   '_bk2'
-    },
-    _bk2: {
-      msg:        '<i>De slutter å drikke.</i>',
-      startTime:  167,
-      duration:   169 - 167,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _bl1: {
       spokenWord: '',
       startTime:  170,
@@ -394,22 +328,6 @@ function LasData() {
     },
 
 
-    _bn1: {
-      spokenWord: '',
-      startTime:  185,
-      duration:   187.5 - 185,
-      pauseTime:  6,
-      autoNext:   '_bn2'
-    },
-    _bn2: {
-      msg:        '<i>Han stopper å komme.</i>',
-      startTime:  189,
-      duration:   190.5 - 189,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _bp1: {
       spokenWord: '',
       startTime:  192,
@@ -426,6 +344,13 @@ function LasData() {
     },
 
 
+
+  };
+
+
+
+  this.extra = {
+
     _bo1: {
       spokenWord: '',
       startTime:  200,
@@ -439,8 +364,71 @@ function LasData() {
       duration:   206.5 - 204,
       score:      'correct',
       autoNext:   'RANDOM'
-    }
+    },
 
+
+    _bk1: {
+      spokenWord: '',
+      startTime:  163,
+      duration:   165.5 - 163,
+      pauseTime:  6,
+      autoNext:   '_bk2'
+    },
+    _bk2: {
+      msg:        '<i>De slutter å drikke.</i>',
+      startTime:  167,
+      duration:   169 - 167,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _be1: {
+      spokenWord: '',
+      startTime:  121,
+      duration:   124.5 - 121,
+      pauseTime:  10,
+      autoNext:   '_be2'
+    },
+    _be2: {
+      msg:        '<i>Hun lærer å konsentrere seg om en ting.</i>',
+      startTime:  126,
+      duration:   129.5 - 126,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _ah1: {
+      spokenWord: '',
+      startTime:  52,
+      duration:   55.5 - 52,
+      pauseTime:  8,
+      autoNext:   '_ah2'
+    },
+    _ah2: {
+      msg:        '<i>Han trenger å ligge og slappe av.</i>',
+      startTime:  57,
+      duration:   59.5 - 57,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _bi1: {
+      spokenWord: '',
+      startTime:  155,
+      duration:   158 - 155,
+      pauseTime:  8,
+      autoNext:   '_bi2'
+    },
+    _bi2: {
+      msg:        '<i>Hun begynner å klare på jobben.</i>',
+      startTime:  159,
+      duration:   161.5 - 159,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    }
 
 
   };

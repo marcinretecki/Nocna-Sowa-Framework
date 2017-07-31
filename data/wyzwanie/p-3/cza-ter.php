@@ -1,22 +1,17 @@
 <script>
 function LasData() {
 
-  this.category = 'audio-test'; // chat|setninger|etc
+  this.category = 'audio-test';   // chat|setninger|etc
 
 
   this.testNotes = [
-    'nie ma startTime duration',
   ];
 
 
   this.intro = {
     _a1: {
       msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:     'ENDINTRO'/*,
-      more: {
-        startTime:  0,
-        duration:   1.5,
-      }*/
+      autoNext:     'ENDINTRO'
     }
   };
 
@@ -76,36 +71,6 @@ function LasData() {
     _ab4: {
       msg:        '<i>Jeg kommer til deg.</i>',
       trans:      'Przyjdę do Ciebie.',
-      startTime:  0,
-      duration:   1.5,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _ac1: {
-      spokenWord: 'Pić to: å drikke. Powiedz: Pijemy. ',
-      startTime:  15,
-      duration:   1.5,
-      pauseTime:  6,
-      autoNext:   '_ac2'
-    },
-    _ac2: {
-      spokenWord: 'Vi drikker.',
-      startTime:  19,
-      duration:   1.5,
-      autoNext:   '_ac3'
-    },
-    _ac3: {
-      spokenWord: 'My pijemy wodę.',
-      startTime:  0,
-      duration:   1.5,
-      pause:      6,
-      autoNext:   '_ac4'
-    },
-    _ac4: {
-      msg:        '<i>Vi drikker vann.</i>',
-      trans:      'My pijemy wodę.',
       startTime:  0,
       duration:   1.5,
       score:      'correct',
@@ -446,36 +411,6 @@ function LasData() {
     },
 
 
-    _bf1: {
-      spokenWord: 'Å elske znaczy kochać. Powiedz: Oni kochają.',
-      startTime:  113,
-      duration:   1.5,
-      pauseTime:  6,
-      autoNext:   '_bf2'
-    },
-    _bf2: {
-      spokenWord: 'De elsker.',
-      startTime:  116,
-      duration:   1.5,
-      autoNext:   '_bf3'
-    },
-    _bf3: {
-      spokenWord: 'Oni kochają góry.',
-      startTime:  0,
-      duration:   1.5,
-      pause:      6,
-      autoNext:   '_bf4'
-    },
-    _bf4: {
-      msg:        '<i>De elsker fjell.</i>',
-      trans:      'Oni kochają góry.',
-      startTime:  0,
-      duration:   1.5,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _bh1: {
       spokenWord: 'Rozumieć to å forstå. Powiedz: Rozumiem. ',
       startTime:  126,
@@ -509,36 +444,6 @@ function LasData() {
     },
 
 
-    _bi1: {
-      spokenWord: 'Å tro to wierzeć. Powiedz: On wierzy. ',
-      startTime:  133,
-      duration:   1.5,
-      pauseTime:  5,
-      autoNext:   '_bi2'
-    },
-    _bi2: {
-      spokenWord: 'Han tror.',
-      startTime:  136,
-      duration:   1.5,
-      autoNext:   '_bi3'
-    },
-    _bi3: {
-      spokenWord: 'On wierzy w siebie.',
-      startTime:  0,
-      duration:   1.5,
-      pause:      6,
-      autoNext:   '_bi4'
-    },
-    _bi4: {
-      msg:        '<i>Han tror i seg selv.</i>',
-      trans:      'On wierzy w siebie.',
-      startTime:  0,
-      duration:   1.5,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _bj1: {
       spokenWord: 'Å høre på znaczy słuchać. Powiedz: Oni słuchają. ',
       startTime:  139,
@@ -562,53 +467,6 @@ function LasData() {
     _bj4: {
       msg:        '<i>De hører på black metal.</i>',
       trans:      'Oni słuchają black metalu.',
-      startTime:  0,
-      duration:   1.5,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _bk1: {
-      spokenWord: 'Å fortelle to opowiadać. Powiedz: Wy opowiadacie.',
-      startTime:  145,
-      duration:   1.5,
-      pauseTime:  5,
-      autoNext:   '_bk2'
-    },
-    _bk2: {
-      spokenWord: 'Dere forteller.',
-      startTime:  148,
-      duration:   1.5,
-      autoNext:   '_bk3'
-    },
-    _bk3: {
-      spokenWord: 'Opowiadacie bajki.',
-      startTime:  0,
-      duration:   1.5,
-      pause:      6,
-      autoNext:   '_bk4'
-    },
-    _bk4: {
-      msg:        '<i>Dere forteller eventyr.</i>',
-      trans:      'Opowiadacie bajki.',
-      startTime:  0,
-      duration:   1.5,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
-    _bm1: {
-      spokenWord: 'Znaczyć to å bety. Powiedz: To coś znaczy.',
-      startTime:  158,
-      duration:   1.5,
-      pauseTime:  6,
-      autoNext:   '_bm2'
-    },
-    _bm2: {
-      msg:        '<i>Det betyr noe.</i>',
-      trans:      'To coś znaczy.',
       startTime:  0,
       duration:   1.5,
       score:      'correct',
@@ -750,8 +608,14 @@ function LasData() {
       duration:   1.5,
       score:      'correct',
       autoNext:   'RANDOM'
-    },
+    }
 
+
+
+  };
+
+
+  this.extra = {
 
     _cd1: {
       spokenWord: 'Myśleć to: å tenke. Powiedz: Ona myśli.',
@@ -780,9 +644,97 @@ function LasData() {
       duration:   1.5,
       score:      'correct',
       autoNext:   'RANDOM'
-    }
+    },
 
 
+    _bi1: {
+      spokenWord: 'Å tro to wierzeć. Powiedz: On wierzy. ',
+      startTime:  133,
+      duration:   1.5,
+      pauseTime:  5,
+      autoNext:   '_bi2'
+    },
+    _bi2: {
+      spokenWord: 'Han tror.',
+      startTime:  136,
+      duration:   1.5,
+      autoNext:   '_bi3'
+    },
+    _bi3: {
+      spokenWord: 'On wierzy w siebie.',
+      startTime:  0,
+      duration:   1.5,
+      pause:      6,
+      autoNext:   '_bi4'
+    },
+    _bi4: {
+      msg:        '<i>Han tror i seg selv.</i>',
+      trans:      'On wierzy w siebie.',
+      startTime:  0,
+      duration:   1.5,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _bf1: {
+      spokenWord: 'Å elske znaczy kochać. Powiedz: Oni kochają.',
+      startTime:  113,
+      duration:   1.5,
+      pauseTime:  6,
+      autoNext:   '_bf2'
+    },
+    _bf2: {
+      spokenWord: 'De elsker.',
+      startTime:  116,
+      duration:   1.5,
+      autoNext:   '_bf3'
+    },
+    _bf3: {
+      spokenWord: 'Oni kochają góry.',
+      startTime:  0,
+      duration:   1.5,
+      pause:      6,
+      autoNext:   '_bf4'
+    },
+    _bf4: {
+      msg:        '<i>De elsker fjell.</i>',
+      trans:      'Oni kochają góry.',
+      startTime:  0,
+      duration:   1.5,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _ac1: {
+      spokenWord: 'Pić to: å drikke. Powiedz: Pijemy. ',
+      startTime:  15,
+      duration:   1.5,
+      pauseTime:  6,
+      autoNext:   '_ac2'
+    },
+    _ac2: {
+      spokenWord: 'Vi drikker.',
+      startTime:  19,
+      duration:   1.5,
+      autoNext:   '_ac3'
+    },
+    _ac3: {
+      spokenWord: 'My pijemy wodę.',
+      startTime:  0,
+      duration:   1.5,
+      pause:      6,
+      autoNext:   '_ac4'
+    },
+    _ac4: {
+      msg:        '<i>Vi drikker vann.</i>',
+      trans:      'My pijemy wodę.',
+      startTime:  0,
+      duration:   1.5,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
 
   };
 
