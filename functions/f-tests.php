@@ -368,11 +368,11 @@ function test_las_format_t_short() {
 
 //
 //  Return a testing wyzwanie result
-// @return last_wyzwanie_result array( id, progress, first_time )
+//  @return last_wyzwanie_result array( id, progress, first_time )
 //
 function test_las_get_last_wyzwanie_result() {
 
-  las_test_echo_function_name( __FUNCTION__ );
+  //las_test_echo_function_name( __FUNCTION__ );
 
   $last_wyzwanie_result = [
     'progress' => [
@@ -386,7 +386,7 @@ function test_las_get_last_wyzwanie_result() {
       'trans'       => 12,
       'finished'    => 1
     ],
-    'id'          => 22,
+    'id'          => 30,
     'first_time'  => true
   ];
 

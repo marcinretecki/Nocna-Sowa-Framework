@@ -100,8 +100,8 @@ function las_profile_show_last_dates( $user_progress ) {
 
   $class = '';
 
-  //  get previous 7 days
-  for ( $i = 6; $i >= 0; $i-- ) {
+  //  get previous 28 days
+  for ( $i = 27; $i >= 0; $i-- ) {
 
     $date = date( 'Y-m-d', strtotime( $i . ' days ago' ) );
     $day = date( 'j', strtotime( $i . ' days ago' ) );
@@ -114,8 +114,8 @@ function las_profile_show_last_dates( $user_progress ) {
       $class = 'section-orange';
     }
 
-    $echo .= '<span class="' . $class . '" style="display: inline-block; border-radius: 50%; width:2rem; line-height: 2rem; margin: 0.5rem; text-align:center;">';
-    $echo .= $day;
+    $echo .= '<span class="' . $class . '" style="display: inline-block; border-radius: 3px; width:1rem; height: 1rem; line-height: 1rem; margin: 0.25rem; text-align:center; font-size: 1rem;">';
+    //$echo .= $day;
     $echo .= '</span>';
 
   }
@@ -173,7 +173,6 @@ function las_profile_show_last_dates( $user_progress ) {
             </div>
 
             <div class="centered">
-              <p class="space-0">Ostatni tydzień:</p>
               <?php
                 las_profile_show_last_dates( $user_progress );
               ?>
