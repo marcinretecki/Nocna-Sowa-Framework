@@ -9,18 +9,13 @@
 //    'first_time'
 //  )
 
-//
-//  TODO
-//  jeśli było dużo błędów, albo ćwiczenie nie było zrobione całe, pytamy, czy chce spróbować jeszcze raz, albo wrócić do przewodnika
-//  jeśli nie było błędów, to sugestia, żeby wrócić na szlak
-//
-
 
 $last_wyzwanie_result_progress = $last_wyzwanie_result[ 'progress' ];
 
-$wyzwanie_permalink = get_permalink( $last_wyzwanie_result['id'] );
-$wyzwanie_link = $last_wyzwanie_permalink . 'wyzwanie/';
-$sos_link = $last_wyzwanie_permalink . '/';
+$chapter_permalink = get_permalink( $last_wyzwanie_result['id'] );
+$wyzwanie_link = $chapter_permalink . 'wyzwanie/';
+$przewodnik_link = $chapter_permalink . 'przewodnik/';
+$sratownik_link = $chapter_permalink;
 $wyzwanie_title = las_get_clean_title( get_the_title( $last_wyzwanie_result['id'] ) );
 
 //  user exp before the chapter
@@ -35,6 +30,58 @@ $level_percent_now = las_get_level_percent( $user_exp );
 $level_percent_before = las_get_level_percent( $user_exp_before );
 $exp_added = $last_wyzwanie_result_progress['exp'];
 $level_before = $level_before_array[0];
+
+$wrong_percent = floor( 100 * $last_wyzwanie_result_progress['wrong'] / ( $last_wyzwanie_result_progress['wrong'] + $last_wyzwanie_result_progress['correct'] ) );
+
+
+//  if user finished wyzwanie
+//  wrong percent is lower than 20
+$finished_well = ( ( $last_wyzwanie_result_progress[ 'finished' ] > 0 ) && ( $wrong_percent < 20 ) );
+
+
+//  if user finished wyzwanie
+//  but wrong percent is higher than 20
+$finished_so_so = ( ( $last_wyzwanie_result_progress[ 'finished' ] > 0 ) && ( $wrong_percent > 20 ) );
+
+//  if user has not finished wyzwanie
+//  she could just click back button
+//  or on nav
+//  or closed browser tab
+$not_finished = ( !$last_wyzwanie_result_progress[ 'finished' ] || ( $last_wyzwanie_result_progress[ 'finished' ] === 0 ) );
+
+$result_msg = '';
+$result_btns = '';
+
+if ( $finished_well ) {
+
+  $result_msg .= '<p class="size-2">Twój bohater jest gotowy do nastepnego etapu wędrówki.</p>';
+  $result_msg .= '<p>Zawsze możesz tu wrócić, bo nawet ta sama droga, przynosi za każdym razem inne doświadczenia.</p>';
+
+  $result_btns .= '<button class="results__action-btn space-4" id="close-result" role="button">Twój szlak &raquo;</button>';
+
+  $result_btns .= '<div class="centered">';
+
+    $result_btns .= '<a class="btn btn-dark" href="' .  $przewodnik_link . '" class="btn btn-white">Wróć do przewodnika</a>';
+
+    $result_btns .= '<a class="btn btn-dark" href="' . $wyzwanie_link; . '" class="btn btn-white">Powtórz wyzwanie</a>';
+
+    $result_btns .= '<a class="btn btn-dark" href="' . $ratownik_link; . '" class="btn btn-white">Ratownik</a>';
+
+  $result_btns .= '</div>';
+
+}
+elseif ( $finished_so_so ) {
+
+  $result_msg .= '<p>Twój bohater napotkał trudności na tym etapie szlaku.</p>';
+  $result_msg .= '<p>Powtórz wyzwanie, żeby nabrał więcej doświadczenia</p>';
+
+}
+elseif ( $not_finished ) {
+
+  $result_msg .= '<p>Twój bohater nieoczekiwanie zszedł ze szlaku.</p>';
+  $result_msg .= '<p>Ale nic się nie martw. Zawsze możesz tu wrócić i pomóc mu w zdobyciu doświadczenia.</p>';
+
+}
 
 ?>
 
@@ -55,6 +102,12 @@ $level_before = $level_before_array[0];
         </div>
 
 
+        <?php
+          //  if user has finsihed wyzwanie
+          //  show her exp animation
+          if ( !$not_finished ) {
+        ?>
+
         <div id="results-level" class="profile-level section-green space-2">
           <div id="results-level__line" class="profile-level__line" style="width: <?php echo $level_percent_before; ?>"></div>
           <span id="results-level__no" class="relative profile-level__no">Rang <?php echo $level_before; ?></span>
@@ -62,124 +115,48 @@ $level_before = $level_before_array[0];
         </div>
 
 
-        <div class="group">
+        <div class="row centered">
 
-          <table style="width: 100%;" class="centered space-x2">
-            <tr>
-              <td>
-                <i class="size-0">Riktig:</i><br />
-                <span class="bariol-thin size-3">
-                  <?php echo $last_wyzwanie_result_progress['correct']; ?>
-                </span>
-              </td>
-              <td>
-                <i class="size-0">Feil:</i><br />
-                <span class="bariol-thin size-3">
-                  <?php echo $last_wyzwanie_result_progress['wrong']; ?>
-                </span>
-              </td>
+          <div class="col-5">
+            <i class="size-0">Riktig:</i><br />
+            <span class="bariol-thin size-3">
+              <?php echo $last_wyzwanie_result_progress['correct']; ?>
+            </span>
+          </div>
 
-              <td>
-                <i class="size-0">Tid:</i><br />
-                <span class="bariol-thin size-3">
-                  <?php echo las_format_t_short( $last_wyzwanie_result_progress['t'] ); ?>
-                </span>
-              </td>
+          <div class="col-5 l-1-32">
+            <i class="size-0">Feil:</i><br />
+            <span class="bariol-thin size-3">
+              <?php echo $last_wyzwanie_result_progress['wrong']; ?>
+            </span>
+          </div>
 
-              <td>
-                <i class="size-0">Erfering:</i><br />
-                <span id="results-added-exp" class="bariol-thin size-3">0</span>
+          <div class="col-5 l-1-32">
+            <i class="size-0">Erfering:</i><br />
+            <span id="results-added-exp" class="bariol-thin size-3">0</span>
 
-              </td>
-            </tr>
-          </table>
+          </div>
 
         </div>
 
-
-        <h2 class="size-2 centered"><?php echo $wyzwanie_title; ?></h2>
-
-
-        <?php
-
-          //  if finished
-          //    if some or none wrong
-          //      było prawie idealnie, zawsze możesz wrócić do tego ćwiczenia, żeby utrwalić materiał
-          //    if many wrong
-          //      może potrzebujesz przećwiczyć to zagadnienie jeszcze raz?
-          //      Czy ćwiczenie było za trudne? Miałes problem z zagadnieniem? Wróć do przewodnika.
-          //  if not finished
-          //     Nie zrobiłeś wszystkich przykładów. Może spróbujesz jeszcze raz? Jeśli były za trudne, wróć do przewodnika albo do poprzednich wyzwań. Jeśli nie zrobiłeś wyzwania, bo wydawało Ci się nudne, daj nam o tym znać.
-
-
-
-
-        ?>
-
-
-        <p>Wyzwanie wykonane! sukces albo inne info</p>
-
-        <p>jeśli zywanie nie było wykonane, to inna wiadomość (niżej w kodzie już jest)</p>
-
-
-
-        <ul>
-          <li>Erfaring for utfordringen: <?php echo $last_wyzwanie_result_progress['exp']; ?></li>
-
-          <li>Erfaring til sammen: <?php echo $user_exp; ?></li>
-
-          <li>Neste rang: <?php echo $exp_for_next; ?></li>
-
-          <?php
-            //  jeśli był czas dłuższy od 5 sekund
-            //  to może być pomocne w ustaleniu, czy ktoś w ogóle zrobił wyzwanie
-            if ( $last_wyzwanie_result_progress['t'] > 5 ) {
-          ?>
-          <?php
-            }
-
-            //  jeśli były błędy
-            if ( $last_wyzwanie_result_progress['wrong'] > 0 ) {
-          ?>
-            <li>Błędy: <?php echo $last_wyzwanie_result_progress['wrong']; ?></li>
-          <?php
-            }
-          ?>
-        </ul>
-
-        <?php
-          //  if there is no time
-          //  user has not finished the chapter
-          if ( ( !$last_wyzwanie_result_progress['t'] && $last_wyzwanie_result_progress['first_time'] ) ) {
-        ?>
-            <p>Nie zrobiłeś wszystkich przykładów. Może spróbujesz jeszcze raz? Jeśli były za trudne, wróć do przewodnika albo do poprzednich wyzwań. Jeśli nie zrobiłeś wyzwania, bo wydawało Ci się nudne, daj nam o tym znać.</p>
-        <?php
-          }
-          //  no exp
-          //  maybe make it low exp instead?
-          elseif ( !$last_wyzwanie_result_progress['exp'] ) {
-        ?>
-            <p>Czy ćwiczenie było za trudne? Miałes problem z zagadnieniem? Wróć do przewodnika.</p>
         <?php
           }
 
+          //  Msg
+          echo $result_msg;
+
+          //  Idea:
           //  Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.
         ?>
 
 
       </div>
+      <?php
 
+        //  Btns
+        echo $result_btns;
 
-      <button class="results__action-btn space-4" id="close-result" role="button">Wróć na szlak &raquo;</button>
-
-
-      <div class="centered">
-
-        <a class="btn btn-dark" href="<?php echo $wyzwanie_link; ?>" class="btn btn-white">Powtórz wyzwanie</a>
-
-        <a class="btn btn-dark" href="<?php echo $sos_link; ?>" class="btn btn-white">Dołącz do dyskusji</a>
-
-      </div>
+      ?>
 
     </div>
 
@@ -189,12 +166,15 @@ $level_before = $level_before_array[0];
 
 
 <script>
+//  we have results
+las.state.results = true;
+
 <?php
 
-  //  if there is progress and user received exp
-  if ( $last_wyzwanie_result && $last_wyzwanie_result['progress']['exp'] ) {
+  //  if there is progress and user finished wyzwanie
+  //  if she has not finished, we are not showing the exp count
+  if ( $last_wyzwanie_result && ( $finished_well || $finished_so_so) ) {
 
-    echo 'las.state.results = true;' . "\r\n";
     echo 'las.results.expAdded = '           . $exp_added .  ';' . "\r\n";
     echo 'las.results.levelPercentBefore = "' . $level_percent_before .  '";' . "\r\n";
     echo 'las.results.levelPercentNow = "'    . $level_percent_now .  '";' . "\r\n";
@@ -204,7 +184,10 @@ $level_before = $level_before_array[0];
   }
 
   //  if it was first time, we can highlight the new chapter
-  if ( $last_wyzwanie_result && $last_wyzwanie_result[ 'first_time' ] ) {
+  //  but only if she finished it
+  //  otherwise we will not do any animation
+  //  she did not care, we do no care
+  if ( $last_wyzwanie_result && $last_wyzwanie_result[ 'first_time' ] && $last_wyzwanie_result[ 'finished' ] ) {
 
     $ids = $all_sections_array[2];
 

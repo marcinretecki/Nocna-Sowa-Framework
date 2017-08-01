@@ -36,17 +36,17 @@ function las_show_normal_page() {
 
 
 //
-//  Show SOS - comment section
+//  Show ratownik - comment section
 //
-function las_show_sos() {
+function las_show_ratownik() {
   global $post;
   global $heading;
 
-  //  Get sos
-  $sos = stream_resolve_include_path( __DIR__ . '/includes/sos.php' );
+  //  Get ratownik
+  $ratownik = stream_resolve_include_path( __DIR__ . '/includes/ratownik.php' );
 
-  if ( $sos ) {
-    include( $sos );
+  if ( $ratownik ) {
+    include( $ratownik );
   }
 }
 
@@ -73,8 +73,8 @@ function las_course_router() {
   //  It is a QA part
   elseif ( !get_query_var( 'przewodnik' ) && !get_query_var( 'wyzwanie' ) && !get_query_var( 'testmode' ) ) {
 
-    //  Show SOS - comment section
-    las_show_sos();
+    //  Show ratownik - comment section
+    las_show_ratownik();
 
   }
   //  It must be one of the types

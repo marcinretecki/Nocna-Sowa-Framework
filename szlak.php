@@ -35,6 +35,15 @@ if ( $globals ) {
   include( $globals );
 }
 
+$last_wyzwanie_result = las_get_last_wyzwanie_result( $user_progress );
+
+//  for testing results
+$last_wyzwanie_result = test_las_get_last_wyzwanie_result();
+$user_exp = 900;
+$level_array = las_get_user_level_array( $user_exp );
+$user_level = $level_array[0];
+$exp_for_next = $level_array[1];
+
 
 //
 //  Show all sections
@@ -466,9 +475,9 @@ include( 'includes/head.php' );
       </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-wyzwanie">
             <div class="szlak-post-popup__img"></div>
             <span class="btn btn-nav btn-white">Wyzwanie</span>
-      </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-sos">
+      </a><a href="" class="szlak-post-popup__btn" id="szlak-btn-ratownik">
             <div class="szlak-post-popup__img"></div>
-            <span class="btn btn-nav btn-white">SOS</span>
+            <span class="btn btn-nav btn-white">Ratownik</span>
       </a>
 
     </div>
@@ -483,15 +492,8 @@ var las = new LasSzlak();
 
 
 <?php
-  //$last_wyzwanie_result = las_get_last_wyzwanie_result( $user_progress );
 
-  //  for testing results
-  $last_wyzwanie_result = test_las_get_last_wyzwanie_result();
-  $user_exp = 900;
-  $level_array = las_get_user_level_array( $user_exp );
-  $user_level = $level_array[0];
-  $exp_for_next = $level_array[1];
-
+  //  Results
   if ( $last_wyzwanie_result && $last_wyzwanie_result['id'] ) {
 
     //  Remove last wyzwanie result from database
@@ -500,8 +502,8 @@ var las = new LasSzlak();
     las_reset_last_wyzwanie_user_meta();
 
     include( stream_resolve_include_path( __DIR__ . '/includes/results.php' ) );
-
   }
+
 ?>
 
 
