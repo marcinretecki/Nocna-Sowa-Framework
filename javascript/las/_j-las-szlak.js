@@ -561,7 +561,7 @@ function LasSzlak() {
 
         this.velocity(
           highlightWrapper,
-          { left: ['110%', '-20%'] },
+          { right: ['-1%', '100%'], marginRight: '-8rem' },
           { duration: 3 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
         );
 
