@@ -28,7 +28,7 @@ function LasSzlak() {
   las.popupBtns = {
     przewodnik:               document.getElementById('szlak-btn-przewodnik'),
     wyzwanie:                 document.getElementById('szlak-btn-wyzwanie'),
-    sos:                      document.getElementById('szlak-btn-sos')
+    ratownik:                 document.getElementById('szlak-btn-ratownik')
   };
 
 
@@ -292,7 +292,7 @@ function LasSzlak() {
       //  set urls
       this.popupBtns.przewodnik.href =  this.state.popupUrl + 'przewodnik/';
       this.popupBtns.wyzwanie.href =    this.state.popupUrl + 'wyzwanie/';
-      this.popupBtns.sos.href =         this.state.popupUrl;
+      this.popupBtns.ratownik.href =    this.state.popupUrl;
 
       //  prepare props
       props = [
@@ -499,6 +499,8 @@ function LasSzlak() {
     if ( this.helper.chapterToHighlight ) {
       chapterToHighlight = document.getElementById( this.helper.chapterToHighlight );
     }
+
+    window.console.log( chapterToHighlight );
 
     //  if there is a chapter to hightlight, hook value
     if ( chapterToHighlight ) {
