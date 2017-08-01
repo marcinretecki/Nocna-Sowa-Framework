@@ -49,40 +49,6 @@ $finished_so_so = ( ( $last_wyzwanie_result_progress[ 'finished' ] > 0 ) && ( $w
 //  or closed browser tab
 $not_finished = ( !$last_wyzwanie_result_progress[ 'finished' ] || ( $last_wyzwanie_result_progress[ 'finished' ] === 0 ) );
 
-$result_msg = '';
-$result_btns = '';
-
-if ( $finished_well ) {
-
-  $result_msg .= '<p class="size-2">Twój bohater jest gotowy do nastepnego etapu wędrówki.</p>';
-  $result_msg .= '<p>Zawsze możesz tu wrócić, bo nawet ta sama droga, przynosi za każdym razem inne doświadczenia.</p>';
-
-  $result_btns .= '<button class="results__action-btn space-4" id="close-result" role="button">Twój szlak &raquo;</button>';
-
-  $result_btns .= '<div class="centered">';
-
-    $result_btns .= '<a class="btn btn-dark" href="' .  $przewodnik_link . '" class="btn btn-white">Wróć do przewodnika</a>';
-
-    $result_btns .= '<a class="btn btn-dark" href="' . $wyzwanie_link; . '" class="btn btn-white">Powtórz wyzwanie</a>';
-
-    $result_btns .= '<a class="btn btn-dark" href="' . $ratownik_link; . '" class="btn btn-white">Ratownik</a>';
-
-  $result_btns .= '</div>';
-
-}
-elseif ( $finished_so_so ) {
-
-  $result_msg .= '<p>Twój bohater napotkał trudności na tym etapie szlaku.</p>';
-  $result_msg .= '<p>Powtórz wyzwanie, żeby nabrał więcej doświadczenia</p>';
-
-}
-elseif ( $not_finished ) {
-
-  $result_msg .= '<p>Twój bohater nieoczekiwanie zszedł ze szlaku.</p>';
-  $result_msg .= '<p>Ale nic się nie martw. Zawsze możesz tu wrócić i pomóc mu w zdobyciu doświadczenia.</p>';
-
-}
-
 ?>
 
 <div id="results-wrapper" class="szlak-post-popup section-trans group profile-back wrapper preload--hidden" style="display:block;background-image: url('/las/c/i/las_test.jpg');">
@@ -93,12 +59,12 @@ elseif ( $not_finished ) {
 
       <div class="results__section">
 
-        <div class="results-header">
+        <div class="results-header space-2">
           <img class="result-header__img" src="<?php echo $user_img_url; ?>" />
 
-          <h2 class="results-header__name h1 space-half size-4 centered"><?php echo $user_nick; ?></h2>
+          <h2 class="results-header__name h1 space-half size-4"><?php echo $user_nick; ?></h2>
 
-          <p class="results-header__user-char centered space-2"><i><?php echo las_get_user_char_type( $user_char ); ?></i></p>
+          <p class="results-header__user-char"><i><?php echo las_get_user_char_type( $user_char ); ?></i></p>
         </div>
 
 
@@ -115,23 +81,23 @@ elseif ( $not_finished ) {
         </div>
 
 
-        <div class="row centered">
+        <div class="results_numbers row">
 
-          <div class="col-5">
+          <div class="results-numbers__col">
             <i class="size-0">Riktig:</i><br />
             <span class="bariol-thin size-3">
               <?php echo $last_wyzwanie_result_progress['correct']; ?>
             </span>
           </div>
 
-          <div class="col-5 l-1-32">
+          <div class="results-numbers__col">
             <i class="size-0">Feil:</i><br />
             <span class="bariol-thin size-3">
               <?php echo $last_wyzwanie_result_progress['wrong']; ?>
             </span>
           </div>
 
-          <div class="col-5 l-1-32">
+          <div class="results-numbers__col">
             <i class="size-0">Erfering:</i><br />
             <span id="results-added-exp" class="bariol-thin size-3">0</span>
 
@@ -141,6 +107,34 @@ elseif ( $not_finished ) {
 
         <?php
           }
+        ?>
+      </div>
+
+      <div class="results-msg">
+
+        <?php
+
+          $result_msg = '';
+
+
+          if ( $finished_well ) {
+
+            $result_msg .= '<p>Twój bohater jest gotowy do nastepnego etapu wędrówki.</p>';
+            $result_msg .= '<p>Zawsze możesz tu wrócić, bo nawet ta sama droga, przynosi za każdym razem inne doświadczenia.</p>';
+
+          }
+          elseif ( $finished_so_so ) {
+
+            $result_msg .= '<p>Twój bohater napotkał trudności na tym etapie szlaku.</p>';
+            $result_msg .= '<p>Powtórz wyzwanie, żeby nabrał więcej doświadczenia.</p>';
+
+          }
+          elseif ( $not_finished ) {
+
+            $result_msg .= '<p>Twój bohater nieoczekiwanie zszedł ze szlaku.</p>';
+            $result_msg .= '<p>Ale nic się nie martw. Zawsze możesz tu wrócić i pomóc mu w zdobyciu doświadczenia.</p>';
+
+          }
 
           //  Msg
           echo $result_msg;
@@ -149,9 +143,44 @@ elseif ( $not_finished ) {
           //  Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.
         ?>
 
-
       </div>
+
+
+
       <?php
+
+        $result_btns = '';
+
+        if ( $finished_well ) {
+
+         $result_btns .= '<button class="results__action-btn space-4" id="close-result" role="button">Twój szlak &raquo;</button>';
+
+          $result_btns .= '<div class="centered">';
+
+            $result_btns .= '<a class="btn btn-dark" href="' .  $przewodnik_link . '" class="btn btn-white">Wróć do przewodnika</a>';
+
+            $result_btns .= '<a class="btn btn-dark" href="' . $wyzwanie_link . '" class="btn btn-white">Powtórz wyzwanie</a>';
+
+            $result_btns .= '<a class="btn btn-dark" href="' . $ratownik_link . '" class="btn btn-white">Ratownik</a>';
+
+          $result_btns .= '</div>';
+
+        }
+        elseif ( $finished_so_so || $not_finished ) {
+
+          $result_btns .= '<a class="results__action-btn results__action-btn--negative space-4" href="' . $wyzwanie_link . '" class="btn btn-white">Powtórz wyzwanie &raquo;</a>';
+
+          $result_btns .= '<div class="centered">';
+
+            $result_btns .= '<button class="btn btn-dark" id="close-result" role="button">Twój szlak</button>';
+
+            $result_btns .= '<a class="btn btn-dark" href="' .  $przewodnik_link . '" class="btn btn-white">Wróć do przewodnika</a>';
+
+            $result_btns .= '<a class="btn btn-dark" href="' . $ratownik_link . '" class="btn btn-white">Ratownik</a>';
+
+          $result_btns .= '</div>';
+
+        }
 
         //  Btns
         echo $result_btns;
