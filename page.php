@@ -62,6 +62,8 @@ function las_course_router() {
   $parent_id = $post->post_parent;
   $parent_name = get_post( $parent_id )->post_name;
 
+  $b_wyzwanie_class = 'b-wyzwanie-' . $parent_name;
+
   //  Has no categories, normal page then
   //  cokolwiek by to nie było....
   if ( !has_category() ) {
@@ -98,7 +100,7 @@ function las_course_router() {
     //
     //  Get data file
     //
-    if ( has_category( 'wyzwanie-liczby' ) ) {
+    if ( has_category( 'wyzwanie-liczby' ) && ( $type === 'wyzwanie' ) ) {
       $data_file = stream_resolve_include_path( __DIR__ . '/data/' . $type . '/' . $parent_name . '/liczby.php' );
     }
     else {

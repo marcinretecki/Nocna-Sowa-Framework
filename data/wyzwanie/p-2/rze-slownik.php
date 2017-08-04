@@ -7,14 +7,24 @@ function LasData() {
   var newMsg = function( word ) {
     var a = ''
 
-    a += '<i class="mark mark--green">';
+    a += '<div class="space size-3"><i>';
+    a += word;
+    a += '</i></div>';
 
+
+    a += '<div class="space">';
+    a += '<a class="btn btn-white-outline margin-0" target="_blank" href="http://ordbok.uib.no/perl/ordbok.cgi?bokmaal=+&OPP=';
     a += word;
-    a += '</i>';
-    a += '<br />';
-    a += '<a class="size-1 a-light" target="_blank" href="http://ordbok.uib.no/perl/ordbok.cgi?bokmaal=+&OPP=';
+    a += '">Bokmålsordboka</a>';
+    a += '</div>';
+
+
+    a += '<div>';
+    a += '<a class="btn btn-white-outline margin-0" target="_blank" href="http://lexin.udir.no/?search=';
     a += word;
-    a += '">Sprawdź w słowniku &rarr;</a>';
+    a += '&dict=nbo-pol-maxi&ui-lang=NBO&startingfrom=&count=10&checked-languages=NBO&checked-languages=POL&checked-languages=B">Lexin</a>';
+    a += '</div>';
+
 
     return a;
   };
@@ -60,6 +70,7 @@ function LasData() {
       autoNext:   'RANDOM'
     },
 
+
     _hand1: {
       msg:        newMsg( 'hånd' ),
       answers: [
@@ -74,6 +85,7 @@ function LasData() {
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
+
 
     _spor1: {
       msg:        newMsg( 'spor' ),
@@ -90,6 +102,7 @@ function LasData() {
       autoNext:   'RANDOM'
     },
 
+
     _lys1: {
       msg:        newMsg( 'lys' ),
       answers: [
@@ -104,6 +117,7 @@ function LasData() {
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
+
 
     _kamp1: {
       msg:        newMsg( 'kamp' ),
@@ -120,6 +134,7 @@ function LasData() {
       autoNext:   'RANDOM'
     },
 
+
     _bat1: {
       msg:        newMsg( 'båt' ),
       answers: [
@@ -134,6 +149,7 @@ function LasData() {
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
+
 
     _morgen1: {
       msg:        newMsg( 'morgen' ),
@@ -150,6 +166,7 @@ function LasData() {
       autoNext:   'RANDOM'
     },
 
+
     _helg1: {
       msg:        newMsg( 'helg' ),
       answers: [
@@ -164,6 +181,7 @@ function LasData() {
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
+
 
     _navn1: {
       msg:        newMsg( 'navn' ),
@@ -180,6 +198,7 @@ function LasData() {
       autoNext:   'RANDOM'
     },
 
+
     _moete1: {
       msg:        newMsg( 'møte' ),
       answers: [
@@ -194,6 +213,7 @@ function LasData() {
       //  duration:   1.5,
       autoNext:   'RANDOM'
     },
+
 
     _land1: {
       msg:        newMsg( 'land' ),
@@ -210,6 +230,7 @@ function LasData() {
       autoNext:   'RANDOM'
     },
 
+
     _jord1: {
       msg:        newMsg( 'jord' ),
       answers: [
@@ -223,31 +244,24 @@ function LasData() {
       //  startTime:  0,
       //  duration:   1.5,
       autoNext:   'RANDOM'
+    },,
+
+
+    _gulv1: {
+      msg:        newMsg( 'gulv' ),
+      answers: [
+        { answer: '<i>et</i>', score: 'correct', next: '_jord2' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+      ]
+    },
+    _gulv2: {
+      msg:        '<i>et gulv</i>',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM'
     },
 
-    //  _xx1: {
-    //    msg:        newMsg( '' ),
-    //    answers: [
-    //      { answer: '<i>en/ei</i>', score: 'correct', next: '_xx2' },
-    //      { answer: '<i>en</i>',   score: 'wrong' },
-    //      { answer: '<i>et</i>',   score: 'wrong' },
-    //    ]
-    //  },
-    //  _xx2: {
-    //    msg:        '<i></i>',
-    //    //  startTime:  0,
-    //    //  duration:   1.5,
-    //    autoNext:   'RANDOM'
-    //  },
-
-  };
-
-
-  this.end = {
-
-    _end1: {
-      msg:        'END'
-    }
 
   };
 

@@ -31,6 +31,8 @@ $level_percent_before = las_get_level_percent( $user_exp_before );
 $exp_added = $last_wyzwanie_result_progress['exp'];
 $level_before = $level_before_array[0];
 
+$last_wyzwanie_result_progress['wrong'] = $last_wyzwanie_result_progress['wrong'] ?: 0;
+
 $wrong_percent = floor( 100 * $last_wyzwanie_result_progress['wrong'] / ( $last_wyzwanie_result_progress['wrong'] + $last_wyzwanie_result_progress['correct'] ) );
 
 
@@ -40,8 +42,8 @@ $finished_well = ( ( $last_wyzwanie_result_progress[ 'finished' ] > 0 ) && ( $wr
 
 
 //  if user finished wyzwanie
-//  but wrong percent is higher than 20
-$finished_so_so = ( ( $last_wyzwanie_result_progress[ 'finished' ] > 0 ) && ( $wrong_percent > 20 ) );
+//  but wrong percent is higher than or equal 20
+$finished_so_so = ( ( $last_wyzwanie_result_progress[ 'finished' ] > 0 ) && ( $wrong_percent >= 20 ) );
 
 //  if user has not finished wyzwanie
 //  she could just click back button
@@ -81,7 +83,7 @@ $not_finished = ( !$last_wyzwanie_result_progress[ 'finished' ] || ( $last_wyzwa
         </div>
 
 
-        <div class="results_numbers row">
+        <div class="results-numbers row">
 
           <div class="results-numbers__col">
             <i class="size-0">Riktig:</i><br />
@@ -108,44 +110,43 @@ $not_finished = ( !$last_wyzwanie_result_progress[ 'finished' ] || ( $last_wyzwa
         <?php
           }
         ?>
+
+        <div class="results-msg">
+
+          <?php
+
+            $result_msg = '';
+
+
+            if ( $finished_well ) {
+
+              $result_msg .= '<p class="size-2">Twój bohater jest gotowy do nastepnego <span class="no-break">etapu wędrówki</span>.</p>';
+              $result_msg .= '<p>Zawsze możesz tu wrócić, bo nawet ta sama droga, przynosi <span class="no-break">za każdym</span> razem <span class="no-break">inne doświadczenia</span>.</p>';
+
+            }
+            elseif ( $finished_so_so ) {
+
+              $result_msg .= '<p class="size-2">Twój bohater napotkał trudności na tym <span class="no-break">etapie szlaku</span>.</p>';
+              $result_msg .= '<p>Powtórz wyzwanie, żeby nabrał <span class="no-break">więcej doświadczenia</span>.</p>';
+
+            }
+            elseif ( $not_finished ) {
+
+              $result_msg .= '<p class="size-2">Twój bohater nieoczekiwanie zszedł <span class="no-break">ze szlaku</span>.</p>';
+              $result_msg .= '<p>Ale nic się nie martw. Zawsze możesz tu wrócić i pomóc mu <span class="no-break">w zdobyciu doświadczenia</span>.</p>';
+
+            }
+
+            //  Msg
+            echo $result_msg;
+
+            //  Idea:
+            //  Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.
+          ?>
+
+        </div>
+
       </div>
-
-      <div class="results-msg">
-
-        <?php
-
-          $result_msg = '';
-
-
-          if ( $finished_well ) {
-
-            $result_msg .= '<p>Twój bohater jest gotowy do nastepnego etapu wędrówki.</p>';
-            $result_msg .= '<p>Zawsze możesz tu wrócić, bo nawet ta sama droga, przynosi za każdym razem inne doświadczenia.</p>';
-
-          }
-          elseif ( $finished_so_so ) {
-
-            $result_msg .= '<p>Twój bohater napotkał trudności na tym etapie szlaku.</p>';
-            $result_msg .= '<p>Powtórz wyzwanie, żeby nabrał więcej doświadczenia.</p>';
-
-          }
-          elseif ( $not_finished ) {
-
-            $result_msg .= '<p>Twój bohater nieoczekiwanie zszedł ze szlaku.</p>';
-            $result_msg .= '<p>Ale nic się nie martw. Zawsze możesz tu wrócić i pomóc mu w zdobyciu doświadczenia.</p>';
-
-          }
-
-          //  Msg
-          echo $result_msg;
-
-          //  Idea:
-          //  Na swojej ścieżce napotkałeś 27 nowych słów, 15 gatunków roślin i 3 zwierzęta.
-        ?>
-
-      </div>
-
-
 
       <?php
 
@@ -153,15 +154,15 @@ $not_finished = ( !$last_wyzwanie_result_progress[ 'finished' ] || ( $last_wyzwa
 
         if ( $finished_well ) {
 
-         $result_btns .= '<button class="results__action-btn space-4" id="close-result" role="button">Twój szlak &raquo;</button>';
+         $result_btns .= '<button class="results__action-btn results__action-btn--last space-4" id="close-result" role="button">Twój szlak &raquo;</button>';
 
-          $result_btns .= '<div class="centered">';
+          $result_btns .= '<div>';
 
-            $result_btns .= '<a class="btn btn-dark" href="' .  $przewodnik_link . '" class="btn btn-white">Wróć do przewodnika</a>';
+            $result_btns .= '<a class="results__action-secondary results__action-btn--first" href="' . $wyzwanie_link . '" class="btn btn-white">Powtórz wyzwanie</a>';
 
-            $result_btns .= '<a class="btn btn-dark" href="' . $wyzwanie_link . '" class="btn btn-white">Powtórz wyzwanie</a>';
+            $result_btns .= '<a class="results__action-secondary" href="' .  $przewodnik_link . '" class="btn btn-white">Wróć do przewodnika</a>';
 
-            $result_btns .= '<a class="btn btn-dark" href="' . $ratownik_link . '" class="btn btn-white">Ratownik</a>';
+            $result_btns .= '<a class="results__action-secondary results__action-btn--last" href="' . $ratownik_link . '" class="btn btn-white">Ratownik</a>';
 
           $result_btns .= '</div>';
 
@@ -170,13 +171,13 @@ $not_finished = ( !$last_wyzwanie_result_progress[ 'finished' ] || ( $last_wyzwa
 
           $result_btns .= '<a class="results__action-btn results__action-btn--negative space-4" href="' . $wyzwanie_link . '" class="btn btn-white">Powtórz wyzwanie &raquo;</a>';
 
-          $result_btns .= '<div class="centered">';
+          $result_btns .= '<div>';
 
-            $result_btns .= '<button class="btn btn-dark" id="close-result" role="button">Twój szlak</button>';
+            $result_btns .= '<a class="results__action-secondary results__action-btn--first" href="' .  $przewodnik_link . '" class="btn btn-white">Wróć do przewodnika</a>';
 
-            $result_btns .= '<a class="btn btn-dark" href="' .  $przewodnik_link . '" class="btn btn-white">Wróć do przewodnika</a>';
+            $result_btns .= '<a class="results__action-secondary" href="' . $ratownik_link . '" class="btn btn-white">Ratownik</a>';
 
-            $result_btns .= '<a class="btn btn-dark" href="' . $ratownik_link . '" class="btn btn-white">Ratownik</a>';
+            $result_btns .= '<button class="results__action-secondary results__action-btn--last" id="close-result" role="button">Twój szlak</button>';
 
           $result_btns .= '</div>';
 

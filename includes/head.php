@@ -117,7 +117,7 @@
 
 </div>
 
-<div id="las-nav" class="section-white header-top header-top--shadowed header-top--fixed">
+<div id="las-nav" class="section-white header-top header-top--fixed header-top--las">
   <div class="section-nav" style="position: relative;">
     <span class="btn btn-nav navbar-logo--centered navbar-logo--las">Las</span>
 

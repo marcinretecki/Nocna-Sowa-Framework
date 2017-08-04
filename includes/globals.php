@@ -25,6 +25,6 @@ if ( is_user_logged_in() ) {
   //  char
   $user_char = las_get_user_char();
   $user_img_url = las_get_user_profile_img( $user_char );
-  $user_nick = las_get_user_char_name_nick( $user_char );
+  $user_nick = las_get_user_char_full_name( $user_char );
 
 }

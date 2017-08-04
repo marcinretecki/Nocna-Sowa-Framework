@@ -51,11 +51,14 @@ function las_redirect_to_create_user_char( $user_char ) {
 //  Get user progress
 //  @return array or false
 //
-function las_get_user_char() {
+function las_get_user_char( $id = 0 ) {
 
-  $current_user = wp_get_current_user();
+  if ( $id === 0 ) {
+    $current_user = wp_get_current_user();
+    $id = $current_user->ID;
+  }
 
-  $user_char = get_user_meta( $current_user->ID, 'las_char' );
+  $user_char = get_user_meta( $id, 'las_char' );
 
   //  if there is any meta
   if ( $user_char && is_array( $user_char[0] ) ) {
@@ -77,7 +80,7 @@ function las_get_user_char() {
 //  Get char full name
 //  @return Name Nick
 //
-function las_get_user_char_name_nick( $user_char ) {
+function las_get_user_char_full_name( $user_char ) {
 
   return $user_char[ 'name' ] . ' ' . $user_char[ 'nick' ];
 

@@ -14,8 +14,9 @@ if ( $globals ) {
 ?>
 
 
+<section class="section-trans wrapper <?php echo $b_wyzwanie_class; ?>">
 
-<section class="section-trans wrapper" style="background-image: url('/las/c/i/las_test_9.jpg');">
+  <div id="setninger-words-b" class="setninger-words-b"></div>
 
   <div id="setninger" class="setninger">
 

@@ -10,7 +10,7 @@ if ( $globals ) {
 }
 ?>
 
-<section class="section-trans wrapper" style="background-image: url('/las/c/i/las_test_6.jpg');">
+<section class="section-trans wrapper <?php echo $b_wyzwanie_class; ?>">
   <div id="chat-bot" class="wrapper"></div>
 </section>
 

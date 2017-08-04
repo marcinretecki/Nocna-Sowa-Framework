@@ -377,10 +377,10 @@ function test_las_get_last_wyzwanie_result() {
   $last_wyzwanie_result = [
     'progress' => [
       'exp'         => 800,
-      'ex'          => 16,
+      'ex'          => 20,
       't'           => 544,
-      'correct'     => 20,
-      'wrong'       => 10,
+      'correct'     => 16,
+      'wrong'       => 4,
       'repeat'      => 23,
       'more'        => 3,
       'trans'       => 12,

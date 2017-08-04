@@ -12,9 +12,9 @@ if ( $globals ) {
 ?>
 
 
-<section class="section-trans wrapper" style="background-image: url('/las/c/i/las_test_9.jpg');">
+<section class="section-trans wrapper <?php echo $b_wyzwanie_class; ?>">
 
-  <div class="section-content section-4-2">
+  <div class="section-content audio-test-section">
     <div id="audio-test" class="main-column center">
 
       <div id="audio-pause-timer"class="audio-pause-timer">

@@ -131,7 +131,7 @@ function las_profile_show_last_dates( $user_progress ) {
 
         <img class="profile-header__img" src="<?php echo las_get_user_profile_img( $user_char ); ?>" />
 
-        <h1 class="h1 space-half"><?php echo las_get_user_char_name_nick( $user_char ); ?></h1>
+        <h1 class="h1 space-half"><?php echo las_get_user_char_full_name( $user_char ); ?></h1>
 
         <p class="space-0"><i><?php echo las_get_user_char_type( $user_char ); ?></i></p>
 

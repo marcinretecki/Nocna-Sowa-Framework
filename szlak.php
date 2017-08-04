@@ -443,7 +443,7 @@ include( 'includes/head.php' );
 
 ?>
 
-<section id="szlak-wrapper" class="section-trans wrapper group preload--hidden" style="background-image: url('/las/c/i/las_test_8.jpg');">
+<section id="szlak-wrapper" class="section-trans wrapper group preload--hidden b-szlak">
 
   <h1 class="szlak-h1">Twój Szlak</h1>
 

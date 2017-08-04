@@ -45,7 +45,7 @@ function las_przewodnik_show_media() {
 ?>
 
 
-<section id="przewodnik-wrapper" class="section-trans wrapper group preload--hidden" style="background-image: url('/las/c/i/las_test_9.jpg');">
+<section id="przewodnik-wrapper" class="section-trans wrapper group preload--hidden b-przewodnik">
 
   <div id="przewodnik" class="przewodnik">
 
