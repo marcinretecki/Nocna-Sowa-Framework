@@ -764,7 +764,7 @@ function LasHelper() {
 
     parent = el.parentNode;
 
-    while ( !parent.hasAttribute( att ) ) {
+    while ( parent && !parent.hasAttribute( att ) ) {
 
       parent = parent.parentNode;
 

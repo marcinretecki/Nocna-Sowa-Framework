@@ -539,7 +539,7 @@ function LasAudioTest() {
 
       window.console.log('begin velocity show msg');
 
-      this.audioMsg.innerHTML = this.currentBubbleData.msg;
+      this.audioMsg.innerHTML = this.encodeBubble( this.currentBubbleData.msg );
 
       //  set the cursor on msg
       if ( this.currentBubbleData.trans ) {
@@ -718,14 +718,10 @@ function LasAudioTest() {
     window.console.log('show controls');
 
     //  reset color
-    this.audioControls.classList.remove( 'section-green' );
     this.audioControls.classList.remove( 'section-dark' );
 
     //  match the color to answers or msg
-    if ( this.state.answers ) {
-      this.audioControls.classList.add( 'section-green' );
-    }
-    else {
+    if ( !this.state.answers ) {
       this.audioControls.classList.add( 'section-dark' );
     }
 
@@ -1116,7 +1112,7 @@ function LasAudioTest() {
                 content += '<p class="size-1 space-half">' + bubbleData[bubbleProp] + '</p>';
               }
               else if ( bubbleProp === 'trans' ) {
-                content += '<p class="size-1 space-half" style="opacity:0.75;"><i>Trans</i>: ' + bubbleData[bubbleProp] + '</p>';
+                content += '<p class="size-0 space-half" style="opacity:0.75;"><i>Trans</i>: ' + bubbleData[bubbleProp] + '</p>';
               }
               else if ( ( bubbleProp === 'answers' ) ) {
 
@@ -1153,21 +1149,23 @@ function LasAudioTest() {
 
                     if ( moreProp === 'spokenWord' ) {
 
-                      content += '<p class="size-1 space-half" style="opacity:0.75;"><i>More</i>: ' + moreData[moreProp] + '</p>';
+                      content += '<p class="size-1 space-half"><i>More</i>: ' + moreData[moreProp] + '</p>';
 
                     }
-                    else {
-                      content += ' <span style="opacity:0.75;">| ' + moreProp + ': ' + moreData[moreProp] + '</span>';
-                    }
+                    /*else {
+                      content += ' <span style="opacity:0.5;">' + moreProp + ': ' + moreData[moreProp] + ' |</span>';
+                    }*/
 
 
                   }
                 }
 
+                //  content += '<br />';
+
               }
-              else {
+              /*else {
                 content += '<span style="opacity:0.5;">' + bubbleProp + ': ' + bubbleData[bubbleProp] + ' |</span> ';
-              }
+              }*/
 
               if ( ( bubbleProp === 'startTime' ) && this.audioFile ) {
                 content += '<button style="position:absolute;left:100%;transform:translateX(-50%);top:-0.75rem;height:1.5rem;margin:0;" class="btn btn-green btn-small" onClick="las.playAudioTestMode(' + bubbleData.startTime +  ', ' + bubbleData.duration + ');">Audio &raquo;</button>';

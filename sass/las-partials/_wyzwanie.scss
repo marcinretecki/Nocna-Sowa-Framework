@@ -17,7 +17,9 @@
 //
 //  Audio Test
 //
-
+.audio-test-section {
+  padding: $space-8 0 $space-2;
+}
 
 .audio-pause-timer {
   position:fixed;
@@ -33,17 +35,19 @@
 .audio-pause-timer__btn {
   //  move btn/btn-white etc into here so it is self contained
 
-  display:block;margin:0px auto;
-  width:4rem;
-  height:4rem;
-  padding:0;
-  border-radius:50%;
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  margin: 0 auto;
+  border-radius: 50%;
 
-  background-image:url('/las/c/i/icon_next.png');
-  background-size:26px auto;
-  background-position:center center;
-  background-repeat:no-repeat;
-  box-shadow:0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
+  background-image: url('/las/c/i/icon_next.png');
+  background-size: 26px auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  @include shadow-3;
 }
 
 
@@ -52,7 +56,7 @@
 
   border-radius:3px;
 
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);
+  @include shadow-2;
 }
 
 .audio-test-msg {
@@ -106,6 +110,7 @@
 
 .audio-test-answers__answer + .audio-test-answers__answer {
   border-top: 1px solid $green-light;
+  border-radius: 0;
 }
 
 .audio-test-answers__answer:focus,
@@ -118,6 +123,8 @@
   display: none;
   height: 2rem;
   border-radius: 0 0 3px 3px;
+
+  transition: none;
 }
 
 .audio-controls__btn {
@@ -137,7 +144,7 @@
   background-size: 26px auto;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow:  0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  @include shadow-3;
   cursor: pointer;
 }
 
@@ -252,14 +259,18 @@
   backface-visibility: hidden;
 }
 
-.chat-bubble-img {
+.chat-bubble--img {
   padding: 0;
   overflow: hidden;
   max-width: 90%;
 }
 
-.chat-bubble-img img {
+.chat-bubble--img img {
   display: block;
+}
+
+.chat-bubble--eng-segment {
+  margin-bottom: $space-4;
 }
 
 .chat-bubble-answer {
@@ -305,6 +316,7 @@
 
   font-size: 0;
   text-align: center;
+  user-select: none;
 }
 .setninger:before {
   content:  '';
@@ -320,28 +332,62 @@
   display: inline-block;
   width: 100%;
 
-  background-color: rgba( $dark-btn, 0.33 );
+  transition: none;
+}
+
+.setninger-words__word-wrap {
+  position: relative;
+  z-index: 100;
+
+  display: inline-block;
+  padding: $space-half;
+  margin: 0;
+
+  opacity: 0;
+
+  cursor:move;
+  user-select: none;
+  transition: none;
+}
+
+.setninger-words__word-wrap:active,
+.setninger-words__word-wrap:focus {
+  opacity: 1;
 }
 
 .setninger-words__word {
-  @include font-bariol-reg;
 
-  display: inline-block;
   padding: $space-half $space-2;
-  margin: $space-half;
+  margin: 0;
   border-radius: 3px;
+  overflow: hidden;
 
   background: $green;
 
-  font: normal normal 400 #{$size-1}/1 $body-font;
+  color: $white;
+  font-size: $size-1;
+  line-height: 1;
   text-decoration: none;
   text-transform: none;
   text-align: center;
   white-space: nowrap;
 
-  cursor:move;
-  user-select: none;
+  transition: none;
 }
+
+
+.setninger-words__word--active {
+  opacity: 0.5;
+}
+
+.setninger-words-b {
+  position: absolute;
+
+  width: 100%;
+
+  background-color: rgba( $white, 0.1 );
+}
+
 
 
 .setninger-msg {

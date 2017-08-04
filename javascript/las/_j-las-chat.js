@@ -389,9 +389,21 @@ function LasChat() {
     //  after show bubble with loader
     swapContentFn = function() {
 
+      var currentBubble = this.currentBubbleData;
+      var stackL = this.bubbleStack.stack.length;
+      var pointer = this.bubbleStack.pointer;
+
+      console.log('pointer: ' + pointer);
+      console.log('stackL: ' + stackL);
+
       //  add class name for img bubbles
       if ( content.indexOf( '<img' ) !== -1 ) {
-        bubble.className += ' chat-bubble-img';
+        bubble.className += ' chat-bubble--img';
+      }
+
+      //  if it is last from stack
+      if (     currentBubble.hasOwnProperty('autoNext') && ( currentBubble.autoNext === 'RANDOM' ) && ( stackL === pointer + 1 ) ) {
+        bubble.className += ' chat-bubble--eng-segment';
       }
 
       this.scrollFn = function() { bubble.innerHTML = content; };

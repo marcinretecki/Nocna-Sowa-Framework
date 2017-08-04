@@ -318,6 +318,7 @@
   margin: 0 auto $space;
   max-width: 100%;
   width: 200px;
+
   @include for-tablet-portrait-up {
     display: inline-block;
     height: 0;
@@ -342,12 +343,13 @@
 
 .results__section {
 
-  padding: $space-2;
+  padding: $space-2 $space-2 $space-4;
   border-radius: 3px 3px 0 0;
 
-  background: rgba($dark-btn-hover, 0.9);
+  background: rgba( $dark-btn, 0.9 );
 
   color: $white;
+  text-align: center;
 }
 
 
@@ -361,7 +363,7 @@
   margin-top: -6rem;
   margin-right: auto;
   margin-left: auto;
-  border: 3px solid #fff;
+  border: 3px solid $white;
   border-radius: 50%;
   overflow: hidden;
 
@@ -375,16 +377,34 @@
 .results-level {}
 
 .results-level__highlight {
-  display: none;
-  opacity: 0;
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
+
+  display: none;
+  opacity: 0;
   border-radius: 3px;
+
   box-shadow: 0 0 $space-half 0 $white;
   background: $white;
+}
+
+
+.results-numbers {
+  margin-bottom: $space-4;
+}
+
+.results-numbers__col {
+  float: left;
+
+  width: 33.33%;
+  padding: 0 $space;
+}
+
+.results-msg {
+  text-align: center;
 }
 
 
@@ -392,10 +412,8 @@
   @include font-bariol-thin;
 
   display: block;
-
   padding: $space-4 $space-2;
   width: 100%;
-  border-radius: 0 0 3px 3px;
   border: 0;
 
   background: rgba( $green, 0.9 );
@@ -405,24 +423,50 @@
   text-align: center;
   color: $white;
 }
+.results__action-btn:focus,
 .results__action-btn:hover {
   background: rgba( $green-hover, 0.9 );
 
   color: $white;
 }
 
+.results__action-btn--negative {
+  background: rgba( $orange, 0.9 );
+}
+.results__action-btn--negative:focus,
+.results__action-btn--negative:hover {
+  background: rgba( $orange-hover, 0.9 );
 
-// ????
-//  czy to będzie potrzebe?
-//  w tej chwili nie uzywamy
-.results__action-btn--secondary {
-
-  //padding: $space-2;
-  border-radius: 0;
-
-  background: rgba( $dark, 0.9 );
+  color: $white;
 }
 
-.results__action-btn--secondary:hover {
+.results__action-secondary {
+  display: block;
+  padding: $space $space-2;
+  width: 100%;
+  border: 1px solid $dark-btn-light;
+  border-width: 1px 0 0 ;
+
+  background: rgba( $dark-btn, 0.9 );
+
+  font-size: $size-1;
+  text-decoration: none;
+  text-align: center;
+  color: $white;
+}
+
+.results__action-secondary:focus,
+.results__action-secondary:hover {
   background: rgba( $dark-btn-hover, 0.9 );
+
+  color: $white;
+}
+
+.results__action-btn--first {
+  border-radius: 3px 3px 0 0;
+  border-top: none;
+}
+
+.results__action-btn--last {
+  border-radius: 0 0 3px 3px;
 }

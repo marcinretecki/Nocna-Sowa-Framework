@@ -6,6 +6,16 @@ Author: Marcin Retecki
 */
 
 
+//
+//  Material Shadows
+//  by https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d
+//
+@mixin shadow-1 { box-shadow: 0 1px 3px   rgba(0,0,0,0.12), 0 1px 2px   rgba(0,0,0,0.24); }
+@mixin shadow-2 { box-shadow: 0 3px 6px   rgba(0,0,0,0.16), 0 3px 6px   rgba(0,0,0,0.23); }
+@mixin shadow-3 { box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px   rgba(0,0,0,0.23); }
+@mixin shadow-4 { box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); }
+@mixin shadow-5 { box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); }
+
 
 // Variables
 @import "partials/variables";
@@ -16,9 +26,20 @@ p {
   margin: 0;
 }
 
-p + p {
+p + p,
+p + img {
   margin-top: $space;
 }
+
+
+ul,
+ol,
+dl {
+  margin-top: $space;
+  margin-bottom: $space;
+}
+
+
 
 
 //  Elements
@@ -27,6 +48,7 @@ p + p {
 @import "las-partials/szlak";
 @import "las-partials/przewodnik";
 @import "las-partials/wyzwanie";
+
 
 
 //
@@ -66,20 +88,11 @@ p + p {
   height: ($size-1 * $line-1);
   background-size: ($size-1 * $line-1) auto;
   background-repeat: no-repeat;
-  vertical-align: text-bottom
+  vertical-align: bottom;
 }
 
 .las-icon--next {
   background-image: url('/las/c/i/icon_next.png');
-}
-
-//  old naming
-.size-2 .las-icon,
-//  new naming
-.las-icon-size-2 {
-  width: ($size-2 * $line-1);
-  height: ($size-2 * $line-1);
-  background-size: ($size-2 * $line-1) auto;
 }
 
 .las-icon--next-w {
@@ -514,3 +527,22 @@ p + p {
 .las-red { background: rgba( $red, 0.9 ); }
 
 
+.b-szlak {      background-image: url('/las/c/i/b/b_szlak.jpg'); }
+.b-przewodnik { background-image: url('/las/c/i/b/b_przewodnik.jpg'); }
+.b-ratownik {   background-image: url('/las/c/i/b/b_ratownik.jpg'); }
+// p-1 nie ma wyzwań
+.b-wyzwanie-p-2 { background-image: url('/las/c/i/b/b_wyzwanie_p_2.jpg'); }
+.b-wyzwanie-p-3 { background-image: url('/las/c/i/b/b_wyzwanie_p_3.jpg'); }
+.b-wyzwanie-p-4 { background-image: url('/las/c/i/b/b_wyzwanie_p_4.jpg'); }
+.b-wyzwanie-p-5 { background-image: url('/las/c/i/b/b_wyzwanie_p_5.jpg'); }
+.b-wyzwanie-p-6 { background-image: url('/las/c/i/b/b_wyzwanie_p_6.jpg'); }
+
+//  druga księga
+.b-wyzwanie-f-1 { background-image: url('/las/c/i/b/b_wyzwanie_f_1.jpg'); }
+
+
+
+//
+//  Utilities
+//
+.margin-0 { margin: 0; }

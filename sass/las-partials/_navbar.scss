@@ -2,6 +2,10 @@
 //  NAVBAR scss
 //
 
+.header-top--las {
+  @include shadow-2;
+}
+
 
 .navbar-logo--las {
   background: transparent url("/las/c/i/icon_feather.png") no-repeat scroll center center / auto 100%;
