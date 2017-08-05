@@ -88,7 +88,6 @@ function LasPrzewodnik() {
     //  @event comes from addListener
 
     var throttleTimer;
-    var elWithHref;
     var audioRow;
     var audioStartTime;
     var audioDuration;
@@ -110,7 +109,7 @@ function LasPrzewodnik() {
     window.console.log('click');
 
     //  check if the el or parent has audio data
-    var audioRow = this.getParentWithAtt(event.target, 'data-audioStartTime');
+    audioRow = this.getParentWithAtt(event.target, 'data-audioStartTime');
 
     if ( audioRow && audioRow.hasAttribute( 'data-audioDuration' ) ) {
 

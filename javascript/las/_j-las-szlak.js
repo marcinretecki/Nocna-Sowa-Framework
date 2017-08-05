@@ -186,7 +186,7 @@ function LasSzlak() {
       btnToShow.blur();
 
       //  animate section
-      this.velocity(
+      Velocity(
         toShow,
         'slideDown',
         { duration: duration, easing: this.helper.easingQuart, display: 'block', queue: false }
@@ -202,7 +202,7 @@ function LasSzlak() {
       btnToHide.blur();
 
       //  animatio section
-      this.velocity(
+      Velocity(
         toHide,
         'slideUp',
         { duration: duration, easing: this.helper.easingQuart, display: 'none' }
@@ -309,8 +309,8 @@ function LasSzlak() {
     }
 
 
-    this.velocity( this.szlakPopUp, props[0], options[0] );
-    this.velocity( this.szlakPopUpSection, props[1], options[1] );
+    Velocity( this.szlakPopUp, props[0], options[0] );
+    Velocity( this.szlakPopUpSection, props[1], options[1] );
 
   };
 
@@ -387,7 +387,7 @@ function LasSzlak() {
       now = '100%';
     }
 
-    this.velocity(
+    Velocity(
       this.animateResultsEls.levelLineEl,
       { width: [now ,before ] },
       { duration: 8 * this.helper.speed, easing: this.helper.easingQuart,
@@ -451,7 +451,7 @@ function LasSzlak() {
     console.log('level change!');
 
     //  highlight level up
-    this.velocity(
+    Velocity(
       this.animateResultsEls.levelHighlight,
       { opacity: [ 1, 0 ] },
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'block',
@@ -463,7 +463,7 @@ function LasSzlak() {
 
 
     //  remove highlight
-    this.velocity(
+    Velocity(
       this.animateResultsEls.levelHighlight,
       { opacity: [ 0, 1 ] },
       { duration: 6 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
@@ -519,22 +519,22 @@ function LasSzlak() {
       chapterToHighlight.appendChild( highlightWrapper );
 
       //  hook velocity
-      this.velocity.hook( chapterToHighlight, 'colorRed', '255');
-      this.velocity.hook( chapterToHighlight, 'colorBlue', '255');
-      this.velocity.hook( chapterToHighlight, 'colorGree', '255');
-      this.velocity.hook( chapterToHighlight, 'colorAlpha', '0.5');
+      Velocity.hook( chapterToHighlight, 'colorRed', '255');
+      Velocity.hook( chapterToHighlight, 'colorBlue', '255');
+      Velocity.hook( chapterToHighlight, 'colorGree', '255');
+      Velocity.hook( chapterToHighlight, 'colorAlpha', '0.5');
 
       //  hide shadow and arrow
       chapterToHighlight.classList.add( 'szlak-sublist__btn--highlight' );
     }
 
     //  hide the popup
-    this.velocity(
+    Velocity(
       resultsWrapper,
       { opacity: [0, 1] },
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
     );
-    this.velocity(
+    Velocity(
       results,
       { scale: 0 },
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
@@ -544,7 +544,7 @@ function LasSzlak() {
     if ( chapterToHighlight ) {
 
       //  scroll to the next chapter
-      this.velocity(
+      Velocity(
         chapterToHighlight,
         'scroll',
         {
@@ -559,7 +559,7 @@ function LasSzlak() {
       //  move the highlight
       highlightFn = function() {
 
-        this.velocity(
+        Velocity(
           highlightWrapper,
           { right: ['-1%', '100%'], marginRight: '-8rem' },
           { duration: 3 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
@@ -568,7 +568,7 @@ function LasSzlak() {
       }.bind( this );
 
       //  highlight the chapter
-      this.velocity(
+      Velocity(
         chapterToHighlight,
         { backgroundColorAlpha: ['0.9', '0'] },
         { duration: 3 * this.helper.speed, easing: this.helper.easingQuart,
@@ -582,7 +582,7 @@ function LasSzlak() {
       );
 
       //  remove highlight
-      this.velocity(
+      Velocity(
         chapterToHighlight,
         { backgroundColorAlpha: '0', colorAlpha: '1' },
         { duration: 6 * this.helper.speed, easing: this.helper.easingQuart,

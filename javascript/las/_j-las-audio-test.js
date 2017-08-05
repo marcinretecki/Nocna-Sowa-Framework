@@ -5,7 +5,7 @@
 
 //
 //  TODO
-//  - add this.velocity hooks, to prevent layout trashing at the beggining of the app
+//  - add Velocity hooks, to prevent layout trashing at the beggining of the app
 //  - change spinner, so it looks good with answers
 //  - add state to buttons, so they look clicked
 
@@ -371,14 +371,14 @@ function LasAudioTest() {
           this.answerElements[i].innerHTML = this.currentBubbleData.answers[i].answer;
 
           //  animate size
-          this.velocity(
+          Velocity(
             this.answerElements[i],
             'slideDown',
             { duration: 2 * this.helper.speed, easing: this.helper.easingSpring, display: 'block', queue: false }
           );
 
           //  animate border
-          this.velocity(
+          Velocity(
             this.answerElements[i],
             { borderColor: '#60B3B3' },
             { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
@@ -434,7 +434,7 @@ function LasAudioTest() {
         //  IIFE to lock the i variable
         (function( i, c ) {
 
-          this.velocity(
+          Velocity(
             this.answerElements[i],
             { borderColor: '#308c8c' },
             { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, queue: false }
@@ -443,7 +443,7 @@ function LasAudioTest() {
           //  if it is the last answer to reset
           if ( i === (c - 1) ) {
 
-            this.velocity(
+            Velocity(
               this.answerElements[i],
               'slideUp',
               { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, queue: false,
@@ -457,7 +457,7 @@ function LasAudioTest() {
           //  all other answers
           else {
 
-            this.velocity(
+            Velocity(
               this.answerElements[i],
               'slideUp',
               { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, queue: false }
@@ -492,20 +492,20 @@ function LasAudioTest() {
 
 
     //  vibrate
-    this.velocity(
+    Velocity(
         this.clickedAnswerEl,
       { translateX: ['0', '-0.5rem'] },
       { duration: 4 * this.helper.speed, easing: [ 5000, 20 ], queue: false }
     );
 
     //  change color
-    this.velocity(
+    Velocity(
       this.clickedAnswerEl,
       { backgroundColor: '#c55c27' },
       { duration: this.helper.speed, easing: this.helper.easingQuart, queue: false }
     );
 
-    this.velocity(
+    Velocity(
       this.clickedAnswerEl,
       { backgroundColorAlpha: 0 },
       { duration: 4 * this.helper.speed, easing: this.helper.easingQuart }
@@ -553,7 +553,7 @@ function LasAudioTest() {
     }.bind(this);
 
     //  animate
-    this.velocity(
+    Velocity(
       this.audioMsgWrapper,
       'slideDown',
       { duration: this.helper.speed*2, easing: this.helper.easingSpring,
@@ -580,7 +580,7 @@ function LasAudioTest() {
     }
 
     //  if user clicked fast enough, showMsg could not finish, then we need to stop animation
-    this.velocity(
+    Velocity(
       this.audioMsgWrapper,
       'stop'
     );
@@ -598,7 +598,7 @@ function LasAudioTest() {
 
     }.bind(this);
 
-    this.velocity(
+    Velocity(
       this.audioMsgWrapper,
       'slideUp',
       { duration: this.helper.speed*2, easing: this.helper.easingQuart,
@@ -665,10 +665,10 @@ function LasAudioTest() {
 
     window.console.log('show trans');
 
-    this.audioTrans.innerHTML = '<i>' + this.currentBubbleData.trans + '</i>';
+    this.audioTrans.innerHTML = this.currentBubbleData.trans;
 
     //  animate
-    this.velocity(
+    Velocity(
       this.audioTrans,
       'slideDown',
       { duration: this.helper.speed, easing: this.helper.easingSpring }
@@ -687,7 +687,7 @@ function LasAudioTest() {
     }
 
     //  hide
-    this.velocity(
+    Velocity(
       this.audioTrans,
       'slideUp',
       { duration: 0 }
@@ -726,19 +726,19 @@ function LasAudioTest() {
     }
 
     //  show the whole controls bar
-    this.velocity(
+    Velocity(
       this.audioControls,
       'slideDown',
       { duration: 2 * this.helper.speed, easing: this.helper.easingSpring }
     );
 
-    //  below, each this.velocity call need display: block, or buttons will be showed as inline-block
+    //  below, each Velocity call need display: block, or buttons will be showed as inline-block
 
     //  if there is more audio, show MORE button
     if ( this.currentBubbleData.more && this.audioFile ) {
       window.console.log('show more button');
 
-      this.velocity(
+      Velocity(
         this.audioMore,
         'fadeIn',
         { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
@@ -749,7 +749,7 @@ function LasAudioTest() {
     if ( this.isCorrectAudioStack() && this.audioFile  ) {
       window.console.log('show rewind button');
 
-      this.velocity(
+      Velocity(
         this.audioRewind,
         'fadeIn',
         { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
@@ -759,7 +759,7 @@ function LasAudioTest() {
     //  if there are no answers, we need NEXT button
     if ( !this.currentBubbleData.answers ) {
       window.console.log('show next button');
-      this.velocity(
+      Velocity(
         this.audioNext,
         'fadeIn',
         { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'block', delay: this.helper.speed }
@@ -784,28 +784,28 @@ function LasAudioTest() {
     window.console.log('reset controls');
 
     //  hide the whole controls element
-    this.velocity(
+    Velocity(
       this.audioControls,
       'slideUp',
       { duration: this.helper.speed*2, easing: this.helper.easingQuart }
     );
 
     //  hide MORE
-    this.velocity(
+    Velocity(
       this.audioMore,
       'fadeOut',
       { duration: this.helper.speed*2, easing: this.helper.easingQuart }
     );
 
     //  hide REWIND
-    this.velocity(
+    Velocity(
       this.audioRewind,
       'fadeOut',
       { duration: this.helper.speed*2, easing: this.helper.easingQuart }
     );
 
     //  hide NEXT
-    this.velocity(
+    Velocity(
       this.audioNext,
       'fadeOut',
       { duration: this.helper.speed*2, easing: this.helper.easingQuart }

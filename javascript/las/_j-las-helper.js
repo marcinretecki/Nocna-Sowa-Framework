@@ -53,8 +53,6 @@ function LasHelper() {
     this.nav =                          document.getElementById( 'las-nav' );
     this.navCharLog =                   document.getElementById( 'las-nav-char-log' );
 
-    //  Velocity
-    this.velocity =                     Velocity;
 
     //  Random chat arrays
     this.createRandomDataArrays();
@@ -145,7 +143,7 @@ function LasHelper() {
 
 
     //  prepare chat object
-    chatObject = this.lasData.chat
+    chatObject = this.lasData.chat;
 
     //  check if user finished wyzwanie
     //  at least 2 time before
@@ -496,7 +494,7 @@ function LasHelper() {
 
     window.console.log('hide loader');
 
-    this.velocity(
+    Velocity(
       this.loader,
       'fadeOut',
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
@@ -517,7 +515,7 @@ function LasHelper() {
     var i = 0;
     var max = 10;
 
-    this.velocity(
+    Velocity(
       this.loader,
       'fadeIn',
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
@@ -525,45 +523,45 @@ function LasHelper() {
 
     for ( ; i < max; i++ ) {
 
-      this.velocity(
+      Velocity(
         t1,
         { skewX: [4, 0] },
         { duration: 4 * this.helper.speed, easing: 'easeInOutQuad', delay: 2 * this.helper.speed }
       );
-      this.velocity(
+      Velocity(
         t2,
         { skewX: [8, 0] },
         { duration: 4 * this.helper.speed, easing: 'easeInOutQuad', delay: 2 * this.helper.speed }
       );
-      this.velocity(
+      Velocity(
         t3,
         { skewX: [8, 0] },
         { duration: 4 * this.helper.speed, easing: 'easeInOutQuad', delay: 2 * this.helper.speed }
       );
 
-      this.velocity(
+      Velocity(
         w,
         { translateX: ['-13rem', 0] },
         { duration: 6 * this.helper.speed, easing: 'easeInOutQuad', delay: this.helper.speed }
       );
 
-      this.velocity(
+      Velocity(
         t1,
         { skewX: [0, 4] },
         { duration: 6 * this.helper.speed, easing: 'easeOutSine', delay: this.helper.speed }
       );
-      this.velocity(
+      Velocity(
         t2,
         { skewX: [0, 8] },
         { duration: 6 * this.helper.speed, easing: 'easeOutSine', delay: this.helper.speed }
       );
-      this.velocity(
+      Velocity(
         t3,
         { skewX: [0, 8] },
         { duration: 6 * this.helper.speed, easing: 'easeOutSine', delay: this.helper.speed }
       );
 
-      this.velocity(
+      Velocity(
         w,
         { translateX: [0, 0] },
         { duration: this.helper.speed, easing: 'easeInOutSine', delay: 5 * this.helper.speed }
@@ -588,7 +586,7 @@ function LasHelper() {
       completeFn = Function.prototype;
     }
 
-    this.velocity(
+    Velocity(
       preload,
       { opacity: [1, 0], translateY: [0, '1rem'] },
       { duration: 4 * this.helper.speed, easing: this.helper.easingQuart,
@@ -871,12 +869,12 @@ function LasHelper() {
   //
   this.shuffleArray = function( propArray ) {
 
-    var counter = propArray.length;
+    var newArray = propArray.slice();
+    var counter = newArray.length;
     var index;
     var temp;
-    var newArray;
 
-    //  While there are elements in the propArray
+    //  While there are elements in the newArray
     while (counter > 0) {
       //  Pick a random index
       index = Math.floor(Math.random() * counter);
@@ -885,12 +883,13 @@ function LasHelper() {
       counter--;
 
       //  And swap the last element with it
-      temp = propArray[counter];
-      propArray[counter] = propArray[index];
-      propArray[index] = temp;
+      temp = newArray[counter];
+      newArray[counter] = newArray[index];
+      newArray[index] = temp;
     }
 
-    return propArray;
+    //  return new array
+    return newArray;
   };
 
 

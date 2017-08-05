@@ -2082,7 +2082,7 @@
 	"externalServerAddress": "http:\/\/localhost:8888",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,
-	"jsCheckerReservedNamesString": "",
+	"jsCheckerReservedNamesString": "Velocity,Cookies,LasData",
 	"jsHintFlags2": {
 		"asi": {
 			"active": 0,
@@ -2105,7 +2105,7 @@
 			"flagValue": -1
 			},
 		"camelcase": {
-			"active": 0,
+			"active": 1,
 			"flagValue": -1
 			},
 		"couch": {
@@ -2181,8 +2181,8 @@
 			"flagValue": -1
 			},
 		"indent": {
-			"active": 0,
-			"flagValue": 4
+			"active": 1,
+			"flagValue": 2
 			},
 		"iterator": {
 			"active": 0,
@@ -2221,12 +2221,12 @@
 			"flagValue": 10
 			},
 		"maxdepth": {
-			"active": 0,
+			"active": 1,
 			"flagValue": 3
 			},
 		"maxlen": {
 			"active": 0,
-			"flagValue": 150
+			"flagValue": 80
 			},
 		"maxparams": {
 			"active": 0,
@@ -2253,7 +2253,7 @@
 			"flagValue": -1
 			},
 		"newcap": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"noarg": {

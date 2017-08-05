@@ -140,7 +140,7 @@ function LasCreateProfile() {
     //  prepare Velocity
 
     //  set row's height
-    this.velocity( this.charsRow, { height: this.charsRowRect.height + 'px' }, { duration: 0 } );
+    Velocity( this.charsRow, { height: this.charsRowRect.height + 'px' }, { duration: 0 } );
 
     for ( j = 1; j < charsL; j++ ) {
 
@@ -148,7 +148,7 @@ function LasCreateProfile() {
       charBack = this.charBacks[ j ];
       singleRect = this.charsRectArray[ j ];
 
-      this.velocity(
+      Velocity(
         charToMove,
         {
           width:        singleRect.width + 'px',
@@ -166,7 +166,7 @@ function LasCreateProfile() {
       );
 
       //  prepare images
-      this.velocity.hook( charBack, 'opacity', '0' );
+      Velocity.hook( charBack, 'opacity', '0' );
 
     }
 
@@ -229,7 +229,7 @@ function LasCreateProfile() {
 
 
     //  prepare form
-    this.velocity( this.charForm, 'stop', true );
+    Velocity( this.charForm, 'stop', true );
     this.charForm.style.display = 'none';
 
 
@@ -246,10 +246,10 @@ function LasCreateProfile() {
       charBack = this.charBacks[ i ];
 
       //  stop previous animation
-      this.velocity( charToMove, 'stop', true );
-      this.velocity( charImg, 'stop', true );
-      this.velocity( charDesc, 'stop', true );
-      this.velocity( charBack, 'stop', true );
+      Velocity( charToMove, 'stop', true );
+      Velocity( charImg, 'stop', true );
+      Velocity( charDesc, 'stop', true );
+      Velocity( charBack, 'stop', true );
 
 
       if ( charToMove ) {
@@ -272,7 +272,7 @@ function LasCreateProfile() {
 
             window.console.log(this.charsRowRect.top);
 
-            this.velocity(
+            Velocity(
               charToMove,
               {
                 width:      '100%',
@@ -288,19 +288,19 @@ function LasCreateProfile() {
               }
             );
 
-            this.velocity(
+            Velocity(
               charImg,
               { width: '50%', borderWidth: '0.5rem' },
               { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
             );
 
-            this.velocity(
+            Velocity(
               charDesc,
               'slideDown',
               { duration: 2 * this.helper.speed, easing: this.helper.easingSpring, delay: 2 * this.helper.speed }
             );
 
-            this.velocity(
+            Velocity(
               charBack,
               { opacity: 1 },
               { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, delay: this.helper.speed }
@@ -326,7 +326,7 @@ function LasCreateProfile() {
               charToMove.style.position = 'absolute';
             };
 
-            this.velocity(
+            Velocity(
               charToMove,
               {
                 width:        '33.33%',
@@ -342,19 +342,19 @@ function LasCreateProfile() {
               }
             );
 
-            this.velocity(
+            Velocity(
               charImg,
               { width: '50%', borderWidth: '3px' },
               { duration: 1 * this.helper.speed, easing: this.helper.easingQuart }
             );
 
-            this.velocity(
+            Velocity(
               charDesc,
               'slideUp',
               { duration: 1 * this.helper.speed, easing: this.helper.easingQuart }
             );
 
-            this.velocity(
+            Velocity(
               charBack,
               { opacity: 0 },
               { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, delay: this.helper.speed }
@@ -374,7 +374,7 @@ function LasCreateProfile() {
 
 
     //  show form
-    this.velocity(
+    Velocity(
       this.charForm,
       'slideDown',
       { duration: 2 * this.helper.speed, easing: this.helper.easingSpring, delay: 4 * this.helper.speed }
@@ -438,7 +438,7 @@ function LasCreateProfile() {
     }.bind(this);
 
     //  show blocker from left
-    this.velocity(
+    Velocity(
       this.charBlocker,
       { translateX: ['100%', '0%'] },
       { duration: 4 * this.helper.speed, easing: this.helper.easingQuart,
@@ -449,7 +449,7 @@ function LasCreateProfile() {
     );
 
     //  hide blocker from left
-    this.velocity(
+    Velocity(
       this.charBlocker,
       { translateX: ['200%', '100%'] },
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart,
@@ -514,7 +514,7 @@ function LasCreateProfile() {
   //    //  loop over characters and animate
   //    for ( i = 0; i < charactersArrayL; i++ ) {
 
-  //      this.velocity(
+  //      Velocity(
   //        characterElsArray[ i ],
   //        { opacity: [1, 0], scale: [1, '0.5'], translateX: [0, '-5px'] },
   //        { duration: 2* this.helper.speed, easing: this.helper.easingQuart, delay: i * 0.25 * this.helper.speed }
@@ -548,7 +548,7 @@ function LasCreateProfile() {
 
     console.log(charNickWrapper);
 
-    this.velocity(
+    Velocity(
       charNickWrapper,
       'slideDown',
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, delay: this.helper.speed }

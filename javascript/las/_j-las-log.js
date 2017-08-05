@@ -150,7 +150,7 @@
 
 
     //  animate in
-    this.velocity( navExpEl,
+    Velocity( navExpEl,
       { translateY: ['1rem', '2rem'], opacity: [0.9, 0] },
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'block',
         begin: function() {
@@ -160,7 +160,7 @@
     );
 
     //  animate out
-    this.velocity( navExpEl,
+    Velocity( navExpEl,
       { translateY: ['0.5rem', '1rem'], opacity: [0, 0.9] },
       { duration: 8 * this.helper.speed, easing: this.helper.easingQuart, display: 'none' }
     );

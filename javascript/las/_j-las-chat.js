@@ -286,7 +286,7 @@ function LasChat() {
     this.resetAnswers();
 
     // Adjust padding
-    this.velocity(
+    Velocity(
       this.chatFlow,
       { paddingBottom: '4rem' },
       { duration: 4 * this.helper.speed, easing: 'easeInOutQuart' }
@@ -305,7 +305,7 @@ function LasChat() {
     }.bind(this);
 
     // Animate answerBubble
-    this.velocity(
+    Velocity(
       answerBubble,
       { translateY: [0, newTop], translateX: [0, newLeft], backgroundColor: ['#73b9e6', '#3a8ac0'], opacity: [1, 1] },
       { duration: 2 * this.helper.speed, easing: [ 300, 20 ],
@@ -414,14 +414,14 @@ function LasChat() {
     }.bind(this);
 
     //  Show bubble with loader
-    this.velocity(bubble,
+    Velocity(bubble,
       { right: [0, '100%'] },
       { duration: 5 * this.helper.speed, easing: this.helper.easingSpring }
     );
 
 
     //  Hide bubble and swap content
-    this.velocity(bubble,
+    Velocity(bubble,
       { translateX: '-130%' },
       { duration: this.helper.speed, easing: this.helper.easingSpring, delay: this.helper.speed,
         complete: function() {
@@ -443,7 +443,7 @@ function LasChat() {
     }.bind(this);
 
     //  Show bubble with content
-    this.velocity(bubble,
+    Velocity(bubble,
       { translateX: 0 },
       { duration: 5 * this.helper.speed, easing: this.helper.easingSpring, delay: 0.5 * this.helper.speed,
         complete: function() {
@@ -490,7 +490,7 @@ function LasChat() {
     }
 
     //  Adjust padding
-    this.velocity(
+    Velocity(
       this.chatFlow,
       { paddingBottom: this.answersWrapper.offsetHeight + 5 + 'px' },
       { duration: 1 * this.helper.speed, easing: 'easeInOutQuart' }
@@ -499,7 +499,7 @@ function LasChat() {
 
 
     //  show answers
-    this.velocity(
+    Velocity(
       this.answersWrapper,
       { translateY: [0, '100%'] },
       { duration: 5 * this.helper.speed, easing: this.helper.easingSpring, queue: false }
@@ -513,7 +513,7 @@ function LasChat() {
 
         //  use IIFE to lock the variable i
         (function( i ) {
-          this.velocity(
+          Velocity(
             this.answerElements[i],
             { translateY: [0, (i * 33) + '%'] },
             { duration: 3 * this.helper.speed, easing: 'easeInOutQuart' }
@@ -555,7 +555,7 @@ function LasChat() {
     }
 
     //  hide answers
-    this.velocity(
+    Velocity(
       this.answersWrapper,
       { translateY: ['100%', 0] },
       { duration: 2 * this.helper.speed, easing: [ 300, 20 ], queue: false }
@@ -573,7 +573,7 @@ function LasChat() {
           this.answerElements[i].style.visibility = 'visible';
         }.bind( this );
 
-        this.velocity(
+        Velocity(
           this.answerElements[i],
           { translateY: (i * 33) + '%' },
           { duration: 2 * this.helper.speed, easing: [ 300, 20 ], display: 'none',
@@ -608,7 +608,7 @@ function LasChat() {
     // Keep the scroll at place
     this.wrapper.scrollTop = scrollNo;
 
-    this.velocity(this.answersWrapper, 'scroll', { container: this.wrapper, duration: 4 * this.helper.speed, offset: -5, easing: 'easeInOutQuart', queue: false });
+    Velocity(this.answersWrapper, 'scroll', { container: this.wrapper, duration: 4 * this.helper.speed, offset: -5, easing: 'easeInOutQuart', queue: false });
 
     // Reset scroll function
     this.scrollFn = function() {};
@@ -716,17 +716,17 @@ function LasChat() {
     this.state.answers = true;
     this.resetAnswers();
     this.bubbleStack = [];
-    this.velocity(this.answersWrapper, 'stop', true);
+    Velocity(this.answersWrapper, 'stop', true);
     this.chatFlow.innerHTML = '';
     this.chatFlow.style.display = 'none';
 
     line = document.createElement('li');
     line.style.cssText = 'width:100%; padding-top:1rem; padding-bottom:1rem; margin:0 0 1rem; clear:both; position:relative;';
     line.className = 'section-dark';
-    line.innerHTML = '<p class="space-0">Category: ' + data.category
-      + '<br />' + 'Max correct: ' + this.countMaxCorrectAnswers(data.chat)
-      + '<br />' + 'Extra: ' + this.countMaxCorrectAnswers(data.extra)
-      + '</p>';
+    line.innerHTML = '<p class="space-0">Category: ' + data.category +
+        '<br />' + 'Max correct: ' + this.countMaxCorrectAnswers(data.chat) +
+        '<br />' + 'Extra: ' + this.countMaxCorrectAnswers(data.extra) +
+        '</p>';
     this.chatFlow.appendChild(line);
 
     if ( testNotes ) {

@@ -609,15 +609,15 @@
 
     this.state.spinner = true;
 
-    //  spinner's animation queue is controlled by this.velocity
+    //  spinner's animation queue is controlled by Velocity
 
-    //  reset this.velocity queue
-    this.velocity(
+    //  reset Velocity queue
+    Velocity(
       this.audioSpinner,
       'stop'
     );
 
-    this.velocity(
+    Velocity(
       this.audioSpinner,
       'fadeIn',
       { duration: this.helper.speed, easing: this.helper.easingQuart, display: 'inline-block' }
@@ -633,12 +633,12 @@
 
     this.state.spinner = false;
 
-    this.velocity(
+    Velocity(
       this.audioSpinner,
       'stop'
     );
 
-    this.velocity(
+    Velocity(
       this.audioSpinner,
       'fadeOut',
       { duration: this.helper.speed, easing: this.helper.easingQuart }
@@ -666,14 +666,14 @@
 
     window.console.log('show pause timer');
 
-    //  reset this.velocity queue
-    this.velocity(
+    //  reset Velocity queue
+    Velocity(
       this.audioPauseTimer,
       'stop'
     );
 
     //  show the timer
-    this.velocity(
+    Velocity(
       this.audioPauseTimer,
       'fadeIn',
       { duration: this.helper.speed*2, easing: this.helper.easingQuart }
@@ -697,13 +697,13 @@
 
     window.console.log('reset pause timer');
 
-    //  reset this.velocity queue
-    this.velocity(
+    //  reset Velocity queue
+    Velocity(
       this.audioPauseTimer,
       'stop'
     );
 
-    this.velocity(
+    Velocity(
       this.audioPauseTimer,
       'fadeOut',
       { duration: this.helper.speed, easing: this.helper.easingQuart }

@@ -5,7 +5,7 @@
 
 //
 //  TODO
-//  - add this.velocity hooks, to prevent layout trashing at the beggining of the app
+//  - add Velocity hooks, to prevent layout trashing at the beggining of the app
 //  - change spinner, so it looks good with answers
 //  - add state to buttons, so they look clicked
 
@@ -31,7 +31,7 @@ function LasSetninger() {
   las.setningerControlsBtns = {
     next:                         document.getElementById('setninger-controls__next'),
     trans:                        document.getElementById('setninger-controls__trans')
-  }
+  };
 
   //  this will be filled as needed
   //  depends on number of items in the sentence
@@ -276,7 +276,7 @@ function LasSetninger() {
     window.console.log(this.currentBubbleData.set[ 0 ]);
 
     //  use slice to copy the array, not make referece
-    var set = this.shuffleArray ( this.currentBubbleData.set[ 0 ].slice() );
+    var set = this.shuffleArray ( this.currentBubbleData.set[ 0 ] );
     var l = set.length;
     var i;
 
@@ -284,7 +284,7 @@ function LasSetninger() {
     while ( set[ 0 ] === this.currentBubbleData.set[ 0 ][ 0 ] ) {
 
       //  shuffle again
-      set = this.shuffleArray ( this.currentBubbleData.set[ 0 ].slice() );
+      set = this.shuffleArray ( this.currentBubbleData.set[ 0 ] );
 
     }
 
@@ -322,7 +322,7 @@ function LasSetninger() {
 
       for ( i=0; l > i; i++ ) {
 
-        this.velocity(
+        Velocity(
           this.setningerWordsElements[ i ],
           { opacity: [1, 0] },
           { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
@@ -500,7 +500,7 @@ function LasSetninger() {
 
         if ( i === (l - 1) ) {
 
-          this.velocity(
+          Velocity(
             this.setningerWordsElements[ i ],
             { opacity: [0, 1] },
             { duration: 2 * this.helper.speed, easing: this.helper.easingQuart,
@@ -513,7 +513,7 @@ function LasSetninger() {
         }
         else {
 
-          this.velocity(
+          Velocity(
             this.setningerWordsElements[ i ],
             { opacity: [0, 1] },
             { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
@@ -545,7 +545,7 @@ function LasSetninger() {
     this.setningerWordsB.style.top =  rect.top + 'px';
     this.setningerWordsB.style.height =  rect.height + 'px';
 
-    this.velocity(
+    Velocity(
       this.setningerWordsB,
       { scaleY: [1, 0] },
       { duration: 2 * this.helper.speed, easing: this.helper.easingSpring }
@@ -563,7 +563,7 @@ function LasSetninger() {
     //  get rect
     var rect = this.setningerWords.getBoundingClientRect();
 
-    this.velocity(
+    Velocity(
       this.setningerWordsB,
       { left: rect.left + 'px', top: rect.top + 'px', height: rect.height + 'px' },
       { duration: 2 * this.helper.speed, easing: this.helper.easingSpring }
@@ -578,7 +578,7 @@ function LasSetninger() {
       return;
     }
 
-    this.velocity(
+    Velocity(
       this.setningerWordsB,
       { scaleY: [0, 1] },
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
@@ -641,7 +641,7 @@ function LasSetninger() {
     this.setningerTrans.innerHTML = this.currentBubbleData.trans;
 
     //  //  animate
-    //  this.velocity(
+    //  Velocity(
     //    this.audioTrans,
     //    'slideDown',
     //    { duration: this.helper.speed, easing: this.helper.easingSpring }
@@ -667,7 +667,7 @@ function LasSetninger() {
     this.setningerTrans.innerHTML = '';
 
     //  hide
-    //  this.velocity(
+    //  Velocity(
     //    this.audioTrans,
     //    'slideUp',
     //    { duration: 0 }
@@ -695,7 +695,7 @@ function LasSetninger() {
 
     this.state.controls[ type ] = true;
 
-    this.velocity(
+    Velocity(
       this.setningerControlsBtns[ type ],
       'fadeIn',
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'block' }
@@ -716,7 +716,7 @@ function LasSetninger() {
 
     window.console.log('reset control: ' + type);
 
-    this.velocity(
+    Velocity(
       this.setningerControlsBtns[ type ],
       'fadeOut',
       { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
