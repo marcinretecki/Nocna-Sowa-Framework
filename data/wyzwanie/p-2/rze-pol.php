@@ -425,7 +425,7 @@ function LasData() {
     },
     _ah1b:  {
       bubbles: [
-        'Wiele świateł albo świeczek, to by było: <i>mange lys</i>.',
+        'Wiele świateł albo świeczek, to by było: <i class="mark">mange lys</i>.',
         '<i class="mark">Mye</i> używamy razem z rzeczownikami niepoliczalnymi.',
         '<i class="mark">Mange</i> jest dla policzalnych.',
         'Dlatego:<br /><i class="mark">mye lys</i> – dużo światła<br /><i class="mark">mange lys</i> – wiele świateł'

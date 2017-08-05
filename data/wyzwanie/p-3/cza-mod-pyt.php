@@ -270,7 +270,7 @@ function LasData() {
       msg:        '<i>Jeg vil gjerne ha kaffe.</i>',
       trans:      'Poproszę kawę.',
       startTime:  4,
-      duration:   1.
+      duration:   1,
       more:       {
         spokenWord: 'Po norwesku nie ma jednego słowa, które znaczyłoby “poporoszę”. “Jeg vil ha” albo “Jeg vil gjerne ha” pełni tę funkcję.',
         startTime:  0,

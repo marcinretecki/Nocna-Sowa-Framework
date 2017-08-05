@@ -30,15 +30,15 @@ function LasData() {
   this.intro = {
     _a1: {
       msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
-      autoNext:     '_a2'
+      autoNext:     '_a2',
     },
     _a2: {
       msg:          '<p class="leftened">Wybraliśmy dla Ciebie 30 często używanych rzeczowników, które odmieniają się nieregularnie. Wiemy, że nikt nie lubi uczyć się wyjątków, ale warto je opanować co najmniej z dwóch powodów:</p>' + '<ol class="leftened">' + '<li>będziesz ich często używać,</li>' + '<li>jeśli je zapamiętasz, to o wiele łatwiej opanujesz kolejne.</li>' + '</ol>' + '<p class="leftened">Szybko zauważysz, że będą odmieniały się zgodnie z pewnym schematem. My to nazywamy wyczuciem. Możesz je budować przez lata obcowania z językiem, albo poprzez zapamiętanie odpowiedniej bazy słów już na starcie. Później poznasz kolejne wyjątki, które będą pasowały do schematu i będą łatwe do zapamiętania.</p>',
-      autoNext:     '_a3'
+      autoNext:     '_a3',
     },
     _a3: {
       msg:          '<p class="leftened">Jak opanować wyjątki?</p>' + '<p class="leftened">Najłatwiej uczyć się ich w odpowiedniej kolejności, po cztery, wypowiadając wszystkie na głos. Na początku możesz je tylko powtarzać, ale cel jest taki, żebyśmy mogli Cię przepytać.</p>' + '<p class="leftened">Rób to wyzwanie cierpliwie – aż wszystkie zapamiętasz i nabierzesz dobrego tempa. Przy pierwszym kontakcie może się to wydawać trochę trudne. To normalne. A! no i nie mów nam, że jesteś wzrokowcem, bo naprawdę chcemy nauczyć się szybciej. Wiemy, co robimy. To także ćwiczenie koncentracji, która naszym zdaniem jest jedną z najcenniejszych umiejętności w życiu.</p>' + '<p class="leftened">To co? Zacznijmy już.</p>',
-      autoNext:     'ENDINTRO'
+      autoNext:     'ENDINTRO',
     }
   };
 
@@ -51,10 +51,10 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_aa2'
+      autoNext:   '_aa2',
     },
     _aa2: {
-      msg:        'et barn barnet barn barna',
+      msg:        '<i>et barn barnet barn barna</i>',
       trans:      'dziecko',
       startTime:  0,
       duration:   2,
@@ -64,7 +64,7 @@ function LasData() {
         duration:  4
       },
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -74,15 +74,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ac2'
+      autoNext:   '_ac2',
     },
     _ac2: {
-      msg:        'en sykkel sykkelen sykler syklene',
+      msg:        '<i>en sykkel sykkelen sykler syklene</i>',
       trans:      'rower',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -92,15 +92,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ad2'
+      autoNext:   '_ad2',
     },
     _ad2: {
-      msg:        'en lærer læreren lærere lærerne',
+      msg:        '<i>en lærer læreren lærere lærerne</i>',
       trans:      'nauczyciel',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -110,15 +110,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ae2'
+      autoNext:   '_ae2',
     },
     _ae2: {
-      msg:        'en nøkkel nøkkelen nøkler nøklene',
+      msg:        '<i>en nøkkel nøkkelen nøkler nøklene</i>',
       trans:      'klucz',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -128,15 +128,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_af2'
+      autoNext:   '_af2',
     },
    _af: {
-      msg:        'en finger fingeren fingre fingrene',
+      msg:        '<i>en finger fingeren fingre fingrene</i>',
       trans:      'palec',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -146,15 +146,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ag2'
+      autoNext:   '_ag2',
     },
     _ag2: {
-      msg:        'en genser genseren gensere genserne',
+      msg:        '<i>en genser genseren gensere genserne</i>',
       trans:      'sweter',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -164,15 +164,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ah2'
+      autoNext:   '_ah2',
     },
     _ah2: {
-      msg:        'en sko skoen sko skoene',
+      msg:        '<i>en sko skoen sko skoene</i>',
       trans:      'but',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -182,15 +182,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ai2'
+      autoNext:   '_ai2',
     },
     _ai2: {
-      msg:        'ei mor mora mødre mødrene',
+      msg:        '<i>ei mor mora mødre mødrene</i>',
       trans:      'matka',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -200,15 +200,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_aj2'
+      autoNext:   '_aj2',
     },
     _aj2: {
-      msg:        'en far faren fedre fedrene',
+      msg:        '<i>en far faren fedre fedrene</i>',
       trans:      'ojciec',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -218,15 +218,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ak2'
+      autoNext:   '_ak2',
     },
     _ak2: {
-      msg:        'ei datter dattera døtre døtrene',
+      msg:        '<i>ei datter dattera døtre døtrene</i>',
       trans:      'córka',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -236,15 +236,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_al2'
+      autoNext:   '_al2',
     },
     _al2: {
-      msg:        'et sted stedet steder stedene',
+      msg:        '<i>et sted stedet steder stedene</i>',
       trans:      'miejsce',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -254,15 +254,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_am2'
+      autoNext:   '_am2',
     },
    _am: {
-      msg:        'en mann mannen menn mennene',
+      msg:        '<i>en mann mannen menn mennene</i>',
       trans:      'mężczyzna, mąż',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -272,15 +272,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '__an2'
+      autoNext:   '__an2',
     },
     __an2: {
-      msg:        'en ting tingen ting tingene',
+      msg:        '<i>en ting tingen ting tingene</i>',
       trans:      'rzecz',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -290,15 +290,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ao2'
+      autoNext:   '_ao2',
     },
     _ao2: {
-      msg:        'et tre treet trær trærne',
+      msg:        '<i>et tre treet trær trærne</i>',
       trans:      'drzewo',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -308,15 +308,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ar2'
+      autoNext:   '_ar2',
     },
     _ar2: {
-      msg:        'et eksempel eksempelet eksempler eksemplene',
+      msg:        '<i>et eksempel eksempelet eksempler eksemplene</i>',
       trans:      'przykład',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -326,15 +326,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_as2'
+      autoNext:   '_as2',
     },
     _as2: {
-      msg:        'en artikkel artikkelen artikler artiklene',
+      msg:        '<i>en artikkel artikkelen artikler artiklene</i>',
       trans:      'artykuł',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -344,15 +344,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_at2'
+      autoNext:   '_at2',
     },
     _at2: {
-      msg:        'en muskel muskelen muskler musklene',
+      msg:        '<i>en muskel muskelen muskler musklene</i>',
       trans:      'mięsień',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -362,15 +362,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_au2'
+      autoNext:   '_au2',
     },
     _au2: {
-      msg:        'en sirkel sirkelen sirkler sirklene',
+      msg:        '<i>en sirkel sirkelen sirkler sirklene</i>',
       trans:      'koło, okrąg',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -380,15 +380,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_av2'
+      autoNext:   '_av2',
     },
     _av2: {
-      msg:        'en himmel himmelen himler himlene',
+      msg:        '<i>en himmel himmelen himler himlene</i>',
       trans:      'niebo',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -398,15 +398,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_aw2'
+      autoNext:   '_aw2',
     },
     _aw2: {
-      msg:        'en alder alderen aldere alderne',
+      msg:        '<i>en alder alderen aldere alderne</i>',
       trans:      'wiek, epoka',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     }
 
   };
@@ -420,15 +420,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ax2'
+      autoNext:   '_ax2',
     },
     _ax2: {
-      msg:        'ei bot bota bøter bøtene',
+      msg:        '<i>ei bot bota bøter bøtene</i>',
       trans:      'mandat',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -438,15 +438,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ay2'
+      autoNext:   '_ay2',
     },
     _ay2: {
-      msg:        'en parameter parameteren parametere parameterne',
+      msg:        '<i>en parameter parameteren parametere parameterne</i>',
       trans:      'parametr',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -456,15 +456,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_az2'
+      autoNext:   '_az2',
     },
     _az2: {
-      msg:        'en diameter diameteren diametere diameterne',
+      msg:        '<i>en diameter diameteren diametere diameterne</i>',
       trans:      'średnica',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -474,10 +474,10 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ba2'
+      autoNext:   '_ba2',
     },
     _ba2: {
-      msg:        'et kne kneet knær knærne',
+      msg:        '<i>et kne kneet knær knærne</i>',
       trans:      'kolano',
       startTime:  0,
       duration:   2,
@@ -487,7 +487,7 @@ function LasData() {
         startTime:  0,
         duration:   1.5,
       },
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -497,15 +497,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_bb2'
+      autoNext:   '_bb2',
     },
     _bb2: {
-      msg:        'ei strand stranda strender strendene',
+      msg:        '<i>ei strand stranda strender strendene</i>',
       trans:      'plaża',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -515,15 +515,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ap2'
+      autoNext:   '_ap2',
     },
     _ap2: {
-      msg:        'ei tann tanna tenner tennene',
+      msg:        '<i>ei tann tanna tenner tennene</i>',
       trans:      'ząb',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -533,15 +533,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_bc2'
+      autoNext:   '_bc2',
     },
     _bc2: {
-      msg:        'ei kraft krafta krefter kreftene',
+      msg:        '<i>ei kraft krafta krefter kreftene</i>',
       trans:      'siła',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -551,15 +551,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_bd2'
+      autoNext:   '_bd2',
     },
     _bd2: {
-      msg:        'en feil feilen feil feilene',
+      msg:        '<i>en feil feilen feil feilene</i>',
       trans:      'błąd',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -569,15 +569,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_be2'
+      autoNext:   '_be2',
     },
     _be2: {
-      msg:        'en fot foten føtter føttene',
+      msg:        '<i>en fot foten føtter føttene</i>',
       trans:      'stopa',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -587,16 +587,16 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_bf2'
+      autoNext:   '_bf2',
     },
     _bf2: {
 
-      msg:        'ei bok boka bøker bøkene',
+      msg:        '<i>ei bok boka bøker bøkene</i>',
       trans:      'książka',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -606,10 +606,10 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_aq2'
+      autoNext:   '_aq2',
     },
     _aq2: {
-      msg:        'et håndkle håndklet håndklær håndklærne',
+      msg:        '<i>et håndkle håndklet håndklær håndklærne</i>',
       trans:      'ręcznik',
       startTime:  0,
       duration:   2,
@@ -619,7 +619,7 @@ function LasData() {
         startTime:  0,
         duration:   1.5,
       },
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -629,15 +629,15 @@ function LasData() {
       startTime:  0,
       duration:   2,
       pauseTime:  6,
-      autoNext:   '_ab2'
+      autoNext:   '_ab2',
     },
     _ab2: {
-      msg:        'ei hånd hånda hender hendene',
+      msg:        '<i>ei hånd hånda hender hendene</i>',
       trans:      'ręka, dłoń',
       startTime:  0,
       duration:   2,
       score:      'correct',
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
   };

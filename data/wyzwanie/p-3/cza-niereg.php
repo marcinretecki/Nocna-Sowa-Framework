@@ -5,8 +5,8 @@ function LasData() {
 
 
   this.testNotes = [
-    '_af4b – nie ma odpowiedzi od sowy',
-    '_ad2 – nie ma interakcji',
+    'Jak powiesz <q>on tylko prosi o pomoc</q> – nie ma odpowiedzi od sowy',
+    'Uważam, że Knut jest brzydki – nie ma interakcji',
   ];
 
 
@@ -46,7 +46,7 @@ function LasData() {
       bubbles: [
         'Niestety. To wyjątek.',
         'We wszystkich osobach czasu teraźniejszego użyjemy: <i class="mark">er</i>.',
-        '<i>Jeg er.</i> – Ja jestem.<br /><i>Du er.</i> – Ty jesteś.<br /><i>Han er.</i> – On jest.'
+        'Ja jestem. – <i class="mark">Jeg er.</i> <br />Ty jesteś. – <i class="mark">Du er.</i> <br />On jest. – <i class="mark">Han er.</i>'
       ],
       answers: [
         { answer: 'OK, <i>Du er pen.</i>', next: '_aa2' }
@@ -74,7 +74,7 @@ function LasData() {
     _ab1: {
       bubbles: [
         'Robić to <i class="mark">å gjøre</i>, ale',
-        'Ja robię. – <i>Jeg gjør.</i><br />Ty robisz. – <i>Du gjør.</i><br />Ona robi. – <i>Hun gjør.</i>',
+        'Ja robię. – <i class="mark">Jeg gjør.</i><br />Ty robisz. – <i class="mark">Du gjør.</i><br />Ona robi. – <i class="mark">Hun gjør.</i>',
         'Oni robią. – ???'
       ],
       answers: [
@@ -131,7 +131,7 @@ function LasData() {
 
     _ad1: {
       bubbles: [
-        'Uważać, myśleć to <i>å synes</i>, ale w czasie teraźniejszym jest tak samo. Nie dodajesz końcówki.'
+        'Uważać, myśleć to <i class="mark">å synes</i>, ale w czasie teraźniejszym jest tak samo. Nie dodajesz końcówki.'
       ],
       answers: [
         { answer: 'przykład?', next: '_ad2' }
@@ -139,8 +139,8 @@ function LasData() {
     },
     _ad2: {
       bubbles: [
-        'Uważam, że Knut jest brzydki: <br /><i>Jeg synes at Knut er stygg.</i>',
-        'Albo nawet brzydki jak noc: <br /><i>Jeg synes at Knut er stygg som et troll.</i>',
+        'Uważam, że Knut jest brzydki: <br /><i class="mark">Jeg synes at Knut er stygg.</i>',
+        'Albo nawet brzydki jak noc: <br /><i class="mark">Jeg synes at Knut er stygg som et troll.</i>',
         'Z resztą to kwestia gustu.',
         '<img src="/las/c/i/cza-niereg/25nEL3k.gif" />'
       ],
@@ -159,7 +159,7 @@ function LasData() {
       bubbles: [
         'Kolejny wyjątek to mówić: <i class="mark">å si</i>, ale:',
         '<i>Jeg sier.</i> <br/><i>Du sier.</i> <br /><i>Vi sier.</i>',
-        'Zapamiętałeś?'
+        'Zapamiętasz?'
       ],
       answers: [
         { answer: 'na całe życie #emoji-1f64b-1f3fb;', next: '_ae2', score: 'correct' },
@@ -169,12 +169,12 @@ function LasData() {
     },
     _ae1b: {
       bubbles: [
-        'Normalnie do czasownika dodajemy samo <i>-r</i>.',
+        'Normalnie do czasownika dodajemy samo <i class="mark">-r</i>.',
         '<i>å gå</i> – <i>Jeg går.</i>',
-          'Ale w tym słwie dodajemy <i>-er</i>.',
+        'Ale w tym słowie dodajemy <i class="mark">-er</i>.',
         '<i>å si</i> – <i>Jeg sier.</i>',
-          'Jak powiesz <q>on mówi</q>?'
-        ],
+        'Jak powiesz <q>on mówi</q>?'
+      ],
       answers: [
         { answer: '<i>Han sier.</i>', next: '_ae3', score: 'correct' },
         { answer: '<i>Han sir.</i>', next: '_ae2b', score: 'wrong' }
@@ -200,8 +200,8 @@ function LasData() {
     _ae4: {
       bubbles: [
         '<i class="mark">å snakke</i> znaczy mówić w jakimś języku, albo rozmawiać.',
-        '<i>Jeg snakker norsk.</i> – Mówię po norwesku.',
-        '<i>Jeg snakker med deg.</i> – Rozmawiam z Tobą.'
+        '<i class="mark">Jeg snakker norsk.</i> – Mówię po norwesku.',
+        '<i class="mark">Jeg snakker med deg.</i> – Rozmawiam z Tobą.'
       ],
       answers: [
         { answer: 'a <i>å si</i>?', next: '_ae5' }
@@ -210,8 +210,8 @@ function LasData() {
     _ae5: {
       bubbles: [
         '<i class="mark">å si</i> znaczy mówić coś, mówić, że albo wypowiadać.',
-        '<i>Jeg sier det.</i> – Mówię to.',
-        '<i>Han sier at Norge er pen.</i> – On mówi, że Norwegia jest piękna.'
+        '<i class="mark">Jeg sier det.</i> – Mówię to.',
+        '<i class="mark">Han sier at Norge er pen.</i> – On mówi, że Norwegia jest piękna.'
       ],
       answers: [
         { answer: 'OK, mam to #emoji-1f4dd></span>', next: '_ae6' }
@@ -232,7 +232,7 @@ function LasData() {
     _ae7: {
       bubbles: [
         '<i class="mark">å snakkes</i> w czasie teraźniejszym jest też <i class="mark">snakkes</i>. Użyjesz go w zdaniu:',
-        '<i>Vi snakkes.</i> – Zgadamy się.'
+        '<i class="mark">Vi snakkes.</i> – Zgadamy się.'
       ],
       answers: [
         { answer: 'OK, użyję!', next: '_ae8' }
@@ -252,7 +252,7 @@ function LasData() {
     _ae8b: {
       bubbles: [
         '<img src="/las/c/i/cza-niereg/3o6ZtlfHW4pbmqWZbi.gif" />',
-        '<i>Dere</i> to <q>wy</q>. Powinno być: '
+        '<i class="mark">Dere</i> to <q>wy</q>. Powinno być: '
       ],
       answers: [
         { answer: '<i>Vi sees.</i> albo <i>Vi ses.</i>', next: '_ae9' }

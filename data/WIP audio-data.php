@@ -5,10 +5,10 @@ function LasData() {
 
 
   //  answers = [
-  //    { answer: '', next: '', score: 'wrong' },
-  //    { answer: '', next: '', score: 'correct' },
-  //    { answer: '', next: '', score: 'partial' },
-  //    { answer: '', next: '', score: 'more' }
+  //    { answer: '', score: 'wrong', next: '' },
+  //    { answer: '', score: 'correct', next: '' },
+  //    { answer: '', score: 'partial', next: '' },
+  //    { answer: '', score: 'more', next: '' }
   //  ]
 
 

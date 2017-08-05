@@ -14,7 +14,7 @@ function LasData() {
         '<img src="/las/c/i/rze-lm/XZFbojt.gif" />',
         'O jeny!',
         'To ty?',
-        'Rwiesz się tak do nauki, że nawet na chwilę nie mogłam zmrużyć oka.'
+        'Rwiesz się tak do nauki, że nawet na chwilę nie mogłam zmrużyć oka.',
       ],
       answers: [
         { answer: 'Pragnę się pouczyć norweskiego Sowo.', next: '_a2' },
@@ -25,7 +25,7 @@ function LasData() {
       bubbles: [
         'O, na to nie trzeba mnie namawiać. ',
         'Działam nawet nocami, dlatego znajomi mówią na mnie Nocna.',
-        'Ale mniejsza z tym. Mam coś dla Ciebie. Czysty kosmos. Tylko najpierw Spock wylosuje dla Ciebie słowa, OK?'
+        'Ale mniejsza z tym. Mam coś dla Ciebie. Czysty kosmos. Tylko najpierw Spock wylosuje dla Ciebie słowa, OK?',
       ],
       answers: [
         { answer: 'Pewnie!', next: '_a3' },
@@ -36,7 +36,7 @@ function LasData() {
       bubbles: [
         '<img src="/las/c/i/rze-lm/tumblr_maqfseZRIf1qj4b9to1_r1_500.gif" />',
         'OK. Gotowe.',
-        'Mam dla Ciebie wyzwanie z tworzenia liczby mnogiej. Skoncentruj się i postaraj szybko udzielać odpowiedzi. Ale nie zgaduj, dobra?'
+        'Mam dla Ciebie wyzwanie z tworzenia liczby mnogiej. Skoncentruj się i postaraj szybko udzielać odpowiedzi. Ale nie zgaduj, dobra?',
       ],
       answers: [
         { answer: 'No dobra.', next: '_a4' }
@@ -55,7 +55,7 @@ function LasData() {
 
     _vindu1: {
       bubbles: [
-        '<i class="mark">Vinduer</i> to <q>okna</q> w formie:'
+        '<i class="mark">Vinduer</i> to <q>okna</q> w formie:',
       ],
       answers: [
         { answer: 'nieokreślonej', next: '_vindu2', score: 'correct' },
@@ -65,7 +65,7 @@ function LasData() {
     },
     _vindu1b: {
       bubbles: [
-        'Końcówka <i class="mark">-er</i> jest w formie nieokreślonej.'
+        'Końcówka <i class="mark">-er</i> jest w formie nieokreślonej.',
       ],
       answers: [
         { answer: 'dobra, już wiem', next: '_vindu1c' }
@@ -74,7 +74,7 @@ function LasData() {
     _vindu1c: {
       bubbles: [
         'Dasz radę. Możesz to zrobić! ',
-        '<img src="/las/c/i/rze-lm/f6e94ec71e4793db94fa14b5097c8459acdf4f33.gif" />'
+        '<img src="/las/c/i/rze-lm/f6e94ec71e4793db94fa14b5097c8459acdf4f33.gif" />',
       ],
       answers: [
         { answer: 'określonej', next: '_vindu1b', score: 'wrong' },
@@ -84,7 +84,7 @@ function LasData() {
     _vindu2: {
       bubbles: [
         '<i>Bra!</i>',
-        '<img src="/las/c/i/rze-lm/6sef6Q51v5IuA.gif" />'
+        '<img src="/las/c/i/rze-lm/6sef6Q51v5IuA.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -94,7 +94,7 @@ function LasData() {
 
     _skap1: {
       bubbles: [
-        'Nieokreślone <q>szafki</q>, to:'
+        'Nieokreślone <q>szafki</q>, to:',
       ],
       answers: [
         { answer: '<i>skap</i>', next: '_skap2' },
@@ -104,7 +104,7 @@ function LasData() {
     },
     _skap1b: {
       bubbles: [
-        'A pamiętasz rodzajnik? No właśnie: <i class="mark">et</i>. Nie dodajemy <i class="mark">-er</i>. Dlatego <q>szafki</q> to:'
+        'A pamiętasz rodzajnik? No właśnie: <i class="mark">et</i>. Nie dodajemy <i class="mark">-er</i>. Dlatego <q>szafki</q> to:',
       ],
       answers: [
         { answer: '<i>skap</i>', next: '_skap2' }
@@ -113,7 +113,7 @@ function LasData() {
     _skap2: {
       bubbles: [
         'Bra-wo!',
-        '<img src="/las/c/i/rze-lm/orson-welles-citizen-20kane-appl-xilv.gif" />'
+        '<img src="/las/c/i/rze-lm/orson-welles-citizen-20kane-appl-xilv.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -121,7 +121,7 @@ function LasData() {
 
     _kskap1: {
       bubbles: [
-        'Jak będą nieokreślone <q>lodówki</q>? Podpowiem, że to chłodzące szafy.'
+        'Jak będą nieokreślone <q>lodówki</q>? Podpowiem, że to chłodzące szafy.',
       ],
       answers: [
         { answer: '<i>kjøleskap</i>', next: '_kskap2' },
@@ -131,7 +131,7 @@ function LasData() {
     },
     _kskap1b: {
       bubbles: [
-        'Odmieniasz zgodnie z ostatnim członem, czyli tak, jak słowo: <i class="mark">et skap</i>. Jednosylabowe <i class="mark">-et</i> nie dostają końcówki <i class="mark">-er</i>. Nawet jeśli na pierwszy rzut oka to dłuższe słowo, musisz je rozdzielić.'
+        'Odmieniasz zgodnie z ostatnim członem, czyli tak, jak słowo: <i class="mark">et skap</i>. Jednosylabowe <i class="mark">-et</i> nie dostają końcówki <i class="mark">-er</i>. Nawet jeśli na pierwszy rzut oka to dłuższe słowo, musisz je rozdzielić.',
       ],
       answers: [
         { answer: 'OK, <i>kjøleskap</i>', next: '_kskap2' }
@@ -139,8 +139,8 @@ function LasData() {
     },
     _kskap2: {
       bubbles: [
-        '<i>Du har overrasket meg!</i> (Zaskoczyłeś/aś mnie!)',
-        '<img src="/las/c/i/rze-lm/audrey-hepburn-breakfast-at-tiffanys-filmedit-qKN4EGv44HQ4g.gif" />'
+        '<i>Du har overrasket meg!</i> <br /><span class="size-0">Zaskoczyłeś/aś mnie!</span>',
+        '<img src="/las/c/i/rze-lm/audrey-hepburn-breakfast-at-tiffanys-filmedit-qKN4EGv44HQ4g.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -148,7 +148,7 @@ function LasData() {
 
     _lampe1: {
       bubbles: [
-        '<q>Lampy</q> nieokreślone to:'
+        '<q>Lampy</q> nieokreślone to:',
       ],
       answers: [
         { answer: '<i>lampa</i>', next: '_lampe1b' },
@@ -158,7 +158,7 @@ function LasData() {
     },
     _lampe1b: {
       bubbles: [
-        '<i class="mark">Lampa</i> to jedna określona. Nieokreślone odmieniają się regularnie. Dodajesz <i class="mark">-er</i>.'
+        '<i class="mark">Lampa</i> to jedna określona. Nieokreślone odmieniają się regularnie. Dodajesz <i class="mark">-er</i>.',
       ],
       answers: [
         { answer: '<i>lamper</i>', next: '_lampe2' }
@@ -167,7 +167,7 @@ function LasData() {
     _lampe2: {
       bubbles: [
         'Dobrze! Widzisz, jest impreza!',
-        '<img src="/las/c/i/rze-lm/tumblr-mlnzx84ur21qzw1qyo1-500.gif" />'
+        '<img src="/las/c/i/rze-lm/tumblr-mlnzx84ur21qzw1qyo1-500.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -175,7 +175,7 @@ function LasData() {
 
     _mobil1: {
       bubbles: [
-        '<i class="mark">Mobiler</i> znaczy:'
+        '<i class="mark">Mobiler</i> znaczy:',
       ],
       answers: [
         { answer: 'samochody', next: '_mobil1b', score: 'wrong' },
@@ -186,7 +186,7 @@ function LasData() {
     _mobil1b: {
       bubbles: [
         'Uuu... <q>samochody</q> to <i class="mark">biler</i>. Jedno niewłaściwe spojrzenie i no wiesz...',
-        '<img src="/las/c/i/rze-lm/816def61eb94d9d2b7af764297975d23adaf34fb.gif" />'
+        '<img src="/las/c/i/rze-lm/816def61eb94d9d2b7af764297975d23adaf34fb.gif" />',
       ],
       answers: [
         { answer: 'OK, bardziej się skoncentruję', next: '_RANDOM' }
@@ -195,7 +195,7 @@ function LasData() {
     _mobil2: {
       bubbles: [
         'Dobrze. Możemy więc świętować.',
-        '<img src="/las/c/i/rze-lm/the-blues-brothers-whisky-though-DpxPL8FXbccM0.gif" />'
+        '<img src="/las/c/i/rze-lm/the-blues-brothers-whisky-though-DpxPL8FXbccM0.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -204,7 +204,7 @@ function LasData() {
     _melding1: {
       bubbles: [
         '<q>Mam dwie wiadomości.</q> Jak to powiesz po norwesku?',
-        '<i>Jeg har to...</i>'
+        '<i>Jeg har to...</i>',
       ],
       answers: [
         { answer: '<i>meldinge</i>', next: '_melding1b', score: 'wrong' },
@@ -214,7 +214,7 @@ function LasData() {
     },
     _melding1b: {
       bubbles: [
-        'Jedna <q>wiadomość</q>, to <i class="mark">en melding</i>. W liczbie mnogiej dodajesz <i class="mark">-er</i>. To takie proste.'
+        'Jedna <q>wiadomość</q>, to <i class="mark">en melding</i>. W liczbie mnogiej dodajesz <i class="mark">-er</i>. To takie proste.',
       ],
       answers: [
         { answer: '<i>meldinger</i>', next: '_melding2' }
@@ -224,7 +224,7 @@ function LasData() {
       bubbles: [
         'Pierwsza, że dobrze teraz odpowiedziałeś. Druga, że ktoś nas chyba śledzi.',
         '<img src="/las/c/i/rze-lm/tumblr-mhtlawoisq1qcay1ao1-500.gif" />',
-        'Jedziemy dalej?'
+        'Jedziemy dalej?',
       ],
       answers: [
         { answer: '<i>ja, vi kjører videre</i>', next: '_RANDOM' }
@@ -234,7 +234,7 @@ function LasData() {
 
     _speil1: {
       bubbles: [
-        '<q>Lustra</q> nieokreślone to:'
+        '<q>Lustra</q> nieokreślone to:',
       ],
       answers: [
         { answer: '<i>speil</i>', next: '_speil2', score: 'correct' },
@@ -244,7 +244,7 @@ function LasData() {
     },
     _speil1b: {
       bubbles: [
-        'A ile to słowo ma sylab?'
+        'A ile to słowo ma sylab?',
       ],
       answers: [
         { answer: 'Jedną', next: '_speil1c' }
@@ -252,7 +252,7 @@ function LasData() {
     },
     _speil1c: {
       bubbles: [
-        'Jakiego jest rodzaju <i class="mark">speil</i>?'
+        'Jakiego jest rodzaju <i class="mark">speil</i>?',
       ],
       answers: [
         { answer: '<i>et</i>', next: '_speil1d' }
@@ -260,7 +260,7 @@ function LasData() {
     },
     _speil1d: {
       bubbles: [
-        'Czyli?'
+        'Czyli?',
       ],
       answers: [
         { answer: 'nie dodajemy końcówki <i>-er</i>', next: '_speil2' }
@@ -269,7 +269,7 @@ function LasData() {
     _speil2: {
       bubbles: [
         'Uff, dobrze.'  ,
-        '<img src="/las/c/i/rze-lm/tumblr_nrwenu8TfZ1s2yegdo1_500.gif" />'
+        '<img src="/las/c/i/rze-lm/tumblr_nrwenu8TfZ1s2yegdo1_500.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -277,7 +277,7 @@ function LasData() {
 
     _blomst1: {
       bubbles: [
-        '<q>Kwiaty</q> określone to:'
+        '<q>Kwiaty</q> określone to:',
       ],
       answers: [
         { answer: '<i>blomster</i>', next: '_blomst1b', score: 'wrong' },
@@ -287,8 +287,8 @@ function LasData() {
     },
     _blomst1b: {
       bubbles: [
-        '<i>Blomster</i> to na kwiaciarniach piszą, bo tam są różne nieokreślone kwiaty. Codziennie inne, mówię Ci.',
-        'Te konkretne to:'
+        '<i class="mark">Blomster</i> to na kwiaciarniach piszą, bo tam są różne nieokreślone kwiaty. Codziennie inne, mówię Ci.',
+        'Te konkretne to:',
       ],
       answers: [
         { answer: '<i>blomstene</i>', next: '_blomst2' }
@@ -296,8 +296,9 @@ function LasData() {
     },
     _blomst2: {
       bubbles: [
-        '<i>Pent!</i> Jak masz w domu kwiaty, to pewnie są takie konkret. Kryją historię. Wywołują głębokie emocje.',
-        '<img src="/las/c/i/rze-lm/3o7TKtfnCqdCPLilUs.gif" />'
+        '<i>Pent!</i>',
+        'Jak masz w domu kwiaty, to pewnie są takie konkret. Kryją historię. Wywołują głębokie emocje.',
+        '<img src="/las/c/i/rze-lm/3o7TKtfnCqdCPLilUs.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -305,7 +306,7 @@ function LasData() {
 
     _hus1: {
       bubbles: [
-        '<q>Domy</q>, takie dowolne, to:'
+        '<q>Domy</q>, takie dowolne, to:',
       ],
       answers: [
         { answer: '<i>hus</i>', next: '_hus2', score: 'correct' },
@@ -315,8 +316,8 @@ function LasData() {
     },
     _hus1b: {
       bubbles: [
-        '<i>Husene</i> to określone domy, takie o których Twój kumpel wie.',
-        'Nieokreślone są bez końcówki <i class="mark">-er</i>, bo jeden to <i>et hus</i>, a dwa lub więcej to:'
+        '<i class="mark">Husene</i> to określone domy, takie o których Twój kumpel wie.',
+        'Nieokreślone są bez końcówki <i class="mark">-er</i>, bo jeden to <i class="mark">et hus</i>, a dwa lub więcej to:',
       ],
       answers: [
         { answer: '<i>hus</i>', next: '_hus2' }
@@ -325,7 +326,7 @@ function LasData() {
     _hus2: {
       bubbles: [
         'Stare norweskie domy kryją wiele tajemnic...',
-        '<img src="/las/c/i/rze-lm/tumblr-lxxcf8koi41qlh9eeo1-500.gif" />'
+        '<img src="/las/c/i/rze-lm/tumblr-lxxcf8koi41qlh9eeo1-500.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -333,7 +334,7 @@ function LasData() {
 
     _seng1: {
       bubbles: [
-        '<q>Łóżka</q> określone?'
+        '<q>Łóżka</q> określone?',
       ],
       answers: [
         { answer: '<i>sagene</i>', next: '_seng1b', score: 'wrong' },
@@ -343,8 +344,8 @@ function LasData() {
     },
     _seng1b: {
       bubbles: [
-        '<i>Sagene</i> to określone <q>piły</q>. I jeszcze taka dzielnica w Oslo. Sowa tam nawet kiedyś zajęcia prowadziła. Co tam się działo...',
-        'Ale wracając, łóżka to:'
+        '<i class="mark">Sagene</i> to określone <q>piły</q>. I jeszcze taka dzielnica w Oslo. Sowa tam nawet kiedyś zajęcia prowadziła. Co tam się działo...',
+        'Ale wracając, łóżka to:',
       ],
       answers: [
         { answer: '<i>sengene</i>', next: '_seng2' }
@@ -353,7 +354,7 @@ function LasData() {
     _seng2: {
       bubbles: [
         'Ta daaam!',
-        '<img src="/las/c/i/rze-lm/tumblr-n89kkc8dkc1qcd94wo1-500.gif" />'
+        '<img src="/las/c/i/rze-lm/tumblr-n89kkc8dkc1qcd94wo1-500.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -361,7 +362,7 @@ function LasData() {
 
     _munn1: {
       bubbles: [
-        '<i>En munn</i> to <q>usta</q>. Jedne, bo jest rodzajnik. A kilka dowolnych?'
+        '<i class="mark">En munn</i> to <q>usta</q>. Jedne, bo jest rodzajnik. A kilka dowolnych?',
       ],
       answers: [
         { answer: '<i>munner</i>', next: '_munn2', score: 'correct' },
@@ -371,7 +372,7 @@ function LasData() {
     },
     _munn1b: {
       bubbles: [
-        '<i>Munnene</i> to określone usta w liczbie mnogiej. Nieokreślone to:'
+        '<i class="mark">Munnene</i> to określone usta w liczbie mnogiej. Nieokreślone to:',
       ],
       answers: [
         { answer: '<i>munner</i>', next: '_munn2' }
@@ -379,7 +380,7 @@ function LasData() {
     },
     _munn2: {
       bubbles: [
-        '<img src="/las/c/i/rze-lm/12NHUUk5iS6kDe.gif" />'
+        '<img src="/las/c/i/rze-lm/12NHUUk5iS6kDe.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -388,7 +389,7 @@ function LasData() {
     _kontakt1: {
       bubbles: [
         'Jak powiesz: <q>Ona ma wiele kontaktów</q>?',
-        '<i>Hun har mange...</i>'
+        '<i>Hun har mange...</i>',
       ],
       answers: [
         { answer: '<i>kontakter</i>', next: '_kontakt2', score: 'correct' },
@@ -398,7 +399,7 @@ function LasData() {
     },
     _kontakt1b: {
       bubbles: [
-        'To mogło być trudniejsze. Wiem. Jeśli ma czegoś wiele to zazwyczaj będzie to w formie nieokreślonej. Wyczujesz to z czasem.'
+        'To mogło być trudniejsze. Wiem. Jeśli ma czegoś wiele to zazwyczaj będzie to w formie nieokreślonej. Wyczujesz to z czasem.',
       ],
       answers: [
         { answer: 'OK, <i>kontakter</i>', next: '_kontakt2' }
@@ -407,7 +408,7 @@ function LasData() {
     _kontakt2: {
       bubbles: [
         '<i>Bra jobba!</i>',
-        '<img src="/las/c/i/rze-lm/xT5LMAuwtyatXjME3m.gif" />'
+        '<img src="/las/c/i/rze-lm/xT5LMAuwtyatXjME3m.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -415,7 +416,7 @@ function LasData() {
 
     _menneske1: {
       bubbles: [
-        'Nieokreśleni <q>ludzie</q> to:'
+        'Nieokreśleni <q>ludzie</q> to:',
       ],
       answers: [
         { answer: '<i>folkene</i>', next: '_menneske1b', score: 'wrong' },
@@ -425,7 +426,7 @@ function LasData() {
     },
     _menneske1b: {
       bubbles: [
-        '<i>Folkene</i> to już określona <q>ludność</q>. Nieokreśleni ludzie to:'
+        '<i class="mark">Folkene</i> to już określona <q>ludność</q>. Nieokreśleni ludzie to:',
       ],
       answers: [
         { answer: '<i>mennesker</i>', next: '_menneske2' }
@@ -441,7 +442,7 @@ function LasData() {
 
     _skip1: {
       bubbles: [
-        'Kilka nieokreślonych <q>statków</q> na fiordzie, to...'
+        'Kilka nieokreślonych <q>statków</q> na fiordzie, to...',
       ],
       answers: [
         { answer: '<i>skip</i>', next: '_skip2', score: 'correct' },
@@ -450,7 +451,7 @@ function LasData() {
     },
     _skip1b: {
       bubbles: [
-        'Jedna sylaba i <i>et</i>. Co to znaczy? Nie dodajemy <i class="mark">-er</i>.'
+        'Jedna sylaba i <i class="mark">et</i>. Co to znaczy? Nie dodajemy <i class="mark">-er</i>.',
       ],
       answers: [
         { answer: 'jasne, <i>skip</i>', next: '_skip2' }
@@ -459,7 +460,7 @@ function LasData() {
     _skip2: {
       bubbles: [
         '<i>Bra!</i>',
-        '<img src="/las/c/i/rze-lm/acid-april-gifdump-o5RW6QGVTm0g0.gif" />'
+        '<img src="/las/c/i/rze-lm/acid-april-gifdump-o5RW6QGVTm0g0.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -467,7 +468,7 @@ function LasData() {
 
     _dyr1: {
       bubbles: [
-        'Określone <q>zwierzęta</q>? #emoji-1f429;#emoji-1f415;#emoji-1f408;'
+        'Określone <q>zwierzęta</q>? #emoji-1f429;#emoji-1f415;#emoji-1f408;',
       ],
       answers: [
         { answer: '<i>dyr</i>', next: '_dyr1b', score: 'wrong' },
@@ -477,7 +478,7 @@ function LasData() {
     },
     _dyr1b: {
       bubbles: [
-        '<i>Dyr</i> to nieokreślone <q>zwierzęta</q>. Określone mają końcówkę <i class="mark">-ene</i>.'
+        '<i class="mark">Dyr</i> to nieokreślone <q>zwierzęta</q>. Określone mają końcówkę <i class="mark">-ene</i>.',
       ],
       answers: [
         { answer: 'OK, <i>dyrene</i>', next: '_dyr2' }
@@ -486,7 +487,7 @@ function LasData() {
     _dyr2: {
       bubbles: [
         '<i>Yes</i>! A teraz uwaga! Wchodzą:',
-        '<img src="/las/c/i/rze-lm/c2OEMfj.gif" />'
+        '<img src="/las/c/i/rze-lm/c2OEMfj.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -494,7 +495,7 @@ function LasData() {
 
     _avtale1: {
       bubbles: [
-        'Jedna <q>umowa</q> to: <i>en avtale</i>. Kilka określonych to...'
+        'Jedna <q>umowa</q> to <i class="mark">en avtale</i>. Kilka określonych to...',
       ],
       answers: [
         { answer: '<i>avtalene</i>', next: '_avtale2', score: 'correct' },
@@ -504,7 +505,7 @@ function LasData() {
     },
     _avtale1b: {
       bubbles: [
-       'Nie ma takiego słowa. W liczbie mnogiej dodajesz przecież <i class="mark">-ene</i>.'
+       'Nie ma takiego słowa. W liczbie mnogiej dodajesz przecież <i class="mark">-ene</i>.',
       ],
       answers: [
         { answer: 'OK, <i>avtalene</i>', next: '_avtale2' }
@@ -512,7 +513,7 @@ function LasData() {
     },
     _avtale2: {
       bubbles: [
-        '<i>Godt!</i> #emoji-1f943;'
+        '<i>Godt!</i> #emoji-1f943;',
       ],
       autoNext: 'RANDOM'
     },
@@ -520,7 +521,7 @@ function LasData() {
 
     _topp1: {
       bubbles: [
-        'Nieokreślone <q>szczyty</q>? <span class="no-break">#emoji-1f3d4;#emoji-1f3d4;</span>'
+        'Nieokreślone <q>szczyty</q>? <span class="no-break">#emoji-1f3d4;#emoji-1f3d4;</span>',
       ],
       answers: [
         { answer: '<i>topp</i>', next: '_topp1b', score: 'wrong' },
@@ -530,7 +531,7 @@ function LasData() {
     },
     _topp1b: {
       bubbles: [
-        '<i>Topper</i>, bo jeden <q>szczyt</q> to <i>en topp</i>.'
+        '<i class="mark">Topper</i>, bo jeden <q>szczyt</q> to <i class="mark">en topp</i>.',
       ],
       answers: [
         { answer: 'OK, regularnie się odmienia', next: '_topp2' }
@@ -538,7 +539,7 @@ function LasData() {
     },
     _topp2: {
       bubbles: [
-        'Dajesz radę!'
+        'Dajesz radę!',
       ],
       autoNext: 'RANDOM'
     },
@@ -546,7 +547,7 @@ function LasData() {
 
     _oy1: {
       bubbles: [
-        '<q>Wyspy</q> określone to...'
+        '<q>Wyspy</q> określone to...',
       ],
       answers: [
         { answer: '<i>øyer</i>', next: '_oy1b', score: 'wrong' },
@@ -556,7 +557,7 @@ function LasData() {
     },
     _oy1b: {
       bubbles: [
-        'To były nieokreślone. Dlatego:'
+        'To były nieokreślone. Dlatego:',
       ],
       answers: [
         { answer: '<i>øyene</i>', next: '_oy2' }
@@ -564,8 +565,8 @@ function LasData() {
     },
     _oy2: {
       bubbles: [
-        '<i>Pent!</i>',
-        '<img src="/las/c/i/rze-lm/tumblr_nt3kawqCC61s2wio8o4_500.gif" />'
+        '<i>Topp!</i>',
+        '<img src="/las/c/i/rze-lm/tumblr_nt3kawqCC61s2wio8o4_500.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -573,7 +574,8 @@ function LasData() {
 
     _dekk1: {
       bubbles: [
-        '<q>Zmienić opony</q> (nieokreślone) to: <i>skifte ...</i>'
+        '<q>Zmienić opony</q> (nieokreślone) to:',
+        '<i>skifte ...</i>',
       ],
       answers: [
         { answer: '<i>dekk</i>', next: '_dekk2', score: 'correct' },
@@ -583,7 +585,7 @@ function LasData() {
     },
     _dekk1b: {
       bubbles: [
-        'Jedna <q>opona</q> to <i>et dekk</i>. Jednosylabowy nijaki nie dostaje końcówki <i class="mark">-er</i>.'
+        'Jedna <q>opona</q> to <i class="mark">et dekk</i>. Jednosylabowy nijaki nie dostaje końcówki <i class="mark">-er</i>.',
       ],
       answers: [
         { answer: '<i>dekk</i>', next: '_dekk2' }
@@ -591,7 +593,7 @@ function LasData() {
     },
     _dekk2: {
       bubbles: [
-        '<i>Velgjort!</i>'
+        '<i>Velgjort!</i>',
       ],
       autoNext: 'RANDOM'
     },
@@ -599,7 +601,7 @@ function LasData() {
 
     _spill1: {
       bubbles: [
-        'Jak będą nieokreślone <q>gry</q> po norwesku?'
+        'Jak będą nieokreślone <q>gry</q> po norwesku?',
       ],
       answers: [
         { answer: '<i>spill</i>', next: '_spill2', score: 'correct' },
@@ -609,7 +611,7 @@ function LasData() {
     },
     _spill1b: {
       bubbles: [
-        'Jednosylabowy rodzaju <i>et</i>. Nie dodajemy wtedy końcówki <i class="mark">-er</i>.'
+        'Jednosylabowy rodzaju <i class="mark">et</i>. Nie dodajemy wtedy końcówki <i class="mark">-er</i>.',
       ],
       answers: [
         { answer: 'Pamiętam!', next: '_spill2' }
@@ -618,7 +620,6 @@ function LasData() {
     _spill2: {
       bubbles: [
         'Gra muzyka!',
-        '<img src="/las/c/i/rze-lm/dhg-kb23.gif" />',
         '<img src="/las/c/i/rze-lm/cats-j1ZZQpQ6SGDiU.gif" />',
       ],
       autoNext: 'RANDOM'
@@ -627,7 +628,7 @@ function LasData() {
 
     _by1: {
       bubbles: [
-        '<q>Miasta</q> #emoji-1f3d9;#emoji-1f3d9; określone to:'
+        '<q>Miasta</q> #emoji-1f3d9;#emoji-1f3d9; określone to:',
       ],
       answers: [
         { answer: '<i>byen</i>', next: '_by1b', score: 'correct' },
@@ -637,7 +638,7 @@ function LasData() {
     },
     _by1b: {
       bubbles: [
-        '<i>Byen</i> to jedno określone miasto. W liczbie mnogiej dodajemy <i class="mark">-ene</i>.'
+        '<i class="mark">Byen</i> to jedno określone miasto. W liczbie mnogiej dodajemy <i class="mark">-ene</i>.',
       ],
       answers: [
         { answer: '<i>byene</i>', next: '_by2' }
@@ -646,7 +647,7 @@ function LasData() {
     _by2: {
       bubbles: [
         '<i>Riktig!</i> Jesteś uważnym obserwatorem.',
-        '<img src="/las/c/i/rze-lm/demolizione_palazzo.gif" />'
+        '<img src="/las/c/i/rze-lm/demolizione_palazzo.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -654,7 +655,7 @@ function LasData() {
 
     _vits1: {
       bubbles: [
-        'Jeden <q>żart</q> to <i class="mark">en vits</i>. <q>Dowcipy</q> to...'
+        'Jeden <q>żart</q> to <i class="mark">en vits</i>. <q>Dowcipy</q> to...',
       ],
       answers: [
         { answer: '<i>vitser</i>', next: '_vits2', score: 'correct' },
@@ -664,7 +665,7 @@ function LasData() {
     },
     _vits1b: {
       bubbles: [
-        '<i class="mark">Vitsen</i> to jeden określony. Kilka to już zależy czy określonych czy nie, ale miałeś do wyboru jedynie:'
+        '<i class="mark">Vitsen</i> to jeden określony. Kilka, w formie nieokreślonej to jedynie:',
       ],
       answers: [
         { answer: '<i>vitser</i>', next: '_vits2' }
@@ -672,8 +673,7 @@ function LasData() {
     },
     _vits2: {
       bubbles: [
-        'A teraz prawdziwa historia.',
-        '<img src="/las/c/i/rze-lm/CN9OTYkCHlb2g.gif" />'
+        'Lurt!',
       ],
       autoNext: 'RANDOM'
     }
@@ -688,7 +688,7 @@ function LasData() {
 
     _hytte1: {
       bubbles: [
-        '<i class="mark">Ei hytte</i> to <q>chatka</q>, albo <q>domek letniskowy</q>. Jak powiesz o kilku nieokreślonych?'
+        '<i class="mark">Ei hytte</i> to <q>chatka</q>, albo <q>domek letniskowy</q>. Jak powiesz o kilku nieokreślonych?',
       ],
       answers: [
         { answer: '<i>hytter</i>', next: '_hytte2', score: 'correct' },
@@ -699,7 +699,7 @@ function LasData() {
     _hytte1b: {
       bubbles: [
         'Końcówkę <i class="mark">-en</i> dodajesz w formie określonej liczby pojedynczej. Pamiętasz?',
-        'Np. <i class="mark">en bygning – bygningen</i>'
+        'Np. <i class="mark">en bygning – bygningen</i>',
       ],
       answers: [
         { answer: 'OK, już wiem: <i>hytter</i>', next: '_hytte2' }
@@ -709,7 +709,7 @@ function LasData() {
     _hytte2: {
       bubbles: [
         '<i>Veldig bra!</i>',
-        '<img src="/las/c/i/rze-lm/NIrQexy9Pv93a.gif" />'
+        '<img src="/las/c/i/rze-lm/NIrQexy9Pv93a.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -717,7 +717,7 @@ function LasData() {
 
     _hylle1: {
       bubbles: [
-        '<i class="mark">Hyllene</i> to <q>półki</q> w formie:'
+        '<i class="mark">Hyllene</i> to <q>półki</q> w formie:',
       ],
       answers: [
         { answer: 'określonej', next: '_hylle2', score: 'correct' },
@@ -727,7 +727,7 @@ function LasData() {
     },
     _hylle1b: {
       bubbles: [
-        'Końcówka <i class="mark">-ene</i> jest zawsze w formie określonej liczby mnogiej.'
+        'Końcówka <i class="mark">-ene</i> jest zawsze w formie określonej liczby mnogiej.',
       ],
       answers: [
         { answer: 'OK', next: '_hylle2' }
@@ -735,7 +735,7 @@ function LasData() {
     },
     _hylle2: {
       bubbles: [
-        '<i>Fint!</i> #emoji-1f36d;'
+        '<i>Fint!</i> #emoji-1f36d;',
       ],
       autoNext: 'RANDOM'
     },
@@ -743,7 +743,7 @@ function LasData() {
 
     _gulv1: {
       bubbles: [
-        '<q>Podłogi</q> nieokreślone to:'
+        '<q>Podłogi</q> nieokreślone to:',
       ],
       answers: [
         { answer: '<i>gulver</i>', next: '_gulv1b', score: 'wrong' },
@@ -753,7 +753,7 @@ function LasData() {
     },
     _gulv1b: {
       bubbles: [
-        'Pamiętasz rodzajnik? Podpowiem: <i class="mark">et</i>. A co się robi z jednosylabowymi rodzaju <i class="mark">et</i>? Nie dodaje końcówki <i class="mark">-er</i>.'
+        'Pamiętasz rodzajnik? Podpowiem: <i class="mark">et</i>. A co się robi z jednosylabowymi rodzaju <i class="mark">et</i>? Nie dodaje końcówki <i class="mark">-er</i>.',
       ],
       answers: [
         { answer: 'no tak, <i>gulv</i>', next: '_gulv2' }
@@ -761,8 +761,8 @@ function LasData() {
     },
     _gulv2: {
       bubbles: [
-        '<i>Korrekt.</i>',
-        '<img src="/las/c/i/rze-lm/tumblr-m3j9b02nnt1qedb29o1-500.gif" />'
+        '<i>Korrekt!</i>',
+        '<img src="/las/c/i/rze-lm/tumblr-m3j9b02nnt1qedb29o1-500.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -771,7 +771,7 @@ function LasData() {
 
     _bord1: {
       bubbles: [
-        'Jak będą określone <q>stoły</q>?'
+        'Jak będą określone <q>stoły</q>?',
       ],
       answers: [
         { answer: '<i>bord</i>', next: '_bord1b', score: 'wrong' },
@@ -789,7 +789,7 @@ function LasData() {
     _bord2: {
       bubbles: [
         '<i>Veldig godt! Det smaker bra.</i>',
-        '<img src="/las/c/i/rze-lm/tumblr-m5rmpyxg9d1r3dfmuo3-250.gif" />'
+        '<img src="/las/c/i/rze-lm/tumblr-m5rmpyxg9d1r3dfmuo3-250.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -797,7 +797,7 @@ function LasData() {
 
     _stol1: {
       bubbles: [
-        '<q>Krzesła</q> nieokreślone to:'
+        '<q>Krzesła</q> nieokreślone to:',
       ],
       answers: [
         { answer: '<i>stoler</i>', next: '_stol2' },
@@ -807,7 +807,7 @@ function LasData() {
     },
     _stol1b: {
       bubbles: [
-        'W liczbie mnogiej radzę jednak użyć końcówki <i class="mark">-er</i>, jeśli tylko nie jest to słowo jednosylabowe <i class="mark">-et</i>. A jakiego rodzaju jest krzesło?'
+        'W liczbie mnogiej radzę jednak użyć końcówki <i class="mark">-er</i>, jeśli tylko nie jest to słowo jednosylabowe <i class="mark">et</i>. A jakiego rodzaju jest krzesło?',
       ],
       answers: [
         { answer: '<i>en</i>, dlatego: <i>stoler</i>', next: '_stol2' }
@@ -815,7 +815,7 @@ function LasData() {
     },
     _stol2: {
       bubbles: [
-        '<i>Flott!</i> #emoji-1f44f-1f3fb;'
+        '<i>Flott!</i> #emoji-1f44f-1f3fb;',
       ],
       autoNext: 'RANDOM'
     },
@@ -823,7 +823,7 @@ function LasData() {
 
     _buss1: {
       bubbles: [
-        '<q>Autobusy</q> nieokreślone to:'
+        '<q>Autobusy</q> nieokreślone to:',
       ],
       answers: [
         { answer: '<i>busser</i>', next: '_buss2', score: 'correct' },
@@ -833,7 +833,7 @@ function LasData() {
     },
     _buss1b: {
       bubbles: [
-        '<q>Autobus</q> to <i>en buss</i>. Nie ma znaczenia, że ma jedną sylabę. Dodajesz normalnie <i class="mark">-er</i>.'
+        '<q>Autobus</q> to <i class="mark">en buss</i>. Nie ma znaczenia, że ma jedną sylabę. Dodajesz normalnie <i class="mark">-er</i>.',
       ],
       answers: [
         { answer: '<i>busser</i>', next: '_buss2' }
@@ -841,7 +841,7 @@ function LasData() {
     },
     _buss2: {
       bubbles: [
-        '<i>Svært godt!</i>'
+        '<i>Svært godt!</i>',
       ],
       autoNext: 'RANDOM'
     },
@@ -849,7 +849,7 @@ function LasData() {
 
     _tog1: {
       bubbles: [
-        '<q>Pociągi</q> nieokreślone to:'
+        '<q>Pociągi</q> nieokreślone to:',
       ],
       answers: [
         { answer: '<i>toger</i>', next: '_tog1b', score: 'wrong' },
@@ -859,7 +859,7 @@ function LasData() {
     },
     _tog1b: {
       bubbles: [
-        '<q>Pociąg</q> to <i class="mark">et tog</i>. Jednosylabowy nijaki. Dlatego nie dodajemy końcówki <i class="mark">-er</i> w l.mn. Więc...'
+        '<q>Pociąg</q> to <i class="mark">et tog</i>. Jednosylabowy nijaki. Dlatego nie dodajemy końcówki <i class="mark">-er</i> w l.mn. Więc...',
       ],
       answers: [
         { answer: '<i>tog</i>', next: '_tog2' }
@@ -868,7 +868,7 @@ function LasData() {
     _tog2: {
       bubbles: [
         '<i>Fint!</i> <span class="no-break">#emoji-1f682;#emoji-1f683;#emoji-1f683;</span>',
-        'Określone <q>pociągi</q> to:'
+        'Określone <q>pociągi</q> to:',
       ],
       answers: [
         { answer: '<i>tog</i>', next: '_tog2b', score: 'wrong' },
@@ -878,7 +878,7 @@ function LasData() {
     },
     _tog2b: {
       bubbles: [
-        'W formie określonej liczby mnogiej zawsze dodajesz <i class="mark">-ene</i>.'
+        'W formie określonej liczby mnogiej zawsze dodajesz <i class="mark">-ene</i>.',
       ],
       answers: [
         { answer: '<i>togene</i>', next: '_tog2' }
@@ -888,7 +888,7 @@ function LasData() {
       bubbles: [
         '<i>Supert!</i>',
         '<img src="/las/c/i/rze-lm/gpaSUlq15zHpK.gif" />',
-        '<img src="/las/c/i/rze-lm/vintage-train-animated-gif-3.gif" />'
+        '<img src="/las/c/i/rze-lm/vintage-train-animated-gif-3.gif" />',
       ],
       autoNext: 'RANDOM'
     },
@@ -900,7 +900,7 @@ function LasData() {
     _a1: {
       bubbles: [
         'Ok. To by było tyle na dziś. Jednak radzę Ci tu wracać, aż poczujesz, że jesteś mistrzem liczby mnogiej.',
-        'Zrobię Ci jeszcze mały zabieg wygrywania norweskich słów prosto do mózgu, jak chcesz.'
+        'Zrobię Ci jeszcze mały zabieg wygrywania norweskich słów prosto do mózgu, jak chcesz.',
       ],
       answers: [
         { answer: 'Nie bardzo łapię, ale okeej.', next: '_a2' },
@@ -911,7 +911,7 @@ function LasData() {
       bubbles: [
         'Spoko. Mamy jeszcze kilku ochotników. Nie powinno boleć.',
         '<img src="/las/c/i/rze-lm/the-gamma-people2.gif" />',
-        'Wyśpij się dzisiaj dobrze. To wpłynie korzystnie na naukę. <i>Det er sant!</i> (To prawda!)'
+        'Wyśpij się dzisiaj dobrze. To wpłynie korzystnie na naukę. <i class="mark">Det er sant!</i> <span class="size-0">(To prawda!)</span>',
       ],
       answers: [
         { answer: '<i>Ha det!</i>', next: 'END' }
@@ -921,8 +921,8 @@ function LasData() {
     _b1: {
       bubbles: [
         'To koniec na dziś, ale możesz zawsze tu wrócić i przećwiczyć te słowa w innej kolejności.',
-        'God natt!',
-        '<img src="/las/c/i/rze-lm/j3vao.gif" />'
+        '<i>God natt!</i>',
+        '<img src="/las/c/i/rze-lm/j3vao.gif" />',
       ],
       answers: [
         { answer: '<i>God natt!</i>', next: 'END' }

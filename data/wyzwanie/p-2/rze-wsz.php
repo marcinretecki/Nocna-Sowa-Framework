@@ -12,7 +12,7 @@ function LasData() {
   this.intro = {
     _a1: {
       bubbles: [
-        '<i>Hallo, er det noen der?</i> (Czy ktoś tu jest?)',
+        '<i>Hallo, er det noen der?</i> <br /><span class="size-0">(Czy ktoś tu jest?)</span>',
         '<img src="/las/c/i/rze-wsz/h6535FA2E.gif" />'
       ],
       answers: [
@@ -2720,7 +2720,7 @@ function LasData() {
     },
     _sjanse2: {
       bubbles: [
-        '<i>Det var en god jobb!</i> (To była dobra robota!)',
+        '<i>Det var en god jobb!</i> <br /><span class="size-0">(To była dobra robota!)</span>',
         '<img src="/las/c/i/rze-wsz/3osxY8yHdijYBl6p2w.gif" />'
       ],
       autoNext: 'RANDOM'

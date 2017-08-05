@@ -15,7 +15,7 @@ $last_wyzwanie_result_progress = $last_wyzwanie_result[ 'progress' ];
 $chapter_permalink = get_permalink( $last_wyzwanie_result['id'] );
 $wyzwanie_link = $chapter_permalink . 'wyzwanie/';
 $przewodnik_link = $chapter_permalink . 'przewodnik/';
-$sratownik_link = $chapter_permalink;
+$ratownik_link = $chapter_permalink;
 $wyzwanie_title = las_get_clean_title( get_the_title( $last_wyzwanie_result['id'] ) );
 
 //  user exp before the chapter
