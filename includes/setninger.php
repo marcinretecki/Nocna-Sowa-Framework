@@ -4,7 +4,7 @@
 //
 
 //  GLOBALS
-$globals = stream_resolve_include_path( __DIR__ . '/includes/globals.php' );
+$globals = stream_resolve_include_path( __DIR__ . '/globals.php' );
 
 if ( $globals ) {
   include( $globals );
@@ -22,15 +22,15 @@ if ( $globals ) {
 
     <div id="setninger-words" class="setninger-words"></div>
 
-    <div id="setninger-msg" class="setninger-msg"></div>
+  </div>
 
-    <div id="setninger-trans" class="setninger-trans"></div>
+  <div id="setninger-msg" class="setninger-msg"></div>
 
-    <div id="setninger-controls" class="setninger-controls">
-      <div id="setninger-controls__next" class="btn btn-white setninger-controls__next">Next</div>
-      <div id="setninger-controls__trans" class="btn btn-white setninger-controls__trans">Trans</div>
-    </div>
+  <div id="setninger-trans" class="setninger-trans"></div>
 
+  <div id="setninger-controls" class="setninger-controls">
+    <button id="setninger-controls__next" class="setninger-controls__next"></button>
+    <button id="setninger-controls__trans" class="setninger-controls__trans"></button>
   </div>
 
 </section>

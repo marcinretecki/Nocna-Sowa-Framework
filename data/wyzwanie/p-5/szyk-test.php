@@ -20,20 +20,27 @@ function LasData() {
 
     _aa1: {
       set: [
-                  ['er', 'adam', 'fra', 'Norge', '?']
+                  ['Tor', 'bor', 'i nord']
       ],
-      trans:      'Czy Adam jest z Norwegii?',
-      autoNext:   'RANDOM'
+      trans:      'Tor mieszka na północy.',
+      autoNext:   '_aa2'
     },
 
     _aa2: {
       set: [
-                  ['kommer', 'du', 'og', 'din', 'kone', 'fra', 'Norge', '?'],
-                  ['kommer', 'din', 'kone', 'og', 'du', 'fra', 'Norge', '?']
+                  ['Tor', 'bodde', 'i', 'nord', 'for 2 år siden'],
       ],
-      trans:      'Czy Ty i Twoja żona pochodzicie z Norwegii?',
+      trans:      'Tor mieszkał na północy dwa lata temu.',
+      autoNext:   '_aa3'
+    },
+
+    _aa3: {
+      set: [
+                  ['Tor', 'bor', 'i', 'nord']
+      ],
+      trans:      'Tor mieszka na północy.',
       autoNext:   'RANDOM'
-    }
+    },
 
   };
 
