@@ -28,14 +28,18 @@ function LasSetninger() {
   las.setningerTrans =          document.getElementById('setninger-trans');
   las.setningerMsg =            document.getElementById('setninger-msg');
   las.setningerControls =       document.getElementById('setninger-controls');
-  las.setningerControlsNext =   document.getElementById('setninger-controls__next');
-  las.setningerControlsTrans =  document.getElementById('setninger-controls__trans');
+  las.setningerControlsBtns = {
+    next:                         document.getElementById('setninger-controls__next'),
+    trans:                        document.getElementById('setninger-controls__trans')
+  }
 
   //  this will be filled as needed
   //  depends on number of items in the sentence
   las.setningerWordsElements = [];
 
-  las.setningerWordsClones= [];
+  //  we are animating words for now,
+  //  maybe in the future we will move back to clones
+  //las.setningerWordsClones= [];
 
 
   //
@@ -43,14 +47,22 @@ function LasSetninger() {
   //
   las.state = {
     currentState:             '',   // END / INTRO / CHAT
+
+    //  words are showed
     words:                    false,
+
+    //  composed sentece is showed
+    sentence:                 false,
+
     msg:                      false,
     trans:                    false,
-    controls:                 false,
+    controls: {
+      next:                     false,
+      trans:                    false
+    },
     bubbling:                 false,
     testmode:                 false,
-    clicked:                  false,
-    dragged:                  false
+    clicked:                  false
   };
 
   las.wordPositions = [];
@@ -78,13 +90,8 @@ function LasSetninger() {
     this.prepareSortable();
     this.addListener();
 
-
     //  reset background
-    this.velocity(
-      this.setningerWordsB,
-      { scaleY: 0 },
-      { duration: 0 }
-    );
+    this.resetWordsB();
 
     //  If not test mode, begin
     //  Get the intro
@@ -107,8 +114,22 @@ function LasSetninger() {
 
     var animateBackground = function() {
 
-      //  here we should animate background
-      //  so that is some scenarios it does not jerk
+      this.adjustWordsB();
+
+    }.bind(this);
+
+    var checkBubble = function() {
+
+      this.checkBubble();
+
+    }.bind(this);
+
+    var storeOrder = function( what, how ) {
+
+      //if ( how === 'set' ) {
+        window.console.log(what);
+        window.console.log(how);
+      //}
 
     }.bind(this);
 
@@ -116,15 +137,20 @@ function LasSetninger() {
     this.sortable = Sortable.create(
       this.setningerWords,
       {
-        animation: 200,
+        animation: 100,
         easing:   'cubic-bezier(0.77, 0, 0.175, 1)',
         delay: 0,
         scroll: false,
         draggable: '.setninger-words__word-wrap',
-        ghostClass: 'setninger-words__word--active',
-        onMove: function( evt ) {
+        dragClass: 'setninger-words__word-wrap--drag',
+        chosenClass: 'setninger-words__word-wrap--chosen',
+        ghostClass: 'setninger-words__word-wrap--ghost',
+        onUpdate: function( evt ) {
+          animateBackground();
+
         },
         onEnd: function( evt ) {
+          checkBubble();
         }
       }
     );
@@ -150,12 +176,13 @@ function LasSetninger() {
     if ( this.currentBubbleData.msg  ) {
 
       this.showMsg();
+      this.showControls( 'next' );
 
     }
     //  if there is at least one sentence
     else if ( this.currentBubbleData.set && ( this.currentBubbleData.set.length > 0 ) ) {
 
-      this.showBubble();
+      this.waitForBubble();
 
     }
 
@@ -175,12 +202,15 @@ function LasSetninger() {
 
     window.console.log('nextToBubble');
 
+    window.console.log(this.state.sentence);
 
     //  reset everything
     this.resetMsg();
     this.resetTrans();
+    this.resetWordsB();
     this.resetComposedSentence();
-    this.resetControls();
+    this.resetControls( 'next' );
+    this.resetControls( 'trans' );
 
     //  get next bubble
     this.currentBubbleData = this.getNextBubble( this.currentBubbleData.autoNext );
@@ -195,42 +225,113 @@ function LasSetninger() {
 
 
   //
+  //  Wait till bubble data and elements are changed before showing new bubble
+  //
+  las.waitForBubble = function() {
+
+    //  if timer is already set
+    //  or it is pimp
+    //  in the second case, msg is showed earlier
+    if ( this.waitForBubbleTimer ) {
+      return false;
+    }
+
+    //  wait until msg or bubble is reset
+    if ( this.state.msg || this.state.sentence ) {
+
+      window.console.log('set waitForMsg timer');
+
+      this.waitForBubbleTimer = window.setTimeout(function() {
+
+        window.clearTimeout(this.waitForBubbleTimer);
+        this.waitForBubbleTimer = undefined;
+
+        this.waitForBubble();
+
+      }.bind(this), 100);
+
+      return false;
+
+    }
+
+    this.showBubble();
+    this.showWordsB();
+    this.showControls( 'trans' );
+
+  };
+
+
+  //
   //  Show words from the bubble
   //
   las.showBubble = function() {
 
+    if ( this.state.words ) {
+      return false;
+    }
+
+    this.state.words = true;
+
     window.console.log('showBubble');
+    window.console.log(this.currentBubbleData.set[ 0 ]);
 
-    //  check if we can show words to avoid double execution
-
-    var set = this.shuffleArray ( this.currentBubbleData.set[ 0 ] );
+    //  use slice to copy the array, not make referece
+    var set = this.shuffleArray ( this.currentBubbleData.set[ 0 ].slice() );
     var l = set.length;
     var i;
 
+    //  if shuffle returned the same array
+    while ( set[ 0 ] === this.currentBubbleData.set[ 0 ][ 0 ] ) {
 
-    //  create proper html first
-    for ( i=0; l > i; i++ ) {
-
-      //  if there are not enough words
-      if ( !this.setningerWordsElements[ i ] ) {
-
-        //  create new word
-        this.createNewWord();
-
-      }
-
-      //  change html
-      this.setningerWordsElements[ i ].firstChild.innerHTML = set[i];
+      //  shuffle again
+      set = this.shuffleArray ( this.currentBubbleData.set[ 0 ].slice() );
 
     }
 
-    this.velocity(
-      this.setningerWords,
-      { opacity: [1, 0] },
-      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
-    );
 
-    window.requestAnimationFrame( this.showWordsB.bind(this) );
+
+    //  create proper html first
+    (function( i ) {
+
+      for ( i=0; l > i; i++ ) {
+
+        //  if there are not enough words
+        if ( !this.setningerWordsElements[ i ] ) {
+
+          //  create new word
+          this.createNewWord();
+
+        }
+
+        //  change html
+        this.setningerWordsElements[ i ].firstChild.innerHTML = set[ i ];
+
+        //  add data
+        this.setningerWordsElements[ i ].setAttribute('data-set-word', set[ i ]);
+
+        //  append the word
+        this.setningerWords.append( this.setningerWordsElements[ i ] );
+
+      }
+
+    }).bind( this )( i );
+
+
+    //  fade words in
+    (function( i ) {
+
+      for ( i=0; l > i; i++ ) {
+
+        this.velocity(
+          this.setningerWordsElements[ i ],
+          { opacity: [1, 0] },
+          { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+        );
+
+      }
+
+    }).bind( this )( i );
+
 
   };
 
@@ -256,51 +357,188 @@ function LasSetninger() {
     //  add new word into array reference
     this.setningerWordsElements.push( wordWrap );
 
-    //  append the word
-    this.setningerWords.append( wordWrap );
+  };
+
+
+  //
+  //  Check bubble
+  //
+  las.checkBubble = function() {
+
+    if ( !this.state.words ) {
+      return;
+    }
+
+    var i;
+    var j;
+    var setNo = this.currentBubbleData.set.length;
+    var wordsNo = this.currentBubbleData.set[ 0 ].length;
+    var checkedWord = this.setningerWords.firstChild;
+    var set;
+    var checkArray = [];
+    var checkArrayResult;
+
+    function checkWord( word, wordEl ) {
+
+      if ( word === wordEl.getAttribute('data-set-word') ) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
+    //  loop words number
+    for ( j=0; j < wordsNo; j++ ) {
+
+      //  get the first element node (not text node)
+      while ( checkedWord.nodeType !== 1 ) {
+        checkedWord = checkedWord.nextSibling;
+      }
+
+      //  loop sets
+      for ( i=0; i < setNo; i++ ) {
+
+        set = this.currentBubbleData.set[ i ];
+
+        //console.log('check: ' + j + ' | set: ' + i + ', correct: ' +  set[ j ] + ' | checked: ' + checkedWord.getAttribute('data-set-word'));
+
+        if ( !checkWord( set[ j ], checkedWord ) ) {
+          checkArray[ i ] = 0;
+        }
+        else {
+          checkArray[ i ] = 1;
+        }
+
+      }
+
+      window.console.log(checkArray);
+
+      checkArrayResult = checkArray.every(function( item, index, array ) {
+        window.console.log(item);
+        return item === 0;
+      });
+
+      if ( checkArrayResult ) {
+        return false;
+      }
+
+      //  get the next word
+      checkedWord = checkedWord.nextSibling;
+
+    }
+
+
+    this.showTrans();
+    this.showComposedSentence();
+    this.showControls( 'next' );
 
   };
 
 
   //
   //  Change words into a sentence
+  //  called when the right sentence is created by user
   //
   las.showComposedSentence = function() {
 
+    var i;
+    var wordsNo;
+
+    if ( !this.state.words || this.state.sentence ) {
+      return false;
+    }
+
+    this.state.words = false;
+    this.state.sentence = true;
+
     window.console.log('showComposedSentence');
 
-    //  called when the right sentence is created by user
+    this.setningerWords.classList.add( 'setninger-words--composed' );
 
-    //  this.addScore( 'correct' );
+    this.addScore( 'correct' );
 
   };
 
   las.resetComposedSentence = function() {
 
+    var i;
+    var l;
+    var completeFn;
+
+    if ( !this.state.sentence ) {
+      return;
+    }
+
+    l = this.currentBubbleData.set[ 0 ].length;
+
+    completeFn = function() {
+
+      var j;
+
+      //  remove children from dom
+
+      for ( j=0; j<l; j++ ) {
+
+        this.setningerWords.removeChild( this.setningerWordsElements[ j ] );
+
+      }
+
+      //  reset state when animation completes
+      this.state.sentence = false;
+
+    }.bind(this);
+
     window.console.log('resetComposedSentence');
 
-    //  when user clicks next
+    this.setningerWords.classList.remove( 'setninger-words--composed' );
 
+    //  fade words out
+    for ( i=0; l > i; i++ ) {
 
-    var elL = las.setningerWordsElements.length;
-    var i;
+      (function( i, l ) {
 
+        if ( i === (l - 1) ) {
 
-    for ( i=0; elL > i; i++ ) {
+          this.velocity(
+            this.setningerWordsElements[ i ],
+            { opacity: [0, 1] },
+            { duration: 2 * this.helper.speed, easing: this.helper.easingQuart,
+              complete: function() {
+                completeFn();
+              }
+            }
+          );
 
-      //  hide
+        }
+        else {
+
+          this.velocity(
+            this.setningerWordsElements[ i ],
+            { opacity: [0, 1] },
+            { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+          );
+
+        }
+
+      }).bind( this )( i, l );
 
     }
 
   };
 
 
+  //
+  //  Background
+  //
   las.showWordsB = function() {
+
+    if ( !this.state.words ) {
+      return;
+    }
 
     //  get rect
     var rect = this.setningerWords.getBoundingClientRect();
-
-    window.console.log(rect);
 
     //  example
     this.setningerWordsB.style.left =  rect.left + 'px';
@@ -310,7 +548,40 @@ function LasSetninger() {
     this.velocity(
       this.setningerWordsB,
       { scaleY: [1, 0] },
-      { duration: 2 * this.helper.speed, easing: this.helper.easingSpring, queue: false }
+      { duration: 2 * this.helper.speed, easing: this.helper.easingSpring }
+    );
+
+  };
+
+
+  las.adjustWordsB = function() {
+
+    if ( !this.state.words ) {
+      return;
+    }
+
+    //  get rect
+    var rect = this.setningerWords.getBoundingClientRect();
+
+    this.velocity(
+      this.setningerWordsB,
+      { left: rect.left + 'px', top: rect.top + 'px', height: rect.height + 'px' },
+      { duration: 2 * this.helper.speed, easing: this.helper.easingSpring }
+    );
+
+  };
+
+
+  las.resetWordsB = function() {
+
+    if ( !this.state.sentence ) {
+      return;
+    }
+
+    this.velocity(
+      this.setningerWordsB,
+      { scaleY: [0, 1] },
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
     );
 
   };
@@ -379,6 +650,9 @@ function LasSetninger() {
     //  //  add one to progress
     //  this.addScore( 'trans' );
 
+    //  reset button
+    this.resetControls( 'trans' );
+
   };
 
 
@@ -406,33 +680,51 @@ function LasSetninger() {
 
   //
   //  CONTROLS
+  //  @type = next || trans
   //
-  las.showControls = function() {
+  las.showControls = function( type ) {
 
     //  next button
     //  trans button
 
+    if ( !type || this.state.controls[ type ] ) {
+      return;
+    }
 
-    this.state.controls = true;
+    window.console.log('show control: ' + type);
 
-    window.console.log('show controls');
+    this.state.controls[ type ] = true;
+
+    this.velocity(
+      this.setningerControlsBtns[ type ],
+      'fadeIn',
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart, display: 'block' }
+    );
+
 
   };
 
 
-  las.resetControls = function() {
-
+  las.resetControls = function( type ) {
 
     //  if there was no controls
-    if ( !this.state.controls ) {
+    if ( !type || !this.state.controls[ type ] ) {
       return false;
     }
 
-    this.state.controls = false;
+    this.state.controls[ type ] = false;
 
-    window.console.log('reset controls');
+    window.console.log('reset control: ' + type);
+
+    this.velocity(
+      this.setningerControlsBtns[ type ],
+      'fadeOut',
+      { duration: 2 * this.helper.speed, easing: this.helper.easingQuart }
+    );
 
   };
+
+
 
 
   //
@@ -485,7 +777,8 @@ function LasSetninger() {
     //  Trans
     if ( elWithId && ( elWithId.id === 'setninger-controls__trans' ) ) {
 
-
+      //  show translate
+      this.showTrans();
 
       //  stop eventHandler
       event.stopPropagation();
@@ -503,7 +796,7 @@ function LasSetninger() {
 
   las.addListener = function() {
 
-    this.wrapper.addEventListener('click', function(event) {
+    this.setningerControls.addEventListener('click', function(event) {
 
       //  ignore right click
       if (event.which === 1) {
@@ -514,35 +807,16 @@ function LasSetninger() {
 
     }.bind(this), false);
 
+    window.addEventListener('resize', function(event) {
+
+      this.adjustWordsB();
+      console.log('resize');
+
+    }.bind(this), false);
+
 
   };
 
-
-  //
-  //  Throttle drags
-  //  true if still waiting
-  //  false if there was no click in last 150 ms
-  //
-  las.checkDragState = function() {
-
-    var throttleTimer;
-
-    //  throttle clicks
-    if ( this.state.dragged ) {
-      window.console.log('Throttled');
-      return true;
-    }
-
-    this.state.dragged = true;
-
-    throttleTimer = window.setTimeout(function() {
-      this.state.dragged = false;
-      window.clearTimeout( throttleTimer );
-    }.bind(this), 50);
-
-    return false;
-
-  };
 
 
   //
@@ -561,6 +835,11 @@ function LasSetninger() {
   return las;
 
 }
+
+
+
+
+
 
 
 

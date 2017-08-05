@@ -432,9 +432,9 @@
 
   //
   //   Rewind the main audio stack
+  //   If the user want to listen to it again
   //
   LasHelper.prototype.rewindAudio = function() {
-    //  If the user want to listen to it again
 
     if ( !this.audioFile ) {
       return;
@@ -454,8 +454,11 @@
     //  play again
     this.playAudio();
 
-    //  add one to progress progress
-    this.addScore( 'repeat' );
+    //  if there are no answers
+    if ( !this.state.answers ) {
+      //  add one to progress progress
+      this.addScore( 'repeat' );
+    }
 
   };
 
@@ -543,11 +546,16 @@
 
   //
   //  LOAD FILE
+  //  @noPlay is optional and it stops automatic play
   //
-  LasHelper.prototype.loadAudioFile = function() {
+  LasHelper.prototype.loadAudioFile = function( noPlay ) {
 
     var force;
     var progress;
+
+    if ( !this.audioFile ) {
+      return;
+    }
 
     window.console.log('loadAudioFile');
 
@@ -559,6 +567,9 @@
       this.audioFile.removeEventListener('play', force, false);
 
     }.bind( this );
+
+    this.audioFile.addEventListener( 'play', force, false );
+
 
     //  when the progress fires, we can seek the audio file and set the time for playback
     progress = function () {
@@ -574,8 +585,9 @@
 
     }.bind( this );
 
-    this.audioFile.addEventListener( 'play', force, false );
-    this.audioFile.addEventListener( 'progress', progress, false );
+    if ( !noPlay ) {
+      this.audioFile.addEventListener( 'progress', progress, false );
+    }
 
     //  play and trigger events
     this.audioFile.play();
@@ -733,10 +745,10 @@
             x = Math.sin(rad) * 40,
             y = Math.cos(rad) * - 40,
             mid = (angle > 180) ? 1 : 0,
-            shape = 'M 0 0 v -40 A 40 40 1 '
-                   + mid + ' 1 '
-                   +  x  + ' '
-                   +  y  + ' z';
+            shape = 'M 0 0 v -40 A 40 40 1 ' +
+                    mid + ' 1 ' +
+                    x  + ' ' +
+                    y  + ' z';
 
         loader.setAttribute('d', shape);
     }

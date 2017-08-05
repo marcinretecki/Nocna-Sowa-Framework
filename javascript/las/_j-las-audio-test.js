@@ -707,8 +707,8 @@ function LasAudioTest() {
 
     //  jest msg i autoNext
     //  lub są odpowiedzi i audio
-    if ( !(    ( this.currentBubbleData.msg && this.currentBubbleData.autoNext )
-            || ( this.currentBubbleData.answers && this.isCorrectAudioStack() ) ) ) {
+    if ( !( ( this.currentBubbleData.msg && this.currentBubbleData.autoNext ) ||
+            ( this.currentBubbleData.answers && this.isCorrectAudioStack() ) ) ) {
       return;
     }
 
@@ -883,7 +883,9 @@ function LasAudioTest() {
 
 
     //  Skip
-    if ( elWithId && ( ( elWithId.id === 'audio-skip-pause' ) || ( elWithId.id === 'audio-pause-timer' ) ) ) {
+    if ( elWithId &&
+         ( ( elWithId.id === 'audio-skip-pause' ) ||
+           ( elWithId.id === 'audio-pause-timer' ) ) ) {
 
       //  skip the pause
       if ( this.state.skipButton ) {
@@ -898,7 +900,9 @@ function LasAudioTest() {
 
 
     //  Translate
-    if ( elWithId && ( elWithId.id === 'audio-test-msg' ) ) {
+    if ( elWithId &&
+         ( ( elWithId.id === 'audio-test-msg' ) ) ||
+           ( elWithId.id === 'audio-test-msg-main' ) ) {
 
       this.showTrans();
 
@@ -1112,7 +1116,8 @@ function LasAudioTest() {
                 content += '<p class="size-1 space-half">' + bubbleData[bubbleProp] + '</p>';
               }
               else if ( bubbleProp === 'trans' ) {
-                content += '<p class="size-0 space-half" style="opacity:0.75;"><i>Trans</i>: ' + bubbleData[bubbleProp] + '</p>';
+                content += '<p class="size-0 space-half" style="opacity:0.75;"><i>Trans</i>: ';
+                content += bubbleData[bubbleProp] + '</p>';
               }
               else if ( ( bubbleProp === 'answers' ) ) {
 

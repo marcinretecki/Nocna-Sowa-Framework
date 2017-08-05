@@ -198,7 +198,9 @@ function LasChat() {
     window.console.log( 'createBubble' );
 
     //  if there is no autoNext or answers or bubbles
-    if ( !( this.currentBubbleData.hasOwnProperty('autoNext') || this.currentBubbleData.hasOwnProperty('answers') || this.currentBubbleData.hasOwnProperty('bubbles') ) ) {
+    if ( !( this.currentBubbleData.hasOwnProperty('autoNext') ||
+            this.currentBubbleData.hasOwnProperty('answers') ||
+            this.currentBubbleData.hasOwnProperty('bubbles') ) ) {
 
       throw "There is no autoNext or answers or bubbles – chat can't work";
 

@@ -70,7 +70,7 @@
   LasHelper.prototype.prepareCookieStore = function() {
 
     //  check if we have all needed info
-    if ( !las.helper.chapter || !las.helper.type || !las.helper.chapterId || !las.helper.serverAccess ) {
+    if ( !this.helper.chapter || !this.helper.type || !this.helper.chapterId || !this.helper.serverAccess ) {
       window.console.log('server did not set helper correctly');
 
       cookieStore = false;

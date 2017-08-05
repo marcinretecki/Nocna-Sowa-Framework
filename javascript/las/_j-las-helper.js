@@ -84,8 +84,38 @@ function LasHelper() {
     }.bind(this), false);
 
 
+    this.addListenerLoadFile();
+
+
   };
 
+
+  //
+  //  Load audio file at first click
+  //  It is needed for smooth playback on mobile
+  //
+  this.addListenerLoadFile = function() {
+
+    var listenerFn;
+
+    if ( !this.audioFile ) {
+      return;
+    }
+
+    listenerFn = function() {
+      window.console.log('load audio file');
+
+      this.loadAudioFile( true );
+
+      //  remove its listener
+      document.removeEventListener('click', listenerFn, false);
+
+    }.bind(this);
+
+    //  add listener
+    document.addEventListener('click', listenerFn, false);
+
+  };
 
   //
   //  Create arrays of first bubbles from data
@@ -156,6 +186,15 @@ function LasHelper() {
     var property;
     var propArray = [];
     var i = 0;
+    var maxEx;
+
+    if ( !this.lasData.maxEx ) {
+      maxEx = 20;
+    }
+    else {
+      maxEx = this.lasData.maxEx;
+      window.console.log(maxEx);
+    }
 
     //  Push first items
     for ( property in bubbles ) {
@@ -163,7 +202,7 @@ function LasHelper() {
       //  if it is own property
       //  last character is '1'
       //  i is lower than 20
-      if ( bubbles.hasOwnProperty( property ) && ( property.slice(-1) === '1' ) && ( i < 20 ) ) {
+      if ( bubbles.hasOwnProperty( property ) && ( property.slice(-1) === '1' ) && ( i < maxEx ) ) {
 
         propArray.push( property );
 
@@ -768,7 +807,7 @@ function LasHelper() {
 
       parent = parent.parentNode;
 
-      if ( parent == document.body ) {
+      if ( parent === document.body ) {
         return false;
       }
 
@@ -835,6 +874,7 @@ function LasHelper() {
     var counter = propArray.length;
     var index;
     var temp;
+    var newArray;
 
     //  While there are elements in the propArray
     while (counter > 0) {
