@@ -9,14 +9,21 @@ function LasData() {
   ];
 
   this.intro = {
-    _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext: 'ENDINTRO'/*,
-      more: {
-        startTime: 0,
-        duration: 26,
-      }*/
+    _intro1: {
+      msg:        'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:   '_intro2',
+    },
+    _intro2: {
+      msg:        '<p>W tym wyzwaniu będziesz mieć dwa zadania:</p>' +
+        '<ol>' + '
+        <li>wybranie poprawnej formy rzeczownika,</li>' +
+        '<li>powtarzanie na głos.</li>' +
+        '</ol>' +
+        '<p>Drugie zadanie nie będzie punktowane, ale robisz je dla siebie, bo przecież zależy Ci na tym, żeby nauczyć się poprawnie mówić po norwesku.</p>',
+      autoNext:   'ENDINTRO',
     }
+
+
   };
 
 
@@ -38,7 +45,7 @@ function LasData() {
     },
     _buss2: {
       msg:        '<i>en buss</i>',
-      score:      true,
+      score:      'correct',
       startTime:  31,
       duration:   33 - 31,
       autoNext:   'RANDOM'
@@ -62,7 +69,7 @@ function LasData() {
     },
     _mann2: {
       msg:        '<i>mannen</i>',
-      score:      true,
+      score:      'correct',
       startTime:  62,
       duration:   64 - 62,
       autoNext:   'RANDOM'
@@ -86,7 +93,7 @@ function LasData() {
     },
     _barn2: {
       msg:        '<i>barnet</i>',
-      score:      true,
+      score:      'correct',
       startTime:  126,
       duration:   128 - 126,
       autoNext:   'RANDOM'
@@ -110,7 +117,7 @@ function LasData() {
     },
     _kone2: {
       msg:        '<i>kona</i>',
-      score:      true,
+      score:      'correct',
       startTime:  143,
       duration:   145 - 143,
       autoNext:   'RANDOM'
@@ -134,7 +141,7 @@ function LasData() {
     },
     _hytte2: {
       msg:        '<i>ei hytte</i>',
-      score:      true,
+      score:      'correct',
       startTime:  178,
       duration:   180 - 178,
       autoNext:   'RANDOM',
@@ -163,7 +170,7 @@ function LasData() {
     },
     _hylle2: {
       msg:        '<i>hylla</i>',
-      score:      true,
+      score:      'correct',
       startTime:  205,
       duration:   207 - 205,
       autoNext:   'RANDOM'
@@ -187,7 +194,7 @@ function LasData() {
     },
     _vindu2: {
       msg:        '<i>et vindu</i>',
-      score:      true,
+      score:      'correct',
       startTime:  221,
       duration:   223 - 221,
       autoNext:   'RANDOM'
@@ -211,7 +218,7 @@ function LasData() {
     },
     _gulv2: {
       msg:        '<i>gulvet</i>',
-      score:      true,
+      score:      'correct',
       startTime:  235,
       duration:   237 - 235,
       autoNext:   'RANDOM'
@@ -235,7 +242,7 @@ function LasData() {
     },
     _bord2: {
       msg:        '<i>et bord</i>',
-      score:      true,
+      score:      'correct',
       startTime:  253,
       duration:   255 - 253,
       autoNext:   'RANDOM'
@@ -259,7 +266,7 @@ function LasData() {
     },
     _skap2: {
       msg:        '<i>skapet</i>',
-      score:      true,
+      score:      'correct',
       startTime:  266,
       duration:   268 - 266,
       autoNext:   'RANDOM'
@@ -283,7 +290,7 @@ function LasData() {
     },
     _stol2: {
       msg:        '<i>en stol</i>',
-      score:      true,
+      score:      'correct',
       startTime:  284,
       duration:   286 - 284,
       autoNext:   'RANDOM'
@@ -306,7 +313,7 @@ function LasData() {
     },
     _melding2: {
       msg:        '<i>en melding</i>',
-      score:      true,
+      score:      'correct',
       startTime:  326,
       duration:   328 - 326,
       autoNext:   'RANDOM',
@@ -335,7 +342,7 @@ function LasData() {
     },
     _tog2: {
       msg:        '<i>toget</i>',
-      score:      true,
+      score:      'correct',
       startTime:  346,
       duration:   348 - 346,
       autoNext:   'RANDOM'
@@ -352,14 +359,14 @@ function LasData() {
         { answer: '<i>huset</i>', score: 'wrong' }
       ],
       more:       {
-        spokenWord: 'Gdy mówimy o nieokreślonym domie, przed rzeczownikiem stawiamy rodzajnik. ',
+        spokenWord: 'Gdy mówimy o nieokreślonym domu, przed rzeczownikiem stawiamy rodzajnik. ',
         startTime:  365,
         duration:   371 - 365
       }
     },
     _hus2: {
       msg:        '<i>et hus</i>',
-      score:      true,
+      score:      'correct',
       startTime:  362,
       duration:   364 - 362,
       autoNext:   'RANDOM'
@@ -383,7 +390,7 @@ function LasData() {
     },
     _seng2: {
       msg:        '<i>senga</i>',
-      score:      true,
+      score:      'correct',
       startTime:  375,
       duration:   377 - 375,
       autoNext:   'RANDOM'
@@ -407,7 +414,7 @@ function LasData() {
     },
     _fly2: {
       msg:        '<i>flyet</i>',
-      score:      true,
+      score:      'correct',
       startTime:  419,
       duration:   421 - 419,
       autoNext:   'RANDOM'
@@ -431,7 +438,7 @@ function LasData() {
     },
     _hund2: {
       msg:        '<i>en hund</i>',
-      score:      true,
+      score:      'correct',
       startTime:  436,
       duration:   438 - 436,
       autoNext:   'RANDOM'
@@ -455,7 +462,7 @@ function LasData() {
     },
     _avtale2: {
       msg:        '<i>avtalen</i>',
-      score:      true,
+      score:      'correct',
       startTime:  450,
       duration:   452 - 450,
       autoNext:   'RANDOM'
@@ -479,7 +486,7 @@ function LasData() {
     },
     _by2: {
       msg:        '<i>en by</i>',
-      score:      true,
+      score:      'correct',
       startTime:  468,
       duration:   470 - 468,
       autoNext:   'RANDOM'
@@ -503,7 +510,7 @@ function LasData() {
     },
     _skog2: {
       msg:        '<i>skogen</i>',
-      score:      true,
+      score:      'correct',
       startTime:  494,
       duration:   496 - 494,
       autoNext:   'RANDOM'
@@ -531,7 +538,7 @@ function LasData() {
     },
     _land2: {
       msg:        '<i>landet</i>',
-      score:      true,
+      score:      'correct',
       startTime:  160,
       duration:   162 - 160,
       autoNext:   'RANDOM'
@@ -555,7 +562,7 @@ function LasData() {
     },
     _speil2: {
       msg:        '<i>speilet</i>',
-      score:      true,
+      score:      'correct',
       startTime:  44,
       duration:   46 - 44,
       autoNext:   'RANDOM'
@@ -579,7 +586,7 @@ function LasData() {
     },
     _kontakt2: {
       msg:        '<i>en kontakt</i>',
-      score:      true,
+      score:      'correct',
       startTime:  392,
       duration:   394 - 392,
       autoNext:   'RANDOM'
@@ -603,7 +610,7 @@ function LasData() {
     },
     _firma2: {
       msg:        '<i>et firma</i>',
-      score:      true,
+      score:      'correct',
       startTime:  481,
       duration:   483 - 481,
       autoNext:   'RANDOM'
@@ -627,7 +634,7 @@ function LasData() {
     },
     _kvinne2: {
       msg:        '<i>ei kvinne</i>',
-      score:      true,
+      score:      'correct',
       startTime:  80,
       duration:   82 - 80,
       autoNext:   'RANDOM'
@@ -651,7 +658,7 @@ function LasData() {
     },
     _gutt2: {
       msg:        '<i>gutten</i>',
-      score:      true,
+      score:      'correct',
       startTime:  93,
       duration:   95 - 93,
       autoNext:   'RANDOM'
@@ -675,7 +682,7 @@ function LasData() {
     },
     _jente2: {
       msg:        '<i>ei jente</i>',
-      score:      true,
+      score:      'correct',
       startTime:  112,
       duration:   114 - 112,
       autoNext:   'RANDOM'
@@ -699,12 +706,12 @@ function LasData() {
     },
     _mobil2: {
       msg:        '<i>mobilen</i>',
-      score:      true,
+      score:      'correct',
       startTime:  298,
       duration:   300 - 298,
       autoNext:   'RANDOM',
       more:       {
-        spokenWord: '/en mobil/ to skrót od /en mobiltelefon/. Możesz też powiedzieć /en telefon/ lub /en smarttelefon/',
+        spokenWord: '/en mobil/ to skrót od /en mobiltelefon/.',
         startTime:  312,
         duration:   321 - 312
       }
@@ -729,7 +736,7 @@ function LasData() {
     },
     _menneske2: {
       msg:        '<i>et menneske</i>',
-      score:      true,
+      score:      'correct',
       startTime:  406,
       duration:   408 - 406,
       autoNext:   'RANDOM'

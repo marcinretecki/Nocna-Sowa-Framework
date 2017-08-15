@@ -5,19 +5,18 @@ function LasData() {
 
 
   this.testNotes = [
-    'Nie zapisałem jeszcze spokenWord',
     'Jenta stopper å spise søtsaker. Może dodać więcej: godteri - bo niektórzy znają to słowo',
   ];
 
 
   this.intro = {
-    _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:     'ENDINTRO'/*,
-      more: {
-        startTime:  0,
-        duration:   26,
-      }*/
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2',
+    },
+    _intro2: {
+      msg:          '<p>W tym wyzwaniu przećwiczysz budowanie zdań z dwoma czasownikami.</p>' + '<p>Pamiętaj, żeby powtarzać zdania na głos, żeby nauczyć się mówić i zapamiętać je na dłużej.</p>',
+      autoNext:     'ENDINTRO',
     }
   };
 
@@ -25,7 +24,7 @@ function LasData() {
   this.chat = {
 
     _aa1: {
-      spokenWord: '',
+      spokenWord: 'Jak powiesz: Lubię być na dworze.',
       startTime:  0,
       duration:   3 - 0,
       pauseTime:  6,
@@ -41,7 +40,7 @@ function LasData() {
 
 
     _ab1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz Ona lubi dostawać prezenty.',
       startTime:  8,
       duration:   11 - 8,
       pauseTime:  6,
@@ -57,7 +56,7 @@ function LasData() {
 
 
     _ac1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Lubimy podróżować.',
       startTime:  16,
       duration:   18 - 16,
       pauseTime:  6,
@@ -73,7 +72,7 @@ function LasData() {
 
 
     _ad1: {
-      spokenWord: '',
+      spokenWord: 'Jak powiesz: Ty lubisz opowiadać bajki.',
       startTime:  22,
       duration:   24.5 - 22,
       pauseTime:  8,
@@ -89,7 +88,7 @@ function LasData() {
 
 
     _ae1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Wy lubicie mieszkać w Oslo.',
       startTime:  30,
       duration:   32.5 - 30,
       pauseTime:  8,
@@ -105,7 +104,7 @@ function LasData() {
 
 
     _af1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: On potrzebuje porozmawiać.',
       startTime:  38,
       duration:   40.5 - 38,
       pauseTime:  6,
@@ -121,7 +120,7 @@ function LasData() {
 
 
     _ag1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Oni potrzebują w coś wierzyć.',
       startTime:  45,
       duration:   48 - 45,
       pauseTime:  8,
@@ -137,7 +136,7 @@ function LasData() {
 
 
     _aj1: {
-      spokenWord: '',
+      spokenWord: 'Jak powiesz: One potrzebują kupić ubrania.',
       startTime:  61,
       duration:   64 - 61,
       pauseTime:  8,
@@ -153,7 +152,7 @@ function LasData() {
 
 
     _ai1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Próbujemy czytać po norwesku.',
       startTime:  69,
       duration:   71.5 - 69,
       pauseTime:  8,
@@ -169,7 +168,7 @@ function LasData() {
 
 
     _ak1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Wy próbujecie zrozumieć.',
       startTime:  77,
       duration:   80 - 77,
       pauseTime:  6,
@@ -185,7 +184,7 @@ function LasData() {
 
 
     _al1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Próbuję słuchać norweskiego radia.',
       startTime:  84,
       duration:   87 - 84,
       pauseTime:  9,
@@ -200,24 +199,8 @@ function LasData() {
     },
 
 
-    _ba1: {
-      spokenWord: '',
-      startTime:  92,
-      duration:   95 - 92,
-      pauseTime:  8,
-      autoNext:   '_ba2'
-    },
-    _ba2: {
-      msg:        '<i>De prøver å kjøre i byen.</i>',
-      startTime:  96,
-      duration:   98.5 - 96,
-      score:      'correct',
-      autoNext:   'RANDOM'
-    },
-
-
     _bb1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: On uczy się chodzić.',
       startTime:  100,
       duration:   102.5 - 100,
       pauseTime:  6,
@@ -233,7 +216,7 @@ function LasData() {
 
 
     _bc1: {
-      spokenWord: '',
+      spokenWord: 'Jak powiesz: On uczy się czekać.',
       startTime:  107,
       duration:   109.5 - 107,
       pauseTime:  6,
@@ -249,7 +232,7 @@ function LasData() {
 
 
     _bf1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Dziecko zaczyna zostawać w przedszkolu.',
       startTime:  131,
       duration:   134 - 131,
       pauseTime:  8,
@@ -265,7 +248,7 @@ function LasData() {
 
 
     _bg1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Mężczyzna zaczyna pływać.',
       startTime:  140,
       duration:   143 - 140,
       pauseTime:  6,
@@ -281,7 +264,7 @@ function LasData() {
 
 
     _bh1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Kobieta zaczyna trenować.',
       startTime:  147,
       duration:   149.5 - 147,
       pauseTime:  6,
@@ -297,7 +280,7 @@ function LasData() {
 
 
     _bl1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: On kończy studiować ekonomię.',
       startTime:  170,
       duration:   172.5 - 170,
       pauseTime:  8,
@@ -313,7 +296,7 @@ function LasData() {
 
 
     _bm1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Ona przestaje dzwonić.',
       startTime:  178,
       duration:   180.5 - 178,
       pauseTime:  6,
@@ -329,7 +312,7 @@ function LasData() {
 
 
     _bp1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Dziewczynka przestaje jeść słodycze.',
       startTime:  192,
       duration:   195 - 192,
       pauseTime:  8,
@@ -340,19 +323,17 @@ function LasData() {
       startTime:  196,
       duration:   199 - 196,
       score:      'correct',
+      more:       {
+        spokenWord: 'Na słodycze można też powiedzieć /snop/ albo /søtsaker/.',
+        //startTime:  4,
+        //duration:   1.5
+      },
       autoNext:   'RANDOM'
     },
 
 
-
-  };
-
-
-
-  this.extra = {
-
     _bo1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Ojciec przestaje dawać pieniądze.',
       startTime:  200,
       duration:   203 - 200,
       pauseTime:  8,
@@ -367,8 +348,33 @@ function LasData() {
     },
 
 
+  };
+
+
+
+  this.extra = {
+
+
+
+
+    _ba1: {
+      spokenWord: 'Jak powiesz: Oni próbują jeździć samochodem po mieście.',
+      startTime:  92,
+      duration:   95 - 92,
+      pauseTime:  8,
+      autoNext:   '_ba2'
+    },
+    _ba2: {
+      msg:        '<i>De prøver å kjøre bil i byen.</i>',
+      startTime:  96,
+      duration:   98.5 - 96,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
     _bk1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Oni kończą pić.',
       startTime:  163,
       duration:   165.5 - 163,
       pauseTime:  6,
@@ -384,7 +390,7 @@ function LasData() {
 
 
     _be1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Ona uczy się koncentrować na jednej rzeczy.',
       startTime:  121,
       duration:   124.5 - 121,
       pauseTime:  10,
@@ -400,7 +406,7 @@ function LasData() {
 
 
     _ah1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: On potrzebuje leżeć i odpoczywac.',
       startTime:  52,
       duration:   55.5 - 52,
       pauseTime:  8,
@@ -416,7 +422,7 @@ function LasData() {
 
 
     _bi1: {
-      spokenWord: '',
+      spokenWord: 'Powiedz: Ona zaczyna sobie radzić w pracy.',
       startTime:  155,
       duration:   158 - 155,
       pauseTime:  8,

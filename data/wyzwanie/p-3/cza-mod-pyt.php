@@ -10,14 +10,14 @@ function LasData() {
 
 
   this.intro = {
-    _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:   'ENDINTRO'/*,
-      more: {
-        startTime:  0,
-        duration:   1
-      }*/
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>Ułóż pytania zgodnie z poleceniem. Oczywiście na głos.</p>' + '<p>Wiesz, co masz robić.</p>',
+      autoNext:     'ENDINTRO'
+    },
   };
 
 
@@ -226,7 +226,7 @@ function LasData() {
         spokenWord: 'Po polsku mówimy iść w góry w liczbie mnogiej. Po norwesku najczęściej mówi się “gå på fjellet” – czyli iść na jedną określoną górę.',
         startTime:  4,
         duration:   1.5
-      }
+      },
     },
     _ah3: {
       spokenWord: 'Odpowiedz: Chętnie pójdę w góry.',

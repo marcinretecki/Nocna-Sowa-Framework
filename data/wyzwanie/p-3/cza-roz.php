@@ -5,22 +5,19 @@ function LasData() {
 
 
   this.testNotes = [
-    'Slipp meg frem! – jest zachrypnięte',
-    'Ti stille! – złe nagranie',
-    'dodaj: Powiedz: Podaj mi sól! Rekk meg saltet!',
-    'Ikke glem å komme! – złe nagranie'
+    'dodaj tłumaczenia'
   ];
 
 
   this.intro = {
-    _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:     'ENDINTRO'/*,
-      more: {
-        startTime:  0,
-        duration:   26  -   0,
-      }*/
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>Tutaj poznasz frazy w trybie rozkazującym, z którymi na pewno spotkasz się w życiu codziennym.</p>' + '<p>Powtórz je na głos, jeśli chcesz je zapamiętać.</p>',
+      autoNext:     'ENDINTRO'
+    },
   };
 
 
@@ -476,6 +473,22 @@ function LasData() {
       msg:        '<i>Ikke røyk!</i>',
       startTime:  31,
       duration:   32   - 31,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
+
+
+    _ca1: {
+      spokenWord: 'Powiedz: Podaj mi sól!',
+      //startTime:  29,
+      //duration:   30.5 - 29,
+      pauseTime:  5,
+      autoNext:   '_ca2'
+    },
+    _ca2: {
+      msg:        '<i>Rekk meg saltet!</i>',
+      //startTime:  31,
+      //duration:   32   - 31,
       score:      'correct',
       autoNext:   'RANDOM'
     },

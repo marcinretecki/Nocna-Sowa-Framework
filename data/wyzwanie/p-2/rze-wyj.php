@@ -29,15 +29,27 @@ function LasData() {
 
   this.intro = {
     _a1: {
-      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      msg:          'Wdziej słuchawki. #emoji-1f3a7;',
       autoNext:     '_a2',
     },
     _a2: {
-      msg:          '<p class="leftened">Wybraliśmy dla Ciebie 30 często używanych rzeczowników, które odmieniają się nieregularnie. Wiemy, że nikt nie lubi uczyć się wyjątków, ale warto je opanować co najmniej z dwóch powodów:</p>' + '<ol class="leftened">' + '<li>będziesz ich często używać,</li>' + '<li>jeśli je zapamiętasz, to o wiele łatwiej opanujesz kolejne.</li>' + '</ol>' + '<p class="leftened">Szybko zauważysz, że będą odmieniały się zgodnie z pewnym schematem. My to nazywamy wyczuciem. Możesz je budować przez lata obcowania z językiem, albo poprzez zapamiętanie odpowiedniej bazy słów już na starcie. Później poznasz kolejne wyjątki, które będą pasowały do schematu i będą łatwe do zapamiętania.</p>',
+      msg:          '<div class="leftened">' +
+          '<p>Wybraliśmy dla Ciebie 30 często używanych rzeczowników, które odmieniają się nieregularnie. Wiemy, że nikt nie lubi uczyć się wyjątków, ale warto je opanować co najmniej z dwóch powodów:</p>' +
+          '<ol>' +
+          '<li>będziesz ich często używać,</li>' +
+          '<li>jeśli je zapamiętasz, to o wiele łatwiej opanujesz kolejne.</li>' +
+          '</ol>' +
+          '<p>Szybko zauważysz, że będą odmieniały się zgodnie z pewnym schematem. My to nazywamy wyczuciem. Możesz je budować przez lata obcowania z językiem, albo poprzez zapamiętanie odpowiedniej bazy słów już na starcie. Później poznasz kolejne wyjątki, które będą pasowały do schematu i będą łatwe do zapamiętania.</p>' +
+          '</div>',
       autoNext:     '_a3',
     },
     _a3: {
-      msg:          '<p class="leftened">Jak opanować wyjątki?</p>' + '<p class="leftened">Najłatwiej uczyć się ich w odpowiedniej kolejności, po cztery, wypowiadając wszystkie na głos. Na początku możesz je tylko powtarzać, ale cel jest taki, żebyśmy mogli Cię przepytać.</p>' + '<p class="leftened">Rób to wyzwanie cierpliwie – aż wszystkie zapamiętasz i nabierzesz dobrego tempa. Przy pierwszym kontakcie może się to wydawać trochę trudne. To normalne. A! no i nie mów nam, że jesteś wzrokowcem, bo naprawdę chcemy nauczyć się szybciej. Wiemy, co robimy. To także ćwiczenie koncentracji, która naszym zdaniem jest jedną z najcenniejszych umiejętności w życiu.</p>' + '<p class="leftened">To co? Zacznijmy już.</p>',
+      msg:          '<div class="leftened">' +
+          '<p>Jak opanować wyjątki?</p>' +
+          '<p>Najłatwiej uczyć się ich w odpowiedniej kolejności, po cztery, wypowiadając wszystkie na głos. Na początku możesz je tylko powtarzać, ale cel jest taki, żebyśmy mogli Cię przepytać.</p>' +
+          '<p>Rób to wyzwanie cierpliwie – aż wszystkie zapamiętasz i nabierzesz dobrego tempa. Przy pierwszym kontakcie może się to wydawać trochę trudne. To normalne. A! no i nie mów nam, że jesteś wzrokowcem, bo naprawdę chcemy nauczyć się szybciej. Wiemy, co robimy. To także ćwiczenie koncentracji, która naszym zdaniem jest jedną z najcenniejszych umiejętności w życiu.</p>' +
+          '<p>To co? Zacznijmy już.</p>' +
+          '</div>',
       autoNext:     'ENDINTRO',
     }
   };
@@ -130,7 +142,7 @@ function LasData() {
       pauseTime:  6,
       autoNext:   '_af2',
     },
-   _af: {
+   _af2: {
       msg:        '<i>en finger fingeren fingre fingrene</i>',
       trans:      'palec',
       startTime:  0,
@@ -256,7 +268,7 @@ function LasData() {
       pauseTime:  6,
       autoNext:   '_am2',
     },
-   _am: {
+   _am2: {
       msg:        '<i>en mann mannen menn mennene</i>',
       trans:      'mężczyzna, mąż',
       startTime:  0,
@@ -590,7 +602,6 @@ function LasData() {
       autoNext:   '_bf2',
     },
     _bf2: {
-
       msg:        '<i>ei bok boka bøker bøkene</i>',
       trans:      'książka',
       startTime:  0,

@@ -9,10 +9,14 @@ function LasData() {
 
 
   this.intro = {
-    a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w"></i>.',
-      autoNext:   'ENDINTRO'
-    }
+    _intro1: {
+      msg:        'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:   '_intro2',
+    },
+    _intro2: {
+      msg:        '<p>W tym wyzwaniu nauczymy Cię wymowy liczb. Zrobimy to na wyrywki, bo na co dzień tak ich będziesz używać. Powtarzaj na głos, żeby nie mieć bariery mówienia.</p>',
+      autoNext:   'ENDINTRO',
+    },
   };
 
 

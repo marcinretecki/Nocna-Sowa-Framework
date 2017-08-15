@@ -5,48 +5,29 @@ function LasData() {
   this.maxEx = 10;
 
 
-  //  answers = [
-  //    { answer: '<i>', score: 'wrong', next: '', },
-  //    { answer: '<i>', score: 'correct', next: '', },
-  //    { answer: '<i>', score: 'partial', next: '', },
-  //    { answer: '<i>', score: 'more', next: '', }
-  //  ]
-
-
   this.testNotes = [
+    'nie ma nagrań',
     'Man kan finne venner i alle steder – nie jestem pewny jak to przetłumaczyć',
-    'Dette fine huset som ligger ved fossen – nie jestem pewny podmiotu',
   ];
-
-  //  Albo answers
-  //  albo autoNext
-  //  ale nie oba na raz!
-  //  msg jest dowolne
-  //  more jest dowolne
-  //  gdy nie startTime, mamy quiz
-  //  answer jest poiminięte tylko w intro 1
-  //  cmd + alt + n -> aa
-
-  //  jeśli nie ma answers
-  //  dodajemy score do bubble z msg
 
 
   this.intro = {
     _intro1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
       autoNext:     '_intro2',
     },
     _intro2: {
-      msg:          'Wskaż podmiot w zdaniu.',
+      msg:          '<p>To będzie szybkie wyzwanie sprawdzające, czy na pewno rozumiesz, czym jest podmiot.</p>' + '<p>Nie bagatelizuj z pozoru prostych rzeczy, bo one niespodziewanie wracają.</p>',
       autoNext:     'ENDINTRO',
     },
 
   };
 
 
-  //  main wyzwanie
+  //
+  //  Main
+  //
   this.chat = {
-
 
     _aa1: {
       msg:      '<i>Jeg vil gi kongen et brev.</i>',

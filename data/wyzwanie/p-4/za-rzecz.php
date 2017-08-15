@@ -12,14 +12,14 @@ function LasData() {
   //  Uzupełnij zdania zaimkami: den, det, de.
 
   this.intro = {
-    _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie.<br />Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w"></i>.',
-      autoNext:   'ENDINTRO'/*,
-      more: {
-        startTime:  0,
-        duration:   1.5,
-      }*/
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>Wybierz poprawny zaimek osobowy.</p>' + '<p>Następnie powtórz zdanie na głos.</p>',
+      autoNext:     'ENDINTRO'
+    },
   };
 
 
@@ -369,7 +369,7 @@ function LasData() {
 
     _cc1: {
       msg:        '<i>Er toget komfortabelt?<br />Ja, #fill-space; er komfortabelt og stille.</i>',
-      trans:      'Czy pociąg jest wygodny? Tak, on jest wygodny.',
+      trans:      'Czy pociąg jest wygodny?<br />Tak, on jest wygodny.',
       answers: [
         { answer: '<i>det</i>',  score: 'correct', next: '_cc2' },
         { answer: '<i>de</i>',   score: 'wrong' },
@@ -378,7 +378,7 @@ function LasData() {
     },
     _cc2: {
       msg:        '<i>Er toget komfortabelt?<br />Ja, det er komfortabelt og stille.</i>',
-      trans:      'Czy pociąg jest wygodny? Tak, on jest wygodny.',
+      trans:      'Czy pociąg jest wygodny?<br />Tak, on jest wygodny.',
       startTime:  3,
       duration:   1.5,
       autoNext:   'RANDOM'

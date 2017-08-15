@@ -9,14 +9,14 @@ function LasData() {
 
 
   this.intro = {
-    _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:   'ENDINTRO'/*,
-      more: {
-        startTime: 0,
-        duration: 0  -  0,
-      }*/
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>Już dużo potrafisz, dlatego możemy podwyższyć poprzeczkę.</p>' + '<p>Nie przejmuj się, jeśli za pierwszym razem nie zdążysz zbudować wszystkich zdań. Zawsze możesz kliknąć <i class="las-icon las-icon--rewind-w"></i>, żeby powtórzyć zdanie kilka razy.</p>',
+      autoNext:     'ENDINTRO'
+    },
   };
 
 

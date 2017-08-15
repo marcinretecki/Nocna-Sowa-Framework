@@ -5,20 +5,19 @@ function LasData() {
 
 
   this.testNotes = [
-    'nie ma zakończenia',
-    'nie ma audio'
+    'nie ma audio',
   ];
 
 
   this.intro = {
-    _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie.<br />Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:   'ENDINTRO'/*,
-      more: {
-        startTime: 0,
-        duration:   1.5,
-      }*/
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>Uzupełnij zdanie  poprawnym zaimkiem osobowym.</p>' + '<p>Następnie powtórz całość na głos.</p>',
+      autoNext:     'ENDINTRO'
+    },
   };
 
 
@@ -34,7 +33,7 @@ function LasData() {
       ]
     },
     _aa2: {
-      msg:        '<i>Politikerne vet ikke hvor pengene er.<br />De er overraskede.</i>',
+      msg:        '<i>Politikerne vet ikke hvor pengene er.<br /><span class="mark mark--green">De</span> er overraskede.</i>',
       trans:      'Politycy nie wiedzą gdzie są pieniądze. <br />Oni są zaskoczeni.',
       startTime:  0,
       duration:   1.5,
@@ -52,7 +51,7 @@ function LasData() {
       ]
     },
     _ab2: {
-      msg:        '<i>Naboene vil bo på landet.<br />De er 80 år gamle.</i>',
+      msg:        '<i>Naboene vil bo på landet.<br /><span class="mark mark--green">De</span> er 80 år gamle.</i>',
       trans:      'Sąsiedzi chcą mieszkać na wsi. <br />Oni mają 80 lat.',
       startTime:  3,
       duration:   1.5,
@@ -70,7 +69,7 @@ function LasData() {
       ]
     },
     _ac2: {
-      msg:        '<i>Tom ser etter en ring til kjæresta.<br />Hun heter Anne.</i>',
+      msg:        '<i>Tom ser etter en ring til kjæresta.<br /><span class="mark mark--green">Hun</span> heter Anne.</i>',
       trans:      'Tom szuka pierścionka dla dziewczyny. <br />Ona nazywa się Anne.',
       startTime:  3,
       duration:   1.5,
@@ -88,7 +87,7 @@ function LasData() {
       ]
     },
     _ad2: {
-      msg:        '<i>Jesus går på vannet.<br />Han kan mye.</i>',
+      msg:        '<i>Jesus går på vannet.<br /><span class="mark mark--green">Han</span> kan mye.</i>',
       trans:      'Jezus chodzi po wodzie. <br />On może/potrafi dużo.',
       startTime:  3,
       duration:   1.5,
@@ -106,7 +105,7 @@ function LasData() {
       ]
     },
     _af2: {
-      msg:        '<i>Barna lærer å bruke mobilen. De er flinke.</i>',
+      msg:        '<i>Barna lærer å bruke mobilen.<br /><span class="mark mark--green">De</span> er flinke.</i>',
       trans:      'Dzieci uczą się używać telefon. <br />One są zdolne.',
       startTime:  3,
       duration:   1.5,
@@ -124,7 +123,7 @@ function LasData() {
       ]
     },
     _ag2: {
-      msg:        '<i>Henrik Ibsen skriver et drama.<br />Han trenger stillhet.</i>',
+      msg:        '<i>Henrik Ibsen skriver et drama.<br /><span class="mark mark--green">Han</span> trenger stillhet.</i>',
       trans:      'Henrik Ibsen pisze dramat. <br />On potrzebuje ciszy.',
       startTime:  3,
       duration:   1.5,
@@ -142,7 +141,7 @@ function LasData() {
       ]
     },
     _ah2: {
-      msg:        '<i>Edison setter inn ei lyspære.<br />Han skifter dem ofte.</i>',
+      msg:        '<i>Edison setter inn ei lyspære.<br /><span class="mark mark--green">Han</span> skifter dem ofte.</i>',
       trans:      'Edison wkręca żarówkę. <br />On wymienia je często.',
       startTime:  3,
       duration:   1.5,
@@ -160,7 +159,7 @@ function LasData() {
       ]
     },
     _ai2: {
-      msg:        '<i>Maleren maler veggen.<br />Han blir kunstner.</i>',
+      msg:        '<i>Maleren maler veggen.<br /><span class="mark mark--green">Han</span> blir kunstner.</i>',
       trans:      'Malarz maluje ścianę. <br />On zostanie artystą.',
       startTime:  3,
       duration:   1.5,
@@ -170,7 +169,7 @@ function LasData() {
 
     _aj1: {
       msg:        '<i>Elvis synger for alle.<br />#fill-space; lever fortsatt.</i>',
-      trans:      'Elvis śpiewa dla wszystkich. On wciąż żyje.',
+      trans:      'Elvis śpiewa dla wszystkich.<br />On wciąż żyje.',
       answers: [
         { answer: '<i>han</i>', score: 'correct',   next: '_aj2' },
         { answer: '<i>hun</i>', score: 'wrong' },
@@ -178,8 +177,8 @@ function LasData() {
       ]
     },
     _aj2: {
-      msg:        '<i>Elvis synger for alle.<br />Han lever fortsatt.</i>',
-      trans:      'Elvis śpiewa dla wszystkich. On wciąż żyje.',
+      msg:        '<i>Elvis synger for alle.<br /><span class="mark mark--green">Han</span> lever fortsatt.</i>',
+      trans:      'Elvis śpiewa dla wszystkich.<br />On wciąż żyje.',
       startTime:  3,
       duration:   1.5,
       autoNext:   'RANDOM'
@@ -196,7 +195,7 @@ function LasData() {
       ]
     },
     _ah2: {
-      msg:        '<i>Pamela soler seg på stranda.<br />Hun har ei rød badedrakt.</i>',
+      msg:        '<i>Pamela soler seg på stranda.<br /><span class="mark mark--green">Hun</span> har ei rød badedrakt.</i>',
       trans:      'Pamela opala się na plaży. <br />Ona ma czerwony strój kąpielowy.',
       startTime:  3,
       duration:   1.5,
@@ -214,7 +213,7 @@ function LasData() {
       ]
     },
     _ak2: {
-      msg:        '<i>Amundsen kan ikke komme tilbake hjem.<br />Han er noe sted i nord.</i>',
+      msg:        '<i>Amundsen kan ikke komme tilbake hjem.<br /><span class="mark mark--green">Han</span> er noe sted i nord.</i>',
       trans:      'Amundsen nie może wrócić do domu. <br />On jest gdzieś na północy.',
       startTime:  3,
       duration:   1.5,
@@ -232,7 +231,7 @@ function LasData() {
       ]
     },
     _al2: {
-      msg:        '<i>Skłodowska jobber i laboratoriet.<br />Hun er den første kvinnelige professoren.</i>',
+      msg:        '<i>Skłodowska jobber i laboratoriet.<br /><span class="mark mark--green">Hun</span> er den første kvinnelige professoren.</i>',
       trans:      'Skłodowska pracuje w laboratorium. <br />Ona jest pierwszą kobietą profesorem.',
       startTime:  3,
       duration:   1.5,
@@ -250,7 +249,7 @@ function LasData() {
       ]
     },
     _am2: {
-      msg:        '<i>Folk streiker på gata.<br />De er sinte.</i>',
+      msg:        '<i>Folk streiker på gata.<br /><span class="mark mark--green">De</span> er sinte.</i>',
       trans:      'Ludzie strajkują na ulicy. <br />Oni są źli.',
       startTime:  3,
       duration:   1.5,
@@ -259,7 +258,7 @@ function LasData() {
 
 
     _ba1: {
-      msg:        '<i>Hvor er Chuck Norris? <br/> Hvor er #fill-space;?</i>',
+      msg:        '<i>Hvor er Chuck Norris? <br /> Hvor er #fill-space;?</i>',
       trans:      'Gdzie jest Chuck Norris? <br />Gdzie on jest?',
       answers: [
         { answer: '<i>han</i>', score: 'correct',   next: '_ba2' },
@@ -268,7 +267,7 @@ function LasData() {
       ]
     },
     _ba2: {
-      msg:        '<i>Hvor er Chuck Norris? <br/> Hvor er han?</i>',
+      msg:        '<i>Hvor er Chuck Norris? <br /> Hvor er <span class="mark mark--green">han</span>?</i>',
       trans:      'Gdzie jest Chuck Norris? <br />Gdzie on jest?',
       startTime:  3,
       duration:   1.5,
@@ -286,7 +285,7 @@ function LasData() {
       ]
     },
     _bb2: {
-      msg:        '<i>Hva gjør Scarlett?<br /> Hun sitter ved vinduet.</i>',
+      msg:        '<i>Hva gjør Scarlett?<br /> <span class="mark mark--green">Hun</span> sitter ved vinduet.</i>',
       trans:      'Co robi Scarlett? <br />Ona siedzi przy oknie.',
       startTime:  3,
       duration:   1.5,
@@ -304,7 +303,7 @@ function LasData() {
       ]
     },
     _bc2: {
-      msg:        '<i>Lager Penelope og Woody en film?<br />Ja, de liker å jobbe sammen.</i>',
+      msg:        '<i>Lager Penelope og Woody en film?<br />Ja, <span class="mark mark--green">de</span> liker å jobbe sammen.</i>',
       trans:      'Czy Penelope i Woody robią film? <br />Tak, oni lubią razem pracować.',
       startTime:  3,
       duration:   1.5,
@@ -322,7 +321,7 @@ function LasData() {
       ]
     },
     _bd2: {
-      msg:        '<i>Kommer Marilyn Monroe i dag?<br />Hun kan ikke.</i>',
+      msg:        '<i>Kommer Marilyn Monroe i dag?<br /><span class="mark mark--green">Hun</span> kan ikke.</i>',
       trans:      'Czy Marilyn Monroe przyjdzie dziś? <br />Ona nie może.',
       startTime:  3,
       duration:   1.5,
@@ -340,7 +339,7 @@ function LasData() {
       ]
     },
     _ba2: {
-      msg:        '<i>Gutten spiser fort. <br />Han er veldig sulten.</i>',
+      msg:        '<i>Gutten spiser fort. <br /><span class="mark mark--green">Han</span> er veldig sulten.</i>',
       trans:      'Chłopiec je szybko. <br />On jest bardzo głodny.',
       startTime:  3,
       duration:   1.5,
@@ -358,7 +357,7 @@ function LasData() {
       ]
     },
     _bb2: {
-      msg:        '<i>Jeg og kona mi kjøper en sofa. <br />Vi må velge fargen.</i>',
+      msg:        '<i>Jeg og kona mi kjøper en sofa. <br /><span class="mark mark--green">Vi</span> må velge fargen.</i>',
       trans:      'Ja i moja żona kupujemy sofę. <br />Musimy wybrać kolor.',
       startTime:  3,
       duration:   1.5,
@@ -376,7 +375,7 @@ function LasData() {
       ]
     },
     _bc2: {
-      msg:        '<i>Barna spiser vafler med brunost og syltetøy. <br />De liker søtsaker.</i>',
+      msg:        '<i>Barna spiser vafler med brunost og syltetøy. <br /><span class="mark mark--green">De</span> liker søtsaker.</i>',
       trans:      'Dzieci jedzą gofry z brązowym serem i dżemem. <br />One lubią słodycze.',
       startTime:  3,
       duration:   1.5,

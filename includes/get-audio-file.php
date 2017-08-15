@@ -16,8 +16,10 @@ else {
 ?>
 
 
-<audio id="audio-file" preload="auto">
-  <?php
+<?php
+  if ( $audio_file_m4a || $audio_file_opus ) {
+
+    echo '<audio id="audio-file" preload="auto">';
 
     if ( $audio_file_m4a ) {
       echo '<source src="';
@@ -31,7 +33,9 @@ else {
       echo '" type="audio/ogg">';
     }
 
-  ?>
+    echo 'Twoja przeglądarka jest za stara na to ćwiczenie.';
 
-  Twoja przeglądarka jest za stara na to ćwiczenie.
-</audio>
+    echo '</audio>';
+
+  }
+?>

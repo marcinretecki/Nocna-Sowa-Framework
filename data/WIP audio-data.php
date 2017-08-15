@@ -41,7 +41,9 @@ function LasData() {
   };
 
 
-  //  main wyzwanie
+  //
+  //  Main
+  //
   this.chat = {
 
     _aa1: {
@@ -80,8 +82,10 @@ function LasData() {
   };
 
 
-  //  extra examples
+  //
+  //  Extra
   //  if user finished at least 2 times
+  //
   this.extra = {
 
     _aa1: {

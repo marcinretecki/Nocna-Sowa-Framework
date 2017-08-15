@@ -104,13 +104,6 @@ window.addEventListener('load', function() {
 
   las.init();
 
-  <?php
-  //  there is no file
-  //  @audio_file_xxx is defined in get-audio-file
-  if ( !$audio_file_m4a && !$audio_file_opus ) {
-    echo 'las.audioFile = false;';
-  }
-  ?>
 
 }, false);
 

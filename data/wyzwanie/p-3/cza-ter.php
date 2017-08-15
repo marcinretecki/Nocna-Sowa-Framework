@@ -9,8 +9,12 @@ function LasData() {
 
 
   this.intro = {
-    _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>W wyzwaniu przećwiczysz budowanie pełnych zdań.</p>' + '<p>Pamiętaj, żeby powtarzać na głos i nie robić tego tylko pod nosem. To jest kluczowe.</p>' + '<p>Możesz spotkać się tu z zupełnie nowymi słowami. Nic się nie przejmuj, wyzwanie możesz powtarzać wiele razy. Dzięki temu nabierzesz płynności w mówieniu i odpowiedniego tempa.</p>',
       autoNext:     'ENDINTRO'
     }
   };

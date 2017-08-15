@@ -19,7 +19,7 @@
 
 <p>W przypadku orzeczenia pojedynczego zdanie może wyglądać tak:</p>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>Jeg sitter.</dt>
   <dd>Ja siedzę.</dd>
 
@@ -29,38 +29,38 @@
 
 <p>Kiedy budujemy zdanie w czasie teraźniejszym dodajemy końcówkę <i class="mark">-r</i>.</p>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>å sitte &rarr; sitter</dt>
   <dt>å sove &rarr; sover</dt>
 </dl>
 
 <p>Chyba, że czasownik ma nieregularną odmianę, jak słowo <i class="mark">å vite</i>.</p>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>Du vet det!</dt>
   <dd>Wiesz to!</dd>
 </dl>
 
 <p>Każde norweskie zdanie posiada orzeczenie, które w szyku prostym będzie zawsze na drugim miejscu. O tym najczęściej się zapomina.</p>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>Jeg sykler med venner hver uke.</dt>
   <dd>Jeżdżę na rowerze z przyjaciółmi co tydzień.</dd>
 </dl>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>sykler</dt>
   <dd>orzeczenie, na drugim miejscu zdania</dd>
 </dl>
 
 <p>Orzeczenie może być pojedyncze, jak we wcześniejszych przykładach, lub złożone. Kiedy mamy dwa czasowniki lub więcej, to pierwszy jest odmieniony zgodnie z czasem, a kolejne są w bezokolicznikach.</p>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>Lars liker å fikse båten.</dt>
   <dd>Lars lubi naprawiać łódkę.</dd>
 </dl>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>liker</dt>
   <dd>czasownik w czasie teraźniejszym</dd>
 
@@ -71,12 +71,12 @@
 
 <p>Składowe orzeczenia nie muszą być tuż obok siebie. Mogą być rozdzielone przez <i class="mark">ikke</i>. </p>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>Anne liker ikke å vente.</dt>
   <dd>Anne nie lubi czekać.</dd>
 </dl>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>liker</dt>
   <dd>to czasownik w czasie teraźniejszym</dd>
 
@@ -90,11 +90,11 @@
 
 <p>Jeśli nie, to wróć później do przewodnika o najczęściej używanych czasownikach modalnych.</p>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>Jeg skal slappe av i naturen.</dd>
 </dl>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>skal</dt>
   <dd>czasownik odmieniony w czasie teraźniejszym</dd>
 
@@ -104,12 +104,12 @@
 
 <p>Czasem jednak wykombinujesz zdanie, które będzie miało dwa czasowniki modalne. (Na przykład coś takiego:)</p>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>Jeg vil kunne snakke norsk.</dt>
   <dd>Chcę umieć mówić po norwesku.</dd>
 </dl>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>vil</dt>
   <dd>czasownik odmieniony w czasie teraźniejszym</dd>
 
@@ -120,12 +120,12 @@
   <dd>Jest w bezokoliczniku, również bez <i class="mark mark--table">å</i>, bo czasownik wcześniej też jest modalny.</dd>
 </dl>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>De vil lære seg å klatre.</dt>
   <dd>Oni chcą nauczyć się wspinać.</dd>
 </dl>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>vil</dt>
   <dd>czasownik w czasie teraźniejszym</dd>
 
@@ -134,16 +134,16 @@
 
   <dt>å klatre</dt>
   <dd>Bezokolicznik – dlaczego ma <i class="mark mark--table">å</i>, bo przed nim stoi zwykły czasownik, nie modalny.</dd>
-</dt>
+</dl>
 
 <p>A gdybyśmy wymyślili pytanie, w którym są 4 czasowniki:</p>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>Tenker dere ikke å begynne å lære å svømme med trener?</dt>
   <dd>Czy nie myślicie, żeby zacząć uczyć się pływać z trenerem?</dd>
 </dl>
 
-<dl class="dl-eg przewodnik-eg">
+<dl class="przewodnik-eg">
   <dt>trenker</dt>
   <dd>czas teraźniejszy</dd>
 

@@ -10,14 +10,14 @@ function LasData() {
 
 
   this.intro = {
-    _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:     'ENDINTRO'/*,
-      more: {
-        startTime:  0,
-        duration:   1.5,
-      }*/
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>W tym wyzwaniu nabierzesz wprawy w używaniu czasowników modalnych.</p>' + '<p>Pamietaj, żeby wypowiadać zdania na głos. Nie odkładaj mówienia na później, bo nauczysz się go przy okazji już teraz, razem z gramatyką.</p>',
+      autoNext:     'ENDINTRO'
+    },
   };
 
 
@@ -343,7 +343,24 @@ function LasData() {
       duration:   1.5,
       score:      'correct',
       autoNext:   'RANDOM'
-    }
+    },
+
+
+    _ca1: {
+      spokenWord: 'Powiedz: "Chcę odpocząć".',
+      //startTime:  0,
+      //duration:   0,
+      pauseTime:  5,
+      autoNext:   '_ca2'
+    },
+    _ca2: {
+      msg:        '<i>Jeg vil slappe av.</i>',
+      trans:      'Chcę odpocząć.',
+      //startTime:  0,
+      //duration:   0,
+      score:      'correct',
+      autoNext:   'RANDOM'
+    },
 
 
 

@@ -31,45 +31,180 @@ function LasData() {
 
 
   this.testNotes = [
-    'jeszcze nie dodałem słów z IA'
+    ''
   ];
 
 
-  //  Albo answers
-  //  albo autoNext
-  //  ale nie oba na raz!
-  //  msg jest dowolne
-  //  more jest dowolne
-  //  gdy nie startTime, mamy quiz
-  //  answer jest poiminięte tylko w intro 1
-  //  cmd + alt + n -> aa
-
-
   this.intro = {
-    _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:     'ENDINTRO'
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w"></i>',
+      autoNext:     '_intro2',
+    },
+    _intro2: {
+      msg:          '<div class="leftened">' +
+          '<p>W tym wyzwaniu mamy dla Ciebie 12 podstawowych słów wraz z linkami do słowników.</p>' +
+          '<p>Linki otwierają się zawsze w nowej zakładce, żeby łatwo było Ci wrócić do wyzwania.</p>' +
+          '<p>Po wybraniu prawidłowego rodzajnkia, usłyszysz nagranie z poprawną wymową tego słowa.</p>' +
+          '<p>Nie zgaduj odpowiedzi. To jest nauka korzystania ze słownika.</p>' +
+          '</div>',
+      autoNext:     'ENDINTRO',
+    },
   };
 
 
   this.chat = {
 
-    _barn1: {
-      msg:        newMsg( 'barn' ),
+    _gulv1: {
+      msg:        newMsg( 'gulv' ),
       answers: [
-        { answer: '<i>et</i>', score: 'correct', next: '_barn2' },
-        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>', score: 'correct', next: '_gulv2' },
         { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
       ]
     },
-   _barn2: {
-      msg:        '<i>et barn</i>',
+    _gulv2: {
+      msg:        '<i>et gulv</i>',
+      trans:      'podłoga',
       //  startTime:  0,
       //  duration:   1.5,
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
+
+    _skap1: {
+      msg:        newMsg( 'skap' ),
+      answers: [
+        { answer: '<i>et</i>', score: 'correct', next: '_skap2' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+      ]
+    },
+    _skap2: {
+      msg:        '<i>et skap</i>',
+      trans:      'szafka',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _stol1: {
+      msg:        newMsg( 'stol' ),
+      answers: [
+        { answer: '<i>en</i>', score: 'correct', next: '_stol2' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
+      ]
+    },
+    _stol2: {
+      msg:        '<i>en stol</i>',
+      trans:      'krzesło',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _mobil1: {
+      msg:        newMsg( 'mobil' ),
+      answers: [
+        { answer: '<i>en</i>', score: 'correct', next: '_mobil2' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
+      ]
+    },
+    _mobil2: {
+      msg:        '<i>en mobil</i>',
+      trans:      'telefon komórkowy',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _kontakt1: {
+      msg:        newMsg( 'kontakt' ),
+      answers: [
+        { answer: '<i>en</i>', score: 'correct', next: '_kontakt2' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
+      ]
+    },
+    _kontakt2: {
+      msg:        '<i>en kontakt</i>',
+      trans:      'kontakt',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _avtale1: {
+      msg:        newMsg( 'avtale' ),
+      answers: [
+        { answer: '<i>en</i>', score: 'correct', next: '_avtale2' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
+      ]
+    },
+    _avtale2: {
+      msg:        '<i>en avtale</i>',
+      trans:      'umowa',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _by1: {
+      msg:        newMsg( 'by' ),
+      answers: [
+        { answer: '<i>en</i>', score: 'correct', next: '_by2' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
+      ]
+    },
+    _by2: {
+      msg:        '<i>en by</i>',
+      trans:      'miasto',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _menneske1: {
+      msg:        newMsg( 'menneske' ),
+      answers: [
+        { answer: '<i>et</i>', score: 'correct', next: '_menneske2' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+      ]
+    },
+    _menneske2: {
+      msg:        '<i>et menneske</i>',
+      trans:      'człowiek',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _firma1: {
+      msg:        newMsg( 'firma' ),
+      answers: [
+        { answer: '<i>et</i>', score: 'correct', next: '_firma2' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+      ]
+    },
+    _firma2: {
+      msg:        '<i>et firma</i>',
+      trans:      'firma',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
 
     _hand1: {
       msg:        newMsg( 'hånd' ),
@@ -81,89 +216,10 @@ function LasData() {
     },
     _hand2: {
       msg:        '<i>ei hånd</i>',
+      trans:      'ręka',
       //  startTime:  0,
       //  duration:   1.5,
-      autoNext:   'RANDOM'
-    },
-
-
-    _spor1: {
-      msg:        newMsg( 'spor' ),
-      answers: [
-        { answer: '<i>et</i>', score: 'correct', next: '_spor2' },
-        { answer: '<i>en</i>',   score: 'wrong' },
-        { answer: '<i>en/ei</i>',   score: 'wrong' },
-      ]
-    },
-    _spor2: {
-      msg:        '<i>et spor</i>',
-      //  startTime:  0,
-      //  duration:   1.5,
-      autoNext:   'RANDOM'
-    },
-
-
-    _lys1: {
-      msg:        newMsg( 'lys' ),
-      answers: [
-        { answer: '<i>et</i>', score: 'correct', next: '_lys2' },
-        { answer: '<i>en</i>',   score: 'wrong' },
-        { answer: '<i>en/ei</i>',   score: 'wrong' },
-      ]
-    },
-    _lys2: {
-      msg:        '<i>et lys</i>',
-      //  startTime:  0,
-      //  duration:   1.5,
-      autoNext:   'RANDOM'
-    },
-
-
-    _kamp1: {
-      msg:        newMsg( 'kamp' ),
-      answers: [
-        { answer: '<i>en</i>', score: 'correct', next: '_kamp2' },
-        { answer: '<i>en/ei</i>',   score: 'wrong' },
-        { answer: '<i>et</i>',   score: 'wrong' },
-      ]
-    },
-    _kamp2: {
-      msg:        '<i>en kamp</i>',
-      //  startTime:  0,
-      //  duration:   1.5,
-      autoNext:   'RANDOM'
-    },
-
-
-    _bat1: {
-      msg:        newMsg( 'båt' ),
-      answers: [
-        { answer: '<i>en</i>', score: 'correct', next: '_bat2' },
-        { answer: '<i>en/ei</i>',   score: 'wrong' },
-        { answer: '<i>et</i>',   score: 'wrong' },
-      ]
-    },
-    _bat2: {
-      msg:        '<i>en båt</i>',
-      //  startTime:  0,
-      //  duration:   1.5,
-      autoNext:   'RANDOM'
-    },
-
-
-    _morgen1: {
-      msg:        newMsg( 'morgen' ),
-      answers: [
-        { answer: '<i>en</i>', score: 'correct', next: '_morgen2' },
-        { answer: '<i>en/ei</i>',   score: 'wrong' },
-        { answer: '<i>et</i>',   score: 'wrong' },
-      ]
-    },
-    _morgen2: {
-      msg:        '<i>en morgen</i>',
-      //  startTime:  0,
-      //  duration:   1.5,
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -177,9 +233,136 @@ function LasData() {
     },
     _helg2: {
       msg:        '<i>ei helg</i>',
+      trans:      'weekend',
       //  startTime:  0,
       //  duration:   1.5,
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
+    },
+
+
+    _seng1: {
+      msg:        newMsg( 'seng' ),
+      answers: [
+        { answer: '<i>en/ei</i>', score: 'correct', next: '_seng2' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
+      ]
+    },
+    _seng2: {
+      msg:        '<i>ei seng</i>',
+      trans:      'weekend',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+  };
+
+
+  //
+  //  Extra
+  //
+  this.extra = {
+
+    _barn1: {
+      msg:        newMsg( 'barn' ),
+      answers: [
+        { answer: '<i>et</i>', score: 'correct', next: '_barn2' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+      ]
+    },
+   _barn2: {
+      msg:        '<i>et barn</i>',
+      trans:      'dziecko',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+    _spor1: {
+      msg:        newMsg( 'spor' ),
+      answers: [
+        { answer: '<i>et</i>', score: 'correct', next: '_spor2' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+      ]
+    },
+    _spor2: {
+      msg:        '<i>et spor</i>',
+      trans:      'ślad, tor',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _lys1: {
+      msg:        newMsg( 'lys' ),
+      answers: [
+        { answer: '<i>et</i>', score: 'correct', next: '_lys2' },
+        { answer: '<i>en</i>',   score: 'wrong' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+      ]
+    },
+    _lys2: {
+      msg:        '<i>et lys</i>',
+      trans:      'światło',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _kamp1: {
+      msg:        newMsg( 'kamp' ),
+      answers: [
+        { answer: '<i>en</i>', score: 'correct', next: '_kamp2' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
+      ]
+    },
+    _kamp2: {
+      msg:        '<i>en kamp</i>',
+      trans:      'walka, mecz',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _bat1: {
+      msg:        newMsg( 'båt' ),
+      answers: [
+        { answer: '<i>en</i>', score: 'correct', next: '_bat2' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
+      ]
+    },
+    _bat2: {
+      msg:        '<i>en båt</i>',
+      trans:      'łódź',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
+    },
+
+
+    _morgen1: {
+      msg:        newMsg( 'morgen' ),
+      answers: [
+        { answer: '<i>en</i>', score: 'correct', next: '_morgen2' },
+        { answer: '<i>en/ei</i>',   score: 'wrong' },
+        { answer: '<i>et</i>',   score: 'wrong' },
+      ]
+    },
+    _morgen2: {
+      msg:        '<i>en morgen</i>',
+      trans:      'ranek, poranek',
+      //  startTime:  0,
+      //  duration:   1.5,
+      autoNext:   'RANDOM',
     },
 
 
@@ -193,9 +376,10 @@ function LasData() {
     },
     _navn2: {
       msg:        '<i>et navn</i>',
+      trans:      'imię',
       //  startTime:  0,
       //  duration:   1.5,
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -209,9 +393,10 @@ function LasData() {
     },
     _moete2: {
       msg:        '<i>et møte</i>',
+      trans:      'spotkanie',
       //  startTime:  0,
       //  duration:   1.5,
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -225,9 +410,10 @@ function LasData() {
     },
     _land2: {
       msg:        '<i>et land</i>',
+      trans:      'kraj',
       //  startTime:  0,
       //  duration:   1.5,
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 
@@ -241,25 +427,10 @@ function LasData() {
     },
     _jord2: {
       msg:        '<i>ei jord</i>',
+      trans:      'ziemia',
       //  startTime:  0,
       //  duration:   1.5,
-      autoNext:   'RANDOM'
-    },,
-
-
-    _gulv1: {
-      msg:        newMsg( 'gulv' ),
-      answers: [
-        { answer: '<i>et</i>', score: 'correct', next: '_jord2' },
-        { answer: '<i>en</i>',   score: 'wrong' },
-        { answer: '<i>en/ei</i>',   score: 'wrong' },
-      ]
-    },
-    _gulv2: {
-      msg:        '<i>et gulv</i>',
-      //  startTime:  0,
-      //  duration:   1.5,
-      autoNext:   'RANDOM'
+      autoNext:   'RANDOM',
     },
 
 

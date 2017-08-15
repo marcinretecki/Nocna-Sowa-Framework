@@ -18,14 +18,14 @@ function LasData() {
 
 
   this.intro = {
-    _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w"></i>.',
-      autoNext:   'ENDINTRO'/*,
-      more: {
-        startTime: 0,
-        duration:   1.5,
-      }*/
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>Dopasuj zaimek wskazujący do rzeczownika w zdaniu.</p>' + '<p>Następnie powtórz na głos całe zdanie.</p>',
+      autoNext:     'ENDINTRO'
+    },
   };
 
 

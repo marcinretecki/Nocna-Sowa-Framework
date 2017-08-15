@@ -5,23 +5,18 @@ function LasData() {
 
 
   this.testNotes = [
-    'De bytter dørklokka i vår. - czytanie dørklokka',
-    'Takk for i dag. - czytanie takk',
-    'Han står opp tidlig om morgenen. - czytana tylko końcówka zdania',
-    'De vil ikke ta opp lånn neste gang. Po tym przykﬁadzie wyswietla sie zle zdanie: Jeg lærer noe nytt hver dag., a czytane jest dobre',
-    'Jeg begynner et dansekurs – nie ma nagrania'
   ];
 
 
   this.intro = {
-    _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:     'ENDINTRO'/*,
-      more:       {
-        startTime:  0,
-        duration:   26,
-      }*/
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>W wyzwaniu czeka na Ciebie test. Przetłumacz na norweski podane określenie czasu.</p>' + '<p>Następnie powtórz na głos poprawne zdanie.</p>',
+      autoNext:     'ENDINTRO'
+    },
   };
 
 
@@ -97,8 +92,8 @@ function LasData() {
     _ommorgen2: {
       msg:        '<i>Han står opp tidlig om morgenen.</i>',
       trans:      'On wstaje wcześnie rano.',
-      startTime:  14,
-      duration:   15.5 - 14,
+      startTime:  13,
+      duration:   2.5,
       autoNext:   'RANDOM'
     },
 

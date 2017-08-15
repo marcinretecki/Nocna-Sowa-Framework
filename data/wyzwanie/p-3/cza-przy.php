@@ -9,14 +9,14 @@ function LasData() {
 
 
   this.intro = {
-    _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:     'ENDINTRO'/*,
-      more: {
-        startTime:  0,
-        duration:   26,
-      }*/
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>Ułóż zdania po norwesku zgodnie z poleceniem, które usłyszysz.</p>',
+      autoNext:     'ENDINTRO'
+    },
   };
 
 
@@ -31,7 +31,7 @@ function LasData() {
     },
     _aa2: {
       msg:        '<i>Jeg skal på jobb i morgen.</i>',
-      trans:      'Jutro mam iść do pracy.',
+      trans:      'Jutro mam/zamierzam iść do pracy.',
       startTime:  4,
       duration:   6.5 - 4,
       score:      'correct',

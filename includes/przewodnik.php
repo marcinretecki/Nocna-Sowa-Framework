@@ -90,13 +90,23 @@ function las_przewodnik_show_media() {
 
     <?php
 
-      //  tu można zrobić funkcję, która sprawdza, czy jest wyzwanie
-      //  jeśli nie ma to dajemy link do następnego zagadnienia
-      //  jeśli jest, to link do wyzwania
+      if ( has_category( 'bez-wyzwania' ) ) {
+
+        //  weź link do następnego zagadnienia
+
+        // póki co wracamy na szlak
+        echo '<a href="/las/szlak/" class="przewodnik__action-btn">Wróć na szlak &raquo;</a>';
+
+      }
+      else {
+
+        echo '<a href="../wyzwanie/" class="przewodnik__action-btn">Przejdź do wyzwania &raquo;</a>';
+
+      }
 
     ?>
 
-    <a href="../wyzwanie/" class="przewodnik__action-btn">Przejdź do wyzwania &raquo;</a>
+
   </div>
 </section>
 

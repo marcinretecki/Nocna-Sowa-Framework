@@ -5,24 +5,17 @@ function LasData() {
 
 
   this.testNotes = [
-    'Mężczyzna nie mówi wszystkiego. – złe nagranie',
-    'czy "Nie muszę sprzątać" jest nagrane?',
-    'czy gwarancja powinna być z rodzajnikiem?',
-    'Vi drar ikke til Stavanger. - zrobic moze znak zapytania i napisac im ze moze byc reise',
-    'jak powiesz nie wiem: jeg sier ikke noe ???',
-    'nigdzie nie idziemy, czy da sie inaczej poprawnie to samo powiedziec w znaku zapytania',
-    'Mobilen ligger ikke på skapet. – nie ma nagrania more'
   ];
 
 
   this.intro = {
-    _a1: {
-      msg:          'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:     'ENDINTRO'/*,
-      more: {
-        startTime:  0,
-        duration:   26 -   0,
-      }*/
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>Teraz przećwiczysz budowanie przeczeń. Skoncentruj się na tym, żeby w odpowiednim miejscu umieścić <i>ikke</i>.</p>' + '<p>To wyzwanie powinno być dla Ciebie proste, dlatego jeszcze bardziej skup się na poprawnej wymowie.</p>',
+      autoNext:     'ENDINTRO'
     }
   };
 
@@ -40,11 +33,6 @@ function LasData() {
       msg:        '<i>Mobilen ligger ikke på skapet.</i>',
       startTime:  4,
       duration:   6.5 - 4,
-      more:       {
-        spokenWord: 'En mobil to skrót od en mobiltelefon.',
-        startTime:  0,
-        duration:   0 - 0,
-      },
       score:      'correct',
       autoNext:   'RANDOM'
     },
@@ -361,7 +349,7 @@ function LasData() {
   this.extra = {
 
     _bm1: {
-      spokenWord: 'Nie muszę sprzątać',
+      spokenWord: 'Nie musimy sprzątać',
       startTime:  158,
       duration:   160 - 158,
       pauseTime:  6,

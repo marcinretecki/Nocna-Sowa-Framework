@@ -16,11 +16,11 @@ function LasData() {
         'Porywam Cię znowu do lasu.',
         '<img src="/las/c/i/cza-mod-prze/8JXvtGt_opt.gif" /> ',
         'Muszę Cię poznać z moimi przyjaciółmi.',
-        'Czy chcesz poznać moje świry?',
+        'Czy chcesz poznać moje świry? #emoji-1f429; #emoji-1f418; #emoji-1f407; #emoji-1f416; ',
       ],
       answers: [
         { answer: 'jasne!', next: '_a2' },
-        { answer: 'chyba nie mam wyboru...', next: '_a2' }
+        { answer: 'chyba nie mam wyboru... #emoji-1f3aa;', next: '_a2' }
       ]
     },
     _a2: {
@@ -39,7 +39,7 @@ function LasData() {
 
     _aa1: {
       bubbles: [
-        '<q>Ryba nie może pływać.</q>',
+        '<q>Ryba nie może pływać.</q> #emoji-1f3a3;',
         '<i>Fisknen #fill-space; svømme.</i>',
       ],
       answers: [
@@ -97,7 +97,7 @@ function LasData() {
 
     _ac1: {
       bubbles: [
-        '<i>Hun skal #fill-space; hjemme.</i>',
+        '<i>Hun skal #fill-space; hjemme.</i> #emoji-26fa;',
       ],
       answers: [
         { answer: '<i>ikke sove</i>', next: '_ac2', score: 'correct' },
@@ -124,7 +124,7 @@ function LasData() {
 
     _ad1: {
       bubbles: [
-        '<q>On ma zakaz jedzenia trawy.</q>',
+        '<q>On ma zakaz jedzenia trawy.</q> #emoji-1f434;',
         '<i>Den #fill-space; spise gress.</i>',
       ],
       answers: [
@@ -180,7 +180,7 @@ function LasData() {
 
     _af1: {
       bubbles: [
-        '<i>Frosken klarer #fill-space; mobilen.</i>',
+        '<i>Frosken klarer #fill-space; mobilen.</i> #emoji-1f438;',
       ],
       answers: [
         { answer: '<i>ikke å bruke</i>', next: '_af2', score: 'correct' },
@@ -209,7 +209,7 @@ function LasData() {
 
     _ag1: {
       bubbles: [
-        '<i>Bjørnene #fill-space; mye i morgen.</i>',
+        '<i>Bjørnene #fill-space; mye i morgen.</i> #emoji-1f43b;',
       ],
       answers: [
         { answer: '<i>skal ikke feste</i>', next: '_ag2', score: 'correct' },
@@ -238,7 +238,7 @@ function LasData() {
 
     _ah1: {
       bubbles: [
-        '<q>Mój kolega nie musi chodzić do sklepu, żeby czegoś spróbować.</q>',
+        '<q>Mój kolega nie musi chodzić do sklepu, żeby czegoś spróbować.</q> #emoji-1f336; #emoji-1f34e; #emoji-1f352;',
         '<i>Kameraten min #fill-space; i butikken til å prøve noe.</i>',
       ],
       answers: [
@@ -264,7 +264,7 @@ function LasData() {
 
     _ai1: {
       bubbles: [
-        '<i>Venninna mi er vegetarianer, vet du?</i>',
+        '<i>Venninna mi er vegetarianer, vet du?</i> #emoji-1f331;',
         '<i>Og hun #fill-space; spise kjøtt.</i>',
       ],
       answers: [
@@ -274,7 +274,7 @@ function LasData() {
     },
     _ai1b: {
       bubbles: [
-        '<i class="mark">Prøver ikke</i> to znaczy <q>nie próbuje</q>. Coś tu nie pasuje logicznie. Poza tym kolejny czasownik powinen być w bezokoliczniku, czyli razem z <i class="mark">å</i>.',
+        '<i class="mark">Prøver</i> nie jest czasownikiem modalnym, więc kolejny czasownik powinen być w bezokoliczniku razem z <i class="mark">å</i>.',
       ],
       answers: [
         { answer: 'OK, już wiem: <i>må ikke</i>', next: '_ai2' }
@@ -285,7 +285,7 @@ function LasData() {
         '<i>Jo, jo. Bare av og til.</i>',
         '<img src="/las/c/i/cza-mod-prze/SecretPepperyAttwatersprairiechicken-mobile_opt.gif" /> ',
         'Norwegowie mówią na nich: <i class="mark">fleksitarianere</i>.',
-        'Próbują nie jeść mięsa, ale jednak czasem zjedzą.',
+        'Próbują nie jeść mięsa, ale jednak czasem zjedzą. #emoji-1f357;',
       ],
       autoNext: 'RANDOM',
     },
@@ -295,7 +295,7 @@ function LasData() {
 
     _aj1: {
       bubbles: [
-        '<i>Jeg skal #fill-space; i svømmehallen med alle vennene.</i>',
+        '<i>Jeg skal #fill-space; i svømmehallen med alle vennene.</i> #emoji-1f3ca-1f3fc;',
       ],
       answers: [
         { answer: '<i>ikke gå</i>', next: '_aj2', score: 'correct' },
@@ -314,7 +314,7 @@ function LasData() {
     _aj2: {
       bubbles: [
         'Zgadza się.',
-        'Nie rób tego, bo będziesz czekać w kolejce do trampoliny.',
+        'Nie rób tego, bo będziesz czekać w kolejce do trampoliny. #emoji-1f415 1f64a;',
         '<img src="/las/c/i/cza-mod-prze/e4O5TrR_opt.gif" />',
       ],
       autoNext: 'RANDOM',
@@ -324,7 +324,7 @@ function LasData() {
 
     _al1: {
       bubbles: [
-        '<q>Nie chcecie spalić kuchni.</q>',
+        '<q>Nie chcecie spalić kuchni.</q> #emoji-1f525;',
         '<i>Dere #fill-space; brenne kjøkkenet.</i>',
       ],
       answers: [
@@ -353,7 +353,7 @@ function LasData() {
 
     _am1: {
       bubbles: [
-        '<q>Nie trzeba mieć podobnych przyjaciół.</q>',
+        '<q>Nie trzeba mieć podobnych przyjaciół.</q> #emoji-1f400; #emoji-1f401;',
         '<i>Man #fill-space; å ha like venner.</i>',
       ],
       answers: [
@@ -410,7 +410,7 @@ function LasData() {
 
     _ao1: {
       bubbles: [
-        '<i>Kattene vil #fill-space; sultne.</i>',
+        '<i>Kattene vil #fill-space; sultne.</i> #emoji-1f42f;',
       ],
       answers: [
         { answer: '<i>ikke være</i>', next: '_ao2', score: 'correct' },
@@ -429,7 +429,7 @@ function LasData() {
     },
     _ao2: {
       bubbles: [
-        'Pavlov miał swojego psa, a Sowa ma dwa koty.',
+        '#emoji-1f6ce; Pavlov miał swojego psa, a Sowa ma dwa koty.',
         '<img src="/las/c/i/cza-mod-prze/IVypqeA_opt.gif" />',
       ],
       autoNext: 'RANDOM',
@@ -439,7 +439,7 @@ function LasData() {
 
     _ap1: {
       bubbles: [
-        '<q>Krab nie chce Cię zranić.</q>',
+        '<q>Krab nie chce Cię zranić.</q> #emoji-1f52a;' ,
         '<i>Krabben #fill-space; skade deg.</i>',
       ],
       answers: [
@@ -457,7 +457,7 @@ function LasData() {
     },
     _ap2: {
       bubbles: [
-        '<i>Bra!</i>',
+        '<i>Bra!</i> #emoji-1f980;',
         '<i>Men husk at alt kan skje.</i> <br /><span class="size-0">(Ale pamiętaj, że wszystko może się wydarzyć.)</span>',
         '<img src="/las/c/i/cza-mod-prze/gKJOZ.gif" />',
       ],
@@ -470,7 +470,7 @@ function LasData() {
 
     _aq1: {
       bubbles: [
-        '<q>On nie chce dostawać takich prezentów.</q>',
+        '<q>On nie chce dostawać takich prezentów.</q> #emoji-1f421;',
         '<i>Den #fill-space; få sånne gaver.</i>',
       ],
       answers: [

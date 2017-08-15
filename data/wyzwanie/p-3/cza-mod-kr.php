@@ -10,14 +10,14 @@ function LasData() {
 
 
   this.intro = {
-    _a1: {
-      msg:        'Załóż słuchawki i usiądź wygodnie. Gdy będziesz gotowy, naciśnij <i class="las-icon las-icon--next-w las-icon-size-2"></i>.',
-      autoNext:   'ENDINTRO',
-      more: {
-        startTime:  0,
-        duration:   1
-      }
-    }
+    _intro1: {
+      msg:          'Załóż słuchawki, jeśli chcesz. #emoji-1f3a7;',
+      autoNext:     '_intro2'
+    },
+    _intro2: {
+      msg:          '<p>W wyzwaniu usłyszysz pytania po norwesku. Odpowiedz na nie używając krótkiej odpowiedzi.</p>' + '<p>Zwróć uwagę na intonację. Nie chcemy żeby Twoje dziecko pewnego dnia powiedziało: <q>Mamo/Tato, Ty mówisz jak drwal!</q></p>',
+      autoNext:     'ENDINTRO'
+    },
   };
 
 
