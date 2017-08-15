@@ -723,7 +723,7 @@ function LasChat() {
     line = document.createElement('li');
     line.style.cssText = 'width:100%; padding-top:1rem; padding-bottom:1rem; margin:0 0 1rem; clear:both; position:relative;';
     line.className = 'section-dark';
-    line.innerHTML = '<p class="space-0">Category: ' + data.category +
+    line.innerHTML = '<h3>' + this.helper.chapter + '</h3><p class="space-0">Category: ' + data.category +
         '<br />' + 'Max correct: ' + this.countMaxCorrectAnswers(data.chat) +
         '<br />' + 'Extra: ' + this.countMaxCorrectAnswers(data.extra) +
         '</p>';

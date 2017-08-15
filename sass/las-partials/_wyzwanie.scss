@@ -69,6 +69,7 @@
 }
 
 .audio-test-msg__main {
+  line-height: $line-1;
   font-size: $size-2;
   //  if we change this, we should change answer as well
 }
@@ -87,14 +88,14 @@
 
 .audio-test-msg__trans {
   display: none;
-  padding-top: $space-half;
+  padding-top: $space;
 }
 
 
 .audio-test-answers__answer {
   display: none;
   width: 100%;
-  padding: 2rem;
+  padding: $space-2;
   margin: 0;
   border: 0;
 
@@ -121,7 +122,7 @@
 
 .audio-controls {
   display: none;
-  height: 2rem;
+  height: $space-2;
   border-radius: 0 0 3px 3px;
 
   transition: none;
@@ -129,11 +130,11 @@
 
 .audio-controls__btn {
   position: absolute;
-  bottom: -2rem;
+  bottom: - ($space-2);
 
   display: none;
-  width: 4rem;
-  height: 4rem;
+  width: $space-4;
+  height: $space-4;
   padding: 0;
   border: 0;
 
@@ -169,7 +170,7 @@
 .audio-spinner {
   position: fixed;
   left: 50%;
-  bottom: 2rem;
+  bottom: $space-2;
 
   transform: translateX(-50%);
 
@@ -368,7 +369,7 @@
   background: $green;
 
   color: $white;
-  font-size: $size-1;
+  font-size: $size-2;
   line-height: 1;
   font-style: italic;
   text-decoration: none;

@@ -191,7 +191,8 @@ function LasAudioTest() {
     audioObject = this.createNewAudioObject( this.currentBubbleData );
 
     //  Push new audio object onto the stack
-    if ( audioObject ) {
+    //  if there is audiofile
+    if ( audioObject && this.audioFile ) {
       audioStackL = this.audioStack.stack.push( audioObject );
     }
 
@@ -1053,16 +1054,18 @@ function LasAudioTest() {
     //  clean wrapper
     this.wrapper.innerHTML = '';
 
+    this.wrapper.parentNode.parentNode.className = 'section-white wrapper';
+
     line = document.createElement('div');
-    line.className = 'pad section-dark space size-0';
-    line.innerHTML = '<p class="space-0">Category: ' + data.category + '<br />' + 'Max correct: ' + this.countMaxCorrectAnswers(data.chat) + '<br />' + 'Extra: ' + this.countMaxCorrectAnswers(data.extra) + '</p>';
+    line.className = 'pad section-beige space size-0';
+    line.innerHTML = '<h3>' + this.helper.chapter + '</h3><p class="space-0">Category: ' + data.category + '<br />' + 'Max correct: ' + this.countMaxCorrectAnswers(data.chat) + '<br />' + 'Extra: ' + this.countMaxCorrectAnswers(data.extra) + '</p>';
     this.wrapper.appendChild(line);
 
 
     if ( testNotes ) {
       //  create test notes
       testNotesEl = document.createElement('div');
-      testNotesEl.className = 'pad section-dark space size-0 space-4';
+      testNotesEl.className = 'pad section-beige space size-0 space-4';
       testNotesEl.style.position = 'relative';
       testNotesContent += '<p class="size-1 space-half">Test Notes</p>';
       testNotesContent += '<ul class="light-dots">';
@@ -1094,7 +1097,7 @@ function LasAudioTest() {
 
           //  create bubble
           bubble = document.createElement('div');
-          bubble.className = 'pad section-dark space size-0';
+          bubble.className = 'pad section-beige space size-0';
           bubble.style.position = 'relative';
           bubble.style.paddingRight = '2rem';
 
@@ -1113,11 +1116,11 @@ function LasAudioTest() {
             if ( bubbleData.hasOwnProperty(bubbleProp) ) {
 
               if ( ( bubbleProp === 'msg' ) || ( bubbleProp === 'spokenWord' ) ) {
-                content += '<p class="size-1 space-half">' + bubbleData[bubbleProp] + '</p>';
+                content += '<div class="size-1 space-half">' + this.encodeBubble( bubbleData[bubbleProp] ) + '</div>';
               }
               else if ( bubbleProp === 'trans' ) {
-                content += '<p class="size-0 space-half" style="opacity:0.75;"><i>Trans</i>: ';
-                content += bubbleData[bubbleProp] + '</p>';
+                content += '<div class="size-0 space-half" style="opacity:0.75;"><i>Trans</i>: ';
+                content += bubbleData[bubbleProp] + '</div>';
               }
               else if ( ( bubbleProp === 'answers' ) ) {
 
@@ -1154,7 +1157,7 @@ function LasAudioTest() {
 
                     if ( moreProp === 'spokenWord' ) {
 
-                      content += '<p class="size-1 space-half"><i>More</i>: ' + moreData[moreProp] + '</p>';
+                      content += '<div class="size-1 space-half"><i>More</i>: ' + moreData[moreProp] + '</div>';
 
                     }
                     /*else {

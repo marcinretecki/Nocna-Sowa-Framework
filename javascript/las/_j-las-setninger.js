@@ -824,8 +824,215 @@ function LasSetninger() {
   //
   las.test = function() {
 
+    var data = this.lasData;
+    var testNotes = this.lasData.testNotes;
+    var testNotesEl;
+    var testNotesContent = '';
+    var bubble;
+    var content;
+    var bubbleData;
+    var bubbleProp;
+    var line;
+    var i;
+    var j;
+    var set;
+    var setL;
+    var moreProp;
+    var moreData;
+    var loopDataFn;
+    var bigLineCss = 'width:100%;padding-top:2rem;padding-bottom:2rem;background: rgba(0,0,0,0.15);color: #fff;text-align:center;clear:both;margin:2rem 0;';
+    var chatNo = 0;
+    var extraNo = 0;
+    var countProp;
 
-    //  wyświetl całe data
+
+    if ( data.chat ) {
+      //  Count chat examples
+      for ( countProp in data.chat ) {
+
+        //  if it is own property
+        //  last character is '1'
+        //  i is lower than 20
+        if ( data.chat.hasOwnProperty( countProp ) && ( countProp.slice(-1) === '1' ) ) {
+
+          chatNo++;
+
+        }
+
+      }
+    }
+
+    if ( data.extra ) {
+
+      //  Count chat examples
+      for ( countProp in data.extra ) {
+
+        //  if it is own property
+        //  last character is '1'
+        //  i is lower than 20
+        if ( data.extra.hasOwnProperty( countProp ) && ( countProp.slice(-1) === '1' ) ) {
+
+          extraNo++;
+
+        }
+
+      }
+
+    }
+
+
+    //  clean wrapper
+    this.wrapper.innerHTML = '';
+    this.wrapper.className = 'section-content';
+    this.wrapper.style.cssText = 'position: relative; overflow: auto; font-size: 1rem; max-width: 34rem; margin: 4rem auto; text-align: inherit;';
+
+    line = document.createElement('div');
+    line.className = 'pad section-dark space size-0';
+    line.innerHTML = '<h3>' + this.helper.chapter + '</h3><p class="space-0">Category: ' + data.category + '<br />' + 'Main: ' + chatNo + '<br />' + 'Extra: ' + extraNo + '</p>';
+    this.wrapper.appendChild(line);
+
+
+    if ( testNotes ) {
+      //  create test notes
+      testNotesEl = document.createElement('div');
+      testNotesEl.className = 'pad section-dark space size-0 space-4';
+      testNotesEl.style.position = 'relative';
+      testNotesContent += '<p class="size-1 space-half">Test Notes</p>';
+      testNotesContent += '<ul class="light-dots">';
+
+      //  show test notes
+      for ( j = 0; j < testNotes.length; j++ ) {
+
+        testNotesContent += '<li>' + testNotes[j] + '</li>';
+
+      }
+
+      testNotesContent += '</ul>';
+
+      testNotesEl.innerHTML = testNotesContent;
+      this.wrapper.appendChild(testNotesEl);
+    }
+
+
+    loopDataFn = function( data ) {
+
+      var property;
+
+      if ( !data ) {
+        return;
+      }
+
+      for ( property in data ) {
+        if ( data.hasOwnProperty(property) ) {
+
+          //  create bubble
+          bubble = document.createElement('div');
+          bubble.className = 'pad section-dark space';
+          bubble.style.position = 'relative';
+          bubble.style.paddingRight = '2rem';
+
+          if ( data[property]['autoNext'] && ( data[property]['autoNext'] === 'RANDOM' ) ) {
+
+            //bubble.style.marginBottom = '4rem';
+
+          }
+
+          //  reset content
+          content = '';
+
+          bubbleData = data[property];
+
+          for ( bubbleProp in bubbleData ) {
+            if ( bubbleData.hasOwnProperty(bubbleProp) ) {
+
+              if ( ( bubbleProp === 'msg' ) || ( bubbleProp === 'spokenWord' ) ) {
+                content += '<div class="size-1 space-half">' + this.encodeBubble( bubbleData[bubbleProp] ) + '</div>';
+              }
+              else if ( bubbleProp === 'trans' ) {
+                content += '<div class="size-0 space-half" style="opacity:0.75;"><i>Trans</i>: ';
+                content += bubbleData[bubbleProp] + '</div>';
+              }
+              else if ( ( bubbleProp === 'set' ) ) {
+
+                set = bubbleData.set[0];
+                setL = set.length;
+
+                content += '<div style="margin:0.5rem 0;">';
+
+
+                for (i = 0; i < setL; i++) {
+
+                  content += '<span class="mark dark">'
+
+                  content += set[i];
+
+                  content += '</span> ';
+
+                }
+
+                content += '</div>';
+
+              }
+              else if ( ( bubbleProp === 'more' ) ) {
+
+                moreData = bubbleData[bubbleProp];
+
+                for ( moreProp in moreData ) {
+                  if ( moreData.hasOwnProperty(moreProp) ) {
+
+                    if ( moreProp === 'spokenWord' ) {
+
+                      content += '<div class="size-1 space-half"><i>More</i>: ' + moreData[moreProp] + '</div>';
+
+                    }
+                    /*else {
+                      content += ' <span style="opacity:0.5;">' + moreProp + ': ' + moreData[moreProp] + ' |</span>';
+                    }*/
+
+
+                  }
+                }
+
+                //  content += '<br />';
+
+              }
+              /*else {
+                content += '<span style="opacity:0.5;">' + bubbleProp + ': ' + bubbleData[bubbleProp] + ' |</span> ';
+              }*/
+
+              if ( ( bubbleProp === 'startTime' ) && this.audioFile ) {
+                content += '<button style="position:absolute;left:100%;transform:translateX(-50%);top:-0.75rem;height:1.5rem;margin:0;" class="btn btn-green btn-small" onClick="las.playAudioTestMode(' + bubbleData.startTime +  ', ' + bubbleData.duration + ');">Audio &raquo;</button>';
+              }
+
+            }
+
+          }
+
+          bubble.innerHTML = content;
+          this.wrapper.appendChild(bubble);
+
+        // end if has property
+        }
+      // end loop
+      }
+
+    //  function
+    }.bind(this);
+
+
+    loopDataFn( data.intro );
+
+    line = document.createElement('div');
+    line.style.cssText = bigLineCss;
+    line.innerHTML = 'SETNINGER';
+    this.wrapper.appendChild(line);
+    loopDataFn( data.chat );
+
+    line = document.createElement('div');
+    line.style.cssText = bigLineCss;
+    line.innerHTML = 'EXTRA';
+    this.wrapper.appendChild(line);
+    loopDataFn( data.extra );
 
 
   };
