@@ -21,14 +21,13 @@
 
 //
 //  NEW
-//  not sure about padding, it is already in section-content
-//  check in LAS
+//  remember to put in inside row if it is inside section-content
 //
 .main-column {
   width: 34 * $space;
   max-width: 100%;
-  //padding-left: $space;
-  //padding-right: $space;
+  padding-left: $space;
+  padding-right: $space;
   margin-left: auto;
   margin-right: auto;
 }
@@ -160,7 +159,7 @@
 }
 
 .section-box__box--kto {
-  margin: 0 #{- $space-4};
+  margin: 0 #{- $space-2};
 
   @media #{$m770}{
     margin: 0;
@@ -363,16 +362,40 @@ backface-visibility:hidden;
 //
 // Opinie
 //
-.recommends{}
-.recommends-single{padding:$space-2;margin-left:22rem;margin-bottom:$space-4;border-radius:3px;background:$white;
+.recommends{
+  width: 40 * $size-1;
+  max-width: 100%;
+  padding-left: $space;
+  padding-right: $space;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+.recommends-single {
+
+}
+.recommends-single_text{padding:$space $space $space-2;margin-left:22rem;margin-bottom:$space-4;border-radius:3px;background:$white;
   @media #{$m770}{
     margin-left:0;
   }
-}
-.recommends-single .divider{margin-bottom:$space-2}
-.recommends-single-img{display:block;margin-bottom:$space-2;border-radius:3px;}
 
-.recommends .alignleft{
+  @include for-tablet-portrait-up {
+    padding:$space-2 $space-2 $space-4;
+  }
+}
+
+//
+//  tu musi być procent nie rem
+//
+.recommends-single .divider{margin-bottom:$space-2}
+.recommends-single-img{
+  display:block;
+  width: 20rem;
+  margin-bottom:$space-2;
+  border-radius:3px;
+}
+
+.recommends-single .alignleft{
   @media #{$m770}{
     float:none;
   }
@@ -390,14 +413,19 @@ backface-visibility:hidden;
 .recommends-quote{}
 .recommends-quote p{font-size:$size-1;}
 .recommends-quote p{}
-.recommends-text{font-size:$size-1;text-indent:-0.5em;}
-.recommends-block{position:relative;padding:$space $space-2;margin:0 0 $space-4 ($space-8 + $space);border-radius:3px;background:$white;color:$font-dark;
+.recommends-text{font-size:$size-1;text-indent:-0.45em;}
+.recommends-block{position:relative;padding:$space;margin:0 0 $space-4 ($space-8 + $space);border-radius:3px;background:$white;color:$font-dark;
+
   @media #{$m770}{
     margin-left:($space-6 + $space);
   }
   @media #{$m400}{
     padding:$space-half $space;
     margin-left:($space-4 + $space);
+  }
+
+  @include for-tablet-portrait-up {
+    padding: $space $space-2
   }
 }
 .recommends-block:before{display:block;position:absolute;top:$space-2;right:100%;border:$space-half solid transparent;border-right-color:$white;content:"";
@@ -409,13 +437,32 @@ backface-visibility:hidden;
 .recommends-block p:last-child{margin:0}
 .recommends-block h3{margin:0}
 
-.recommends-mini{}
-.recommends-mini .recommends-img{width:$space-6;height:$space-6;margin-bottom:$space-2;
+.recommends-mini{
+  float: none;
+  width: 34rem;
+  max-width:100%;
+  padding-left: $space;
+  padding-right: $space;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include for-tablet-landscape-up {
+    float: left;
+    width: 50%;
+  }
+}
+.recommends-mini .recommends-img{
+  width:$space-6;
+  height:$space-6;
+  margin-bottom:$space-2;
+
   @media #{$m400}{
     width:($space-4 + $space);
   }
 }
-.recommends-mini .recommends-block{margin:0 0 $space-2 ($space-6 + $space);
+.recommends-mini .recommends-block{
+  margin:0 0 $space-2 ($space-6 + $space);
+
   @media #{$m400}{
     margin-left:6rem;
   }

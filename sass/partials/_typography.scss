@@ -114,6 +114,21 @@ dd {
 .dl-eg dd + dt{margin-top:$space-half;}
 .tr{color:$dark-gray;}
 
+//
+//  .dl-eg ma problem, gdy wstawimy go w div.row, bo wtedy nie zerują się marginy
+//
+//  to jest chwilowe obejście
+//  give the row margin
+.row--dl-eg {
+  margin-top: $space-2;
+  margin-bottom: $space-2;
+}
+//  remove margin from dl-eg
+.post .dl-eg--in-row {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 
 // DO POPRAWY
 .note a{color:$white;text-decoration:underline}

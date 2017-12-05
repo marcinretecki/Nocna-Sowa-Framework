@@ -1,4 +1,32 @@
 //
+//  New grid ideas
+//
+//  our main width is 1064px width 20px pad
+//  old grid made 16 x 64px stripes
+//  col-1 was never used, but col-7 was to create space between
+//  columns that should be half width but have background that doesn't touch
+//  thats why we had l-1-32 and r-1-32
+//
+//  new grid should come in 20px (1rem) multiplications to match out vertical rythm
+//  new grid should have main column suited for text (best line length on all devices)
+//  columns for sidebars, images, image-links
+//  easy full-width images
+
+//  think, what is needed, all articles view can help
+
+//
+.max-45 {
+  width: 45 * $space;
+  max-width: 100%;
+  //padding-left: $space;
+  //padding-right: $space;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+//
 // Grid
 //
 
