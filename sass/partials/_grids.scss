@@ -40,15 +40,16 @@
 .col-11,.p-11 > p{width: $col-11;}
 
 // OBS! Legacy code
-.col-10,.p-10 > p{width: $col-10;padding-left:$space;padding-right:$space;
+.col-10{width: $col-10;padding-left:$space;padding-right:$space;
   @media #{$m770} {
     width:auto;
   }
 }
-.p-10 > section,.p-10 > object,.p-10 > blockquote,.p-10 > dl,.p-10 > ul,.p-10 > ol,.p-10 > h3,.p-10 > .ex,.p-10 > .trans,.p-10 > figure{width:$col-10;padding-left:$space;padding-right:$space;
-  @media #{$m770} {
-    width:auto;
-  }
+.p-10 > p,.p-10 > section,.p-10 > object,.p-10 > blockquote,.p-10 > dl,.p-10 > ul,.p-10 > ol,.p-10 > h3,.p-10 > .ex,.p-10 > .trans,.p-10 > figure{
+  width: 34 * $space;
+  max-width: 100%;
+  padding-left:$space;
+  padding-right:$space;
 }
 
 .p-10 .row{margin-left:(-$space);margin-right:(-$space);padding:0}

@@ -528,7 +528,7 @@ backface-visibility:hidden;
 
 
 /* cwiczenia */
-.ex{margin-top:$space-4;margin-bottom:$space-4;}
+.ex{margin-top:$space-4;margin-bottom:$space-4;counter-reset: numbered-i}
 // .command{position:relative;}
 // .command:before{display:inline-block;position:absolute;left:-($space);top:$size-1 / 4;width:3px;height:$size-1;content:"";}
 // .category-zaczynam .command:before{background:$green}
@@ -538,7 +538,7 @@ backface-visibility:hidden;
 //.ex h3{margin-top:0;font-size:$size-1}
 .ex p{}
 .ex i{padding:0 $space;margin:0 0.25rem;border-bottom:1px dotted $gray;color:transparent;}
-.ex .vis{color:#000;}
+.ex .vis{color:$font-dark;}
 .ex .text{margin:0;padding:0;}
 .ex .tick{display:none;position:absolute;left:(-$space-2);top:2px;width:20px;height:20px;vertical-align:text-top;}
 .ex br+i{margin:0;}
@@ -550,7 +550,7 @@ backface-visibility:hidden;
 .ex del{text-decoration:none;}
 .ex .fixed, .ex ins{display:none;color:$red;text-decoration:none;}
 .ex figure img + p{padding-top:$space;}
-.ex:target i{color:#000;}
+.ex:target i{color:$font-dark;}
 .ex:target .btn-dark{display:inline-block;}
 .ex:target .btn-ex-fb{display:block}
 .ex:target .tick{display:block;}
@@ -575,6 +575,7 @@ li .np+p{padding-left:$space;}
 .trans{margin-bottom:$space-2;}
 
 .symbol{display:inline-block;padding:0 $space;margin:0 $space 0.3125rem 0;width:$space-4;background:$beige;border-radius:3px;text-align:center}
+
 
 
 /* Rodzina Dialogi */

@@ -7,9 +7,10 @@
 		"uuidString": "5E0C8142-B278-40C2-A052-5B80A4F7EF50"
 		}
 	],
-"creatorBuild": "25849",
+"creatorBuild": "26330",
 "files": {
 	"\/.gitignore": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/.gitignore",
@@ -27,6 +28,7 @@
 		},
 	"\/javascript\/j-chat.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/j-chat-min.js",
@@ -36,6 +38,7 @@
 		},
 	"\/javascript\/j-pisanie.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/j-pisanie-min.js",
@@ -45,6 +48,7 @@
 		},
 	"\/javascript\/j-zmien-bieg-wydarzen.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/j-zmien-bieg-wydarzen-min.js",
@@ -54,6 +58,7 @@
 		},
 	"\/javascript\/j.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/j-min.js",
@@ -63,6 +68,7 @@
 		},
 	"\/javascript\/las\/_j-las-audio-test.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-audio-test-min.js",
@@ -72,6 +78,7 @@
 		},
 	"\/javascript\/las\/_j-las-audio.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-audio-min.js",
@@ -81,6 +88,7 @@
 		},
 	"\/javascript\/las\/_j-las-chat.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-chat-min.js",
@@ -90,6 +98,7 @@
 		},
 	"\/javascript\/las\/_j-las-cookie.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-cookie-min.js",
@@ -99,6 +108,7 @@
 		},
 	"\/javascript\/las\/_j-las-helper.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-helper-min.js",
@@ -108,6 +118,7 @@
 		},
 	"\/javascript\/las\/_j-las-liczby.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-liczby-min.js",
@@ -117,6 +128,7 @@
 		},
 	"\/javascript\/las\/_j-las-log.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-log-min.js",
@@ -126,6 +138,7 @@
 		},
 	"\/javascript\/las\/_j-las-profile.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-profile-min.js",
@@ -135,6 +148,7 @@
 		},
 	"\/javascript\/las\/_j-las-przewodnik.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-przewodnik-min.js",
@@ -144,6 +158,7 @@
 		},
 	"\/javascript\/las\/_j-las-setninger.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-setninger-min.js",
@@ -153,6 +168,7 @@
 		},
 	"\/javascript\/las\/_j-las-szlak.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/_j-las-szlak-min.js",
@@ -160,8 +176,29 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/javascript\/las\/_j-las-terminal.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/_j-las-terminal-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/las\/_j-las-word-quiz.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/_j-las-word-quiz-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/javascript\/las\/j-las.js": {
 		"ft": 64,
+		"ma": 0,
 		"mi": 0,
 		"oA": 0,
 		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/j-las-min.js",
@@ -170,186 +207,217 @@
 		"tS": 0
 		},
 	"\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/chat-bot-rzeczownik.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/chat-bot-rzeczownik.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/chatbotrzeczownik.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/chatbotrzeczownik.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/las.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/las.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/norweskagramatyka.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/norweskagramatyka.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/pisanie.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/pisanie.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/s.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/s.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/twoja.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/01d473a0b91c35f56d3ec755ab357d2323976d83\/twoja.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_base.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_base.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_buttons.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_buttons.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_footer.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_footer.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_forms.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_forms.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_grids.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_grids.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_media.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_media.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_mixins.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_mixins.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_navbar.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_navbar.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_reset.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_reset.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_scaffolding.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_scaffolding.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_sections.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_sections.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_shame.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_shame.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_typography.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_typography.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_utilities.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_utilities.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_variables.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/_variables.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/base.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/base.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/buttons.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/buttons.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/forms.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/forms.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/grids.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/grids.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/reset.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/reset.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/scaffolding.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/scaffolding.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/sections.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/sections.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/typography.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/typography.scssc",
 		"oF": 0
 		},
 	"\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/utilities.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/utilities.scssc",
@@ -467,12 +535,13 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/livecopy\/c\/norweskagramatyka.css",
+		"oAP": "\/Users\/marcinretecki\/Sites\/nocnasowa\/norweskagramatyka\/norweskagramatyka.css",
 		"oF": 6,
 		"oS": 3,
 		"uL": 1
 		},
 	"\/sass\/partials\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/media.scssc": {
+		"cB": 0,
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sass\/partials\/.sass-cache\/fa3803d6b7a3320fa8faf3949ec5f3cbbf06aba1\/media.scssc",
@@ -729,6 +798,7 @@
 	"animateCSSInjections": 1,
 	"autoBuildNewItems": 1,
 	"autoprefixerBrowserString": "last 5 versions",
+	"autoprefixerEnableIEGrid": 0,
 	"babelAuxiliaryCommentAfter": "",
 	"babelAuxiliaryCommentBefore": "",
 	"babelConfigFileHandlingType": 0,
@@ -1125,6 +1195,10 @@
 			"active": 0,
 			"optionString": "{'setWithoutGet': true, 'getWithoutSet': false}"
 			},
+		"array-bracket-newline": {
+			"active": 0,
+			"optionString": "{'multiline': true, 'minItems': null}"
+			},
 		"array-bracket-spacing": {
 			"active": 0,
 			"optionString": "'never', {'singleValue': false, 'objectsInArrays': false, 'arraysInArrays': false}"
@@ -1132,6 +1206,10 @@
 		"array-callback-return": {
 			"active": 0,
 			"optionString": ""
+			},
+		"array-element-newline": {
+			"active": 0,
+			"optionString": "'always'"
 			},
 		"arrow-body-style": {
 			"active": 0,
@@ -1229,6 +1307,10 @@
 			"active": 0,
 			"optionString": "'always', {'null': 'always'}"
 			},
+		"for-direction": {
+			"active": 0,
+			"optionString": ""
+			},
 		"func-call-spacing": {
 			"active": 0,
 			"optionString": "'never'"
@@ -1245,9 +1327,17 @@
 			"active": 0,
 			"optionString": "'expression'"
 			},
+		"function-paren-newline": {
+			"active": 0,
+			"optionString": "'multiline'"
+			},
 		"generator-star-spacing": {
 			"active": 0,
 			"optionString": "{'before': true, 'after': false}"
+			},
+		"getter-return": {
+			"active": 0,
+			"optionString": "{'allowImplicit': false}"
 			},
 		"global-require": {
 			"active": 0,
@@ -1272,6 +1362,10 @@
 		"id-match": {
 			"active": 0,
 			"optionString": "'^[a-z]+([A-Z][a-z]+)*$', {'properties': false, 'onlyDeclarations': true}"
+			},
+		"implicit-arrow-linebreak": {
+			"active": 0,
+			"optionString": "'beside'"
 			},
 		"indent": {
 			"active": 0,
@@ -1305,9 +1399,9 @@
 			"active": 0,
 			"optionString": "{'beforeBlockComment': true}"
 			},
-		"lines-around-directive": {
+		"lines-between-class-members": {
 			"active": 0,
-			"optionString": "{'before': 'always', 'after': 'always'}"
+			"optionString": "'always', {exceptAfterSingleLine: false}"
 			},
 		"max-depth": {
 			"active": 0,
@@ -1337,6 +1431,10 @@
 			"active": 0,
 			"optionString": "{'max': 1}"
 			},
+		"multiline-comment-style": {
+			"active": 0,
+			"optionString": "'starred-block'"
+			},
 		"multiline-ternary": {
 			"active": 0,
 			"optionString": "'always'"
@@ -1346,14 +1444,6 @@
 			"optionString": "{'newIsCap': true, 'capIsNew': true, 'newIsCapExceptions': [], 'capIsNewExceptions': ['Array', 'Boolean', 'Date', 'Error', 'Function', 'Number', 'Object', 'RegExp', 'String', 'Symbol'], 'properties': true}"
 			},
 		"new-parens": {
-			"active": 0,
-			"optionString": ""
-			},
-		"newline-after-var": {
-			"active": 0,
-			"optionString": "'always'"
-			},
-		"newline-before-return": {
 			"active": 0,
 			"optionString": ""
 			},
@@ -1376,6 +1466,10 @@
 		"no-bitwise": {
 			"active": 0,
 			"optionString": "{'allow': ['~'], 'int32Hint': true}"
+			},
+		"no-buffer-constructor": {
+			"active": 0,
+			"optionString": ""
 			},
 		"no-caller": {
 			"active": 0,
@@ -1921,6 +2015,10 @@
 			"active": 0,
 			"optionString": "{'blocks': 'always', 'switches': 'always', 'classes': 'always'}"
 			},
+		"padding-line-between-statements": {
+			"active": 0,
+			"optionString": "{blankLine: 'always', prev:'*', next:'return'}"
+			},
 		"prefer-arrow-callback": {
 			"active": 0,
 			"optionString": ""
@@ -1989,6 +2087,10 @@
 			"active": 0,
 			"optionString": "{'before': false, 'after': true}"
 			},
+		"semi-style": {
+			"active": 0,
+			"optionString": "'last'"
+			},
 		"sort-imports": {
 			"active": 0,
 			"optionString": "{'ignoreCase': false, 'ignoreMemberSort': true, 'memberSyntaxSortOrder': ['none', 'all', 'multiple', 'single']}"
@@ -2028,6 +2130,10 @@
 		"strict": {
 			"active": 0,
 			"optionString": "'safe'"
+			},
+		"switch-colon-spacing": {
+			"active": 0,
+			"optionString": "{'after': true, 'before': false}"
 			},
 		"symbol-description": {
 			"active": 0,
@@ -2441,7 +2547,8 @@
 		"createSourceMap": 0,
 		"minifyOutput": 1,
 		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
+		"syntaxCheckerStyle": 1,
+		"transpilerStyle": 1
 		},
 	"languageDefaultsCSS": {
 		"autoOutputAction": 2,
@@ -2474,6 +2581,7 @@
 		"noEscapeInAttributes": 0,
 		"outputFormat": 2,
 		"outputStyle": 0,
+		"shouldRunCacheBuster": 0,
 		"useCDATA": 0,
 		"useDoubleQuotes": 0,
 		"useUnixNewlines": 0
@@ -2515,7 +2623,8 @@
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
-		"autoOutputPathStyle": 0
+		"autoOutputPathStyle": 0,
+		"shouldRunCacheBuster": 0
 		},
 	"languageDefaultsLESS": {
 		"allowInsecureImports": 0,
@@ -2547,13 +2656,13 @@
 		"enableFootnotes": 1,
 		"enableLabels": 1,
 		"enableSmartQuotes": 1,
-		"escapeLineBreaks": 0,
 		"maskEmailAddresses": 1,
 		"outputFormat": 0,
 		"outputStyle": 0,
 		"parseMetadata": 1,
 		"processHTML": 0,
 		"randomFootnoteNumbers": 0,
+		"shouldRunCacheBuster": 0,
 		"useCompatibilityMode": 0
 		},
 	"languageDefaultsOTHER": {
@@ -2562,7 +2671,8 @@
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
-		"autoOutputPathStyle": 0
+		"autoOutputPathStyle": 0,
+		"shouldRunCacheBuster": 0
 		},
 	"languageDefaultsPNG": {
 		"autoOutputAction": 0,
@@ -2582,7 +2692,8 @@
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
 		"compileDebug": 1,
-		"outputStyle": 0
+		"outputStyle": 0,
+		"shouldRunCacheBuster": 0
 		},
 	"languageDefaultsSASS": {
 		"autoOutputAction": 0,
@@ -2610,7 +2721,8 @@
 		"logicless": 0,
 		"outputFormat": 0,
 		"outputStyle": 1,
-		"railsCompatible": 0
+		"railsCompatible": 0,
+		"shouldRunCacheBuster": 0
 		},
 	"languageDefaultsSTYLUS": {
 		"autoOutputAction": 0,
@@ -2663,13 +2775,15 @@
 			"autoOutputPathReplace1": "",
 			"autoOutputPathReplace2": "",
 			"autoOutputPathStyle": 0,
-			"fileExtension": "php"
+			"fileExtension": "php",
+			"shouldRunCacheBuster": 0
 			}
 		],
 	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules, \/themes",
 	"sourceFolderName": "source",
+	"susyVersion": 3,
 	"uglifyDefinesString": "",
 	"uglifyFlags2": {
 		"ascii-only": {
