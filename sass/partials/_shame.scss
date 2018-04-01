@@ -112,3 +112,12 @@ backface-visibility:hidden;
 
 
 
+
+
+.wp-audio-shortcode {
+  border-radius: 3px;
+  border: 1px solid $dark-btn-border;
+}
+.wp-audio-shortcode + h4 {
+  margin-top: $space;
+}

@@ -186,37 +186,31 @@ function getClosest( elem, selector ) {
     // Get closest match
     for ( ; elem && elem !== document && elem.nodeType === 1; elem = elem.parentNode ) {
 
-        // If selector is a class
-        if ( firstChar === '.' ) {
-            if ( supports ) {
-                if ( elem.classList.contains( selector.substr(1) ) ) {
-                    return elem;
-                }
-            } else {
-                if ( new RegExp('(^|\\s)' + selector.substr(1) + '(\\s|$)').test( elem.className ) ) {
-                    return elem;
-                }
-            }
+        // If selector is a class and support classList
+        if ( ( firstChar === '.' ) && supports ) {
+          if ( elem.classList.contains( selector.substr(1) ) ) {
+            return elem;
+          }
+        } else if ( firstChar === '.' ) {
+          if ( new RegExp('(^|\\s)' + selector.substr(1) + '(\\s|$)').test( elem.className ) ) {
+            return elem;
+          }
         }
 
         // If selector is an ID
-        if ( firstChar === '#' ) {
-            if ( elem.id === selector.substr(1) ) {
-                return elem;
-            }
+        if ( ( firstChar === '#' ) && ( elem.id === selector.substr(1) ) ) {
+          return elem;
         }
 
         // If selector is a data attribute
-        if ( firstChar === '[' ) {
-            if ( elem.hasAttribute( attribute[0] ) ) {
-                if ( value ) {
-                    if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
-                        return elem;
-                    }
-                } else {
-                    return elem;
-                }
-            }
+        if ( ( firstChar === '[' ) && elem.hasAttribute( attribute[0] ) ) {
+          if ( value ) {
+              if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
+                  return elem;
+              }
+          } else {
+              return elem;
+          }
         }
 
         // If selector is a tag
@@ -232,7 +226,7 @@ function getClosest( elem, selector ) {
 
 
 //
-// Track events on links and buttons
+//  Track events on links and buttons
 //
 function trackLinksHandler(event) {
 
@@ -258,51 +252,51 @@ function trackLinksHandler(event) {
     // Jeśli link ma opis, to dodaj będzie w Action
     action = target.getAttribute('data-ga-action');
   }
-  else if ( targetSplit.length > 1 ) {
-    // Jeśli jest anchor, to dajemy sam hash
-    action = targetSplit[1];
-  }
   else {
     // Jeśli nie ma opisu ani hasha, to dajemy href
-    action = target.href;
+    action = target.href.split('nocnasowa.pl')[1];
   }
 
   // Category
   if ( ( target.getAttribute('data-ga-category') !== null ) && ( target.getAttribute('data-ga-category') !== '' ) ) {
     // Link has a special category
+
     category = target.getAttribute('data-ga-category');
   }
+  else if ( target.className.indexOf('check') != '-1' ) {
+    // This is an anchor
+    category = 'Ćwiczenie';
+  }
+  else if ( ( currentUrlSplit[0] === targetSplit[0] ) && ( targetSplit.length > 1 ) ) {
+    // This is an anchor
+    category = 'Anchors';
+  }
+  else if ( ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) && ( targetSplit[0].indexOf('?replytocom=') != '-1' ) ) {
+    // This is a comment reply
+    category = 'Comment';
+    action = 'Odpowiedz';
+  }
+  else if ( targetSplit[0].indexOf('facebook.com/sharer/') != '-1' ) {
+    // This is a share
+    category = 'Share';
+  }
+  else if ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) {
+    // This is internal link
+    category = 'Internal Link';
+  }
+  else if ( targetSplit[0].indexOf('nocnasowa.pl/') == '-1' ) {
+    // This should be an outgoing link
+    category = 'Outgoing';
+  }
   else {
-    // We need to figure out the category
+    category = 'Other';
+  }
 
-    if ( target.className.indexOf('check') != '-1' ) {
-      // This is an anchor
-      category = 'Ćwiczenie';
-    }
-    else if ( ( currentUrlSplit[0] === targetSplit[0] ) && ( targetSplit.length > 1 ) ) {
-      // This is an anchor
-      category = 'Anchors';
-    }
-    else if ( ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) && ( targetSplit[0].indexOf('?replytocom=') != '-1' ) ) {
-      // This is a comment reply
-      category = 'Comment';
-      action = 'Odpowiedz';
-    }
-    else if ( targetSplit[0].indexOf('facebook.com/sharer/') != '-1' ) {
-      // This is a share
-      category = 'Share';
-    }
-    else if ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) {
-      // This is internal link
-      category = 'Internal Link';
-    }
-    else if ( targetSplit[0].indexOf('nocnasowa.pl/') == '-1' ) {
-      // This should be an outgoing link
-      category = 'Outgoing';
-    }
-    else {
-      category = 'Other';
-    }
+  //  if it is livecopy, debug
+  if ( window.location.href.split('livecopy').length > 1 ) {
+    window.console.log('Category: ' + category);
+    window.console.log('Action: ' + action);
+    window.console.log('Label: ' + label);
   }
 
   try { ga('send', 'event', category, action, label); }
@@ -470,7 +464,7 @@ document.addEventListener("click", menuHandler, false);
 
 
 //
-// Smooth Scroll
+//  Smooth Scroll
 //
 window.smoothScrollTo = function (t, duration) {
   var el = document.getElementById(t);
@@ -481,7 +475,7 @@ window.smoothScrollTo = function (t, duration) {
 
 
 //
-// Detect if element is scrolled into view
+//  Detect if element is scrolled into view
 //
 function isScrolledIntoView(el) {
   var t = el.offsetTop;
@@ -532,7 +526,7 @@ document.addEventListener("click", spinHandler, false);
  Copyright (c)2006-2012 Stephen M. McKamey.
  Licensed under The MIT License.
 */
-var module,countdown=function(r){function v(a,b){var c=a.getTime();a.setUTCMonth(a.getUTCMonth()+b);return Math.round((a.getTime()-c)/864E5)}function t(a){var b=a.getTime(),c=new Date(b);c.setUTCMonth(a.getUTCMonth()+1);return Math.round((c.getTime()-b)/864E5)}function f(a,b){return a+" "+(1===a?p[b]:q[b])}function n(){}function l(a,b,c,g,x,d){0<=a[c]&&(b+=a[c],delete a[c]);b/=x;if(1>=b+1)return 0;if(0<=a[g]){a[g]=+(a[g]+b).toFixed(d);switch(g){case "seconds":if(60!==a.seconds||isNaN(a.minutes))break;
+/*var module,countdown=function(r){function v(a,b){var c=a.getTime();a.setUTCMonth(a.getUTCMonth()+b);return Math.round((a.getTime()-c)/864E5)}function t(a){var b=a.getTime(),c=new Date(b);c.setUTCMonth(a.getUTCMonth()+1);return Math.round((c.getTime()-b)/864E5)}function f(a,b){return a+" "+(1===a?p[b]:q[b])}function n(){}function l(a,b,c,g,x,d){0<=a[c]&&(b+=a[c],delete a[c]);b/=x;if(1>=b+1)return 0;if(0<=a[g]){a[g]=+(a[g]+b).toFixed(d);switch(g){case "seconds":if(60!==a.seconds||isNaN(a.minutes))break;
 a.minutes++;a.seconds=0;case "minutes":if(60!==a.minutes||isNaN(a.hours))break;a.hours++;a.minutes=0;case "hours":if(24!==a.hours||isNaN(a.days))break;a.days++;a.hours=0;case "days":if(7!==a.days||isNaN(a.weeks))break;a.weeks++;a.days=0;case "weeks":if(a.weeks!==t(a.refMonth)/7||isNaN(a.months))break;a.months++;a.weeks=0;case "months":if(12!==a.months||isNaN(a.years))break;a.years++;a.months=0;case "years":if(10!==a.years||isNaN(a.decades))break;a.decades++;a.years=0;case "decades":if(10!==a.decades||
 isNaN(a.centuries))break;a.centuries++;a.decades=0;case "centuries":if(10!==a.centuries||isNaN(a.millennia))break;a.millennia++;a.centuries=0}return 0}return b}function w(a,b,c,g,d,k){a.start=b;a.end=c;a.units=g;a.value=c.getTime()-b.getTime();if(0>a.value){var f=c;c=b;b=f}a.refMonth=new Date(b.getFullYear(),b.getMonth(),15);try{a.millennia=0;a.centuries=0;a.decades=0;a.years=c.getUTCFullYear()-b.getUTCFullYear();a.months=c.getUTCMonth()-b.getUTCMonth();a.weeks=0;a.days=c.getUTCDate()-b.getUTCDate();
 a.hours=c.getUTCHours()-b.getUTCHours();a.minutes=c.getUTCMinutes()-b.getUTCMinutes();a.seconds=c.getUTCSeconds()-b.getUTCSeconds();a.milliseconds=c.getUTCMilliseconds()-b.getUTCMilliseconds();var h;0>a.milliseconds?(h=s(-a.milliseconds/1E3),a.seconds-=h,a.milliseconds+=1E3*h):1E3<=a.milliseconds&&(a.seconds+=m(a.milliseconds/1E3),a.milliseconds%=1E3);0>a.seconds?(h=s(-a.seconds/60),a.minutes-=h,a.seconds+=60*h):60<=a.seconds&&(a.minutes+=m(a.seconds/60),a.seconds%=60);0>a.minutes?(h=s(-a.minutes/
@@ -543,12 +537,15 @@ b++;!(g&32)||b>=d?(a.days+=7*a.weeks,delete a.weeks):a.weeks&&b++;!(g&16)||b>=d?
 f=0<f?20>f?Math.round(f):20:0;"function"===typeof a?(k=a,a=null):a instanceof Date||(a=null!==a&&isFinite(a)?new Date(a):null);"function"===typeof b?(k=b,b=null):b instanceof Date||(b=null!==b&&isFinite(b)?new Date(b):null);if(!a&&!b)return new n;if(!k)return w(new n,a||new Date,b||new Date,c,d,f);var l=c&1?1E3/30:c&2?1E3:c&4?6E4:c&8?36E5:c&16?864E5:6048E5,h,e=function(){k(w(new n,a||new Date,b||new Date,c,d,f),h)};e();return h=setInterval(e,l)}var s=Math.ceil,m=Math.floor,p,q,u;n.prototype.toString=
 function(){var a=u(this),b=a.length;if(!b)return"";1<b&&(a[b-1]="and "+a[b-1]);return a.join(", ")};n.prototype.toHTML=function(a){a=a||"span";var b=u(this),c=b.length;if(!c)return"";for(var d=0;d<c;d++)b[d]="\x3c"+a+"\x3e"+b[d]+"\x3c/"+a+"\x3e";--c&&(b[c]="and "+b[c]);return b.join(", ")};u=function(a){var b=[],c=a.millennia;c&&b.push(f(c,10));(c=a.centuries)&&b.push(f(c,9));(c=a.decades)&&b.push(f(c,8));(c=a.years)&&b.push(f(c,7));(c=a.months)&&b.push(f(c,6));(c=a.weeks)&&b.push(f(c,5));(c=a.days)&&
 b.push(f(c,4));(c=a.hours)&&b.push(f(c,3));(c=a.minutes)&&b.push(f(c,2));(c=a.seconds)&&b.push(f(c,1));(c=a.milliseconds)&&b.push(f(c,0));return b};d.MILLISECONDS=1;d.SECONDS=2;d.MINUTES=4;d.HOURS=8;d.DAYS=16;d.WEEKS=32;d.MONTHS=64;d.YEARS=128;d.DECADES=256;d.CENTURIES=512;d.MILLENNIA=1024;d.DEFAULTS=222;d.ALL=2047;d.setLabels=function(a,b){a=a||[];a.split&&(a=a.split("|"));b=b||[];b.split&&(b=b.split("|"));for(var c=0;10>=c;c++)p[c]=a[c]||p[c],q[c]=b[c]||q[c]};(d.resetLabels=function(){p="millisecond second minute hour day week month year decade century millennium".split(" ");
-q="milliseconds seconds minutes hours days weeks months years decades centuries millennia".split(" ")})();r&&r.exports?r.exports=d:"function"===typeof window.define&&window.define.amd&&window.define("countdown",[],function(){return d});return d}(module);
+q="milliseconds seconds minutes hours days weeks months years decades centuries millennia".split(" ")})();r&&r.exports?r.exports=d:"function"===typeof window.define&&window.define.amd&&window.define("countdown",[],function(){return d});return d}(module);*/
 
 
 
+//
 /*! gumshoe v3.1.2 | (c) 2016 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/gumshoe */
-// edited in two places
-// 1. changed the eventThrottler from 66 to 200
-// 2. stopped "li" tag from getting new classes
+//  edited in two places
+//  1. changed the eventThrottler from 66 to 200
+//  2. stopped "li" tag from getting new classes
+//  used in warsztaty-oslo.php
+//
 !function(e,t){"function"==typeof define&&define.amd?define([],t(e)):"object"==typeof exports?module.exports=t(e):e.gumshoe=t(e)}("undefined"!=typeof global?global:this.window||this.global,function(e){"use strict";var t,n,o,r,a,c,i={},s="querySelector"in document&&"addEventListener"in e&&"classList"in document.createElement("_"),l=[],u={selector:"[data-gumshoe] a",selectorHeader:"[data-gumshoe-header]",offset:0,activeClass:"active",callback:function(){}},f=function(e,t,n){if("[object Object]"===Object.prototype.toString.call(e))for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&t.call(n,e[o],o,e);else for(var r=0,a=e.length;a>r;r++)t.call(n,e[r],r,e)},d=function(){var e={},t=!1,n=0,o=arguments.length;"[object Boolean]"===Object.prototype.toString.call(arguments[0])&&(t=arguments[0],n++);for(var r=function(n){for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(t&&"[object Object]"===Object.prototype.toString.call(n[o])?e[o]=d(!0,e[o],n[o]):e[o]=n[o])};o>n;n++){var a=arguments[n];r(a)}return e},v=function(e){return Math.max(e.scrollHeight,e.offsetHeight,e.clientHeight)},m=function(){return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight)},g=function(e){var n=0;if(e.offsetParent){do n+=e.offsetTop,e=e.offsetParent;while(e)}else n=e.offsetTop;return n=n-a-t.offset,n>=0?n:0},h=function(e){var t=e.getBoundingClientRect();return t.top>=0&&t.left>=0&&t.bottom<=(window.innerHeight||document.documentElement.clientHeight)&&t.right<=(window.innerWidth||document.documentElement.clientWidth)},p=function(){l.sort(function(e,t){return e.distance>t.distance?-1:e.distance<t.distance?1:0})};i.setDistances=function(){o=m(),a=r?v(r)+g(r):0,f(l,function(e){e.distance=g(e.target)}),p()};var b=function(){var e=document.querySelectorAll(t.selector);f(e,function(e){if(e.hash){var t=document.querySelector(e.hash);t&&l.push({nav:e,target:t,distance:0})}})},y=function(){c&&(c.nav.classList.remove(t.activeClass))},H=function(e){y(),e.nav.classList.add(t.activeClass),t.callback(e),c={nav:e.nav}};i.getCurrentNav=function(){var n=e.pageYOffset;if(e.innerHeight+n>=o&&h(l[0].target))return H(l[0]),l[0];for(var r=0,a=l.length;a>r;r++){var c=l[r];if(c.distance<=n)return H(c),c}y(),t.callback()};var C=function(){f(l,function(e){e.nav.classList.contains(t.activeClass)&&(c={nav:e.nav})})};i.destroy=function(){t&&(e.removeEventListener("resize",L,!1),e.removeEventListener("scroll",L,!1),l=[],t=null,n=null,o=null,r=null,a=null,c=null)};var L=function(e){n||(n=setTimeout(function(){n=null,"scroll"===e.type&&i.getCurrentNav(),"resize"===e.type&&(i.setDistances(),i.getCurrentNav())},200))};return i.init=function(n){s&&(i.destroy(),t=d(u,n||{}),r=document.querySelector(t.selectorHeader),b(),0!==l.length&&(C(),i.setDistances(),i.getCurrentNav(),e.addEventListener("resize",L,!1),e.addEventListener("scroll",L,!1)))},i});
