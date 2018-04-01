@@ -1,5 +1,5 @@
 //
-// New main nav/header
+//  New main nav/header
 //
 // gdzie to???
 .caret {
@@ -49,15 +49,16 @@ a:hover .caret,
 }
 
 .section-nav__toggle {
-  display: none;
-  @media #{$m770} {
-    display: inline-block;
-    float: left;
+  display: inline-block;
+  float: left;
+
+  @include for-tablet-portrait-up {
+    display: none;
   }
 }
 
 .section-nav__like {
-  @media #{$m400} {
+  @include for-phone-only {
     transform: scale(0.75);
     transform-origin: right center;
     padding-bottom: 0;
@@ -69,8 +70,9 @@ a:hover .caret,
   height: $space-2;
   width: $space-4;
   background: transparent url("i/search.png") center center no-repeat;
-  @media #{$m770} {
-    background-size: auto 50%
+
+  @include for-phone-only {
+    background-size: auto 50%;
   }
 }
 
@@ -84,7 +86,8 @@ a:hover .caret,
 
 .navbar {
   display: inline-block;
-  @media #{$m770} {
+
+  @include for-phone-only {
     display: none;
     z-index: -1;
     position: absolute;
@@ -120,8 +123,10 @@ a:hover .caret,
 
 //  when the menu hides, buttons change
 .navbar .btn-nav {
-  @media #{$m770} {
+  @include for-phone-only  {
     display: block;
+    padding-top: $space;
+    padding-bottom: $space;
     text-align: left;
   }
 }
@@ -140,7 +145,7 @@ a:hover .caret,
 }
 
 .navbar-logo--ns{
-  @media #{$m770} {
+  @include for-phone-only  {
     position: absolute;
     left: 50%;
     top: 0;
