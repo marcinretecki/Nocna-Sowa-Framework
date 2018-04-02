@@ -26,6 +26,26 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/javascript\/_j-helpers.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/_j-helpers-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/javascript\/_j-libs.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/_j-libs-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/javascript\/j-chat.js": {
 		"ft": 64,
 		"ma": 0,

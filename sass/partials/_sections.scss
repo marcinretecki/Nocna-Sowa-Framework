@@ -541,7 +541,7 @@ backface-visibility:hidden;
 
 
 /* cwiczenia */
-.ex{margin-top:$space-4;margin-bottom:$space-4;counter-reset: numbered-i}
+.ex{margin-top:$space-4;margin-bottom:$space-4;counter-reset: numbered-field}
 // .command{position:relative;}
 // .command:before{display:inline-block;position:absolute;left:-($space);top:$size-1 / 4;width:3px;height:$size-1;content:"";}
 // .category-zaczynam .command:before{background:$green}
@@ -550,7 +550,7 @@ backface-visibility:hidden;
 
 //.ex h3{margin-top:0;font-size:$size-1}
 .ex p{}
-.ex i{padding:0 $space;margin:0 0.25rem;border-bottom:1px dotted $gray;color:transparent;}
+.ex i{padding:0 $space;margin:0;border-bottom:1px dotted $gray;color:transparent;}
 .ex .vis{color:$font-dark;}
 .ex .text{margin:0;padding:0;}
 .ex .tick{display:none;position:absolute;left:(-$space-2);top:2px;width:20px;height:20px;vertical-align:text-top;}
@@ -563,12 +563,32 @@ backface-visibility:hidden;
 .ex del{text-decoration:none;}
 .ex .fixed, .ex ins{display:none;color:$red;text-decoration:none;}
 .ex figure img + p{padding-top:$space;}
-.ex:target i{color:$font-dark;}
-.ex:target .btn-dark{display:inline-block;}
-.ex:target .btn-ex-fb{display:block}
-.ex:target .tick{display:block;}
-.ex:target .bug,.ex:target del{text-decoration:line-through;}
-.ex:target .fixed, .ex:target ins{display:inline;}
+//  ex-checked
+//  if no js, then use :target
+.ex--checked i,
+.ex:target i {
+  color:$font-dark;
+}
+.ex--checked .btn-dark,
+.ex:target .btn-dark {
+  display:inline-block;
+}
+.ex--checked .btn-ex-fb,
+.ex:target .btn-ex-fb {
+  display:block
+}
+.ex--checked .tick,
+.ex:target .tick {
+  display:block;
+}
+.ex--checked .bug,.ex:target del,
+.ex:target .bug,.ex:target del {
+  text-decoration:line-through;
+}
+.ex--checked .fixed, .ex:target ins,
+.ex:target .fixed, .ex:target ins {
+  display:inline;
+}
 .ex img.alignleft{margin-right:$space}
 .ex img.alignright{margin-left:$space}
 
@@ -576,7 +596,10 @@ backface-visibility:hidden;
 
 .ex-img-swap{position:relative;}
 .ex-img-over{position:absolute;top:0;}
-.ex:target .ex-img-over{opacity:0;}
+.ex--checked .ex-img-over,
+.ex:target .ex-img-over {
+  opacity:0;
+}
 .ex-img-under{}
 
 .np{margin-bottom:0;}
@@ -588,6 +611,43 @@ li .np+p{padding-left:$space;}
 .trans{margin-bottom:$space-2;}
 
 .symbol{display:inline-block;padding:0 $space;margin:0 $space 0.3125rem 0;width:$space-4;background:$beige;border-radius:3px;text-align:center}
+
+
+//
+//  News ex for fill-in exercises
+//
+.ex-field {
+  position: relative;
+  display: inline-block;
+  //  this removes space made by border
+  //  need to test it globaly next time
+  margin-bottom: -1px;
+  white-space: nowrap;
+}
+//  show the clue or the word to modify
+.ex-field::before {
+  content: attr(data-ns-clue);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  text-align: center;
+  color: $font-light;
+  font-size: $size-0;
+  @include transition;
+}
+.ex--checked .ex-field::before,
+.ex:target .ex-field::before {
+  opacity: 0;
+}
+//  use on sup elements
+.count::before {
+  counter-increment: numbered-field;
+  content: counter(numbered-field);
+  padding-right: 1px;
+}
+
+
 
 
 
