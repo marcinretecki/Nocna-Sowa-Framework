@@ -26,9 +26,11 @@ function smoothScrollTo(target, event) {
     event.stopPropagation();
   }
 
-  //  Update url
-  //  remember that it does not trigger hash change in ex
-  history.pushState(null, '', '#' + target);
+  // if it is not ex
+  if ( target.indexOf('ex') === -1 ) {
+    //  Update url
+    history.pushState(null, '', '#' + target);
+  }
 
 
   Velocity( el, 'scroll', { duration: 600, easing: 'easeInOutQuart', queue: false, offset: -40 } );
@@ -84,7 +86,7 @@ function trackLinksHandler(event) {
       target = getClosest(target, 'a');
   }
 
-  if ( (target === null) || (target.href === undefined) ) {
+  if ( (target === null) || (target.href === undefined) || (target.href === '') ) {
     // not a link, so ignore
     return;
   }
@@ -100,9 +102,12 @@ function trackLinksHandler(event) {
     // Jeśli link ma opis, to dodaj będzie w Action
     action = target.getAttribute('data-ga-action');
   }
-  else {
-    // Jeśli nie ma opisu ani hasha, to dajemy href
+  else if ( target.href.indexOf('nocnasowa.pl') != '-1' ) {
+    // Jeśli nie ma opisu, ale jest wewnętrzyny, to dajemy href bez nocnej
     action = target.href.split('nocnasowa.pl')[1];
+  }
+  else {
+    action = target.href;
   }
 
   // Category
