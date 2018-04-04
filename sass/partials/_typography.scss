@@ -4,24 +4,24 @@
 
 @font-face {
   font-family: 'bariol_lightlight';
-  src: url('http://nocnasowa.pl/c/f/bariol_light-webfont.eot');
-  src: url('http://nocnasowa.pl/c/f/bariol_light-webfont.eot?#iefix') format('embedded-opentype'),
-       url('http://nocnasowa.pl/c/f/bariol_light-webfont.woff2') format('woff2'),
-       url('http://nocnasowa.pl/c/f/bariol_light-webfont.woff') format('woff'),
-       url('http://nocnasowa.pl/c/f/bariol_light-webfont.ttf') format('truetype'),
-       url('http://nocnasowa.pl/c/f/bariol_light-webfont.svg#bariol_lightlight') format('svg');
+  src: url('//nocnasowa.pl/c/f/bariol_light-webfont.eot');
+  src: url('//nocnasowa.pl/c/f/bariol_light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('//nocnasowa.pl/c/f/bariol_light-webfont.woff2') format('woff2'),
+       url('//nocnasowa.pl/c/f/bariol_light-webfont.woff') format('woff'),
+       url('//nocnasowa.pl/c/f/bariol_light-webfont.ttf') format('truetype'),
+       url('//nocnasowa.pl/c/f/bariol_light-webfont.svg#bariol_lightlight') format('svg');
   font-weight:200;
   font-style:normal;
 }
 
 @font-face {
   font-family: 'bariol_regularregular';
-  src: url('http://nocnasowa.pl/c/f/bariol_regula-webfont.eot');
-  src: url('http://nocnasowa.pl/c/f/bariol_regula-webfont.eot?#iefix') format('embedded-opentype'),
-       url('http://nocnasowa.pl/c/f/bariol_regula-webfont.woff2') format('woff2'),
-       url('http://nocnasowa.pl/c/f/bariol_regula-webfont.woff') format('woff'),
-       url('http://nocnasowa.pl/c/f/bariol_regula-webfont.ttf') format('truetype'),
-       url('http://nocnasowa.pl/c/f/bariol_regula-webfont.svg#bariol_regularregular') format('svg');
+  src: url('//nocnasowa.pl/c/f/bariol_regula-webfont.eot');
+  src: url('//nocnasowa.pl/c/f/bariol_regula-webfont.eot?#iefix') format('embedded-opentype'),
+       url('//nocnasowa.pl/c/f/bariol_regula-webfont.woff2') format('woff2'),
+       url('//nocnasowa.pl/c/f/bariol_regula-webfont.woff') format('woff'),
+       url('//nocnasowa.pl/c/f/bariol_regula-webfont.ttf') format('truetype'),
+       url('//nocnasowa.pl/c/f/bariol_regula-webfont.svg#bariol_regularregular') format('svg');
   font-weight: 400;
   font-style: normal;
 }
@@ -100,8 +100,8 @@ dd {
 
 
 
-// 201604
-// New example format
+//  201604
+//  New example format
 //  we are using .post because .col would interefe with padding otherwise
 .post .dl-eg {
   padding-left:$space-2;
@@ -111,7 +111,7 @@ dd {
 .dl-eg dt{font-weight:400;font-style:italic;}
 .dl-eg dd{margin:0 0 0 $space;font-size:$size-0;color:$font-light;}
 .dl-eg dd + dt{margin-top:$space-half;}
-.tr{color:$dark-gray;}
+.tr{color:$dark-gray;}  // i don't know why it is here, but i'm using it for color in .con-table and probably other places – bad practice
 
 //
 //  .dl-eg ma problem, gdy wstawimy go w div.row, bo wtedy nie zerują się marginy
@@ -282,17 +282,6 @@ h4 a,h4 a:visited {
 .index-h a:hover,.index-h a:focus{text-decoration:underline}
 .index-h-white a,.index-h-white a:visited,.index-h-white a:hover{color:$white}
 
-
-//
-// Table in position: static;
-// ??? where is it used?
-//
-.con-table{width:100%;margin:0 0 $space-2;overflow:hidden;text-align:left;}
-.con-table td,
-.con-table th{padding:$space-half $space;margin:0;vertical-align:top}
-.con-table tr{margin:0;}
-.con-table tr + tr{border-top:1px solid $beige;}
-.con-table thead tr{border-bottom:1px solid $beige-border;}
 
 
 //

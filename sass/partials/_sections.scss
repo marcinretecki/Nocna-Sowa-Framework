@@ -32,6 +32,11 @@
   margin-right: auto;
 }
 
+
+//
+//  Narrow column (for asides?)
+//
+
 //
 //  NEW
 //  max widths
@@ -542,6 +547,12 @@ backface-visibility:hidden;
 
 /* cwiczenia */
 .ex{margin-top:$space-4;margin-bottom:$space-4;counter-reset: numbered-field}
+
+//
+//  TO
+//  by było fajne
+//  plus napis, po naciśnięciu, że to jest ćwiczenie dla początkujących, średnio-zaawansowanych albo zaawansowanych
+//
 // .command{position:relative;}
 // .command:before{display:inline-block;position:absolute;left:-($space);top:$size-1 / 4;width:3px;height:$size-1;content:"";}
 // .category-zaczynam .command:before{background:$green}
@@ -550,17 +561,19 @@ backface-visibility:hidden;
 
 //.ex h3{margin-top:0;font-size:$size-1}
 .ex p{}
-.ex i{padding:0 $space;margin:0;border-bottom:1px dotted $gray;color:transparent;}
+.ex i{padding:0 $space;border-bottom:1px dotted $gray;color:transparent;}
 .ex .vis{color:$font-dark;}
 .ex .text{margin:0;padding:0;}
 .ex .tick{display:none;position:absolute;left:(-$space-2);top:2px;width:20px;height:20px;vertical-align:text-top;}
-.ex br+i{margin:0;}
 .ex li{margin-bottom:$space;position:relative;overflow:visible;}
 .ex .btn-dark,.ex .btn-ex-fb{display:none;}
 .ex .btn-ex-fb{padding-top:$space;opacity:0.5}
 .ex .btn-ex-fb:hover{opacity:1}
 .ex .btn-ex-fb iframe{margin:0}
-.ex del{text-decoration:none;}
+.ex del {
+  text-decoration:none;
+  @include transition;
+}
 .ex .fixed, .ex ins{display:none;color:$red;text-decoration:none;}
 .ex figure img + p{padding-top:$space;}
 //  ex-checked
@@ -581,11 +594,12 @@ backface-visibility:hidden;
 .ex:target .tick {
   display:block;
 }
-.ex--checked .bug,.ex:target del,
+.ex--checked .bug,.ex--checked del,
 .ex:target .bug,.ex:target del {
+  opacity: 0.5;
   text-decoration:line-through;
 }
-.ex--checked .fixed, .ex:target ins,
+.ex--checked .fixed, .ex--checked ins,
 .ex:target .fixed, .ex:target ins {
   display:inline;
 }
@@ -612,33 +626,43 @@ li .np+p{padding-left:$space;}
 
 .symbol{display:inline-block;padding:0 $space;margin:0 $space 0.3125rem 0;width:$space-4;background:$beige;border-radius:3px;text-align:center}
 
+.ex-clue {
+  color: $font-light;
+  font-style: italic;
+}
+
+.ex--nowrap-field .ex-field {
+  display: inline-block;
+  white-space: nowrap;
+}
 
 //
 //  News ex for fill-in exercises
 //
 .ex-field {
+  //  needed for ::before
   position: relative;
-  display: inline-block;
   //  this removes space made by border
   //  need to test it globaly next time
   margin-bottom: -1px;
-  white-space: nowrap;
 }
 //  show the clue or the word to modify
 .ex-field::before {
-  content: attr(data-ns-clue);
+  content: '\00a0' attr(data-ns-clue) '\00a0';
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 3px;
+  bottom: 0;
   text-align: center;
   color: $font-light;
   font-size: $size-0;
+  line-height: $line-1 / 0.75;  //  this value comes from size-0
   @include transition;
 }
 .ex--checked .ex-field::before,
 .ex:target .ex-field::before {
   opacity: 0;
+  z-index: -1;
 }
 //  use on sup elements
 .count::before {
