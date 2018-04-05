@@ -238,6 +238,9 @@ function trackLinksHandler(event) {
   //  Trigger Submenu Toggle
   if ( target.id === 'js-submenu-toggle' ) {
     toggleSubmenu();
+
+    category = 'Blog Submenu';
+    action = 'Toggle Blog Submenu';
   }
 
 
