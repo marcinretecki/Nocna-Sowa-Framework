@@ -227,3 +227,61 @@ nav a:focus {}
     display: none;
   }
 }
+
+
+
+//
+//  Nav Submenu
+//  Shows tags/categories on the main blog
+//
+.section-submenu {
+  border-bottom: 1px solid $dark-btn-bright;
+}
+.navbar-submenu {
+  height: $space-2;
+  padding: 0;
+  margin: 0 auto -1px;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: top;
+}
+
+.navbar-submenu__list {
+  display: inline-block;
+  position: relative;
+  padding-right: $space-2;
+}
+.navbar-submenu__list > li {
+  position: static;
+}
+
+.navbar-submenu__btn,
+.navbar-submenu__list a {
+  //  same height as .navbar-submenu
+  height: $space-2;
+  border-bottom: 1px solid transparent;
+  opacity: 0.66;
+  background: none;
+  color: $font-dark;
+}
+
+.navbar-submenu__btn--arr {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-bottom: 0;
+  transform-origin: center;
+  transform: translateZ(0);
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-submenu__btn:focus,
+.navbar-submenu__btn:hover,
+.navbar-submenu__btn--active,
+.navbar-submenu__list .navbar-submenu__btn--active {
+  border-bottom-color: $dark-btn-border;
+  opacity: 1;
+  background: none;
+  color: $font-dark;
+}
+

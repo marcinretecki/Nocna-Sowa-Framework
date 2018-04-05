@@ -3,7 +3,7 @@
 //
 
 
-function hasClass(el, className) {
+function hasClass( el, className ) {
   if ( el.classList ) {
     if ( el.classList.contains(className) ) {
       return true;
@@ -81,7 +81,7 @@ function getClosest( elem, selector ) {
         }
 
         // If selector is a tag
-        if ( elem.tagName.toLowerCase() === selector ) {
+        if ( elem.tagName.toLowerCase() === selector.toLowerCase() ) {
             return elem;
         }
 

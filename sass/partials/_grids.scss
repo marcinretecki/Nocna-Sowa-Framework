@@ -50,6 +50,8 @@
   max-width: 100%;
   padding-left:$space;
   padding-right:$space;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .p-10 .row{margin-left:(-$space);margin-right:(-$space);padding:0}
@@ -90,9 +92,10 @@
 }
 .col-1,.p-1 > p{width:$col-1;}
 
-.p-center > p{float:none;margin-left:auto;margin-right:auto;}
-// OBS!
-.p-center > *{float:none;margin-left:auto;margin-right:auto;}
+//  usunąłem bo mnie wnerwiało
+// .p-center > p{float:none;}
+// // OBS!
+// .p-center > *{float:none;margin-left:auto;margin-right:auto;}
 
 .l-1-32{margin-left:$col-1-32;}
 .l-1{margin-left:$col-1;}

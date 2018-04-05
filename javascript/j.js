@@ -76,68 +76,147 @@ function toggleEx(target) {
 
 
 //
+//  Toggle Submenu
+//  Used in index for tags sorting
+//
+function toggleSubmenu() {
+  var ul = document.getElementById('navbar-submenu__list');
+  var btn = document.getElementById('js-submenu-toggle');
+  var section = ul.parentNode;
+  var ulHeight = ul.offsetHeight;
+  var sectionHeight = section.offsetHeight;
+  var heightRem = '2rem';
+  var rem = 20;
+  var sectionHeightRem = (sectionHeight / 20) + 'rem';
+  var newHeighRem;
+  var buttonOrient;
+
+  //  if it is bigger
+  if ( ulHeight > sectionHeight ) {
+    newHeightRem = (ulHeight / 20) + 'rem';
+    buttonOrient = 90;
+  }
+  //  if same size or smaller
+  else {
+    newHeightRem = heightRem;
+    buttonOrient = 0;
+  }
+
+  //  toggle submenu
+  Velocity(
+    section,
+    { height: [newHeightRem, sectionHeightRem] },
+    { duration: 300, easing: 'easeInOutQuart' }
+  );
+
+  //  rotate btn
+  Velocity(
+    btn,
+    { rotateZ: buttonOrient },
+    { duration: 300, easing: 'easeInOutQuart' }
+  );
+}
+
+
+//
 //  Track events on links and buttons
 //
 function trackLinksHandler(event) {
 
-  var target = event.target;
+  var target = getClosest(event.target, 'button');
+  var currentUrlSplit;
+  var targetSplit = [];
+  var category;
+  var action;
+  var label;
 
-  if ( target.href === undefined ) {
-      target = getClosest(target, 'a');
+  //  if target is not a button, try a
+  if ( target === null ) {
+    target = getClosest(event.target, 'a');
   }
 
-  if ( (target === null) || (target.href === undefined) || (target.href === '') ) {
-    // not a link, so ignore
+  //  if it is still null, ignore
+  if ( target === null ) {
     return;
   }
 
-  var currentUrlSplit = window.location.href.split('#');
-  var targetSplit = target.href.split('#');
-  var category;
-  var action;
-  var label = document.title.split(' | Nocna Sowa')[0];
-
-  // Action
-  if ( ( target.getAttribute('data-ga-action') !== null ) && ( target.getAttribute('data-ga-action') !== '' ) ) {
-    // Jeśli link ma opis, to dodaj będzie w Action
-    action = target.getAttribute('data-ga-action');
+  //  if it is an anchor, check hrefs
+  if ( ( target.tagName.toLowerCase() === 'a' ) && ( (target.href === undefined) || (target.href === '') ) ) {
+    // not a link, so ignore
+    return;
   }
-  else if ( target.href.indexOf('nocnasowa.pl') != '-1' ) {
-    // Jeśli nie ma opisu, ale jest wewnętrzyny, to dajemy href bez nocnej
-    action = target.href.split('nocnasowa.pl')[1];
+  else if ( target.tagName.toLowerCase() === 'a' ) {
+    //  if it has hrefs, make a split
+    targetSplit = target.href.split('#');
+  }
+
+  //  Get the current URL
+  currentUrlSplit = window.location.href.split('#');
+
+
+  //
+  //  Label
+  //
+  if ( ( target.getAttribute('data-ga-label') !== null ) && ( target.getAttribute('data-ga-label') !== '' ) ) {
+    action = target.getAttribute('data-ga-label');
   }
   else {
-    action = target.href;
+    label = document.title.split(' | Nocna Sowa')[0];
   }
 
-  // Category
+
+  //
+  //  Action
+  //
+
+  //  If action is in data
+  if ( ( target.getAttribute('data-ga-action') !== null ) && ( target.getAttribute('data-ga-action') !== '' ) ) {
+    action = target.getAttribute('data-ga-action');
+  }
+  //  if href is an inbound link
+  else if ( ( targetSplit.length > 1 ) && target.href.indexOf('nocnasowa.pl') != '-1' ) {
+    action = target.href.split('nocnasowa.pl')[1];
+  }
+  //  if it is other link
+  else if ( targetSplit.length > 1 )  {
+    //  nie ma opisu, ale może ma href
+    action = target.href;
+  }
+  //  not a link so prob. button
+  else {
+    action = 'Button';
+  }
+
+
+  //
+  //  Category
+  //
   if ( ( target.getAttribute('data-ga-category') !== null ) && ( target.getAttribute('data-ga-category') !== '' ) ) {
     // Link has a special category
-
     category = target.getAttribute('data-ga-category');
   }
   else if ( target.className.indexOf('check') != '-1' ) {
     // This is an anchor
     category = 'Ćwiczenie';
   }
-  else if ( ( currentUrlSplit[0] === targetSplit[0] ) && ( targetSplit.length > 1 ) ) {
+  else if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) ) {
     // This is an anchor
     category = 'Anchors';
   }
-  else if ( ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) && ( targetSplit[0].indexOf('?replytocom=') != '-1' ) ) {
+  else if ( ( typeof targetSplit[0] !== 'undefined' ) && ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) && ( targetSplit[0].indexOf('?replytocom=') != '-1' ) ) {
     // This is a comment reply
     category = 'Comment';
     action = 'Odpowiedz';
   }
-  else if ( targetSplit[0].indexOf('facebook.com/sharer/') != '-1' ) {
+  else if ( ( typeof targetSplit[0] !== 'undefined' ) &&  ( targetSplit[0].indexOf('facebook.com/sharer/') != '-1' ) ) {
     // This is a share
     category = 'Share';
   }
-  else if ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) {
+  else if ( ( typeof targetSplit[0] !== 'undefined' ) && ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) ) {
     // This is internal link
     category = 'Internal Link';
   }
-  else if ( targetSplit[0].indexOf('nocnasowa.pl/') == '-1' ) {
+  else if ( ( typeof targetSplit[0] !== 'undefined' ) && ( targetSplit[0].indexOf('nocnasowa.pl/') == '-1' ) ) {
     // This should be an outgoing link
     category = 'Outgoing';
   }
@@ -147,14 +226,20 @@ function trackLinksHandler(event) {
 
 
   //  Scroll
-  if ( ( currentUrlSplit[0] === targetSplit[0] ) && ( targetSplit.length > 1 ) ) {
+  if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) ) {
     smoothScrollTo(targetSplit[1], event);
   }
 
   //  Trigger ex check
-  if ( ( currentUrlSplit[0] === targetSplit[0] ) && ( targetSplit.length > 1 ) && ( targetSplit[1].indexOf('ex') !== -1 ) ) {
+  if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) && ( targetSplit[1].indexOf('ex') !== -1 ) ) {
     toggleEx(targetSplit[1]);
   }
+
+  //  Trigger Submenu Toggle
+  if ( target.id === 'js-submenu-toggle' ) {
+    toggleSubmenu();
+  }
+
 
   //  if it is livecopy, debug
   if ( window.location.href.split('livecopy').length > 1 ) {

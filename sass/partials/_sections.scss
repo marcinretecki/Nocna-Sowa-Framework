@@ -19,8 +19,25 @@
 }
 
 
+
 //
-//  NEW
+//  NEW layout
+//  remember to put in inside row if it is inside section-content
+//  p-10 is overriding, fix it later, now just repeat here
+//
+.full-width,
+.p-10 .full-width {
+  width: auto;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+//
+//  NEW layout
 //  remember to put in inside row if it is inside section-content
 //
 .main-column {
@@ -100,7 +117,7 @@
 
 
 //
-// Modifiers
+//  Modifiers
 //
 
 .section-0-0{padding-top:0;padding-bottom:0;}
