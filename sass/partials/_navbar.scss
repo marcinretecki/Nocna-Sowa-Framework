@@ -261,7 +261,7 @@ nav a:focus {}
   height: $space-2;
   border-bottom: 1px solid transparent;
   opacity: 0.66;
-  background: none;
+  background-color: transparent;
   color: $font-dark;
 }
 
@@ -270,6 +270,10 @@ nav a:focus {}
   right: 0;
   top: 0;
   border-bottom: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url('/c/i/submenu_arrow.svg');
+  background-size: $space;
   transform-origin: center;
   transform: translateZ(0);
   -moz-osx-font-smoothing: grayscale;
@@ -281,7 +285,7 @@ nav a:focus {}
 .navbar-submenu__list .navbar-submenu__btn--active {
   border-bottom-color: $dark-btn-border;
   opacity: 1;
-  background: none;
+  background-color: transparent;
   color: $font-dark;
 }
 
