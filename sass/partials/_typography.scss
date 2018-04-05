@@ -187,13 +187,13 @@ blockquote p:last-child,blockquote p:last-of-type,blockquote ul:last-child{margi
 
 
 
-hr{position:relative;height:0;margin:$space-2 0;padding:0;border:1px solid $gray;border-width:0 0 1px}
+hr{position:relative;height:0;margin:$space-2 0;padding:0;border:1px solid $dark-btn-bright;border-width:0 0 1px}
 .section-green hr{border-color:$green-light}
 .section-orange hr{border-color:$orange-light}
 .section-red hr{border-color:$red-light}
 .section-dark hr{border-color:$dark-light}
 
-.hr-short{width:$space-8;margin:$space-4 auto;border:1px solid $gray;border-width:1px 0 0}
+.hr-short{width:$space-8;margin:$space-4 auto;border:1px solid $dark-btn-bright;border-width:1px 0 0}
 .hr-short:last-child{margin-bottom:0}
 .hr-shorter{margin:$space-2 auto}
 
