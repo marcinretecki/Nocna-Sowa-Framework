@@ -161,7 +161,7 @@ function trackLinksHandler(event) {
     action = target.getAttribute('data-ga-label');
   }
   else {
-    label = document.title.split(' | Nocna Sowa')[0];
+    label = 'Page: ' + document.title.split(' | Nocna Sowa')[0];
   }
 
 
@@ -174,11 +174,11 @@ function trackLinksHandler(event) {
     action = target.getAttribute('data-ga-action');
   }
   //  if href is an inbound link
-  else if ( ( targetSplit.length > 1 ) && target.href.indexOf('nocnasowa.pl') != '-1' ) {
+  else if ( ( targetSplit.length > 0 ) && target.href.indexOf('nocnasowa.pl') != '-1' ) {
     action = target.href.split('nocnasowa.pl')[1];
   }
   //  if it is other link
-  else if ( targetSplit.length > 1 )  {
+  else if ( targetSplit.length > 0 )  {
     //  nie ma opisu, ale może ma href
     action = target.href;
   }
