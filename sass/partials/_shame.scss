@@ -138,3 +138,81 @@ backface-visibility:hidden;
 .con-table tr{margin:0;}
 .con-table tr + tr{border-top:1px solid $beige;}
 .con-table thead tr{border-bottom:1px solid $beige-border;}
+
+
+
+
+//  usefull for emoji
+// .inline-svg {
+//   position: relative;
+//   top: -3px;
+
+//   display: inline-block;
+//   margin: 0;
+
+//   height: ($size-1 * $line-1);
+//   width: ($size-1 * $line-1);
+
+//   vertical-align: middle;
+//   font-size: inherit;
+// }
+
+
+
+.blob-wrapper {
+  display: block;
+  float: left;
+  position: relative;
+
+  width: $space + $space-half;
+  height: $space + $space-half;
+  margin: -#{$space-quarter} #{$space-quarter} -#{$space-half} -#{$space-quarter};
+  vertical-align: middle;
+
+  //  Used by svg
+  -webkit-filter: url("#goo");
+  filter: url("#goo");
+}
+
+.blob-wrapper--r90 {
+  transform: rotate(90deg)
+}
+
+.blob-wrapper--r180 {
+  transform: rotate(180deg)
+}
+
+.blob-wrapper--r270 {
+  transform: rotate(270deg)
+}
+
+
+.blob {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: $space;
+  height: $space;
+  border-radius: 50%;
+}
+
+
+.blob--green {
+  fill: $green;
+}
+.blob--orange {
+  fill: $orange;
+}
+.blob--red {
+  fill: $red;
+}
+.blob--dark {
+  fill: $dark-btn;
+}
+
+.svg-filter {
+  position: absolute;
+  left: -9999rem;
+  bottom: -9999rem;
+}

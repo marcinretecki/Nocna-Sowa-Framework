@@ -28,6 +28,10 @@
 
 
 
+//
+//  Reset
+//
+
 small{font-weight:400;font-size:$size-0;font-variant:small-caps}
 b,strong{font-weight:700}
 abbr{border:none;text-decoration:underline;text-decoration-style:dashed;text-decoration-color:$gray;font-variant:small-caps;text-transform:uppercase;cursor:help;}
@@ -71,6 +75,11 @@ dd {
 
 
 
+//
+//  Content Modifiers
+//
+
+
 .intro{font-size:$size-2;line-height:1.333;}
 
 // to do
@@ -80,6 +89,14 @@ dd {
     line-height: 1.5;
   }
 }
+
+.post-index__footer {
+  font-size: $size-0;
+  line-height: $space;
+  color: $font-light;
+}
+
+
 
 .capital:first-letter{display:block;float:left;margin-top:0.5rem;margin-right:0.5rem;font-size:5rem;line-height:0.8;}
 .plan{margin:0 0 $space-half;font-weight:700;}
@@ -147,6 +164,9 @@ dd {
 figure{margin:0 auto $space-2}
 
 
+//
+//  Quotes
+//
 
 //.quote{position:relative;border-left:$space-half solid $dark-btn;margin:$space-4 auto}
 
@@ -187,6 +207,11 @@ blockquote p:last-child,blockquote p:last-of-type,blockquote ul:last-child{margi
 
 
 
+//
+//  HR Dividers and lines
+//
+
+
 hr{position:relative;height:0;margin:$space-2 0;padding:0;border:1px solid $dark-btn-bright;border-width:0 0 1px}
 .section-green hr{border-color:$green-light}
 .section-orange hr{border-color:$orange-light}
@@ -207,6 +232,8 @@ background-size:cover;
 .divider+h2{margin-top:0}
 
 
+
+
 //
 // Headers
 //
@@ -222,7 +249,7 @@ h1,.h1,
   font-variant: normal;
   font-style: normal;
   font-size: $size-5;
-  line-height: 1.1;
+  line-height: 1.041667;
 
   @media #{$m640} {
     font-size:$size-4;
@@ -285,7 +312,7 @@ h4 a,h4 a:visited {
 
 
 //
-// Modificators
+//  Modificators
 //
 .normal{font-style:normal;font-variant:normal;}
 

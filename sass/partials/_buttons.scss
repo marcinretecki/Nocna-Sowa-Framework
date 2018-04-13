@@ -149,17 +149,6 @@ input.btn-blue:focus,input.btn-blue:hover{background-color:$blue-hover;color:$wh
 
 .btn-icon.btn-beige{border-color:transparent;} // to jest hack, pomyśl w przyszłości jak to poprawić
 
-.icon{position:relative;width:20px;height:20px;background:url('i/icons.png') no-repeat 0 0;}
-.i-film{}
-.i-ark {    background-position:-20px 0}
-.i-ex {     background-position:-40px 0}
-.i-talk {   background-position:-60px 0}
-
-.i-w-film { background-position:  0   -20px}
-.i-w-ark {  background-position:-20px -20px}
-.i-w-ex {   background-position:-40px -20px}
-.i-w-talk { background-position:-60px -20px}
-
 .i-fb{padding-left:30px;background:url('i/icon_fb.png') no-repeat 0 center;}
 .i-fb--small{padding-left:20px;background-size:$size-0 $size-0;}
 
