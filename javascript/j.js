@@ -3,8 +3,129 @@
 //
 
 
+//  @codekit-append '_j-debug.js';
 //  @codekit-append '_j-libs.js';
 //  @codekit-append '_j-helpers.js';
+
+
+
+
+
+
+
+
+
+//
+//  Send Events to Analytics
+//  @target should be checked by interceptClicks()
+//  if @target doesn't exist, function should never be called
+//
+function sendGaEvent(target) {
+
+  var targetSplit = [];
+  var currentUrlSplit = window.location.href.split('#');
+  var category = '';
+  var action = '';
+  var label = '';
+
+  //  No target, so ignore
+  if ( ( typeof target === 'undefined' ) || ( target == null ) ) {
+    return;
+  }
+
+
+  //  if it is an anchor, check hrefs
+  if ( ( target.tagName.toLowerCase() === 'a' ) && ( target.href !== undefined ) ) {
+    //  if it has hrefs, make a split
+    targetSplit = target.href.split('#');
+  }
+
+
+  //
+  //  Label
+  //
+  if ( ( target.getAttribute('data-ga-label') !== null ) && ( target.getAttribute('data-ga-label') !== '' ) ) {
+    label = target.getAttribute('data-ga-label');
+  }
+  else {
+    label = 'Page: ' + document.title.split(' | Nocna Sowa')[0];
+  }
+
+
+  //
+  //  Action
+  //
+
+  //  If action is in data
+  if ( ( target.getAttribute('data-ga-action') !== null ) && ( target.getAttribute('data-ga-action') !== '' ) ) {
+    action = target.getAttribute('data-ga-action');
+  }
+  //  if href is an inbound link
+  else if ( ( targetSplit.length > 0 ) && target.href.indexOf('nocnasowa.pl') != '-1' ) {
+    action = target.href.split('nocnasowa.pl')[1];
+  }
+  //  if it is other link
+  else if ( targetSplit.length > 0 )  {
+    //  nie ma opisu, ale może ma href
+    action = target.href;
+  }
+  //  not a link so prob. button
+  else {
+    action = 'Button';
+  }
+
+
+  //
+  //  Category
+  //
+  if ( ( target.getAttribute('data-ga-category') !== null ) && ( target.getAttribute('data-ga-category') !== '' ) ) {
+    // Link has a special category
+    category = target.getAttribute('data-ga-category');
+  }
+  else if ( hasClass(target, 'check') ) {
+    // This is an anchor
+    category = 'Ćwiczenie';
+  }
+  else if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) ) {
+    // This is an anchor
+    category = 'Anchors';
+  }
+  else if ( ( typeof targetSplit[0] !== 'undefined' ) && ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) && ( targetSplit[0].indexOf('?replytocom=') != '-1' ) ) {
+    // This is a comment reply
+    category = 'Comment';
+    action = 'Odpowiedz';
+  }
+  else if ( ( typeof targetSplit[0] !== 'undefined' ) &&  ( targetSplit[0].indexOf('facebook.com/sharer/') != '-1' ) ) {
+    // This is a share
+    category = 'Share';
+  }
+  else if ( ( typeof targetSplit[0] !== 'undefined' ) && ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) ) {
+    // This is internal link
+    category = 'Internal Link';
+  }
+  else if ( ( typeof targetSplit[0] !== 'undefined' ) && ( targetSplit[0].indexOf('nocnasowa.pl/') == '-1' ) ) {
+    // This should be an outgoing link
+    category = 'Outgoing';
+  }
+  else {
+    category = 'Other';
+  }
+
+
+  if ( target.id === 'js-submenu-toggle' ) {
+    category = 'Blog Submenu';
+    action = 'Toggle Blog Submenu';
+  }
+
+
+  showDebugMsg('Category: ' + category);
+  showDebugMsg('Action: ' + action);
+  showDebugMsg('Label: ' + label);
+
+
+  try { ga('send', 'event', category, action, label); }
+  catch(err) {};
+}
 
 
 //
@@ -35,10 +156,9 @@ function smoothScrollTo(target, event) {
 
   Velocity( el, 'scroll', { duration: 600, easing: 'easeInOutQuart', queue: false, offset: -40 } );
 
-  //  if it is livecopy, debug
-  if ( window.location.href.split('livecopy').length > 1 ) {
-    window.console.log('Scroll target: ' + target);
-  }
+
+  showDebugMsg('Scroll target: ' + target);
+
 };
 
 
@@ -67,10 +187,9 @@ function toggleEx(target) {
     catch(err) {};
   }
 
-  //  if it is livecopy, debug
-  if ( window.location.href.split('livecopy').length > 1 ) {
-    window.console.log('toggleEx: ' + target);
-  }
+
+  showDebugMsg('toggleEx: ' + target);
+
 
 }
 
@@ -119,143 +238,145 @@ function toggleSubmenu() {
 
 
 //
-//  Track events on links and buttons
+//  Show Data from Blob Click
+//  This function is called 2 times if dataBlob is open and user clicks on second blob
+//  First to close and then to open new
 //
-function trackLinksHandler(event) {
+function toggleBlobData(btnBlob) {
 
-  var target = getClosest(event.target, 'button');
-  var currentUrlSplit;
-  var targetSplit = [];
-  var category;
-  var action;
-  var label;
+  var dataBlob = document.getElementById('js-blob-data');
+  var dataBlobField = dataBlob.firstChild;
 
-  //  if target is not a button, try a
-  if ( target === null ) {
-    target = getClosest(event.target, 'a');
-  }
+  showDebugMsg('btnBlob:');
+  showDebugMsg(btnBlob);
 
-  //  if it is still null, ignore
-  if ( target === null ) {
+  showDebugMsg('dataBlob.nsCurrentBlob:');
+  showDebugMsg(dataBlob.nsCurrentBlob);
+
+
+  //  check if there is a blob assigned
+  //  and if btnBlob is undefined or null
+  if ( ( ( typeof dataBlob.nsCurrentBlob !== 'undefined' ) && ( dataBlob.nsCurrentBlob !== null ) ) && ( ( typeof btnBlob === 'undefined' ) || ( btnBlob == null ) ) ) {
+
+    closeBlob();
+
+    //  function will be called again to open another blob if it was clicked
     return;
   }
 
-  //  if it is an anchor, check hrefs
-  if ( ( target.tagName.toLowerCase() === 'a' ) && ( (target.href === undefined) || (target.href === '') ) ) {
-    // not a link, so ignore
+
+  //  if there is no btnBlob, ignore
+  if ( ( typeof btnBlob === 'undefined' ) || ( btnBlob == null ) ) {
+
+    showDebugMsg('btnBlob is undefined');
+
     return;
   }
-  else if ( target.tagName.toLowerCase() === 'a' ) {
-    //  if it has hrefs, make a split
-    targetSplit = target.href.split('#');
-  }
-
-  //  Get the current URL
-  currentUrlSplit = window.location.href.split('#');
 
 
-  //
-  //  Label
-  //
-  if ( ( target.getAttribute('data-ga-label') !== null ) && ( target.getAttribute('data-ga-label') !== '' ) ) {
-    action = target.getAttribute('data-ga-label');
-  }
-  else {
-    label = 'Page: ' + document.title.split(' | Nocna Sowa')[0];
+  //  it new blob is the same as previous one
+  if ( dataBlob.nsCurrentBlob === btnBlob ) {
+
+    showDebugMsg('remove currentBlob');
+
+    //  remove currentBlob
+    dataBlob.nsCurrentBlob = null;
+
+    return;
   }
 
+  //  Assign the new blob
+  dataBlob.nsCurrentBlob = btnBlob;
 
-  //
-  //  Action
-  //
-
-  //  If action is in data
-  if ( ( target.getAttribute('data-ga-action') !== null ) && ( target.getAttribute('data-ga-action') !== '' ) ) {
-    action = target.getAttribute('data-ga-action');
-  }
-  //  if href is an inbound link
-  else if ( ( targetSplit.length > 0 ) && target.href.indexOf('nocnasowa.pl') != '-1' ) {
-    action = target.href.split('nocnasowa.pl')[1];
-  }
-  //  if it is other link
-  else if ( targetSplit.length > 0 )  {
-    //  nie ma opisu, ale może ma href
-    action = target.href;
-  }
-  //  not a link so prob. button
-  else {
-    action = 'Button';
-  }
+  //  show the new blob
+  showBlob();
 
 
-  //
-  //  Category
-  //
-  if ( ( target.getAttribute('data-ga-category') !== null ) && ( target.getAttribute('data-ga-category') !== '' ) ) {
-    // Link has a special category
-    category = target.getAttribute('data-ga-category');
-  }
-  else if ( target.className.indexOf('check') != '-1' ) {
-    // This is an anchor
-    category = 'Ćwiczenie';
-  }
-  else if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) ) {
-    // This is an anchor
-    category = 'Anchors';
-  }
-  else if ( ( typeof targetSplit[0] !== 'undefined' ) && ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) && ( targetSplit[0].indexOf('?replytocom=') != '-1' ) ) {
-    // This is a comment reply
-    category = 'Comment';
-    action = 'Odpowiedz';
-  }
-  else if ( ( typeof targetSplit[0] !== 'undefined' ) &&  ( targetSplit[0].indexOf('facebook.com/sharer/') != '-1' ) ) {
-    // This is a share
-    category = 'Share';
-  }
-  else if ( ( typeof targetSplit[0] !== 'undefined' ) && ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) ) {
-    // This is internal link
-    category = 'Internal Link';
-  }
-  else if ( ( typeof targetSplit[0] !== 'undefined' ) && ( targetSplit[0].indexOf('nocnasowa.pl/') == '-1' ) ) {
-    // This should be an outgoing link
-    category = 'Outgoing';
-  }
-  else {
-    category = 'Other';
+
+  function getBlobColor( btnBlob ) {
+
+    var firstSplit = btnBlob.className.split('js-btn-blob-');
+    var secondSplit;
+    var blobColor;
+
+    //  if there is color
+    if ( firstSplit.length > 1 ) {
+      secondSplit = firstSplit[1].split(' ');
+    }
+    else {
+      return 'dark';
+    }
+
+    blobColor = secondSplit[0];
+
+    return blobColor;
+
   }
 
 
-  //  Scroll
-  if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) ) {
-    smoothScrollTo(targetSplit[1], event);
+  function showBlob() {
+
+    showDebugMsg('Show blob');
+
+    var bodyRect = document.body.getBoundingClientRect();
+    var btnBlobRect = btnBlob.getBoundingClientRect();
+    var offsetTop = Math.floor( btnBlobRect.top - bodyRect.top );
+    var offsetLeft = Math.floor( btnBlobRect.left - bodyRect.left );
+
+    var blobColor = getBlobColor( btnBlob );
+
+    showDebugMsg(offsetTop);
+    showDebugMsg(offsetLeft);
+
+    document.body.classList.add( 'js-body--blob-open' );
+
+
+    Velocity(
+      dataBlob,
+      { scale: 1, opacity: [1, 0] },
+      { duration: 400, easing: 'easeInOutQuart', display: 'block',
+        begin: function( elements ) {
+          dataBlob.classList.add('blob-data-wrapper--open');
+          dataBlob.classList.add('top-' + blobColor);
+          dataBlob.innerHTML = dataBlob.getAttribute('data-ns-blob-' + blobColor);
+
+          //  Prepare
+          Velocity.hook( dataBlob, 'scale', '0' );
+          Velocity.hook( dataBlob, 'top', offsetTop + 'px' );
+          Velocity.hook( dataBlob, 'left', offsetLeft + 'px' );
+        }
+      }
+    );
+
   }
 
-  //  Trigger ex check
-  if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) && ( targetSplit[1].indexOf('ex') !== -1 ) ) {
-    toggleEx(targetSplit[1]);
+  function closeBlob() {
+
+    showDebugMsg('Close blob');
+
+    document.body.classList.remove( 'js-body--blob-open' );
+
+    Velocity(
+      dataBlob,
+      { scale: 0, opacity: 0 },
+      { duration: 400, easing: 'easeInOutQuart', display: 'none',
+        complete: function( elements ) {
+          var dataBlob = elements[0];
+
+          dataBlob.classList.remove('top-green');
+          dataBlob.classList.remove('top-orange');
+          dataBlob.classList.remove('top-red');
+          dataBlob.classList.remove('top-dark');
+        }
+      }
+    );
+
   }
 
-  //  Trigger Submenu Toggle
-  if ( target.id === 'js-submenu-toggle' ) {
-    toggleSubmenu();
-
-    category = 'Blog Submenu';
-    action = 'Toggle Blog Submenu';
-  }
-
-
-  //  if it is livecopy, debug
-  if ( window.location.href.split('livecopy').length > 1 ) {
-    window.console.log('Category: ' + category);
-    window.console.log('Action: ' + action);
-    window.console.log('Label: ' + label);
-  }
-
-  try { ga('send', 'event', category, action, label); }
-  catch(err) {};
 
 }
-window.addEventListener('click', trackLinksHandler, false);
+
+
 
 
 
@@ -420,7 +541,9 @@ function isScrolledIntoView(el) {
 
 
 //
-// Spinner on buttons
+//  Spinner on buttons
+//
+//  it should stop spinning after some fixed time and/or on back batton
 //
 function spinHandler(event) {
 
@@ -436,7 +559,7 @@ function spinHandler(event) {
   var eventTarget = event.target,
       dataTarget = eventTarget.getAttribute('data-target');
 
-  //console.log(event);
+  //showDebugMsg(event);
 
   if (dataTarget) {
     spin(eventTarget);
@@ -451,5 +574,91 @@ document.addEventListener("click", spinHandler, false);
 
 
 
+//
+//  Track clicks on links, buttons and body
+//
+function interceptClicks(event) {
+
+  var target;
+  var currentUrlSplit = [];
+  var targetSplit = [];
+
+  //
+  //  How to ignore right button clicks?
+  //
+
+  //
+  //  Clicks anywhere
+  //
+
+  //  if body has blob open class
+  if ( hasClass( document.body, 'js-body--blob-open' ) ) {
+
+    //  close blob
+    toggleBlobData( null );
+  }
 
 
+  //
+  //  Check links and buttons
+  //
+
+  //  Get the target
+  target = getClosest(event.target, 'button');
+
+  //  if target is not a button, try a
+  if ( target === null ) {
+    target = getClosest(event.target, 'a');
+  }
+
+  //  if it is still null, ignore
+  if ( target === null ) {
+    return;
+  }
+
+  //  if it is an anchor, but has no href, ignore
+  if ( ( target.tagName.toLowerCase() === 'a' ) && ( (target.href === undefined) || (target.href === '') ) ) {
+    return;
+  }
+
+
+  //
+  //  Intercept the click
+  //
+
+  //  if target has hrefs, make a split
+  if ( target.tagName.toLowerCase() === 'a' ) {
+    targetSplit = target.href.split('#');
+  }
+
+  //  Get the current URL and split by hash
+  currentUrlSplit = window.location.href.split('#');
+
+
+  //  Scroll
+  if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) ) {
+    smoothScrollTo(targetSplit[1], event);
+  }
+
+  //  Trigger ex check
+  if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) && ( targetSplit[1].indexOf('ex') !== -1 ) ) {
+    toggleEx(targetSplit[1]);
+  }
+
+  //  Trigger Submenu Toggle
+  if ( target.id === 'js-submenu-toggle' ) {
+    toggleSubmenu();
+  }
+
+  //  Trigger Blob toggle
+  if ( hasClass(target, 'btn-blob') ) {
+    toggleBlobData(target);
+  }
+
+
+  //  Send Google Analytics Event
+  sendGaEvent(target);
+
+
+}
+window.addEventListener('click', interceptClicks, false);

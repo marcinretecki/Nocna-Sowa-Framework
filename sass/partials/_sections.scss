@@ -97,11 +97,12 @@
 .section-beige , .beige {color:$font-dark;}
 
 
-.top-green{border-top:0.625rem solid $green;}
-.top-orange{border-top:0.625rem solid $orange;}
-.top-red{border-top:0.625rem solid $red;}
+.top-green{border-top: $space-half solid $green;}
+.top-orange{border-top: $space-half solid $orange;}
+.top-red{border-top: $space-half solid $red;}
+.top-dark{border-top: $space-half solid $dark-btn;}
 
-.rounded{border-radius:3px;overflow:hidden;}
+.rounded{border-radius: 3px; overflow:hidden;}
 
 
 

@@ -40,7 +40,7 @@ q, cite{}
 u { text-decoration-line: underline; text-decoration-style: solid; }
 sup{ font-size: $size-mini; color: $gray; }
 
-ul,ol,p,dl{padding:0;font-size:$size-1;line-height:$line-1;}
+p,ul,ol,dl{padding:0;font-size:$size-1;line-height:$line-1;}
 
 ul{margin:0 0 $space-2 $space;list-style-position:outside;
   @media #{$m770} {

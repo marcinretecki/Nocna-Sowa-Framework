@@ -2,7 +2,19 @@
 // Buttons
 //
 
-
+.btn-reset {
+  position: relative;
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
 .pagination{padding:$space-2 0;}
 .prev,.next{}
