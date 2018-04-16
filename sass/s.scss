@@ -14,68 +14,32 @@ Properties:
 */
 
 
-// Variables
+//  Variables
 @import "partials/variables";
 @import "partials/mixins";
 
-// Reset
+//  Reset
 @import "partials/reset";
 
-// Core
+//  Core
 @import "partials/scaffolding";
 @import "partials/typography";
+@import "partials/images";
 @import "partials/buttons";
 @import "partials/forms";
+
+//  Layout
+@import "partials/layout";
 @import "partials/grids";
 @import "partials/sections";
-@import "partials/navbar";
-@import "partials/footer";
 
-// Utilities
+@import "partials/navbar";
+@import "partials/ex";
+
+//  Utilities
 @import "partials/utilities";
 
 @import "partials/shame";
 
 //  Media
 @import "partials/media";
-
-
-
-
-
-.share{display:inline-block;padding:0 5px 0 24px;border-radius:3px;background:$beige url('/c/i/f_logo_29.png') 4px 4px no-repeat;background-size:16px;text-decoration:none;font:12px/24px $body-font;opacity:0.5;}
-.share:hover,.share:focus{text-decoration:underline;opacity:1;}
-blockquote .share{display:block;position:absolute;top:100%;right:0;margin-top:5px;}
-.figure-quote:hover .share,blockquote:hover .share{opacity:1}
-
-// Legacy quote author
-.author{position:absolute;top:100%;left:0;margin-top:5px}
-
-
-.letter .long{margin:$space-2 $space-6}
-.letter .long:before{content:"";display:none}
-
-.section-entry object,.section-entry iframe{display:block;margin:0 auto $space;}
-
-
-/* IMG */
-img{display:block;max-width:100%;margin:0 auto;padding:0;border:0;-ms-interpolation-mode:bicubic;}
-.section-entry img{display:block;margin-bottom:$space;}
-figure img{margin-bottom:$space-half;}
-img + figcaption{margin:0;padding:0;font-size:$size-0;text-align:center;font-style:italic;}
-.figure-img{position:relative}
-.caption-left{position:absolute;right:100%;top:0;padding-top:$space-half;text-align:right}
-.caption-left:before{position:absolute;top:0;right:$space;width:33%;border-top:1px solid $beige;content:""}
-
-
-
-
-
-
-
-
-
-
-
-
-

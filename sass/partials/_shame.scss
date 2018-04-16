@@ -268,3 +268,27 @@ backface-visibility:hidden;
 .top-red.blob-data-wrapper::after{
   border-bottom-color: $red;
 }
+
+
+
+
+
+
+
+
+
+
+// to check
+.share{display:inline-block;padding:0 5px 0 24px;border-radius:3px;background:$beige url('/c/i/f_logo_29.png') 4px 4px no-repeat;background-size:16px;text-decoration:none;font:12px/24px $body-font;opacity:0.5;}
+.share:hover,.share:focus{text-decoration:underline;opacity:1;}
+blockquote .share{display:block;position:absolute;top:100%;right:0;margin-top:5px;}
+.figure-quote:hover .share,blockquote:hover .share{opacity:1}
+
+// Legacy quote author
+.author{position:absolute;top:100%;left:0;margin-top:5px}
+
+
+.letter .long{margin:$space-2 $space-6}
+.letter .long:before{content:"";display:none}
+
+.section-entry object,.section-entry iframe{display:block;margin:0 auto $space;}
