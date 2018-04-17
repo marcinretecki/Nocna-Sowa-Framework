@@ -1,29 +1,34 @@
 //
-// NorweskaGramatyka.pl
+//  NorweskaGramatyka.pl
 //
 
-// Variables
+//  Variables
 @import "partials/variables";
 @import "partials/mixins";
 
-// Reset
+//  Reset
 @import "partials/reset";
 
-// Core
+//  Core
 @import "partials/scaffolding";
 @import "partials/typography";
+@import "partials/images";
 @import "partials/buttons";
 @import "partials/forms";
+
+//  Layout
+@import "partials/layout";
 @import "partials/grids";
 @import "partials/sections";
-@import "partials/navbar";
-@import "partials/footer";
 
-// Utilities
+@import "partials/navbar";
+@import "partials/ex";
+
+//  Utilities
 @import "partials/utilities";
 
 
-//Media
+//  Media
 @import "partials/media";
 
 

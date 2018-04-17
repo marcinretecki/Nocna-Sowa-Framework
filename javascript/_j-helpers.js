@@ -23,6 +23,37 @@ function hasClass( el, className ) {
 }
 
 
+
+//
+//  Get Blob Color from class name
+//  Return color in variable names we use in scss
+//
+function getBlobColor( btnBlob ) {
+
+  if ( ( typeof btnBlob === 'undefined' ) || ( btnBlob == null ) ) {
+    return false;
+  }
+
+  var firstSplit = btnBlob.className.split('js-btn-blob-');
+  var secondSplit;
+  var blobColor;
+
+  //  if there is color
+  if ( firstSplit.length > 1 ) {
+    secondSplit = firstSplit[1].split(' ');
+  }
+  else {
+    return 'dark';
+  }
+
+  blobColor = secondSplit[0];
+
+  return blobColor;
+
+}
+
+
+
 //
 //  Get closest parent
 //

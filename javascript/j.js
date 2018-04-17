@@ -293,27 +293,6 @@ function toggleBlobData(btnBlob) {
 
 
 
-  function getBlobColor( btnBlob ) {
-
-    var firstSplit = btnBlob.className.split('js-btn-blob-');
-    var secondSplit;
-    var blobColor;
-
-    //  if there is color
-    if ( firstSplit.length > 1 ) {
-      secondSplit = firstSplit[1].split(' ');
-    }
-    else {
-      return 'dark';
-    }
-
-    blobColor = secondSplit[0];
-
-    return blobColor;
-
-  }
-
-
   function showBlob() {
 
     showDebugMsg('Show blob');
@@ -333,7 +312,7 @@ function toggleBlobData(btnBlob) {
 
     Velocity(
       dataBlob,
-      { scale: 1, opacity: [1, 0] },
+      { scale: 1, opacity: [1, 0], },
       { duration: 400, easing: 'easeInOutQuart', display: 'block',
         begin: function( elements ) {
           dataBlob.classList.add('blob-data-wrapper--open');
@@ -344,7 +323,7 @@ function toggleBlobData(btnBlob) {
           Velocity.hook( dataBlob, 'scale', '0' );
           Velocity.hook( dataBlob, 'top', offsetTop + 'px' );
           Velocity.hook( dataBlob, 'left', offsetLeft + 'px' );
-        }
+        },
       }
     );
 
@@ -358,7 +337,7 @@ function toggleBlobData(btnBlob) {
 
     Velocity(
       dataBlob,
-      { scale: 0, opacity: 0 },
+      { scale: 0, opacity: 0, },
       { duration: 400, easing: 'easeInOutQuart', display: 'none',
         complete: function( elements ) {
           var dataBlob = elements[0];
@@ -367,7 +346,7 @@ function toggleBlobData(btnBlob) {
           dataBlob.classList.remove('top-orange');
           dataBlob.classList.remove('top-red');
           dataBlob.classList.remove('top-dark');
-        }
+        },
       }
     );
 
@@ -378,8 +357,68 @@ function toggleBlobData(btnBlob) {
 
 
 
+//
+//  Expand Blob
+//
+function expandBlob( target ) {
 
+  var postWrapper = getClosest(target, '.post-index');
+  var blobExpand;
+  var bodyRect;
+  var blobColor;
+  var btnBlobRect;
+  var offsetTop;
+  var offsetLeft
+  var blobsArr;
+  var btnBlob;
 
+  //  if postWrapper has no post-index
+  if ( postWrapper === null ) {
+    return;
+  }
+
+  showDebugMsg( 'expandBlob' );
+  showDebugMsg( postWrapper );
+
+  //  get HTMLcollection of all btn-blob inside post-index
+  //  should be only one
+  blobsArr = postWrapper.getElementsByClassName( 'btn-blob' );
+  blobExpand = document.getElementById( 'js-blob-expand' );
+
+  //  if no blob or blobExpand was found
+  if ( ( blobsArr.length === 0 ) || ( blobExpand == null ) ) {
+    showDebugMsg( 'sth is wrong in the blob land' );
+    return;
+  }
+
+  btnBlob = blobsArr[0];
+
+  bodyRect = document.body.getBoundingClientRect();
+  btnBlobRect = btnBlob.getBoundingClientRect();
+  offsetTop = Math.floor( btnBlobRect.top - bodyRect.top );
+  offsetLeft = Math.floor( btnBlobRect.left - bodyRect.left );
+  blobColor = getBlobColor( btnBlob );
+
+  showDebugMsg( 'blobColor: ' + blobColor );
+
+  Velocity(
+    blobExpand,
+    { scale: [1, 0], rotateZ: ['180deg', '0deg'] },
+    { duration: 800, easing: 'easeInOutQuart',
+      begin: function( elements ) {
+        blobExpand.classList.add('blob-expand--' + blobColor);
+
+        //  Prepare
+        Velocity.hook( blobExpand, 'display', 'block' );
+        Velocity.hook( blobExpand, 'top', offsetTop + 'px' );
+        Velocity.hook( blobExpand, 'left', offsetLeft + 'px' );
+        Velocity.hook( blobExpand, 'translateX', '-50%' );
+        Velocity.hook( blobExpand, 'translateY', '-50%' );
+      },
+    }
+  );
+
+}
 
 
 
@@ -629,6 +668,7 @@ function interceptClicks(event) {
   //  if target has hrefs, make a split
   if ( target.tagName.toLowerCase() === 'a' ) {
     targetSplit = target.href.split('#');
+    showDebugMsg( targetSplit );
   }
 
   //  Get the current URL and split by hash
@@ -638,6 +678,11 @@ function interceptClicks(event) {
   //  Scroll
   if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) ) {
     smoothScrollTo(targetSplit[1], event);
+  }
+
+  //  this is our page
+  if ( ( targetSplit.length > 0 ) && ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) ) {
+    expandBlob(target);
   }
 
   //  Trigger ex check

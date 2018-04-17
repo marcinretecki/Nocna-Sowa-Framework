@@ -271,10 +271,29 @@ backface-visibility:hidden;
 
 
 
-
-
-
-
+.blob-expand {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1400px;
+  height: 1200px;
+  transform: scale(0);
+  will-change: transform;
+  z-index: -1;
+}
+.blob-expand__path {
+  fill: $dark-btn;
+}
+.blob-expand--green .blob-expand__path {
+  fill: $green;
+}
+.blob-expand--orange .blob-expand__path {
+  fill: $orange;
+}
+.blob-expand--red .blob-expand__path {
+  fill: $red;
+}
 
 
 
