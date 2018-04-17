@@ -1,1 +1,0 @@
-<script src="/c/j-zmien-bieg-wydarzen-min.js"></script>
