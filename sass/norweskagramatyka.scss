@@ -1,12 +1,12 @@
 //
-//  NorweskaGramatyka.pl
+// NorweskaGramatyka.pl
 //
 
-//  Variables
+// Variables
 @import "partials/variables";
 @import "partials/mixins";
 
-//  Reset
+// Reset
 @import "partials/reset";
 
 //  Core
@@ -27,8 +27,10 @@
 //  Utilities
 @import "partials/utilities";
 
+@import "partials/shame";
 
-//  Media
+
+//Media
 @import "partials/media";
 
 
