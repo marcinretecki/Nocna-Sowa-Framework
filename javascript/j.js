@@ -363,14 +363,11 @@ function toggleBlobData(btnBlob) {
 function expandBlob( target ) {
 
   var postWrapper = getClosest(target, '.post-index');
-  var blobExpand;
-  var bodyRect;
   var blobColor;
-  var btnBlobRect;
-  var offsetTop;
-  var offsetLeft
   var blobsArr;
-  var btnBlob;
+  var btnBlob
+  var blob;
+  var blobRotate;
 
   //  if postWrapper has no post-index
   if ( postWrapper === null ) {
@@ -392,28 +389,20 @@ function expandBlob( target ) {
   }
 
   btnBlob = blobsArr[0];
-
-  bodyRect = document.body.getBoundingClientRect();
-  btnBlobRect = btnBlob.getBoundingClientRect();
-  offsetTop = Math.floor( btnBlobRect.top - bodyRect.top );
-  offsetLeft = Math.floor( btnBlobRect.left - bodyRect.left );
-  blobColor = getBlobColor( btnBlob );
+  blob = btnBlob.firstChild;
 
   showDebugMsg( 'blobColor: ' + blobColor );
 
-  Velocity(
-    blobExpand,
-    { scale: [1, 0], rotateZ: ['180deg', '0deg'] },
-    { duration: 800, easing: 'easeInOutQuart',
-      begin: function( elements ) {
-        blobExpand.classList.add('blob-expand--' + blobColor);
+  showDebugMsg( 'hook rotate: ' + blob.style.transform );
 
+  blobRotate =  0;
+
+  Velocity(
+    blob,
+    { scale: [4, 1], rotateZ: '180deg', opacity: [0.5, 1] },
+    { duration: 800, easing: [0.3, 0, 0.175, 1],
+      begin: function( elements ) {
         //  Prepare
-        Velocity.hook( blobExpand, 'display', 'block' );
-        Velocity.hook( blobExpand, 'top', offsetTop + 'px' );
-        Velocity.hook( blobExpand, 'left', offsetLeft + 'px' );
-        Velocity.hook( blobExpand, 'translateX', '-50%' );
-        Velocity.hook( blobExpand, 'translateY', '-50%' );
       },
     }
   );
