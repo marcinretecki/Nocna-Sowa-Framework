@@ -56,20 +56,20 @@
 
 
 //
-//  Aside column (used for asides)
+//  Narrow column (used for asides)
 //
-.aside-column {
+.narrow-column {
   width: 13 * $space;
   max-width: 50%;
   padding-left: $space;
 }
-.aside-column--left {
+.narrow-column--left {
   float: left;
   margin-right: $space;
   margin-bottom: $space;
 }
 
-.aside-column--right {
+.narrow-column--left {
   float: right;
   margin-left: $space;
   margin-bottom: $space;

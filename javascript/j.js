@@ -358,60 +358,6 @@ function toggleBlobData(btnBlob) {
 
 
 //
-//  Expand Blob
-//
-function expandBlob( target ) {
-
-  var postWrapper = getClosest(target, '.post-index');
-  var blobColor;
-  var blobsArr;
-  var btnBlob
-  var blob;
-  var blobRotate;
-
-  //  if postWrapper has no post-index
-  if ( postWrapper === null ) {
-    return;
-  }
-
-  showDebugMsg( 'expandBlob' );
-  showDebugMsg( postWrapper );
-
-  //  get HTMLcollection of all btn-blob inside post-index
-  //  should be only one
-  blobsArr = postWrapper.getElementsByClassName( 'btn-blob' );
-  blobExpand = document.getElementById( 'js-blob-expand' );
-
-  //  if no blob or blobExpand was found
-  if ( ( blobsArr.length === 0 ) || ( blobExpand == null ) ) {
-    showDebugMsg( 'sth is wrong in the blob land' );
-    return;
-  }
-
-  btnBlob = blobsArr[0];
-  blob = btnBlob.firstChild;
-
-  showDebugMsg( 'blobColor: ' + blobColor );
-
-  showDebugMsg( 'hook rotate: ' + blob.style.transform );
-
-  blobRotate =  0;
-
-  Velocity(
-    blob,
-    { scale: [4, 1], rotateZ: '180deg', opacity: [0.5, 1] },
-    { duration: 800, easing: [0.3, 0, 0.175, 1],
-      begin: function( elements ) {
-        //  Prepare
-      },
-    }
-  );
-
-}
-
-
-
-//
 //  Section Toggle
 //
 function sectionToggle(s, addClassName, overflow){
@@ -667,11 +613,6 @@ function interceptClicks(event) {
   //  Scroll
   if ( ( targetSplit.length > 1 ) && ( currentUrlSplit[0] === targetSplit[0] ) ) {
     smoothScrollTo(targetSplit[1], event);
-  }
-
-  //  this is our page
-  if ( ( targetSplit.length > 0 ) && ( targetSplit[0].indexOf('nocnasowa.pl/') != '-1' ) ) {
-    expandBlob(target);
   }
 
   //  Trigger ex check

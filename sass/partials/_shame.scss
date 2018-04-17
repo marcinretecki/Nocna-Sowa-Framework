@@ -260,31 +260,6 @@ backface-visibility:hidden;
 
 
 
-.blob-expand {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1400px;
-  height: 1200px;
-  transform: scale(0);
-  will-change: transform;
-  z-index: -1;
-}
-.blob-expand__path {
-  fill: $dark-btn;
-}
-.blob-expand--green .blob-expand__path {
-  fill: $green;
-}
-.blob-expand--orange .blob-expand__path {
-  fill: $orange;
-}
-.blob-expand--red .blob-expand__path {
-  fill: $red;
-}
-
-
 
 // to check
 .share{display:inline-block;padding:0 5px 0 24px;border-radius:3px;background:$beige url('/c/i/f_logo_29.png') 4px 4px no-repeat;background-size:16px;text-decoration:none;font:12px/24px $body-font;opacity:0.5;}
