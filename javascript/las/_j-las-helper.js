@@ -670,6 +670,9 @@ function LasHelper() {
     var bubbleArrayL = bubbleArray.length;
     var subArray;
     var newString;
+    var cmdArray;
+    var cmdNo;
+    var cmdString;
     var i;
 
 
@@ -689,25 +692,45 @@ function LasHelper() {
       if ( 1 < subArray.length ) {
 
         //  check if it is emoji
-        if ( bubbleArray[i].indexOf('emoji') !== -1 ) {
+        if ( subArray[0].indexOf('emoji') !== -1 ) {
 
           //  replace this part with svg
           subArray[0] = '<svg class="emojione-svg emojione-svg--text"><use xlink:href="/las/c/i/emojione.sprites.svg#' + subArray[0] + '"></use></svg>';
 
         }
         //  check if it is fill-space
-        else if ( bubbleArray[i].indexOf('fill-space') !== -1 ) {
+        else if ( subArray[0].indexOf('fill-space') !== -1 ) {
 
           //  replace with u element
           subArray[0] = '<u class="fill-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>';
 
         }
+        //  check if it is a command (used in terminal)
+        else if ( subArray[0].indexOf('cmd') !== -1 ) {
+
+          cmdArray = subArray[0].split('|');
+
+          //  check if command has everything
+          if ( 3 === cmdArray.length ) {
+
+            cmdNo = cmdArray[1];
+            cmdString = cmdArray[2];
+
+            subArray[0] = '<span class="terminal-chat-answer" id="cmd-' + cmdNo + '">' + cmdString + '</span>' + ' ';
+
+          }
+
+        }
+
+        //  join back subArray
+        bubbleArray[i] = subArray.join('');
 
       }
+      else {
+        //  join back subArray
+        bubbleArray[i] = subArray.join('#');
+      }
 
-
-      //  join back subArray
-      bubbleArray[i] = subArray.join('');
 
     }
 

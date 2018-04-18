@@ -20,7 +20,9 @@ function LasChat() {
   //  Elements
   //
   las.wrapper =               document.getElementById('chat-bot');
-  las.chatFlow =              null;
+  las.chatWrapper =           document.getElementById('chat-wrapper');
+  las.chatWindow =            document.getElementById('chat-window');
+  las.chatFlow =              document.getElementById('chat-flow');
   las.answersWrapper =        null;
   las.answerElements =        [];
   las.currentBubble =         null;
@@ -100,20 +102,12 @@ function LasChat() {
   };
 
 
+  //
+  //  Create Chat
+  //
   las.createChat = function() {
-    var chatWrapper = document.createElement('div');
-    var chatWindow = document.createElement('div');
-    var chatFlow = document.createElement('ul');
     var answersWrapper = document.createElement('li');
     var answerElements = [];
-
-    chatWrapper.className = 'chat-wrapper';
-    chatWrapper.setAttribute('role', 'main');
-    chatWindow.className = 'section-content chat-window';
-    chatFlow.className = 'main-column main-column--back chat-flow nodots group';
-
-    chatWindow.appendChild(chatFlow);
-    chatWrapper.appendChild(chatWindow);
 
     answersWrapper.className = 'chat-answers';
     answersWrapper.id = 'chat-answers';
@@ -137,12 +131,9 @@ function LasChat() {
     answersWrapper.appendChild(answerElements[1]);
     answersWrapper.appendChild(answerElements[2]);
     answersWrapper.appendChild(answerElements[3]);
-    chatFlow.appendChild(answersWrapper);
-    this.wrapper.appendChild(chatWrapper);
+    this.chatFlow.appendChild(answersWrapper);
 
     // Assign
-    this.chatFlow = chatFlow;
-    this.chatWindow = chatWindow;
     this.answersWrapper = answersWrapper;
     this.answerElements[0] = answerElements[0];
     this.answerElements[1] = answerElements[1];

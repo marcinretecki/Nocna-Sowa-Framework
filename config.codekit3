@@ -7,7 +7,7 @@
 		"uuidString": "5E0C8142-B278-40C2-A052-5B80A4F7EF50"
 		}
 	],
-"creatorBuild": "26330",
+"creatorBuild": "26680",
 "files": {
 	"\/.gitignore": {
 		"cB": 0,
@@ -25,6 +25,16 @@
 		"oAP": "\/_images-min.css",
 		"oF": 0,
 		"oS": 3
+		},
+	"\/javascript\/_j-debug.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/_j-debug-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
 		},
 	"\/javascript\/_j-helpers.js": {
 		"ft": 64,
@@ -580,7 +590,7 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/sass\/partials\/_footer.scss": {
+	"\/sass\/partials\/_ex.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -588,7 +598,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_footer.css",
+		"oAP": "\/livecopy\/c\/_ex.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -629,6 +639,19 @@
 		"oA": 1,
 		"oAP": "\/_images.css",
 		"oF": 1,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/sass\/partials\/_layout.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/livecopy\/c\/_layout.css",
+		"oF": 0,
 		"oS": 3,
 		"uL": 1
 		},
@@ -810,7 +833,8 @@
 	"creationDate": 506294353,
 	"displayValue": "Nocna Sowa - Framework",
 	"displayValueWasSetByUser": 1,
-	"iconImageName": "brackets_gray"
+	"iconImageName": "brackets_gray",
+	"iconImageWasSetByUser": 0
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2613,6 +2637,7 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
+		"outputFormat": 0,
 		"quality": 100
 		},
 	"languageDefaultsJS": {
