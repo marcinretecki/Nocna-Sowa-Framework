@@ -56,10 +56,15 @@ input.btn {
   color: $font-dark;
 }
 
-.btn-beige-outline,.btn-beige-outline:visited{border-color:$beige;color:$beige;background:transparent;}
+.btn-beige-outline,
+.btn-beige-outline:visited{border-color:$beige;color:$beige;background:transparent;}
 
-.btn-beige:focus,.btn-beige:hover,.btn-beige-outline:focus,.btn-beige-outline:hover,
-.pagination a:focus,.pagination a:hover{background-color:$beige-hover;color:$font-dark;}
+.btn-beige:focus,
+.btn-beige:hover,
+.btn-beige-outline:focus,
+.btn-beige-outline:hover,
+.pagination a:focus,
+.pagination a:hover{background-color:$beige-hover;color:$font-dark;}
 
 
 // Green
