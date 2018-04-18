@@ -1,0 +1,107 @@
+//
+//  NAVBAR scss
+//
+
+.header-top--las {
+  @include shadow-2;
+}
+
+
+.navbar-logo--las {
+  background: transparent url("/las/c/i/icon_feather.png") no-repeat scroll center center / auto 100%;
+  text-indent: -9999px;
+}
+
+
+.las-nav-char__img {
+  position:relative;
+  float:left;
+  width: $space-2;
+  height: $space;
+}
+
+.las-nav-char__img-i {
+  display:block;
+  position:absolute;
+  left:0;
+  top:-0.25rem;
+  width:1.5rem;
+  height:1.5rem;
+  border:0;
+  border-radius:50%;
+  overflow:hidden;
+  //  docelowo będzie 1.5rem 1.5rem
+  background-size:2rem 2rem;
+  background-position: center center;
+}
+
+.las-nav-char-extra {
+  position: absolute;
+  right: $space-2;
+  top: $space-2;
+  z-index: -1;
+
+  display: none;
+  width: $space-2;
+  //  instead of height for vertical aling
+  line-height: $space-2;
+  opacity: 0;
+  border-radius: 0 0 3px 3px;
+
+  background: rgba( $beige, 0.9 );
+
+  text-align: center;
+
+  box-shadow: inset 0 $space-half $space-half (-$space-half) rgba(0, 0, 0, 0.25), 0 0 $space-quarter rgba(0, 0, 0, 0.25);
+}
+
+
+.las-nav-char-log {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: $space-2;
+  z-index: -1;
+
+  display: none;
+  padding: $space;
+  opacity: 0;
+  border-radius: 0 0 3px 3px;
+
+  background: $dark;
+
+  color: $white;
+  font-size: $size-0;
+  line-height: $line-0;
+
+  box-shadow: 0 0 $space-half rgba(0, 0, 0, 0.25);
+
+}
+
+// for testing only
+.las-nav-char-log--visible {
+  display: block;
+  opacity: 1;
+}
+
+.las-nav-char-exp {
+  @include font-bariol-reg;
+
+  position: absolute;
+  left: $space;
+  top: $space-2;
+  z-index: -1;
+
+  display: none;
+  width:1.5rem;
+  //  instead of height for vertical aling
+  line-height: 1.5rem;
+  border-radius: 50%;
+
+  font-size: $size-0;
+  text-align: center;
+
+
+
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.25);
+}
