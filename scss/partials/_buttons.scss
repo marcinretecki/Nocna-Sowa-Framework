@@ -17,8 +17,10 @@
   appearance: none;
 }
 
-.pagination{padding:$space-2 0;}
-.prev,.next{}
+.pagination {
+  padding:$space-2 0;
+}
+.prev, .next {}
 
 .btn,
 .pagination a,
