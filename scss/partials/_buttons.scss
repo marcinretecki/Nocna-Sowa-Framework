@@ -48,8 +48,13 @@ input.btn {
 //
 
 // Beige and post pagination
-.btn-beige,.btn-beige:visited,
-.pagination a,.pagination a:visited{background-color:$beige;color:$font-dark;}
+.btn-beige,
+.btn-beige:visited,
+.pagination a,
+.pagination a:visited {
+  background-color: $beige;
+  color: $font-dark;
+}
 
 .btn-beige-outline,.btn-beige-outline:visited{border-color:$beige;color:$beige;background:transparent;}
 
