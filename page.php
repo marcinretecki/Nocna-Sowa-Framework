@@ -134,16 +134,22 @@ function las_course_router() {
         include( stream_resolve_include_path( __DIR__ . '/includes/chat.php' ) );
 
       }
-      elseif ( has_category( 'wyzwanie-quiz' ) ) {
-        //  Quiz
-
-        include( stream_resolve_include_path( __DIR__ . '/includes/quiz.php' ) );
-
-      }
       elseif ( has_category( 'wyzwanie-setninger') ) {
         //  Setninger
 
         include( stream_resolve_include_path( __DIR__ . '/includes/setninger.php' ) );
+
+      }
+      elseif ( has_category( 'wyzwanie-wordquiz') ) {
+        //  Setninger
+
+        include( stream_resolve_include_path( __DIR__ . '/includes/word-quiz.php' ) );
+
+      }
+      elseif ( has_category( 'wyzwanie-terminal') ) {
+        //  Setninger
+
+        include( stream_resolve_include_path( __DIR__ . '/includes/terminal.php' ) );
 
       }
 

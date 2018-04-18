@@ -41,7 +41,7 @@ function LasData() {
       ]
     },
     _aa2: {
-      msg:        '<i>Hvorfor står denne tigeren foran Oslo S?</i>',
+      msg:        '<i>Hvorfor står <span class="mark mark--green">denne</span> tigeren foran Oslo S?</i>',
       trans:      'Dlaczego ten tygrys stoi przed Oslo S?',
       startTime:  0,
       duration:   1.5,
@@ -59,7 +59,7 @@ function LasData() {
       ]
     },
     _ab2: {
-      msg:        '<i>Disse jentene spiser her hver dag.</i>',
+      msg:        '<i><span class="mark mark--green">Disse</span> jentene spiser her hver dag.</i>',
       trans:      'Te dziewczyny jedzą tu codziennie.',
       startTime:  3,
       duration:   1.5,
@@ -77,7 +77,7 @@ function LasData() {
       ]
     },
     _ac2: {
-      msg:        '<i>Dette huset er ikke til salgs.</i>',
+      msg:        '<i><span class="mark mark--green">Dette</span> huset er ikke til salgs.</i>',
       trans:      'Ten dom nie jest na sprzedaż.',
       startTime:  3,
       duration:   1.5,
@@ -95,7 +95,7 @@ function LasData() {
       ]
     },
     _ad2: {
-      msg:        '<i>Dette krydderet kommer fra Bangladesh.</i>',
+      msg:        '<i><span class="mark mark--green">Dette</span> krydderet kommer fra Bangladesh.</i>',
       trans:      'Ta przyprawa pochodzi z Bangladeszu.',
       startTime:  3,
       duration:   1.5,
@@ -113,7 +113,7 @@ function LasData() {
       ]
     },
     _ae2: {
-      msg:        '<i>Denne roboten kan snakke med deg.</i>',
+      msg:        '<i><span class="mark mark--green">Denne</span> roboten kan snakke med deg.</i>',
       trans:      'Ten robot może rozmawiać z Tobą.',
       startTime:  3,
       duration:   1.5,
@@ -131,7 +131,7 @@ function LasData() {
       ]
     },
     _af2: {
-      msg:        '<i>Det er ikke mulig å åpne disse vinduene.</i>',
+      msg:        '<i>Det er ikke mulig å åpne <span class="mark mark--green">disse</span> vinduene.</i>',
       trans:      'Nie jest możliwe otworzenie tych okien.',
       startTime:  3,
       duration:   1.5,
@@ -149,7 +149,7 @@ function LasData() {
       ]
     },
     _ag2: {
-      msg:        '<i>Denne vaskemaskinen virker ikke.</i>',
+      msg:        '<i><span class="mark mark--green">Denne</span> vaskemaskinen virker ikke.</i>',
       trans:      'Ta pralka nie działa.',
       startTime:  3,
       duration:   1.5,
@@ -167,7 +167,7 @@ function LasData() {
       ]
     },
     _ah2: {
-      msg:        '<i>Denne dagen kan være pen.</i>',
+      msg:        '<i><span class="mark mark--green">Denne</span> dagen kan være pen.</i>',
       trans:      'Ten dzień może być piękny.',
       startTime:  3,
       duration:   1.5,
@@ -185,7 +185,7 @@ function LasData() {
       ]
     },
     _ai2: {
-      msg:        '<i>Denne krigen kan ikke avsluttes.</i>',
+      msg:        '<i><span class="mark mark--green">Denne</span> krigen kan ikke avsluttes.</i>',
       trans:      'Ta wojna nie może się skończyć.',
       startTime:  3,
       duration:   1.5,
@@ -203,7 +203,7 @@ function LasData() {
       ]
     },
     _aj2: {
-      msg:        '<i>Denne mannen vil ikke slutte å røyke.</i>',
+      msg:        '<i><span class="mark mark--green">Denne</span> mannen vil ikke slutte å røyke.</i>',
       trans:      'Ten mężczyzna nie chce rzucić palenia.',
       startTime:  3,
       duration:   1.5,
@@ -221,7 +221,7 @@ function LasData() {
       ]
     },
     _ak2: {
-      msg:        '<i>Disse lysene er veldig sterke.</i>',
+      msg:        '<i><span class="mark mark--green">Disse</span> lysene er veldig sterke.</i>',
       trans:      'Te światła są bardzo silne.',
       startTime:  3,
       duration:   1.5,
@@ -239,7 +239,7 @@ function LasData() {
       ]
     },
     _al2: {
-      msg:        '<i>Dette flyet flyr til Dubai.</i>',
+      msg:        '<i><span class="mark mark--green">Dette</span> flyet flyr til Dubai.</i>',
       trans:      'Ten samolot leci do Dubaju.',
       startTime:  3,
       duration:   1.5,
@@ -257,7 +257,7 @@ function LasData() {
       ]
     },
     _am2: {
-      msg:        '<i>Det er morsomt på dette kurset.</i>',
+      msg:        '<i>Det er morsomt på <span class="mark mark--green">dette</span> kurset.</i>',
       trans:      'Jest wesoło na tym kursie.',
       startTime:  3,
       duration:   1.5,
@@ -275,7 +275,7 @@ function LasData() {
       ]
     },
     _an2: {
-      msg:        '<i>Det er koselig på denne hytta.</i>',
+      msg:        '<i>Det er koselig på <span class="mark mark--green">denne</span> hytta.</i>',
       trans:      'Jest przytulnie w tej chatce.',
       startTime:  3,
       duration:   1.5,
@@ -293,7 +293,7 @@ function LasData() {
       ]
     },
     _ao2: {
-      msg:        '<i>Disse bussene er veldig raske.</i>',
+      msg:        '<i><span class="mark mark--green">Disse</span> bussene er veldig raske.</i>',
       trans:      'Te autobusy są bardzo szybkie.',
       startTime:  3,
       duration:   1.5,
@@ -311,7 +311,7 @@ function LasData() {
       ]
     },
     _ap2: {
-      msg:        '<i>Disse gummistøvlene er våte inne.</i>',
+      msg:        '<i><span class="mark mark--green">Disse</span> gummistøvlene er våte inne.</i>',
       trans:      'Te kalosze są mokre w środku.',
       startTime:  3,
       duration:   1.5,
@@ -329,7 +329,7 @@ function LasData() {
       ]
     },
     _ba2: {
-      msg:        '<i>Hvorfor ringer denne kvinna fra Aftenposten til oss?</i>',
+      msg:        '<i>Hvorfor ringer <span class="mark mark--green">denne</span> kvinna fra Aftenposten til oss?</i>',
       trans:      'Dlaczego dzwoni ta kobieta z Aftenposten do nas?',
       startTime:  3,
       duration:   1.5,
@@ -347,7 +347,7 @@ function LasData() {
       ]
     },
     _bb2: {
-      msg:        '<i>Hvor kan jeg legge disse pakkene?</i>',
+      msg:        '<i>Hvor kan jeg legge <span class="mark mark--green">disse</span> pakkene?</i>',
       trans:      'Gdzie mogę położyć te paczki?',
       startTime:  3,
       duration:   1.5,
@@ -365,7 +365,7 @@ function LasData() {
       ]
     },
     _bc2: {
-      msg:        '<i>Hvem er sjefen for dette firmaet?</i>',
+      msg:        '<i>Hvem er sjefen for <span class="mark mark--green">dette</span> firmaet?</i>',
       trans:      'Gdzie jest szef tej firmy?',
       startTime:  3,
       duration:   1.5,
@@ -383,7 +383,7 @@ function LasData() {
       ]
     },
     _bd2: {
-      msg:        '<i>Hva gjør denne hunden her?</i>',
+      msg:        '<i>Hva gjør <span class="mark mark--green">denne</span> hunden her?</i>',
       trans:      'Co robi ten pies tutaj?',
       startTime:  3,
       duration:   1.5,

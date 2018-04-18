@@ -171,10 +171,12 @@ include( 'includes/head.php' );
                   echo 'Nie ma wyzwania.';
 
                 }
-                elseif (   !has_category('wyzwanie-audio')
-                        && !has_category('wyzwanie-chat')
-                        && !has_category('wyzwanie-liczby')
-                        && !has_category('wyzwanie-setninger') ) {
+                elseif ( !has_category('wyzwanie-audio') &&
+                         !has_category('wyzwanie-chat') &&
+                         !has_category('wyzwanie-wordquiz') &&
+                         !has_category('wyzwanie-terminal') &&
+                         !has_category('wyzwanie-liczby') &&
+                         !has_category('wyzwanie-setninger') ) {
 
                   echo $red_light;
                   echo 'Nie wybrałeś wyzwania!';

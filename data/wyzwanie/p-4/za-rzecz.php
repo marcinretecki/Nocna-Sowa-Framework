@@ -35,7 +35,7 @@ function LasData() {
       ]
     },
     _aa2: {
-      msg:        '<i>Harald bor på slottet.<br />Det ligger i Oslo sentrum.</i>',
+      msg:        '<i>Harald bor på slottet.<br /><span class="mark mark--green">Det</span> ligger i Oslo sentrum.</i>',
       trans:      'Harald mieszka w pałacu.<br />On leży w centrum Oslo.',
       startTime:  0,
       duration:   1.5,
@@ -53,7 +53,7 @@ function LasData() {
       ]
     },
     _ab2: {
-      msg:        '<i>Arnold trener i skogen.<br />Den er stor og grønn.</i>',
+      msg:        '<i>Arnold trener i skogen.<br /><span class="mark mark--green">Den</span> er stor og grønn.</i>',
       trans:      'Arnold trenuje w lesie.<br />On jest duży i zielony.',
       startTime:  3,
       duration:   1.5,
@@ -71,7 +71,7 @@ function LasData() {
       ]
     },
     _ac2: {
-      msg:        '<i>Jeg har ikke briller her.<br />De er hjemme.</i>',
+      msg:        '<i>Jeg har ikke briller her.<br /><span class="mark mark--green">De</span> er hjemme.</i>',
       trans:      'Nie mam tu okularów.<br />One są w domu.',
       startTime:  3,
       duration:   1.5,
@@ -89,7 +89,7 @@ function LasData() {
       ]
     },
     _ad2: {
-      msg:        '<i>Adam vanner blomstene hver dag.<br />De som er i botanisk hage.</i>',
+      msg:        '<i>Adam vanner blomstene hver dag.<br /><span class="mark mark--green">De</span> som er i botanisk hage.</i>',
       trans:      'Adam podlewa kwiaty codziennie.<br />Te, które są w ogrodzie botanicznym.',
       startTime:  3,
       duration:   1.5,
@@ -107,7 +107,7 @@ function LasData() {
       ]
     },
     _ae2: {
-      msg:        '<i>Mobilen til bestemora ringer hver time.<br />Den er veldig høy.</i>',
+      msg:        '<i>Mobilen til bestemora ringer hver time.<br /><span class="mark mark--green">Den</span> er veldig høy.</i>',
       trans:      'Babci telefon dzwoni co godzinę. <br />On jest bardzo głośny.',
       startTime:  3,
       duration:   1.5,
@@ -125,7 +125,7 @@ function LasData() {
       ]
     },
     _af2: {
-      msg:        '<i>Marius strikker ei lue.<br />Den er rød, blå og hvit.</i>',
+      msg:        '<i>Marius strikker ei lue.<br /><span class="mark mark--green">Den</span> er rød, blå og hvit.</i>',
       trans:      'Marius robi na drutach czapkę. <br />Ona jest czerwona, niebieska i biała.',
       startTime:  3,
       duration:   1.5,
@@ -143,7 +143,7 @@ function LasData() {
       ]
     },
     _ag2: {
-      msg:        '<i>Armstrong kjøper en ny sykkel.<br />Den er dyr.</i>',
+      msg:        '<i>Armstrong kjøper en ny sykkel.<br /><span class="mark mark--green">Den</span> er dyr.</i>',
       trans:      'Armstrong kupuje nowy rower. <br />On jest drogi.',
       startTime:  3,
       duration:   1.5,
@@ -161,7 +161,7 @@ function LasData() {
       ]
     },
     _ah2: {
-      msg:        '<i>Det er mange biler i byen.<br />De er på alle steder.</i>',
+      msg:        '<i>Det er mange biler i byen.<br /><span class="mark mark--green">De</span> er på alle steder.</i>',
       trans:      'Jest dużo samochodów w mieście. <br />One są wszędzie.',
       startTime:  3,
       duration:   1.5,
@@ -179,7 +179,7 @@ function LasData() {
       ]
     },
     _ai2: {
-      msg:        '<i>Klara klarer ikke prøven.<br />Den er vanskelig.</i>',
+      msg:        '<i>Klara klarer ikke prøven.<br /><span class="mark mark--green">Den</span> er vanskelig.</i>',
       trans:      'Klara nie zalicza sprawdzianu. <br />On jest trudny.',
       startTime:  3,
       duration:   1.5,
@@ -197,7 +197,7 @@ function LasData() {
       ]
     },
     _aj2: {
-      msg:        '<i>Trollene sier at treet er gammelt.<br />Det er høyest i hele skogen.</i>',
+      msg:        '<i>Trollene sier at treet er gammelt.<br /><span class="mark mark--green">Det</span> er høyest i hele skogen.</i>',
       trans:      'Trole mówią, że drzewo jest stare. <br />Ono jest najwyższe w całym lesie.',
       startTime:  3,
       duration:   1.5,
@@ -215,7 +215,7 @@ function LasData() {
       ]
     },
     _ak2: {
-      msg:        '<i>Mennesker går på Opera-taket.<br />Det er hvitt.</i>',
+      msg:        '<i>Mennesker går på Opera-taket.<br /><span class="mark mark--green">Det</span> er hvitt.</i>',
       trans:      'Ludzie idą na dach Opery. <br />On jest biały.',
       startTime:  3,
       duration:   1.5,
@@ -233,7 +233,7 @@ function LasData() {
       ]
     },
     _al2: {
-      msg:        '<i>Madonna velger sko.<br />De er svarte.</i>',
+      msg:        '<i>Madonna velger sko.<br /><span class="mark mark--green">De</span> er svarte.</i>',
       trans:      'Madonna wybiera buty. <br />One są czarne.',
       startTime:  3,
       duration:   1.5,
@@ -251,7 +251,7 @@ function LasData() {
       ]
     },
     _am2: {
-      msg:        '<i>Flyet venter på passasjerer.<br />Det er tomt.</i>',
+      msg:        '<i>Flyet venter på passasjerer.<br /><span class="mark mark--green">Det</span> er tomt.</i>',
       trans:      'Samolot czeka na pasażerów. <br />Jest pusty.',
       startTime:  3,
       duration:   1.5,
@@ -269,7 +269,7 @@ function LasData() {
       ]
     },
     _ba2: {
-      msg:        '<i>Er rommet ferdig?<br />Ja, det er ferdig.</i>',
+      msg:        '<i>Er rommet ferdig?<br />Ja, <span class="mark mark--green">det</span> er ferdig.</i>',
       trans:      'Czy pokój jest gotowy?<br />Tak, on jest gotowy.',
       startTime:  3,
       duration:   1.5,
@@ -287,7 +287,7 @@ function LasData() {
       ]
     },
     _bb2: {
-      msg:        '<i>Er toalettet ledig?<br />Er det ledig?</i>',
+      msg:        '<i>Er toalettet ledig?<br />Er <span class="mark mark--green">det</span> ledig?</i>',
       trans:      'Czy łazienka jest wolna?<br />Czy ona jest wolna?',
       startTime:  3,
       duration:   1.5,
@@ -305,7 +305,7 @@ function LasData() {
       ]
     },
     _bc2: {
-      msg:        '<i>Hvor kan jeg kjøpe en billett?<br />Du kan kjøpe den i kiosken.</i>',
+      msg:        '<i>Hvor kan jeg kjøpe en billett?<br />Du kan kjøpe <span class="mark mark--green">den</span> i kiosken.</i>',
       trans:      'Gdzie mogę kupić bilet? <br />Możesz go kupić w kiosku.',
       startTime:  3,
       duration:   1.5,
@@ -323,7 +323,7 @@ function LasData() {
       ]
     },
     _bd2: {
-      msg:        '<i>Hvor er nøklene? <br />Hvor er de?</i>',
+      msg:        '<i>Hvor er nøklene? <br />Hvor er <span class="mark mark--green">de</span>?</i>',
       trans:      'Gdzie są klucze?<br />Gdzie one są?',
       startTime:  3,
       duration:   1.5,
@@ -341,7 +341,7 @@ function LasData() {
       ]
     },
     _ca2: {
-      msg:        '<i>Er kassa åpen? <br />Er den åpen?</i>',
+      msg:        '<i>Er kassa åpen? <br />Er <span class="mark mark--green">den</span> åpen?</i>',
       trans:      'Czy kasa jest otwarta?<br/>Czy ona jest otwarta?',
       startTime:  3,
       duration:   1.5,
@@ -359,7 +359,7 @@ function LasData() {
       ]
     },
     _cb2: {
-      msg:        '<i>Er butikken stengt? <br />Ja, den er stengt.</i>',
+      msg:        '<i>Er butikken stengt? <br />Ja, <span class="mark mark--green">den</span> er stengt.</i>',
       trans:      'Czy sklep jest zamknięty?<br />Tak, on jest zamknięty.',
       startTime:  3,
       duration:   1.5,
@@ -377,7 +377,7 @@ function LasData() {
       ]
     },
     _cc2: {
-      msg:        '<i>Er toget komfortabelt?<br />Ja, det er komfortabelt og stille.</i>',
+      msg:        '<i>Er toget komfortabelt?<br />Ja, <span class="mark mark--green">det</span> er komfortabelt og stille.</i>',
       trans:      'Czy pociąg jest wygodny?<br />Tak, on jest wygodny.',
       startTime:  3,
       duration:   1.5,

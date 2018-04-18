@@ -293,8 +293,8 @@ function LasData() {
         'Wiesz jak jest pytać albo prosić w bezokoliczniku?'
       ],
       answers: [
-        { answer: '<i>å spør</i>', next: '_af2', score: 'correct' },
-        { answer: '<i>å spørre</i>', next: '_af1b', score: 'wrong' }
+        { answer: '<i>å spørre</i>', next: '_af2', score: 'correct' },
+        { answer: '<i>å spør</i>', next: '_af1b', score: 'wrong' }
       ]
 
     },
@@ -303,7 +303,7 @@ function LasData() {
         'Niestety. <i class="mark">Spør</i> to już forma czasu teraźniejszego. W bezokoliczniku jest:'
       ],
       answers: [
-        { answer: 'å spørre', next: '_af2' }
+        { answer: '<i>å spørre</i>', next: '_af2' }
       ]
     },
     _af2: {

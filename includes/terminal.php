@@ -1,6 +1,7 @@
 <?php
 //
-// Includes - Chat
+//  Includes - Terminal
+//  Extends Chat
 //
 
 $globals = stream_resolve_include_path( __DIR__ . '/globals.php' );
@@ -30,7 +31,7 @@ include( stream_resolve_include_path( __DIR__ . '/get-audio-file.php' ) );
 ?>
 
 <script>
-var las = new LasChat();
+var las = new LasTerminal();
 
 <?php
 

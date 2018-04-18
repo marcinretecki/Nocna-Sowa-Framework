@@ -5,7 +5,10 @@
 
 ?>
 
-<p>Uczysz się już słów razem z rodzajnikiem. Na przykład <i class="mark">en skog</i> – las. Gdy używasz rzeczownika razem z rodzajnikiem, nazywamy to formą nieokreśloną.</p>
+<p>Uczysz się już słów razem z rodzajnikiem. Na przykład:<br />
+  <i class="mark">en skog</i> – las.</p>
+
+<p>Gdy używasz rzeczownika razem z rodzajnikiem, nazywamy to <strong>formą nieokreśloną</strong>.</p>
 
 <p>W tym przewodniku omówimy formę określoną rzeczownika. Określony <q>las</q> to <i class="mark">skogen</i>.</p>
 
@@ -67,7 +70,7 @@
 
 <p>Gdy ktoś uczy się polskiego, to musi poznać całą odmianę przez przypadki. Nie wystarczy, że zapamięta samo słowo <q>słońce</q>, musi poznać jeszcze <q>słońca, słońcu, słońcem</q>. Podobnie <q>las, lasu, lasem, lesie</q>.</p>
 
-<p>W języku norweskim wystarczy, że uczysz się rzeczownika z rodzajnikiem i to z tego rodzajnika wynika, jaką musisz dodać końcówkę. Nie ma odmiany przez przypadki.</p>
+<p>W języku norweskim wystarczy, że uczysz się rzeczownika z rodzajnikiem i to z niego wynika, jaką musisz dodać końcówkę. Nie ma odmiany przez przypadki.</p>
 
 <p>Zróbmy jeszcze kilka przykładów.</p>
 
@@ -87,16 +90,16 @@
 
 <p>Spotkasz się z tym słowem często, gdziekolwiek nie zamieszkasz w Norwegii, na przykład. <i class="mark">Oslomarka</i>, <i class="mark">Fredrikstadmarka</i>, <i class="mark">Nesoddmarka</i>, <i class="mark">Mossemarka.</i> </p>
 
-<p>Gdy Norweg powie, że idzie na <i class="mark">marka</i> – <i class="mark">Jeg går tur i marka.</i> to znaczy, że jedzie pod miasto do lasu lub nad jezioro.</p>
+<p>Gdy Norweg powie, że idzie <i class="mark">i marka</i> – <i class="mark">Jeg går tur i marka.</i> to znaczy, że jedzie za miasto do lasu lub nad jezioro.</p>
 
-<p>A jezioro po norwesku to <i class="mark">et vann</i> – mamy rodzajnik więc forma nieokreślona. W formie określonej musimy zabrać rodzajnik i dodać końcówkę <i class="mark">-et</i>. Dlatego mówimy <i class="mark">vannet</i>. Pamiętasz, że nie czytamy ostatniego <i class="mark">-t</i>? Dobrze. :)</p>
+<p>A jezioro po norwesku to <i class="mark">et vann</i> – mamy rodzajnik więc jest to forma nieokreślona. W formie określonej musimy zabrać rodzajnik i dodać końcówkę <i class="mark">-et</i>. Dlatego mówimy <i class="mark">vannet</i>. Pamiętasz, że nie czytamy ostatniego <i class="mark">-t</i>? Dobrze. :)</p>
 
 <dl class="przewodnik-eg">
   <dt>et vann – vannet</dt>
   <dd>jezioro, woda</dd>
 </dl>
 
-<p>Możesz się jeszcze zastanawiać, kiedy używam której formy?</p>
+<p>Możesz się jeszcze zastanawiać, kiedy użyć której formy?</p>
 
 <p>Na początku nauki nie jest to problemem. Nie przejmuj się jeśli czasem nie będziesz wiedzieć, której formy użyć w zdaniu. Najpierw naucz się je tworzyć i rozróżniać, a z czasem poznasz więcej zasad używania ich w zdaniach.</p>
 

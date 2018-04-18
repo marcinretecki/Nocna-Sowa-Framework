@@ -15,7 +15,7 @@
 
 
 
-<p>Po polsku nie mamy rodzajników, więc wiele osób, która zaczyna naukę norweskiego ma taki pomysł, żeby pominąć ich naukę. Nie ma ich po polsku, to po co się nimi przejmować?</p>
+<p>Po polsku nie mamy rodzajników, więc wiele osób, która zaczyna naukę norweskiego ma taki pomysł, żeby je pominąć. Nie ma ich po polsku, to po co się nimi przejmować?</p>
 
 <p>No bo czym właściwie jest ten rodzajnik: <i class="mark">en</i>, <i class="mark">ei</i>, <i class="mark">et</i>? Czy on coś znaczy? Np. w słowie <i class="mark">en vei</i>. Jeśli powiem samo <i class="mark">vei</i> to przecież każdy zrozumie, że to droga. Wydaje się, że szybciej nauczymy się słów bez rodzajnika. </p>
 
@@ -86,3 +86,5 @@
 
 
 <p>Dlatego nie ryzykuj i każdego słowa ucz się razem z rodzajnikiem. Dzięki temu zaoszczędzisz sobie wielu kłopotów w dalszej nauce norweskiego.</p>
+
+<p>W następnym przewodniku, zobaczysz, jak znaleźć rodzajnik w słowniku.</p>
