@@ -162,17 +162,19 @@ dd {
   }
 }
 
-.post-index__footer {
+.post-tags {
   font-size: $size-0;
   line-height: $space;
   color: $font-light;
 }
-
-.post-single__footer {
-  font-size: $size-0;
-  line-height: $space;
-  color: rgba(255, 255, 255, 0.75);
+.post-tags a {
+  color: inherit;
 }
+
+.post-tags--light {
+  color: $gray-on-dark;
+}
+
 
 .capital:first-letter {
   display: block;
@@ -290,7 +292,7 @@ figure {
 //  Quotes
 //
 
-//.quote{position:relative;border-left:$space-half solid $dark-btn;margin:$space-4 auto}
+//.quote{position:relative;border-left:$space-half solid $dark;margin:$space-4 auto}
 
 .figure-quote {
   position: relative;
@@ -305,7 +307,7 @@ figure {
   border-left-color: $red;
 }
 .category-metody .figure-quote {
-  border-left-color: $dark-btn;
+  border-left-color: $dark;
 }
 .figure-quote blockquote {
   margin-left: -3px;
@@ -404,7 +406,7 @@ hr {
   height: 0;
   margin: $space-2 0;
   padding: 0;
-  border: 1px solid $dark-btn-bright;
+  border: 1px solid $dark-bright;
   border-width: 0 0 1px;
 }
 .section-green hr {
@@ -423,7 +425,7 @@ hr {
 .hr-short {
   width: $space-8;
   margin: $space-4 auto;
-  border: 1px solid $dark-btn-bright;
+  border: 1px solid $dark-bright;
   border-width: 1px 0 0;
 }
 .hr-short:last-child {

@@ -47,7 +47,7 @@
 }
 .section-dark,
 .dark {
-  background-color: $dark-btn;
+  background-color: $dark;
 }
 .section-footer {
 }
@@ -92,13 +92,14 @@
   border-top: $space-half solid $red;
 }
 .top-dark {
-  border-top: $space-half solid $dark-btn;
+  border-top: $space-half solid $dark;
 }
 
 .rounded {
   border-radius: 3px;
   overflow: hidden;
 }
+
 
 // ???
 .section-blog-header {

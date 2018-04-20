@@ -42,7 +42,7 @@
 .aid-header--back {
   width: 100%;
 
-  background: rgba( $dark-btn, 0.33);
+  background: rgba( $dark, 0.33);
 }
 
 .aid-header--back .section-content {
@@ -366,7 +366,7 @@ p i:lang(no), li i:lang(no), dt i:lang(no){padding:1px 6px;border-radius:3px;bac
 }
 
 .aid-problems-list__item--sublist {
-  background-color: $dark-btn;
+  background-color: $dark;
   border-color: $dark-light;
 }
 
@@ -375,7 +375,7 @@ p i:lang(no), li i:lang(no), dt i:lang(no){padding:1px 6px;border-radius:3px;bac
 }
 
 .aid-problems-list__item--sublist:focus, .aid-problems-list__item--sublist:hover {
-  background-color: $dark-btn-hover;
+  background-color: $dark-hover;
 }
 
 

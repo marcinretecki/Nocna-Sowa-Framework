@@ -144,15 +144,15 @@ input.btn {
 .btn-dark,
 .btn-dark:visited,
 input.btn-dark {
-  background-color: $dark-btn;
+  background-color: $dark;
   color: $white;
 } // to do
 
 .btn-dark-outline,
 .btn-dark-outline:visited,
 .btn-dark-outline:focus {
-  border-color: $dark-btn;
-  color: $dark-btn;
+  border-color: $dark;
+  color: $dark;
   background: transparent;
 }
 
@@ -163,7 +163,7 @@ input.btn-dark {
 .btn-dark-outline--active:visited,
 input.btn-dark:focus,
 input.btn-dark:hover {
-  background-color: $dark-btn-hover;
+  background-color: $dark-hover;
   color: $white;
 } // to do
 
@@ -360,7 +360,7 @@ input.btn-blue:hover {
   border-radius: 3px;
   margin-top: -2px;
   vertical-align: middle;
-  background-color: $dark-btn-hover;
+  background-color: $dark-hover;
 }
 .i-menu::before {
   @include transition;
@@ -370,7 +370,7 @@ input.btn-blue:hover {
   width: 100%;
   height: 2px;
   border-radius: 3px;
-  background-color: $dark-btn-hover;
+  background-color: $dark-hover;
   content: '';
 }
 .i-menu::after {
@@ -381,7 +381,7 @@ input.btn-blue:hover {
   width: 100%;
   height: 2px;
   border-radius: 3px;
-  background-color: $dark-btn-hover;
+  background-color: $dark-hover;
   content: '';
 }
 

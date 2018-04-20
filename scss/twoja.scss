@@ -102,7 +102,7 @@ font-style:normal;
 .f-comment-child q:before{content:"";display:none;}
 .f-comment-child q:after{content:"";display:none;}
 
-.green a{color:$dark-btn}
+.green a{color:$dark}
 
 .f-comment-child{opacity:0;padding-top:0;height:0;margin-bottom:0;
   transform:translate3d(100%,0,0);
@@ -155,7 +155,7 @@ font-style:normal;
 }
 
 .twoja-list li{margin:0;padding:0;list-style:none;}
-.twoja-list a{position:relative;display:block;margin:0;padding:$space-half;color:$dark-btn;text-decoration:none;}
+.twoja-list a{position:relative;display:block;margin:0;padding:$space-half;color:$dark;text-decoration:none;}
 .twoja-list li + li a{border-top:1px solid $beige;}
 
 .twoja-list a:hover{border-top-color:transparent;background:$blue-hover;color:$white;}

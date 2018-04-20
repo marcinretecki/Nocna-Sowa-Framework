@@ -179,14 +179,16 @@
   z-index: 9999;
 }
 
-// LOGO
+//
+//  LOGO
+//
 .nocnasowa {
   font-style: normal;
   font-variant: normal;
   font-weight: 200;
   line-height: 1.3;
   font-family: $bariol-reg;
-  color: $dark-btn;
+  color: $dark;
   text-decoration: none;
 }
 .nocnasowa span {
@@ -208,7 +210,7 @@
 //
 .wp-audio-shortcode {
   border-radius: 3px;
-  border: 1px solid $dark-btn-border;
+  border: 1px solid $dark-border;
 }
 .wp-audio-shortcode + h4 {
   margin-top: $space;
@@ -263,7 +265,6 @@
   display: block;
   float: left;
   position: relative;
-  z-index: -1;
 
   width: $space + $space-half;
   height: $space + $space-half;
@@ -295,7 +296,7 @@
   fill: $red;
 }
 .blob--dark {
-  fill: $dark-btn;
+  fill: $dark;
 }
 
 .svg-filter {
@@ -341,7 +342,7 @@
   height: 0;
   border: $space-quarter solid transparent;
   border-width: 0 $space-quarter $space-quarter $space-quarter;
-  border-bottom-color: $dark-btn;
+  border-bottom-color: $dark;
 }
 
 .top-green.blob-data-wrapper::after {
@@ -354,7 +355,11 @@
   border-bottom-color: $red;
 }
 
-// to check
+//
+//
+//  OLD CODE TO CHECK
+//
+//
 .share {
   display: inline-block;
   padding: 0 5px 0 24px;
