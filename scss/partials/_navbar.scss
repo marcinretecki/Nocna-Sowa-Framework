@@ -69,7 +69,7 @@ a:hover .caret,
   opacity: 0.66;
   height: $space-2;
   width: $space-4;
-  background: transparent url("i/search.png") center center no-repeat;
+  background: transparent url('i/search.png') center center no-repeat;
 
   @include for-phone-only {
     background-size: auto 50%;
@@ -98,32 +98,32 @@ a:hover .caret,
   }
 }
 
-
-/*ul*/.navbar__list {
+/*ul*/
+.navbar__list {
   padding: 0;
   margin: 0;
 }
 
-
-/*ul*/.navbar__list > li {
+/*ul*/
+.navbar__list > li {
   display: inline;
   padding: 0;
   margin: 0;
 }
 
-
-/*ul*/.navbar__list > li::before {
+/*ul*/
+.navbar__list > li::before {
   display: none;
 }
 
-
-/*ul*/.navbar__list a {
+/*ul*/
+.navbar__list a {
   margin: 0;
 }
 
 //  when the menu hides, buttons change
 .navbar .btn-nav {
-  @include for-phone-only  {
+  @include for-phone-only {
     display: block;
     padding-top: $space;
     padding-bottom: $space;
@@ -131,7 +131,8 @@ a:hover .caret,
   }
 }
 
-.navbar-logo {}
+.navbar-logo {
+}
 
 .navbar-logo--centered {
   position: absolute;
@@ -144,8 +145,8 @@ a:hover .caret,
   color: $blue;
 }
 
-.navbar-logo--ns{
-  @include for-phone-only  {
+.navbar-logo--ns {
+  @include for-phone-only {
     position: absolute;
     left: 50%;
     top: 0;
@@ -162,30 +163,31 @@ a:hover .caret,
 
 // old navs code
 nav ul {
- margin-left: 0;
- list-style-type: none;
+  margin-left: 0;
+  list-style-type: none;
 }
 
 nav li {
- margin: 0;
- padding: 0;
- display: inline;
+  margin: 0;
+  padding: 0;
+  display: inline;
 }
 
 nav li:before {
-  display: none
+  display: none;
 }
 
 nav a {
   display: block;
   margin: 0;
   font-style: normal;
-  text-decoration: none
+  text-decoration: none;
 }
 
 nav a:hover,
 nav a:active,
-nav a:focus {}
+nav a:focus {
+}
 
 // Blog new nav
 .nav-tabs {
@@ -206,11 +208,11 @@ nav a:focus {}
 .nav-tabs-list li a {
   padding: $space-half 0;
   color: $gray-on-dark;
-  font-family: $bariol-reg
+  font-family: $bariol-reg;
 }
 
 .nav-tabs-list li a:hover {
-  color: $white
+  color: $white;
 }
 
 .nav-tabs-list .active {
@@ -219,7 +221,7 @@ nav a:focus {}
 }
 
 .nav-tabs-list .active a {
-  color: $white
+  color: $white;
 }
 
 .nav-tabs-op {
@@ -227,8 +229,6 @@ nav a:focus {}
     display: none;
   }
 }
-
-
 
 //
 //  Nav Submenu
@@ -288,4 +288,3 @@ nav a:focus {}
   background-color: transparent;
   color: $font-dark;
 }
-

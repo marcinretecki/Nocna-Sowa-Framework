@@ -2,13 +2,13 @@
 //  Layout scss
 //
 
-
 //  Wrapper keeps the page 100% height
 //  It helps with backgrounds
-.wrapper{height:100%;position:relative;
+.wrapper {
+  height: 100%;
+  position: relative;
   @include scrolling;
 }
-
 
 //  Section content keeps the width of the pages
 .section-content {
@@ -18,7 +18,6 @@
   padding: $space-4 $space $space-4;
   margin: 0 auto;
 }
-
 
 //
 //  NEW layout
@@ -34,7 +33,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 
 //
 //  NEW layout
@@ -53,7 +51,6 @@
 .main-column--narrow {
   width: 24 * $space;
 }
-
 
 //
 //  Narrow column (used for asides)
