@@ -73,9 +73,11 @@
 }
 
 .max-24 {
-  width: 24 * $space;
+  max-width: 24 * $space;
+  width: auto;
 }
 
 .max-13 {
   width: 13 * $space;
+  width: auto;
 }
