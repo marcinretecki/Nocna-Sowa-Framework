@@ -175,6 +175,26 @@
 }
 
 @media print {
+  html {
+    font-size: 1em;
+    color: black;
+  }
+
+  .main-column,
+  .p-10 > p,
+  .p-10 > section,
+  .p-10 > object,
+  .p-10 > blockquote,
+  .p-10 > dl,
+  .p-10 > ul,
+  .p-10 > ol,
+  .p-10 > h3,
+  .p-10 > .ex,
+  .p-10 > .trans,
+  .p-10 > figure {
+    width: 100%;
+  }
+
   article > *,
   header,
   footer,
@@ -196,4 +216,5 @@
     width: 100%;
     text-align: center;
   }
+
 }

@@ -208,6 +208,9 @@ li .np + p {
   z-index: -1;
 }
 //  use on sup elements
+.count {
+  color: $gray;
+}
 .count::before {
   counter-increment: numbered-field;
   content: counter(numbered-field);

@@ -65,7 +65,6 @@ u {
 }
 sup {
   font-size: $size-mini;
-  color: $gray;
 }
 
 p,
@@ -124,6 +123,9 @@ ol ol {
   margin-bottom: $space;
   list-style: lower-alpha;
 }
+ul ul {
+  margin-top: $space-half;
+}
 .nodots li:before {
   display: none;
 }
@@ -140,6 +142,11 @@ dl,
 dd {
   margin: 0 0 $space;
 }
+
+figure {
+  margin: 0 auto $space-2;
+}
+
 
 //
 //  Content Modifiers
@@ -202,12 +209,6 @@ dd {
   text-indent: -0.5rem;
 }
 
-///
-////    TESTOWE
-////    TRZEBA PRZESTESTOWAĆ NA WSZYSTKIVH POSTACH
-//      Problem z ćwiczeniami, które mają lang="no"
-///
-//p i:lang(no), li i:lang(no), dt i:lang(no){padding:1px 6px;border-radius:3px;background:$beige;}
 
 //  201604
 //  New example format
@@ -265,27 +266,20 @@ dd {
   margin-top: $space;
 }
 
-.centered {
-  text-align: center;
-}
-.rightened {
-  text-align: right;
-}
-.leftened {
-  text-align: left !important;
-}
 
-.err {
-  color: $red;
-}
 
-.text-muted {
-  font-size: $size-0;
-  color: $font-light;
-}
 
-figure {
-  margin: 0 auto $space-2;
+
+//
+//  Selection
+//
+.p-10 ::-moz-selection {
+  background: $blue;
+  color: $white;
+}
+.p-10 ::selection {
+  background: $blue;
+  color: $white;
 }
 
 //
@@ -296,8 +290,8 @@ figure {
 
 .figure-quote {
   position: relative;
-  margin-top: $space-4;
-  margin-bottom: $space-4;
+  margin-top: $space-2;
+  margin-bottom: $space-2;
   border-left: 3px solid $green;
 }
 .category-ucze-sie .figure-quote {
@@ -338,10 +332,20 @@ figure {
   content: no-close-quote;
 }
 
+//
+//  Musimy przetestowac, czy to gdzieś nie psuje layoutu
+//
+//
 h2 + .figure-quote,
 h3 + .figure-quote,
 .figure-quote:first-child {
   margin-top: $space-2;
+
+}
+
+h2 + .figure-quote,
+h3 + .figure-quote {
+  margin-bottom: $space-2;
 }
 
 blockquote {
@@ -583,9 +587,14 @@ h4 a:visited {
   color: $white;
 }
 
+
+
+
 //
 //  Modificators
 //
+
+
 .normal {
   font-style: normal;
   font-variant: normal;
@@ -644,10 +653,10 @@ h4 a:visited {
 }
 
 //
-//  special markings for letters and words
+//  Special markings for letters and words
 //
 .mark {
-  padding: 1px 5px;
+  padding: 0 $space-quarter;
   border-radius: 3px;
   background: $beige;
 }
@@ -655,3 +664,40 @@ h4 a:visited {
 .mark--table {
   background-color: $beige-hover;
 }
+
+
+.err {
+  color: $red;
+}
+
+.text-muted {
+  font-size: $size-0;
+  color: $font-light;
+}
+
+
+//
+//  Text layout
+//
+
+.centered {
+  text-align: center;
+}
+.rightened {
+  text-align: right;
+}
+.leftened {
+  text-align: left !important;
+}
+
+
+
+///
+////    TESTOWE
+////    TRZEBA PRZESTESTOWAĆ NA WSZYSTKIVH POSTACH
+//      Problem z ćwiczeniami, które mają lang="no"
+///
+//p i:lang(no), li i:lang(no), dt i:lang(no){padding:1px 6px;border-radius:3px;background:$beige;}
+
+
+
