@@ -53,7 +53,8 @@ abbr {
   cursor: help;
 }
 i,
-em {
+em,
+.em {
   font-style: italic;
 }
 q,
@@ -126,9 +127,18 @@ ol ol {
 ul ul {
   margin-top: $space-half;
 }
-.nodots li:before {
+/* ul */.nodots {
+  padding-left: 0;
+}
+/* ul */.nodots li {
+  margin-left: 0;
+}
+/* ul */.nodots li:before {
   display: none;
 }
+
+
+
 .no-margin + ul li {
   margin-bottom: 0;
 }
