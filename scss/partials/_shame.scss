@@ -299,6 +299,19 @@
   fill: $dark;
 }
 
+.post-tags--light .blob--green {
+  fill: $green-hover;
+}
+.post-tags--light .blob--orange {
+  fill: $orange-hover;
+}
+.post-tags--light .blob--red {
+  fill: $red-hover;
+}
+.post-tags--light .blob--dark {
+  fill: $dark-hover;
+}
+
 .svg-filter {
   position: absolute;
   left: -9999rem;
