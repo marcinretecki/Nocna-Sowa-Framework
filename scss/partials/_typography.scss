@@ -94,7 +94,7 @@ li {
 }
 ol > li {
   @media #{$m770} {
-    margin-left: $space-2;
+    margin-left: $space;
   }
 }
 ul > li {
@@ -103,18 +103,14 @@ ul > li {
   padding: 0 0 0 $space;
   list-style: none;
   @media #{$m770} {
-    margin-left: $space;
+    margin-left: 0;
   }
 }
 ul > li:before {
-  content: '';
+  content: "\25AA";
   position: absolute;
   left: 0;
-  top: 0.6875em;
-  width: 0.25em;
-  height: 0.25em;
-  border-radius: 1px;
-  background: $dark;
+  top: 0;
 }
 .light-dots > li:before {
   background: $white;
@@ -256,6 +252,7 @@ figure {
 .post .dl-eg--in-row {
   margin-top: 0;
   margin-bottom: 0;
+  padding-left: $space;
 }
 
 // DO POPRAWY

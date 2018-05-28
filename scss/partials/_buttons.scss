@@ -316,6 +316,11 @@ input.btn-blue:hover {
   padding-right: $space;
 }
 
+
+.no-select {
+  user-select: none;
+}
+
 //
 // Icons
 //

@@ -42,3 +42,9 @@ img + figcaption {
   border-top: 1px solid $beige;
   content: '';
 }
+
+
+.img-auto-height {
+  max-width: 100%;
+  height: auto;
+}
