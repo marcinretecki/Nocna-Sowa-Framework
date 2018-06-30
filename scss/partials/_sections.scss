@@ -854,6 +854,10 @@
 }
 .avatar {
   display: inline-block;
+  vertical-align: bottom;
+  margin: 0 $space-half;
+}
+.avatar-bottom {
   position: absolute;
   right: 100%;
   margin-right: $space-half;
