@@ -2,19 +2,9 @@
 // Variables
 //
 
-<<<<<<< HEAD
-//
-// Media queries
-//
-$m905: 'screen and (max-width: 905px)';
-$m770: 'screen and (max-width: 770px)';
-$m640: 'screen and (max-width: 640px)';
-$m400: 'screen and (max-width: 400px)';
-=======
 //  Section width
 $section-width: 1040px;
 $real-section-width-rem: (1000rem / 20);
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
 
 //
 // 16-column grid
@@ -88,15 +78,9 @@ $font-semi-dark: #171f26;
 //
 // Typography and spacing
 //
-<<<<<<< HEAD
-$bariol: 'bariol_lightlight', 'Gill Sans', 'Gill Sans MT', Helvetica, Arial,
-  'Nimbus Sans L', Roboto, sans-serif;
-$bariol-reg: 'bariol_regularregular', 'Gill Sans', 'Gill Sans MT', Helvetica,
-=======
 $bariol: 'Bariol Light', 'bariol_lightlight', 'Gill Sans', 'Gill Sans MT', Helvetica, Arial,
   'Nimbus Sans L', Roboto, sans-serif;
 $bariol-reg: 'Bariol Regular', 'bariol_regularregular', 'Gill Sans', 'Gill Sans MT', Helvetica,
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
   Arial, 'Nimbus Sans L', Roboto, sans-serif;
 $body-font: 'Iowan Old Style', 'Book Antiqua', 'Palatino Linotype', 'Palatino',
   'URW Palladio L', 'Palatino LT STD', 'Droid Serif', 'Georgia', serif;
@@ -130,8 +114,6 @@ $space-3: 3 * $space;
 $space-4: 4 * $space;
 $space-6: 6 * $space;
 $space-8: 8 * $space;
-<<<<<<< HEAD
-=======
 
 
 
@@ -144,4 +126,3 @@ $m905: 'screen and (max-width: 905px)';
 $m770: 'screen and (max-width: 770px)';
 $m640: 'screen and (max-width: 640px)';
 $m400: 'screen and (max-width: 400px)';
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f

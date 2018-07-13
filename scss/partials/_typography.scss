@@ -72,14 +72,8 @@ p,
 ul,
 ol,
 dl {
-<<<<<<< HEAD
-  padding: 0;
-  font-size: $size-1;
-  line-height: $line-1;
-=======
   @include size-1;
   padding: 0;
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
 }
 
 ul {
@@ -137,15 +131,9 @@ ul ul {
 /* ul */.nodots li:before {
   display: none;
 }
-<<<<<<< HEAD
 
 
 
-=======
-
-
-
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
 .no-margin + ul li {
   margin-bottom: 0;
 }
@@ -169,8 +157,6 @@ figure {
 // Headers
 //
 
-<<<<<<< HEAD
-=======
 h1,
 h2,
 h3,
@@ -293,7 +279,6 @@ h4 a:visited {
 //  Content Modifiers
 //
 
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
 .intro {
   font-size: $size-2;
   line-height: 1.333;
@@ -567,9 +552,6 @@ hr {
 }
 .section-dark hr {
   border-color: $dark-light;
-<<<<<<< HEAD
-}
-=======
 }
 
 .hr-short {
@@ -615,113 +597,16 @@ hr {
 
 
 
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
 
-.hr-short {
-  width: $space-8;
-  margin: $space-4 auto;
-  border: 1px solid $dark-bright;
-  border-width: 1px 0 0;
-}
-.hr-short:last-child {
-  margin-bottom: 0;
-}
-.hr-shorter {
-  margin: $space-2 auto;
-}
 
-.divider {
-  display: block;
-  width: $space-4;
-  height: 0.8rem;
-  border: 0;
-  margin: $space-4 auto;
-  text-align: center;
-  background-image: linear-gradient(
-    to right,
-    $green 0%,
-    $green 20%,
-    transparent 20%,
-    transparent 40%,
-    $orange 40%,
-    $orange 60%,
-    transparent 60%,
-    transparent 80%,
-    $red 80%,
-    $red
-  );
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-}
-.divider + h2 {
-  margin-top: 0;
-}
 
 //
 //  Modificators
 //
 
-<<<<<<< HEAD
-h1,
-h2,
-h3,
-h4 {
-  padding: 0;
-  text-decoration: none;
-}
-h1,
-.h1,
-.index-h,
-.section-h-thin,
-.section-h-thin.btn {
-  @include font-bariol-thin;
-=======
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
 
 .normal {
   font-style: normal;
-<<<<<<< HEAD
-  font-size: $size-5;
-  line-height: 1.041667;
-
-  @media #{$m640} {
-    font-size: $size-4;
-  }
-}
-.section-h-thin {
-  margin: 0 0 $space-half;
-}
-
-// to są nagłówki artykułów na liście na blogu, kategoriach i search
-.index-h,
-.section-h-thin {
-  @media #{$m770} {
-    font-size: $size-4;
-  }
-}
-
-// to jest główny tytuł artykułów
-.entry-title {
-  font-size: $size-6;
-  margin-bottom: $space-4;
-  @media #{$m770} {
-    font-size: $size-5;
-  }
-}
-h2,
-.h2,
-h3,
-.h3,
-.recommends-h {
-  margin: $space-4 0 $space;
-  font-weight: 400;
-  font-variant: normal;
-  font-style: normal;
-  font-size: $size-4;
-  line-height: 1.15;
-  font-family: $body-font;
-=======
   font-variant: normal;
 }
 
@@ -734,7 +619,6 @@ h3,
 }
 .size-2 {
   @include size-2;
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
 }
 .size-3 {
   @include size-3;
@@ -748,64 +632,6 @@ h3,
 .size-6 {
   @include size-6;
   @media #{$m400} {
-<<<<<<< HEAD
-    font-size: $size-3;
-  }
-}
-h3,
-.h3 {
-  font-size: $size-2;
-  font-weight: 700;
-}
-h2:first-child,
-.h2:first-child,
-h3:first-child,
-.h3:first-child,
-.recommends-h {
-  margin-top: 0;
-}
-.h2 {
-  margin: 0;
-} // ???????????
-
-h2 + h3 {
-  margin-top: $space-2;
-}
-
-h4,
-.h4 {
-  margin: 0 0 $space-half;
-  font-weight: 700;
-  font-variant: normal;
-  font-style: normal;
-  font-size: $size-0;
-  line-height: 1.15;
-  font-family: $body-font;
-}
-
-h1 a,
-h1 a:visited,
-h2 a,
-h2 a:visited,
-h3 a,
-h3 a:visited,
-h4 a,
-h4 a:visited {
-  text-decoration: none;
-  color: #000;
-}
-
-.index-h a:hover,
-.index-h a:focus {
-  text-decoration: underline;
-}
-.index-h-white a,
-.index-h-white a:visited,
-.index-h-white a:hover {
-  color: $white;
-}
-
-=======
     @include size-5;
   }
 }
@@ -823,81 +649,6 @@ h4 a:visited {
 .no-break {
   white-space: nowrap;
 }
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
-
-.text-shadow {
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-}
-
-.bariol-reg {
-  @include font-bariol-reg;
-}
-.bariol-thin {
-  @include font-bariol-thin;
-}
-
-//
-//  Special markings for letters and words
-//
-<<<<<<< HEAD
-
-
-.normal {
-  font-style: normal;
-  font-variant: normal;
-}
-
-.size-0,
-.small {
-  font-size: $size-0;
-}
-.size-1 {
-  font-size: $size-1;
-  line-height: $line-1;
-}
-.size-2 {
-  font-size: $size-2;
-}
-.size-3 {
-  font-size: $size-3;
-}
-.size-4 {
-  font-size: $size-4;
-}
-.size-5 {
-  font-size: $size-5;
-}
-.size-6 {
-  font-size: $size-6;
-  @media #{$m400} {
-    font-size: $size-5;
-  }
-=======
-.mark {
-  padding: 0 $space-quarter;
-  border-radius: 3px;
-  background: $beige;
-}
-
-.mark--table {
-  background-color: $beige-hover;
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
-}
-
-.color-white {
-  color: $white;
-}
-.color-dark {
-  color: $font-dark;
-}
-.color-gray {
-  color: $gray;
-}
-
-<<<<<<< HEAD
-.no-break {
-  white-space: nowrap;
-}
 
 .text-shadow {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
@@ -959,40 +710,3 @@ h4 a:visited {
 
 
 
-=======
-.err {
-  color: $red;
-}
-
-.text-muted {
-  font-size: $size-0;
-  color: $font-light;
-}
-
-
-//
-//  Text layout
-//
-
-.centered {
-  text-align: center;
-}
-.rightened {
-  text-align: right;
-}
-.leftened {
-  text-align: left !important;
-}
-
-
-
-///
-////    TESTOWE
-////    TRZEBA PRZESTESTOWAĆ NA WSZYSTKIVH POSTACH
-//      Problem z ćwiczeniami, które mają lang="no"
-///
-//p i:lang(no), li i:lang(no), dt i:lang(no){padding:1px 6px;border-radius:3px;background:$beige;}
-
-
-
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f

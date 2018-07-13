@@ -29,13 +29,6 @@
   font-family: $body-font;
 }
 
-<<<<<<< HEAD
-@mixin scrolling {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-=======
 //  15/20px
 @mixin size-0 {
   font-size: $size-0;
@@ -82,7 +75,6 @@
   -webkit-overflow-scrolling: touch;
 }
 
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
 @mixin text-shadow {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
@@ -124,10 +116,7 @@
 //      padding: 20px;
 //    }
 //  }
-<<<<<<< HEAD
-=======
 
 
 
 
->>>>>>> cd47734c017068a3eb0bc4d30290ff0c71cda15f
