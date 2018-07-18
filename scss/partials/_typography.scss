@@ -680,7 +680,7 @@ hr {
 }
 
 .text-muted {
-  font-size: $size-0;
+  @include size-0;
   color: $font-light;
 }
 
