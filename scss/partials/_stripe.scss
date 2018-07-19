@@ -156,6 +156,10 @@
   content: '';
 }
 
+.bag-item--no-border {
+  border:0;
+}
+
 .bag-item__img {
   display: inline-block;
   width: $space-2;
