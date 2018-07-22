@@ -288,6 +288,10 @@
   padding: $space;
 }
 
+.stripe-form--blocked .payment__btn {
+  opacity: 0.5;
+}
+
 
 
 .legal-text {
@@ -408,4 +412,32 @@
 
 .confirm-action-modal__btn {
   margin: $space;
+}
+
+
+
+@keyframes submit-spinner-rotating {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.submit-spinner {
+  display: none;
+  margin-left: $space-quarter;
+
+  width: $space;
+  height: $space;
+
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top: 3px solid rgba(255,255,255,0.5);
+
+  vertical-align: bottom;
+
+  animation: submit-spinner-rotating 1.2s infinite cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.stripe-form--blocked .submit-spinner {
+  display: inline-block;
 }
