@@ -347,6 +347,19 @@
 
 }
 
+.all-orders-table__td--fv {
+  width: $space-2;
+}
+
+.all-orders-table__fv-sign {
+  display: inline-block;
+  width: $space-half;
+  height: $space-half;
+  border-radius: 50%;
+  background: $green;
+  vertical-align: center;
+}
+
 
 .all-orders-table__td--more {
   width: $space * 3;
