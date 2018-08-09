@@ -323,7 +323,7 @@
 }
 
 .all-orders-table__tr:nth-child(odd) .all-orders-table__td {
-  background: $white;
+  //background: $white;
 }
 
 .all-orders-table__td {
@@ -368,8 +368,12 @@
   padding: $space-half 0;
 }
 
+.all-orders-table__tr--show-more {
+}
 .all-orders-table__tr--show-more .all-orders-table__td{
   padding-bottom: $space-2;
+  border: 1px solid $beige-border;
+  border-width: 3px 0 3px;
 }
 .all-orders-table__tr--show-more .all-orders-table__hidden {
   display: block;
