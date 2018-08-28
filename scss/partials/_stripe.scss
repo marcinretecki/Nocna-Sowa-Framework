@@ -362,7 +362,7 @@
 
 
 .all-orders-table__td--more {
-  width: $space * 3;
+  width: $space-2;
   padding: $space-quarter;
   border: 0;
   text-align: right;
@@ -370,8 +370,8 @@
 
 .all-orders-table__btn-more {
   margin: 0;
-  height: $space-2;
-  width: $space-2;
+  height: $space * 1.5;
+  width: $space * 1.5;
   padding: 0;
 }
 
@@ -390,6 +390,10 @@
 }
 .all-orders-table__tr--show-more .all-orders-table__hidden {
   display: block;
+}
+
+.all-orders-add-note {
+  height: $space-4;
 }
 
 
