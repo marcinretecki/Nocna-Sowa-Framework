@@ -321,6 +321,9 @@
 .all-orders-table__tr {
   position: relative;
 }
+.all-orders-table__tr--just-edited .all-orders-table__td {
+  border-bottom-color: $red-border;
+}
 
 .all-orders-table__tr:nth-child(odd) .all-orders-table__td {
   //background: $white;
@@ -394,6 +397,15 @@
 
 .all-orders-add-note {
   height: $space-4;
+  padding: 0 3px;
+  border: 1px solid $beige;
+
+  @include font-body;
+  @include size-0;
+}
+
+.all-orders-add-note:focus {
+ border: 1px solid $beige-border;
 }
 
 
