@@ -384,6 +384,7 @@
   padding: $space-quarter;
   border: 0;
   text-align: right;
+  overflow: visible;
 }
 
 .all-orders-table__btn-more {
@@ -447,9 +448,9 @@
 
 .confirm-action-modal{
   display: none;
-  position: absolute;
+  position: fixed;
   left: 0;
-  top: 0;
+  bottom: 0;
   z-index: 1;
 
   width: 100%;
