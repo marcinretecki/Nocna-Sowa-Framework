@@ -101,6 +101,14 @@
   display: inline-block;
 }
 
+.radio-option__shipping-icon {
+  display:inline;
+  height: 1.5rem;
+  max-height: 1.5rem;
+  width: auto;
+  vertical-align: bottom;
+}
+
 .radio-option__radio:checked + .radio-option__label {
   color: $font-dark;
   background: $beige-hover;
