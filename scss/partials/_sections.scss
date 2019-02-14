@@ -372,7 +372,7 @@
 }
 .section-trans--fixed {
   background-attachment: fixed;
-  @media all and (-webkit-min-device-pixel-ratio: 1) {
+  @media all and (hover: none) {
     background-attachment: scroll;
   }
 }
