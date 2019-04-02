@@ -312,6 +312,34 @@
 
 
 
+.all-order-graph {
+  border-bottom: 1px solid #ddd9d2;
+  font-size:0;
+  line-height: 0;
+}
+
+.all-order-graph__bar {
+  position: relative;
+  vertical-align: bottom;
+  display: inline-block;
+  width: 3%;
+  margin-right: 0.33%;
+  background: #ddd9d2;
+}
+
+.all-order-graph__stat {
+  position: absolute;
+  left:0;
+  top: 100%;
+  display: none;
+  transform: translateX(-50%);
+}
+
+.all-order-graph__bar:hover .all-order-graph__stat {
+  display: block;
+}
+
+
 
 .all-orders-table{
   table-layout: fixed;
