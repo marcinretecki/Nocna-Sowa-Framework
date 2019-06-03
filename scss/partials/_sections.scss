@@ -791,7 +791,7 @@
 .aside-entry ol,
 .aside-entry ul,
 .section-entry aside p {
-  font-size: $size-0;
+  @include size-0;
   margin-bottom: $space-half;
 }
 .aside-entry p:last-child,
