@@ -857,14 +857,13 @@
   vertical-align: bottom;
   margin: 0 $space-half;
 }
-.avatar-bottom {
-  position: absolute;
-  right: 100%;
-  margin-right: $space-half;
-  background: $gray;
-  vertical-align: text-bottom;
-  @media #{$m770} {
-    position: static;
+.avatar-comment {
+  margin: 0 $space-half 0 0;
+  @include for-tablet-landscape-up {
+    position: absolute;
+    right: 100%;
+    background: $gray;
+    vertical-align: text-bottom;
   }
 }
 .avatar-32 {
@@ -876,9 +875,8 @@
   height: 160px;
 }
 .comment-author {
+  @include size-1;
   margin-right: $space-half;
-  font-size: $size-2;
-  font-style: normal;
 }
 .comment time {
   color: $dark-gray;
@@ -893,19 +891,9 @@
 .comment p,
 .comment ul,
 .comment ol {
-  line-height: 1.25;
+  line-height: $line-0;
 }
 
-.comment-reply-form {
-  padding: $space-half 0 $space-half $space-2;
-  border-left: 1px solid $gray;
-  margin-left: -$space-2;
-  @media #{$m770} {
-    margin-left: 0;
-    border: 0;
-    padding-left: 0;
-  }
-}
 
 /*????*/
 .attachment-blog {

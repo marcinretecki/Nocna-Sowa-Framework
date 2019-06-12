@@ -172,11 +172,13 @@ textarea:focus {
 .comment-form textarea {
 }
 .comment-form input {
-  width: 50%;
+  width: 100%;
+  @include for-tablet-landscape-up {
+    width: 50%;
+  }
 }
-.comment-form textarea,
-.comment-form input {
-  @media #{$m400} {
+.comment-form textarea {
+  @include for-phone-only {
     width: 100%;
   }
 }
