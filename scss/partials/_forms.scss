@@ -199,38 +199,11 @@ input + .note {
   margin: 0 auto $space-half;
 }
 
-/* TRZEBA ujednolicić formy, tam gdzie 100% width */
 
-// Treningi
-.form-treningi {
-}
-.form-treningi .hidden-input {
-  display: none;
-}
 
-.form-treningi h4 {
-  margin: $space 0 0;
-}
-.form-treningi label,
-.form-treningi-email {
-  margin: $space-half $space-half 0 0;
-}
 
-.form-treningi input:checked + label {
-  background: $green;
-  color: $white;
-}
-.form-treningi input:checked + label:hover {
-  background: $green-hover;
-  color: $white;
-}
 
-.form-treningi-email {
-  border: 1px solid $beige;
-}
-.form-treningi-email:focus {
-  border-color: $dark;
-}
+
 
 //
 // Main search form
