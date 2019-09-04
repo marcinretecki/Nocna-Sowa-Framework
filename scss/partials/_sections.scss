@@ -454,32 +454,7 @@
     padding: $space-2;
   }
 }
-.letter-stamped {
-  margin-top: $space;
-  padding: $space-4 $space-8;
-  background: $white url('/c/i/stamp.png') 95% $space-2 no-repeat;
-  @media #{$m905} {
-    padding: $space-2 $space-4;
-    background-size: 76px 90px;
-    background-position: 99% 1%;
-  }
-  @media #{$m400} {
-    background-image: none;
-    padding: $space $space-2;
-  }
-}
 
-.l-stamped {
-  border-radius: 3px;
-  background: $white url('/c/i/stamp.png') 95% $space-2 no-repeat;
-  @media #{$m905} {
-    background-size: 76px 90px;
-    background-position: 99% 1%;
-  }
-  @media #{$m400} {
-    background-image: none;
-  }
-}
 
 .section-dark .section-beige hr {
   border-color: $gray;
