@@ -21,11 +21,14 @@
 .label--stripe {
   @include size-1;
   display: block;
-  margin-bottom: 0;
+  margin-bottom: $space-quarter;
   padding: 0;
 }
 .label--card {
   padding: 0 $space;
+}
+.label--card__muted {
+  line-height: $space * 1.5;
 }
 
 .input--stripe {
@@ -301,6 +304,7 @@
   margin: $space 0 0;
   width: 100%;
   padding: $space;
+  white-space: normal;
 }
 
 .stripe-form--blocked .payment__btn {
