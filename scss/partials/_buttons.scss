@@ -328,27 +328,19 @@ input.btn-blue:hover {
 // Icons
 //
 
-.btn-icon {
+
+.icon {
+  height: $size-1;
   width: auto;
-  vertical-align: middle;
-  padding: $space-quarter $space-half;
-  border-color: rgba(255, 255, 255, 0.5);
-  margin-top: 0;
-  margin-bottom: 0;
-
-  @media #{$m400} {
-    transform: scale(0.8);
-    margin: -($space * 0.2);
-  }
+  vertical-align: bottom;
 }
-.btn-icon:hover,
-.btn-icon:focus {
-  background: rgba(0, 0, 0, 0.1);
+.icon--search {
+  fill: $gray-on-dark;
+}
+button:hover .icon--search {
+  fill: $white;
 }
 
-.btn-icon.btn-beige {
-  border-color: transparent;
-} // to jest hack, pomyśl w przyszłości jak to poprawić
 
 .i-fb {
   padding-left: 30px;
