@@ -198,14 +198,12 @@ nav a:focus {
   padding: 0;
   margin: 0 auto -1px;
   overflow: hidden;
-  text-align: center;
   vertical-align: top;
 }
 
 .navbar-submenu__list {
-  display: inline-block;
+  display: block;
   position: relative;
-  padding-right: $space-2;
 }
 .navbar-submenu__list > li {
   position: static;
@@ -216,23 +214,17 @@ nav a:focus {
   //  same height as .navbar-submenu
   height: $space-2;
   border-bottom: 1px solid transparent;
-  opacity: 0.66;
   background-color: transparent;
-  color: $font-dark;
+  color: $font-light;
 }
 
-.navbar-submenu__btn--arr {
-  position: absolute;
-  right: 0;
-  top: 0;
-  border-bottom: 0;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url('i/submenu_arrow.svg');
-  background-size: $space;
-  transform-origin: center;
-  transform: translateZ(0);
-  -moz-osx-font-smoothing: grayscale;
+.navbar-submenu__btn--more {
+  z-index: 1;
+  float: right;
+}
+.navbar-submenu__btn--more:focus,
+.navbar-submenu__btn--more:active{
+  border-radius: 0 0 0 $space;
 }
 
 .navbar-submenu__btn:focus,
@@ -240,7 +232,6 @@ nav a:focus {
 .navbar-submenu__btn--active,
 .navbar-submenu__list .navbar-submenu__btn--active {
   border-bottom-color: $dark-border;
-  opacity: 1;
   background-color: transparent;
   color: $font-dark;
 }
