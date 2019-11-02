@@ -158,34 +158,6 @@ a:hover .caret,
   color: $white;
 }
 
-// old navs code
-nav ul {
-  margin-left: 0;
-  list-style-type: none;
-}
-
-nav li {
-  margin: 0;
-  padding: 0;
-  display: inline;
-}
-
-nav li:before {
-  display: none;
-}
-
-nav a {
-  display: block;
-  margin: 0;
-  font-style: normal;
-  text-decoration: none;
-}
-
-nav a:hover,
-nav a:active,
-nav a:focus {
-}
-
 //
 //  Nav Submenu
 //  Shows tags/categories on the main blog
@@ -221,10 +193,6 @@ nav a:focus {
 .navbar-submenu__btn--more {
   z-index: 1;
   float: right;
-}
-.navbar-submenu__btn--more:focus,
-.navbar-submenu__btn--more:active{
-  border-radius: 0 0 0 $space;
 }
 
 .navbar-submenu__btn:focus,

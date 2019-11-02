@@ -414,3 +414,30 @@ a.m {
   background: url('/c/i/file.png') no-repeat scroll 0 0;
   content: '';
 }
+
+
+
+//
+//  Search Tags and Categories
+//
+.search-tags {
+  column-gap: $space;
+  column-count: 2;
+}
+.search-tags__btn,
+.search-categories__btn {
+  display: block;
+  border-bottom: 1px solid $dark-bright;
+  text-align: left;
+  background-color: transparent;
+  color: $font-light;
+}
+.search-tags__btn:focus,
+.search-tags__btn:hover,
+.search-categories__btn:focus,
+.search-categories__btn:hover {
+  border-bottom-color: $dark-border;
+  background-color: transparent;
+  color: $font-dark;
+}
+.search-categories {}
