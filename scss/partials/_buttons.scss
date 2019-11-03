@@ -257,17 +257,6 @@ input.btn-blue:hover {
 // Button options
 //
 
-// Button Nav
-//  tu będzie do usunięcia margin, bo jest w navbar__list
-.btn-nav {
-  padding-left: $space;
-  padding-right: $space;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
-  font-family: $bariol_reg;
-}
-
 // Size
 .btn-small {
   padding: $space-quarter $space;
