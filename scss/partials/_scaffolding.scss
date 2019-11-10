@@ -34,11 +34,6 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1;
   font-kerning: normal;
   -webkit-font-smoothing: subpixel-antialiased;
-
-  padding-top: $space-5;
-  @include for-tablet-landscape-up {
-    padding-top: $space-2;
-  }
 }
 
 // Links
