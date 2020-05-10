@@ -384,3 +384,18 @@ blockquote:hover .share {
   display: block;
   margin: 0 auto $space;
 }
+
+
+
+
+.imdbRatingPlugin,
+.imdbRatingStyle4 {
+  font: inherit !important;
+  margin: 0 !important;
+}
+.imdbRatingPlugin img {
+  display: inline  !important;
+  vertical-align: text-top  !important;
+  margin: 0;
+  margin-right: $space-quarter;
+}
