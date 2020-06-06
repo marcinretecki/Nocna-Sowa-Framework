@@ -28,6 +28,10 @@
   border-bottom: 1px dotted $gray;
   color: transparent;
 }
+.ex i::selection{
+  color: transparent;
+  background: transparent;
+}
 .ex .vis {
   color: $font-dark;
 }
@@ -207,6 +211,10 @@ li .np + p {
 .ex:target .ex-field::before {
   opacity: 0;
   z-index: -1;
+}
+.ex-field::selection{
+  color: transparent;
+  background: transparent;
 }
 //  use on sup elements
 .count {
